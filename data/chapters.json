@@ -1,0 +1,57 @@
+[
+ {
+  "n": 1,
+  "title": "Cybersecurity Fundamentals",
+  "cards": 227
+ },
+ {
+  "n": 2,
+  "title": "Cryptography",
+  "cards": 122
+ },
+ {
+  "n": 3,
+  "title": "Software-Defined Networking Security and Network Programmability",
+  "cards": 118
+ },
+ {
+  "n": 4,
+  "title": "Authentication, Authorization, Accounting (AAA) and Identity Management",
+  "cards": 211
+ },
+ {
+  "n": 5,
+  "title": "Network Visibility and Segmentation",
+  "cards": 240
+ },
+ {
+  "n": 6,
+  "title": "Infrastructure Security",
+  "cards": 362
+ },
+ {
+  "n": 7,
+  "title": "Cisco Secure Firewall",
+  "cards": 266
+ },
+ {
+  "n": 8,
+  "title": "Virtual Private Networks (VPNs)",
+  "cards": 352
+ },
+ {
+  "n": 9,
+  "title": "Securing the Cloud",
+  "cards": 180
+ },
+ {
+  "n": 10,
+  "title": "Content Security",
+  "cards": 130
+ },
+ {
+  "n": 11,
+  "title": "Endpoint Protection and Detection",
+  "cards": 104
+ }
+]
