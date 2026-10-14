@@ -1,0 +1,2230 @@
+{
+ "chapter": 9,
+ "tests": [
+  {
+   "title": "Practice Test 1",
+   "questions": [
+    {
+     "q": "Which NIST document is titled \"The NIST Definition of Cloud Computing\" and provides the standard definitions of cloud services and deployment strategies?",
+     "choices": [
+      {
+       "text": "NIST SP 500-292",
+       "why": "NIST SP 500-292 is the NIST Cloud Computing Reference Architecture, not the definition document."
+      },
+      {
+       "text": "NIST SP 800-145",
+       "why": "NIST SP 800-145 is The NIST Definition of Cloud Computing. It defines the essential characteristics, service models, and deployment models of cloud computing."
+      },
+      {
+       "text": "NIST SP 800-53",
+       "why": "NIST SP 800-53 is the catalog of security and privacy controls for information systems, not the cloud computing definition."
+      },
+      {
+       "text": "NIST SP 800-61",
+       "why": "NIST SP 800-61 is the Computer Security Incident Handling Guide, not the cloud computing definition."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A company moves its CRM to a SaaS offering. Under the shared responsibility model described in the chapter, which layers remain the customer's responsibility?",
+     "choices": [
+      {
+       "text": "People, data, applications, runtime, middleware, and operating system",
+       "why": "This describes most of the customer's share in IaaS, where the customer also manages the virtual network. SaaS customers do not manage these layers."
+      },
+      {
+       "text": "Only the physical network and storage",
+       "why": "The physical network and storage are always the CSP's responsibility in SaaS, PaaS, and IaaS, never the customer's."
+      },
+      {
+       "text": "People, data, and applications",
+       "why": "This is the customer's share in PaaS. In SaaS the CSP also takes care of the applications."
+      },
+      {
+       "text": "People and data",
+       "why": "In SaaS the customer is responsible only for people and data. The CSP handles applications and every layer below them."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which development methodology uses strict linear phases in which a phase cannot start until the previous phase is complete?",
+     "choices": [
+      {
+       "text": "Scrum",
+       "why": "Scrum is an Agile-related framework that works in short, repeating sprints with reviews and retrospectives, not a single linear sequence."
+      },
+      {
+       "text": "Kanban",
+       "why": "Kanban is a scheduling system for lean development and just-in-time manufacturing. It manages flow of work rather than enforcing sequential phases."
+      },
+      {
+       "text": "Waterfall",
+       "why": "Waterfall has at least five to seven phases in strict linear order, and each phase must finish before the next one begins."
+      },
+      {
+       "text": "Agile",
+       "why": "Agile breaks a project into stages with constant stakeholder collaboration and iteration, so the deliverable can change along the way. It is not strictly linear."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which of the following is one of the four values of the Agile Manifesto?",
+     "choices": [
+      {
+       "text": "Following a plan over responding to change",
+       "why": "This reverses the actual Agile value, which is responding to change over following a plan."
+      },
+      {
+       "text": "Working software over comprehensive documentation",
+       "why": "This is one of the four Agile values, along with individuals and interactions, customer collaboration, and responding to change."
+      },
+      {
+       "text": "Processes and tools over individuals and interactions",
+       "why": "This reverses the actual Agile value, which is individuals and interactions over processes and tools."
+      },
+      {
+       "text": "Comprehensive documentation over working software",
+       "why": "This reverses the actual Agile value. Agile values working software more than comprehensive documentation."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which practice is described as programmers merging their code changes into a central repository multiple times a day?",
+     "choices": [
+      {
+       "text": "Continuous Delivery (CD)",
+       "why": "CD sits on top of CI and automates the entire software release process. The frequent merging itself is CI."
+      },
+      {
+       "text": "Serverless computing",
+       "why": "Serverless computing (FaaS) lets developers run code without managing servers. It is a hosting model, not a code-merging practice."
+      },
+      {
+       "text": "Continuous Integration (CI)",
+       "why": "CI is the practice of merging code changes into a central repository many times a day, where each change is built and tested."
+      },
+      {
+       "text": "Smoke testing",
+       "why": "Smoke tests are quick sanity checks from the user's point of view run early in a multistage test phase, not the practice of merging code."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A developer writes a small function that should run only when a database record is updated or an HTTP request arrives, and the company wants to pay only for execution time. Which computing model fits best?",
+     "choices": [
+      {
+       "text": "Virtual machines on a hypervisor",
+       "why": "VMs still require the customer to provision, scale, and maintain the servers, and they run continuously rather than per event."
+      },
+      {
+       "text": "Bare-metal physical servers",
+       "why": "Physical servers must be provisioned and paid for whether or not code is running, and they are not event-triggered."
+      },
+      {
+       "text": "A Kubernetes cluster managed with kubeadm",
+       "why": "kubeadm bootstraps a Kubernetes cluster whose nodes you still manage. That is container orchestration, not a pay-per-execution function service."
+      },
+      {
+       "text": "Serverless computing (FaaS)",
+       "why": "Serverless functions are event-driven, triggered by events such as an HTTP request, a database update, or a timer, and you pay only for execution time."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Docker command lists the images stored locally, such as the mypython image built in the chapter example?",
+     "choices": [
+      {
+       "text": "docker run",
+       "why": "docker run starts a new container from an image. It does not list anything."
+      },
+      {
+       "text": "docker images",
+       "why": "docker images lists local images, showing the repository, tag, image ID, creation time, and size."
+      },
+      {
+       "text": "docker search",
+       "why": "docker search queries Docker Hub for images matching a keyword. It does not list local images."
+      },
+      {
+       "text": "docker ps",
+       "why": "docker ps lists running containers, not stored images."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In Kubernetes, what is a pod?",
+     "choices": [
+      {
+       "text": "A group of one or more containers with shared storage and networking and a specification for how to run them",
+       "why": "This is the definition of a pod. Each pod has an IP address and should be able to reach all other pods."
+      },
+      {
+       "text": "The component that coordinates scheduling, scaling, and deploying applications",
+       "why": "This describes the master, which runs the API server, scheduler, controller manager, and etcd."
+      },
+      {
+       "text": "A VM or physical server that acts as a worker machine in the cluster",
+       "why": "This describes a node. Nodes run the kubelet, kube-proxy, and the pods."
+      },
+      {
+       "text": "A file that automates the creation of a container image",
+       "why": "This describes a Dockerfile, which is used to build container images, not to group running containers."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which Kubernetes component routes traffic to load-balanced services and must run on every node?",
+     "choices": [
+      {
+       "text": "kube-proxy",
+       "why": "The proxy routes traffic to load-balanced services and must run on every node in the cluster."
+      },
+      {
+       "text": "Scheduler",
+       "why": "The scheduler is a master component that decides where pods run. It does not route service traffic on each node."
+      },
+      {
+       "text": "kubeadm",
+       "why": "kubeadm bootstraps a minimum viable cluster and manages nodes. It does not route traffic to services."
+      },
+      {
+       "text": "etcd",
+       "why": "etcd is a component of the master, not something that runs on every node to route service traffic."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "How does Contiv simplify container networking compared to standalone Docker?",
+     "choices": [
+      {
+       "text": "It forces all containers into a single VLAN for segmentation",
+       "why": "Contiv works on Layer 2, Layer 3, and overlay networks, and micro-segmentation is applied regardless of VLAN or subnet."
+      },
+      {
+       "text": "It encrypts container images before they are pushed to a registry",
+       "why": "Contiv is a networking and micro-segmentation policy project. It does not encrypt images in registries."
+      },
+      {
+       "text": "It replaces Kubernetes as the compute layer for containers",
+       "why": "Contiv works with Kubernetes rather than replacing it. Kubernetes provides compute and Contiv provides networking."
+      },
+      {
+       "text": "It assigns an IP address to each container, removing the need for host-based port NAT",
+       "why": "Contiv gives each container its own IP address, which removes host-based port NAT, and adds a policy framework with service discovery and routing."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A security architect reviewing an application wants to prevent SQL injection. According to the chapter's best practices, what should the developers do?",
+     "choices": [
+      {
+       "text": "Encode data before passing it to an interpreter",
+       "why": "Encoding data before passing it to an interpreter is listed mainly to protect against cross-site scripting and other injection, not specifically as the SQL injection fix."
+      },
+      {
+       "text": "Move the database to a SaaS provider",
+       "why": "Changing the hosting model does not fix insecure query construction. Applications and data still need secure coding."
+      },
+      {
+       "text": "Parameterize database queries",
+       "why": "The chapter lists parameterized queries as the way to prevent SQL injection, in line with the Secure Database Access proactive control."
+      },
+      {
+       "text": "Run the code through a fuzzer in production",
+       "why": "Fuzzing is a software assurance method that finds input validation flaws during testing. It does not itself prevent SQL injection in the code."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which fuzzer uses compile-time instrumentation and genetic algorithms to improve fuzzing coverage?",
+     "choices": [
+      {
+       "text": "Mutiny Fuzzing Framework",
+       "why": "Mutiny is Cisco's open-source fuzzer that replays packet captures through a mutational fuzzer, using Radamsa for mutations."
+      },
+      {
+       "text": "American Fuzzy Lop (AFL)",
+       "why": "AFL uses compile-time instrumentation and genetic algorithms to increase the code coverage of its fuzzing."
+      },
+      {
+       "text": "Synopsys Defensics",
+       "why": "Synopsys Defensics is a commercial fuzzer. The chapter does not describe it as using compile-time instrumentation and genetic algorithms."
+      },
+      {
+       "text": "Radamsa",
+       "why": "Radamsa is a test case generator for fuzzers, used by Mutiny to create mutations. It is not known for compile-time instrumentation."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "How does Cisco Umbrella use anycast to provide reliability and scale for its recursive DNS service?",
+     "choices": [
+      {
+       "text": "All Umbrella data centers announce the same IP address, and requests go to the fastest, lowest-latency data center",
+       "why": "With anycast every data center announces the same IP address, so each request reaches the fastest data center and a failed site is routed around."
+      },
+      {
+       "text": "DNS records are rotated rapidly among compromised hosts acting as proxies",
+       "why": "This describes fast flux, a technique botnets use to hide malicious sites, not Umbrella's anycast design."
+      },
+      {
+       "text": "Requests are sent to every data center at once and the first answer is used",
+       "why": "Anycast routing delivers each request to one nearest data center. It does not broadcast queries to all of them."
+      },
+      {
+       "text": "Each customer is assigned a unique resolver IP address in one dedicated data center",
+       "why": "That is unicast to a single site. Umbrella uses shared anycast addresses such as 208.67.222.222 announced from all data centers."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator wants web traffic to most domains to go directly to the Internet with no proxy latency, while requests to sites like pastebin.com that host both safe and malicious user content are inspected. Which Umbrella capability does this?",
+     "choices": [
+      {
+       "text": "Cisco Umbrella Investigate",
+       "why": "Investigate gives access to Umbrella's global intelligence for enrichment and incident response. It is not the inline proxy for user traffic."
+      },
+      {
+       "text": "The secure Internet gateway (SIG) cloud proxy, which inspects only requests for risky domains",
+       "why": "Umbrella's SIG sends only risky domains to its cloud proxy. Safe domains route normally and malicious domains get a block page."
+      },
+      {
+       "text": "A traditional web proxy that inspects every request",
+       "why": "The chapter contrasts Umbrella with traditional web proxies, which inspect all requests and add latency and complexity."
+      },
+      {
+       "text": "The Umbrella Security Overview report",
+       "why": "The Security Overview report gives a high-level view of blocked requests and deployment activity. It does not inspect traffic."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In Cisco Umbrella Investigate, how far back do domain co-occurrences cover?",
+     "choices": [
+      {
+       "text": "The previous 30 days",
+       "why": "The chapter gives 7 days, not 30 days, as the co-occurrence window."
+      },
+      {
+       "text": "The previous 90 days",
+       "why": "The chapter gives 7 days, not 90 days, as the co-occurrence window."
+      },
+      {
+       "text": "The previous 7 days",
+       "why": "Investigate co-occurrences cover domains looked up around the same time over the previous 7 days."
+      },
+      {
+       "text": "The previous 24 hours",
+       "why": "The chapter gives 7 days, not 24 hours, as the co-occurrence window."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which email security feature detects spear phishing by checking the Envelope-From, Reply To, and From headers of an SMTP message for manipulation?",
+     "choices": [
+      {
+       "text": "Forged Email Detection (FED)",
+       "why": "FED detects spear phishing by examining parts of the SMTP message, including the Envelope-From, Reply To, and From headers, for manipulation."
+      },
+      {
+       "text": "S/MIME",
+       "why": "S/MIME is a standards-based method to encrypt or sign email with a public and private key pair. It does not inspect headers for forgery."
+      },
+      {
+       "text": "Advanced outbreak filters",
+       "why": "Advanced outbreak filters inspect URLs in real time and block sites that turn from benign to malicious. They do not check sender headers."
+      },
+      {
+       "text": "Cisco Context Adaptive Scanning Engine (CASE)",
+       "why": "CASE is the antispam engine with a spam capture rate above 99 percent. It is not the header-forgery check described here."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A company using Office 365 wants all inbound mail inspected by Cisco's cloud email security before it reaches Exchange Online. What change makes this happen?",
+     "choices": [
+      {
+       "text": "Install the Umbrella roaming client on each mailbox user's laptop",
+       "why": "The roaming client protects DNS traffic from Windows or macOS endpoints. Inbound mail is routed by MX records, not by endpoint agents."
+      },
+      {
+       "text": "Point the users' DNS resolvers to 208.67.222.222",
+       "why": "208.67.222.222 is an Umbrella and OpenDNS anycast resolver for DNS security. It does not route inbound email through Cisco."
+      },
+      {
+       "text": "Keep the MX records pointing at Office 365 and add an SPF record",
+       "why": "If MX records still point straight at Office 365, mail bypasses Cisco. SPF is for sender authentication, not for routing mail."
+      },
+      {
+       "text": "Point the domain's MX records to the Cisco hosts in the cisco-ces.com domain, which relay mail to Office 365",
+       "why": "With Cisco, MX records such as esa1.cisco-ces.com and esa2.cisco-ces.com receive the mail, inspect it, and relay it to Office 365."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A Cisco Secure Workload cluster cannot connect directly to the API server of an orchestrator in a protected network. Which feature solves this?",
+     "choices": [
+      {
+       "text": "Cisco Secure Cloud Sensor",
+       "why": "Secure Cloud Sensor is the appliance Secure Cloud Analytics uses to monitor on-prem networks. It is not part of Secure Workload orchestrator integration."
+      },
+      {
+       "text": "Flow Observation",
+       "why": "A Flow Observation is the per-minute aggregation of a unique flow. It is a data record, not a connectivity mechanism."
+      },
+      {
+       "text": "Application Dependency Mapping (ADM)",
+       "why": "ADM builds security policies from flows and processes to give insight into applications. It does not provide connectivity to orchestrators."
+      },
+      {
+       "text": "Secure Connector, which makes an outgoing connection from the orchestrator's network and acts as a reverse tunnel",
+       "why": "Secure Connector opens an outgoing connection from the orchestrator's network to the cluster, used as a reverse tunnel to reach the orchestrator API server."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An organization subscribes to Cisco Secure Cloud Analytics and also wants it to monitor its on-premises network. What does it need to deploy?",
+     "choices": [
+      {
+       "text": "A Cisco Secure Cloud Sensor, as a virtual or physical appliance",
+       "why": "Secure Cloud Analytics needs the Secure Cloud Sensor, a virtual or physical appliance, to monitor on-prem networks."
+      },
+      {
+       "text": "A Cisco Secure Workload software agent on every switch",
+       "why": "Secure Workload agents run in host operating systems such as Linux or Windows and belong to a different product."
+      },
+      {
+       "text": "The Workload Optimization Manager VM",
+       "why": "Workload Optimization Manager maps applications to infrastructure and recommends actions. It is not a telemetry sensor for Secure Cloud Analytics."
+      },
+      {
+       "text": "The Umbrella virtual appliance",
+       "why": "The Umbrella virtual appliance is an Umbrella DNS deployment option, not the on-prem sensor for Secure Cloud Analytics."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "What does XDR (eXtended Detection and Response) do?",
+     "choices": [
+      {
+       "text": "Sends random data to software to find input validation flaws",
+       "why": "Sending random data to a target to find flaws is fuzzing, a software assurance method."
+      },
+      {
+       "text": "Bootstraps a minimum viable container cluster",
+       "why": "Bootstrapping a minimum viable cluster is what kubeadm does in Kubernetes."
+      },
+      {
+       "text": "Aggregates telemetry from many security tools into central storage, analyzes the normalized data to detect malicious activity, and speeds response",
+       "why": "This is how the chapter defines XDR: central aggregation of telemetry, analysis of normalized data, and faster response and remediation."
+      },
+      {
+       "text": "Blocks malicious destinations by answering DNS requests",
+       "why": "Blocking destinations through DNS is what Cisco Umbrella does, not the definition of XDR."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 2",
+   "questions": [
+    {
+     "q": "Several hospitals agree to share one cloud environment built for their common needs. Which NIST deployment model is this?",
+     "choices": [
+      {
+       "text": "Private cloud",
+       "why": "A private cloud is used only by one client organization, either on-prem or in a dedicated area at a provider."
+      },
+      {
+       "text": "Community cloud",
+       "why": "A community cloud is shared between several organizations, which matches a group of hospitals sharing one environment."
+      },
+      {
+       "text": "Public cloud",
+       "why": "A public cloud is open for public use, not limited to a specific group of organizations."
+      },
+      {
+       "text": "Hybrid cloud",
+       "why": "A hybrid cloud is made of two or more clouds, which can include on-prem services. Sharing among organizations is the community model."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A development team deploys its application on a PaaS offering. Which task is the customer responsible for?",
+     "choices": [
+      {
+       "text": "Securing the virtual network",
+       "why": "In PaaS the virtual network is the CSP's responsibility. The customer manages the virtual network only in IaaS."
+      },
+      {
+       "text": "Patching the hypervisor",
+       "why": "The hypervisor is the CSP's responsibility in every service model, including IaaS."
+      },
+      {
+       "text": "Patching the guest operating system",
+       "why": "In PaaS the CSP handles the runtime and everything below, including the operating system."
+      },
+      {
+       "text": "Patching the application and protecting its data",
+       "why": "In PaaS the customer is responsible for people, data, and applications, so it patches the applications and protects the data."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What is the correct order of the Waterfall phases shown in the chapter?",
+     "choices": [
+      {
+       "text": "Design, Requirements, Implementation, Maintenance, Verification",
+       "why": "Requirements come before design, and verification by the customer comes before maintenance."
+      },
+      {
+       "text": "Requirements, Design, Implementation, Verification, Maintenance",
+       "why": "This is the Waterfall sequence in Figure 9-1. Requirements are gathered first and the sustaining team fixes production issues last."
+      },
+      {
+       "text": "Requirements, Implementation, Design, Verification, Maintenance",
+       "why": "Design, with its logical and physical subphases, comes before developers implement the code."
+      },
+      {
+       "text": "Plan, Design, Develop, Test, Deploy, Review, Launch",
+       "why": "These are the general Agile steps in Figure 9-3, not the Waterfall phases."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Who developed Kanban, the scheduling system for lean development and just-in-time manufacturing?",
+     "choices": [
+      {
+       "text": "The 17 authors of the Agile Manifesto",
+       "why": "The 17 authors wrote the Agile Manifesto in 2001. Kanban predates it and came from Toyota."
+      },
+      {
+       "text": "Taiichi Ohno of Toyota",
+       "why": "Kanban was developed by Taiichi Ohno at Toyota as a scheduling system for lean and just-in-time manufacturing."
+      },
+      {
+       "text": "HashiCorp",
+       "why": "HashiCorp makes the Nomad container orchestration platform, not the Kanban scheduling system."
+      },
+      {
+       "text": "Google",
+       "why": "Google originally developed Kubernetes, not Kanban."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which of the Three Ways of DevOps focuses on seeing problems as they occur for faster detection and recovery, and preventing them from happening again?",
+     "choices": [
+      {
+       "text": "The third way, continuous experimentation and learning",
+       "why": "The third way is about disciplined experimentation and risk taking, a defined time to fix issues, and shared code repositories."
+      },
+      {
+       "text": "The first way, systems and flow",
+       "why": "The first way is about making work visible, reducing batch sizes and work intervals, and building in quality."
+      },
+      {
+       "text": "The second way, the feedback loop",
+       "why": "The second way is the feedback loop: see problems as they happen, detect and recover faster, and prevent recurrence."
+      },
+      {
+       "text": "Measurement, from the CAMS model",
+       "why": "Measurement is one of the four elements of embracing DevOps in Figure 9-6, not one of the Three Ways."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "How does Continuous Delivery (CD) relate to Continuous Integration (CI)?",
+     "choices": [
+      {
+       "text": "CD replaces CI so that code is merged only once at the end of a project",
+       "why": "CD does not replace CI. Frequent merging into a central repository is still the CI foundation."
+      },
+      {
+       "text": "CD is a fuzzing technique used during the test stage",
+       "why": "Fuzzing is a software assurance method. CD is the automation of the release process."
+      },
+      {
+       "text": "CD is the practice of merging code into a central repository many times a day",
+       "why": "That is the definition of CI, not CD."
+      },
+      {
+       "text": "CD sits on top of CI and automates the entire software release process",
+       "why": "The chapter describes CD as building on CI and automating the whole release process, which can include cloud infrastructure provisioning."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In a multistage CI/CD test phase, which tests are quick sanity checks from the user's point of view that are run first?",
+     "choices": [
+      {
+       "text": "Fuzz tests",
+       "why": "Fuzz tests send random data to find input validation and other flaws. They are not quick sanity checks run first."
+      },
+      {
+       "text": "Penetration tests",
+       "why": "Penetration tests are security assessments, and in the cloud they require learning the CSP's guidelines first. They are not quick user-view sanity checks."
+      },
+      {
+       "text": "Integration tests",
+       "why": "Integration tests check how components work together and are a broader safety net, not the first quick sanity check."
+      },
+      {
+       "text": "Smoke tests",
+       "why": "Smoke tests are quick sanity checks from the user's point of view, run first in a multistage test phase."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Why does the official Python Dockerfile in the chapter set ENV LANG C.UTF-8?",
+     "choices": [
+      {
+       "text": "Because it sets python3 as the default command",
+       "why": "The default command is set by CMD [\"python3\"], not by LANG."
+      },
+      {
+       "text": "Because it makes HTTPS downloads work",
+       "why": "HTTPS support comes from RUN apk add --no-cache ca-certificates, which installs CA certificates."
+      },
+      {
+       "text": "Because it selects the Alpine 3.10 base image",
+       "why": "The base image is selected by FROM alpine:3.10, not by the LANG variable."
+      },
+      {
+       "text": "Because setting LANG=C breaks Python 3",
+       "why": "The Dockerfile comment explains that LANG=C breaks Python 3, so it sets LANG to C.UTF-8."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which set of components runs on the Kubernetes master according to the chapter's architecture figure?",
+     "choices": [
+      {
+       "text": "API server, scheduler, controller manager, and etcd",
+       "why": "The master runs the API server, scheduler, controller manager, and etcd, and is reached by CLI, API, and UI."
+      },
+      {
+       "text": "kubectl, minikube, and kubeadm",
+       "why": "kubectl is the client, minikube is a lightweight learning implementation, and kubeadm bootstraps clusters. None is a master component in the figure."
+      },
+      {
+       "text": "Docker, kubelet, kube-proxy, and pods",
+       "why": "These run on the nodes, the worker machines of the cluster, not on the master."
+      },
+      {
+       "text": "Nomad, Mesos, and Docker Swarm",
+       "why": "These are alternative container orchestration platforms, not components of the Kubernetes master."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A student wants to practice Kubernetes on a laptop with a lightweight single-node implementation. Which tool should the student use?",
+     "choices": [
+      {
+       "text": "Apache Mesos",
+       "why": "Apache Mesos is a distributed Linux kernel with native container support, not a lightweight Kubernetes for learning."
+      },
+      {
+       "text": "Contiv",
+       "why": "Contiv is an open-source micro-segmentation and container networking project, not a Kubernetes implementation."
+      },
+      {
+       "text": "minikube",
+       "why": "minikube is a lightweight Kubernetes implementation for learning. In the chapter it runs one node named minikube."
+      },
+      {
+       "text": "GKE",
+       "why": "GKE is Google Cloud Platform's hosted Kubernetes as a Service, not a lightweight local implementation."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Starting with which Kubernetes version did the cluster DNS move from kube-dns to CoreDNS?",
+     "choices": [
+      {
+       "text": "Kubernetes 1.0",
+       "why": "Version 1.0 was the first Kubernetes release. The chapter gives 1.12, not 1.0, as the release where CoreDNS replaced kube-dns."
+      },
+      {
+       "text": "Kubernetes 1.15",
+       "why": "Version 1.15 is the server version shown in the minikube example, not the release that introduced CoreDNS."
+      },
+      {
+       "text": "Kubernetes 1.14",
+       "why": "Version 1.14 appears in the GKE node example (v1.14.8-gke.17). The CoreDNS change came earlier, in 1.12."
+      },
+      {
+       "text": "Kubernetes 1.12",
+       "why": "The chapter notes that Kubernetes moved from kube-dns to CoreDNS in version 1.12."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which open-source fuzzer from Cisco replays packet captures (pcaps) through a mutational fuzzer?",
+     "choices": [
+      {
+       "text": "Peach",
+       "why": "Peach is a popular fuzzer with a free Community Edition and a commercial version. It is not the Cisco pcap-replay fuzzer."
+      },
+      {
+       "text": "Mutiny Fuzzing Framework",
+       "why": "Mutiny, from Cisco Talos, replays pcaps through a mutational fuzzer and uses Radamsa to generate the mutations."
+      },
+      {
+       "text": "SonarQube",
+       "why": "SonarQube finds vulnerabilities in source code with CI and DevOps support. It is a code analysis tool, not a fuzzer."
+      },
+      {
+       "text": "American Fuzzy Lop (AFL)",
+       "why": "AFL uses compile-time instrumentation and genetic algorithms. It is not the Cisco pcap-replay fuzzer."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which IP addresses are the Cisco Umbrella and OpenDNS anycast resolver addresses?",
+     "choices": [
+      {
+       "text": "9.9.9.9 and 149.112.112.112",
+       "why": "These are Quad9 public DNS resolvers, not Umbrella or OpenDNS."
+      },
+      {
+       "text": "1.1.1.1 and 1.0.0.1",
+       "why": "These are Cloudflare public DNS resolvers, not Umbrella or OpenDNS."
+      },
+      {
+       "text": "208.67.222.222 and 208.67.220.220",
+       "why": "These are the Umbrella and OpenDNS anycast resolvers announced from all Umbrella data centers."
+      },
+      {
+       "text": "8.8.8.8 and 8.8.4.4",
+       "why": "These are Google Public DNS resolvers, not Umbrella or OpenDNS."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is fast flux?",
+     "choices": [
+      {
+       "text": "A short time-boxed period in which a Scrum team completes predefined work",
+       "why": "That is a sprint, a key concept of Scrum and Agile."
+      },
+      {
+       "text": "The way all Umbrella data centers announce the same IP address",
+       "why": "That is anycast, which Umbrella uses for reliability and scale of its recursive DNS service."
+      },
+      {
+       "text": "A DNS technique botnets use to hide phishing and malware sites behind an ever-changing network of compromised hosts acting as proxies",
+       "why": "Fast flux constantly changes the hosts behind a domain so botnets can hide malicious sites. Umbrella finds fast flux domains in DNS logs."
+      },
+      {
+       "text": "Umbrella's model that finds domains queried right before or after a given domain",
+       "why": "That is the co-occurrence model, which links domains used in the same attack."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is the range of the Umbrella Investigate anomaly (DGA) score?",
+     "choices": [
+      {
+       "text": "From minus 100 (suspicious) to 0 (benign)",
+       "why": "The anomaly score runs from minus 100, most suspicious, to 0, benign, based on how likely an algorithm rather than a human made the name."
+      },
+      {
+       "text": "From 0 (suspicious) to 100 (benign)",
+       "why": "A 0 to 100 scale where 100 is best describes the Secure Workload Security Score, not the Investigate anomaly score."
+      },
+      {
+       "text": "From 100 (no events) to 0 (immediate action)",
+       "why": "This describes the Secure Workload Forensics Score, not the Investigate anomaly score."
+      },
+      {
+       "text": "From 0 (benign) to 10 (suspicious)",
+       "why": "A 0 to 10 scale resembles CVSS base scores, not the Investigate anomaly score."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which rates does the chapter give for the Cisco Context Adaptive Scanning Engine (CASE) antispam engine?",
+     "choices": [
+      {
+       "text": "Spam capture rate above 99 percent and false positive rate below one in one million",
+       "why": "The chapter credits CASE with a spam capture rate above 99 percent and a false positive rate below one in one million."
+      },
+      {
+       "text": "Spam capture rate of 100 percent and no false positives",
+       "why": "The chapter does not claim perfect capture or zero false positives, only above 99 percent and below one in one million."
+      },
+      {
+       "text": "Spam capture rate above 90 percent and false positive rate below one in ten thousand",
+       "why": "These numbers understate CASE. The chapter gives above 99 percent capture and below one in one million false positives."
+      },
+      {
+       "text": "Spam capture rate above 99 percent and false positive rate below one in one thousand",
+       "why": "The capture rate is right, but the false positive rate given in the chapter is below one in one million, not one in one thousand."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "When Cisco cloud email security receives an email with an attachment, which hash does it send to the AMP cloud for the file reputation query?",
+     "choices": [
+      {
+       "text": "SHA256",
+       "why": "The advanced protection flow sends a SHA256 file reputation query to the AMP cloud."
+      },
+      {
+       "text": "SHA1",
+       "why": "SHA1 is an older hash. The chapter's flow uses SHA256 for the AMP file reputation query."
+      },
+      {
+       "text": "CRC32",
+       "why": "CRC32 is a checksum, not a cryptographic hash, and is not used for the AMP file reputation query."
+      },
+      {
+       "text": "MD5",
+       "why": "MD5 is an older hash. The chapter's flow uses SHA256 for the AMP file reputation query."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A Secure Workload analyst wants an alert when a process creates raw sockets, which is often tied to port knocking. Which forensic event type should the rule use?",
+     "choices": [
+      {
+       "text": "Raw Socket Creation",
+       "why": "Raw Socket Creation flags processes creating raw sockets, an activity often tied to port knocking."
+      },
+      {
+       "text": "Shellcode",
+       "why": "Shellcode flags suspicious shell executions that look like malicious code, not raw socket creation."
+      },
+      {
+       "text": "Network Anomaly",
+       "why": "Network Anomaly flags anomalies in the workload's traffic, not the act of a process creating a raw socket."
+      },
+      {
+       "text": "Unseen Library",
+       "why": "Unseen Library flags newly loaded libraries, not processes creating raw sockets."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A cloud team wants an agentless Cisco tool that maps relationships between applications and infrastructure, models what-if scenarios to forecast capacity, and recommends resizing actions. Which tool fits?",
+     "choices": [
+      {
+       "text": "Cisco Umbrella Investigate",
+       "why": "Investigate provides threat intelligence about domains, IPs, and files. It does not plan workload capacity."
+      },
+      {
+       "text": "Workload Optimization Manager",
+       "why": "Workload Optimization Manager is an agentless application on a VM that maps applications to infrastructure, models what-if scenarios, and recommends placement and resizing actions."
+      },
+      {
+       "text": "Cisco Secure Workload",
+       "why": "Secure Workload uses hardware and software agents for flow telemetry and security policy. It is not the agentless capacity planning tool."
+      },
+      {
+       "text": "Cisco Secure Analytics",
+       "why": "Secure Analytics, formerly Stealthwatch, is on-prem NetFlow-based security analytics, not a capacity planning tool."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "How does the Cisco XDR Incidents view decide which detections appear at the top of the list?",
+     "choices": [
+      {
+       "text": "Strict first-in, first-out order by arrival time",
+       "why": "Arrival order ignores risk. The chapter says XDR assesses severity and impact to prioritize incidents."
+      },
+      {
+       "text": "Alphabetical order by the product that sent the alert",
+       "why": "XDR provides unified detection regardless of source or vendor and ranks by risk, not by product name."
+      },
+      {
+       "text": "Risk-based prioritization that assesses severity and impact",
+       "why": "XDR uses risk-based prioritization so the most urgent, high-risk detections go to the top of the incident list."
+      },
+      {
+       "text": "The number of code blocks in the matching workflow",
+       "why": "Code blocks are used to build automation workflows. They do not determine incident priority."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 3",
+   "questions": [
+    {
+     "q": "A company runs some workloads in its on-premises data center and others at a public cloud provider, managed as one environment. Which deployment model is this?",
+     "choices": [
+      {
+       "text": "Public cloud",
+       "why": "A public cloud is open for public use. Adding on-prem workloads to it makes the environment hybrid."
+      },
+      {
+       "text": "Private cloud",
+       "why": "A private cloud serves only one organization, but it does not by itself combine on-prem and public cloud."
+      },
+      {
+       "text": "Community cloud",
+       "why": "A community cloud is shared between several organizations. This scenario is one company combining clouds."
+      },
+      {
+       "text": "Hybrid cloud",
+       "why": "A hybrid cloud is made of two or more clouds and can include on-prem services, which matches this mix."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In an IaaS deployment, which layers does the cloud service provider remain responsible for?",
+     "choices": [
+      {
+       "text": "People and data only",
+       "why": "People and data are always the customer's responsibility. They are never handed to the CSP."
+      },
+      {
+       "text": "Applications and data",
+       "why": "Applications and data belong to the customer in IaaS, and data is the customer's in every service model."
+      },
+      {
+       "text": "Operating system, middleware, and runtime",
+       "why": "In IaaS these are the customer's responsibility, along with applications, data, people, and the virtual network."
+      },
+      {
+       "text": "Hypervisor, servers, storage, and physical network",
+       "why": "In IaaS the CSP handles the hypervisor, servers, storage, and physical network. The customer handles everything above."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "According to NIST, how many essential characteristics, deployment models, and service models does cloud computing have?",
+     "choices": [
+      {
+       "text": "4 essential characteristics, 5 deployment models, and 3 service models",
+       "why": "The counts are swapped. NIST lists 5 essential characteristics and 4 deployment models."
+      },
+      {
+       "text": "5 essential characteristics, 3 deployment models, and 4 service models",
+       "why": "The deployment and service counts are swapped. There are 4 deployment models and 3 service models."
+      },
+      {
+       "text": "5 essential characteristics, 4 deployment models, and 3 service models",
+       "why": "NIST defines 5 essential characteristics, 4 deployment models (public, private, community, hybrid), and 3 service models (IaaS, PaaS, SaaS)."
+      },
+      {
+       "text": "3 essential characteristics, 4 deployment models, and 5 service models",
+       "why": "NIST has only 3 service models, IaaS, PaaS, and SaaS, and 5 essential characteristics."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement about the Agile Manifesto is correct?",
+     "choices": [
+      {
+       "text": "It was written by Taiichi Ohno at Toyota and has 4 main values",
+       "why": "Taiichi Ohno developed Kanban at Toyota. He did not write the Agile Manifesto."
+      },
+      {
+       "text": "It was written by 17 people in 2001 and has 10 main values",
+       "why": "The authorship and year are right, but the Manifesto has 4 values. Ten items describes the OWASP Top 10 Proactive Controls."
+      },
+      {
+       "text": "It was written by 17 people in 2001 and has 4 main values",
+       "why": "The Manifesto for Agile Software Development was written by 17 people in 2001 and lists 4 main values."
+      },
+      {
+       "text": "It was published by NIST as SP 800-145 and has 5 main values",
+       "why": "NIST SP 800-145 is the cloud computing definition, and the Agile Manifesto has 4 values, not 5."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In the chapter's figure showing how development methods relate, at which level does Lean sit?",
+     "choices": [
+      {
+       "text": "The IT level",
+       "why": "Agile sits at the IT level. Lean is above it at the business level."
+      },
+      {
+       "text": "The software engineering practices level",
+       "why": "Extreme Programming sits at the engineering practices level, not Lean."
+      },
+      {
+       "text": "The software project and team management level",
+       "why": "Scrum and Kanban sit at this level, not Lean."
+      },
+      {
+       "text": "The business level",
+       "why": "Lean sits at the business level. Agile is at the IT level, Scrum and Kanban at the team level, and Extreme Programming at the engineering practices level."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In the chapter's model for embracing DevOps (culture, automation, measurement, sharing), what does measurement mean?",
+     "choices": [
+      {
+       "text": "Agile and Lean, business driven",
+       "why": "Agile and Lean, business driven, is the culture element."
+      },
+      {
+       "text": "Shared fate and goals",
+       "why": "Shared fate and goals is the sharing element, not measurement."
+      },
+      {
+       "text": "Everything is analyzed and visualized",
+       "why": "Measurement in Figure 9-6 means everything is analyzed and visualized."
+      },
+      {
+       "text": "Improve speed and frequency and reduce effort",
+       "why": "Improving speed and frequency while reducing effort is the automation element."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In the chapter's CI/CD pipeline, what typically triggers the source stage?",
+     "choices": [
+      {
+       "text": "A docker build command",
+       "why": "docker build is used in the build stage to package code, after the source stage has been triggered."
+      },
+      {
+       "text": "A git push to the repository",
+       "why": "A git push to the repository typically triggers the pipeline, although it can also start from schedules, users, or other pipelines."
+      },
+      {
+       "text": "A failed integration test",
+       "why": "A failure at any stage typically triggers a notification, not a new source stage."
+      },
+      {
+       "text": "Deployment to the production environment",
+       "why": "Production deployment is the end of the deploy stage, not the trigger of the source stage."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "According to the chapter, how does moving from bare-metal servers toward serverless computing change the attack surface?",
+     "choices": [
+      {
+       "text": "It increases the attack surface",
+       "why": "The chapter says moving toward serverless increases compute flexibility, reduces costs, abstracts infrastructure, and increases the attack surface."
+      },
+      {
+       "text": "It decreases the attack surface because the provider manages security",
+       "why": "The provider manages infrastructure, but the chapter states that the move toward serverless increases the attack surface."
+      },
+      {
+       "text": "It eliminates the attack surface because no servers exist",
+       "why": "Servers still exist in serverless computing; developers are only abstracted from them. The chapter says the attack surface grows."
+      },
+      {
+       "text": "It leaves the attack surface unchanged",
+       "why": "The chapter lists an increased attack surface as one of the effects of moving toward serverless."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "How do container image layers work?",
+     "choices": [
+      {
+       "text": "Each layer is an encrypted copy of the Dockerfile",
+       "why": "A Dockerfile automates building an image, but layers hold file system changes, not copies of the Dockerfile."
+      },
+      {
+       "text": "Each layer is a separate pod scheduled on a different node",
+       "why": "Pods are Kubernetes runtime units. Image layers are file system changes inside a single image."
+      },
+      {
+       "text": "Each layer is a complete, independent copy of the full root file system",
+       "why": "Layers store only changes from the layer before them, which is why an overlay system is used to combine them."
+      },
+      {
+       "text": "Each layer adds, removes, or modifies files from the layer before it, and each parent reference is a pointer",
+       "why": "Image layers build on their parent layer by changing files, and each parent reference is a pointer, forming a graph of layers."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which command builds an image named mypython from the Dockerfile in the current folder?",
+     "choices": [
+      {
+       "text": "kubectl create deployment mypython",
+       "why": "kubectl create deployment deploys an app to Kubernetes from an existing image. It does not build a Docker image."
+      },
+      {
+       "text": "docker build -t mypython",
+       "why": "docker build -t mypython builds an image from the Dockerfile and tags it mypython. In practice a trailing period is added for the current folder as the build context."
+      },
+      {
+       "text": "docker search mypython",
+       "why": "docker search queries Docker Hub for images by keyword. It does not build anything."
+      },
+      {
+       "text": "docker run mypython",
+       "why": "docker run mypython starts a new container from an existing mypython image. It does not build it."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Kubernetes component bootstraps a minimum viable cluster and manages nodes in a multi-node cluster?",
+     "choices": [
+      {
+       "text": "minikube",
+       "why": "minikube is a lightweight Kubernetes implementation for learning, not the multi-node bootstrapping tool."
+      },
+      {
+       "text": "kubectl",
+       "why": "kubectl is the official Kubernetes client used to run commands against a cluster, such as kubectl get nodes."
+      },
+      {
+       "text": "kubeadm",
+       "why": "kubeadm bootstraps a minimum viable Kubernetes cluster and manages nodes in a multi-node cluster."
+      },
+      {
+       "text": "kubelet",
+       "why": "The kubelet runs on each node alongside Docker and kube-proxy. It does not bootstrap the cluster."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement correctly contrasts Kubernetes networking with standalone Docker, according to the chapter?",
+     "choices": [
+      {
+       "text": "In Kubernetes all containers can talk to each other without NAT",
+       "why": "Table 9-2 states that in Kubernetes all containers talk to each other, and all nodes to all containers, without NAT."
+      },
+      {
+       "text": "Kubernetes requires port forwarding between every pair of containers",
+       "why": "Proxies or port forwarding are needed in standalone Docker. Kubernetes avoids them."
+      },
+      {
+       "text": "Standalone Docker has native container-to-container networking across all VMs",
+       "why": "Standalone Docker has no native container-to-container networking unless the containers are on the same VM."
+      },
+      {
+       "text": "In Kubernetes a container sees a different IP for itself than others see",
+       "why": "The opposite is true: in Kubernetes the IP a container sees for itself is the IP others see."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "What is micro-segmentation?",
+     "choices": [
+      {
+       "text": "Dividing a network into large VLANs by department",
+       "why": "Traditional VLAN segmentation is coarse. Micro-segmentation works at the VM or container level regardless of VLAN."
+      },
+      {
+       "text": "Application-aware network segmentation at the VM level or between containers, regardless of VLAN or subnet",
+       "why": "Micro-segmentation segments at the VM or container level regardless of VLAN or subnet, and it must be application aware."
+      },
+      {
+       "text": "Breaking a container image into layers",
+       "why": "Image layering is how container images are built, not a network segmentation technique."
+      },
+      {
+       "text": "Splitting a software project into short time-boxed sprints",
+       "why": "That describes Scrum sprints, a development practice, not network segmentation."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is fuzzing?",
+     "choices": [
+      {
+       "text": "Sending random data to the unit being tested to find input validation issues, program failures, buffer overflows, and other flaws",
+       "why": "Fuzzing sends random data to a target to find flaws, and it works on applications, operating systems, infrastructure devices, IoT devices, and more."
+      },
+      {
+       "text": "Reviewing source code for vulnerabilities without running it",
+       "why": "Analyzing code without running it describes static application security testing (SAST), not fuzzing."
+      },
+      {
+       "text": "Merging code into a central repository many times a day",
+       "why": "That is Continuous Integration, not fuzzing."
+      },
+      {
+       "text": "Hiding malicious sites behind an ever-changing set of compromised proxies",
+       "why": "That is fast flux, a DNS technique used by botnets."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which Umbrella statistical model finds domains that are queried right before or after a given domain, linking domains in the same attack even on separate networks?",
+     "choices": [
+      {
+       "text": "Co-occurrence model",
+       "why": "The co-occurrence model finds domains queried just before or after a given domain, linking domains used in the same attack."
+      },
+      {
+       "text": "Predictive IP space monitoring model",
+       "why": "This model scores the attacker's setup steps, such as hosting provider, name server, and IP, to predict malicious domains."
+      },
+      {
+       "text": "Entity behavior modeling",
+       "why": "Entity behavior modeling is how Secure Cloud Analytics baselines normal traffic, not an Umbrella domain correlation model."
+      },
+      {
+       "text": "Traffic spike model",
+       "why": "The traffic spike model spots traffic spikes that match patterns of other attacks, such as exploit kits."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An organization wants Umbrella DNS protection to follow employees' Windows and macOS laptops when they work from hotels and home networks. Which deployment option should it use?",
+     "choices": [
+      {
+       "text": "Forwarding DNS from the existing on-prem DNS servers",
+       "why": "Forwarding from on-prem DNS servers protects devices that use those servers, not laptops on hotel or home networks."
+      },
+      {
+       "text": "The Umbrella roaming client",
+       "why": "The Windows or macOS roaming client protects the device on any network, which suits laptops that leave the office."
+      },
+      {
+       "text": "Umbrella virtual appliances",
+       "why": "Virtual appliances run inside the corporate network, so they do not cover laptops on outside networks."
+      },
+      {
+       "text": "The Cisco Security Connector for iOS",
+       "why": "The Security Connector is the Umbrella option for iOS devices, not Windows or macOS laptops."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which email authentication method does the chapter describe as being used for sender authentication, as opposed to domain authentication?",
+     "choices": [
+      {
+       "text": "CASE (Context Adaptive Scanning Engine)",
+       "why": "CASE is Cisco's antispam engine, not an email authentication method."
+      },
+      {
+       "text": "SPF (Sender Policy Framework)",
+       "why": "The chapter lists SPF for sender authentication."
+      },
+      {
+       "text": "DKIM (DomainKeys Identified Mail)",
+       "why": "The chapter lists DKIM for domain authentication, not sender authentication."
+      },
+      {
+       "text": "DMARC (Domain-based Message Authentication, Reporting, and Conformance)",
+       "why": "The chapter lists DMARC for domain authentication, not sender authentication."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "When integrating AWS with Cisco Attack Surface Management, which authentication method does the integration use?",
+     "choices": [
+      {
+       "text": "IAM Role and Assume Role Trust policies",
+       "why": "The chapter states that the AWS integration uses IAM Role and Assume Role Trust policies, while other integrations use API keys, tokens, Auth, or Basic Auth."
+      },
+      {
+       "text": "A SHA256 file reputation query",
+       "why": "A SHA256 file reputation query is what email security sends to the AMP cloud. It is not an authentication method."
+      },
+      {
+       "text": "An S/MIME key pair",
+       "why": "S/MIME uses a public and private key pair to sign or encrypt email. It is not used for ASM integrations."
+      },
+      {
+       "text": "A Secure Connector reverse tunnel",
+       "why": "Secure Connector is a Secure Workload feature for reaching orchestrator API servers, not the AWS authentication method in ASM."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A Secure Workload scope shows a Forensics Score of 0. What does this mean?",
+     "choices": [
+      {
+       "text": "The workloads have the best possible security posture",
+       "why": "Higher is better on Secure Workload scores; 100 is best. A score of 0 is the worst."
+      },
+      {
+       "text": "Forensics is not enabled for the scope",
+       "why": "The chapter defines 0 as an event needing immediate action, not as a disabled feature."
+      },
+      {
+       "text": "A forensic event needs immediate action",
+       "why": "A Forensics Score of 0 means an event needs immediate action, while 100 means there are no forensic events."
+      },
+      {
+       "text": "There are no forensic events in the scope",
+       "why": "No forensic events gives a score of 100, not 0."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A SOC manager wants to quickly add prebuilt automation, such as a workflow that pulls Talos blogs and checks their IOCs against the environment. Where in Cisco XDR should the team go?",
+     "choices": [
+      {
+       "text": "Control Center dashboard",
+       "why": "The Control Center is the main dashboard, where Edit Dashboards adds elements from other products. Workflows come from the Exchange."
+      },
+      {
+       "text": "Incidents dashboard",
+       "why": "The Incidents dashboard is where incidents are managed and prioritized, not where workflows are imported."
+      },
+      {
+       "text": "Devices dashboard, Inventory section",
+       "why": "The Devices Inventory is the asset inventory. It does not import workflows."
+      },
+      {
+       "text": "Automate Exchange",
+       "why": "The Automate Exchange is where prebuilt workflows are imported and set up with a wizard. The first example workflow checks Talos blog IOCs against your environment."
+      }
+     ],
+     "answer": 3
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 4",
+   "questions": [
+    {
+     "q": "Which cloud deployment model is used only by the client organization and can be located either on-premises or in a dedicated area at a cloud provider?",
+     "choices": [
+      {
+       "text": "Public cloud",
+       "why": "A public cloud is open for public use, not reserved for a single organization."
+      },
+      {
+       "text": "Private cloud",
+       "why": "A private cloud is used only by the client organization, either on-prem or in a dedicated area at a cloud provider."
+      },
+      {
+       "text": "Hybrid cloud",
+       "why": "A hybrid cloud combines two or more clouds, possibly including on-prem services. It is not defined by single-organization use."
+      },
+      {
+       "text": "Community cloud",
+       "why": "A community cloud is shared between several organizations, not used by one organization only."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which cloud service model provides everything except the applications, covers all phases of the SDLC, and tends to be proprietary, causing problems if the customer moves away from the provider?",
+     "choices": [
+      {
+       "text": "PaaS",
+       "why": "PaaS provides everything except applications, covers the SDLC, and tends to be proprietary, which makes leaving the provider's platform difficult."
+      },
+      {
+       "text": "FaaS",
+       "why": "FaaS, or serverless computing, runs event-driven functions without managing servers. It is not the NIST service model described here."
+      },
+      {
+       "text": "IaaS",
+       "why": "IaaS rents infrastructure such as virtual servers and disks on a pay-for-use utility model. The customer installs the OS and everything above it."
+      },
+      {
+       "text": "SaaS",
+       "why": "SaaS is a complete packaged software solution, usually reached through a web portal, so it includes the application."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which of the following is not one of the five NIST essential characteristics of cloud computing?",
+     "choices": [
+      {
+       "text": "Broad network access",
+       "why": "Broad network access is one of the five NIST essential characteristics, along with on-demand self-service and resource pooling."
+      },
+      {
+       "text": "Measured service",
+       "why": "Measured service is one of the five NIST essential characteristics."
+      },
+      {
+       "text": "Rapid elasticity",
+       "why": "Rapid elasticity is one of the five NIST essential characteristics."
+      },
+      {
+       "text": "Micro-segmentation",
+       "why": "Micro-segmentation is a network segmentation technique for VMs and containers, not a NIST essential characteristic of cloud computing."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What is a sprint in Scrum and Agile?",
+     "choices": [
+      {
+       "text": "The committed list of work in Agile",
+       "why": "The committed list of work is the backlog, from which sprint work is drawn."
+      },
+      {
+       "text": "A quick sanity check from the user's point of view",
+       "why": "That describes a smoke test in a CI/CD test phase."
+      },
+      {
+       "text": "A short, time-boxed period in which a Scrum team completes a predefined amount of work",
+       "why": "A sprint is a short, time-boxed period of predefined work and is a key concept of Scrum and Agile."
+      },
+      {
+       "text": "The final Waterfall phase in which the sustaining team fixes bugs",
+       "why": "That is the Waterfall maintenance phase, not a Scrum sprint."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In the Scrum framework flow shown in the chapter, what comes immediately after the sprint review?",
+     "choices": [
+      {
+       "text": "Sprint planning",
+       "why": "Sprint planning comes before the sprint, after release planning."
+      },
+      {
+       "text": "Sprint retrospective",
+       "why": "The Scrum flow goes from the sprint with daily Scrums, to the sprint review, then the sprint retrospective, and then deployment."
+      },
+      {
+       "text": "Release planning",
+       "why": "Release planning comes near the start of the flow, right after the project vision."
+      },
+      {
+       "text": "Project vision",
+       "why": "Project vision is the first step in the Scrum flow, not what follows the sprint review."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which of the Three Ways of DevOps involves disciplined experimentation and risk taking, a defined time to fix issues, and shared code repositories?",
+     "choices": [
+      {
+       "text": "The third way, continuous experimentation and learning",
+       "why": "The third way covers disciplined experimentation and risk taking, a defined time to fix issues, and shared code repositories."
+      },
+      {
+       "text": "The second way, the feedback loop",
+       "why": "The second way is about seeing problems as they occur, recovering faster, and preventing recurrence."
+      },
+      {
+       "text": "The first way, systems and flow",
+       "why": "The first way is about making work visible, reducing batch sizes and work intervals, and building in quality."
+      },
+      {
+       "text": "Sharing, from the embracing DevOps model",
+       "why": "Sharing means shared fate and goals in the culture, automation, measurement, sharing model. It is not one of the Three Ways."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A team's microservice is written in Python. What happens to it in the build stage of the CI/CD pipeline?",
+     "choices": [
+      {
+       "text": "It is fuzzed with Radamsa before it can be committed",
+       "why": "Radamsa generates fuzzing test cases, but fuzzing is not a required pre-commit step of the build stage."
+      },
+      {
+       "text": "It is deployed directly to production without a build stage",
+       "why": "Code still passes through build, test, and deploy stages. Only the compile step is skipped for Python."
+      },
+      {
+       "text": "It skips compiling but can still be packaged, for example with docker build",
+       "why": "Languages such as Ruby, Python, and JavaScript skip compiling, but they can still be packaged with docker build for container deployment."
+      },
+      {
+       "text": "It must be compiled like Java, C/C++, or Go before testing",
+       "why": "The build stage compiles languages such as Java, C/C++, and Go. Python is interpreted and skips compiling."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A retailer runs a job that processes uploads at unpredictable times, sometimes a few times a week and sometimes thousands of times a day. Which serverless benefit best matches this workload?",
+     "choices": [
+      {
+       "text": "Proprietary platform lock-in",
+       "why": "Proprietary lock-in is a drawback the chapter mentions for PaaS, not a benefit."
+      },
+      {
+       "text": "Built-in segmentation between containers",
+       "why": "Built-in segmentation is listed for standalone Docker in Table 9-2, not as a serverless benefit for sporadic work."
+      },
+      {
+       "text": "Full control over server provisioning and load balancing",
+       "why": "In serverless the provider handles servers, scaling, and load balancing. Managing them yourself is the traditional model."
+      },
+      {
+       "text": "Cost efficiency, because you pay only for execution time",
+       "why": "The chapter says paying only for execution time makes serverless a good fit for sporadic or unpredictable workloads."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What is the OCI image format?",
+     "choices": [
+      {
+       "text": "An overlay file system implementation such as overlay2",
+       "why": "aufs, overlay, and overlay2 are overlay implementations used to build and run images, not the image format standard."
+      },
+      {
+       "text": "The standardized form of the Docker image format",
+       "why": "The Open Container Initiative image format is the standardized form of the Docker image format, the most popular image format."
+      },
+      {
+       "text": "Docker's public image repository",
+       "why": "Docker's public image repository is Docker Hub."
+      },
+      {
+       "text": "A Kubernetes configuration file for pods",
+       "why": "Pods are defined in Kubernetes specifications, not by the OCI image format."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In the chapter's Python Dockerfile, what is the purpose of RUN apk add --no-cache ca-certificates?",
+     "choices": [
+      {
+       "text": "It sets the default command that runs when the container starts",
+       "why": "The default command is set by CMD [\"python3\"]."
+      },
+      {
+       "text": "It verifies the Python source signature with GPG",
+       "why": "Signature verification is done later with gpg and the .asc file, after installing gnupg as a fetch dependency."
+      },
+      {
+       "text": "It prefers the local Python over the distribution's Python",
+       "why": "That is the purpose of ENV PATH /usr/local/bin:$PATH."
+      },
+      {
+       "text": "It installs CA certificates so HTTPS works",
+       "why": "The Dockerfile installs CA certificates so that HTTPS connections, such as downloading Python from python.org, work."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An engineer connected to a new GKE cluster in Google Cloud Shell wants to confirm how many worker machines the cluster has and whether they are Ready. Which command should be run?",
+     "choices": [
+      {
+       "text": "kubectl get deployments",
+       "why": "kubectl get deployments lists deployments with desired, current, up-to-date, and available counts, not the worker machines."
+      },
+      {
+       "text": "docker ps",
+       "why": "docker ps lists running containers on a Docker host, not the nodes of a Kubernetes cluster."
+      },
+      {
+       "text": "kubectl get nodes",
+       "why": "kubectl get nodes lists the cluster's nodes with their status and version. In the GKE example it shows three nodes."
+      },
+      {
+       "text": "minikube start",
+       "why": "minikube start starts a local minikube cluster. It does not inspect a GKE cluster."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "How does the chapter describe the Kubernetes GUI (dashboard) deployment?",
+     "choices": [
+      {
+       "text": "It runs as a single replica but is still managed by a deployment for reliability and upgrades",
+       "why": "The dashboard runs as a single replica and is managed by a Kubernetes deployment for reliability and upgrades."
+      },
+      {
+       "text": "It must run on every node to route traffic to services",
+       "why": "This describes the proxy, which must run on every node."
+      },
+      {
+       "text": "It runs as a replicated service, so you may see one or more",
+       "why": "This describes the Kubernetes DNS server, not the dashboard."
+      },
+      {
+       "text": "It is the official command-line client for Kubernetes",
+       "why": "The official Kubernetes client is kubectl, a command-line tool, not the GUI."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which container orchestration option is integrated with the Docker Engine?",
+     "choices": [
+      {
+       "text": "Nomad",
+       "why": "Nomad is HashiCorp's container management and orchestration platform, separate from the Docker Engine."
+      },
+      {
+       "text": "Kubernetes",
+       "why": "Kubernetes was originally developed by Google and runs Docker or OCI images, but it is not integrated into the Docker Engine."
+      },
+      {
+       "text": "Apache Mesos",
+       "why": "Apache Mesos is a distributed Linux kernel with native support for Docker and AppC images. It is a separate project, not built into Docker Engine."
+      },
+      {
+       "text": "Docker Swarm",
+       "why": "Docker Swarm provides container cluster management and orchestration integrated with the Docker Engine."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does the DevSecOps principle \"secure by default\" mean?",
+     "choices": [
+      {
+       "text": "Making it easy for developers to write secure code and hard to make dangerous mistakes, with secure defaults in templates and frameworks",
+       "why": "Secure by default means templates and frameworks ship with secure defaults so safe code is easy and dangerous mistakes are hard."
+      },
+      {
+       "text": "Blocking all traffic unless a policy allows it",
+       "why": "Denying communication unless a policy allows it describes zero trust in micro-segmentation, not secure by default."
+      },
+      {
+       "text": "Moving security earlier into design, coding, and testing",
+       "why": "Moving security earlier is shifting security to the left, a related but different idea."
+      },
+      {
+       "text": "Letting the CSP handle all security for SaaS applications",
+       "why": "Even in SaaS the customer is still responsible for people and data. This is not the meaning of secure by default."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A team building Java web applications with Spring MVC and Apache Struts wants a tool that finds security bugs and plugs into Jenkins and SonarQube. Which tool fits?",
+     "choices": [
+      {
+       "text": "Docker Hub",
+       "why": "Docker Hub is Docker's public image repository, not a code analysis tool."
+      },
+      {
+       "text": "American Fuzzy Lop (AFL)",
+       "why": "AFL is a fuzzer that uses compile-time instrumentation and genetic algorithms. It is not the Java bug-finding plugin described."
+      },
+      {
+       "text": "Findsecbugs",
+       "why": "Findsecbugs finds bugs in Java applications, works with Jenkins and SonarQube, and supports Spring MVC, Apache Struts, Tapestry, and others."
+      },
+      {
+       "text": "Radamsa",
+       "why": "Radamsa generates test cases for fuzzers. It is not a Java static bug-finding tool."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In which cloud service model is patch management not a shared responsibility, because the CSP patches all software and hardware vulnerabilities?",
+     "choices": [
+      {
+       "text": "Hybrid cloud",
+       "why": "Hybrid cloud is a deployment model, not a service model. Patch responsibility depends on the service model used."
+      },
+      {
+       "text": "PaaS",
+       "why": "In PaaS patch management is shared: the customer patches its applications and the CSP patches the runtime and below."
+      },
+      {
+       "text": "IaaS",
+       "why": "In IaaS the CSP patches only hypervisors, physical servers, and the physical network, and the customer patches applications, VMs, and virtual networks."
+      },
+      {
+       "text": "SaaS",
+       "why": "Patch management is shared in IaaS and PaaS but not in SaaS, where the CSP patches all software and hardware vulnerabilities."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Umbrella model starts with domains from the traffic spike model and scores the attacker's setup steps, such as hosting provider, name server, and IP address, to block malicious domains in advance?",
+     "choices": [
+      {
+       "text": "Predictive IP space monitoring model",
+       "why": "The predictive IP space monitoring model scores attacker setup steps like hosting provider, name server, and IP address to predict and pre-block malicious domains."
+      },
+      {
+       "text": "Co-occurrence model",
+       "why": "The co-occurrence model links domains queried right before or after a given domain. It does not score attacker infrastructure setup."
+      },
+      {
+       "text": "Anomaly detection",
+       "why": "Anomaly detection in Investigate flags fast flux and algorithm-generated domains by how likely an algorithm made the name."
+      },
+      {
+       "text": "Passive DNS database",
+       "why": "The passive DNS database is historical DNS data in Investigate, not a predictive blocking model."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which standards-based method uses a public and private key pair to encrypt or sign email messages so they can be sent and received securely and verified?",
+     "choices": [
+      {
+       "text": "Forged Email Detection",
+       "why": "FED detects spear phishing by checking headers for manipulation. It does not encrypt or sign messages."
+      },
+      {
+       "text": "S/MIME",
+       "why": "S/MIME is a standards-based method for secure, verified email that uses a public and private key pair to encrypt or sign messages."
+      },
+      {
+       "text": "SPF",
+       "why": "SPF is used for sender authentication. It does not encrypt or sign message content."
+      },
+      {
+       "text": "Advanced outbreak filters",
+       "why": "Advanced outbreak filters inspect URLs in real time. They do not encrypt or sign email."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "How does Cisco Secure Cloud Analytics detect threats that a simple session anomaly check would miss?",
+     "choices": [
+      {
+       "text": "It sandboxes every email attachment in Threat Grid",
+       "why": "Sandboxing attachments is part of the email advanced protection flow, not Secure Cloud Analytics."
+      },
+      {
+       "text": "It requires manual categorization of every device before analysis",
+       "why": "The chapter says Secure Cloud Analytics needs little configuration or device categorization and its analysis is fully automated."
+      },
+      {
+       "text": "Entity behavior modeling builds a baseline of normal traffic over time and flags deviations",
+       "why": "Secure Cloud Analytics uses entity behavior modeling over time, building a baseline of normal traffic and flagging deviations, not just session anomalies."
+      },
+      {
+       "text": "It inspects only requests for risky domains through a cloud proxy",
+       "why": "That is how the Umbrella secure Internet gateway works, not how Secure Cloud Analytics detects threats."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which Cisco Secure Workload function builds tight security policies from network flows, processes, and side information such as load balancer configurations and route tags?",
+     "choices": [
+      {
+       "text": "Forensics",
+       "why": "Forensics captures real-time forensic events on workloads and applies rules for alerting. It does not generate application policy."
+      },
+      {
+       "text": "Application Dependency Mapping (ADM)",
+       "why": "ADM builds policies from flows, processes, and side information, exports them for different enforcement engines, and verifies them against live traffic."
+      },
+      {
+       "text": "Secure Connector",
+       "why": "Secure Connector is a reverse tunnel that lets the cluster reach an orchestrator API server."
+      },
+      {
+       "text": "Vulnerability Dashboard",
+       "why": "The Vulnerability Dashboard focuses on critical vulnerabilities and workloads by CVSS score. It does not build policies."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 5",
+   "questions": [
+    {
+     "q": "Which cloud service model is compared to a utility company, where you rent infrastructure and pay for the virtual power you use to run your own software?",
+     "choices": [
+      {
+       "text": "PaaS",
+       "why": "PaaS provides everything except the applications, including the platform for development. It is not the raw infrastructure rental model."
+      },
+      {
+       "text": "Community cloud",
+       "why": "A community cloud is a deployment model shared by several organizations, not a service model."
+      },
+      {
+       "text": "IaaS",
+       "why": "IaaS rents infrastructure, like a virtual server on a virtual disk, and is compared to a utility company because you pay for what you use."
+      },
+      {
+       "text": "SaaS",
+       "why": "SaaS is a complete packaged software solution rented to users through a front end or web portal."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Before signing with a cloud provider, a CISO wants to know how the provider will respond to fire, storms, natural disasters, or power loss, and what continued service it guarantees. Which provider document should be reviewed?",
+     "choices": [
+      {
+       "text": "The disaster recovery and business continuity plan (DR/BCP)",
+       "why": "The DR/BCP describes how the provider responds to fire, storms, natural disasters, or power loss and what continued service it guarantees."
+      },
+      {
+       "text": "NIST SP 500-292",
+       "why": "NIST SP 500-292 is the NIST Cloud Computing Reference Architecture, not a provider's disaster plan."
+      },
+      {
+       "text": "The service level agreement (SLA)",
+       "why": "The SLA defines the contracted level of guaranteed service in general, while the disaster response itself is described in the DR/BCP."
+      },
+      {
+       "text": "The shared responsibility model",
+       "why": "The shared responsibility model describes which security duties belong to the customer and which to the CSP, not disaster response."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which is a disadvantage of the Waterfall model described in the chapter?",
+     "choices": [
+      {
+       "text": "Requirements change constantly throughout the project",
+       "why": "In Waterfall requirements are agreed at the start, and the customer is not constantly adding requirements. That is listed as a pro."
+      },
+      {
+       "text": "Progress is hard to measure",
+       "why": "The chapter lists easy progress measurement by milestones as a Waterfall advantage."
+      },
+      {
+       "text": "Cost and deadline estimates are difficult",
+       "why": "The chapter says Waterfall makes planning and estimates of cost, resources, and deadlines simple."
+      },
+      {
+       "text": "Going back after the verification phase is very costly",
+       "why": "Because Waterfall is linear, returning to earlier work after verification is very costly, and the rigid plan cannot adapt to unexpected events."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In Agile, what is the backlog?",
+     "choices": [
+      {
+       "text": "The committed list of work",
+       "why": "The backlog is Agile's committed list of work. Ideas enter it and are turned into user stories and a feature specification."
+      },
+      {
+       "text": "The record of every failed CI/CD pipeline run",
+       "why": "Pipeline runs are logged and failures trigger notifications, but that log is not the Agile backlog."
+      },
+      {
+       "text": "A meeting held at the end of each sprint to reflect on wins and losses",
+       "why": "Reflecting on wins and losses at the end of a sprint is the sprint retrospective."
+      },
+      {
+       "text": "A deployment environment used internally before production",
+       "why": "That is the staging, or beta, environment."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which development method improves quality and adapts to the customer's changing needs through iterative, frequent small releases, and was originally developed for the Chrysler C3 payroll software?",
+     "choices": [
+      {
+       "text": "Waterfall",
+       "why": "Waterfall is a strict linear process with a single release after verification, not frequent small releases."
+      },
+      {
+       "text": "Kanban",
+       "why": "Kanban is a scheduling system for lean development and just-in-time manufacturing developed at Toyota."
+      },
+      {
+       "text": "Extreme Programming",
+       "why": "Extreme Programming uses iterative, frequent small releases and was originally developed for the Chrysler Comprehensive Compensation System (C3) payroll software."
+      },
+      {
+       "text": "Lean",
+       "why": "Lean is a management philosophy that eliminates waste at the business level, not a software engineering method tied to C3."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which deployment environment is used internally by the product team before code reaches production?",
+     "choices": [
+      {
+       "text": "Version control repository",
+       "why": "Version control repositories like GitLab and GitHub store and integrate code changes. They are not a deployment environment."
+      },
+      {
+       "text": "Docker Hub",
+       "why": "Docker Hub is Docker's public image repository, not an internal pre-production environment."
+      },
+      {
+       "text": "minikube",
+       "why": "minikube is a lightweight Kubernetes implementation for learning, not the product team's staging environment."
+      },
+      {
+       "text": "Staging (beta) environment",
+       "why": "The staging, or beta, environment is used internally by the product team before production."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "According to the chapter, how do Agile organizations usually handle deployments?",
+     "choices": [
+      {
+       "text": "They deploy work in progress manually to staging and automatically deploy approved changes from the master branch to production",
+       "why": "The chapter says Agile organizations usually deploy work in progress manually to staging and automatically deploy approved master branch changes to production."
+      },
+      {
+       "text": "They deploy every commit directly to production with no staging",
+       "why": "The chapter describes deploying to staging, QA, and then production, not skipping staging."
+      },
+      {
+       "text": "They deploy only manually and never automate production releases",
+       "why": "Automating releases is the goal of CD, and approved changes are deployed to production automatically."
+      },
+      {
+       "text": "They deploy to production only once, after a final verification phase",
+       "why": "A single release after verification describes Waterfall, not Agile."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which container orchestration framework was originally developed by Google and automates the distribution, scheduling, and orchestration of containers across a cluster?",
+     "choices": [
+      {
+       "text": "Kubernetes",
+       "why": "Kubernetes (k8s) was originally developed by Google and automates distribution, scheduling, and orchestration of containers across a cluster."
+      },
+      {
+       "text": "Nomad",
+       "why": "Nomad is HashiCorp's container management and orchestration platform."
+      },
+      {
+       "text": "Docker Swarm",
+       "why": "Docker Swarm is orchestration integrated with the Docker Engine, not the framework originally developed by Google."
+      },
+      {
+       "text": "Apache Mesos",
+       "why": "Apache Mesos is a distributed Linux kernel with native container support, not Google's orchestration framework."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A developer started a container from the mypython image and wants to confirm it is currently running. Which command should be used?",
+     "choices": [
+      {
+       "text": "docker images",
+       "why": "docker images lists local images, not whether a container from an image is running."
+      },
+      {
+       "text": "docker ps",
+       "why": "docker ps lists running containers."
+      },
+      {
+       "text": "docker build -t mypython",
+       "why": "This builds the mypython image from a Dockerfile. It does not show running containers."
+      },
+      {
+       "text": "kubectl version",
+       "why": "kubectl version shows the Kubernetes client and server versions, not running Docker containers."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A security team wants to run a penetration test against its workloads hosted at a cloud provider. What should it do first?",
+     "choices": [
+      {
+       "text": "Run the test without notice, since cloud services are unhackable",
+       "why": "The chapter warns that cloud services are attractive targets even when sold as unhackable, and testing must follow the provider's rules."
+      },
+      {
+       "text": "Move the workloads to SaaS so the provider performs the test",
+       "why": "Changing the service model does not replace following the CSP's guidelines before testing."
+      },
+      {
+       "text": "Learn what it can and cannot do, using the provider's published testing guidelines",
+       "why": "The chapter says to learn what you can and cannot do before penetration testing in the cloud, because most CSPs publish guidelines."
+      },
+      {
+       "text": "Start scanning the provider's hypervisors, since the data is not in any physical location",
+       "why": "Hypervisors belong to the CSP, and the chapter stresses that your data still lives in a physical location somewhere."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A company asks a prospective provider how its data will be separated from other customers' data. Which concern does the chapter raise about a shared server?",
+     "choices": [
+      {
+       "text": "A shared server makes the SLA invalid",
+       "why": "SLA terms are a separate question about guaranteed service levels and are not voided by shared hosting."
+      },
+      {
+       "text": "A shared server cannot support encryption at rest",
+       "why": "The chapter treats encryption as a separate question about at rest and in transit and who controls the keys, not a limitation of shared servers."
+      },
+      {
+       "text": "Disk, processing, and bandwidth are limited, and data could become commingled",
+       "why": "The chapter notes that a shared server limits disk, processing, and bandwidth and data could become commingled, while a dedicated server holds only your data."
+      },
+      {
+       "text": "A shared server removes the customer's right to audit",
+       "why": "The right to audit is a separate contract question to settle in writing. It does not depend on server sharing."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "When the Umbrella secure Internet gateway handles a risky request and the URL is still unknown after URL inspection, what happens if a file is present?",
+     "choices": [
+      {
+       "text": "The file is uploaded to the Umbrella Overview dashboard for manual review",
+       "why": "The Overview dashboard shows totals such as DNS requests and blocks. It does not hold files for review."
+      },
+      {
+       "text": "The request is routed as usual because unknown means safe",
+       "why": "Only requests classified as safe route as usual. Unknown risky requests with files get further inspection."
+      },
+      {
+       "text": "The file's reputation is checked and it is inspected by antivirus engines and Cisco Secure Malware Defense before download",
+       "why": "As the final step, the file reputation is checked and antivirus engines and Secure Malware Defense inspect it, blocking known-bad files before download."
+      },
+      {
+       "text": "The request is sent back to the start to identify the customer and policy again",
+       "why": "Identifying the customer and policy is the first step of the flow and is not repeated for file inspection."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An incident responder investigating a malicious domain wants to find other domains registered with the same contact information. Which Umbrella Investigate feature should be used?",
+     "choices": [
+      {
+       "text": "IP Geolocation",
+       "why": "IP Geolocation shows the country of an IP address, not domains with shared registration contacts."
+      },
+      {
+       "text": "ASN Attribution",
+       "why": "ASN Attribution provides IP-to-ASN mappings, not registrant contact details."
+      },
+      {
+       "text": "Passive DNS Database",
+       "why": "The Passive DNS Database holds historical DNS resolution data, not domain registration contact information."
+      },
+      {
+       "text": "WHOIS Record Data",
+       "why": "WHOIS Record Data shows domain ownership and other malicious domains that use the same contact information."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which layer of Cisco cloud email protection inspects URLs in real time and blocks sites that change from benign to malicious?",
+     "choices": [
+      {
+       "text": "CASE",
+       "why": "CASE is the antispam engine with high capture and low false positive rates, not the real-time URL inspection layer."
+      },
+      {
+       "text": "Advanced outbreak filters",
+       "why": "Advanced outbreak filters inspect URLs in real time and block sites that turn from benign to malicious."
+      },
+      {
+       "text": "Email encryption key services",
+       "why": "Key services manage recipient registration, authentication, and message keys for encryption. They do not inspect URLs."
+      },
+      {
+       "text": "Geolocation-based filtering",
+       "why": "Geolocation-based filtering controls email by sender location to fight spear phishing. It does not inspect URLs in real time."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "How does Cisco XDR Investigate present its findings?",
+     "choices": [
+      {
+       "text": "As a per-minute Flow Observation list only",
+       "why": "Flow Observations are per-minute flow aggregations in Secure Workload, not the XDR Investigate view."
+      },
+      {
+       "text": "As a node graph of relationships, with a full list of results below it",
+       "why": "Investigate collects results from all integrated technologies and shows a node graph of relationships with a full results list below."
+      },
+      {
+       "text": "As a single anomaly score from minus 100 to 0",
+       "why": "A score from minus 100 to 0 is the Umbrella Investigate anomaly (DGA) score, not XDR Investigate output."
+      },
+      {
+       "text": "As an HTML table emailed with a .csv attachment",
+       "why": "Emailed HTML tables with a .csv attachment describe scheduled Umbrella reports, not XDR Investigate."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "According to the chapter, what is the first step in using the Cisco Attack Surface Management platform?",
+     "choices": [
+      {
+       "text": "Install software agents on every workload",
+       "why": "Software agents are part of Cisco Secure Workload, not the first step in Attack Surface Management."
+      },
+      {
+       "text": "Change the MX records to cisco-ces.com",
+       "why": "Changing MX records routes email through Cisco cloud email security. It is unrelated to Attack Surface Management."
+      },
+      {
+       "text": "Deploy a Secure Cloud Sensor on every network segment",
+       "why": "The Secure Cloud Sensor is used by Secure Cloud Analytics to monitor on-prem networks, not as the first step in Attack Surface Management."
+      },
+      {
+       "text": "Integrate your data using the prebuilt integrations",
+       "why": "The first step is to integrate your data with prebuilt integrations for end-to-end visibility, context, and automation. The platform works better with more data."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A security analyst sees an infected internal host moving laterally to other servers in the same data center. How does the chapter classify this traffic?",
+     "choices": [
+      {
+       "text": "Anycast traffic",
+       "why": "Anycast is a routing method in which many sites share one IP address, as Umbrella's data centers do. It does not describe lateral movement."
+      },
+      {
+       "text": "East/west traffic",
+       "why": "East/west traffic is lateral movement inside the network, which is what this host is doing."
+      },
+      {
+       "text": "Fast flux traffic",
+       "why": "Fast flux is a DNS technique botnets use to hide malicious sites behind changing proxies, not lateral movement inside a network."
+      },
+      {
+       "text": "North/south traffic",
+       "why": "North/south traffic crosses the perimeter, such as between the internal network and the Internet."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Cisco-acquired company gives end-to-end application visibility and performance insight and builds a dynamic topology map of all applications?",
+     "choices": [
+      {
+       "text": "AppDynamics",
+       "why": "AppDynamics (AppD) gives end-to-end application visibility and performance insight and builds a dynamic topology map of all applications."
+      },
+      {
+       "text": "OpenDNS",
+       "why": "Cisco acquired OpenDNS, which Umbrella evolved from. It provides DNS security, not application performance mapping."
+      },
+      {
+       "text": "Cisco Talos",
+       "why": "Talos is Cisco's threat intelligence organization, not an application performance monitoring company."
+      },
+      {
+       "text": "Docker",
+       "why": "Docker is a container runtime engine, not a Cisco-acquired application visibility company."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In Cisco Secure Workload, a client workload opens a connection to a database server that responds. What role does the client play in the flow?",
+     "choices": [
+      {
+       "text": "Connector",
+       "why": "Connectors are Secure Workload integrations for flow ingestion, inventory enrichment, and alerts, not a side of a flow."
+      },
+      {
+       "text": "Consumer",
+       "why": "The Consumer starts the flow and the Provider responds, like client and server, so the client is the Consumer."
+      },
+      {
+       "text": "Provider",
+       "why": "The Provider is the side that responds to the flow, which here is the database server."
+      },
+      {
+       "text": "Master",
+       "why": "Master is the Kubernetes component that coordinates cluster activity, not a role in a Secure Workload flow."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Cisco Secure Workload forensic event type flags attempts to exploit flaws such as Meltdown?",
+     "choices": [
+      {
+       "text": "Binary Changed",
+       "why": "Binary Changed flags known binaries whose hash or modification time changed."
+      },
+      {
+       "text": "Follow User Logon",
+       "why": "Follow User Logon tracks processes started after a user logs on."
+      },
+      {
+       "text": "Privilege Escalation",
+       "why": "Privilege Escalation flags commands run with elevated privileges, such as sudo."
+      },
+      {
+       "text": "Side Channel",
+       "why": "The Side Channel event type flags attempts to exploit side-channel flaws such as Meltdown."
+      }
+     ],
+     "answer": 3
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2230 @@
+{
+ "chapter": 11,
+ "tests": [
+  {
+   "title": "Practice Test 1",
+   "questions": [
+    {
+     "q": "What are the three phases of the attack continuum across which an organization needs visibility and control?",
+     "choices": [
+      {
+       "text": "Detect, contain, and eradicate",
+       "why": "These are incident response activities, not the three phases of the attack continuum, which are before, during, and after."
+      },
+      {
+       "text": "Prevention, detection, and remediation",
+       "why": "These are security functions, not the continuum phases. The continuum phases are before, during, and after an attack."
+      },
+      {
+       "text": "Before, during, and after an attack",
+       "why": "Correct. The attack continuum covers before an attack, during an active attack, and after the attacker starts to damage systems or steal information."
+      },
+      {
+       "text": "Reconnaissance, exploitation, and exfiltration",
+       "why": "These are attacker kill-chain style stages; the attack continuum is defined simply as before, during, and after an attack."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which organization's definition of EDR does the chapter cite, describing it as tools primarily focused on detecting and investigating suspicious activities on hosts and endpoints?",
+     "choices": [
+      {
+       "text": "Gartner",
+       "why": "Correct. The chapter uses Gartner's definition of Endpoint Detection and Response."
+      },
+      {
+       "text": "NIST",
+       "why": "NIST publishes security frameworks, but the chapter credits the EDR definition to Gartner."
+      },
+      {
+       "text": "MITRE",
+       "why": "MITRE is known for ATT&CK, but the chapter's EDR definition comes from Gartner."
+      },
+      {
+       "text": "Cisco Talos",
+       "why": "Talos is Cisco's threat intelligence group that works with the Malware Analytics Cloud; it is not the source of the EDR definition."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which term describes the problem where an EDR produces so many false positives that real threats are more likely to go unnoticed?",
+     "choices": [
+      {
+       "text": "Threat blocking",
+       "why": "Threat blocking is an EDR capability that contains threats rather than just detecting them; it does not describe excess false positives."
+      },
+      {
+       "text": "Retrospection",
+       "why": "Retrospection, or cloud recall, is going back to quarantine a file once it is later found to be bad, not a false-positive problem."
+      },
+      {
+       "text": "Alert fatigue",
+       "why": "Correct. Alert fatigue is caused by too many false positives, and good EDR filtering exists to reduce it."
+      },
+      {
+       "text": "Device flow correlation",
+       "why": "Device flow correlation flags or blocks suspicious network activity; it is a feature, not a symptom of too many false positives."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "How does the Cisco Secure Endpoint connector decide whether a file is malicious, compared with traditional antivirus?",
+     "choices": [
+      {
+       "text": "It sends the file's hash to the cloud, and the cloud returns a verdict",
+       "why": "Correct. Instead of matching a local signature database, the lightweight connector sends a hash to the cloud, which decides."
+      },
+      {
+       "text": "It compares the file name against an allowed-application list",
+       "why": "Secure Endpoint identifies files by SHA-256 hash, not by name, and the verdict comes from the cloud."
+      },
+      {
+       "text": "It uploads every file to a local sandbox appliance",
+       "why": "The connector does not sandbox every file locally; it sends hashes to the Malware Analytics Cloud for a verdict."
+      },
+      {
+       "text": "It matches the file against a large local signature database",
+       "why": "That is how traditional antivirus works. Secure Endpoint offloads the decision to the cloud so the connector stays lightweight."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which three verdicts can the Malware Analytics Cloud return to a Secure Endpoint connector?",
+     "choices": [
+      {
+       "text": "Clean, Malware, and Unknown",
+       "why": "Correct. Figure 11-1 shows the cloud returning Clean, Malware, or Unknown."
+      },
+      {
+       "text": "Allow, Block, and Quarantine",
+       "why": "These are actions a policy might take, not the verdicts the cloud returns, which are Clean, Malware, and Unknown."
+      },
+      {
+       "text": "Good, Neutral, and Bad",
+       "why": "These are not the Secure Endpoint verdicts. The cloud returns Clean, Malware, or Unknown."
+      },
+      {
+       "text": "Trusted, Suspicious, and Malicious",
+       "why": "These are generic reputation labels; the Secure Endpoint cloud verdicts are Clean, Malware, and Unknown."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A security analyst wants to know which endpoints in the organization have seen a particular file. Which Secure Endpoint capability provides this?",
+     "choices": [
+      {
+       "text": "File sandboxing",
+       "why": "File sandboxing runs unknown files to see their true behavior, not to track which endpoints have seen them."
+      },
+      {
+       "text": "File reputation",
+       "why": "File reputation analyzes files inline to block them or apply policies; it does not map where a file has been seen."
+      },
+      {
+       "text": "File trajectory",
+       "why": "Correct. File trajectory shows which endpoints have seen a file."
+      },
+      {
+       "text": "Device trajectory",
+       "why": "Device trajectory shows what actions files performed on one given endpoint, not which endpoints saw a file."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which of the following lists the four categories found under the Outbreak Control menu in the Secure Endpoint console?",
+     "choices": [
+      {
+       "text": "Custom Detections, Exclusions, Engines, and Groups",
+       "why": "Exclusions and groups are managed under Management, and engines are policy settings; they are not Outbreak Control categories."
+      },
+      {
+       "text": "Policies, Groups, Exclusions, and Download Connector",
+       "why": "These are items under the Management menu, not the Outbreak Control categories."
+      },
+      {
+       "text": "Dashboard, Inbox, Overview, and Events",
+       "why": "These are reporting views in the console, not Outbreak Control categories."
+      },
+      {
+       "text": "Custom Detections, Application Control, Network, and Endpoint IOC",
+       "why": "Correct. These four categories make up Outbreak Control, and their objects become parts of policies."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does a simple custom detection in Cisco Secure Endpoint consist of?",
+     "choices": [
+      {
+       "text": "A list of directories and file extensions",
+       "why": "Directories and file extensions are exclusion set entries, which the connector will not scan."
+      },
+      {
+       "text": "A list of SHA-256 file hashes",
+       "why": "Correct. A simple custom detection is a list of SHA-256 hashes for files to detect and quarantine."
+      },
+      {
+       "text": "A list of IPv4 addresses in CIDR notation",
+       "why": "IPv4 addresses in CIDR notation are entries in IP allow and block lists used by DFC, not simple custom detections."
+      },
+      {
+       "text": "A set of ClamAV-based signatures",
+       "why": "ClamAV-based signatures are used by advanced custom detections, not simple ones."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "On which antivirus signature format are Secure Endpoint advanced custom detections based?",
+     "choices": [
+      {
+       "text": "YARA",
+       "why": "YARA is a separate pattern-matching rule format; the chapter says advanced custom detections are based on ClamAV signatures."
+      },
+      {
+       "text": "ClamAV",
+       "why": "Correct. Advanced custom detections support more signature types, like traditional antivirus signatures, and are based on ClamAV."
+      },
+      {
+       "text": "Snort",
+       "why": "Snort is an intrusion prevention rule language, not the basis for Secure Endpoint advanced custom detections."
+      },
+      {
+       "text": "TETRA",
+       "why": "TETRA is the full client-side antivirus engine in Secure Endpoint, not the signature format for advanced custom detections."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An administrator wants connectors to flag or block network connections to known malicious IP addresses, using both the Cisco intelligence feed and the company's own IP lists. Which feature does this?",
+     "choices": [
+      {
+       "text": "Exclusion sets",
+       "why": "Exclusion sets tell the connector what not to scan or convict; they do not block network connections."
+      },
+      {
+       "text": "Device flow correlation (DFC)",
+       "why": "Correct. DFC flags or blocks suspicious network activity and can use the Cisco intelligence feed, your own IP lists, or both."
+      },
+      {
+       "text": "Advanced custom detection",
+       "why": "Advanced custom detections match files using ClamAV-based signatures, not network connections to IP addresses."
+      },
+      {
+       "text": "File retrospection",
+       "why": "File retrospection keeps analyzing files as threat levels change; it does not inspect network connections."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which address format is accepted in Secure Endpoint IP allow and block lists?",
+     "choices": [
+      {
+       "text": "Fully qualified domain names",
+       "why": "IP lists hold IPv4 addresses or CIDR ranges, not domain names."
+      },
+      {
+       "text": "MAC addresses of endpoints",
+       "why": "IP lists are used by DFC to judge network connections by IPv4 address, not by MAC address."
+      },
+      {
+       "text": "IPv4 addresses, as single IPs or in CIDR notation",
+       "why": "Correct. Each line holds a single IPv4 address or a CIDR range."
+      },
+      {
+       "text": "IPv6 prefixes only",
+       "why": "The IP lists take IPv4 addresses only, not IPv6."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An engineer finds that the Secure Endpoint connector slows down a database server because it scans large, frequently written files. What should the engineer configure?",
+     "choices": [
+      {
+       "text": "An exclusion set for the database directory",
+       "why": "Correct. Exclusion sets fix performance problems by excluding directories with large, frequently written files like databases."
+      },
+      {
+       "text": "The TETRA engine",
+       "why": "Enabling TETRA makes the connector a thicker client using more disk and bandwidth, which would not help performance."
+      },
+      {
+       "text": "A simple custom detection for the database files",
+       "why": "A simple custom detection would detect and quarantine the files by hash, which is the opposite of what is needed."
+      },
+      {
+       "text": "An IP allow list for the database server",
+       "why": "An IP allow list stops DFC from blocking or flagging addresses; it does not stop file scanning."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which Secure Endpoint engine is a full client-side antivirus engine that is disabled by default?",
+     "choices": [
+      {
+       "text": "Ethos",
+       "why": "Ethos is the fuzzy fingerprinting engine using static or passive heuristics, not a full antivirus engine."
+      },
+      {
+       "text": "ClamAV",
+       "why": "ClamAV is the signature format behind advanced custom detections, not one of the three Secure Endpoint engines."
+      },
+      {
+       "text": "Spero",
+       "why": "Spero is the machine learning engine that finds previously unknown threats, not a full client-side antivirus."
+      },
+      {
+       "text": "TETRA",
+       "why": "Correct. TETRA is the full client-side antivirus engine, and the default is to leave it disabled."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "By default, which port do Secure Endpoint connectors use to reach the Cisco cloud servers for file and network disposition lookups?",
+     "choices": [
+      {
+       "text": "UDP 443",
+       "why": "The lookups use TCP 443 (HTTPS), not UDP."
+      },
+      {
+       "text": "TCP 443",
+       "why": "Correct. Connectors use HTTPS on TCP 443 by default, so firewalls and web proxies must allow it."
+      },
+      {
+       "text": "UDP 53",
+       "why": "UDP 53 is DNS, which connectors need to resolve the cloud server names, but it is not the lookup port."
+      },
+      {
+       "text": "TCP 32137 only",
+       "why": "TCP 32137 is the alternative port; the default is TCP 443."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the maximum size of a file you can upload to the Secure Endpoint console so the cloud can calculate its SHA-256 hash for a custom detection?",
+     "choices": [
+      {
+       "text": "1GB",
+       "why": "The upload limit is 20MB; there is no 1GB upload option for hashing."
+      },
+      {
+       "text": "100MB",
+       "why": "The upload limit for hashing is 20MB, well below 100MB."
+      },
+      {
+       "text": "2MB",
+       "why": "The limit is 20MB, not 2MB."
+      },
+      {
+       "text": "20MB",
+       "why": "Correct. Files up to 20MB can be uploaded so the system extracts the SHA-256."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Secure Endpoint console view shows threat activity in the organization over the past 30 days along with the percentage of compromised computers?",
+     "choices": [
+      {
+       "text": "iOS Clarity",
+       "why": "iOS Clarity shows activity for iOS devices managed through a linked MDM, not the overall 30-day threat summary."
+      },
+      {
+       "text": "Main Dashboard",
+       "why": "Correct. The Main Dashboard shows the past 30 days of threat activity and the percentage of compromised computers."
+      },
+      {
+       "text": "Events dashboard",
+       "why": "The Events dashboard lists the most recent events in the deployment rather than a 30-day summary."
+      },
+      {
+       "text": "Audit log",
+       "why": "The audit log is the change history for lists and exclusion sets, not a threat activity view."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An engineer wants to give Cisco Secure Client users the Secure Endpoint connector without a separate installer process. Which component helps distribute it?",
+     "choices": [
+      {
+       "text": "AMP Enabler",
+       "why": "Correct. The AMP Enabler is a Cisco Secure Client add-on that helps distribute the Secure Endpoint connector to Cisco Secure Client users."
+      },
+      {
+       "text": "Cisco Threat Response",
+       "why": "Cisco Threat Response is a one-pane-of-glass console that integrates security products; it does not install connectors."
+      },
+      {
+       "text": "iOS Clarity",
+       "why": "iOS Clarity is a dashboard for MDM-managed iOS devices; it does not distribute connectors."
+      },
+      {
+       "text": "Device flow correlation",
+       "why": "DFC flags or blocks suspicious network activity; it has nothing to do with distributing the connector."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In the Secure Endpoint console, how is a policy applied to endpoints?",
+     "choices": [
+      {
+       "text": "Through exclusion sets",
+       "why": "Exclusion sets are parts of a policy, not the means of applying the policy to endpoints."
+      },
+      {
+       "text": "Through IP block lists",
+       "why": "IP block lists are DFC objects included in policies; they do not assign policies to endpoints."
+      },
+      {
+       "text": "Through the Inbox",
+       "why": "The Inbox tracks compromised computers; it is not used to assign policies."
+      },
+      {
+       "text": "Through groups of computers",
+       "why": "Correct. A policy reaches endpoints through groups, which organize computers by function, location, or other criteria."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A company wants mobile devices kept on a supported set of applications, with automated patch provisioning and jailbreak detection. Which type of solution meets this need?",
+     "choices": [
+      {
+       "text": "File retrospection",
+       "why": "File retrospection continues analyzing files as threat levels change; it does not manage devices."
+      },
+      {
+       "text": "Device flow correlation (DFC)",
+       "why": "DFC flags or blocks suspicious network connections; it does not manage device configuration or patching."
+      },
+      {
+       "text": "Endpoint Detection and Response (EDR)",
+       "why": "EDR focuses on detecting and investigating suspicious activity on endpoints, not on provisioning patches or enforcing an app catalog."
+      },
+      {
+       "text": "Mobile device management (MDM)",
+       "why": "Correct. MDM keeps devices on supported apps and corporate policies, provisions updates and patches automatically, and monitors jailbreak detection."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Cisco product is described as an ongoing effort toward one console that automates integrations across Cisco security products such as Secure Endpoint, Umbrella, and Secure Email?",
+     "choices": [
+      {
+       "text": "Cisco Meraki SM",
+       "why": "Meraki SM is Cisco's MDM, which feeds iOS Clarity; it is not the cross-product security console."
+      },
+      {
+       "text": "Cisco ESA",
+       "why": "The Email Security Appliance processes email through listeners; it is one of the products integrated, not the integrating console."
+      },
+      {
+       "text": "Cisco Threat Response",
+       "why": "Correct. Cisco Threat Response is the one-pane-of-glass console integrating Cisco security products and threat intelligence sources."
+      },
+      {
+       "text": "Cisco Secure Client",
+       "why": "Cisco Secure Client provides remote access VPN, secure network access, and ISE posture; it is not the integration console."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 2",
+   "questions": [
+    {
+     "q": "Which of the following is NOT a feature of Cisco Secure Endpoint?",
+     "choices": [
+      {
+       "text": "File retrospection",
+       "why": "File retrospection, continuing to analyze files as threat levels change, is a Secure Endpoint feature."
+      },
+      {
+       "text": "Device trajectory",
+       "why": "Device trajectory, showing what files did on a given endpoint, is a Secure Endpoint feature."
+      },
+      {
+       "text": "Web content filtering and redirect",
+       "why": "Correct. Web content filtering and redirect is not a Secure Endpoint feature; the chapter quiz makes this point."
+      },
+      {
+       "text": "Custom detections",
+       "why": "Custom detections, under Outbreak Control, are a core Secure Endpoint feature for detecting and quarantining files."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What does EPP (Endpoint Protection Platform) add beyond basic detection?",
+     "choices": [
+      {
+       "text": "Mobile device patch provisioning",
+       "why": "Automated patch provisioning is an MDM function, not what defines EPP."
+      },
+      {
+       "text": "Remote access VPN connectivity",
+       "why": "Remote access VPN is provided by Cisco Secure Client, not by the EPP concept."
+      },
+      {
+       "text": "Email listener processing",
+       "why": "Listeners belong to the Cisco ESA and handle incoming SMTP connections; they are unrelated to EPP."
+      },
+      {
+       "text": "Protection through threat blocking",
+       "why": "Correct. EPP provides detection plus protection, meaning it blocks threats."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does Cisco call the software agent installed on an endpoint for Secure Endpoint monitoring and detection?",
+     "choices": [
+      {
+       "text": "A connector",
+       "why": "Correct. Cisco calls the lightweight Secure Endpoint agent a connector."
+      },
+      {
+       "text": "A sensor",
+       "why": "Sensor is a generic term; Cisco specifically calls the Secure Endpoint agent a connector."
+      },
+      {
+       "text": "A listener",
+       "why": "A listener is an ESA component that handles incoming SMTP connections, not the endpoint agent."
+      },
+      {
+       "text": "An enabler",
+       "why": "The AMP Enabler is a Cisco Secure Client add-on that distributes the connector; it is not the agent itself."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which minimum EDR capability is about removing false positives so analysts are not overwhelmed?",
+     "choices": [
+      {
+       "text": "Filtering",
+       "why": "Correct. Filtering removes false positives to reduce alert fatigue."
+      },
+      {
+       "text": "Threat blocking",
+       "why": "Threat blocking means containing threats, not just detecting them; it does not address false positives."
+      },
+      {
+       "text": "Retrospection",
+       "why": "Retrospection quarantines files later found to be bad; it is not one of the three minimum EDR capabilities."
+      },
+      {
+       "text": "Help with DFIR",
+       "why": "DFIR help supports forensics, incident response, and threat hunting rather than reducing false positives."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A file passed through several endpoints and was judged clean. A week later, the cloud learns the file is malicious, and the connectors that already saw it go back and quarantine it. What is this called?",
+     "choices": [
+      {
+       "text": "File reputation",
+       "why": "File reputation analyzes files inline at the time they are seen; going back afterward is retrospection."
+      },
+      {
+       "text": "Retrospection, also called cloud recall",
+       "why": "Correct. Retrospective security, or cloud recall, quarantines files already seen once they are later found to be bad."
+      },
+      {
+       "text": "Device flow correlation",
+       "why": "DFC flags or blocks suspicious network connections, not previously seen files."
+      },
+      {
+       "text": "File sandboxing",
+       "why": "File sandboxing runs unknown files to observe their behavior; it does not go back to quarantine files already seen."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Malware Defense feature analyzes unknown files to see their true behavior, matching the dynamic file analysis named in the exam objectives?",
+     "choices": [
+      {
+       "text": "File reputation",
+       "why": "File reputation analyzes files inline to block them or apply policies, not by running them to observe behavior."
+      },
+      {
+       "text": "File sandboxing",
+       "why": "Correct. File sandboxing analyzes unknown files to see their true behavior, which is dynamic file analysis."
+      },
+      {
+       "text": "File trajectory",
+       "why": "File trajectory shows which endpoints have seen a file; it does not analyze behavior."
+      },
+      {
+       "text": "Ethos",
+       "why": "Ethos is a fuzzy fingerprinting engine using static or passive heuristics, which is the opposite of dynamic analysis."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Cisco Secure Endpoint was formerly known by which name?",
+     "choices": [
+      {
+       "text": "Cisco Threat Grid",
+       "why": "Threat Grid was the former name of Cisco Secure Malware Analytics, the separate sandboxing product."
+      },
+      {
+       "text": "Cisco AMP for Endpoints",
+       "why": "Correct. Secure Endpoint was formerly Cisco Advanced Malware Protection (AMP) for Endpoints, and before that FireAMP from SourceFire."
+      },
+      {
+       "text": "Cisco AMP for Networks",
+       "why": "AMP for Networks is the former name of Cisco Secure Firewall Malware Defense, the firewall form covered in Chapter 7."
+      },
+      {
+       "text": "Cisco AnyConnect",
+       "why": "AnyConnect is the former name of Cisco Secure Client, the VPN and posture client."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which hash algorithm does the Secure Endpoint connector send to the cloud, and on which custom detections and application lists are built?",
+     "choices": [
+      {
+       "text": "SHA-256",
+       "why": "Correct. Secure Endpoint identifies files by SHA-256 hash, and detections and lists are built on it."
+      },
+      {
+       "text": "SHA-1",
+       "why": "SHA-1 is not the hash Secure Endpoint uses; it identifies files by SHA-256."
+      },
+      {
+       "text": "CRC32",
+       "why": "CRC32 is a checksum, not a file identifier used by Secure Endpoint, which uses SHA-256."
+      },
+      {
+       "text": "MD5",
+       "why": "MD5 signatures are one type available in advanced custom detections, but the connector's file identifier is SHA-256."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In the Secure Endpoint console, a custom detection behaves most like which kind of list?",
+     "choices": [
+      {
+       "text": "A whitelist of files that must never be scanned",
+       "why": "Files that must not be scanned belong in an exclusion set, not a custom detection."
+      },
+      {
+       "text": "A list of IP addresses DFC must never block",
+       "why": "That describes an IP allow list (whitelist) used by DFC, not a custom detection."
+      },
+      {
+       "text": "A blacklist of files to detect and quarantine",
+       "why": "Correct. A custom detection works like a blacklist, identifying files to detect and quarantine."
+      },
+      {
+       "text": "A list of groups that receive a policy",
+       "why": "Groups are how policies reach endpoints; they are not custom detections."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which signature types can be used in a Secure Endpoint advanced custom detection?",
+     "choices": [
+      {
+       "text": "Threat, extension, and path signatures",
+       "why": "Threat, extension, and path are exclusion types, not signature types."
+      },
+      {
+       "text": "File body-based, MD5, and logical signatures",
+       "why": "Correct. The chapter quiz lists file body-based signatures, MD5 signatures, and logical signatures as advanced detection types."
+      },
+      {
+       "text": "Spero, Ethos, and TETRA signatures",
+       "why": "Spero, Ethos, and TETRA are Secure Endpoint engines, not signature types for advanced custom detections."
+      },
+      {
+       "text": "IPv4, CIDR, and port signatures",
+       "why": "IPv4 addresses, CIDR ranges, and ports are entries in DFC IP lists, not advanced detection signatures."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An administrator built an advanced custom detection and added several signatures. Which button must be clicked to compile the signatures into a usable detection?",
+     "choices": [
+      {
+       "text": "Build Database From Signature Set",
+       "why": "Correct. This button compiles the advanced custom detection, and a success message confirms the signature set was created."
+      },
+      {
+       "text": "View Changes",
+       "why": "View Changes opens the audit log for a list; it does not build the signature database."
+      },
+      {
+       "text": "Create IP List",
+       "why": "Create IP List starts or finishes a DFC IP list, not an advanced custom detection."
+      },
+      {
+       "text": "Update Name",
+       "why": "Update Name names a new simple custom detection or renames a list; it does not compile signatures."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "When an Android custom detection is used for outbreak control and a device has the malicious app installed, what happens?",
+     "choices": [
+      {
+       "text": "The device is wiped by the connector",
+       "why": "The connector does not wipe the device; the user is prompted to uninstall the app."
+      },
+      {
+       "text": "The app is silently deleted without notifying the user",
+       "why": "The chapter says the user is notified and prompted to uninstall; there is no silent deletion."
+      },
+      {
+       "text": "The user is notified and prompted to uninstall the app",
+       "why": "Correct. For outbreak control, the user is notified and prompted to uninstall the malicious app."
+      },
+      {
+       "text": "The app's network traffic is sent to DFC for blocking",
+       "why": "DFC deals with network connections by IP address; Android custom detections prompt the user to uninstall the app."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What happens to IPv4 addresses that are placed on a Secure Endpoint IP allow list (whitelist)?",
+     "choices": [
+      {
+       "text": "The connector skips file scanning on hosts with those addresses",
+       "why": "Skipping scanning is the job of exclusion sets; IP allow lists only affect DFC network decisions."
+      },
+      {
+       "text": "DFC creates detections for connections to them",
+       "why": "Creating DFC detections is what the IP block list (blacklist) does, not the allow list."
+      },
+      {
+       "text": "They are sent to the cloud for sandboxing",
+       "why": "IP addresses are not sandboxed; sandboxing analyzes unknown files."
+      },
+      {
+       "text": "DFC never blocks or flags them, ignoring the intelligence feeds for those addresses",
+       "why": "Correct. The IP allow list holds addresses DFC must never block or flag, and Secure Endpoint ignores the feeds for them."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which navigation path in the Secure Endpoint console is used to create IP allow and block lists?",
+     "choices": [
+      {
+       "text": "Management > Exclusions",
+       "why": "Management > Exclusions lists and creates exclusion sets, not IP lists."
+      },
+      {
+       "text": "Outbreak Control > Application Control > Blocked Applications",
+       "why": "This path creates application blocking lists by SHA-256, not IP lists."
+      },
+      {
+       "text": "Management > Policies",
+       "why": "Management > Policies creates policies that use IP lists, but the lists themselves are created under Outbreak Control > Network."
+      },
+      {
+       "text": "Outbreak Control > Network > IP Block & Allow Lists",
+       "why": "Correct. IP allow and block lists are created from Outbreak Control > Network > IP Block & Allow Lists."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which four exclusion types can be used in a Secure Endpoint exclusion set?",
+     "choices": [
+      {
+       "text": "TETRA, Spero, Ethos, and ClamAV",
+       "why": "TETRA, Spero, and Ethos are engines and ClamAV is a signature format; none are exclusion types."
+      },
+      {
+       "text": "Simple, advanced, Android, and IP",
+       "why": "These are kinds of custom detections and DFC lists, not exclusion types."
+      },
+      {
+       "text": "Threat, extension, wildcard, and path",
+       "why": "Correct. Exclusion sets support threat, extension, wildcard, and path exclusions."
+      },
+      {
+       "text": "Clean, malware, unknown, and suspicious",
+       "why": "Clean, Malware, and Unknown are cloud verdicts, not exclusion types."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement is true about Cisco-maintained exclusions in Secure Endpoint?",
+     "choices": [
+      {
+       "text": "They replace the need for custom detections",
+       "why": "Exclusions say what not to scan; custom detections say what to quarantine. One does not replace the other."
+      },
+      {
+       "text": "They apply only to Android connectors",
+       "why": "Exclusion sets are created for Windows, Mac, or Linux; Cisco-maintained sets are not Android-only."
+      },
+      {
+       "text": "You must manually update them for each new application version",
+       "why": "Cisco updates them and adds new ones for new application versions; administrators do not maintain them."
+      },
+      {
+       "text": "You can view them, but you cannot delete or modify them",
+       "why": "Correct. Cisco creates and updates these exclusion sets for compatibility, and administrators can only view them."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Secure Endpoint engine is a machine learning technology that uses active heuristics and generic models to proactively find previously unknown threats?",
+     "choices": [
+      {
+       "text": "Spero",
+       "why": "Correct. Spero gathers execution attributes with active heuristics and builds generic models to judge software by its general appearance."
+      },
+      {
+       "text": "Ethos",
+       "why": "Ethos is a fuzzy fingerprinting engine that uses static or passive heuristics, not machine learning on execution attributes."
+      },
+      {
+       "text": "Talos",
+       "why": "Talos is Cisco's threat intelligence group, not a Secure Endpoint engine."
+      },
+      {
+       "text": "TETRA",
+       "why": "TETRA is the full client-side antivirus engine, which relies on signatures rather than machine learning."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Besides TCP 443, which alternative port can Secure Endpoint connectors use to reach the Cisco cloud for disposition lookups?",
+     "choices": [
+      {
+       "text": "TCP 25",
+       "why": "TCP 25 is SMTP, which an ESA listener accepts; it is not used for connector cloud lookups."
+      },
+      {
+       "text": "UDP 32137",
+       "why": "The alternative port is TCP 32137, not UDP."
+      },
+      {
+       "text": "TCP 8443",
+       "why": "TCP 8443 is not the documented alternative; the chapter gives TCP 32137."
+      },
+      {
+       "text": "TCP 32137",
+       "why": "Correct. The quiz answer is TCP port 443 or TCP port 32137."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In the Secure Endpoint Inbox, which three tabs are used to track compromised computers?",
+     "choices": [
+      {
+       "text": "Clean, malware, and unknown",
+       "why": "These are cloud verdicts, not Inbox tabs."
+      },
+      {
+       "text": "Simple, advanced, and Android",
+       "why": "These are custom detection types, not Inbox tabs."
+      },
+      {
+       "text": "Requires attention, in progress, and resolved",
+       "why": "Correct. The Inbox has requires attention, in progress, and resolved tabs."
+      },
+      {
+       "text": "Windows, Mac, and Linux",
+       "why": "These are operating system tabs used to filter exclusion sets, not Inbox tabs."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "After a security team links Cisco Meraki SM to Secure Endpoint, which dashboard shows the most recently seen apps on managed iOS devices?",
+     "choices": [
+      {
+       "text": "Main Dashboard",
+       "why": "The Main Dashboard shows 30 days of threat activity and the percentage of compromised computers, not iOS app inventory."
+      },
+      {
+       "text": "iOS Clarity",
+       "why": "Correct. Once Meraki SM or another MDM is linked, iOS Clarity shows activity, recently seen apps, and devices that have not reported."
+      },
+      {
+       "text": "Inbox",
+       "why": "The Inbox tracks compromised computers needing manual work, not iOS apps from an MDM."
+      },
+      {
+       "text": "Overview dashboard",
+       "why": "The Overview dashboard shows overall environment status with recent threats, not MDM-fed iOS app data."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 3",
+   "questions": [
+    {
+     "q": "Which industry term does the chapter give as an alternative name for EDR?",
+     "choices": [
+      {
+       "text": "DFIR (Digital Forensics and Incident Response)",
+       "why": "DFIR is the practice of investigating and responding to incidents, which a good EDR helps with; it is not another name for EDR."
+      },
+      {
+       "text": "MDM (Mobile Device Management)",
+       "why": "MDM centrally configures, updates, and monitors devices; it is not another term for EDR."
+      },
+      {
+       "text": "DFC (Device Flow Correlation)",
+       "why": "DFC is a Secure Endpoint feature that flags or blocks suspicious network activity, not a synonym for EDR."
+      },
+      {
+       "text": "ETDR (Endpoint Threat Detection and Response)",
+       "why": "Correct. The book gives ETDR alongside EDR and treats them as the same idea."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Besides detection and investigation, what does an EDR solution do with endpoint and network events?",
+     "choices": [
+      {
+       "text": "Converts them into exclusion sets automatically",
+       "why": "Exclusion sets are created by administrators to stop scanning of certain items; events are not turned into exclusions."
+      },
+      {
+       "text": "Discards them after a local signature match",
+       "why": "EDR keeps events centrally for investigation; discarding them would defeat its purpose."
+      },
+      {
+       "text": "Records them in a central database for analysis and reporting",
+       "why": "Correct. EDR records endpoint and network events in a central database for analysis, detection, investigation, and reporting."
+      },
+      {
+       "text": "Forwards them to an ESA listener over SMTP",
+       "why": "ESA listeners accept incoming SMTP connections for email; they do not collect EDR events."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which minimum EDR capability requires that the solution contain threats rather than only detect them?",
+     "choices": [
+      {
+       "text": "Help with DFIR",
+       "why": "DFIR help supports forensics, incident response, and threat hunting after the fact; containment is threat blocking."
+      },
+      {
+       "text": "Threat blocking",
+       "why": "Correct. Threat blocking means the EDR must contain threats, not just detect them."
+      },
+      {
+       "text": "Filtering",
+       "why": "Filtering removes false positives to reduce alert fatigue; it does not contain threats."
+      },
+      {
+       "text": "File trajectory",
+       "why": "File trajectory shows which endpoints saw a file; it is a visibility feature, not an EDR minimum capability."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An incident responder is investigating one compromised laptop and needs to see what actions files performed on that specific endpoint. Which Secure Endpoint capability should be used?",
+     "choices": [
+      {
+       "text": "Outbreak Control",
+       "why": "Outbreak Control is the menu for building detection, application, and network lists, not an investigation view of one endpoint."
+      },
+      {
+       "text": "File trajectory",
+       "why": "File trajectory shows which endpoints have seen a file, not what happened on one endpoint."
+      },
+      {
+       "text": "Device trajectory",
+       "why": "Correct. Device trajectory shows what actions files performed on a given endpoint."
+      },
+      {
+       "text": "Cisco-maintained exclusions",
+       "why": "Cisco-maintained exclusions are compatibility exclusion sets; they show nothing about file activity."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which Malware Defense feature analyzes files inline so they can be blocked or have policies applied?",
+     "choices": [
+      {
+       "text": "File reputation",
+       "why": "Correct. File reputation analyzes files inline and blocks them or applies policies."
+      },
+      {
+       "text": "File retrospection",
+       "why": "File retrospection keeps analyzing files over time as threat levels change, rather than at the inline decision point."
+      },
+      {
+       "text": "File sandboxing",
+       "why": "File sandboxing runs unknown files to see their true behavior; it is not the inline reputation check."
+      },
+      {
+       "text": "Device trajectory",
+       "why": "Device trajectory shows what files did on an endpoint; it does not block files inline."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In the Secure Endpoint architecture, which component does most of the processing, keeps a historical view of malware activity, and returns verdicts?",
+     "choices": [
+      {
+       "text": "The Malware Analytics Cloud",
+       "why": "Correct. The Malware Analytics Cloud does most of the processing, keeps a historical view of malware activity, and returns verdicts."
+      },
+      {
+       "text": "The connector on the endpoint",
+       "why": "The connector is deliberately lightweight and sends hashes to the cloud; it does not do most of the processing."
+      },
+      {
+       "text": "Cisco Meraki SM",
+       "why": "Meraki SM is an MDM that feeds iOS Clarity; it does not process malware verdicts."
+      },
+      {
+       "text": "Cisco Secure Client",
+       "why": "Cisco Secure Client provides VPN, network access, and ISE posture; it is not where malware verdicts are made."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator wants a Windows path exclusion that works no matter where a common folder lives on each machine. What can be used in the path?",
+     "choices": [
+      {
+       "text": "CSIDL names",
+       "why": "Correct. Windows path exclusions can use CSIDL (constant special ID list) names, which are Microsoft names for common file paths."
+      },
+      {
+       "text": "ClamAV logical signatures",
+       "why": "Logical signatures are used in advanced custom detections, not in path exclusions."
+      },
+      {
+       "text": "CIDR notation",
+       "why": "CIDR notation is used for IP list entries, not file paths."
+      },
+      {
+       "text": "SHA-256 hashes",
+       "why": "SHA-256 hashes identify files in detections and lists; they are not path variables."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "What is the purpose of a Secure Endpoint IP block list (blacklist)?",
+     "choices": [
+      {
+       "text": "To block applications by their SHA-256 hash",
+       "why": "Blocking applications by hash is application control, not an IP block list."
+      },
+      {
+       "text": "To stop DFC from ever flagging listed addresses",
+       "why": "That is the IP allow list (whitelist), which DFC must never block or flag."
+      },
+      {
+       "text": "To create DFC detections for connections to listed IPv4 addresses",
+       "why": "Correct. IP block list addresses are used to create DFC detections, and matches are flagged or blocked as the DFC rule says."
+      },
+      {
+       "text": "To exclude listed hosts from file scanning",
+       "why": "Exclusion sets control scanning; IP block lists drive DFC network detections."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "When creating a Secure Endpoint IP list, what can be specified in addition to IPv4 addresses?",
+     "choices": [
+      {
+       "text": "Domain names to redirect",
+       "why": "Web content filtering and redirect is not a Secure Endpoint feature, and IP lists do not take domain names."
+      },
+      {
+       "text": "Port numbers to block or allow",
+       "why": "Correct. You can also specify port numbers to block or allow in an IP list."
+      },
+      {
+       "text": "Threat names to exclude",
+       "why": "Threat names are used in threat-type exclusions within exclusion sets, not in IP lists."
+      },
+      {
+       "text": "IPv6 prefixes",
+       "why": "IP allow and block lists take IPv4 addresses only."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An administrator needs to change the entries in an existing Secure Endpoint IP list. Which button retrieves the list's file so it can be changed?",
+     "choices": [
+      {
+       "text": "Remove",
+       "why": "Remove deletes an unwanted SHA-256 from a simple detection list; it does not retrieve an IP list file."
+      },
+      {
+       "text": "Download",
+       "why": "Correct. Download gets the IP list's file so you can change it."
+      },
+      {
+       "text": "Edit",
+       "why": "On an IP list, Edit only changes the name, not the addresses."
+      },
+      {
+       "text": "Files included",
+       "why": "Files included shows the hashes and notes in a simple custom detection, not IP list contents."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An administrator creating a new application blocking list types a name but tries to add a hash right away and cannot. What must be done first?",
+     "choices": [
+      {
+       "text": "Click Build Database From Signature Set",
+       "why": "That button compiles an advanced custom detection, not an application blocking list."
+      },
+      {
+       "text": "Download the connector for the group",
+       "why": "Downloading the connector distributes installers; it is not needed to add hashes to a list."
+      },
+      {
+       "text": "Click Save to store the named list",
+       "why": "Correct. You name the list and click Save; you cannot add applications before saving."
+      },
+      {
+       "text": "Enable the TETRA engine in the policy",
+       "why": "TETRA is a client-side antivirus engine and is unrelated to creating application blocking lists."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "How can an administrator build an Android custom detection in the Secure Endpoint console?",
+     "choices": [
+      {
+       "text": "Add the app's IP address to an IP block list",
+       "why": "IP block lists drive DFC network detections; they do not identify Android apps."
+      },
+      {
+       "text": "Create a wildcard exclusion for the app",
+       "why": "Exclusions stop scanning; they would not detect an Android app."
+      },
+      {
+       "text": "Enter the app's name in a ClamAV logical signature",
+       "why": "Advanced ClamAV-based detections are for Windows and Mac files; Android detections use the .apk or the inventory."
+      },
+      {
+       "text": "Upload the app's .apk file or pick it from the console's inventory list",
+       "why": "Correct. Android custom detections are built by uploading the .apk or choosing the app from the inventory list."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An engineer is deploying Secure Endpoint on servers that also run another vendor's antivirus product. Which exclusion is recommended?",
+     "choices": [
+      {
+       "text": "Exclude the Secure Endpoint connector's SHA-256",
+       "why": "Exclusions work by threat, extension, wildcard, or path, and the recommendation targets the other antivirus product, not the connector."
+      },
+      {
+       "text": "Exclude all executable file extensions",
+       "why": "Excluding all executables would disable most protection; the recommendation is to exclude the other product's install location."
+      },
+      {
+       "text": "Exclude the Windows system directory with CSIDL",
+       "why": "Excluding the whole system directory is not the recommended fix; exclude the other antivirus product's install location."
+      },
+      {
+       "text": "Exclude the other antivirus product's install location",
+       "why": "Correct. If another antivirus product runs on the computer, the chapter says to exclude its install location."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A file sits in a directory covered by an exclusion set, and its SHA-256 is also on a simple custom detection. What happens?",
+     "choices": [
+      {
+       "text": "The file is sent to file sandboxing instead",
+       "why": "An excluded file is not scanned or convicted; it is not redirected to sandboxing."
+      },
+      {
+       "text": "DFC blocks the file's network connections",
+       "why": "DFC works on network connections by IP address and is unrelated to whether an excluded file is checked."
+      },
+      {
+       "text": "The file is not checked, so the custom detection does not act on it",
+       "why": "Correct. Files in an excluded location are not checked by application blocking, simple custom detections, or advanced custom detections."
+      },
+      {
+       "text": "The custom detection overrides the exclusion and quarantines it",
+       "why": "The chapter says excluded files are not checked by custom detections, so there is no override."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Why does the chapter advise against enabling TETRA when another antivirus product is installed?",
+     "choices": [
+      {
+       "text": "It disables the Spero and Ethos engines",
+       "why": "The chapter does not say TETRA disables Spero or Ethos; the concern is the heavier client."
+      },
+      {
+       "text": "It turns the lightweight connector into a thicker client using more disk and bandwidth",
+       "why": "Correct. TETRA adds local signatures and signature updates, so it uses more disk and bandwidth, which conflicts with another antivirus."
+      },
+      {
+       "text": "It stops the connector from contacting the cloud",
+       "why": "TETRA does not stop cloud lookups; it adds a local antivirus engine with its own signatures."
+      },
+      {
+       "text": "It removes all Cisco-maintained exclusions",
+       "why": "Enabling TETRA does not remove Cisco-maintained exclusions; enabling it shows a subsection for file scanning options."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Secure Endpoint engine is a fuzzy fingerprinting engine that uses static or passive heuristics?",
+     "choices": [
+      {
+       "text": "Spero",
+       "why": "Spero is the machine learning engine that uses active heuristics to gather execution attributes."
+      },
+      {
+       "text": "ClamAV",
+       "why": "ClamAV is the signature basis for advanced custom detections, not one of the three engines."
+      },
+      {
+       "text": "TETRA",
+       "why": "TETRA is the full client-side antivirus engine, not a fuzzy fingerprinting engine."
+      },
+      {
+       "text": "Ethos",
+       "why": "Correct. Ethos is the fuzzy fingerprinting engine that uses static or passive heuristics."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "From which Secure Endpoint dashboard can you click a section heading to jump to the related console page to investigate and fix an issue?",
+     "choices": [
+      {
+       "text": "Overview dashboard",
+       "why": "Correct. On the Overview dashboard, clicking a section heading jumps to the related console page."
+      },
+      {
+       "text": "Audit log",
+       "why": "The audit log shows change history for lists and exclusion sets; it is not a dashboard."
+      },
+      {
+       "text": "iOS Clarity",
+       "why": "iOS Clarity shows MDM-managed iOS device activity and apps; the click-through headings belong to the Overview dashboard."
+      },
+      {
+       "text": "Events dashboard",
+       "why": "The Events dashboard lists the most recent events in the deployment rather than linked section headings."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An analyst marks a compromised computer as resolved in the Secure Endpoint Inbox. What is the result?",
+     "choices": [
+      {
+       "text": "The computer is moved into a Cisco-maintained exclusion set",
+       "why": "Resolving a compromise does not change exclusions; it just removes the computer from Dashboard and Inbox data."
+      },
+      {
+       "text": "The computer no longer shows in the Dashboard or Inbox data",
+       "why": "Correct. A computer marked resolved no longer appears in the Dashboard or Inbox data."
+      },
+      {
+       "text": "The computer is added to an IP allow list",
+       "why": "IP allow lists are DFC objects created under Outbreak Control; resolving a computer does not add it."
+      },
+      {
+       "text": "The computer's connector is uninstalled",
+       "why": "Resolving is a tracking action; it does not uninstall the connector."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is Cisco Secure Client used for, according to the chapter's vocabulary?",
+     "choices": [
+      {
+       "text": "Handling incoming SMTP connections on an appliance interface",
+       "why": "That is an ESA listener, not Cisco Secure Client."
+      },
+      {
+       "text": "Managing iOS devices for the iOS Clarity dashboard",
+       "why": "That is an MDM such as Cisco Meraki SM, not Cisco Secure Client."
+      },
+      {
+       "text": "Returning Clean, Malware, or Unknown verdicts",
+       "why": "Verdicts come from the Malware Analytics Cloud, not Cisco Secure Client."
+      },
+      {
+       "text": "Remote access VPN, secure network access, and posture assessment with Cisco ISE",
+       "why": "Correct. Cisco Secure Client provides remote access VPN, secure network access, and ISE posture assessment."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A new Secure Endpoint deployment shows connectors unable to get file dispositions. The network has a perimeter firewall and an explicit web proxy. What is the most likely fix?",
+     "choices": [
+      {
+       "text": "Allow connector traffic to the Cisco cloud on TCP 443 or TCP 32137 through the firewall and proxy",
+       "why": "Correct. Connectors must reach the cloud through firewalls and web proxies, using TCP 443 by default or TCP 32137."
+      },
+      {
+       "text": "Open UDP 1812 to the Cisco cloud",
+       "why": "UDP 1812 is RADIUS authentication and is unrelated to Secure Endpoint cloud lookups."
+      },
+      {
+       "text": "Enable TETRA so connectors stop needing the cloud",
+       "why": "TETRA adds a local antivirus engine but is disabled by default and not the fix; cloud reachability is needed for dispositions."
+      },
+      {
+       "text": "Add the cloud servers to an exclusion set",
+       "why": "Exclusion sets affect file scanning, not whether connectors can reach the cloud through the network."
+      }
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 4",
+   "questions": [
+    {
+     "q": "What does the acronym DFIR stand for in the context of EDR capabilities?",
+     "choices": [
+      {
+       "text": "Dynamic file inspection and retrospection",
+       "why": "Dynamic file analysis and retrospection are Malware Defense features, but DFIR means digital forensics and incident response."
+      },
+      {
+       "text": "Device flow inspection and reporting",
+       "why": "This is not a real expansion; the similar-sounding DFC is device flow correlation, which flags or blocks suspicious network activity."
+      },
+      {
+       "text": "Digital forensics and incident response",
+       "why": "Correct. DFIR is investigating and responding to incidents, and a good EDR helps with DFIR and threat hunting."
+      },
+      {
+       "text": "Detection filtering and intrusion response",
+       "why": "Filtering is a separate EDR capability; DFIR stands for digital forensics and incident response."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement about how EDR solutions differ from one another is accurate according to the chapter?",
+     "choices": [
+      {
+       "text": "EDR solutions never use an endpoint agent",
+       "why": "The chapter says an agent on the endpoint typically does ongoing monitoring and detection."
+      },
+      {
+       "text": "Some do more analysis on the agent, while others do more on the back end",
+       "why": "Correct. Not all EDR solutions work the same; some analyze more on the agent and others in a back-end management console."
+      },
+      {
+       "text": "EDR solutions only operate after an attack has finished",
+       "why": "EDR provides visibility across the attack continuum, including before and during an attack."
+      },
+      {
+       "text": "All EDR solutions rely only on a local signature database",
+       "why": "Modern EDR solutions take in threat intelligence from the cloud, and Secure Endpoint sends hashes to the cloud rather than relying on local signatures."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which three components make up the Cisco Secure Malware Defense architecture described in the chapter?",
+     "choices": [
+      {
+       "text": "The Malware Analytics Cloud, client connectors, and intelligence sources",
+       "why": "Correct. These are the three architecture components, and this chapter focuses on the client connector part."
+      },
+      {
+       "text": "File reputation, file sandboxing, and file retrospection",
+       "why": "These are the three Malware Defense features, not its architecture components."
+      },
+      {
+       "text": "Policies, groups, and exclusion sets",
+       "why": "These are management objects inside the console, not the architecture components."
+      },
+      {
+       "text": "TETRA, Spero, and Ethos",
+       "why": "These are the three Secure Endpoint engines, not the three architecture components."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Although the cloud makes most decisions, which protective action does the chapter say the Secure Endpoint connector can also take on its own?",
+     "choices": [
+      {
+       "text": "Sandbox unknown files on the endpoint",
+       "why": "File sandboxing is a cloud-based analysis of unknown files, not something the lightweight connector does locally."
+      },
+      {
+       "text": "Block malicious network connections using custom IP blacklists",
+       "why": "Correct. The connector can act on its own, for example blocking malicious network connections using custom IP blacklists or dynamic lists of malicious IPs."
+      },
+      {
+       "text": "Return Clean, Malware, or Unknown verdicts locally for any file",
+       "why": "Verdicts come from the Malware Analytics Cloud; the connector sends hashes there rather than deciding all files locally."
+      },
+      {
+       "text": "Update Cisco-maintained exclusions by itself",
+       "why": "Cisco updates its maintained exclusions in the cloud and pushes them to connectors; connectors do not update them on their own."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which four platforms are supported by Cisco Secure Endpoint connectors?",
+     "choices": [
+      {
+       "text": "Windows, Mac, Linux, and ChromeOS",
+       "why": "ChromeOS is not one of the four connector platforms; the fourth is Android."
+      },
+      {
+       "text": "Windows, Mac, Linux, and Android",
+       "why": "Correct. Secure Endpoint runs on Windows, Mac, Linux, and Android endpoints."
+      },
+      {
+       "text": "Windows, Mac, iOS, and Android",
+       "why": "iOS devices appear through iOS Clarity via a linked MDM; the fourth connector platform is Linux."
+      },
+      {
+       "text": "Windows, Linux, Android, and Solaris",
+       "why": "Solaris is not a connector platform, and Mac is missing; the four are Windows, Mac, Linux, and Android."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Put the steps for creating a simple custom detection in the correct order.",
+     "choices": [
+      {
+       "text": "Create IP List, enter SHA-256 hashes one per line, then click Create IP List",
+       "why": "Create IP List is for DFC IP allow and block lists, which hold IPv4 addresses, not file hashes."
+      },
+      {
+       "text": "Open Management > Exclusions, choose an OS, then add a SHA-256",
+       "why": "Management > Exclusions creates exclusion sets, which stop scanning; it is not where simple custom detections are built."
+      },
+      {
+       "text": "Add a SHA-256, click Build Database From Signature Set, then name the detection",
+       "why": "Build Database From Signature Set belongs to advanced custom detections, and the detection is named before hashes are added."
+      },
+      {
+       "text": "Open Custom Detections > Simple, enter a name and Save, add a SHA-256 or upload a file, then click Save",
+       "why": "Correct. You open the Simple list, name it with Update Name and Save, add a hash or file with a note, and click Save so the hash is stored."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In a simple custom detection, an administrator selects a file and clicks a button so the cloud calculates its SHA-256. Which button is it?",
+     "choices": [
+      {
+       "text": "Upload",
+       "why": "Correct. Upload sends the file so the cloud calculates its SHA-256, and the hash appears at the bottom right."
+      },
+      {
+       "text": "Download",
+       "why": "Download retrieves an IP list's file so you can change it; it does not hash an uploaded file."
+      },
+      {
+       "text": "View Changes",
+       "why": "View Changes opens the audit log for a list; it does not compute hashes."
+      },
+      {
+       "text": "Edit",
+       "why": "Edit opens a list's contents on the right side; it does not compute a file's hash."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator added the wrong SHA-256 to a simple custom detection. Which console action deletes that hash from the list?",
+     "choices": [
+      {
+       "text": "Remove",
+       "why": "Correct. Remove deletes an unwanted SHA-256 from the list."
+      },
+      {
+       "text": "Cisco-Maintained Exclusions",
+       "why": "This shows Cisco's exclusion sets and does nothing to a custom detection's hashes."
+      },
+      {
+       "text": "Create",
+       "why": "Create starts a new application blocking list; it does not delete a hash."
+      },
+      {
+       "text": "Update Name",
+       "why": "Update Name names or renames the detection; it does not delete hashes."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An auditor asks who changed a particular simple custom detection and when. Which console link shows this?",
+     "choices": [
+      {
+       "text": "Build Database From Signature Set",
+       "why": "This compiles an advanced custom detection; it does not show change history."
+      },
+      {
+       "text": "Files included",
+       "why": "Files included shows the hashes and notes currently in the detection, not the history of changes."
+      },
+      {
+       "text": "Download Connector",
+       "why": "Management > Download Connector gets connector installers, not audit history."
+      },
+      {
+       "text": "View Changes",
+       "why": "Correct. Every simple and advanced custom detection has a View Changes link that opens its audit log."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A user renames a blocked application's executable to bypass Secure Endpoint application control. Why does the block still work?",
+     "choices": [
+      {
+       "text": "Application control identifies applications by SHA-256 hash, not by name",
+       "why": "Correct. Applications are detected, blocked, and allowed by SHA-256 hash, so a new filename does not change the match."
+      },
+      {
+       "text": "DFC detects the renamed file's IP address",
+       "why": "DFC works on network connections, not file names or hashes."
+      },
+      {
+       "text": "Application control blocks every executable by default",
+       "why": "Application control only acts on the hashes in its lists; it does not block every executable."
+      },
+      {
+       "text": "The Ethos engine checks the file's name pattern",
+       "why": "Ethos is a fuzzy fingerprinting engine; the reason the block holds is that application control uses SHA-256 hashes."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A company wants to stop employees from installing an approved-but-unwanted game on corporate Android phones. Which use of Android custom detections fits?",
+     "choices": [
+      {
+       "text": "An IP block list for the game's servers",
+       "why": "IP block lists drive DFC network detections; they do not identify or remove Android apps."
+      },
+      {
+       "text": "An advanced ClamAV logical signature",
+       "why": "Advanced custom detections target Windows and Mac files; Android detections are defined separately."
+      },
+      {
+       "text": "A Windows path exclusion with CSIDL",
+       "why": "CSIDL path exclusions apply to Windows files and stop scanning; they do not remove Android apps."
+      },
+      {
+       "text": "Application control, which notifies the user and prompts uninstall",
+       "why": "Correct. On Android, application control uses custom detections to stop unwanted apps, prompting the user to uninstall as with malicious apps."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Cisco updates one of its Cisco-maintained exclusion sets. What happens to the policies that use it?",
+     "choices": [
+      {
+       "text": "Each administrator must approve the update for each policy",
+       "why": "No manual approval is described; the policies using the set update automatically."
+      },
+      {
+       "text": "The policies keep the old version until the connector is reinstalled",
+       "why": "The update is pushed to connectors; no reinstall is needed."
+      },
+      {
+       "text": "The exclusion set is converted to a custom detection",
+       "why": "Exclusions and custom detections are different objects; an update does not convert one into the other."
+      },
+      {
+       "text": "Every policy using it updates and the change is pushed to connectors",
+       "why": "Correct. When a Cisco-maintained exclusion is updated, every policy using it updates too and connectors receive the change."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "By which attributes can an administrator search exclusion sets in the Secure Endpoint console?",
+     "choices": [
+      {
+       "text": "Group heat map or severity only",
+       "why": "The heat map and severity sorting are Inbox filters, not the exclusion set search fields."
+      },
+      {
+       "text": "IP address, port, or CIDR range only",
+       "why": "IP addresses, ports, and CIDR ranges are IP list entries, not exclusion set search fields."
+      },
+      {
+       "text": "Device trajectory or file trajectory",
+       "why": "Trajectories are visibility features for files and endpoints, not exclusion search criteria."
+      },
+      {
+       "text": "Name, path, extension, threat name, or SHA-256",
+       "why": "Correct. Exclusion sets can be searched by name, path, extension, threat name, or SHA-256, and filtered by OS with tabs."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "When clicking New Exclusion Set under Management > Exclusions, what must the administrator choose?",
+     "choices": [
+      {
+       "text": "Clean, Malware, or Unknown",
+       "why": "These are cloud verdicts, not options when creating an exclusion set."
+      },
+      {
+       "text": "Simple or Advanced",
+       "why": "Simple and Advanced are custom detection types under Outbreak Control, not exclusion set choices."
+      },
+      {
+       "text": "Windows, Mac, or Linux",
+       "why": "Correct. A new exclusion set starts by choosing Windows, Mac, or Linux."
+      },
+      {
+       "text": "IP Allow List or IP Block List",
+       "why": "That choice is made when creating an IP list under Outbreak Control > Network."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An organization has Windows laptops and Linux servers and wants different connector behavior for each. How does Secure Endpoint support this?",
+     "choices": [
+      {
+       "text": "Only Outbreak Control lists can differ, not policies",
+       "why": "Policies combine Outbreak Control lists, exclusion sets, and other settings, and they are configured per platform."
+      },
+      {
+       "text": "A different policy can be configured for each platform",
+       "why": "Correct. Policies are configured per platform, so Windows and Linux can have different policies, applied through groups."
+      },
+      {
+       "text": "Linux servers must use Cisco Secure Client instead",
+       "why": "Linux is a supported Secure Endpoint connector platform with its own policy; Cisco Secure Client is a VPN and posture client."
+      },
+      {
+       "text": "One policy is shared by all platforms and cannot differ",
+       "why": "The chapter says you can configure a different policy for each platform."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which filters can be applied to the Secure Endpoint Main Dashboard?",
+     "choices": [
+      {
+       "text": "Exclusion type only",
+       "why": "Exclusion types are threat, extension, wildcard, and path; they are not dashboard filters."
+      },
+      {
+       "text": "Signature type only",
+       "why": "Signature types belong to advanced custom detections, not to Main Dashboard filtering."
+      },
+      {
+       "text": "Platform, date range, and other attributes",
+       "why": "Correct. The Main Dashboard can be filtered by platform, date range, and other attributes."
+      },
+      {
+       "text": "IPv4 address and port only",
+       "why": "IPv4 addresses and ports are IP list entries for DFC, not Main Dashboard filters."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An analyst repeatedly filters the Inbox to the same group and wants that view every time the Inbox opens. What can be done?",
+     "choices": [
+      {
+       "text": "Mark the group's computers as resolved",
+       "why": "Resolving computers removes them from Dashboard and Inbox data, which is the opposite of what the analyst wants."
+      },
+      {
+       "text": "Create an exclusion set for the group",
+       "why": "An exclusion set stops the connector from scanning items; it does not change the Inbox view."
+      },
+      {
+       "text": "Save the filter and set it as the default view",
+       "why": "Correct. Inbox filters can be saved and set as your default view."
+      },
+      {
+       "text": "Enable iOS Clarity for the group",
+       "why": "iOS Clarity is a dashboard for MDM-managed iOS devices; it does not save Inbox filters."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "The iOS Clarity dashboard lists devices that have not reported back in more than how long?",
+     "choices": [
+      {
+       "text": "90 days",
+       "why": "The iOS Clarity threshold is more than seven days, not 90."
+      },
+      {
+       "text": "24 hours",
+       "why": "The threshold is more than seven days, not 24 hours."
+      },
+      {
+       "text": "Seven days",
+       "why": "Correct. iOS Clarity lists devices that have not reported back in more than seven days."
+      },
+      {
+       "text": "30 days",
+       "why": "30 days is the period the Main Dashboard shows; the iOS Clarity threshold is seven days."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "On a Cisco Email Security Appliance (ESA), what does a listener do?",
+     "choices": [
+      {
+       "text": "Flags suspicious network flows on endpoints",
+       "why": "Flagging suspicious network activity on endpoints is device flow correlation in Secure Endpoint."
+      },
+      {
+       "text": "Handles incoming SMTP connection requests on an interface",
+       "why": "Correct. An ESA listener handles incoming SMTP connections and marks the edge of the email-processing service on an interface."
+      },
+      {
+       "text": "Monitors jailbreak detection on mobile devices",
+       "why": "Jailbreak detection is an MDM monitoring function, not an ESA listener."
+      },
+      {
+       "text": "Sends file hashes to the Malware Analytics Cloud",
+       "why": "Sending hashes to the cloud is what the Secure Endpoint connector does, not an ESA listener."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is mobile device management (MDM) defined as in the chapter?",
+     "choices": [
+      {
+       "text": "Centrally configuring, updating, monitoring, and remotely troubleshooting mobile and user devices",
+       "why": "Correct. MDM centrally configures, updates, monitors, and remotely troubleshoots phones, tablets, laptops, and other user equipment."
+      },
+      {
+       "text": "Recording endpoint events in a central database for threat hunting",
+       "why": "That describes EDR, which focuses on detecting and investigating suspicious activity."
+      },
+      {
+       "text": "Correlating device network flows with malicious IP lists",
+       "why": "That is device flow correlation (DFC) in Secure Endpoint."
+      },
+      {
+       "text": "Analyzing unknown files to observe their true behavior",
+       "why": "That is file sandboxing, a Malware Defense feature."
+      }
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 5",
+   "questions": [
+    {
+     "q": "Why is known malware detected quickly by Cisco Secure Endpoint while the connector stays lightweight?",
+     "choices": [
+      {
+       "text": "Each connector stores a full local signature database",
+       "why": "A full local signature database is the traditional antivirus model; Secure Endpoint sends hashes to the cloud instead."
+      },
+      {
+       "text": "Cloud resources do the analysis instead of endpoint resources",
+       "why": "Correct. Known malware is detected fast because cloud resources do the work, so the connector stays lightweight."
+      },
+      {
+       "text": "Exclusion sets skip scanning of all known files",
+       "why": "Exclusion sets skip specific directories, extensions, or threat names; they are not how known malware is detected."
+      },
+      {
+       "text": "The TETRA engine is enabled by default on every connector",
+       "why": "TETRA is disabled by default, and enabling it makes the connector thicker, not lighter."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Malware Defense feature continues analyzing files over time as threat levels change?",
+     "choices": [
+      {
+       "text": "File reputation",
+       "why": "File reputation analyzes files inline to block them or apply policies at the time they are seen."
+      },
+      {
+       "text": "File retrospection",
+       "why": "Correct. File retrospection keeps analyzing files as threat levels change."
+      },
+      {
+       "text": "Application control",
+       "why": "Application control detects, blocks, and allows applications by SHA-256 hash; it is not ongoing file analysis."
+      },
+      {
+       "text": "Device trajectory",
+       "why": "Device trajectory shows what actions files performed on a given endpoint; it is not ongoing analysis of the file."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Figure 11-1 shows the Malware Analytics Cloud working with which Cisco group, which the notes identify as Cisco's threat intelligence group?",
+     "choices": [
+      {
+       "text": "Meraki",
+       "why": "Cisco Meraki SM is an MDM that feeds iOS Clarity, not the threat intelligence group in the architecture figure."
+      },
+      {
+       "text": "Umbrella",
+       "why": "Cisco Umbrella is one of the products integrated with Cisco Threat Response, not the threat intelligence group."
+      },
+      {
+       "text": "Talos",
+       "why": "Correct. Talos appears with the Malware Analytics Cloud in Figure 11-1 and is Cisco's threat intelligence group."
+      },
+      {
+       "text": "SourceFire",
+       "why": "SourceFire was the company whose FireAMP product became Secure Endpoint; it is not the threat intelligence group."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "The firewall form of Cisco Secure Malware Defense, covered in Chapter 7, is called Cisco Secure Firewall Malware Defense. What was its former name?",
+     "choices": [
+      {
+       "text": "FireAMP",
+       "why": "FireAMP was the SourceFire endpoint product that became Secure Endpoint, not the firewall form."
+      },
+      {
+       "text": "Threat Grid",
+       "why": "Threat Grid was the former name of Cisco Secure Malware Analytics, the sandboxing product."
+      },
+      {
+       "text": "AMP for Endpoints",
+       "why": "AMP for Endpoints was the former name of Cisco Secure Endpoint, the endpoint connector."
+      },
+      {
+       "text": "AMP for Networks",
+       "why": "Correct. Cisco Secure Firewall Malware Defense was formerly AMP for Networks."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Where do modern EDR solutions take in threat intelligence from, according to the chapter?",
+     "choices": [
+      {
+       "text": "From the endpoint's exclusion sets",
+       "why": "Exclusion sets list items not to scan; they are not threat intelligence."
+      },
+      {
+       "text": "Only from manually imported signature files",
+       "why": "Modern EDR relies on cloud threat intelligence, not only manual signature imports."
+      },
+      {
+       "text": "From the ESA listener",
+       "why": "The ESA listener handles incoming SMTP connections; it is not the threat intelligence source for EDR."
+      },
+      {
+       "text": "The cloud",
+       "why": "Correct. The chapter says modern EDR solutions take in threat intelligence from the cloud."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Besides improving performance, what is the other main use the chapter gives for Secure Endpoint exclusion sets?",
+     "choices": [
+      {
+       "text": "Distributing the connector to remote users",
+       "why": "Connector distribution uses installers, download URLs, or the AMP Enabler, not exclusion sets."
+      },
+      {
+       "text": "Resolving conflicts with other security products",
+       "why": "Correct. Exclusion sets resolve conflicts with other security products and fix performance problems."
+      },
+      {
+       "text": "Quarantining files by SHA-256",
+       "why": "Quarantining files by hash is the job of custom detections, which are the opposite of exclusions."
+      },
+      {
+       "text": "Blocking malicious IP addresses",
+       "why": "Blocking IP addresses is done by DFC with IP block lists, not by exclusion sets."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What two things does the connector do differently for items covered by an exclusion set?",
+     "choices": [
+      {
+       "text": "It quarantines them and notifies the user",
+       "why": "Quarantining and notifying is what custom detections do, not exclusions."
+      },
+      {
+       "text": "It will not scan them and will not convict them as malware",
+       "why": "Correct. An exclusion set lists directories, extensions, or threat names the connector won't scan and won't convict."
+      },
+      {
+       "text": "It blocks their network traffic and logs it in DFC",
+       "why": "Blocking network traffic is a DFC function; exclusions only affect scanning and conviction."
+      },
+      {
+       "text": "It sends them to sandboxing and to retrospection",
+       "why": "Excluded items are skipped, not sent for extra analysis."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An engineer needs to exclude all files ending in a certain pattern across several folders, such as temporary files with varying names. Which exclusion type fits best?",
+     "choices": [
+      {
+       "text": "Wildcard",
+       "why": "Correct. Wildcard exclusions use wildcards in filenames, extensions, or paths."
+      },
+      {
+       "text": "Threat",
+       "why": "A threat exclusion excludes by threat name, not by filename or path pattern."
+      },
+      {
+       "text": "Path",
+       "why": "A path exclusion covers files in one given path; it does not match patterns across varying names and folders."
+      },
+      {
+       "text": "Extension",
+       "why": "An extension exclusion matches a file extension exactly, without wildcard patterns in names or paths."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A known false positive is repeatedly convicted under the same detection name. Which exclusion type excludes items by the name of the detection?",
+     "choices": [
+      {
+       "text": "Extension",
+       "why": "An extension exclusion excludes by file extension, not by threat name."
+      },
+      {
+       "text": "Wildcard",
+       "why": "A wildcard exclusion uses wildcards in filenames, extensions, or paths, not threat names."
+      },
+      {
+       "text": "Path",
+       "why": "A path exclusion excludes files in a given path, not by threat name."
+      },
+      {
+       "text": "Threat",
+       "why": "Correct. A threat exclusion excludes by threat name."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which navigation path is used to start a new application blocking list in Secure Endpoint?",
+     "choices": [
+      {
+       "text": "Outbreak Control > Application Control > Blocked Applications, then Create",
+       "why": "Correct. Application blocking lists are created from Outbreak Control > Application Control > Blocked Applications with Create."
+      },
+      {
+       "text": "Outbreak Control > Custom Detections > Advanced",
+       "why": "This path creates advanced custom detections based on ClamAV signatures, not application blocking lists."
+      },
+      {
+       "text": "Management > Groups",
+       "why": "Management > Groups creates groups of computers for policies, not application blocking lists."
+      },
+      {
+       "text": "Outbreak Control > Network > IP Block & Allow Lists",
+       "why": "This path creates DFC IP lists, not application blocking lists."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "When adding applications to a Secure Endpoint application blocking list by uploading files, how many applications can be uploaded at a time for the console to hash?",
+     "choices": [
+      {
+       "text": "Up to ten at a time, each within 100MB",
+       "why": "The chapter says one application at a time with a 20MB limit."
+      },
+      {
+       "text": "Only Android .apk files may be uploaded",
+       "why": "Application blocking lists accept application files for hashing; .apk uploads are for Android custom detections."
+      },
+      {
+       "text": "One at a time, each within the 20MB limit",
+       "why": "Correct. You upload one application at a time, up to 20MB, for the console to hash; you can also upload an existing list."
+      },
+      {
+       "text": "Any number, with no size limit",
+       "why": "There is a 20MB limit, and uploads for hashing are one application at a time."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An administrator needs to download the Secure Endpoint installer for the Engineering group or copy its download URL. Which console location is used?",
+     "choices": [
+      {
+       "text": "Management > Download Connector",
+       "why": "Correct. After picking a group, Management > Download Connector lets you download installers or copy their URL."
+      },
+      {
+       "text": "The iOS Clarity dashboard",
+       "why": "iOS Clarity shows MDM-managed iOS device activity; it does not provide connector installers."
+      },
+      {
+       "text": "Management > Exclusions",
+       "why": "Management > Exclusions lists and creates exclusion sets, not connector installers."
+      },
+      {
+       "text": "Outbreak Control > Custom Detections > Simple",
+       "why": "This path manages simple custom detections, not installers."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A company has many remote workers who rarely connect to the corporate network. Which connector distribution method from the chapter helps them most?",
+     "choices": [
+      {
+       "text": "Create an IP allow list for their home addresses",
+       "why": "IP allow lists tell DFC which addresses never to block; they do not distribute the connector."
+      },
+      {
+       "text": "Add the users to a Cisco-maintained exclusion set",
+       "why": "Exclusion sets control scanning; they do not install connectors."
+      },
+      {
+       "text": "Email the download URL so users install the connector themselves",
+       "why": "Correct. Emailing the download URL lets users install it themselves, which the chapter says helps remote workers."
+      },
+      {
+       "text": "Save the installer on an internal network share",
+       "why": "A network share is a valid method, but remote workers who rarely connect would struggle to reach it."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "When adding a signature to a Secure Endpoint advanced custom detection, how is the signature type determined?",
+     "choices": [
+      {
+       "text": "It can be auto-detected or picked from a drop-down list",
+       "why": "Correct. The signature type can be auto-detected or chosen from the drop-down list, as in Figure 11-6."
+      },
+      {
+       "text": "It is inherited from the group's policy",
+       "why": "The type is chosen or auto-detected when adding the signature, not inherited from a policy."
+      },
+      {
+       "text": "It is always fixed to SHA-256",
+       "why": "SHA-256-only lists are simple custom detections; advanced detections support more signature types."
+      },
+      {
+       "text": "It is set by the Ethos engine",
+       "why": "Ethos is a fuzzy fingerprinting engine; it does not choose signature types in the console."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator pasted a SHA-256 into a simple custom detection and added a note, then navigated away. Later, the hash is missing. What most likely happened?",
+     "choices": [
+      {
+       "text": "The TETRA engine deleted it",
+       "why": "TETRA is a client-side antivirus engine; it does not edit console lists."
+      },
+      {
+       "text": "Simple custom detections only accept MD5 hashes",
+       "why": "Simple custom detections use SHA-256 hashes; MD5 is a signature type in advanced detections."
+      },
+      {
+       "text": "The hash was moved to a Cisco-maintained exclusion set",
+       "why": "Hashes are not moved into Cisco-maintained exclusions; those are Cisco-created compatibility sets."
+      },
+      {
+       "text": "The administrator did not click Save, so the hash was not stored",
+       "why": "Correct. The chapter warns that a hash isn't kept until you click Save."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which of these can be used to filter the Secure Endpoint Inbox?",
+     "choices": [
+      {
+       "text": "Choosing an IP Allow List",
+       "why": "IP allow lists are DFC objects; they are not Inbox filters."
+      },
+      {
+       "text": "Selecting a SHA-256 from the Significant Compromise Artifacts list",
+       "why": "Correct. The Inbox can be filtered by heat map groups, a day in the bar chart, a Significant Compromise Artifacts SHA-256, or a Compromise Event Types entry."
+      },
+      {
+       "text": "Entering a CSIDL path name",
+       "why": "CSIDL names are used in Windows path exclusions, not Inbox filters."
+      },
+      {
+       "text": "Selecting a ClamAV logical signature",
+       "why": "Logical signatures belong to advanced custom detections, not Inbox filtering."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Secure Endpoint view shows compromised computers and tracks compromises that need manual work to resolve, sortable by date or severity?",
+     "choices": [
+      {
+       "text": "Events dashboard",
+       "why": "The Events dashboard shows the most recent events in the deployment, not a work queue of compromises."
+      },
+      {
+       "text": "Audit log",
+       "why": "The audit log shows change history for lists and exclusion sets, not compromised computers."
+      },
+      {
+       "text": "iOS Clarity",
+       "why": "iOS Clarity covers MDM-managed iOS devices and apps, not the compromise work queue."
+      },
+      {
+       "text": "Inbox",
+       "why": "Correct. The Inbox shows compromised computers, tracks those needing manual resolution, and can sort by date or severity."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does a Secure Endpoint policy combine to control the connector's behavior?",
+     "choices": [
+      {
+       "text": "Only Inbox filters and dashboard views",
+       "why": "Inbox filters and dashboards are reporting views, not policy contents."
+      },
+      {
+       "text": "Only the connector installer and its download URL",
+       "why": "Installers and URLs are obtained from Management > Download Connector; a policy controls behavior through lists and settings."
+      },
+      {
+       "text": "Outbreak Control lists, exclusion sets, and other settings",
+       "why": "Correct. A policy combines Outbreak Control lists, exclusion sets, and other settings and is configured per platform."
+      },
+      {
+       "text": "Only MDM enrollment profiles",
+       "why": "MDM profiles belong to tools like Meraki SM; Secure Endpoint policies combine Outbreak Control lists, exclusions, and settings."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement about Spero best describes how it judges software?",
+     "choices": [
+      {
+       "text": "By exact matches against a local signature database",
+       "why": "Exact local signature matching describes traditional antivirus such as TETRA, not Spero."
+      },
+      {
+       "text": "By fuzzy fingerprints from static heuristics",
+       "why": "Fuzzy fingerprinting with static or passive heuristics describes Ethos, not Spero."
+      },
+      {
+       "text": "By its general appearance using generic models, rather than specific patterns or signatures",
+       "why": "Correct. Spero builds generic models from execution attributes and judges software by its general appearance."
+      },
+      {
+       "text": "By the IPv4 addresses the software connects to",
+       "why": "Judging connections by IP address is device flow correlation, not Spero."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "The chapter calls automated update and patch provisioning by MDM its main point on endpoint patching strategy. What benefit does it give?",
+     "choices": [
+      {
+       "text": "Keeps devices consistent and patches security vulnerabilities effectively",
+       "why": "Correct. Automated update and patch provisioning keeps devices consistent and patches security vulnerabilities effectively."
+      },
+      {
+       "text": "Replaces the need for any EDR agent",
+       "why": "Patch provisioning keeps devices updated; it does not provide the detection and response that an EDR agent does."
+      },
+      {
+       "text": "Turns on the TETRA engine automatically",
+       "why": "TETRA is a Secure Endpoint policy setting, disabled by default, and unrelated to MDM patching."
+      },
+      {
+       "text": "Lets the connector skip cloud lookups",
+       "why": "Patch provisioning does not change how the connector gets verdicts from the cloud."
+      }
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}

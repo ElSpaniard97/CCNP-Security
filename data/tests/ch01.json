@@ -1,0 +1,2230 @@
+{
+ "chapter": 1,
+ "tests": [
+  {
+   "title": "Practice Test 1",
+   "questions": [
+    {
+     "q": "Which term describes a weakness in the system design, implementation, software, or code, or the lack of a mechanism?",
+     "choices": [
+      {
+       "text": "Threat",
+       "why": "A threat is any potential danger to an asset. It is the danger itself, not the weakness that the danger could take advantage of."
+      },
+      {
+       "text": "Exploit",
+       "why": "An exploit is the software, tool, technique, or process that takes advantage of a weakness. It acts on the weakness rather than being the weakness."
+      },
+      {
+       "text": "Vulnerability",
+       "why": "Correct. A vulnerability is a weakness in design, implementation, software, or code, or the lack of a mechanism, which a malicious actor can take advantage of."
+      },
+      {
+       "text": "Threat vector",
+       "why": "A threat vector (threat agent) is the path a malicious actor uses to carry out an attack, not the weakness in the system."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A security analyst discovers malware that copied itself to dozens of servers overnight without any user opening a file or clicking a link. Which type of malware best fits this behavior?",
+     "choices": [
+      {
+       "text": "Worm",
+       "why": "Correct. A worm spreads from system to system with no human interaction, which matches malware moving between servers on its own."
+      },
+      {
+       "text": "Virus",
+       "why": "A virus needs a host file or program and human interaction, such as opening an attachment, to spread. It would not propagate overnight with no user action."
+      },
+      {
+       "text": "Trojan",
+       "why": "A Trojan pretends to be something useful but cannot spread itself. It relies on the victim installing it."
+      },
+      {
+       "text": "Keylogger",
+       "why": "A keylogger records keystrokes. It is used for capturing data, not for self-propagating across a network."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which standard is a language used for describing and sharing cyberattack information, and whose records can include C2 server IP addresses, domains, and malware hashes?",
+     "choices": [
+      {
+       "text": "TAXII",
+       "why": "TAXII is the open transport that automates the exchange of threat information. It carries the data rather than defining the language that describes it."
+      },
+      {
+       "text": "OpenC2",
+       "why": "OpenC2 is a language for commanding and controlling cyber defense technologies, not for describing attack information."
+      },
+      {
+       "text": "CSAF",
+       "why": "CSAF is a standard format for sharing vulnerability advisories. It is not a threat intelligence standard for describing attacks."
+      },
+      {
+       "text": "STIX",
+       "why": "Correct. STIX (Structured Threat Information eXpression) is the language for describing and sharing cyberattack information, and its records can include C2 IPs, domains, and malware hashes."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A penetration tester submits crafted input to a web form. The application returns no database data and no error messages, but the tester infers information by watching how the page behaves differently for true and false conditions. Which type of SQL injection is this?",
+     "choices": [
+      {
+       "text": "In-band SQL injection",
+       "why": "In-band SQL injection returns the data through the same channel used for the attack. Here no data is returned at all."
+      },
+      {
+       "text": "Blind (inferential) SQL injection",
+       "why": "Correct. In blind or inferential SQL injection no data is returned, and the attacker infers it from the application's behavior."
+      },
+      {
+       "text": "Out-of-band SQL injection",
+       "why": "Out-of-band SQL injection sends the data through a different channel, such as email or another system. The tester here is not receiving data through any channel."
+      },
+      {
+       "text": "Command injection",
+       "why": "Command injection passes attacker-supplied OS commands to a system shell. It targets the operating system, not database queries."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An attacker gains access to a core router and changes its routing configuration without authorization. Which element of the CIA triad does this attack primarily violate?",
+     "choices": [
+      {
+       "text": "Confidentiality",
+       "why": "Confidentiality is about preventing disclosure to unauthorized parties. Changing the configuration is unauthorized alteration, not disclosure."
+      },
+      {
+       "text": "Integrity",
+       "why": "Correct. Integrity applies to systems as well as data, and an attacker changing a router's configuration is the chapter's example of an integrity attack."
+      },
+      {
+       "text": "Availability",
+       "why": "Availability is about systems and data being reachable when needed, typically attacked with DoS. The core violation here is unauthorized modification."
+      },
+      {
+       "text": "Non-repudiation",
+       "why": "Non-repudiation is not one of the three CIA triad elements. The triad is confidentiality, integrity, and availability."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Why do attackers prefer UDP-based services when launching a reflected DDoS attack?",
+     "choices": [
+      {
+       "text": "UDP packets are always encrypted, which hides the attack",
+       "why": "UDP does not encrypt traffic. Encryption is not the reason it is chosen for reflection."
+      },
+      {
+       "text": "UDP guarantees in-order delivery to the victim",
+       "why": "UDP is stateless and makes no delivery or ordering guarantees. TCP provides sequencing and acknowledgments."
+      },
+      {
+       "text": "UDP uses larger headers than TCP for every packet",
+       "why": "Header size is not why UDP is chosen. Amplification comes from response size versus request size, not from UDP headers."
+      },
+      {
+       "text": "UDP has no three-way handshake, so source addresses are easy to spoof",
+       "why": "Correct. Because UDP has no three-way handshake, the attacker can spoof the victim's address and the reflecting server replies to the victim."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A company requires users to enter a password and then a PIN to log in. How is this authentication approach classified?",
+     "choices": [
+      {
+       "text": "Multilayer authentication",
+       "why": "Correct. A password and a PIN are both knowledge factors, and two or more factors of the same type is multilayer authentication."
+      },
+      {
+       "text": "Multifactor authentication",
+       "why": "Multifactor authentication requires two or more different factor types, such as something you know plus something you have. A password and PIN are the same type."
+      },
+      {
+       "text": "Out-of-band authentication",
+       "why": "Out-of-band authentication sends a factor over a separate channel, such as a code sent to a phone. Both factors here are entered in the same login."
+      },
+      {
+       "text": "Rule-based access control",
+       "why": "Rule-based access control grants access by criteria like time of day or location. It is an access control model, not a way of combining authentication factors."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which cloud service model provides everything except the applications and covers all phases of the system development life cycle (SDLC)?",
+     "choices": [
+      {
+       "text": "IaaS",
+       "why": "IaaS rents compute and infrastructure on a pay-for-what-you-use basis, like a utility. The customer still builds the platform layers."
+      },
+      {
+       "text": "SaaS",
+       "why": "SaaS delivers a complete packaged application, usually through a web portal. It includes the applications rather than everything except them."
+      },
+      {
+       "text": "PaaS",
+       "why": "Correct. PaaS provides everything except the applications and covers all phases of the SDLC."
+      },
+      {
+       "text": "Hybrid cloud",
+       "why": "Hybrid cloud is a deployment model that combines two or more clouds. It is not a service model."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Zigbee, a popular protocol for consumer IoT devices, relies on the security of which underlying standard?",
+     "choices": [
+      {
+       "text": "IEEE 802.15.4 MAC layer security",
+       "why": "Correct. Zigbee uses IEEE 802.15.4 MAC layer security, which uses AES with a 128-bit key."
+      },
+      {
+       "text": "IEEE 802.1X port-based authentication",
+       "why": "802.1X is a port-based network access control standard and is called out in the chapter as not being an IoT protocol."
+      },
+      {
+       "text": "6LoWPAN adaptation layer encryption",
+       "why": "6LoWPAN builds an IPv6 adaptation layer on top of 802.15.4. It is a separate protocol, not what Zigbee's security is based on."
+      },
+      {
+       "text": "LoRaWAN Class A endpoint security",
+       "why": "LoRaWAN is a separate long-range protocol with Class A, B, and C endpoints. Zigbee does not use it."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "According to NIST SP 800-61, which incident response phase comes immediately after detection and analysis?",
+     "choices": [
+      {
+       "text": "Preparation",
+       "why": "Preparation is the first phase, where the team is created and trained and tools are deployed. It comes before detection and analysis."
+      },
+      {
+       "text": "Post-incident activity",
+       "why": "Post-incident activity, including lessons learned, is the final phase. It follows containment, eradication, and recovery."
+      },
+      {
+       "text": "Containment, eradication, and recovery",
+       "why": "Correct. The NIST order is preparation, detection and analysis, containment, eradication, and recovery, then post-incident activity."
+      },
+      {
+       "text": "Planning and direction",
+       "why": "Planning and direction is the first step of the threat intelligence process, not a phase of the NIST incident response life cycle."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which CVSS metric group is the only mandatory group and represents the intrinsic characteristics of a vulnerability that stay constant over time?",
+     "choices": [
+      {
+       "text": "Temporal group",
+       "why": "The temporal group covers Exploit Code Maturity, Remediation Level, and Report Confidence, which can change over time. It is optional."
+      },
+      {
+       "text": "Environmental group",
+       "why": "The environmental group covers Security Requirements and Modified Base Metrics for a specific organization's environment. It is optional."
+      },
+      {
+       "text": "Basic group",
+       "why": "There is no CVSS group named basic. This is a common trick answer; the correct name is the base group."
+      },
+      {
+       "text": "Base group",
+       "why": "Correct. The base group is intrinsic, constant over time, the only mandatory group, and comes with a vector string."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "During an investigation, a SOC analyst suspects an attacker is exfiltrating data hidden inside DNS queries because DNS is almost always allowed through the firewall. Which tool is an example of what the attacker might be using?",
+     "choices": [
+      {
+       "text": "AckCmd",
+       "why": "AckCmd tunnels traffic using TCP ACK packets, not DNS."
+      },
+      {
+       "text": "Iodine",
+       "why": "Correct. Iodine, along with dnscat2, is a DNS tunneling tool used to hide traffic and exfiltrate data over DNS."
+      },
+      {
+       "text": "6tunnel",
+       "why": "6tunnel is an IPv6 tunneling tool. It abuses IPv6, not DNS."
+      },
+      {
+       "text": "Cryptcat",
+       "why": "Cryptcat, like Netcat, is listed for HTTP and HTTPS exfiltration, not DNS tunneling."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Why is address space layout randomization (ASLR) considered weak on 32-bit systems?",
+     "choices": [
+      {
+       "text": "It marks the stack as executable on 32-bit systems",
+       "why": "Marking memory as non-executable is the job of the NX bit, not ASLR. ASLR does not change executable permissions."
+      },
+      {
+       "text": "It places a null byte in every library address",
+       "why": "Putting a null byte in system library addresses is ASCII armoring, a different defense."
+      },
+      {
+       "text": "It only detects stack corruption after it happens",
+       "why": "Detecting stack corruption and flushing the segment is stack-smashing protection, not ASLR."
+      },
+      {
+       "text": "It has only 16 bits of randomization, so it can be brute-forced",
+       "why": "Correct. On 32-bit systems ASLR provides only 16 bits of randomization, which can be brute-forced. It is effective on 64-bit systems."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which statement correctly describes cross-site request forgery (CSRF)?",
+     "choices": [
+      {
+       "text": "It exploits the user's trust in a particular website",
+       "why": "Exploiting the user's trust in a site describes cross-site scripting (XSS), not CSRF."
+      },
+      {
+       "text": "It exploits the application's trust in the user's browser",
+       "why": "Correct. CSRF tricks a logged-in user's browser into sending unwanted requests, abusing the application's trust in that browser. It is also called a one-click attack or session riding."
+      },
+      {
+       "text": "It tricks a web server into calling internal systems",
+       "why": "Tricking a web server into sending requests to internal or external systems is server-side request forgery (SSRF)."
+      },
+      {
+       "text": "It exploits the gap between a check and its use",
+       "why": "Exploiting the timing gap between check and use describes a race condition (TOCTOU), not CSRF."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the purpose of chain of custody in digital forensics?",
+     "choices": [
+      {
+       "text": "To make a bit-for-bit physical copy of a storage device",
+       "why": "A bit-for-bit copy is a forensic image file. Chain of custody documents how evidence such as that image is handled."
+      },
+      {
+       "text": "To block electromagnetic signals from reaching a seized device",
+       "why": "Blocking signals so a device cannot use Wi-Fi or cellular is the job of a Faraday cage."
+      },
+      {
+       "text": "To document and preserve evidence from collection until court",
+       "why": "Correct. Chain of custody documents and preserves evidence from the start of the investigation until it is presented in court, including who accessed it and how."
+      },
+      {
+       "text": "To prevent changes to a device while it is being copied",
+       "why": "Preventing changes during copying is the purpose of a write blocker, a hardware device."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which type of threat actor uses existing scripts or tools created by others because they cannot write their own?",
+     "choices": [
+      {
+       "text": "Script kiddie",
+       "why": "Correct. A script kiddie uses existing scripts or tools and lacks the skill to write their own."
+      },
+      {
+       "text": "Gray hat",
+       "why": "A gray hat usually follows the law but sometimes crosses into black hat activity. The term is about ethics, not skill level."
+      },
+      {
+       "text": "State sponsor",
+       "why": "A state sponsor is a government actor stealing intellectual property and research data, typically well resourced rather than unskilled."
+      },
+      {
+       "text": "Hacktivist",
+       "why": "A hacktivist attacks to promote a social or political cause. The term describes motivation, not reliance on others' tools."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which document in the ISO/IEC 27000 series covers information security risk management?",
+     "choices": [
+      {
+       "text": "ISO 27001",
+       "why": "ISO 27001 is the ISMS specification, not the risk management document."
+      },
+      {
+       "text": "ISO 27004",
+       "why": "ISO 27004 covers metrics, meaning measurement of the ISMS."
+      },
+      {
+       "text": "ISO 27005",
+       "why": "Correct. ISO 27005 is the risk management document in the ISO/IEC 27000 series."
+      },
+      {
+       "text": "ISO 27006",
+       "why": "ISO 27006 contains requirements for bodies that audit and certify ISMSs."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which type of virus changes its signature every time it replicates in order to evade signature-based detection?",
+     "choices": [
+      {
+       "text": "Polymorphic virus",
+       "why": "Correct. A polymorphic virus changes its signature each time it replicates, which defeats simple signature matching."
+      },
+      {
+       "text": "Multipartite virus",
+       "why": "A multipartite virus uses more than one propagation method and targets both the boot sector and program files. It is defined by how it spreads."
+      },
+      {
+       "text": "Sparse infector",
+       "why": "A sparse infector spreads slowly on purpose to avoid detection. It evades by pacing, not by changing its signature."
+      },
+      {
+       "text": "Cluster virus",
+       "why": "A cluster virus changes directory table entries to point to the malware. It does not change its signature."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An engineer is defining access for a new help desk technician. Policy says the technician should receive only the minimum permissions required to reset passwords and nothing more. Which principle is being applied?",
+     "choices": [
+      {
+       "text": "Need to know",
+       "why": "Need to know is a demonstrated, authorized reason for access to specific information. It is related, but the principle of granting only minimum permissions is least privilege."
+      },
+      {
+       "text": "Least privilege",
+       "why": "Correct. Least privilege means granting only the minimum access needed to do the job."
+      },
+      {
+       "text": "Default allow",
+       "why": "Default allow permits anything not explicitly forbidden, which is the opposite of restricting access to a minimum."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "DAC is a model where the object's owner sets access. It describes who sets permissions, not the minimum-permission principle."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A utility deploys thousands of smart grid sensors and wants to process their data locally on routers near the sensors, sending only summarized results to the cloud to save bandwidth. Which concept does this describe?",
+     "choices": [
+      {
+       "text": "Resource pooling",
+       "why": "Resource pooling is a NIST cloud characteristic where provider resources are shared among customers. It does not describe processing data near the source."
+      },
+      {
+       "text": "Onboarding",
+       "why": "Onboarding is securely provisioning and managing an IoT device during and after deployment, not processing its data locally."
+      },
+      {
+       "text": "Rapid elasticity",
+       "why": "Rapid elasticity is a NIST cloud characteristic about scaling resources quickly, not about local IoT data processing."
+      },
+      {
+       "text": "Fog computing",
+       "why": "Correct. Fog computing processes IoT data as close to the source as possible, on fog-edge devices like routers, before sending it to the cloud."
+      }
+     ],
+     "answer": 3
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 2",
+   "questions": [
+    {
+     "q": "What is a zero-day exploit?",
+     "choices": [
+      {
+       "text": "An exploit published by researchers to demonstrate a flaw",
+       "why": "An exploit published by researchers to demonstrate a vulnerability is a proof-of-concept (POC) exploit."
+      },
+      {
+       "text": "An exploit for a vulnerability that nobody knew existed",
+       "why": "Correct. A zero-day exploit targets a vulnerability that nobody knew existed, so no patch is available."
+      },
+      {
+       "text": "A threat that is not yet realized or publicly known",
+       "why": "A threat not yet realized because the vulnerability has not been exploited or is not publicly known is a latent threat."
+      },
+      {
+       "text": "The time between disclosure and an available patch",
+       "why": "The time between disclosure and a patch being available is the window of exposure, not a type of exploit."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which open standard provides the transport that automates the exchange of threat information between organizations?",
+     "choices": [
+      {
+       "text": "STIX",
+       "why": "STIX is the language that describes and shares cyberattack information. It is the content that TAXII carries, not the transport."
+      },
+      {
+       "text": "OpenIOC",
+       "why": "OpenIOC is an open, machine-readable framework for sharing indicators of compromise, not the automated transport."
+      },
+      {
+       "text": "CybOX",
+       "why": "CybOX is a standard for describing observables. It defines content rather than transporting it."
+      },
+      {
+       "text": "TAXII",
+       "why": "Correct. TAXII (Trusted Automated eXchange of Indicator Information) is the open transport that automates the exchange of threat information."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which statement about Trojans is correct?",
+     "choices": [
+      {
+       "text": "They pretend to be useful but cannot spread themselves",
+       "why": "Correct. A Trojan pretends to be something useful while doing something malicious, and it cannot spread itself."
+      },
+      {
+       "text": "They spread system to system with no human action",
+       "why": "Spreading from system to system with no human interaction describes a worm."
+      },
+      {
+       "text": "They require a host file and attach to its code",
+       "why": "Needing a host file or program and human interaction to spread describes a virus."
+      },
+      {
+       "text": "They change their signature each time they replicate",
+       "why": "Changing its signature on every replication describes a polymorphic virus, and Trojans do not replicate."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An attacker posts a comment containing malicious script on a public forum. The script is saved in the forum's database and runs in the browser of every user who later views the thread. Which type of XSS is this?",
+     "choices": [
+      {
+       "text": "Reflected (non-persistent) XSS",
+       "why": "Reflected XSS bounces malicious code off the server from a link the victim clicks. It is not saved on the server for later visitors."
+      },
+      {
+       "text": "DOM-based XSS",
+       "why": "In DOM-based XSS the payload never reaches the server and is processed only by the browser. Here the script is stored in the server's database."
+      },
+      {
+       "text": "Stored (persistent) XSS",
+       "why": "Correct. Stored or persistent XSS is saved on the server, such as in blog comments or forum posts, and runs for each user who views it."
+      },
+      {
+       "text": "Cross-site request forgery",
+       "why": "CSRF tricks a logged-in user's browser into sending unwanted requests. It does not store script on a forum for others to run."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "While testing an online store, a tester changes the URL parameter buy?customerID=1245 to buy?customerID=1246 and is shown another customer's order history. Which vulnerability has the tester found?",
+     "choices": [
+      {
+       "text": "Server-side request forgery",
+       "why": "SSRF tricks a web server into sending requests to other systems on the attacker's behalf. Here the tester simply changed an object identifier."
+      },
+      {
+       "text": "Command injection",
+       "why": "Command injection passes attacker-supplied OS commands to a shell. No command was injected here."
+      },
+      {
+       "text": "Session hijacking",
+       "why": "Session hijacking takes over another user's authenticated session. The tester used their own session and changed a parameter."
+      },
+      {
+       "text": "Insecure Direct Object Reference",
+       "why": "Correct. IDOR is changing a parameter that points directly to an object, such as a customer ID, to reach data you are not authorized for."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A service level agreement promises five nines of availability. What uptime percentage does this represent?",
+     "choices": [
+      {
+       "text": "99.999 percent",
+       "why": "Correct. Five nines means 99.999 percent uptime."
+      },
+      {
+       "text": "99.99 percent",
+       "why": "99.99 percent has only four nines. Five nines adds one more nine, 99.999 percent."
+      },
+      {
+       "text": "99.9 percent",
+       "why": "99.9 percent is three nines, allowing far more downtime than five nines."
+      },
+      {
+       "text": "99.9999 percent",
+       "why": "99.9999 percent is six nines. Five nines is 99.999 percent."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which access control model is also called nondiscretionary and grants access based on a user's job role?",
+     "choices": [
+      {
+       "text": "Mandatory access control",
+       "why": "MAC sets access by policy that the owner cannot change. It is policy-driven rather than based on job roles."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "DAC lets the owner of the object set access, which is the opposite of nondiscretionary."
+      },
+      {
+       "text": "Role-based access control",
+       "why": "Correct. RBAC, also called nondiscretionary access control, grants access based on job role."
+      },
+      {
+       "text": "Rule-based access control",
+       "why": "Rule-based access control uses criteria like time of day or location, not the user's role."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which cloud service model delivers a complete packaged application, usually through a web portal, that customers rent and use from anywhere?",
+     "choices": [
+      {
+       "text": "PaaS",
+       "why": "PaaS provides everything except the applications, so the customer still builds the application."
+      },
+      {
+       "text": "SaaS",
+       "why": "Correct. SaaS is a complete packaged application, usually reached through a web portal, rented and used from anywhere with a per-use fee."
+      },
+      {
+       "text": "IaaS",
+       "why": "IaaS rents compute and infrastructure, like a utility. The customer supplies the platform and applications."
+      },
+      {
+       "text": "Community cloud",
+       "why": "Community cloud is a deployment model shared by several organizations, not a service model."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the first step in the five-step threat intelligence process?",
+     "choices": [
+      {
+       "text": "Collection",
+       "why": "Collection is the second step, after planning and direction has decided what intelligence is needed."
+      },
+      {
+       "text": "Analysis and production",
+       "why": "Analysis and production is the fourth step, after collection and processing."
+      },
+      {
+       "text": "Planning and direction",
+       "why": "Correct. The process is planning and direction, collection, processing, analysis and production, and dissemination."
+      },
+      {
+       "text": "Dissemination",
+       "why": "Dissemination is the fifth and final step, when finished intelligence is delivered to consumers."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which value is a valid option for the CVSS Attack Vector (AV) base metric?",
+     "choices": [
+      {
+       "text": "Changed",
+       "why": "Changed is a value of the Scope (S) metric, meaning other systems are affected. It is not an Attack Vector value."
+      },
+      {
+       "text": "Adjacent",
+       "why": "Correct. Attack Vector values are Network, Adjacent, Local, and Physical."
+      },
+      {
+       "text": "Required",
+       "why": "Required is a value of the User Interaction (UI) metric, not Attack Vector."
+      },
+      {
+       "text": "Remote",
+       "why": "Remote is not a CVSS Attack Vector value. The values are Network, Adjacent, Local, and Physical."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A security team suspects a keylogger on an executive's desktop. Antimalware scans come back clean. Which type of keylogger could still be present, and how would it be found?",
+     "choices": [
+      {
+       "text": "A hardware keylogger, found only by physical inspection",
+       "why": "Correct. Hardware keyloggers are undetectable by software and can only be found by physically inspecting the system."
+      },
+      {
+       "text": "A software keylogger, found by checking the hosts file",
+       "why": "Software keyloggers run as a shim between the OS and keyboard and are in principle detectable by software. Checking the hosts file is a spyware cleanup step."
+      },
+      {
+       "text": "A polymorphic keylogger, found by a sandbox detonation",
+       "why": "Polymorphism describes signature-changing viruses, and a sandbox is for running a suspicious program, not for finding a device on a desk."
+      },
+      {
+       "text": "A browser keylogger, found by reviewing extension logs",
+       "why": "A compromised browser extension describes a man-in-the-browser attack. It would not explain a keylogger invisible to all software scans."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which malware distribution tool compresses malware to hide its code until it runs in memory?",
+     "choices": [
+      {
+       "text": "Wrapper",
+       "why": "A wrapper (binder) combines two or more executables into one program. It binds programs together rather than compressing code."
+      },
+      {
+       "text": "Crypter",
+       "why": "A crypter encrypts or obfuscates malware code using methods like AES, XOR, or Base64. It encrypts rather than compresses."
+      },
+      {
+       "text": "Dropper",
+       "why": "A dropper installs malware payloads on the victim while avoiding detection. It delivers malware rather than compressing it."
+      },
+      {
+       "text": "Packer",
+       "why": "Correct. A packer compresses malware, like WinZip or RAR but to hide code, so the code is hidden until it runs in memory."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What is the title of NIST SP 800-61 Revision 2?",
+     "choices": [
+      {
+       "text": "Computer Security Incident Handling Guide",
+       "why": "Correct. NIST SP 800-61 Revision 2 is the Computer Security Incident Handling Guide."
+      },
+      {
+       "text": "Guide to Malware Incident Prevention and Handling",
+       "why": "Malware incident prevention and handling is covered by NIST SP 800-83."
+      },
+      {
+       "text": "Integrating Forensic Techniques into Incident Response",
+       "why": "Integrating forensic techniques into incident response is NIST SP 800-86."
+      },
+      {
+       "text": "Risk Management Framework for Information Systems",
+       "why": "The Risk Management Framework is NIST SP 800-37, which replaced Certification and Accreditation."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A malware analyst wants to examine a suspicious binary's code without executing it. Which tool is a disassembler suited to this static analysis?",
+     "choices": [
+      {
+       "text": "FakeNet",
+       "why": "FakeNet fakes a network connection so malware keeps running. It is a dynamic analysis tool that requires executing the sample."
+      },
+      {
+       "text": "Shodan",
+       "why": "Shodan is a search engine for finding Internet-exposed devices, not a tool for analyzing malware code."
+      },
+      {
+       "text": "Scapy",
+       "why": "Scapy is a Python tool for crafting packets. It does not disassemble binaries."
+      },
+      {
+       "text": "IDA Pro",
+       "why": "Correct. IDA Pro is a disassembler listed among the static analysis tools, which examine malware without running it."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A firewall administrator configures a policy where any traffic not explicitly permitted is dropped. Which security posture is this?",
+     "choices": [
+      {
+       "text": "Default allow",
+       "why": "Default allow (open) permits anything not explicitly forbidden, which is the opposite of this policy."
+      },
+      {
+       "text": "Default deny",
+       "why": "Correct. Default deny (secure) forbids anything not explicitly permitted."
+      },
+      {
+       "text": "Need to know",
+       "why": "Need to know is a principle requiring an authorized reason for access to information. It is not the overall default posture of a rule set."
+      },
+      {
+       "text": "Rule-based access",
+       "why": "Rule-based access control grants access by criteria like time or location. It does not define what happens to unmatched traffic."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which of the following is one of the three tasks of the designated incident handler (DIH)?",
+     "choices": [
+      {
+       "text": "Receive, verify, and log incident reports",
+       "why": "Receiving, verifying, and logging reports is the job of the incident response coordinator (IRC), the central point of contact."
+      },
+      {
+       "text": "Assign severity when reporting a suspicion",
+       "why": "Employees reporting incidents should not assign severity. Severity is set by an incident manager or investigator."
+      },
+      {
+       "text": "Declare the incident",
+       "why": "Correct. The DIH is a senior person with three tasks: declare the incident, liaise with executives, and manage the incident response team."
+      },
+      {
+       "text": "Keep non-evidence documentation",
+       "why": "Keeping non-evidence documentation is one of the IRC's duties, not the DIH's."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which protocol is the chapter's example of an amplification DDoS, where responses are much larger than the requests?",
+     "choices": [
+      {
+       "text": "TCP SYN",
+       "why": "A TCP SYN flood is the chapter's example of a direct DoS attack, where the attacker sends packets straight to the victim."
+      },
+      {
+       "text": "DNS",
+       "why": "Correct. DNS is the chapter's amplification example, a reflected attack where the replies are much larger than the requests."
+      },
+      {
+       "text": "SSH",
+       "why": "SSH is listed because its encryption lets attackers tunnel other traffic through it, not as an amplification vector."
+      },
+      {
+       "text": "ICMP ping",
+       "why": "ICMP is noted as a protocol used by ping and for tunneling. It is not the chapter's amplification example."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A developer stores password hashes and wants to make sure precomputed rainbow tables cannot be used to reverse them. What should be added to each password before hashing?",
+     "choices": [
+      {
+       "text": "An NX bit",
+       "why": "The NX bit marks memory such as the stack as non-executable. It protects against code injection, not password cracking."
+      },
+      {
+       "text": "An RC4 key",
+       "why": "RC4 is listed as a weak algorithm that makes cracking easier. It does not defend hashes against rainbow tables."
+      },
+      {
+       "text": "A unique salt",
+       "why": "Correct. A salt is a unique value added to a password before hashing so that rainbow tables do not work. Unsalted hashes are open to rainbow table attacks."
+      },
+      {
+       "text": "A null byte",
+       "why": "Putting a null byte in library addresses is ASCII armoring, a memory defense against string-based exploits, not a password protection."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An IDS fails to raise any alert while an attacker successfully exfiltrates data from the network. How is this outcome classified?",
+     "choices": [
+      {
+       "text": "False positive",
+       "why": "A false positive, or benign trigger, is an alert raised when there is no real attack. Here there was a real attack and no alert."
+      },
+      {
+       "text": "True positive",
+       "why": "A true positive is a real attack that is correctly detected. This attack was not detected."
+      },
+      {
+       "text": "True negative",
+       "why": "A true negative is normal activity correctly identified as normal. The activity here was malicious."
+      },
+      {
+       "text": "False negative",
+       "why": "Correct. A false negative is a real attack that is not detected."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which LoRaWAN endpoint class offers the lowest power consumption while remaining bidirectional?",
+     "choices": [
+      {
+       "text": "Class A",
+       "why": "Correct. LoRaWAN Class A endpoints are the lowest power and bidirectional."
+      },
+      {
+       "text": "Class B",
+       "why": "Class B endpoints are bidirectional with deterministic downlink latency. Their defining trait is predictable downlink timing, not lowest power."
+      },
+      {
+       "text": "Class C",
+       "why": "Class C endpoints are bidirectional with the lowest latency, which typically costs more power."
+      },
+      {
+       "text": "Class D",
+       "why": "LoRaWAN defines only Classes A, B, and C. There is no Class D."
+      }
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 3",
+   "questions": [
+    {
+     "q": "What is residual risk?",
+     "choices": [
+      {
+       "text": "The probability that a threat will be realized",
+       "why": "The probability or likelihood that a threat is realized is the definition of risk itself, not residual risk."
+      },
+      {
+       "text": "A threat that has not yet been exploited",
+       "why": "A threat not yet realized because the vulnerability has not been exploited or is not publicly known is a latent threat."
+      },
+      {
+       "text": "The time between disclosure and a patch",
+       "why": "The time between disclosure and a patch being available is the window of exposure."
+      },
+      {
+       "text": "The risk remaining after safeguards are in place",
+       "why": "Correct. Residual risk is the risk left over after safeguards and controls are in place."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A group defaces a government website to protest a new environmental policy. Which type of threat actor is this?",
+     "choices": [
+      {
+       "text": "Organized crime group",
+       "why": "Organized crime groups steal information and scam people to make money. Their motive is financial, not a political cause."
+      },
+      {
+       "text": "Hacktivist",
+       "why": "Correct. A hacktivist attacks to promote a social or political cause. Hacktivism is hacking plus activism."
+      },
+      {
+       "text": "State sponsor",
+       "why": "A state sponsor is a government actor that steals intellectual property and research data. It does not attack to publicize a protest."
+      },
+      {
+       "text": "Script kiddie",
+       "why": "A script kiddie is defined by lack of skill, using existing tools. The defining trait here is the political motive."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which resource is a knowledge base of real-world attacker tactics, techniques, and procedures (TTPs), organized into matrices by platform?",
+     "choices": [
+      {
+       "text": "NIST NVD",
+       "why": "The NVD is NIST's public vulnerability repository. It catalogs vulnerabilities rather than attacker TTPs."
+      },
+      {
+       "text": "OWASP Top 10",
+       "why": "The OWASP Top 10 lists the most critical web application vulnerabilities, not attacker TTPs by platform."
+      },
+      {
+       "text": "MITRE ATT&CK",
+       "why": "Correct. MITRE ATT&CK is a knowledge base of real-world attacker TTPs organized into matrices by platform."
+      },
+      {
+       "text": "Exploit-DB",
+       "why": "Exploit-DB, run by Offensive Security, is a public database of exploits, not a framework of adversary TTPs."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which business model lets ransomware authors rent their tools to affiliates in exchange for a cut of the profits?",
+     "choices": [
+      {
+       "text": "Ransomware as a Service",
+       "why": "Correct. RaaS is a business model where authors rent ransomware to affiliates for a share of profits. It lowered the skill needed to launch attacks."
+      },
+      {
+       "text": "Managed security service provider",
+       "why": "An MSSP is an outsourced provider of security and incident response, a defensive service."
+      },
+      {
+       "text": "Software composition analysis",
+       "why": "SCA tools find open-source components inside your software. They are a development security tool."
+      },
+      {
+       "text": "Advanced persistent threat",
+       "why": "An APT is a well-funded, patient attacker, often a nation-state, targeting sensitive data. It is a type of actor, not a rental model."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An attacker submits a form field that causes a web application to pass OS commands to the system shell. With what privileges do those commands run?",
+     "choices": [
+      {
+       "text": "The privileges of the application",
+       "why": "Correct. In command injection, user data is passed to a shell and the commands run with the application's privileges."
+      },
+      {
+       "text": "Always with root or SYSTEM privileges",
+       "why": "Commands do not automatically get the highest privileges. They inherit whatever privileges the vulnerable application has."
+      },
+      {
+       "text": "The privileges of the database user",
+       "why": "Database user privileges apply to SQL injection against a database, not to OS commands passed to a shell."
+      },
+      {
+       "text": "The privileges of the victim's browser",
+       "why": "Running in the victim's browser describes XSS. Command injection runs on the server, not in the browser."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An attacker convinces a public web server to fetch a URL that points to an internal administration system protected by the firewall. The request succeeds because it appears to come from the trusted web server. Which attack is this?",
+     "choices": [
+      {
+       "text": "Cross-site request forgery",
+       "why": "CSRF tricks a user's browser into sending unwanted requests. Here the server, not a user's browser, makes the request."
+      },
+      {
+       "text": "Insecure Direct Object Reference",
+       "why": "IDOR changes an object identifier, such as a customer ID, to reach unauthorized data. It does not make the server request internal systems."
+      },
+      {
+       "text": "Server-side request forgery",
+       "why": "Correct. SSRF tricks a web server into sending requests on the attacker's behalf, and the request reaches systems behind firewalls because it appears to come from the trusted server."
+      },
+      {
+       "text": "DOM-based cross-site scripting",
+       "why": "DOM-based XSS is processed only in the victim's browser and never reaches the server. It does not reach internal systems through the server."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Why can a non-executable stack not stop a return-to-libc (ret2libc) attack?",
+     "choices": [
+      {
+       "text": "ret2libc encrypts its payload on the stack",
+       "why": "ret2libc does not depend on encryption. Encrypting code is what a crypter does to malware."
+      },
+      {
+       "text": "ret2libc reuses existing library code",
+       "why": "Correct. ret2libc points the return address at existing library code instead of injected code, so making the stack non-executable does not block it."
+      },
+      {
+       "text": "ret2libc only works on 64-bit systems",
+       "why": "This is not why NX fails, and it is ASLR that is weak on 32-bit systems, not ret2libc that is limited to 64-bit."
+      },
+      {
+       "text": "ret2libc overwrites the null bytes in memory",
+       "why": "Overflowing null bytes is how an attacker defeats ASCII armoring, a different defense. It is not why NX fails against ret2libc."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In which access control model does the owner of the object decide who can access it?",
+     "choices": [
+      {
+       "text": "Mandatory access control",
+       "why": "MAC is set by policy and cannot be changed by the owner."
+      },
+      {
+       "text": "Role-based access control",
+       "why": "RBAC grants access based on job role and is called nondiscretionary, so the owner does not choose."
+      },
+      {
+       "text": "Rule-based access control",
+       "why": "Rule-based access control uses criteria like time of day or location to decide access, not the owner's choice."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "Correct. DAC is set by the owner of the object."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which of the following is one of the five NIST essential characteristics of cloud computing?",
+     "choices": [
+      {
+       "text": "Distributed storage",
+       "why": "Distributed storage is listed as a cloud advantage, not one of the five NIST essential characteristics."
+      },
+      {
+       "text": "Rapid elasticity",
+       "why": "Correct. The NIST essential characteristics are on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service."
+      },
+      {
+       "text": "Automated management",
+       "why": "Automated management is listed as a cloud advantage, not a NIST essential characteristic."
+      },
+      {
+       "text": "Shared responsibility",
+       "why": "Shared responsibility describes how client and provider split security duties. It is not one of the NIST essential characteristics."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Several hospitals agree to share a cloud environment built for their common requirements. Which cloud deployment model is this?",
+     "choices": [
+      {
+       "text": "Community cloud",
+       "why": "Correct. A community cloud is shared by several organizations, typically with common needs."
+      },
+      {
+       "text": "Private cloud",
+       "why": "A private cloud serves one organization, on-premises or in a dedicated area at a provider, not several organizations."
+      },
+      {
+       "text": "Public cloud",
+       "why": "A public cloud is open for public use, not limited to a group of related organizations."
+      },
+      {
+       "text": "Hybrid cloud",
+       "why": "A hybrid cloud combines two or more clouds, including on-premises. It describes mixing clouds, not sharing among organizations."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which IoT protocol was built for battery life, sleeps until it is needed, and uses frequency-hopping spread spectrum and AES?",
+     "choices": [
+      {
+       "text": "Z-Wave",
+       "why": "Z-Wave supports unicast, multicast, and broadcast with controllers and slaves, operating at 908.42 MHz in North America. It is not the protocol described."
+      },
+      {
+       "text": "INSTEON",
+       "why": "INSTEON is a dual-band mesh protocol that works over both wireless and power line."
+      },
+      {
+       "text": "Bluetooth Low Energy",
+       "why": "Correct. Bluetooth Low Energy (Bluetooth Smart) is built for battery life, sleeps until needed, and uses frequency-hopping spread spectrum and AES in the 2.4 GHz band."
+      },
+      {
+       "text": "6LoWPAN",
+       "why": "6LoWPAN builds an IPv6 adaptation layer on top of 802.15.4. It is not defined by sleeping and frequency hopping."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A firewall logs that it blocked an inbound connection attempt. Nothing was damaged and no policy was violated. How should this be classified?",
+     "choices": [
+      {
+       "text": "An incident",
+       "why": "An incident is an adverse event that threatens security or disrupts service. A routine blocked connection has no negative consequence."
+      },
+      {
+       "text": "A disaster",
+       "why": "A disaster involves widespread damage, loss of life, or drastic environmental change, far beyond a blocked connection."
+      },
+      {
+       "text": "An adverse event",
+       "why": "An adverse event has a negative consequence, such as a crash or packet flood. A successful block caused no harm."
+      },
+      {
+       "text": "An event",
+       "why": "Correct. An event is any observable occurrence, and a firewall blocking a connection is one of the chapter's event examples."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A forensic investigator needs to copy a suspect's hard drive while guaranteeing that nothing on the original drive is modified during the copy. What should be attached to the drive?",
+     "choices": [
+      {
+       "text": "A Faraday cage",
+       "why": "A Faraday cage blocks electromagnetic signals so devices cannot use Wi-Fi or cellular. It does not prevent writes during copying."
+      },
+      {
+       "text": "An antistatic bag",
+       "why": "Antistatic bags protect evidence from electrostatic discharge during storage and transport, not from writes during copying."
+      },
+      {
+       "text": "A write blocker",
+       "why": "Correct. A write blocker is hardware that prevents changes to a device while it is copied."
+      },
+      {
+       "text": "A logic analyzer",
+       "why": "A logic analyzer is a hardware tool listed for IoT hacking and analysis, not for preserving evidence during imaging."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A security researcher finds a vulnerability in a commercial firewall product and wants to report it to the vendor's team that handles flaws in its own products. Which team should receive the report?",
+     "choices": [
+      {
+       "text": "The vendor's PSIRT",
+       "why": "Correct. A product security incident response team (PSIRT) is a vendor's team for vulnerabilities in its own products. Cisco PSIRT, for example, handles Cisco product vulnerabilities."
+      },
+      {
+       "text": "The vendor's CSIRT",
+       "why": "A CSIRT investigates incidents in the organization's own environment. At Cisco, the CSIRT handles internal infrastructure and cisco.com, not product flaws."
+      },
+      {
+       "text": "The vendor's SOC",
+       "why": "A SOC monitors and defends the organization and consumes threat intelligence. It is not the team that handles product vulnerability reports."
+      },
+      {
+       "text": "The vendor's MSSP",
+       "why": "An MSSP is an outsourced security and incident response provider, not the vendor's own product vulnerability team."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which two organizations built the Stakeholder-Specific Vulnerability Categorization (SSVC) decision-tree method?",
+     "choices": [
+      {
+       "text": "FIRST and MITRE",
+       "why": "FIRST maintains CVSS, and MITRE maintains the CVE list and ATT&CK. Neither pair built SSVC."
+      },
+      {
+       "text": "NIST and OASIS",
+       "why": "NIST publishes standards like the SP 800 series, and OASIS maintains STIX, TAXII, and OpenC2. They did not build SSVC."
+      },
+      {
+       "text": "ISO and IEC",
+       "why": "ISO and IEC jointly publish the ISO/IEC 27000 series. They did not create SSVC."
+      },
+      {
+       "text": "SEI and CISA",
+       "why": "Correct. SSVC was built by the Software Engineering Institute (SEI) at Carnegie Mellon and CISA."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A firewall filters packets based on the SYN flag. An attacker builds a covert channel using TCP ACK packets to slip past it. Which tool is designed for TCP ACK tunneling?",
+     "choices": [
+      {
+       "text": "dnscat2",
+       "why": "dnscat2 is a DNS tunneling tool, not a TCP ACK tunneling tool."
+      },
+      {
+       "text": "AckCmd",
+       "why": "Correct. AckCmd is the tool listed for TCP ACK tunneling, exploiting firewalls that filter on SYN."
+      },
+      {
+       "text": "socat",
+       "why": "socat is listed among IPv6 tunneling tools, along with 6tunnel, nt6tunnel, and relay6."
+      },
+      {
+       "text": "Netcat",
+       "why": "Netcat is listed for HTTP and HTTPS exfiltration, not for TCP ACK tunneling."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An FTP Trojan lets an attacker upload, download, and move files on a victim machine. On which port does it typically operate?",
+     "choices": [
+      {
+       "text": "TCP 22",
+       "why": "TCP 22 is SSH, which is encrypted and abused for tunneling other traffic. It is not the FTP port."
+      },
+      {
+       "text": "TCP 443",
+       "why": "TCP 443 is HTTPS, which is hard to inspect and used for covert channels, not FTP."
+      },
+      {
+       "text": "UDP 53",
+       "why": "UDP 53 is DNS, which is abused for tunneling and exfiltration, not FTP."
+      },
+      {
+       "text": "TCP 21",
+       "why": "Correct. FTP Trojans work on TCP port 21, the FTP port, to upload, download, and move files."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "When building a dynamic malware analysis lab, what is the number one goal?",
+     "choices": [
+      {
+       "text": "Speed of analysis",
+       "why": "Speed is not the stated top goal. The lab steps exist to keep the malware from escaping."
+      },
+      {
+       "text": "Containment",
+       "why": "Correct. Containment is the number one goal, which is why the guest VM is isolated and all sharing and transfer between host and guest are blocked."
+      },
+      {
+       "text": "Signature creation",
+       "why": "Building signatures may follow analysis, but the lab's primary goal is keeping the malware contained."
+      },
+      {
+       "text": "Network access",
+       "why": "Malware may want a network connection, but tools like FakeNet fake one. Giving real access conflicts with the containment goal."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "After removing spyware, a technician finds that the PC still cannot reach antivirus update sites and gets redirected to ad servers. Which file should the technician check?",
+     "choices": [
+      {
+       "text": "The hosts file",
+       "why": "Correct. Spyware modifies the hosts file to block security updates or redirect to ad servers, so cleanup includes checking it."
+      },
+      {
+       "text": "The master boot record",
+       "why": "The master boot record is a virus propagation target. It does not control name resolution to update sites."
+      },
+      {
+       "text": "The DNS cache file",
+       "why": "The chapter names the hosts file, not a DNS cache, as what spyware modifies to block updates and redirect users."
+      },
+      {
+       "text": "The System.ini Shell= line",
+       "why": "The Shell= line in System.ini is a spyware persistence location for running at boot. It does not redirect web traffic."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which ISO/IEC 27000 series document is the ISMS specification?",
+     "choices": [
+      {
+       "text": "ISO 27002",
+       "why": "ISO 27002 is the code of practice, not the ISMS specification."
+      },
+      {
+       "text": "ISO 27003",
+       "why": "ISO 27003 provides implementation guidance for an ISMS."
+      },
+      {
+       "text": "ISO 27001",
+       "why": "Correct. ISO 27001 is the ISMS specification."
+      },
+      {
+       "text": "ISO 27005",
+       "why": "ISO 27005 covers information security risk management."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 4",
+   "questions": [
+    {
+     "q": "What is a latent threat?",
+     "choices": [
+      {
+       "text": "A threat not yet realized because the flaw is unexploited or unknown",
+       "why": "Correct. A latent threat is not yet realized because the vulnerability has not been exploited or is not publicly known."
+      },
+      {
+       "text": "The risk that remains after controls have been applied",
+       "why": "The risk left over after safeguards and controls are in place is residual risk."
+      },
+      {
+       "text": "An exploit that targets a flaw nobody knew existed",
+       "why": "An exploit for a vulnerability nobody knew existed is a zero-day exploit."
+      },
+      {
+       "text": "The path a malicious actor uses to carry out an attack",
+       "why": "The path used to carry out the attack is the threat vector, also called the threat agent."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Why is it considered unethical to hire a gray hat hacker for security testing?",
+     "choices": [
+      {
+       "text": "They only use existing scripts and cannot write tools",
+       "why": "Relying on existing scripts and tools describes a script kiddie, not a gray hat."
+      },
+      {
+       "text": "They always perform illegal activity for profit",
+       "why": "Always performing illegal activity, such as organized crime, describes a black hat."
+      },
+      {
+       "text": "You cannot be sure where they stand legally",
+       "why": "Correct. A gray hat usually follows the law but sometimes crosses into black hat activity, so you cannot be sure where they stand."
+      },
+      {
+       "text": "They attack only to promote a political cause",
+       "why": "Attacking to promote a social or political cause describes a hacktivist."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A threat intelligence feed lists a malicious IP address, a phishing URL, and a file hash associated with a malware campaign. What are these items called?",
+     "choices": [
+      {
+       "text": "Tactics, techniques, and procedures",
+       "why": "TTPs describe how an adversary operates, such as their methods. Specific IPs, URLs, and hashes are evidence artifacts, not methods."
+      },
+      {
+       "text": "Indicators of compromise",
+       "why": "Correct. An indicator of compromise is evidence that a system may be compromised, such as a malicious IP address, URL, or file hash."
+      },
+      {
+       "text": "Vulnerability advisories",
+       "why": "Vulnerability advisories, such as those in CSAF format, describe product vulnerabilities, not attack artifacts."
+      },
+      {
+       "text": "CVSS vector strings",
+       "why": "A CVSS vector string records the base metric values for a vulnerability's severity score, not attack artifacts."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An attacker combines a legitimate game installer and a remote-access Trojan into a single executable so the Trojan installs silently when the game is installed. What type of tool was used?",
+     "choices": [
+      {
+       "text": "Packer",
+       "why": "A packer compresses malware to hide its code until it runs in memory. It does not merge two programs."
+      },
+      {
+       "text": "Crypter",
+       "why": "A crypter encrypts or obfuscates malware code. It does not combine separate executables."
+      },
+      {
+       "text": "Keylogger",
+       "why": "A keylogger records keystrokes. It is a type of malware payload, not a tool for binding programs."
+      },
+      {
+       "text": "Wrapper",
+       "why": "Correct. A wrapper, also called a binder, packager, or EXE binder, combines two or more executables into one program."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Every virus contains at least which two components?",
+     "choices": [
+      {
+       "text": "A payload and a trigger routine",
+       "why": "The payload is optional, and the trigger routine launches the payload at a set time. Neither is required in every virus."
+      },
+      {
+       "text": "An antidetection routine and a payload",
+       "why": "Antidetection routines and payloads are optional components. They are not the two minimum components."
+      },
+      {
+       "text": "A search routine and an infection routine",
+       "why": "Correct. Every virus has at least a search routine, which finds targets to infect, and an infection routine, which copies the virus to a host."
+      },
+      {
+       "text": "A trigger routine and an infection routine",
+       "why": "The infection routine is required, but the trigger routine is not. The other required component is the search routine."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "NATAS (Satan spelled backward) is an example of which type of virus?",
+     "choices": [
+      {
+       "text": "Macro virus",
+       "why": "A macro virus abuses scripting in Excel, Word, and PowerPoint. NATAS is not the chapter's macro example."
+      },
+      {
+       "text": "Multipartite virus",
+       "why": "Correct. NATAS is the chapter's multipartite example. A multipartite virus uses more than one propagation method and targets both the boot sector and program files."
+      },
+      {
+       "text": "Cluster virus",
+       "why": "A cluster virus changes directory table entries to point to the malware. NATAS is not given as a cluster virus."
+      },
+      {
+       "text": "Virus hoax",
+       "why": "A virus hoax is a chain letter or email warning of a fake threat, not real malware like NATAS."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In which type of cross-site scripting does the malicious payload never reach the server, being processed only by the victim's browser?",
+     "choices": [
+      {
+       "text": "Reflected XSS",
+       "why": "In reflected XSS, the server reflects the malicious code back from a link the victim clicks, so the payload does reach the server."
+      },
+      {
+       "text": "Stored XSS",
+       "why": "Stored XSS is saved on the server, such as in a database of blog comments, so the payload definitely reaches the server."
+      },
+      {
+       "text": "Persistent XSS",
+       "why": "Persistent XSS is another name for stored XSS, which is saved on the server."
+      },
+      {
+       "text": "DOM-based XSS",
+       "why": "Correct. In DOM-based XSS the payload never reaches the server and only the browser processes it."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A developer finds that two threads update a shared counter at the same time, occasionally closing a file early and losing data. Which mechanism prevents this kind of race condition?",
+     "choices": [
+      {
+       "text": "A mutex or semaphore",
+       "why": "Correct. Mutexes and semaphores are synchronization tools that prevent race conditions by letting only one thread use a resource at a time."
+      },
+      {
+       "text": "Stack-smashing protection",
+       "why": "Stack-smashing protection detects stack corruption from buffer overflows. It does not coordinate thread access to shared data."
+      },
+      {
+       "text": "Address space layout randomization",
+       "why": "ASLR randomizes where code sits in memory to hinder exploits like ret2libc. It does not synchronize threads."
+      },
+      {
+       "text": "Input validation",
+       "why": "Input validation helps prevent injection and IDOR. A race condition is a timing problem between threads, not bad input."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which API type uses only XML, is governed by XML Schema Definition (XSD), and replaced DCOM and CORBA?",
+     "choices": [
+      {
+       "text": "REST",
+       "why": "REST commonly uses JSON, is easier than SOAP, and is documented with Swagger and OpenAPI."
+      },
+      {
+       "text": "GraphQL",
+       "why": "GraphQL is a query language for APIs, used by mobile apps and dashboards. It is not XML-only."
+      },
+      {
+       "text": "WADL",
+       "why": "WADL is an XML language for describing a web application. It is documentation, not an API protocol."
+      },
+      {
+       "text": "SOAP",
+       "why": "Correct. SOAP, from Microsoft, uses XML only, is governed by XSD, and replaced DCOM and CORBA."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An attacker sends thousands of carefully chosen queries to a commercial machine learning API and uses the responses to build a functionally equivalent copy of the model. Which AI attack is this?",
+     "choices": [
+      {
+       "text": "Model inversion",
+       "why": "Model inversion infers training data from the model's outputs. The goal here is copying the model, not recovering training data."
+      },
+      {
+       "text": "Model stealing",
+       "why": "Correct. Model stealing clones a model by repeatedly querying it."
+      },
+      {
+       "text": "Membership inference",
+       "why": "Membership inference determines whether a specific data point was in the training set, not copying the model."
+      },
+      {
+       "text": "Data poisoning",
+       "why": "Data poisoning corrupts the training data to affect specific inputs or overall performance. It does not clone the model."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An organization deploys server clustering, data redundancy, and continuity of operations planning. Which element of the CIA triad are these safeguards primarily designed to protect?",
+     "choices": [
+      {
+       "text": "Availability",
+       "why": "Correct. Server clustering, data redundancy, resilient systems, and continuity of operations planning are safeguards for availability."
+      },
+      {
+       "text": "Integrity",
+       "why": "Integrity safeguards include digital signatures, code testing, file integrity monitoring, and separation of duties. Clustering protects uptime."
+      },
+      {
+       "text": "Confidentiality",
+       "why": "Confidentiality mechanisms include encryption, access controls, database views, and controlled traffic routing, not clustering."
+      },
+      {
+       "text": "Authentication",
+       "why": "Authentication is proving a claimed identity, part of access control. It is not one of the CIA triad elements."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A bank sends a one-time code to a customer's registered phone by SMS during login from a web browser. What type of authentication does sending the code over a separate channel represent?",
+     "choices": [
+      {
+       "text": "Multilayer authentication",
+       "why": "Multilayer authentication uses two or more factors of the same type. It does not describe using a separate delivery channel."
+      },
+      {
+       "text": "Inherence-based authentication",
+       "why": "Inherence factors are something you are, such as biometrics. A code sent to a phone is not an inherence factor."
+      },
+      {
+       "text": "Out-of-band authentication",
+       "why": "Correct. Out-of-band authentication sends a factor over a separate channel, such as SMS to a phone, apart from the main login session."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "DAC is an access control model where the object's owner sets access. It is not an authentication method."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A company allows contractors to access the file server only between 8 a.m. and 6 p.m. and only from the corporate office. Which access control model applies criteria like these?",
+     "choices": [
+      {
+       "text": "Role-based access control",
+       "why": "RBAC grants access based on job role. The criteria here are time and location, not role."
+      },
+      {
+       "text": "Rule-based access control",
+       "why": "Correct. Rule-based access control grants access based on criteria like time of day or location, not on the user."
+      },
+      {
+       "text": "Mandatory access control",
+       "why": "MAC is set by policy and cannot be changed by the owner, typically using labels. It is not defined by time and location rules."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "DAC lets the object's owner decide who has access. Time-of-day and location criteria describe rule-based access control."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In a cloud environment, an attacker places a malicious virtual machine near a target server in order to attack it. What is this called?",
+     "choices": [
+      {
+       "text": "Session riding",
+       "why": "Session riding is another name for CSRF, which tricks a logged-in user's browser into sending unwanted requests."
+      },
+      {
+       "text": "Watering hole attack",
+       "why": "A watering hole attack infects a website the victim is known to visit. It does not involve placing a VM."
+      },
+      {
+       "text": "Side-channel attack",
+       "why": "Correct. In the cloud, a side-channel attack places a malicious VM near a target server to attack it."
+      },
+      {
+       "text": "Amplification attack",
+       "why": "An amplification attack is a reflected DDoS where responses are much larger than requests, not a co-located VM attack."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What does 6LoWPAN provide for IoT devices?",
+     "choices": [
+      {
+       "text": "An IPv6 adaptation layer on top of 802.15.4",
+       "why": "Correct. 6LoWPAN (IPv6 over Low Power Wireless Personal Area Networks) builds an IPv6 adaptation layer on top of 802.15.4 LRWPAN."
+      },
+      {
+       "text": "Port-based authentication for wired switches",
+       "why": "Port-based authentication is 802.1X, which the chapter notes is not an IoT protocol."
+      },
+      {
+       "text": "Mesh networking over wireless and power line",
+       "why": "Dual-band mesh networking over wireless and power line describes INSTEON."
+      },
+      {
+       "text": "Long-range wide area links with three classes",
+       "why": "Long-range wide area networking with Class A, B, and C endpoints describes LoRaWAN."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "When choosing a containment strategy, NIST describes durations for the solution. How long is an emergency workaround expected to last?",
+     "choices": [
+      {
+       "text": "One hour",
+       "why": "One hour is not the duration given. The emergency workaround is four hours."
+      },
+      {
+       "text": "Twenty-four hours",
+       "why": "Twenty-four hours is not the duration given. The emergency workaround is four hours."
+      },
+      {
+       "text": "Two weeks",
+       "why": "Two weeks is the duration for a temporary solution, not an emergency workaround."
+      },
+      {
+       "text": "Four hours",
+       "why": "Correct. The duration criteria are an emergency workaround of four hours, a temporary solution of two weeks, or a permanent fix."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which metric belongs to the CVSS temporal metric group?",
+     "choices": [
+      {
+       "text": "Exploit Code Maturity",
+       "why": "Correct. The temporal group contains Exploit Code Maturity (E), Remediation Level (RL), and Report Confidence (RC)."
+      },
+      {
+       "text": "Privileges Required",
+       "why": "Privileges Required is an exploitability metric in the base group."
+      },
+      {
+       "text": "Attack Complexity",
+       "why": "Attack Complexity is an exploitability metric in the base group."
+      },
+      {
+       "text": "Modified Attack Vector",
+       "why": "Modified Attack Vector (MAV) is one of the Modified Base Metrics in the environmental group."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which incident response role serves as the central point of contact, receiving, verifying, and logging incident reports and notifying the designated incident handler?",
+     "choices": [
+      {
+       "text": "Incident response team",
+       "why": "The IRT is the cross-functional team that handles triage, containment, communication, and root cause analysis. It is not the single point of contact."
+      },
+      {
+       "text": "Chief information security officer",
+       "why": "The chapter's key incident roles are the IRC, DIH, and IRT. The CISO is not named as the central reporting contact."
+      },
+      {
+       "text": "Designated incident handler",
+       "why": "The DIH is the senior person who declares the incident, liaises with executives, and manages the IRT. The IRC notifies the DIH."
+      },
+      {
+       "text": "Incident response coordinator",
+       "why": "Correct. The IRC is the central point of contact who receives, verifies, and logs reports, notifies the DIH, and keeps non-evidence documentation."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "How does an offline brute-force password attack compare with an online brute-force attack?",
+     "choices": [
+      {
+       "text": "It is easier to detect and needs less computing power",
+       "why": "This describes the opposite. Online brute force is the easy one to detect, while offline attacks need more computing power."
+      },
+      {
+       "text": "It is slowed down by login throttling on the server",
+       "why": "Throttling login attempts defends against online attacks against the live login. Offline attacks work on captured hashes, away from the server."
+      },
+      {
+       "text": "It is harder to detect but needs more computing power",
+       "why": "Correct. Offline brute force is harder to detect and needs more computing power, while online brute force is easy to detect."
+      },
+      {
+       "text": "It only works against Kerberos-based authentication",
+       "why": "Offline brute force is not limited to Kerberos. Kerberos vulnerabilities are a separate authentication attack method."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which RFC defines ICMP, the protocol used by ping that can also be tunneled to create a covert channel?",
+     "choices": [
+      {
+       "text": "RFC 791",
+       "why": "RFC 791 defines IP (Internet Protocol) itself. ICMP is defined in RFC 792."
+      },
+      {
+       "text": "RFC 792",
+       "why": "Correct. ICMP is defined in RFC 792. It has no port, is used by ping, and can be tunneled."
+      },
+      {
+       "text": "RFC 793",
+       "why": "RFC 793 is the original TCP specification, not ICMP. ICMP is defined in RFC 792."
+      },
+      {
+       "text": "RFC 768",
+       "why": "RFC 768 defines UDP (User Datagram Protocol), not ICMP. ICMP is defined in RFC 792."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 5",
+   "questions": [
+    {
+     "q": "Which part of the Internet requires special software and configuration to reach and is the most common place where exploits are traded?",
+     "choices": [
+      {
+       "text": "The deep web",
+       "why": "The deep web is everything search engines do not index. It is much larger, and only a small part of it needs special software to reach."
+      },
+      {
+       "text": "The surface web",
+       "why": "The surface web is the indexed portion search engines can find. It needs no special software."
+      },
+      {
+       "text": "The dark web",
+       "why": "Correct. The dark web (darknet) is a small part of the deep web that needs special software and configuration to reach, and it is the most common place exploits are traded."
+      },
+      {
+       "text": "Exploit-DB",
+       "why": "Exploit-DB is a public exploit database run by Offensive Security, reachable with a normal browser. It is not a hidden part of the Internet."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which term describes a well-funded, patient attacker, often a nation-state, that targets sensitive data over a long period?",
+     "choices": [
+      {
+       "text": "Script kiddie",
+       "why": "A script kiddie uses existing tools and cannot write their own, the opposite of a well-funded, patient attacker."
+      },
+      {
+       "text": "Hacktivist",
+       "why": "A hacktivist attacks to promote a social or political cause and is defined by motive rather than funding and patience."
+      },
+      {
+       "text": "Cracker",
+       "why": "Cracker is short for criminal hacker, anyone who compromises a system without permission. It does not imply funding or patience."
+      },
+      {
+       "text": "Advanced persistent threat",
+       "why": "Correct. An APT is a well-funded, patient attacker, often a nation-state, targeting sensitive data."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which standard is a language for commanding and controlling cyber defense technologies, and originally came from a forum facilitated by the NSA?",
+     "choices": [
+      {
+       "text": "TAXII",
+       "why": "TAXII is the transport that automates threat information exchange. It was originally developed by MITRE."
+      },
+      {
+       "text": "OpenC2",
+       "why": "Correct. OpenC2 (Open Command and Control) is a language for commanding and controlling cyber defense technologies, and it came from a forum facilitated by the NSA."
+      },
+      {
+       "text": "STIX",
+       "why": "STIX is a language for describing and sharing cyberattack information. It was originally developed by MITRE."
+      },
+      {
+       "text": "OpenIOC",
+       "why": "OpenIOC is an open, machine-readable framework for sharing indicators of compromise, not for commanding defense technologies."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A vendor wants to tell customers, in a machine-readable way, that a widely reported library vulnerability does not actually affect one of its products. Which format is designed to share this kind of real-time status?",
+     "choices": [
+      {
+       "text": "VEX",
+       "why": "Correct. VEX (Vulnerability Exploitability eXchange) shares the real-time status of a vulnerability, such as whether a product is actually affected. It is supported by CSAF."
+      },
+      {
+       "text": "CVSS",
+       "why": "CVSS rates the severity of a vulnerability from 0 to 10. It does not state whether a particular product is affected."
+      },
+      {
+       "text": "STIX",
+       "why": "STIX describes and shares cyberattack information such as C2 IPs and malware hashes, not product-affected status."
+      },
+      {
+       "text": "CVE",
+       "why": "A CVE is the public identifier given to a vulnerability. It names the flaw but does not state whether each product is affected."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "According to the chapter, what is the number one way malware spreads?",
+     "choices": [
+      {
+       "text": "Peer-to-peer file sharing",
+       "why": "Peer-to-peer networks such as The Pirate Bay are a Trojan infection method, but they are not the top one."
+      },
+      {
+       "text": "Email attachments",
+       "why": "Correct. Email attachments are the number one way malware spreads, which is why attachments should be saved and scanned before opening."
+      },
+      {
+       "text": "Freeware downloads",
+       "why": "Freeware is a favorite vehicle for adware and spyware, but it is not named the number one malware spreading method."
+      },
+      {
+       "text": "Infected USB drives",
+       "why": "Physical access and USB drops (poison apple) are infection methods, but email attachments are the top one."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "TCSEC divides covert channels into two categories. Which category involves one process writing to storage while another process reads it?",
+     "choices": [
+      {
+       "text": "Timing channel",
+       "why": "A timing channel alters a component or the timing of resources and is hard to detect. It does not rely on writing to storage."
+      },
+      {
+       "text": "Overt channel",
+       "why": "An overt channel does not hide data at all, so it is not a covert channel category."
+      },
+      {
+       "text": "Out-of-band channel",
+       "why": "Out-of-band refers to SQL injection data or authentication factors sent through a separate channel. It is not a TCSEC covert channel category."
+      },
+      {
+       "text": "Storage channel",
+       "why": "Correct. In a storage channel, one process writes to storage and another reads it."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Attackers learn that engineers at a defense contractor frequently visit a particular industry news site. They compromise that site so it infects visitors. What type of attack is this?",
+     "choices": [
+      {
+       "text": "Watering hole attack",
+       "why": "Correct. A watering hole attack infects a website the victim is known to visit."
+      },
+      {
+       "text": "Poison apple attack",
+       "why": "A poison apple, or USB key drop, leaves an infected USB drive for the victim to find and plug in. No website is involved."
+      },
+      {
+       "text": "Man-in-the-browser attack",
+       "why": "Man-in-the-browser uses a compromised browser, extension, or plugin to intercept a session. Here the website itself was compromised."
+      },
+      {
+       "text": "Virus hoax",
+       "why": "A virus hoax is a chain letter or email warning of a fake threat, not a real compromise of a website."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which algorithm is identified in the chapter as weak, making password cracking easier?",
+     "choices": [
+      {
+       "text": "AES",
+       "why": "AES is not listed as weak. The chapter notes it is used in Zigbee with a 128-bit key and in Bluetooth Low Energy."
+      },
+      {
+       "text": "RSA",
+       "why": "RSA is listed among the encryption methods crypters use to hide malware, not among the weak algorithms that make cracking easy."
+      },
+      {
+       "text": "MD5",
+       "why": "Correct. RC4, MD5, and DES are the weak algorithms that make cracking easy, and WEP is the weak protocol."
+      },
+      {
+       "text": "Blowfish",
+       "why": "Blowfish is listed as one of the ciphers crypters use to encrypt malware, not as a weak algorithm."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A user installs a malicious browser extension that silently intercepts and alters online banking sessions inside the browser. Which session hijacking method is this?",
+     "choices": [
+      {
+       "text": "Man-in-the-browser",
+       "why": "Correct. In a man-in-the-browser attack, a compromised browser, extension, or plugin intercepts the session."
+      },
+      {
+       "text": "Session sniffing",
+       "why": "Session sniffing captures session tokens from unencrypted traffic on the network, not from inside the browser."
+      },
+      {
+       "text": "Token prediction",
+       "why": "Predicting session tokens means guessing valid token values. It does not need malicious code in the browser."
+      },
+      {
+       "text": "Cookie manipulation",
+       "why": "Cookie manipulation is a stored DOM-based attack that writes attacker-controlled data into a cookie, not interception by an extension."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In the chapter's WebGoat example, what is the effect of entering Snow' OR 1='1 into the form field?",
+     "choices": [
+      {
+       "text": "It runs an OS command with the web app's privileges",
+       "why": "Running OS commands through the app describes command injection. This input alters a SQL query, not a shell command."
+      },
+      {
+       "text": "It pops up an alert box in the victim's browser",
+       "why": "An alert box comes from XSS input such as <script>alert(\"XSS Test\")</script>, not this SQL string."
+      },
+      {
+       "text": "It makes the query always true and dumps every record",
+       "why": "Correct. The OR 1='1 clause makes the WHERE condition always true, so the database returns every record."
+      },
+      {
+       "text": "It reaches another customer's data by changing an ID",
+       "why": "Changing an object ID in a URL to reach someone else's data is IDOR, not SQL injection."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A penetration tester wants to quickly search a local copy of the Exploit Database from the command line for exploits affecting SMB. Which command should they use?",
+     "choices": [
+      {
+       "text": "ping smb",
+       "why": "ping uses ICMP to test connectivity. It does not search any exploit database."
+      },
+      {
+       "text": "nessus smb",
+       "why": "Nessus is a vulnerability scanner, not a command-line search of a local Exploit Database copy."
+      },
+      {
+       "text": "shodan smb",
+       "why": "Shodan is a search engine for Internet-exposed devices, not a local exploit database search tool."
+      },
+      {
+       "text": "searchsploit smb",
+       "why": "Correct. searchsploit searches a local copy of the Exploit Database from the command line, and searchsploit smb is the chapter's example."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which of the following is listed as a mechanism that preserves confidentiality?",
+     "choices": [
+      {
+       "text": "Server clustering",
+       "why": "Server clustering is an availability safeguard that keeps services running, not a confidentiality mechanism."
+      },
+      {
+       "text": "Database views",
+       "why": "Correct. Mechanisms that preserve confidentiality include logical and physical access controls, encryption, database views, and controlled traffic routing."
+      },
+      {
+       "text": "File integrity monitoring",
+       "why": "File integrity monitoring is a monitoring control that protects integrity by detecting unauthorized changes."
+      },
+      {
+       "text": "Code testing",
+       "why": "Code testing is a process control that protects integrity, not confidentiality."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A finance department requires that the employee who creates a vendor payment cannot also approve it. Which type of integrity safeguard is this?",
+     "choices": [
+      {
+       "text": "Monitoring control",
+       "why": "Monitoring controls such as file integrity monitoring and log analysis watch for changes. They do not split duties between people."
+      },
+      {
+       "text": "Process control",
+       "why": "The process control example given for integrity is code testing, not dividing a task between employees."
+      },
+      {
+       "text": "Access control",
+       "why": "The integrity access control examples are encryption and digital signatures. Splitting duties between people is a behavioral control."
+      },
+      {
+       "text": "Behavioral control",
+       "why": "Correct. Behavioral controls for integrity include separation of duties, rotation of duties, and training."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which access control model is set by policy and cannot be changed by the owner of the object?",
+     "choices": [
+      {
+       "text": "Mandatory access control",
+       "why": "Correct. MAC is set by policy and cannot be changed by the owner."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "DAC is set by the owner of the object, so the owner can change it."
+      },
+      {
+       "text": "Role-based access control",
+       "why": "RBAC grants access based on job role. It is not defined by being unchangeable by the object owner."
+      },
+      {
+       "text": "Rule-based access control",
+       "why": "Rule-based access control uses criteria like time of day or location to decide access."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A company signs a cloud contract quickly without deciding how compliance responsibilities are divided between itself and the provider. Which major cloud issue does this represent?",
+     "choices": [
+      {
+       "text": "Side-channel attack",
+       "why": "A side-channel attack places a malicious VM near a target server. It is a technical attack, not a contracting failure."
+      },
+      {
+       "text": "Insecure APIs",
+       "why": "Insecure APIs are a cloud threat from misconfigured interfaces. The problem here is skipping contract review."
+      },
+      {
+       "text": "Insufficient due diligence",
+       "why": "Correct. Compliance responsibilities should be decided before signing, and insufficient due diligence is one of the biggest cloud issues."
+      },
+      {
+       "text": "Resource pooling",
+       "why": "Resource pooling is a NIST essential characteristic of cloud computing, not a cloud security issue."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which frequency does Z-Wave use in North America?",
+     "choices": [
+      {
+       "text": "868.42 MHz",
+       "why": "868.42 MHz is the Z-Wave frequency used in Europe, not North America."
+      },
+      {
+       "text": "908.42 MHz",
+       "why": "Correct. Z-Wave uses 908.42 MHz in North America, at 100 Kbps with a range of about 30 meters."
+      },
+      {
+       "text": "2.4 GHz",
+       "why": "2.4 GHz is the band used by Bluetooth Low Energy, not Z-Wave."
+      },
+      {
+       "text": "915.00 MHz",
+       "why": "915.00 MHz is not the Z-Wave frequency given. Z-Wave uses 908.42 MHz in North America."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Investigators seize a suspect's smartphone and want to stop it from receiving a remote wipe command over Wi-Fi or cellular. What should they place it in?",
+     "choices": [
+      {
+       "text": "A write blocker",
+       "why": "A write blocker prevents changes to a storage device while it is copied. It does not block wireless signals."
+      },
+      {
+       "text": "An antistatic bag",
+       "why": "An antistatic bag protects evidence from electrostatic discharge. It does not block Wi-Fi or cellular signals."
+      },
+      {
+       "text": "A Faraday cage",
+       "why": "Correct. A Faraday cage is a conductive mesh that blocks electromagnetic signals, so devices cannot use Wi-Fi or cellular."
+      },
+      {
+       "text": "A sandbox",
+       "why": "A sandbox is an isolated software environment for running a suspicious program, not a physical container for seized devices."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "During which NIST incident response phase does the team ask questions such as \"What would you do differently?\" and \"What corrective actions would prevent a repeat?\"",
+     "choices": [
+      {
+       "text": "Detection and analysis",
+       "why": "Detection and analysis focuses on profiling systems, correlating events, and recognizing signs of an incident, not reviewing performance afterward."
+      },
+      {
+       "text": "Post-incident activity",
+       "why": "Correct. Post-incident activity (the postmortem) covers lessons learned, use of incident data, and evidence retention, including these questions."
+      },
+      {
+       "text": "Preparation",
+       "why": "Preparation creates and trains the team and deploys tools before incidents occur. Lessons learned come after an incident."
+      },
+      {
+       "text": "Containment, eradication, and recovery",
+       "why": "This phase gathers evidence, identifies attacking hosts, and chooses a containment strategy. The review questions come afterward."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the first step in establishing a CSIRT?",
+     "choices": [
+      {
+       "text": "Define the constituency",
+       "why": "Correct. The steps are define the constituency, ensure management support, allocate budget, decide placement in the hierarchy, choose central, distributed, or virtual, and develop processes and policies."
+      },
+      {
+       "text": "Allocate the budget",
+       "why": "Allocating budget is the third step, after defining the constituency and securing management support."
+      },
+      {
+       "text": "Develop processes and policies",
+       "why": "Developing processes and policies is the last of the six steps, not the first."
+      },
+      {
+       "text": "Choose a central or virtual model",
+       "why": "Deciding whether the CSIRT is central, distributed, or virtual is the fifth step."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A crafted packet crashes a router, and as a result the devices behind that router also lose connectivity. In CVSS, which base metric value reflects that systems beyond the vulnerable component are affected?",
+     "choices": [
+      {
+       "text": "Attack Vector: Adjacent",
+       "why": "Attack Vector Adjacent describes where the attacker must be to exploit the flaw, not whether other systems are impacted."
+      },
+      {
+       "text": "User Interaction: Required",
+       "why": "User Interaction Required means a user must take some action for the exploit to work. It says nothing about impact on other systems."
+      },
+      {
+       "text": "Attack Complexity: High",
+       "why": "Attack Complexity High means the attack is hard to carry out. It does not describe impact beyond the vulnerable component."
+      },
+      {
+       "text": "Scope: Changed",
+       "why": "Correct. Scope Changed means other systems are affected, such as devices behind a crashed router."
+      }
+     ],
+     "answer": 3
+    }
+   ]
+  }
+ ]
+}

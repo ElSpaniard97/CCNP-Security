@@ -1,0 +1,2230 @@
+{
+ "chapter": 7,
+ "tests": [
+  {
+   "title": "Practice Test 1",
+   "questions": [
+    {
+     "q": "What is Cisco Firepower Threat Defense (FTD), now called Cisco Secure Firewall Threat Defense?",
+     "choices": [
+      {
+       "text": "Unified software that combines ASA features, legacy FirePOWER Services, and new features",
+       "why": "Correct. FTD is the unified image that merges ASA firewall functions with FirePOWER (Sourcefire) services and newer capabilities."
+      },
+      {
+       "text": "The on-box web manager used to configure a single small firewall",
+       "why": "That describes Firepower Device Manager (FDM), which manages FTD locally; it is not the firewall software itself."
+      },
+      {
+       "text": "The operating system on Firepower chassis that controls basic device operations",
+       "why": "That is FXOS (Firepower eXtensible Operating System). FTD runs as a logical device on top of the chassis, not as the chassis OS."
+      },
+      {
+       "text": "A hardware module that brought Sourcefire technology into the ASA",
+       "why": "That is the Cisco ASA FirePOWER module. FTD is a unified software image, not an add-on module."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator enters the nameif inside command on an ASA interface without specifying a security level. What security level does the interface receive by default?",
+     "choices": [
+      {
+       "text": "0",
+       "why": "Security level 0 is the default for any interface name other than \"inside\", such as outside or dmz."
+      },
+      {
+       "text": "100",
+       "why": "Correct. nameif assigns security level 100 to an interface named \"inside\" and 0 to any other name."
+      },
+      {
+       "text": "50",
+       "why": "50 is a common manual choice for a DMZ, but nameif never assigns it by default; a DMZ level must be set by hand."
+      },
+      {
+       "text": "No level, so it does not pass traffic",
+       "why": "An interface named \"inside\" automatically gets level 100. An interface with no security level would not respond at the network layer, but that is not the case here."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An engineer has two ASA interfaces that are both configured with security level 50. Hosts on these interfaces cannot communicate with each other. Which command allows this traffic?",
+     "choices": [
+      {
+       "text": "access-group same-level in interface dmz",
+       "why": "access-group applies an ACL to an interface; by itself it does not lift the ASA's default restriction on traffic between equal security levels."
+      },
+      {
+       "text": "nameif inside",
+       "why": "nameif names the interface and sets a default level of 100; it does not permit traffic between interfaces with the same level."
+      },
+      {
+       "text": "same-security-traffic permit inter-interface",
+       "why": "Correct. This global command allows traffic between interfaces that share the same security level."
+      },
+      {
+       "text": "service-policy global_policy global",
+       "why": "service-policy activates an MPF policy map for inspection or QoS; it does not control same-security-level traffic."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In a Cisco IOS Zone-Based Firewall, how is traffic destined to the router itself handled by default?",
+     "choices": [
+      {
+       "text": "It is dropped until a zone pair policy permits it",
+       "why": "That is the behavior for traffic between two different zones. The self zone is the exception to the deny-all rule."
+      },
+      {
+       "text": "It is passed only if CBAC is also enabled",
+       "why": "CBAC is the legacy IOS firewall that ZBFW replaced; it plays no role in how the self zone behaves."
+      },
+      {
+       "text": "It is inspected and logged before being dropped",
+       "why": "Inspect is an action applied by a zone pair policy, and it does not result in a drop. Self zone traffic is allowed by default."
+      },
+      {
+       "text": "It is allowed until it is explicitly denied",
+       "why": "Correct. The self zone is the only exception to the ZBFW deny-all behavior: traffic to the router is allowed until explicitly denied."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "When a Cisco ASA or Secure Firewall is deployed in transparent mode, which interface holds the IP address used for the bridged segment?",
+     "choices": [
+      {
+       "text": "The cluster control link",
+       "why": "The cluster control link carries control and data traffic between cluster members; it has nothing to do with transparent mode addressing."
+      },
+      {
+       "text": "The bridge virtual interface (BVI)",
+       "why": "Correct. In transparent mode the bridged pair of interfaces has no addresses of its own; the BVI holds the IP address."
+      },
+      {
+       "text": "The outside interface",
+       "why": "In transparent mode the inside and outside interfaces are bridged and carry no IP addresses."
+      },
+      {
+       "text": "The failover link",
+       "why": "The failover link is used by an HA pair to check each other's status, not to address a transparent bridge group."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which failover mode is the only one supported by Cisco Secure Firewall Threat Defense?",
+     "choices": [
+      {
+       "text": "Active-Standby",
+       "why": "Correct. Secure Firewall supports only Active-Standby failover, where one unit passes traffic and the other waits."
+      },
+      {
+       "text": "Active-Active",
+       "why": "Active-Active failover, where both units pass traffic, is supported on the ASA only, not on Secure Firewall."
+      },
+      {
+       "text": "Inter-chassis clustering",
+       "why": "Clustering groups several units into one logical device; it is a different feature from failover, not a failover mode."
+      },
+      {
+       "text": "Inline pair with fail-open",
+       "why": "Fail-open lets traffic bypass a failed inline device. It is an interface option, not a high availability failover mode."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A Secure Firewall unit boots and looks for a cluster master over the cluster control link, but none responds. What happens next?",
+     "choices": [
+      {
+       "text": "It becomes a slave and waits for a master to appear",
+       "why": "A unit becomes a slave only when a master already exists. With no master present, it takes the master role itself."
+      },
+      {
+       "text": "It moves immediately to the disabled state",
+       "why": "The disabled state follows a configuration sync or health failure, not the absence of a master."
+      },
+      {
+       "text": "It stays in the On-Call state until an administrator intervenes",
+       "why": "On-Call is a state a unit can be in while the master admits units one at a time; it is not the result of finding no master."
+      },
+      {
+       "text": "It waits 45 seconds and then becomes the master",
+       "why": "Correct. A booting unit that finds no master waits 45 seconds and then becomes the master."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In what order does a Cisco ASA evaluate access rules for a packet arriving on an interface?",
+     "choices": [
+      {
+       "text": "Global ACL, then interface ACL, then implicit deny",
+       "why": "The order is reversed here. The interface ACL is checked before the global ACL."
+      },
+      {
+       "text": "Implicit deny, then interface ACL, then global ACL",
+       "why": "The implicit deny is always last; if it came first, nothing would ever be permitted."
+      },
+      {
+       "text": "Interface ACL, then global ACL, then implicit deny",
+       "why": "Correct. The ASA checks the interface ACL first, then the global ACL, and finally the implicit deny."
+      },
+      {
+       "text": "Interface ACL, then implicit deny, then global ACL",
+       "why": "The global ACL is evaluated before the implicit deny; otherwise the global ACL could never match."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which syslog message ID does a Cisco ASA generate when the implicit deny at the end of an ACL drops a packet?",
+     "choices": [
+      {
+       "text": "106023",
+       "why": "Correct. Syslog message 106023 is generated when the implicit deny drops a packet."
+      },
+      {
+       "text": "2385",
+       "why": "2385 is the RFC number for BGP MD5 authentication, not a syslog message ID."
+      },
+      {
+       "text": "8305",
+       "why": "8305 is the TCP port of the FMC to managed device management tunnel (sftunnel), not a syslog ID."
+      },
+      {
+       "text": "61850",
+       "why": "IEC 61850 is the Ethernet-based protocol for electrical substation automation, not an ASA syslog message."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An engineer is configuring ASA application inspection with the Modular Policy Framework. What is the first step?",
+     "choices": [
+      {
+       "text": "Activate the service policy globally or on an interface",
+       "why": "Activating the service policy with the service-policy command is the last of the three steps, not the first."
+      },
+      {
+       "text": "Associate actions with each class to create a policy map",
+       "why": "Associating actions with classes is the second step; the classes must exist first."
+      },
+      {
+       "text": "Enable TCP sequence number randomization on the outside interface",
+       "why": "Sequence randomization is a NAT-related protection, not part of configuring application inspection."
+      },
+      {
+       "text": "Configure traffic classes to identify interesting traffic",
+       "why": "Correct. First you configure traffic classes (class maps), then associate actions to create service policies, then activate them."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A company has one public IP address, 209.165.200.229. Web traffic on TCP 80 must reach 192.168.10.10, and email on TCP 25 must reach 192.168.10.20. Which translation method should be used?",
+     "choices": [
+      {
+       "text": "Dynamic NAT",
+       "why": "Dynamic NAT maps hosts one-to-one from a pool of global addresses for outbound traffic; it does not send different ports on one IP to different servers."
+      },
+      {
+       "text": "Static PAT (port redirection)",
+       "why": "Correct. Static PAT maps different ports on one global IP to different inside servers, as in this example."
+      },
+      {
+       "text": "Identity NAT",
+       "why": "Identity NAT keeps the address the same and bypasses translation, so it cannot redirect ports to inside servers."
+      },
+      {
+       "text": "Dynamic PAT",
+       "why": "Dynamic PAT lets many inside hosts share one global IP for outbound connections; it does not provide fixed inbound port mappings."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Two routers form a BGP peering with MD5 authentication through a Cisco ASA, but the session keeps failing. Which ASA behavior is the most likely cause?",
+     "choices": [
+      {
+       "text": "Application inspection rewriting embedded IP addresses",
+       "why": "Application inspection handles embedded addresses for protocols such as TFTP; it is not what breaks the BGP MD5 hash."
+      },
+      {
+       "text": "The implicit deny dropping UDP 123 traffic",
+       "why": "UDP 123 is NTP. Blocking it affects time sync, but BGP runs over TCP and the MD5 failure comes from changed sequence numbers."
+      },
+      {
+       "text": "TCP initial sequence number randomization",
+       "why": "Correct. The ASA randomizes TCP sequence numbers, which changes the TCP header that BGP MD5 (RFC 2385) hashes, so it must be turned off for this peering."
+      },
+      {
+       "text": "Dynamic PAT changing the source port to 1024",
+       "why": "BGP peers are normally not behind PAT, and the documented problem is sequence randomization breaking the MD5 hash check."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which Talos base intrusion policy is designed to balance performance and security and is the right choice for most networks?",
+     "choices": [
+      {
+       "text": "Balanced Security and Connectivity",
+       "why": "Correct. This base policy balances performance and security and suits most networks."
+      },
+      {
+       "text": "Connectivity Over Security",
+       "why": "Connectivity Over Security has far fewer rules and only the most critical blocking rules, for networks you are fairly confident in."
+      },
+      {
+       "text": "Security Over Connectivity",
+       "why": "Security Over Connectivity puts security before convenience with many anomaly rules, meant for high-risk traffic."
+      },
+      {
+       "text": "Maximum Detection",
+       "why": "Maximum Detection puts even more emphasis on security with more operational impact; it is not the general-purpose choice."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In Secure Firewall intrusion rules, which system default variable represents the inside, protected network?",
+     "choices": [
+      {
+       "text": "$EXTERNAL_NET",
+       "why": "$EXTERNAL_NET represents the outside, unprotected network."
+      },
+      {
+       "text": "$HTTP_SERVERS",
+       "why": "$HTTP_SERVERS identifies the web servers, not the whole protected network."
+      },
+      {
+       "text": "$HOME_NET",
+       "why": "Correct. $HOME_NET is the variable for the inside, protected network."
+      },
+      {
+       "text": "$DNS_SERVERS",
+       "why": "$DNS_SERVERS identifies DNS servers only, not the protected network as a whole."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which Secure Firewall preprocessor monitors the handshake of encrypted sessions and then stops inspecting once the traffic is encrypted, reducing false positives?",
+     "choices": [
+      {
+       "text": "SSH preprocessor",
+       "why": "The SSH preprocessor detects buffer overflow attempts and illegal SSH versions; it does not watch SSL handshakes."
+      },
+      {
+       "text": "HTTP preprocessor",
+       "why": "The HTTP preprocessor normalizes requests and responses and detects URI-encoding attacks in cleartext HTTP."
+      },
+      {
+       "text": "DCE/RPC preprocessor",
+       "why": "The DCE/RPC preprocessor watches DCE/RPC and SMB traffic for anomalies and evasions."
+      },
+      {
+       "text": "SSL preprocessor",
+       "why": "Correct. The SSL preprocessor monitors the handshake, stops once the session is encrypted, needs TCP stream preprocessing, and reduces false positives."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Cisco Secure Malware Defense engine uses machine learning and active heuristics on execution attributes to find previously unknown threats?",
+     "choices": [
+      {
+       "text": "Ethos",
+       "why": "Ethos is the fuzzy fingerprinting engine that uses static or passive heuristics to match polymorphic variants."
+      },
+      {
+       "text": "Spero",
+       "why": "Correct. Spero is the machine-learning engine that uses active heuristics on execution attributes to identify unknown malware."
+      },
+      {
+       "text": "1-to-1 signatures",
+       "why": "1-to-1 signatures compare a file hash against a database; any change to the file evades them, so they don't find unknown threats."
+      },
+      {
+       "text": "Device flow correlation",
+       "why": "Device flow correlation gives a kernel-level view of network I/O traced back to the process; it is not a machine-learning file classifier."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A file was given a clean disposition when it entered the network. A week later, Cisco's cloud reclassifies it as malicious. What does Secure Malware Defense do?",
+     "choices": [
+      {
+       "text": "Nothing, because the file already passed inspection",
+       "why": "Point-in-time systems would do nothing, but Secure Malware Defense goes beyond point-in-time detection with retrospection."
+      },
+      {
+       "text": "It tells every connector that saw the file to quarantine it",
+       "why": "Correct. Retrospection tracks even clean files, and if one turns malicious, every connector that saw it is told to quarantine it."
+      },
+      {
+       "text": "It adds the file hash to the Security Intelligence allowlist",
+       "why": "An allowlist exempts traffic from the blocklist, which is the opposite of what is needed for a malicious file."
+      },
+      {
+       "text": "It schedules an SRU to deploy a new Snort rule",
+       "why": "SRUs deliver Snort rule sets on a schedule; retrospective alerts and quarantine come from Secure Malware Defense, not an SRU."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "By default, how often does Secure Firewall update Security Intelligence feeds?",
+     "choices": [
+      {
+       "text": "Every 5 minutes",
+       "why": "5 minutes is the minimum interval you can set for the Talos network feed, not the default."
+      },
+      {
+       "text": "Every 30 minutes",
+       "why": "30 minutes is the minimum interval for the Talos URL and DNS feed and for custom feeds, not the default."
+      },
+      {
+       "text": "Weekly",
+       "why": "Weekly is the schedule for geolocation updates, not Security Intelligence feeds."
+      },
+      {
+       "text": "Every 2 hours",
+       "why": "Correct. Security Intelligence feeds update every 2 hours by default, and the interval can be lowered for more agile blocklisting."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "On which schedule does Cisco normally release Snort rule updates (SRUs)?",
+     "choices": [
+      {
+       "text": "Tuesday and Thursday, plus out-of-band for critical updates",
+       "why": "Correct. SRUs are released on Tuesday and Thursday, with out-of-band releases for critical updates."
+      },
+      {
+       "text": "Weekly, on the same schedule as geolocation updates",
+       "why": "Geolocation updates are the ones released weekly; SRUs come twice a week."
+      },
+      {
+       "text": "Every 2 hours, like Security Intelligence feeds",
+       "why": "Every 2 hours is the default Security Intelligence feed update interval, not the SRU schedule."
+      },
+      {
+       "text": "Only when a new VDB version is published",
+       "why": "The VDB is a separate update type with known vulnerabilities; SRUs follow their own regular schedule."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A manufacturing company needs a rugged firewall that can see and control industrial protocols such as Modbus and DNP3 in its OT network. Which product fits best?",
+     "choices": [
+      {
+       "text": "Cisco Secure Firewall Cloud Native",
+       "why": "Cloud Native is a Kubernetes-based firewall for cloud-native applications, not a rugged appliance for OT networks."
+      },
+      {
+       "text": "Cisco Secure WAF and bot protection",
+       "why": "Secure WAF protects websites and APIs against attacks such as SQL injection and bots, not industrial control traffic."
+      },
+      {
+       "text": "Cisco Secure Firewall ISA3000",
+       "why": "Correct. The ISA3000 is a rugged industrial security appliance that supports DNP3, CIP, Modbus, and IEC 61850."
+      },
+      {
+       "text": "Cisco Secure Firewall 9300 Series",
+       "why": "The 9300 Series targets service providers and high-performance data centers, not rugged industrial environments."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 2",
+   "questions": [
+    {
+     "q": "Which company originally created the Snort open-source IPS engine and whose technology became Cisco FirePOWER?",
+     "choices": [
+      {
+       "text": "WheelGroup",
+       "why": "WheelGroup is the company Cisco bought that introduced the legacy Cisco IDS and IPS systems, not Snort."
+      },
+      {
+       "text": "ThreatGRID",
+       "why": "ThreatGRID was acquired for malware analysis and sandboxing, which became Cisco Secure Malware Analytics."
+      },
+      {
+       "text": "Sourcefire",
+       "why": "Correct. Sourcefire created Snort, and its technology became Cisco FirePOWER."
+      },
+      {
+       "text": "Immunet",
+       "why": "Immunet is an antivirus community that feeds intelligence into the Malware Analytics cloud; it did not create Snort."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Cisco Secure Firewall Management Center (FMC) was previously known by which names?",
+     "choices": [
+      {
+       "text": "Firepower Device Manager and Adaptive Security Device Manager",
+       "why": "FDM is the on-box FTD manager and ASDM is the ASA GUI manager; both are separate products from the FMC."
+      },
+      {
+       "text": "Firepower Management Center and FireSIGHT Management Center",
+       "why": "Correct. The FMC was formerly Firepower Management Center and, before that, FireSIGHT Management Center."
+      },
+      {
+       "text": "Cisco Defense Orchestrator and Firepower Chassis Manager",
+       "why": "CDO is a cloud-based manager and FCM is the FXOS web GUI; neither is a former FMC name."
+      },
+      {
+       "text": "Cisco Threat Response and SecureX",
+       "why": "Those names belong to Cisco's XDR and incident response tools, not the firewall management center."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An engineer needs to register an FTD device with the FMC, but the device sits behind a PAT device and its IP address is unknown. What should the engineer enter in the FMC?",
+     "choices": [
+      {
+       "text": "Only the device's IP address, leaving the registration key blank",
+       "why": "The registration key is always required, and here the IP address is the value that is unknown."
+      },
+      {
+       "text": "The device's IP address and a platform settings policy",
+       "why": "A platform settings policy shares parameters like time and external authentication; it does not authenticate registration."
+      },
+      {
+       "text": "A variable set and the cluster control link address",
+       "why": "Variable sets pair with intrusion policies and the cluster control link is for clustering; neither is used to register a device."
+      },
+      {
+       "text": "The NAT ID and registration key, leaving the IP address blank",
+       "why": "Correct. When the IP is unknown or behind NAT or PAT, you enter only a unique NAT ID and the registration key."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Firepower platform does not support the Firepower Chassis Manager (FCM) web GUI and offers only the FXOS CLI?",
+     "choices": [
+      {
+       "text": "Firepower 2100 series",
+       "why": "Correct. FCM is not available on the Firepower 2100 series, which has only the FXOS CLI."
+      },
+      {
+       "text": "Firepower 9300",
+       "why": "The Firepower 9300 is a chassis with modules running logical devices, configured with FCM or the FXOS CLI."
+      },
+      {
+       "text": "Firepower 4100 series",
+       "why": "The 4100 series is a chassis platform that supports FCM and clustering."
+      },
+      {
+       "text": "ASA 5508-X",
+       "why": "The ASA 5508-X is not a Firepower chassis; it runs ASA software or FTD natively and is managed with tools such as ASDM, FDM, or the FMC."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A university wants to keep student and faculty networks on one physical ASA, with separate policies, routing tables, and administrators for each. Which feature should it use?",
+     "choices": [
+      {
+       "text": "Inline sets",
+       "why": "Inline sets group inline pairs for IPS inspection; they do not create separate firewalls with their own administrators."
+      },
+      {
+       "text": "Object grouping",
+       "why": "Object grouping reduces the number of viewable ACEs; it does not partition the appliance."
+      },
+      {
+       "text": "Multiple context mode",
+       "why": "Correct. Security contexts in multiple context mode partition one ASA into virtual firewalls with their own configuration, policies, routing, and administrators."
+      },
+      {
+       "text": "Inter-chassis clustering",
+       "why": "Clustering joins several units into one logical device for throughput and redundancy, the opposite of partitioning one device."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In ASA multiple context mode, which context gives the device network access to resources such as AAA and syslog servers?",
+     "choices": [
+      {
+       "text": "The system execution space",
+       "why": "The system execution space manages the whole device but relies on the admin context for network access."
+      },
+      {
+       "text": "The admin context",
+       "why": "Correct. The admin context provides network access to resources such as AAA and syslog servers, and sends syslogs and SNMP traps for the system."
+      },
+      {
+       "text": "The user context",
+       "why": "A user (customer) context is a regular virtual firewall for a tenant, not the one that serves the system's management needs."
+      },
+      {
+       "text": "The self zone",
+       "why": "The self zone is a ZBFW concept for traffic to the router itself, not an ASA context."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In multiple context mode, contexts share an interface. How does the ASA packet classifier decide which context should process an incoming packet?",
+     "choices": [
+      {
+       "text": "By the destination IP address or a unique MAC address",
+       "why": "Correct. With shared interfaces, the classifier uses a unique MAC address or the destination IP address, relying on each context's NAT table."
+      },
+      {
+       "text": "By looking up the destination in the routing table",
+       "why": "The classifier can't use routing tables, because contexts can have overlapping networks."
+      },
+      {
+       "text": "By the source port of the packet",
+       "why": "Source ports are not used for classification; classification is by interface, MAC address, or destination IP."
+      },
+      {
+       "text": "By the security level of the ingress interface",
+       "why": "Security levels control trust between interfaces; they are not how the classifier chooses a context."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An FTD is deployed as an inline pair. The business requires that traffic keep flowing even if the device loses power or its software fails. Which setting provides this?",
+     "choices": [
+      {
+       "text": "Passive mode with a SPAN port",
+       "why": "Passive mode only inspects a copy of the traffic and doesn't prevent attacks, so it does not meet the inline requirement."
+      },
+      {
+       "text": "Stateful failover link",
+       "why": "A state link passes connection state between an HA pair; it does not let traffic bypass a single failed inline device."
+      },
+      {
+       "text": "Inline normalization",
+       "why": "Inline normalization is a network preprocessor setting that prevents evasion; it does not keep traffic flowing on failure."
+      },
+      {
+       "text": "Fail-open",
+       "why": "Correct. Fail-open lets traffic bypass an inline device's rules and policies when it fails. Without it, all traffic is dropped."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Secure Firewall interface mode receives packets through a GRE tunnel from a remote capture point and is supported only in routed mode?",
+     "choices": [
+      {
+       "text": "Inline pair with tap",
+       "why": "Inline pair with tap bridges two physical interfaces and inspects a copy of traffic; it is supported in routed or transparent mode."
+      },
+      {
+       "text": "Passive with ERSPAN",
+       "why": "Correct. Passive with ERSPAN uses one interface as a sniffer that receives packets through a GRE tunnel, and it is supported only in routed mode."
+      },
+      {
+       "text": "Switched (BVI)",
+       "why": "Switched mode bridges interfaces under a BVI; it does not receive traffic from a remote GRE tunnel."
+      },
+      {
+       "text": "IPS-only inline set",
+       "why": "An inline set sits physically in the traffic path; it does not receive mirrored traffic over GRE."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which of the following is carried over the dedicated failover link between two units in a high availability pair?",
+     "choices": [
+      {
+       "text": "Hello messages (keepalives) and MAC address exchange",
+       "why": "Correct. The failover link carries firewall state, hello keepalives, network link status, MAC address exchange, and configuration replication."
+      },
+      {
+       "text": "Forwarded data packets for centralized features",
+       "why": "Forwarded data packets travel over a cluster control link in clustering, not over a failover link."
+      },
+      {
+       "text": "Security Intelligence feed downloads",
+       "why": "Security Intelligence feeds are downloaded from Cisco or custom sources, not exchanged over the failover link."
+      },
+      {
+       "text": "ERSPAN traffic from a remote switch",
+       "why": "ERSPAN traffic arrives on a passive sniffer interface through GRE; failover interfaces can be used only for failover."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An engineer wants to pair two FTD devices for failover, but the FMC refuses. One device gets its outside address from the ISP by DHCP. What is the problem?",
+     "choices": [
+      {
+       "text": "The devices are in transparent mode",
+       "why": "Transparent mode is fine as long as both units use the same firewall mode."
+      },
+      {
+       "text": "Failover requires a subinterface for the failover link",
+       "why": "The reverse is true: subinterfaces are not supported for failover links."
+      },
+      {
+       "text": "DHCP and PPPoE are not allowed on any interface of a failover pair",
+       "why": "Correct. Failover requires that no interface uses DHCP or PPPoE, along with matching mode, software, NTP, and licenses."
+      },
+      {
+       "text": "The devices need different software versions for failover",
+       "why": "Failover requires the same software version on both devices, not different versions."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is the default cluster control link on a Secure Firewall cluster?",
+     "choices": [
+      {
+       "text": "Gigabit Ethernet 1",
+       "why": "Gigabit Ethernet 1 is used in the book's failover example; it is not the default cluster control link."
+      },
+      {
+       "text": "The management interface",
+       "why": "Cisco says to keep the management network separate from the cluster control link."
+      },
+      {
+       "text": "BVI 1",
+       "why": "A BVI holds the IP address for a bridge group in transparent mode; it is not a cluster link."
+      },
+      {
+       "text": "Port-channel 48",
+       "why": "Correct. The cluster control link is Port-channel 48 by default."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which ASA ACL type filters on the Ethernet type code in the Layer 2 header and can be used only in transparent mode?",
+     "choices": [
+      {
+       "text": "Webtype ACL",
+       "why": "A Webtype ACL restricts traffic that comes through SSL VPN tunnels."
+      },
+      {
+       "text": "EtherType ACL",
+       "why": "Correct. An EtherType ACL filters on the Ethernet type code, such as 0x800 for IP, and works only in transparent mode."
+      },
+      {
+       "text": "Standard ACL",
+       "why": "A standard ACL matches only destination IP addresses, is used by processes such as route maps, and works only in routed mode."
+      },
+      {
+       "text": "Extended ACL",
+       "why": "An extended ACL matches IPs, protocols, ports, ICMP types, and users; it works in both routed and transparent mode."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A consultant needs network access from March 1 to March 31 only. Which time range type should be applied to the ACL?",
+     "choices": [
+      {
+       "text": "Absolute",
+       "why": "Correct. An absolute time range has a start and end time, which suits a fixed consulting engagement. Only one is allowed per time range."
+      },
+      {
+       "text": "Periodic",
+       "why": "Periodic time ranges recur, such as weekday business hours; they don't define a single start and end date."
+      },
+      {
+       "text": "Weekend",
+       "why": "weekend is a periodic keyword meaning Saturday and Sunday, not a fixed date range."
+      },
+      {
+       "text": "Downloadable",
+       "why": "A downloadable ACL is an advanced ASA filtering feature, not a time range type."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator wants to stop ICMP echo requests from any source to the ASA's outside interface while still allowing other ICMP types. Which pair of commands does this?",
+     "choices": [
+      {
+       "text": "access-list outside_in deny icmp any any echo, then access-group outside_in in interface outside",
+       "why": "An interface ACL filters through-the-box ICMP; by default it does not block ICMP sent to the ASA's own interface."
+      },
+      {
+       "text": "icmp permit any outside, then icmp deny any echo outside",
+       "why": "ICMP commands are processed in order, so the permit-all would match echo first and the deny would never be reached."
+      },
+      {
+       "text": "icmp deny any echo outside, then icmp permit any outside",
+       "why": "Correct. The ICMP policy is processed in order: the first line blocks echo to the outside interface and the second permits all other ICMP types."
+      },
+      {
+       "text": "same-security-traffic permit inter-interface, then icmp deny any outside",
+       "why": "The first command allows traffic between same-level interfaces, and the second would block all ICMP rather than only echo."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which address translation deployment lets many inside hosts share one global IP address and is described as the most common deployment?",
+     "choices": [
+      {
+       "text": "Static NAT",
+       "why": "Static NAT is a fixed one-to-one translation, so 100 hosts would need 100 global addresses."
+      },
+      {
+       "text": "Dynamic NAT",
+       "why": "Dynamic NAT maps hosts one-to-one from a pool, so the pool needs as many addresses as hosts."
+      },
+      {
+       "text": "Identity NAT",
+       "why": "Identity NAT bypasses translation and keeps the address the same."
+      },
+      {
+       "text": "Dynamic PAT",
+       "why": "Correct. Dynamic PAT lets many inside hosts share one global IP using source ports, and it is the most common deployment."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "How does Secure Firewall process the rules in an access control policy?",
+     "choices": [
+      {
+       "text": "Top-down by ascending number, and the first matching rule handles the traffic, except for Monitor rules",
+       "why": "Correct. Rules are evaluated in order from rule 1, and the first match wins, except Monitor rules, which log and let evaluation continue."
+      },
+      {
+       "text": "The most specific rule wins regardless of its position",
+       "why": "Secure Firewall does not use best-match logic; the order you set decides which rule handles the traffic."
+      },
+      {
+       "text": "Rules are grouped by category, and categories change rule priority",
+       "why": "Sections and categories are only organizational and don't change rule position."
+      },
+      {
+       "text": "Block rules are always evaluated before allow rules",
+       "why": "The action does not change evaluation order; rules are evaluated strictly top-down by number."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which Talos base policy enables malware, exploit kit, old and common vulnerability, and known in-the-wild exploit rules, and has the most operational impact?",
+     "choices": [
+      {
+       "text": "Security Over Connectivity",
+       "why": "Security Over Connectivity is strict with many anomaly rules, but Maximum Detection goes further and has more operational impact."
+      },
+      {
+       "text": "Maximum Detection",
+       "why": "Correct. Maximum Detection puts even more emphasis on security, enables those rule categories, and requires checking that legitimate traffic isn't dropped."
+      },
+      {
+       "text": "No Rules Active",
+       "why": "No Rules Active has no active rules at all, so it enables nothing."
+      },
+      {
+       "text": "Balanced Security and Connectivity",
+       "why": "Balanced Security and Connectivity balances performance and security and is right for most networks."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What does the Secure Firewall vulnerability database (VDB) contain, and how is it used?",
+     "choices": [
+      {
+       "text": "The latest Snort rules, released twice a week",
+       "why": "That describes an SRU (Snort rule update), not the VDB."
+      },
+      {
+       "text": "Reputation lists of IPs, URLs, and domains to block early",
+       "why": "That describes Security Intelligence feeds, which block by reputation before deeper inspection."
+      },
+      {
+       "text": "Known vulnerabilities identified by CVE, used to set the impact of intrusion events",
+       "why": "Correct. The VDB holds known vulnerabilities identified by CVE and is used to set the impact level of intrusion events."
+      },
+      {
+       "text": "IP address to country mappings, updated weekly",
+       "why": "That describes geolocation updates, which are released weekly."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which standard defines a format for threat intelligence such as C2 addresses, domains, and malware hashes, and was developed by MITRE and is now maintained by OASIS?",
+     "choices": [
+      {
+       "text": "TAXII",
+       "why": "TAXII is also from MITRE and OASIS, but it is the transport for exchanging threat information, not the format."
+      },
+      {
+       "text": "CVE",
+       "why": "CVE identifies known vulnerabilities; it is not a format for threat intelligence like C2 addresses and hashes."
+      },
+      {
+       "text": "SIEM",
+       "why": "SIEM is a type of platform that aggregates and analyzes event data, not a threat intelligence format."
+      },
+      {
+       "text": "STIX",
+       "why": "Correct. STIX (Structured Threat Information eXpression) is the standard format for threat intelligence, developed by MITRE and maintained by OASIS."
+      }
+     ],
+     "answer": 3
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 3",
+   "questions": [
+    {
+     "q": "Which product was Cisco's first, now legacy, firewall?",
+     "choices": [
+      {
+       "text": "PIX Firewall",
+       "why": "PIX (Private Internet Exchange) was a popular Cisco firewall that came through acquisitions and preceded the ASA, but it was not the first."
+      },
+      {
+       "text": "Centri Firewall",
+       "why": "Correct. Centri Firewall was Cisco's first firewall, now legacy."
+      },
+      {
+       "text": "Cisco ASA",
+       "why": "The ASA was released in the early 2000s, well after Cisco's first firewall."
+      },
+      {
+       "text": "Cisco IOS Zone-Based Firewall",
+       "why": "ZBFW is a router-based firewall that replaced CBAC; it was not Cisco's first firewall."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A small branch office has a single FTD device and no central management server. The administrator wants to configure it by pointing a browser at the firewall itself. Which tool should be used?",
+     "choices": [
+      {
+       "text": "Cisco Secure Firewall Management Center",
+       "why": "The FMC is a central manager recommended for multiple appliances, not an on-box manager."
+      },
+      {
+       "text": "Cisco Defense Orchestrator",
+       "why": "CDO is a cloud-based manager for many devices, not a web manager running on the firewall."
+      },
+      {
+       "text": "Firepower Device Manager",
+       "why": "Correct. FDM is the on-box web manager for small FTD deployments; you point a browser at the firewall."
+      },
+      {
+       "text": "Firepower Chassis Manager",
+       "why": "FCM is the FXOS web GUI for chassis functions, not the manager for FTD security policies."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An organization wants to manage its ASA, FTD, and Meraki security devices, plus virtual firewalls in AWS, from a cloud-based service that lets it write a policy once and enforce it everywhere. Which solution fits?",
+     "choices": [
+      {
+       "text": "Cisco Defense Orchestrator",
+       "why": "Correct. CDO is a cloud-based manager for ASA, FTD, Meraki security devices, and AWS virtual firewalls, with central policy and templates."
+      },
+      {
+       "text": "Adaptive Security Device Manager",
+       "why": "ASDM is the ASA's GUI manager; it is not cloud-based and does not manage Meraki devices."
+      },
+      {
+       "text": "Cisco Secure Firewall Migration Tool",
+       "why": "The Migration Tool converts ASA, FDM, and third-party configurations to Threat Defense; it does not manage devices."
+      },
+      {
+       "text": "SecureX Threat Response",
+       "why": "Threat Response is an incident response hub for investigations, not a firewall policy manager."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which ASA models cannot run the FTD software?",
+     "choices": [
+      {
+       "text": "ASA 5506-X and 5508-X",
+       "why": "FTD runs natively on the ASA 5506-X and 5508-X."
+      },
+      {
+       "text": "ASA 5525-X and 5545-X",
+       "why": "FTD runs natively on the ASA 5525-X and 5545-X."
+      },
+      {
+       "text": "ASA 5516-X and 5555-X",
+       "why": "FTD runs natively on the ASA 5516-X and 5555-X."
+      },
+      {
+       "text": "ASA 5505 and 5585-X",
+       "why": "Correct. FTD is not supported on the ASA 5505 or the 5585-X."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "On a router running ZBFW, interface G0/0 is in zone INSIDE and interface G0/2 is not assigned to any zone. What happens to traffic between G0/0 and G0/2?",
+     "choices": [
+      {
+       "text": "It flows freely because G0/2 has no zone restrictions",
+       "why": "Traffic flows freely only between interfaces in the same zone; a non-member interface cannot exchange traffic with a zone member."
+      },
+      {
+       "text": "It is inspected by the self zone",
+       "why": "The self zone covers traffic to the router itself, not traffic between a zone member and a non-member interface."
+      },
+      {
+       "text": "It cannot flow between the zone member and the non-member interface",
+       "why": "Correct. With ZBFW, traffic cannot flow between an interface in a zone and an interface that is not a zone member."
+      },
+      {
+       "text": "It is allowed only if a zone pair applies a pass action",
+       "why": "Zone pairs and pass, inspect, and drop actions apply only between two zones, and G0/2 is not in a zone."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In a Cisco SD-WAN zone-based firewall policy, what action can be taken on flows that match an application?",
+     "choices": [
+      {
+       "text": "They can be accepted and inspected",
+       "why": "Accept with inspect applies to matches on prefixes, ports, and protocols, not to application matches."
+      },
+      {
+       "text": "They can only be denied",
+       "why": "Correct. In the SD-WAN firewall policy, flows matching applications can only be denied."
+      },
+      {
+       "text": "They can be passed without header inspection",
+       "why": "Pass is an option for accepted flows that match prefixes, ports, or protocols, not application matches."
+      },
+      {
+       "text": "They are redirected to the self zone",
+       "why": "The self zone controls traffic to and from the device itself; it is not an action for application matches."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A company wants to insert a firewall between its LAN and the next-hop router without changing any IP addresses on its hosts or router. Which firewall mode should it use?",
+     "choices": [
+      {
+       "text": "Routed mode",
+       "why": "A routed firewall acts as an extra hop and needs a new network segment, which means planning, downtime, and readdressing."
+      },
+      {
+       "text": "Multiple context mode",
+       "why": "Multiple context mode partitions the device into virtual firewalls; it doesn't by itself avoid readdressing."
+      },
+      {
+       "text": "Passive mode",
+       "why": "Passive mode only inspects copied traffic from a SPAN or tap and doesn't sit in the path as a firewall."
+      },
+      {
+       "text": "Transparent mode",
+       "why": "Correct. A transparent (Layer 2) firewall bridges a pair of interfaces in the same subnet and goes between the LAN and router without readdressing."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Why does a single-mode transparent ASA (SMTF) need a global management IP address?",
+     "choices": [
+      {
+       "text": "For Telnet and SSH management, and to source ARP requests and syslog",
+       "why": "Correct. The bridged interfaces have no IP addresses, so a global management IP is used for Telnet and SSH and to source ARP and syslog."
+      },
+      {
+       "text": "To route traffic between the inside and outside subnets",
+       "why": "A transparent firewall bridges a single subnet; it doesn't route between subnets."
+      },
+      {
+       "text": "To act as the default gateway for inside hosts",
+       "why": "Inside hosts still use the next-hop router as their default gateway; the transparent firewall is invisible to them."
+      },
+      {
+       "text": "To form a dynamic routing adjacency with the next-hop router",
+       "why": "An SMTF uses no dynamic routing; its setup is only ACLs, inspection rules, and optional NAT."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which statement about Secure Firewall inline sets is correct?",
+     "choices": [
+      {
+       "text": "They can be built on VLAN subinterfaces",
+       "why": "Inline sets can't use VLANs; they work only on physical interfaces and EtherChannels."
+      },
+      {
+       "text": "They support NAT, routing, and full ASA ACLs",
+       "why": "Most legacy ASA features such as NAT, routing, and ACLs are not available on an inline pair."
+      },
+      {
+       "text": "They cannot use redundant interfaces",
+       "why": "Correct. Inline sets work only on physical interfaces and EtherChannels and can't use redundant interfaces or VLANs."
+      },
+      {
+       "text": "They do not work with clustering",
+       "why": "Inline sets and passive interfaces work with both intra-chassis and inter-chassis clustering."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Routers on either side of an FTD inline set run BFD, but BFD echo packets keep getting dropped. Why?",
+     "choices": [
+      {
+       "text": "BFD is a UDP protocol and needs an ACL for return traffic",
+       "why": "UDP return traffic is allowed automatically; the drop is specific to how inline sets treat BFD echo packets."
+      },
+      {
+       "text": "Inline sets block all routing protocols by default",
+       "why": "Inline sets retransmit all traffic unless it is explicitly dropped; there is no default block of routing protocols."
+      },
+      {
+       "text": "The FTD randomizes the TCP sequence numbers of BFD packets",
+       "why": "Sequence randomization affects TCP sessions like BGP MD5; it is not the reason BFD echo is dropped."
+      },
+      {
+       "text": "BFD echo packets have the same source and destination IP address",
+       "why": "Correct. FTD drops BFD echo packets on inline sets because they have the same source and destination IP address."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "For best performance in a failover pair, what latency should the stateful failover link have?",
+     "choices": [
+      {
+       "text": "Less than 1 millisecond, and no more than 10 milliseconds",
+       "why": "These are tighter than the documented values; 10 ms is the best-performance target, and up to 250 ms is still allowed."
+      },
+      {
+       "text": "Less than 10 milliseconds, and no more than 250 milliseconds",
+       "why": "Correct. State link latency should be under 10 ms for best performance and must not exceed 250 ms."
+      },
+      {
+       "text": "Less than 100 milliseconds, and no more than 500 milliseconds",
+       "why": "These values are too loose; the state link should be under 10 ms for best performance and never over 250 ms."
+      },
+      {
+       "text": "Less than 30 milliseconds, and no more than 1 second",
+       "why": "These values are not the documented targets; the state link should be under 10 ms and at most 250 ms, not up to a full second."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "On which platforms does Cisco support Secure Firewall clustering?",
+     "choices": [
+      {
+       "text": "Firepower 9300 and 4100 series",
+       "why": "Correct. Clustering is supported on the Firepower 9300 and 4100 series, with intra-chassis clustering on the 9300 backplane."
+      },
+      {
+       "text": "Secure Firewall 1000 and 2100 series",
+       "why": "These smaller models are for branch offices and are not the listed clustering platforms."
+      },
+      {
+       "text": "ISA3000 and Threat Defense Virtual",
+       "why": "The ISA3000 is a rugged industrial appliance and Threat Defense Virtual is the virtual FTD; neither is the listed clustering platform."
+      },
+      {
+       "text": "ASA 5506-X and 5508-X",
+       "why": "These are small ASA models that can run FTD, but they are not the listed clustering platforms."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An engineer needs an ACL for an OSPF route map that matches only destination networks, where the source does not matter. Which ACL type should be used?",
+     "choices": [
+      {
+       "text": "Extended ACL",
+       "why": "An extended ACL matches source and destination, protocols, and ports; it is used for interface filtering, not where only the destination matters."
+      },
+      {
+       "text": "Webtype ACL",
+       "why": "A Webtype ACL restricts traffic through SSL VPN tunnels."
+      },
+      {
+       "text": "EtherType ACL",
+       "why": "An EtherType ACL filters on Layer 2 Ethernet type codes in transparent mode."
+      },
+      {
+       "text": "Standard ACL",
+       "why": "Correct. A standard ACL matches only destination IP addresses and is used by processes such as route maps, OSPF, and split tunneling."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An ASA must allow 3 outside hosts to reach 2 internal servers using 2 services. Without object grouping, how many ACEs are needed?",
+     "choices": [
+      {
+       "text": "7",
+       "why": "Adding the numbers (3 + 2 + 2) gives 7, but each combination needs its own ACE, so the counts are multiplied."
+      },
+      {
+       "text": "6",
+       "why": "6 covers only hosts times servers; each pair also needs one ACE per service."
+      },
+      {
+       "text": "12",
+       "why": "Correct. 2 servers times 3 hosts times 2 services equals 12 ACEs without object grouping."
+      },
+      {
+       "text": "1",
+       "why": "With object grouping the viewable list collapses to one entry, but the question asks without grouping, and the real ACE count doesn't change anyway."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which keyword on the access-group command turns an ACL into a management access rule that filters traffic destined to the ASA itself?",
+     "choices": [
+      {
+       "text": "global",
+       "why": "The global keyword applies an ACL to inbound traffic on all interfaces for through-the-box traffic, not to-the-box traffic."
+      },
+      {
+       "text": "control-plane",
+       "why": "Correct. Applying the ACL with the control-plane keyword makes it a to-the-box management access rule."
+      },
+      {
+       "text": "log",
+       "why": "log is added to an ACE to generate logs for matches; it does not change what traffic the ACL applies to."
+      },
+      {
+       "text": "inter-interface",
+       "why": "inter-interface is part of the same-security-traffic command, not an access-group keyword."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An ASA has a control-plane ACL denying all IP traffic on the outside interface, but host 10.2.2.2 is allowed by the ssh command. Can 10.2.2.2 still open an SSH session to the ASA?",
+     "choices": [
+      {
+       "text": "No, because the control-plane ACL denies all IP",
+       "why": "Management protocols' own lists take precedence over management access rules, so the ssh command wins."
+      },
+      {
+       "text": "No, because SSH needs an extended ACL on the inside interface",
+       "why": "SSH access to the ASA is controlled by the ssh command list, not by an inside interface ACL."
+      },
+      {
+       "text": "Only if the ASA is in multiple context mode",
+       "why": "Context mode does not change this precedence; the ssh command list wins in either mode."
+      },
+      {
+       "text": "Yes, because the ssh command takes precedence over the management access rule",
+       "why": "Correct. A host allowed by the ssh command can still SSH in even if a management access rule blocks it."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Hosts already use NAT to reach the Internet, but traffic to one specific partner network must not be translated. Which NAT type should be used?",
+     "choices": [
+      {
+       "text": "Identity NAT",
+       "why": "Correct. Identity NAT bypasses translation so the address stays the same, used when hosts shouldn't be translated to a specific host or network."
+      },
+      {
+       "text": "Static NAT",
+       "why": "Static NAT creates a fixed one-to-one translation to a different address, which is still a translation."
+      },
+      {
+       "text": "Extended PAT",
+       "why": "Extended PAT allows 65,535 translations per service instead of per address; it still translates."
+      },
+      {
+       "text": "Outside NAT",
+       "why": "Outside NAT translates outside hosts going to a higher-security interface; it does not exempt inside traffic."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which Secure Firewall preprocessor watches DCE/RPC and SMB traffic for anomalies and evasions?",
+     "choices": [
+      {
+       "text": "Sun RPC preprocessor",
+       "why": "The Sun RPC preprocessor normalizes and reassembles fragmented SunRPC records; it does not handle SMB."
+      },
+      {
+       "text": "DCE/RPC preprocessor",
+       "why": "Correct. The DCE/RPC preprocessor monitors DCE/RPC and SMB for anomalies and evasions."
+      },
+      {
+       "text": "SIP preprocessor",
+       "why": "The SIP preprocessor extracts SIP header and body and alerts on out-of-order calls and anomalies."
+      },
+      {
+       "text": "GTP preprocessor",
+       "why": "The GTP preprocessor normalizes GTP command channel signaling."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Malware authors change a file slightly to evade hash matching, but its structure stays the same. Which Secure Malware Defense engine is designed to catch these polymorphic variants?",
+     "choices": [
+      {
+       "text": "1-to-1 signatures",
+       "why": "1-to-1 signatures compare exact hashes, so any file change evades them."
+      },
+      {
+       "text": "Dynamic analysis",
+       "why": "Dynamic analysis runs the sample in Malware Analytics; it is not the fingerprinting engine for polymorphic variants."
+      },
+      {
+       "text": "Advanced analytics",
+       "why": "Advanced analytics ranks executed files by how common they are to find rare threats; it does not fingerprint file structure."
+      },
+      {
+       "text": "Ethos",
+       "why": "Correct. Ethos is the fuzzy fingerprinting engine using static or passive heuristics, built on the idea that structure often stays the same when content changes."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A host's IP address is on a Security Intelligence allowlist. How does Secure Firewall treat its traffic?",
+     "choices": [
+      {
+       "text": "It is trusted and fast-pathed past all further inspection",
+       "why": "An allowlist does not trust or fast-path traffic; that would be a Trust rule action, not Security Intelligence."
+      },
+      {
+       "text": "It is exempted from the blocklist but still goes through the rest of access control",
+       "why": "Correct. The allowlist exempts traffic from the blocklist only; allowlisted traffic is still evaluated by the rest of access control."
+      },
+      {
+       "text": "It is blocked but logged",
+       "why": "Watching matches without blocking is a monitor-only blocklist, and the allowlist does not block."
+      },
+      {
+       "text": "It is sent to Malware Analytics for sandboxing",
+       "why": "Sandboxing applies to files under a file policy; an allowlist entry doesn't send traffic to the sandbox."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 4",
+   "questions": [
+    {
+     "q": "Cisco uses two capitalizations of the same brand. What does \"FirePOWER\" with uppercase POWER refer to?",
+     "choices": [
+      {
+       "text": "The FTD unified image and newer software",
+       "why": "That is \"Firepower\" with lowercase power. Uppercase FirePOWER refers to the older ASA module."
+      },
+      {
+       "text": "The operating system on Firepower chassis",
+       "why": "The chassis operating system is FXOS (Firepower eXtensible Operating System)."
+      },
+      {
+       "text": "The Cisco ASA FirePOWER Services module",
+       "why": "Correct. FirePOWER with uppercase POWER is the name for the ASA FirePOWER Services module that brought Sourcefire technology into the ASA."
+      },
+      {
+       "text": "The Kubernetes-based cloud-native firewall",
+       "why": "That is Cisco Secure Firewall Cloud Native, whose firewall component is the CNFW."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A DevOps team wants to configure Cisco Secure Firewall Cloud Native as infrastructure as code. What do they use to configure it?",
+     "choices": [
+      {
+       "text": "The FXOS CLI and Firepower Chassis Manager",
+       "why": "The FXOS CLI and FCM configure physical Firepower chassis functions, not Cloud Native."
+      },
+      {
+       "text": "K8s REST APIs and YAML files",
+       "why": "Correct. Secure Firewall Cloud Native is configured with Kubernetes REST APIs and YAML files, an IaC approach."
+      },
+      {
+       "text": "ASDM and the ASA CLI",
+       "why": "ASDM and the ASA CLI manage ASA appliances, not the Kubernetes-based Cloud Native firewall."
+      },
+      {
+       "text": "The Device Setup Wizard in FDM",
+       "why": "The Device Setup Wizard is for the initial setup of an FTD device managed by FDM."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A company's public website is being targeted with SQL injection, cross-site scripting, and advanced bots that mimic human behavior. Which Cisco solution addresses this best?",
+     "choices": [
+      {
+       "text": "Cisco Secure WAF and bot protection",
+       "why": "Correct. Cisco Secure WAF protects websites, applications, and APIs against exploits such as SQL injection and XSS, and also defends against advanced bots."
+      },
+      {
+       "text": "Cisco Secure Firewall ISA3000",
+       "why": "The ISA3000 is a rugged industrial appliance for OT networks, not a web application firewall."
+      },
+      {
+       "text": "Cisco IOS Zone-Based Firewall",
+       "why": "ZBFW is a stateful router firewall based on zones; it does not specialize in web application exploits or bots."
+      },
+      {
+       "text": "Botnet Traffic Filter Database",
+       "why": "The ASA uses this database to block traffic to and from botnets, not to protect a website against SQL injection or bots mimicking humans."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "On which ASA models can FirePOWER Services be managed with ASDM and their licenses installed with ASDM?",
+     "choices": [
+      {
+       "text": "ASA 5505 and 5585-X",
+       "why": "These models don't run FTD, and they are not the models listed for ASDM management of FirePOWER Services."
+      },
+      {
+       "text": "ASA 5525-X, 5545-X, and 5555-X",
+       "why": "On these models the licenses are installed in the FirePOWER module, not through ASDM."
+      },
+      {
+       "text": "Firepower 4100 and 9300",
+       "why": "These are Firepower chassis platforms that run FTD logical devices, not ASA models with a FirePOWER module."
+      },
+      {
+       "text": "ASA 5506-X, 5508-X, and 5516-X",
+       "why": "Correct. On the 5506-X, 5508-X, and 5516-X, FirePOWER Services can be managed with ASDM and licenses installed with ASDM."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Cisco IOS Zone-Based Firewall replaced which legacy IOS firewall feature?",
+     "choices": [
+      {
+       "text": "MPF (Modular Policy Framework)",
+       "why": "MPF is the ASA framework for application inspection and QoS, not a legacy IOS firewall."
+      },
+      {
+       "text": "CBAC (Context-Based Access Control)",
+       "why": "Correct. ZBFW replaced CBAC and added features CBAC lacks, such as assigning interfaces to zones."
+      },
+      {
+       "text": "PIX Firewall",
+       "why": "PIX was a standalone Cisco firewall appliance before the ASA, not an IOS feature."
+      },
+      {
+       "text": "TCP Intercept",
+       "why": "TCP Intercept protects servers from SYN floods; it is not the legacy IOS firewall ZBFW replaced."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In a Cisco SD-WAN zone-based firewall, what is the difference between inspecting and passing an accepted flow?",
+     "choices": [
+      {
+       "text": "Inspect sends the flow to the IPS; pass sends it to URL filtering",
+       "why": "Inspect and pass describe header handling in the firewall policy, not handoffs to other security engines."
+      },
+      {
+       "text": "Inspect drops the flow and logs it; pass forwards it",
+       "why": "Inspect does not drop the flow; drop is a separate action for matching flows."
+      },
+      {
+       "text": "Inspect checks the header for source address and port; pass sends the flow on with no header inspection",
+       "why": "Correct. An inspected flow has its header checked for source address and port, while a passed flow is sent on without header inspection."
+      },
+      {
+       "text": "Inspect is for applications; pass is for IP prefixes only",
+       "why": "Application matches can only be denied; inspect and pass apply to accepted flows matched on prefixes, ports, and protocols."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement about ASA security contexts is correct?",
+     "choices": [
+      {
+       "text": "The firewall mode, routed or transparent, can be set per context",
+       "why": "Correct. In multiple context mode, each context can be set to routed or transparent mode."
+      },
+      {
+       "text": "All contexts must share one routing table",
+       "why": "Each security context has its own configuration, interfaces, policies, routing table, and administrators."
+      },
+      {
+       "text": "The admin context can be created after the user contexts",
+       "why": "The admin context must be created before other contexts and must be on the local disk."
+      },
+      {
+       "text": "Contexts cannot be used when networks overlap",
+       "why": "Connecting overlapping networks without readdressing is one of the listed use cases for security contexts."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which is a requirement of an ASA multimode transparent firewall (MMTF) that does not apply to a single-mode transparent firewall?",
+     "choices": [
+      {
+       "text": "Each interface must be in a separate failover group",
+       "why": "Failover groups are not part of the MMTF requirements described for transparent contexts."
+      },
+      {
+       "text": "The ASA must run dynamic routing in every context",
+       "why": "Transparent firewalls bridge traffic; dynamic routing is not a requirement for MMTF."
+      },
+      {
+       "text": "All contexts must share the same inside interface",
+       "why": "The opposite is true: in MMTF, interfaces can't be shared between contexts."
+      },
+      {
+       "text": "Each context needs an IP address on its BVI for management",
+       "why": "Correct. In multimode transparent firewalls, each context needs an IP on its BVI for management, and interfaces can't be shared."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An engineer wants an FTD to inspect a copy of traffic with full Snort checks while the device is physically cabled in the traffic path, so it can later be switched to blocking. Which interface mode fits?",
+     "choices": [
+      {
+       "text": "Passive with ERSPAN",
+       "why": "Passive with ERSPAN receives traffic through a GRE tunnel from a remote capture point; it is not cabled in the path."
+      },
+      {
+       "text": "Inline pair with tap",
+       "why": "Correct. Inline pair with tap bridges two physical interfaces in the path but runs firewall and Snort checks on a copy of the traffic."
+      },
+      {
+       "text": "Routed interface",
+       "why": "A routed interface acts as a Layer 3 hop and enforces policy on the real traffic, not a copy."
+      },
+      {
+       "text": "Inline pair",
+       "why": "A standard inline pair inspects and can drop the actual traffic, rather than inspecting a copy."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which interface can be used as an FTD failover link?",
+     "choices": [
+      {
+       "text": "A physical, redundant, or EtherChannel interface not otherwise used",
+       "why": "Correct. The failover link can be a physical, redundant, or EtherChannel interface not used for anything else."
+      },
+      {
+       "text": "A VLAN subinterface of the inside interface",
+       "why": "Subinterfaces are not supported for failover links, and named interfaces like inside can't be used."
+      },
+      {
+       "text": "The interface named outside",
+       "why": "The failover link can't be an interface that is already named, such as outside, inside, or dmz-1."
+      },
+      {
+       "text": "The same interface used for the state link and data traffic",
+       "why": "Failover and state interfaces can be used only for that purpose, and separate interfaces are recommended for each."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Two FTD units are connected for failover by a direct Ethernet cable. Why does Cisco list this as harder to troubleshoot than using a switch?",
+     "choices": [
+      {
+       "text": "Direct cables don't support stateful failover",
+       "why": "A direct cable can carry failover and state traffic; the issue is identifying which unit failed."
+      },
+      {
+       "text": "A direct cable requires DHCP on the failover interfaces",
+       "why": "DHCP is not supported on a failover pair at all, whether the link uses a switch or not."
+      },
+      {
+       "text": "A direct cable forces Active-Active failover",
+       "why": "Cabling does not change the failover mode; Secure Firewall supports only Active-Standby."
+      },
+      {
+       "text": "An interface failure takes the link down on both peers, so it is hard to tell which unit failed",
+       "why": "Correct. Without a switch, one interface failure brings the link down on both units, which makes it difficult to find the failed unit."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In a Secure Firewall cluster, where should an administrator make configuration changes?",
+     "choices": [
+      {
+       "text": "On any slave unit, which forwards changes to the master",
+       "why": "Configuration is not done on slave units; it is done on the master and replicated outward."
+      },
+      {
+       "text": "On the master unit, which replicates them to the other members",
+       "why": "Correct. All configuration is done on the master, which replicates it to the other cluster members."
+      },
+      {
+       "text": "On each unit separately, then synced by FCM",
+       "why": "Members share the security policy through replication from the master, not by separate per-unit configuration."
+      },
+      {
+       "text": "On the chassis supervisor's bootstrap configuration",
+       "why": "The supervisor pushes only a minimal bootstrap with the cluster name and cluster control link settings, not the full configuration."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "How many access lists can be bound to one direction of a single ASA interface at the same time?",
+     "choices": [
+      {
+       "text": "Only one ACL of any type",
+       "why": "An EtherType ACL can be bound together with an extended ACL, so it is not limited to one ACL in total."
+      },
+      {
+       "text": "Two extended ACLs and one EtherType ACL",
+       "why": "Only one extended ACL per direction is allowed."
+      },
+      {
+       "text": "One extended ACL and one EtherType ACL",
+       "why": "Correct. One extended ACL and one EtherType ACL can be bound in each direction of an interface at the same time."
+      },
+      {
+       "text": "Unlimited, evaluated in the order applied",
+       "why": "The number is limited to one extended and one EtherType ACL per direction."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An ASA allows outbound traffic from inside hosts. Users report that GRE tunnels and IPsec ESP traffic fail, while TCP and UDP applications work. What is the most likely reason?",
+     "choices": [
+      {
+       "text": "Connectionless protocols like GRE and ESP need their return traffic permitted in the ACL",
+       "why": "Correct. TCP and UDP return traffic is allowed automatically, but GRE, ESP, and other connectionless protocols need return traffic permitted."
+      },
+      {
+       "text": "GRE and ESP are blocked by the self zone",
+       "why": "The self zone is a ZBFW concept on IOS routers, not an ASA mechanism."
+      },
+      {
+       "text": "GRE and ESP require static PAT",
+       "why": "GRE has no Layer 4 port information, so it uses dynamic NAT, not port-based translation."
+      },
+      {
+       "text": "TCP Intercept is dropping GRE and ESP packets",
+       "why": "TCP Intercept protects TCP servers from SYN floods; it doesn't affect GRE or ESP."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which ASA ACL type restricts traffic coming through SSL VPN tunnels?",
+     "choices": [
+      {
+       "text": "Standard ACL",
+       "why": "A standard ACL matches destination addresses for processes such as split tunneling and route maps; it is not the SSL VPN filtering ACL."
+      },
+      {
+       "text": "EtherType ACL",
+       "why": "An EtherType ACL filters Layer 2 Ethernet type codes in transparent mode."
+      },
+      {
+       "text": "Global ACL",
+       "why": "A global ACL applies to inbound traffic on every interface, not specifically to SSL VPN traffic."
+      },
+      {
+       "text": "Webtype ACL",
+       "why": "Correct. A Webtype ACL restricts traffic through SSL VPN tunnels. If one is defined and nothing matches, the packet is dropped."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An organization hosts web, email, DNS, and FTP servers that outside users must reach at fixed public addresses. Which translation method is recommended?",
+     "choices": [
+      {
+       "text": "Dynamic PAT",
+       "why": "Dynamic PAT shares one address among many hosts for outbound connections, so it doesn't give servers fixed public addresses."
+      },
+      {
+       "text": "Static NAT",
+       "why": "Correct. Static NAT is a fixed one-to-one translation and is recommended for servers offering email, web, DNS, and FTP to outside users."
+      },
+      {
+       "text": "Dynamic NAT",
+       "why": "Dynamic NAT assigns addresses from a pool, so a server's public address isn't fixed."
+      },
+      {
+       "text": "Policy PAT",
+       "why": "Policy PAT translates only packets that match an ACL or manual NAT rule; it is not the general recommendation for public servers."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An engineer must write a NAT rule that translates a host's source address only when it talks to one particular destination network. Which kind of NAT rule is required?",
+     "choices": [
+      {
+       "text": "Auto NAT",
+       "why": "Auto NAT is defined in a network object and translates the source regardless of destination, so it can't take the destination into account."
+      },
+      {
+       "text": "Extended PAT",
+       "why": "Extended PAT changes how many PAT translations are available per service; it doesn't add destination matching."
+      },
+      {
+       "text": "Manual NAT",
+       "why": "Correct. Manual NAT is needed for rules that involve destination addresses, such as policy NAT, or for translating both source and destination."
+      },
+      {
+       "text": "Static PAT",
+       "why": "Static PAT redirects ports on one global IP to inside servers; it doesn't make translation depend on the destination."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is the role of a network analysis policy in Secure Firewall?",
+     "choices": [
+      {
+       "text": "It governs how traffic is decoded and preprocessed for further evaluation",
+       "why": "Correct. The network analysis policy handles decoding and preprocessing, which happens before and separately from intrusion rule inspection."
+      },
+      {
+       "text": "It uses intrusion rules to examine decoded packets for attack patterns",
+       "why": "That describes an intrusion policy, which is paired with variable sets and runs after network analysis."
+      },
+      {
+       "text": "It passively discovers hosts and applications without affecting traffic",
+       "why": "That describes the network discovery policy, the only policy that can't affect traffic."
+      },
+      {
+       "text": "It blocks IPs, URLs, and domains by reputation before deeper inspection",
+       "why": "That describes Security Intelligence, which runs early in access control."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which group maintains the official rule sets of Snort.org, ClamAV, SenderBase.org, and SpamCop?",
+     "choices": [
+      {
+       "text": "OASIS",
+       "why": "OASIS maintains the STIX and TAXII threat intelligence standards, not Snort or ClamAV rule sets."
+      },
+      {
+       "text": "MITRE",
+       "why": "MITRE developed STIX and TAXII; it does not maintain these rule sets."
+      },
+      {
+       "text": "Immunet",
+       "why": "Immunet is an AV community that contributes data; it doesn't maintain the official rule sets."
+      },
+      {
+       "text": "Cisco Talos",
+       "why": "Correct. Talos maintains the official rule sets of Snort.org, ClamAV, SenderBase.org, and SpamCop, using data from malware samples, the web, and email."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A security team wants an open, automated way to transport threat indicators between its tools and partners. Which standard provides this transport?",
+     "choices": [
+      {
+       "text": "STIX",
+       "why": "STIX is the format for describing threat intelligence; TAXII is the transport used to exchange it."
+      },
+      {
+       "text": "TAXII",
+       "why": "Correct. TAXII (Trusted Automated eXchange of Indicator Information) is an open transport for automated exchange of threat information, maintained by OASIS."
+      },
+      {
+       "text": "GTP",
+       "why": "GTP is the GPRS Tunneling Protocol used in mobile networks, not a threat intelligence transport."
+      },
+      {
+       "text": "CIP",
+       "why": "CIP (Common Industrial Protocol) is an industrial Ethernet protocol, not a threat sharing standard."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 5",
+   "questions": [
+    {
+     "q": "Starting with which ASA software version can a single ACL filter both IPv4 and IPv6 traffic?",
+     "choices": [
+      {
+       "text": "ASA 8.2(1)",
+       "why": "8.2(1) predates unified ACLs; the first version where one ACL filters both IPv4 and IPv6 is 9.0(1)."
+      },
+      {
+       "text": "ASA 8.4(2)",
+       "why": "8.4(2) is not the documented version; unified IPv4 and IPv6 ACLs arrived in 9.0(1)."
+      },
+      {
+       "text": "ASA 9.0(1)",
+       "why": "Correct. ASA 9.0(1) is the first version where one ACL can filter both IPv4 and IPv6."
+      },
+      {
+       "text": "ASA 9.8(1)",
+       "why": "9.8(1) is later than the version that introduced the feature, which was 9.0(1)."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A company is replacing its Palo Alto Networks and Check Point firewalls with Cisco Secure Firewall Threat Defense. Which tool converts the existing configurations?",
+     "choices": [
+      {
+       "text": "Cisco Secure Firewall Migration Tool",
+       "why": "Correct. The Migration Tool converts ASA, FDM, and third-party configurations such as Check Point, Palo Alto Networks, and Fortinet to Threat Defense."
+      },
+      {
+       "text": "Cisco ASA to Threat Defense Feature Mapping guide",
+       "why": "The Feature Mapping guide only maps ASA features to their Threat Defense equivalents; it does not convert configurations."
+      },
+      {
+       "text": "Cisco Defense Orchestrator",
+       "why": "CDO manages and enforces policies across devices from the cloud; the Migration Tool is the product for converting third-party configurations."
+      },
+      {
+       "text": "Platform settings policy",
+       "why": "A platform settings policy applies shared parameters like time and external authentication to many devices; it does not migrate configurations."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "After a malware outbreak, an analyst needs to see which hosts and users transferred a malicious file, which hosts are at risk, and whether the transfers were blocked. Which FMC feature shows this?",
+     "choices": [
+      {
+       "text": "Summary Dashboard",
+       "why": "The Summary Dashboard shows top attackers, top targets, intrusion events, and events by application protocol, not a file's transfer path."
+      },
+      {
+       "text": "Network File Trajectory",
+       "why": "Correct. Network File Trajectory maps file transfers across hosts, the file's disposition, and whether transfers were blocked or files quarantined."
+      },
+      {
+       "text": "Variable Set",
+       "why": "Variable sets hold named network and port values for intrusion rules; they show no file data."
+      },
+      {
+       "text": "Platform settings policy",
+       "why": "A platform settings policy applies shared device parameters; it is not an analysis feature."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A SOC wants a platform that automates repetitive security operations tasks such as incident response playbooks, threat hunting, and vulnerability management across many integrated tools. Which category of solution is this?",
+     "choices": [
+      {
+       "text": "SIEM",
+       "why": "A SIEM aggregates and correlates event data for detection, investigation, and compliance reporting; automating workflows is the focus of SOAR."
+      },
+      {
+       "text": "IDS",
+       "why": "An IDS detects attacks and generates alerts; it does not orchestrate operations tasks across tools."
+      },
+      {
+       "text": "WAF",
+       "why": "A WAF protects web applications from exploits like SQL injection and XSS; it is not an operations automation platform."
+      },
+      {
+       "text": "SOAR",
+       "why": "Correct. SOAR (Security Orchestration, Automation, and Response) automates and orchestrates tasks such as incident response, threat hunting, and vulnerability management."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An analyst adds a third-party EDR product to Cisco SecureX, but none of its data or response actions appear. What must be done first?",
+     "choices": [
+      {
+       "text": "Register the product with the FMC using a registration key",
+       "why": "Registration keys authenticate managed devices to the FMC; they don't connect products to SecureX."
+      },
+      {
+       "text": "Commit the intrusion policy changes",
+       "why": "Committing applies intrusion policy changes in the FMC; it has nothing to do with SecureX data sources."
+      },
+      {
+       "text": "Configure an integration module for that product",
+       "why": "Correct. A SecureX integration module must be configured before that product's data and response actions appear."
+      },
+      {
+       "text": "Add the product to a security zone",
+       "why": "Security zones group firewall interfaces for policy matching; they do not link products to SecureX."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An attacker launches an exploit against a Windows server that is already patched for that vulnerability. Which NGIPS capability lets the system recognize that the event has low impact?",
+     "choices": [
+      {
+       "text": "Impact and vulnerability assessment",
+       "why": "Correct. NGIPS impact assessment uses host vulnerability context, so it knows a patched system can't be severely impacted by that exploit."
+      },
+      {
+       "text": "Signature-based pattern matching",
+       "why": "Pattern matching is what legacy IPS relies on; it fires on the attempt without knowing whether the target is vulnerable."
+      },
+      {
+       "text": "Fail-open",
+       "why": "Fail-open lets traffic bypass a failed inline device; it is not an event assessment capability."
+      },
+      {
+       "text": "Passive mode",
+       "why": "Passive mode is an interface deployment option for monitoring copies of traffic, not a way to assess event impact."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In the attack continuum model of before, during, and after an attack, in which phase does an NGIPS mostly operate?",
+     "choices": [
+      {
+       "text": "Before",
+       "why": "The before phase is about controls such as access policy and hardening; the NGIPS works mainly while attacks are happening."
+      },
+      {
+       "text": "After",
+       "why": "The after phase is covered by capabilities such as retrospection and file trajectory, not mainly by the NGIPS."
+      },
+      {
+       "text": "Recovery",
+       "why": "Recovery is not one of the three attack continuum phases, which are before, during, and after."
+      },
+      {
+       "text": "During",
+       "why": "Correct. The NGIPS works mostly in the during phase of the attack continuum."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "When an FTD device in an inline deployment is registered to the FMC, which security zones are created automatically?",
+     "choices": [
+      {
+       "text": "Inside, Outside, and DMZ",
+       "why": "These are common ASA interface names, not the zones FTD creates at registration."
+      },
+      {
+       "text": "External and Internal",
+       "why": "Correct. FTD creates zones based on detection mode: External and Internal zones for inline deployments, and a passive zone for passive deployments."
+      },
+      {
+       "text": "A single passive zone",
+       "why": "A passive zone is created for passive deployments, not inline ones."
+      },
+      {
+       "text": "A self zone and a default zone",
+       "why": "The self zone is a ZBFW concept on IOS routers, and a default zone tied to a VPN is used in SD-WAN."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An engineer creates an FMC access control rule to block Telnet and wants the firewall to send a TCP reset to the client instead of silently dropping the connection. Which action should be selected?",
+     "choices": [
+      {
+       "text": "Monitor",
+       "why": "Monitor logs matching traffic and lets evaluation continue; it does not block or reset."
+      },
+      {
+       "text": "Interactive block",
+       "why": "Interactive block is one of the four block actions, but it does not send a reset; the reset variants are block with reset and interactive block with reset."
+      },
+      {
+       "text": "Block with reset",
+       "why": "Correct. Block with reset blocks the connection and sends a reset, as in the book's Block Telnet Rule for TCP port 23."
+      },
+      {
+       "text": "Trust",
+       "why": "Trust passes traffic without further inspection, the opposite of blocking."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An administrator moves an access control rule into a new section and category in the FMC. How does this affect rule evaluation?",
+     "choices": [
+      {
+       "text": "Rules in a named category are evaluated before uncategorized rules",
+       "why": "Categories don't create priority; evaluation follows the rule numbers."
+      },
+      {
+       "text": "The rule becomes a Monitor rule until redeployed",
+       "why": "Moving a rule doesn't change its action."
+      },
+      {
+       "text": "The rule is evaluated last, after the default action",
+       "why": "The default action applies only when no rule matches; sections and categories don't move rules after it."
+      },
+      {
+       "text": "It doesn't, because sections and categories are only organizational",
+       "why": "Correct. Sections and categories are only organizational and don't change rule position."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In an inline Secure Firewall deployment, which policy cannot drop or modify traffic?",
+     "choices": [
+      {
+       "text": "The network discovery policy",
+       "why": "Correct. The network discovery policy is passive, so it is the only policy that can't affect traffic."
+      },
+      {
+       "text": "The Security Intelligence policy",
+       "why": "Security Intelligence can drop traffic early by reputation."
+      },
+      {
+       "text": "The SSL policy",
+       "why": "The SSL policy is one of the listed policies that can drop or modify traffic in inline deployments."
+      },
+      {
+       "text": "The file policy",
+       "why": "File policies can block files in inline deployments."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator edits an intrusion policy in the FMC but leaves the page without committing. What is true?",
+     "choices": [
+      {
+       "text": "The changes are lost when leaving the page",
+       "why": "Leaving with uncommitted changes doesn't lose them; they wait until you commit or discard them."
+      },
+      {
+       "text": "The changes take effect immediately on all devices",
+       "why": "A policy doesn't take effect until the changes are committed."
+      },
+      {
+       "text": "The changes are kept, but the policy doesn't take effect until committed",
+       "why": "Correct. Uncommitted changes are kept, and the policy takes effect only after commit. You can also discard changes since the last commit."
+      },
+      {
+       "text": "The FMC commits the changes automatically after a validation check",
+       "why": "The validation check runs after a commit that you perform; the FMC does not commit for you."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In a Secure Firewall port variable, what does the value [1024-] mean?",
+     "choices": [
+      {
+       "text": "Ports less than 1024",
+       "why": "Ports less than a number are written with a leading dash, such as [-1024]."
+      },
+      {
+       "text": "Ports greater than 1024",
+       "why": "Correct. A trailing dash, as in [1024-], means ports more than that number."
+      },
+      {
+       "text": "Every port except 1024",
+       "why": "Excluding a port uses an exclamation point, such as [!25]."
+      },
+      {
+       "text": "Only port 1024",
+       "why": "A single port is written as just the number; the trailing dash makes it an open-ended range."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An organization manages 40 FTD devices and wants to apply the same time and date settings and external authentication to all of them at once. What should it use?",
+     "choices": [
+      {
+       "text": "A variable set",
+       "why": "Variable sets hold network and port variables for intrusion policies, not device parameters like time or authentication."
+      },
+      {
+       "text": "A network analysis policy",
+       "why": "A network analysis policy governs decoding and preprocessing of traffic, not device settings."
+      },
+      {
+       "text": "A cluster control link",
+       "why": "The cluster control link connects cluster members; it does not distribute settings to independent devices."
+      },
+      {
+       "text": "A platform settings policy",
+       "why": "Correct. A platform settings policy is a shared set of device parameters, such as time and external authentication, applied to many devices at once."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does extended PAT change compared with standard PAT?",
+     "choices": [
+      {
+       "text": "It allows 65,535 translations per service instead of per address",
+       "why": "Correct. Extended PAT provides 65,535 PAT translations per service instead of per address."
+      },
+      {
+       "text": "It translates both source and destination addresses",
+       "why": "That describes bidirectional NAT, or manual NAT translating both addresses."
+      },
+      {
+       "text": "It maps one port on a global IP to an inside server",
+       "why": "That describes static PAT, also called port redirection."
+      },
+      {
+       "text": "It keeps the address unchanged and bypasses translation",
+       "why": "That describes identity NAT."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "When an ACL is applied outbound on an ASA interface, what happens to a packet before the ACEs are checked?",
+     "choices": [
+      {
+       "text": "Nothing; outbound ACLs are checked before any other processing",
+       "why": "That describes an inbound ACL, where packets are checked on arrival."
+      },
+      {
+       "text": "It is checked against the global ACL",
+       "why": "A global ACL applies to inbound traffic on every interface; it is not the step before an outbound ACL."
+      },
+      {
+       "text": "It goes through NAT, QoS, and VPN processing first",
+       "why": "Correct. With an outbound ACL, packets go through NAT, QoS, and VPN before the ACEs are checked and the packet leaves."
+      },
+      {
+       "text": "It is sent to the Firepower engine for Snort inspection",
+       "why": "Snort inspection belongs to Secure Firewall's Firepower engine, not ASA outbound ACL processing."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A web server behind an ASA is being hit by a SYN flood DoS attack. Which ASA feature, configured with MPF connection limits, protects it?",
+     "choices": [
+      {
+       "text": "Botnet Traffic Filter",
+       "why": "The Botnet Traffic Filter blocks traffic based on an external botnet database; it is not the SYN flood protection configured with MPF."
+      },
+      {
+       "text": "Time-based ACL",
+       "why": "A time-based ACL applies only during a time range; it does not protect against SYN floods."
+      },
+      {
+       "text": "Identity NAT",
+       "why": "Identity NAT bypasses address translation; it offers no DoS protection."
+      },
+      {
+       "text": "TCP Intercept",
+       "why": "Correct. TCP Intercept protects TCP servers from SYN flood DoS attacks and is configured with MPF connection limits."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An ASA has both an ICMP policy (icmp commands) and a control-plane ACL applied to the outside interface. Which one takes precedence for ICMP sent to the ASA?",
+     "choices": [
+      {
+       "text": "The ICMP policy",
+       "why": "Correct. ICMP filtering takes precedence over control-plane filtering."
+      },
+      {
+       "text": "The control-plane ACL",
+       "why": "The control-plane ACL filters to-the-box traffic, but ICMP filtering takes precedence over it."
+      },
+      {
+       "text": "The interface ACL applied with access-group",
+       "why": "Interface ACLs that block ICMP don't block ICMP to the ASA's own interface by default."
+      },
+      {
+       "text": "The global ACL",
+       "why": "A global ACL filters through-the-box traffic on all interfaces, not ICMP destined to the ASA."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which Cisco Secure Malware Analytics tool lets an analyst interact with a malware sample and troubleshoot it during analysis?",
+     "choices": [
+      {
+       "text": "Spero",
+       "why": "Spero is the Secure Malware Defense machine-learning engine, not an interactive analysis tool."
+      },
+      {
+       "text": "Glovebox",
+       "why": "Correct. Glovebox is the Malware Analytics tool for interacting with malware and troubleshooting."
+      },
+      {
+       "text": "Network File Trajectory",
+       "why": "Network File Trajectory is an FMC feature showing how files moved across hosts; it doesn't let you interact with samples."
+      },
+      {
+       "text": "Threat Response Graph panel",
+       "why": "The Graph panel in SecureX Threat Response shows observables and relationships; it is not a sample interaction tool."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Secure Malware Defense capability provides a kernel-level view of network I/O and traces it back to the process that started it?",
+     "choices": [
+      {
+       "text": "Advanced analytics",
+       "why": "Advanced analytics uses big data to rank executed files from least to most common; it doesn't trace network I/O to a process."
+      },
+      {
+       "text": "IOCs",
+       "why": "IOCs are artifacts that indicate an intrusion, such as FileItem or RegistryItem entries; they are not a network I/O monitor."
+      },
+      {
+       "text": "Device flow correlation",
+       "why": "Correct. Device flow correlation gives a kernel-level view of network I/O traced back to the originating process, and can block or alert on it."
+      },
+      {
+       "text": "1-to-1 signatures",
+       "why": "1-to-1 signatures compare file hashes against a database; they don't monitor network activity."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  }
+ ]
+}

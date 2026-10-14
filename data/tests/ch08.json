@@ -1,0 +1,2230 @@
+{
+ "chapter": 8,
+ "tests": [
+  {
+   "title": "Practice Test 1",
+   "questions": [
+    {
+     "q": "Which IP protocol number does GRE use?",
+     "choices": [
+      {
+       "text": "IP protocol 51",
+       "why": "IP protocol 51 is AH (Authentication Header), an IPsec protocol, not GRE."
+      },
+      {
+       "text": "IP protocol 47",
+       "why": "GRE (Generic Routing Encapsulation) is IP protocol 47 and encapsulates a payload protocol inside a delivery protocol."
+      },
+      {
+       "text": "IP protocol 50",
+       "why": "IP protocol 50 is ESP, the default IPsec data encapsulation protocol, not GRE."
+      },
+      {
+       "text": "UDP port 4500",
+       "why": "UDP 4500 is used by NAT-T to wrap IPsec packets so they can pass a NAT or PAT device; GRE is an IP protocol with no ports."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which VPN protocol is preferred because it provides data integrity, authentication, and encryption on its own?",
+     "choices": [
+      {
+       "text": "IPsec",
+       "why": "IPsec provides integrity, authentication, and encryption, which is why it is the preferred VPN protocol and is often combined with GRE, L2TP, or MPLS."
+      },
+      {
+       "text": "GRE",
+       "why": "GRE only encapsulates packets and has no security of its own; it is usually protected with IPsec."
+      },
+      {
+       "text": "L2TP",
+       "why": "L2TP is a tunneling protocol with no built-in security; it is combined with IPsec as L2TP over IPsec to get protection."
+      },
+      {
+       "text": "MPLS VPN",
+       "why": "MPLS VPN is a provider VPN with no built-in integrity, authentication, or encryption."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "How many packets does an IKEv1 Phase 1 main mode exchange use?",
+     "choices": [
+      {
+       "text": "Six packets in three round trips",
+       "why": "Main mode uses six packets (MM1 to MM6) in three round trips, with the identities encrypted in the last two."
+      },
+      {
+       "text": "Two message pairs in total",
+       "why": "Two message pairs (IKE_SA_INIT and IKE_AUTH) is the basic IKEv2 exchange, not IKEv1 main mode."
+      },
+      {
+       "text": "Three packets in total",
+       "why": "Three packets is IKEv1 aggressive mode, the faster Phase 1 exchange, not main mode."
+      },
+      {
+       "text": "Three packets in quick mode",
+       "why": "Quick mode (QM1 to QM3) is IKEv1 Phase 2, which negotiates the IPsec SAs after Phase 1."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An engineer is tired of maintaining long crypto ACLs on IOS routers and wants the routing table to decide which traffic gets encrypted. Which approach meets this goal?",
+     "choices": [
+      {
+       "text": "A dynamic crypto map applied to the WAN interface",
+       "why": "A dynamic crypto map is for peers with unknown addresses; it still uses crypto map logic and ACLs rather than routing to pick the traffic."
+      },
+      {
+       "text": "A static crypto map with a larger crypto ACL",
+       "why": "A static crypto map relies on an ACL to define interesting traffic, which is exactly the complex, error-prone model the engineer wants to avoid."
+      },
+      {
+       "text": "Legacy EzVPN based on crypto maps",
+       "why": "Legacy EzVPN is built on crypto maps; it is Enhanced EzVPN that is based on IPsec VTI."
+      },
+      {
+       "text": "A tunnel interface with tunnel protection and an IPsec profile",
+       "why": "With tunnel protection, all traffic on the tunnel interface is protected, so routing traffic into the tunnel decides what is encrypted, and no crypto ACL is needed."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Two IPsec peers detect a PAT device between them. Which port do they move their traffic to?",
+     "choices": [
+      {
+       "text": "TCP 443",
+       "why": "TCP 443 is used by SSL and TLS VPNs (HTTPS), not by IPsec NAT Traversal."
+      },
+      {
+       "text": "UDP 1701",
+       "why": "UDP 1701 is L2TP, not the NAT-T port used for IPsec."
+      },
+      {
+       "text": "UDP 4500",
+       "why": "With NAT-T, peers start on UDP 500 and switch to UDP 4500 once a NAT or PAT device is detected, so the packets have ports that can be translated."
+      },
+      {
+       "text": "UDP 500",
+       "why": "UDP 500 is IKE (ISAKMP), where negotiation starts; the peers move off it to UDP 4500 once NAT is detected."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which RFC defines ESP (Encapsulating Security Payload)?",
+     "choices": [
+      {
+       "text": "RFC 2409",
+       "why": "RFC 2409 defines the original IKE (IKEv1), not ESP."
+      },
+      {
+       "text": "RFC 4303",
+       "why": "RFC 4303 defines ESP, IP protocol 50."
+      },
+      {
+       "text": "RFC 4302",
+       "why": "RFC 4302 defines AH (Authentication Header), not ESP."
+      },
+      {
+       "text": "RFC 2784",
+       "why": "RFC 2784 defines GRE, not ESP."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A company's sales staff often need to reach internal web applications from hotel guest PCs and Internet kiosks where they cannot install software. Which remote-access option fits best?",
+     "choices": [
+      {
+       "text": "Clientless SSL VPN",
+       "why": "Clientless SSL VPN needs only an SSL-enabled browser, which makes it the recommended choice on public shared computers such as hotel PCs and kiosks."
+      },
+      {
+       "text": "Native IPsec remote-access VPN",
+       "why": "IPsec remote access needs a VPN client on the workstation and often special firewall or NAT handling, so it does not suit shared public PCs."
+      },
+      {
+       "text": "Full tunnel SSL VPN with Cisco Secure Client",
+       "why": "Full tunnel mode needs client software installed on the computer, which is usually not possible on a public kiosk."
+      },
+      {
+       "text": "L2TP over IPsec with the built-in client",
+       "why": "L2TP over IPsec uses a configured OS client such as the Windows or Android one, which a traveler cannot set up on a hotel PC."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In a DMVPN network, which protocol lets a spoke learn the real (NBMA) address of another spoke from the hub?",
+     "choices": [
+      {
+       "text": "GDOI",
+       "why": "GDOI is the group key management protocol used in GETVPN between group members and the key server, not for address resolution in DMVPN."
+      },
+      {
+       "text": "EIGRP",
+       "why": "EIGRP is the routing protocol run over the tunnel in the DMVPN example; it does not map tunnel addresses to NBMA addresses."
+      },
+      {
+       "text": "NHRP",
+       "why": "NHRP (Next Hop Resolution Protocol) is a client-server protocol that maps a peer's tunnel address to its NBMA address, with the hub as the server."
+      },
+      {
+       "text": "ISAKMP",
+       "why": "ISAKMP is the framework IKE runs in for negotiating SAs; it does not resolve spoke addresses."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In GETVPN, which key is used to encrypt the rekey messages sent by the key server?",
+     "choices": [
+      {
+       "text": "SKEYID",
+       "why": "SKEYID is the IKEv1 main mode string used to key the encrypted fifth and sixth packets, not a GETVPN group key."
+      },
+      {
+       "text": "KEK (Key Encryption Key)",
+       "why": "The KEK encrypts the rekey messages from the key server to the group members."
+      },
+      {
+       "text": "IKEv2 PRF key",
+       "why": "The PRF in IKEv2 builds keying material for the SAs in an IKEv2 exchange; it is not the GETVPN key protecting rekeys."
+      },
+      {
+       "text": "TEK (Traffic Encryption Key)",
+       "why": "The TEK becomes the IPsec SA that group members use to protect traffic between each other, not the rekey messages."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A security administrator notices that decrypted site-to-site VPN traffic reaches inside hosts even though the outside interface ACL denies it. Which ASA command makes VPN traffic subject to the interface ACLs?",
+     "choices": [
+      {
+       "text": "crypto ikev2 enable outside",
+       "why": "crypto ikev2 enable outside enables IKEv2 on the outside interface so the ASA answers tunnel requests; it does not filter traffic."
+      },
+      {
+       "text": "show run all sysopt",
+       "why": "show run all sysopt only displays the sysopt settings, including defaults; it does not change how VPN traffic is filtered."
+      },
+      {
+       "text": "management-access",
+       "why": "management-access lets VPN users manage the ASA through the inside interface; it does not apply interface ACLs to VPN traffic."
+      },
+      {
+       "text": "no sysopt connection permit-vpn",
+       "why": "By default sysopt connection permit-vpn lets decrypted VPN traffic bypass interface ACLs; disabling it makes that traffic go through the ACLs."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What is IKEv2 Phase 1 called, and which message pair makes it up?",
+     "choices": [
+      {
+       "text": "ISAKMP SA, made of the quick mode exchange",
+       "why": "ISAKMP SA is the IKEv1 Phase 1 SA, and quick mode is IKEv1 Phase 2, so neither is IKEv2 Phase 1."
+      },
+      {
+       "text": "CHILD_SA, made of the IKE_AUTH message pair",
+       "why": "The CHILD_SA is IKEv2 Phase 2; the first CHILD_SA is the IKE_AUTH pair."
+      },
+      {
+       "text": "IKE_SA, made of the IKE_SA_INIT message pair",
+       "why": "IKEv2 Phase 1 is the IKE_SA, built from the IKE_SA_INIT pair that exchanges SA, KE, and nonce payloads."
+      },
+      {
+       "text": "IPsec SA, made of the main mode exchange",
+       "why": "Main mode is an IKEv1 Phase 1 exchange, and IPsec SAs are the one-way data SAs created later, not IKEv2 Phase 1."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "On a Cisco ASA client-based SSL VPN group policy, which command tells the client to tunnel only the networks listed in an ACL?",
+     "choices": [
+      {
+       "text": "vpn-tunnel-protocol svc",
+       "why": "vpn-tunnel-protocol svc allows only Cisco Secure Client tunnels for the group policy; it does not define which traffic is tunneled."
+      },
+      {
+       "text": "split-tunnel-policy tunnelspecified",
+       "why": "split-tunnel-policy tunnelspecified tunnels only the listed networks, which are then referenced with split-tunnel-network-list."
+      },
+      {
+       "text": "address-pools value SSLVPNPool",
+       "why": "address-pools value assigns the client address pool to the group policy; it does not control split tunneling."
+      },
+      {
+       "text": "split-tunnel-network-list value SplitTunnelList",
+       "why": "This command points the group policy to the ACL of networks, but the policy that says to tunnel only those networks is split-tunnel-policy tunnelspecified."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What does Perfect Forward Secrecy (PFS) add to an IPsec negotiation?",
+     "choices": [
+      {
+       "text": "Detection of a peer that has gone away so its SAs can be removed",
+       "why": "That is Dead Peer Detection (DPD), which is built into IKEv2; it does not create new keys."
+      },
+      {
+       "text": "A stateless cookie that protects the gateway from spoofed IKE_SA_INIT floods",
+       "why": "The stateless cookie is the IKEv2 anti-DoS feature, not PFS."
+      },
+      {
+       "text": "A periodic message that keeps the NAT entry for UDP 4500 from timing out",
+       "why": "That is the NAT-T keepalive, which keeps the idle UDP 4500 entry alive on a NAT device."
+      },
+      {
+       "text": "A new Diffie-Hellman calculation in Phase 2 so the new keys are unrelated to earlier keys",
+       "why": "PFS generates new keys that are unrelated to any earlier key by running a new Diffie-Hellman exchange in Phase 2 instead of reusing Phase 1 keying."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "When configuring a site-to-site VPN on a Cisco ASA, which step comes right after creating the ISAKMP policy?",
+     "choices": [
+      {
+       "text": "Configure the crypto map",
+       "why": "The crypto map is step 5, after the tunnel group and IPsec policy exist."
+      },
+      {
+       "text": "Define the IPsec policy",
+       "why": "Defining the IPsec policy is step 4, after the tunnel type has been set."
+      },
+      {
+       "text": "Bypass NAT with an exemption rule",
+       "why": "Bypassing NAT is an optional later step (step 7), after the crypto map and traffic filtering."
+      },
+      {
+       "text": "Set the tunnel type with a tunnel group",
+       "why": "The order is enable ISAKMP, create the ISAKMP policy, set the tunnel type (tunnel group), then define the IPsec policy and crypto map."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which VPN client is supported for remote-access VPN on Cisco Secure Firewall (FTD)?",
+     "choices": [
+      {
+       "text": "Only Cisco Secure Client",
+       "why": "Cisco Secure Client is the only supported client for remote-access VPN on Cisco Secure Firewall, over SSL or IPsec-IKEv2."
+      },
+      {
+       "text": "Cisco Secure Client and the legacy Cisco VPN Client",
+       "why": "The legacy Cisco VPN Client is an IKEv1 client used with native ASA IPsec; it is not supported on Secure Firewall remote access."
+      },
+      {
+       "text": "Any IKEv1 native operating system client",
+       "why": "Secure Firewall remote access uses SSL and IPsec-IKEv2 with Cisco Secure Client; IKEv1 native clients are not supported."
+      },
+      {
+       "text": "The built-in Windows L2TP over IPsec client",
+       "why": "L2TP over IPsec with the built-in Windows client is an ASA remote-access option, not a Secure Firewall one."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "With Cisco SD-WAN Remote Access, how do remote users' VPN clients connect?",
+     "choices": [
+      {
+       "text": "They terminate on vManage using IKEv1",
+       "why": "vManage is the management platform that configures the overlay; it does not terminate client tunnels, and SD-WAN RA uses IKEv2."
+      },
+      {
+       "text": "They terminate on dedicated VPN concentrators at headquarters over SSL",
+       "why": "Dedicated concentrators at headquarters are the legacy design that SD-WAN RA moves away from, removing the need for concentrators."
+      },
+      {
+       "text": "They terminate on SD-WAN edge routers using IKEv2",
+       "why": "SD-WAN RA repurposes existing edge routers to terminate software and hardware clients with IKEv2, so users connect to the nearest edge router."
+      },
+      {
+       "text": "They register with a key server using GDOI",
+       "why": "Registering with a key server through GDOI is how GETVPN group members get keys, not how SD-WAN RA clients connect."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In Cisco vManage, what is a feature template?",
+     "choices": [
+      {
+       "text": "A form for one feature, specific to a device type, used as a building block of device configuration",
+       "why": "Feature templates are device-type specific forms for individual features, and complete device configuration is built from them."
+      },
+      {
+       "text": "An XML file that controls the look and operation of Cisco Secure Client",
+       "why": "That describes a Cisco Secure Client profile, which holds XML parameters such as host names and feature settings."
+      },
+      {
+       "text": "A virtual interface that is cloned for each new IPsec peer",
+       "why": "That is a virtual template on IOS, which is cloned into a virtual-access interface for each dynamic VTI peer."
+      },
+      {
+       "text": "A set of attributes pushed to remote-access users on the ASA",
+       "why": "That is an ASA group policy, which pushes attributes to remote-access users."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Why is event-trace monitoring useful for troubleshooting VPNs on a busy IOS router?",
+     "choices": [
+      {
+       "text": "It filters debugs on a group policy, public IP address, or user name",
+       "why": "Filtering on group, public IP, or user is conditional debug on the ASA and Secure Firewall (debug webvpn condition), not event-trace."
+      },
+      {
+       "text": "It stores subsystem messages in memory in binary format without the extra load that debugs can add",
+       "why": "Event tracing keeps informational messages from specific subsystems in memory in binary form with no extra processing, so it avoids loading a busy system the way debugs can."
+      },
+      {
+       "text": "It sends every IKE packet to a remote collector as NetFlow records",
+       "why": "Event-trace does not export NetFlow; its messages are kept in memory and shown on screen or saved to a file."
+      },
+      {
+       "text": "It generates syslog messages for every successful tunnel",
+       "why": "Syslog messages are a separate troubleshooting tool; a well-built deployment produces few of them, and event-trace is not syslog."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which IPsec mode is the default on Cisco IPsec devices and protects the entire original IP packet?",
+     "choices": [
+      {
+       "text": "Transport mode",
+       "why": "Transport mode protects only the upper-layer protocols and keeps the original IP header; it is used when the packets come from the peers themselves, such as GRE over IPsec."
+      },
+      {
+       "text": "Main mode",
+       "why": "Main mode is an IKEv1 Phase 1 exchange used to build the ISAKMP SA, not an IPsec encapsulation mode."
+      },
+      {
+       "text": "Tunnel mode",
+       "why": "Tunnel mode encrypts the entire original IP packet behind a new IP header and is the default on Cisco IPsec devices."
+      },
+      {
+       "text": "Aggressive mode",
+       "why": "Aggressive mode is the three-packet IKEv1 Phase 1 exchange, not an IPsec encapsulation mode."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Why does the chapter recommend AES 256 over weaker encryption algorithms?",
+     "choices": [
+      {
+       "text": "It is the only algorithm supported by IKEv1",
+       "why": "IKEv1 supports many algorithms, including DES, 3DES, and AES; AES 256 is not the only one."
+      },
+      {
+       "text": "It is 168 bits long, longer than any other option",
+       "why": "168 bits is the length of 3DES, which should be avoided; AES 256 uses a 256-bit key."
+      },
+      {
+       "text": "It removes the need for a hashing algorithm such as SHA",
+       "why": "Encryption and integrity are separate; IPsec proposals still set a hash such as SHA alongside AES 256."
+      },
+      {
+       "text": "Its performance cost is about the same as the weaker algorithms",
+       "why": "AES 256 is recommended because it gives stronger protection with roughly the same performance cost as weaker algorithms."
+      }
+     ],
+     "answer": 3
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 2",
+   "questions": [
+    {
+     "q": "Which IP protocol number does ESP use?",
+     "choices": [
+      {
+       "text": "IP protocol 50",
+       "why": "ESP is IP protocol 50 and is the default IPsec protocol for protecting data."
+      },
+      {
+       "text": "IP protocol 51",
+       "why": "IP protocol 51 is AH (Authentication Header), not ESP."
+      },
+      {
+       "text": "UDP port 500",
+       "why": "UDP 500 carries IKE (ISAKMP) negotiation packets, not ESP data; ESP is a Layer 3 protocol with no ports."
+      },
+      {
+       "text": "IP protocol 47",
+       "why": "IP protocol 47 is GRE, which has no security of its own."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which RFC defines AH (Authentication Header)?",
+     "choices": [
+      {
+       "text": "RFC 4303",
+       "why": "RFC 4303 defines ESP, not AH."
+      },
+      {
+       "text": "RFC 4302",
+       "why": "RFC 4302 defines AH, IP protocol 51."
+      },
+      {
+       "text": "RFC 6347",
+       "why": "RFC 6347 defines DTLS version 1.2, not AH."
+      },
+      {
+       "text": "RFC 5996",
+       "why": "RFC 5996 is the IKEv2 RFC cited in the chapter, not AH."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "How many packets does IKEv1 aggressive mode exchange?",
+     "choices": [
+      {
+       "text": "Three",
+       "why": "Aggressive mode is an IKEv1 Phase 1 exchange of three packets."
+      },
+      {
+       "text": "Four",
+       "why": "Four messages (two pairs) is the basic IKEv2 exchange of IKE_SA_INIT and IKE_AUTH, not aggressive mode."
+      },
+      {
+       "text": "Two",
+       "why": "Aggressive mode uses three packets; two packets would be only a single request and response pair."
+      },
+      {
+       "text": "Six",
+       "why": "Six packets in three round trips is IKEv1 main mode."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "What is the purpose of IKEv1 quick mode?",
+     "choices": [
+      {
+       "text": "To build the ISAKMP SA in Phase 1",
+       "why": "The ISAKMP SA is built in Phase 1 by main mode or aggressive mode, not by quick mode."
+      },
+      {
+       "text": "To authenticate remote users with EAP",
+       "why": "IKEv1 does not allow EAP; EAP is supported natively in IKEv2 inside IKE_AUTH."
+      },
+      {
+       "text": "To detect NAT devices and switch to UDP 4500",
+       "why": "That is NAT Traversal (NAT-T), which moves IPsec traffic to UDP 4500 when NAT is detected."
+      },
+      {
+       "text": "To negotiate the IPsec SAs in Phase 2",
+       "why": "Quick mode is IKEv1 Phase 2; it negotiates the IPsec SAs and the Phase 2 identities under the protection of the ISAKMP SA."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What uniquely identifies an IPsec security association?",
+     "choices": [
+      {
+       "text": "The SPI (security parameter index)",
+       "why": "The SPI is a unique value that identifies an SA; each SA gets an SPI from the initiator and one from the responder."
+      },
+      {
+       "text": "The nonce",
+       "why": "A nonce is a randomly generated value sent with the Key Exchange payload, not an SA identifier."
+      },
+      {
+       "text": "The transform set name",
+       "why": "The transform set name is only locally significant; it sets the Phase 2 policy but does not identify an SA between peers."
+      },
+      {
+       "text": "The crypto map sequence number",
+       "why": "The crypto map priority (sequence number) identifies one IPsec instance in the local crypto map, not the SA itself."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A router has three local subnets that must each talk to one remote network over a crypto map tunnel, and no summarization is used. How many IPsec SAs are created?",
+     "choices": [
+      {
+       "text": "Two",
+       "why": "Two SAs is what one subnet pair creates; three separate pairs create three times as many."
+      },
+      {
+       "text": "Six",
+       "why": "Each IPsec negotiation always creates two one-way SAs, so three subnet pairs create six IPsec SAs; summarizing the networks would reduce them."
+      },
+      {
+       "text": "Twelve",
+       "why": "Twelve would mean four SAs per pair; each negotiation creates only two, one inbound and one outbound."
+      },
+      {
+       "text": "Three",
+       "why": "Three would be one SA per subnet pair, but IPsec SAs are unidirectional, so each pair needs an inbound and an outbound SA."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "On a DMVPN hub, which command adds spokes to the multicast list as they register so that routing protocol multicasts reach them?",
+     "choices": [
+      {
+       "text": "tunnel mode gre multipoint",
+       "why": "tunnel mode gre multipoint makes the tunnel interface mGRE but does not add spokes to the multicast list."
+      },
+      {
+       "text": "ip nhrp network-id 99",
+       "why": "ip nhrp network-id sets the NHRP network ID; it does not build the multicast list."
+      },
+      {
+       "text": "ip nhrp map multicast dynamic",
+       "why": "On the hub, ip nhrp map multicast dynamic adds each registering spoke to the multicast list, so routing protocol multicast reaches the spokes."
+      },
+      {
+       "text": "ip nhrp nhs 10.0.0.1",
+       "why": "ip nhrp nhs is a spoke command that sets the hub as the next-hop server."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement about a dynamic VTI (dVTI) is true?",
+     "choices": [
+      {
+       "text": "It requires GRE encapsulation for every packet",
+       "why": "A VTI carries IPv4 or IPv6 directly in IPsec tunnel mode without GRE."
+      },
+      {
+       "text": "It can both initiate and respond, like a static VTI",
+       "why": "Static VTIs work as initiators and responders; dynamic VTIs are responder only."
+      },
+      {
+       "text": "It is responder only and is cloned from a virtual template for each peer",
+       "why": "A dVTI only responds; in IKEv2, negotiation clones the virtual template into a virtual-access interface for the peer."
+      },
+      {
+       "text": "It must be configured with a crypto ACL that lists every spoke",
+       "why": "VTIs use tunnel protection with an IPsec profile, so routing decides what is encrypted and no crypto ACL is needed."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is GDOI in a GETVPN deployment?",
+     "choices": [
+      {
+       "text": "The anti-replay mechanism based on time",
+       "why": "Time-based anti-replay in GETVPN is TBAR, a separate building block."
+      },
+      {
+       "text": "The ISAKMP Domain of Interpretation for group key management between group members and the key server",
+       "why": "GDOI is the group key management protocol that runs between a group member and the key server, and GETVPN combines it with IPsec."
+      },
+      {
+       "text": "The IKEv2 framework for point-to-point and remote-access VPNs",
+       "why": "The IKEv2-based framework with one CLI for many topologies is FlexVPN, not GDOI."
+      },
+      {
+       "text": "The protocol that maps tunnel addresses to NBMA addresses",
+       "why": "Mapping tunnel addresses to NBMA addresses is NHRP, used in DMVPN."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In FlexVPN with EAP, what role does the FlexVPN server play in user authentication?",
+     "choices": [
+      {
+       "text": "It acts as the key server that sends group rekeys",
+       "why": "Key servers that send rekeys are part of GETVPN, not FlexVPN EAP authentication."
+      },
+      {
+       "text": "It is a pass-through authenticator that relays EAP to an external EAP server",
+       "why": "The FlexVPN server does not do local EAP; it passes EAP through to an external server such as RADIUS, using the RADIUS EAP-Message attribute."
+      },
+      {
+       "text": "It checks EAP credentials against its local user database",
+       "why": "EAP in FlexVPN is only a remote authentication method using an external server; the server does not perform local EAP."
+      },
+      {
+       "text": "It is the EAP supplicant that authenticates to the client",
+       "why": "The IKEv2 clients are the EAP supplicants; the server authenticates itself to the client with certificates."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "How is the SA lifetime handled in IKEv2 compared to IKEv1?",
+     "choices": [
+      {
+       "text": "It is negotiated in the first two messages and must match exactly",
+       "why": "Negotiating the lifetime in MM1 and MM2 is IKEv1 behavior, and even there the responder's value only had to be equal or lower."
+      },
+      {
+       "text": "It is pushed by the key server in a rekey message",
+       "why": "Key servers pushing policy and rekeys is GETVPN behavior, not how IKEv2 handles lifetimes."
+      },
+      {
+       "text": "It is set locally and not negotiated; each peer rekeys or deletes when its own lifetime expires",
+       "why": "IKEv2 lifetimes are local, which removed the vendor mismatches IKEv1 had when the responder's lifetime had to be equal to or less than the initiator's."
+      },
+      {
+       "text": "It is fixed at 86,400 seconds and cannot be changed",
+       "why": "86,400 seconds is a default and recommended value on the ASA, but lifetimes are configurable."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "When is a crypto map entry on a Cisco ASA considered complete?",
+     "choices": [
+      {
+       "text": "When it has at least one transform set, at least one peer, and an encryption ACL",
+       "why": "An ASA crypto map is complete when it has at least one transform set (IPsec proposal), at least one peer, and a crypto ACL."
+      },
+      {
+       "text": "When it has a tunnel group, a group policy, and an address pool",
+       "why": "Group policies and address pools are remote-access settings, not what makes a crypto map entry complete."
+      },
+      {
+       "text": "When it has a WebType ACL and a group URL",
+       "why": "WebType ACLs and group URLs are clientless SSL VPN features, not crypto map requirements."
+      },
+      {
+       "text": "When it is applied to every interface on the ASA",
+       "why": "Only one crypto map can be applied per interface, and it is usually applied only to the outside interface."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator at the remote site of an ASA site-to-site tunnel needs to SSH and ping the ASA's inside interface across the tunnel, but it fails even though the inside IP is in the crypto ACL. Which ASA feature is needed?",
+     "choices": [
+      {
+       "text": "Reverse route injection",
+       "why": "RRI adds static routes for remote networks and announces them to neighbors; it does not permit management of the inside interface."
+      },
+      {
+       "text": "Tunnel default gateway",
+       "why": "The tunnel default gateway is the next hop for tunneled traffic with no route; it does not allow management access."
+      },
+      {
+       "text": "NAT-T",
+       "why": "NAT-T wraps IPsec in UDP 4500 to cross NAT devices; it does not control access to the inside interface."
+      },
+      {
+       "text": "management-access",
+       "why": "management-access lets VPN users manage the ASA through the inside interface, and it is needed even if the inside IP is in the crypto ACL."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A WebType ACL is applied to a clientless SSL VPN group policy, and a user requests a URL that matches none of its entries. What happens?",
+     "choices": [
+      {
+       "text": "The request is sent outside the tunnel to the Internet",
+       "why": "Clientless requests go to the ASA; a WebType ACL does not redirect unmatched requests to the Internet."
+      },
+      {
+       "text": "The request is dropped",
+       "why": "WebType ACLs are processed in order until a match; if an ACL is defined and nothing matches, the packets are dropped."
+      },
+      {
+       "text": "The request is checked against the outside interface ACL instead",
+       "why": "WebType ACLs apply only to clientless traffic and do not fall back to the interface ACL."
+      },
+      {
+       "text": "The request is allowed because no entry denies it",
+       "why": "Traffic is allowed by default only when no WebType ACL exists at all; with an ACL applied, unmatched traffic is dropped."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the main difference between smart tunnels and port forwarding in clientless SSL VPN application access?",
+     "choices": [
+      {
+       "text": "Smart tunnels forward UDP traffic, while port forwarding forwards TCP traffic",
+       "why": "Application access in clientless SSL VPN supports only TCP applications, for both methods."
+      },
+      {
+       "text": "Smart tunnels need Oracle JRE and admin rights, while port forwarding does not",
+       "why": "It is the reverse: port forwarding needs Oracle JRE and admin rights, while smart tunnels need no admin rights."
+      },
+      {
+       "text": "Smart tunnels work only on 32-bit systems, while port forwarding supports 64-bit",
+       "why": "It is the reverse: port forwarding is 32-bit only, while smart tunnels support 32-bit and 64-bit systems."
+      },
+      {
+       "text": "Smart tunnels define which applications are forwarded, while port forwarding defines which TCP ports are forwarded",
+       "why": "A smart tunnel forwards chosen applications using a Winsock 2 connection, while port forwarding forwards fixed TCP ports that the admin must know in advance."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A Cisco Secure Client user is on a hotel network that blocks UDP. What does the client do for its tunnel?",
+     "choices": [
+      {
+       "text": "It fails because DTLS is mandatory",
+       "why": "DTLS is optional for the tunnel; the client still connects using TLS over TCP when UDP is unavailable."
+      },
+      {
+       "text": "It moves the session to UDP 4500 with NAT-T",
+       "why": "NAT-T also uses UDP, so it would be blocked too, and it is an IPsec mechanism rather than the SSL client's fallback."
+      },
+      {
+       "text": "It switches to IKEv1 aggressive mode",
+       "why": "Cisco Secure Client supports SSL VPN and IKEv2, not IKEv1, so it cannot fall back to aggressive mode."
+      },
+      {
+       "text": "It falls back to TLS over TCP",
+       "why": "DTLS is on by default on the ASA, but if UDP is blocked the client falls back to TLS over TCP."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "On a Cisco ASA, which name is reserved for the default group policy?",
+     "choices": [
+      {
+       "text": "DefaultWEBVPNGroup",
+       "why": "DefaultWEBVPNGroup is the default connection profile created with a remote-access VPN policy on Secure Firewall, not the default group policy."
+      },
+      {
+       "text": "DefaultL2LGroup",
+       "why": "DefaultL2LGroup is the default site-to-site tunnel group for peers with no matching tunnel group, not a group policy."
+      },
+      {
+       "text": "DefaultDNS",
+       "why": "DefaultDNS is the DNS server group name used in the clientless example, not a group policy."
+      },
+      {
+       "text": "DfltGrpPolicy",
+       "why": "DfltGrpPolicy is the special name used only for the default group policy; any other name makes it a user group policy."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which of the following is a site-to-site VPN topology type you can choose in Cisco Secure Firewall Management Center?",
+     "choices": [
+      {
+       "text": "Full Mesh",
+       "why": "FMC offers Point-to-point, Hub and Spoke (Star), and Full Mesh (Mesh) site-to-site topologies."
+      },
+      {
+       "text": "Ring",
+       "why": "Ring is not an FMC site-to-site VPN topology type."
+      },
+      {
+       "text": "Dynamic Multipoint",
+       "why": "Dynamic Multipoint (DMVPN) is a Cisco router technology, not an FMC topology type."
+      },
+      {
+       "text": "Partial Mesh",
+       "why": "Partial Mesh is not one of the FMC site-to-site topology types, which are point-to-point, hub and spoke, and full mesh."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An engineer must build a site-to-site VPN in FMC to an endpoint that is managed outside the current domain. What must be used for that endpoint?",
+     "choices": [
+      {
+       "text": "Moving the topology into the other domain",
+       "why": "A VPN topology cannot be moved between domains."
+      },
+      {
+       "text": "A network object with a range option",
+       "why": "Network objects with a range option are not supported in VPN at all."
+      },
+      {
+       "text": "An extranet peer",
+       "why": "An extranet peer represents a VPN endpoint outside the current domain and is the only way to make a cross-domain connection."
+      },
+      {
+       "text": "A security zone that spans both domains",
+       "why": "A security zone groups interfaces for policy; it is not how an endpoint outside the domain is defined."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which IOS command shows the IKEv2 SAs, including local and remote addresses, encryption, DH group, and a status such as READY?",
+     "choices": [
+      {
+       "text": "show crypto isakmp sa",
+       "why": "show crypto isakmp sa shows legacy IKEv1 SAs, with states such as QM_IDLE."
+      },
+      {
+       "text": "show crypto ipsec sa",
+       "why": "show crypto ipsec sa shows the IPsec Phase 2 SAs, not the IKEv2 SAs."
+      },
+      {
+       "text": "show crypto ikev2 sa",
+       "why": "show crypto ikev2 sa lists IKEv2 SAs with local and remote addresses, status READY, encryption, hash, DH group, authentication, and lifetime."
+      },
+      {
+       "text": "show monitor event-trace crypto ikev2 error all",
+       "why": "This shows IKEv2 error traces in the event-trace buffer, such as Auth exchange failed, not the current SA table."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 3",
+   "questions": [
+    {
+     "q": "Why was TLS created?",
+     "choices": [
+      {
+       "text": "To provide group key management for multicast VPNs",
+       "why": "Group key management for multicast is GDOI, used in GETVPN."
+      },
+      {
+       "text": "To replace IPsec as the protocol for site-to-site router tunnels",
+       "why": "IPsec remains the preferred site-to-site VPN protocol; TLS is mainly used for SSL VPN remote access."
+      },
+      {
+       "text": "The IETF created it to merge the vendor SSL versions into one open standard",
+       "why": "TLS was created by the IETF to merge the vendor SSL versions into one open standard, and TLS-based VPNs are still called SSL VPNs."
+      },
+      {
+       "text": "To add security to UDP applications and avoid TCP delays",
+       "why": "That describes DTLS, which secures UDP traffic; TLS itself runs over TCP."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A network team wants to use L2TP for remote access but needs encryption and authentication. What is the standard way to get them?",
+     "choices": [
+      {
+       "text": "Run L2TP over GRE",
+       "why": "GRE has no security of its own, so carrying L2TP inside GRE would still leave it unprotected."
+      },
+      {
+       "text": "Enable L2TP built-in encryption",
+       "why": "L2TP has no built-in security to enable; protection comes from pairing it with IPsec."
+      },
+      {
+       "text": "Run L2TP over L2F",
+       "why": "L2F is a legacy VPN protocol that also provides no integrity, authentication, or encryption."
+      },
+      {
+       "text": "Run L2TP over IPsec",
+       "why": "L2TP has no built-in security, so it is combined with IPsec as L2TP over IPsec to get integrity, authentication, and encryption."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What do IKEv1 main mode messages MM5 and MM6 carry?",
+     "choices": [
+      {
+       "text": "The Key Exchange payloads and nonces",
+       "why": "The Diffie-Hellman Key Exchange payloads and nonces are in MM3 and MM4."
+      },
+      {
+       "text": "The IPsec SA proposal and traffic identities",
+       "why": "The IPsec SA proposal and Phase 2 identities are sent in quick mode (QM1 and QM2), not in main mode."
+      },
+      {
+       "text": "Encrypted identities, certificates, and authentication hashes",
+       "why": "MM5 and MM6 carry the encrypted identities, certificates, and authentication hashes, keyed from the SKEYID."
+      },
+      {
+       "text": "The SA proposal and the responder's chosen proposal",
+       "why": "The proposal and choice are carried in MM1 and MM2."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In IKEv1, where is the Phase 1 lifetime negotiated?",
+     "choices": [
+      {
+       "text": "In QM3, with the confirming hash",
+       "why": "QM3 is the quick mode confirmation hash in Phase 2; it does not negotiate the Phase 1 lifetime."
+      },
+      {
+       "text": "In MM3 and MM4, with the nonces",
+       "why": "MM3 and MM4 carry the Key Exchange payloads and nonces, not the lifetime."
+      },
+      {
+       "text": "In MM1 and MM2, with the SA proposal",
+       "why": "IKEv1 negotiates the Phase 1 lifetime in MM1 and MM2, and the responder's lifetime must be equal to or less than the initiator's."
+      },
+      {
+       "text": "It is never negotiated; each peer uses its own value",
+       "why": "Local, non-negotiated lifetimes are IKEv2 behavior; IKEv1 negotiates the lifetime."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An attacker floods an IKEv2 gateway with spoofed IKE_SA_INIT messages, making it spend resources on key material. Which IKEv2 feature mitigates this?",
+     "choices": [
+      {
+       "text": "The stateless cookie",
+       "why": "The stateless cookie is the IKEv2 anti-DoS feature that keeps zero state for a session while the gateway is under attack."
+      },
+      {
+       "text": "Dead Peer Detection",
+       "why": "DPD detects a peer that has gone away; it does not protect against spoofed SA_INIT floods."
+      },
+      {
+       "text": "Initial Contact",
+       "why": "Initial Contact tells the peer to clear old SAs; it is not a DoS protection."
+      },
+      {
+       "text": "Perfect Forward Secrecy",
+       "why": "PFS adds a new Diffie-Hellman exchange in Phase 2 for fresh keys; it does not reduce work during a flood and actually adds computation."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A company wants IPsec remote-access users to authenticate with EAP against its existing authentication servers. Which IKE version should it use?",
+     "choices": [
+      {
+       "text": "IKEv2, because it supports EAP natively",
+       "why": "EAP is supported natively in IKEv2, which is what lets IKEv2 do remote-access VPN with many authentication methods."
+      },
+      {
+       "text": "IKEv1 main mode, because it protects identities",
+       "why": "IKEv1 does not allow EAP, whichever Phase 1 mode is used."
+      },
+      {
+       "text": "Either version, because IKEv1 and IKEv2 interoperate",
+       "why": "IKEv1 and IKEv2 are incompatible, and only IKEv2 supports EAP natively."
+      },
+      {
+       "text": "IKEv1 aggressive mode, because it is used for remote access",
+       "why": "Aggressive mode is a Cisco default for IKEv1 remote access with pre-shared keys, but IKEv1 still does not support EAP."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "How does IPsec pass-through let ESP traffic cross a PAT device?",
+     "choices": [
+      {
+       "text": "The peers wrap ESP in UDP 4500",
+       "why": "Wrapping ESP in UDP 4500 is NAT-T, which the peers do themselves after detecting NAT; pass-through is done by the PAT device."
+      },
+      {
+       "text": "The PAT device builds its translation table from the SPI values",
+       "why": "With IPsec pass-through, the PAT device uses the SPI values to build its Layer 4 translation table, since ESP and AH have no ports."
+      },
+      {
+       "text": "The PAT device translates the ESP source and destination ports",
+       "why": "ESP is a Layer 3 protocol with no ports, which is why a normal PAT device drops it."
+      },
+      {
+       "text": "The peers switch from ESP to AH",
+       "why": "AH also has no ports, and because it protects the IP header it cannot work through NAT at all."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the default interval for NAT-T keepalives?",
+     "choices": [
+      {
+       "text": "20 seconds",
+       "why": "NAT-T keepalives default to 20 seconds and can be set from 10 to 3600 seconds."
+      },
+      {
+       "text": "300 seconds",
+       "why": "300 is the NHRP holdtime used in the DMVPN example, not the NAT-T keepalive."
+      },
+      {
+       "text": "90 seconds",
+       "why": "90 seconds is the default FlexVPN EAP timeout, not the NAT-T keepalive."
+      },
+      {
+       "text": "10 seconds",
+       "why": "10 seconds is the lowest value in the 10 to 3600 second range, not the default."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which RFC defines GRE?",
+     "choices": [
+      {
+       "text": "RFC 2409",
+       "why": "RFC 2409 defines IKEv1, not GRE."
+      },
+      {
+       "text": "RFC 2784",
+       "why": "RFC 2784 defines GRE, and RFC 2890 extends it."
+      },
+      {
+       "text": "RFC 3740",
+       "why": "RFC 3740 is the Multicast Group Security Architecture, not GRE."
+      },
+      {
+       "text": "RFC 4303",
+       "why": "RFC 4303 defines ESP, not GRE."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which interface command turns an IOS tunnel interface into a virtual tunnel interface (VTI) that carries IPv4 directly in IPsec without GRE?",
+     "choices": [
+      {
+       "text": "tunnel protection ipsec profile default",
+       "why": "tunnel protection applies an IPsec profile to the interface, but the tunnel mode command decides whether it is a VTI or GRE."
+      },
+      {
+       "text": "tunnel mode gre multipoint",
+       "why": "tunnel mode gre multipoint creates an mGRE interface, as used in DMVPN."
+      },
+      {
+       "text": "tunnel mode ipsec ipv4",
+       "why": "tunnel mode ipsec ipv4 (or ipv6) makes the tunnel a VTI that carries traffic directly inside IPsec tunnel mode."
+      },
+      {
+       "text": "tunnel mode gre ip",
+       "why": "tunnel mode gre ip sets GRE encapsulation, used for GRE over IPsec, not a native IPsec VTI."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In a DMVPN deployment, which value must match on all nodes that use the mGRE tunnel?",
+     "choices": [
+      {
+       "text": "The IPsec profile name",
+       "why": "The profile name is locally significant; the hub uses my_hub_vpn_profile and the spoke my_spoke_vpn_profile."
+      },
+      {
+       "text": "The tunnel key",
+       "why": "The tunnel key (100000 in the example) must match on all nodes that use the mGRE tunnel."
+      },
+      {
+       "text": "The DHCP hostname",
+       "why": "ip address dhcp hostname gives a spoke its outside address and is unique per spoke."
+      },
+      {
+       "text": "The tunnel interface IP address",
+       "why": "Each node has its own tunnel address, such as 10.0.0.1 on the hub and 10.0.0.2 on a spoke."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the first step when a GETVPN group member registers with the key server?",
+     "choices": [
+      {
+       "text": "The group member builds a GRE tunnel to the key server",
+       "why": "GETVPN is tunnel-less; registration uses GDOI, not a GRE tunnel."
+      },
+      {
+       "text": "The group member sends the group ID to the key server",
+       "why": "Registration starts with the group member sending the group ID; the key server then checks it and sends the SA policy."
+      },
+      {
+       "text": "The key server sends the SA policy",
+       "why": "The key server sends the SA policy only after it checks that the group ID it received is valid."
+      },
+      {
+       "text": "The key server sends the TEK and KEK",
+       "why": "The keys are sent last, only after the member confirms it can handle the policy."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In a FlexVPN hub that pulls per-branch pre-shared keys from RADIUS, what does the IKEv2 name mangler do?",
+     "choices": [
+      {
+       "text": "It sets the local identity that the hub sends to the branches",
+       "why": "The local identity is set with identity local fqdn in the IKEv2 profile, not by the name mangler."
+      },
+      {
+       "text": "It encrypts the pre-shared keys stored in the local keyring",
+       "why": "The name mangler does not encrypt keys; it only derives the username used for AAA authorization."
+      },
+      {
+       "text": "It translates the peer's private address with NAT",
+       "why": "Address translation is NAT; the name mangler works on identities, not IP addresses."
+      },
+      {
+       "text": "It derives the AAA username from part of the peer identity, such as the hostname of an FQDN",
+       "why": "The name mangler builds the AAA username from part of the peer identity, so each branch with a unique FQDN gets a unique RADIUS lookup."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In a FlexVPN IKEv2 profile using EAP, what is the default value for authentication remote eap timeout?",
+     "choices": [
+      {
+       "text": "20 seconds",
+       "why": "20 seconds is the default NAT-T keepalive interval."
+      },
+      {
+       "text": "120 seconds",
+       "why": "120 seconds is the value configured in the example, not the default."
+      },
+      {
+       "text": "86,400 seconds",
+       "why": "86,400 seconds (24 hours) is the default IKE lifetime on the ASA."
+      },
+      {
+       "text": "90 seconds",
+       "why": "The router waits 90 seconds for an EAP-Response by default; the book's example raises it to 120."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "On a Cisco ASA, what is the valid range of crypto map priority numbers, and which is checked first?",
+     "choices": [
+      {
+       "text": "1 to 11, with 1 checked first",
+       "why": "11 is the maximum number of transform sets per crypto map entry, not the priority range."
+      },
+      {
+       "text": "1 to 65535, with 65535 checked first",
+       "why": "65535 is checked last, which is why the dynamic map for clients is added at priority 65535."
+      },
+      {
+       "text": "1 to 65535, with 1 checked first",
+       "why": "Crypto map priorities, like ISAKMP policy priorities, range from 1 to 65535, and the lowest number is checked first."
+      },
+      {
+       "text": "0 to 1023, with 0 checked first",
+       "why": "0 to 1023 is the well-known port range, not the crypto map priority range."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "By default, how does a Cisco ASA handle a packet that is too large to be sent after IPsec headers are added?",
+     "choices": [
+      {
+       "text": "It fragments after encryption so the far peer reassembles before decrypting",
+       "why": "Fragmenting after encryption is what the ASA avoids by default, because the far peer must reassemble before decrypting, costing CPU."
+      },
+      {
+       "text": "It clears the DF bit and sends the packet unfragmented",
+       "why": "When the DF bit is set the ASA keeps it, and large packets are dropped."
+      },
+      {
+       "text": "It always drops the packet and sends an ICMP message",
+       "why": "Large packets are dropped only when the DF bit is set; otherwise the ASA fragments them."
+      },
+      {
+       "text": "It fragments the packet before encryption so the far peer only decrypts",
+       "why": "The ASA fragments before encryption by default, so the remote peer only decrypts and the destination host reassembles."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An ASA administrator wants the ASA to add static routes for the remote private networks of its VPN peers and announce them to local routers with OSPF. Which feature does this?",
+     "choices": [
+      {
+       "text": "Reverse route injection (RRI)",
+       "why": "RRI adds static routes for the remote private networks and announces them to local neighbors using OSPF."
+      },
+      {
+       "text": "Split tunneling",
+       "why": "Split tunneling tells remote-access clients which subnets to encrypt; it does not inject routes into OSPF."
+      },
+      {
+       "text": "NAT exemption",
+       "why": "NAT exemption stops VPN traffic from being translated; it does not create or announce routes."
+      },
+      {
+       "text": "Tunnel default gateway",
+       "why": "The tunnel default gateway sets a next hop for tunneled traffic with no route; it does not advertise remote networks."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which ASA group policy command allows only clientless SSL VPN tunnels?",
+     "choices": [
+      {
+       "text": "vpn-tunnel-protocol webvpn",
+       "why": "vpn-tunnel-protocol webvpn restricts the group policy to clientless SSL VPN; WebVPN is the historical name and ASA keyword."
+      },
+      {
+       "text": "filter value Restrict",
+       "why": "filter value applies a WebType ACL to clientless users; it does not set which tunnel protocols are allowed."
+      },
+      {
+       "text": "vpn-tunnel-protocol svc",
+       "why": "vpn-tunnel-protocol svc allows only Cisco Secure Client (full tunnel) connections."
+      },
+      {
+       "text": "vpn-tunnel-protocol ikev2",
+       "why": "vpn-tunnel-protocol ikev2 allows IKEv2 IPsec remote access, as in the SecretCorp_GP example."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which two deployment modes does the chapter list for Cisco Secure Client?",
+     "choices": [
+      {
+       "text": "Main mode and aggressive mode",
+       "why": "Main mode and aggressive mode are IKEv1 Phase 1 exchanges, not client deployment modes."
+      },
+      {
+       "text": "Transport mode and tunnel mode",
+       "why": "Transport and tunnel modes are IPsec encapsulation modes, not ways to deploy the client."
+      },
+      {
+       "text": "Clientless and thin client",
+       "why": "Clientless and thin client are SSL VPN access modes that do not need the full Cisco Secure Client."
+      },
+      {
+       "text": "Web-enabled and standalone",
+       "why": "In web-enabled mode the client downloads through a browser after logging in to the ASA; in standalone mode it is installed from a file server or Cisco.com."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A branch needs a hardware VPN client to connect into a Cisco SD-WAN Remote Access deployment. What does the chapter list as the hardware client?",
+     "choices": [
+      {
+       "text": "A dedicated VPN concentrator at headquarters",
+       "why": "Concentrators are the legacy headend design; SD-WAN RA removes the need for them."
+      },
+      {
+       "text": "Cisco IOS XE with IKEv2-based FlexVPN",
+       "why": "SD-WAN RA hardware clients are Cisco IOS XE devices using IKEv2-based FlexVPN, while software clients are Cisco Secure Client or native OS clients."
+      },
+      {
+       "text": "A Cisco ASA running IKEv1 crypto maps",
+       "why": "SD-WAN RA uses IKEv2; an IKEv1 crypto map peer is not the hardware client the chapter lists."
+      },
+      {
+       "text": "A GETVPN group member registered with a key server",
+       "why": "GETVPN group members are part of tunnel-less private WAN encryption, not SD-WAN remote access."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 4",
+   "questions": [
+    {
+     "q": "Which IP protocol number does AH (Authentication Header) use?",
+     "choices": [
+      {
+       "text": "IP protocol 47",
+       "why": "IP protocol 47 is GRE, not AH."
+      },
+      {
+       "text": "UDP port 4500",
+       "why": "UDP 4500 is NAT-T; AH has no ports and cannot work through NAT because it protects the IP header."
+      },
+      {
+       "text": "IP protocol 51",
+       "why": "AH is IP protocol 51, a Layer 3 protocol with no ports."
+      },
+      {
+       "text": "IP protocol 50",
+       "why": "IP protocol 50 is ESP, the default IPsec protocol, not AH."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement correctly describes a remote-access VPN?",
+     "choices": [
+      {
+       "text": "Traffic is encrypted without tunnels using a group SA shared by all routers",
+       "why": "That describes GETVPN, a tunnel-less site-to-site technology for private WANs."
+      },
+      {
+       "text": "The provider separates customers with labels and adds no encryption",
+       "why": "That describes an MPLS VPN, which has no built-in integrity, authentication, or encryption."
+      },
+      {
+       "text": "The tunnel runs between network infrastructure devices at two or more sites",
+       "why": "That describes a site-to-site VPN, which typically uses IPsec, GRE, or MPLS VPN."
+      },
+      {
+       "text": "The tunnel runs between a VPN headend device and an end-user workstation or hardware VPN client",
+       "why": "A remote-access VPN connects a headend to an end user's workstation or hardware client, so users can work as if on the corporate network."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which statement about an IPsec transform set is true?",
+     "choices": [
+      {
+       "text": "Its name must match on both peers for the tunnel to come up",
+       "why": "The transform set name is only locally significant; the peers match on its contents, not its name."
+      },
+      {
+       "text": "It identifies the SA with a unique value from each peer",
+       "why": "Identifying an SA is the job of the SPI, not the transform set."
+      },
+      {
+       "text": "It is the Phase 2 policy, negotiated in quick mode, and its name is only locally significant",
+       "why": "A transform set (IPsec proposal) sets the encryption and hashing for data packets, is negotiated in quick mode, and its name only matters locally."
+      },
+      {
+       "text": "It is the Phase 1 policy that sets the Diffie-Hellman group and authentication method",
+       "why": "Those Phase 1 attributes are set in the ISAKMP (IKE) policy, not the transform set."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which IKEv2 message pair carries the identities, the AUTH payload, the CHILD_SA proposal (SAi2), and the traffic selectors?",
+     "choices": [
+      {
+       "text": "IKE_SA_INIT",
+       "why": "IKE_SA_INIT carries the SA, KE, and nonce payloads, where the expensive key material is exchanged, not identities or traffic selectors."
+      },
+      {
+       "text": "Quick mode",
+       "why": "Quick mode is IKEv1 Phase 2, not an IKEv2 message pair."
+      },
+      {
+       "text": "Main mode MM3 and MM4",
+       "why": "MM3 and MM4 are IKEv1 main mode messages carrying Key Exchange payloads and nonces."
+      },
+      {
+       "text": "IKE_AUTH",
+       "why": "The IKE_AUTH pair carries identities, certificates, AUTH, SAi2, and the TSi and TSr traffic selectors, and can also carry EAP payloads."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In IKEv2, what do the traffic selectors TSi and TSr define?",
+     "choices": [
+      {
+       "text": "Which traffic the CHILD_SA protects, from the initiator and responder",
+       "why": "TSi and TSr are the initiator and responder identities that say which traffic the CHILD_SA protects."
+      },
+      {
+       "text": "Which authentication method each peer uses",
+       "why": "Authentication methods are set in the IKEv2 profile and proven with the AUTH payload, not with traffic selectors."
+      },
+      {
+       "text": "Which Diffie-Hellman group the peers use",
+       "why": "The Diffie-Hellman group is negotiated in the IKE_SA_INIT exchange through the SA and KE payloads, not by traffic selectors."
+      },
+      {
+       "text": "Which UDP ports are used for NAT-T",
+       "why": "NAT-T always uses UDP 4500; traffic selectors describe protected traffic, not IKE transport ports."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An engineer is designing a hub-and-spoke IPsec network on IOS routers using virtual tunnel interfaces. Which pairing does the chapter describe as typical?",
+     "choices": [
+      {
+       "text": "Dynamic VTIs on the spokes and a static VTI on the hub",
+       "why": "A dVTI is responder only, so spokes with dVTIs could never initiate their tunnels toward the hub."
+      },
+      {
+       "text": "Static VTIs on the spokes and a dynamic VTI on the hub",
+       "why": "Hub-and-spoke is typically sVTI to dVTI with the dVTI on the hub, because a dVTI is responder only and spokes initiate."
+      },
+      {
+       "text": "Dynamic VTIs on both the hub and the spokes",
+       "why": "Both sides cannot be responder only; at least one side must be a static VTI that can initiate."
+      },
+      {
+       "text": "A crypto map on the hub and GRE without IPsec on the spokes",
+       "why": "Unprotected GRE has no security, and mixing crypto maps with GRE this way is not the VTI pairing described."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is a virtual-access interface on an IOS router?",
+     "choices": [
+      {
+       "text": "A statically configured IPsec tunnel interface",
+       "why": "A statically configured IPsec tunnel interface is a static VTI (sVTI)."
+      },
+      {
+       "text": "The clone created from a virtual template when a tunnel negotiates",
+       "why": "A virtual-access interface is cloned from the virtual template at runtime, represents the link to the remote peer, and is deleted with the SAs."
+      },
+      {
+       "text": "One GRE interface that terminates many site-to-site tunnels",
+       "why": "That describes an mGRE (multipoint GRE) interface, as used in DMVPN."
+      },
+      {
+       "text": "A loopback interface whose address the template borrows",
+       "why": "The loopback is a separate interface that the virtual template borrows its address from with ip unnumbered."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A large router is running out of hardware TCAM because its crypto map uses an ACL with hundreds of ACEs. Which change helps most?",
+     "choices": [
+      {
+       "text": "Move to tunnel interfaces with tunnel protection",
+       "why": "Each ACE uses one TCAM entry, while tunnel protection uses a single entry and supports more SAs than crypto maps."
+      },
+      {
+       "text": "Add more crypto map entries with new sequence numbers",
+       "why": "More crypto map entries still rely on crypto ACLs, which consume TCAM per ACE."
+      },
+      {
+       "text": "Enable PFS on the crypto map",
+       "why": "PFS adds a new Diffie-Hellman exchange in Phase 2; it does not reduce TCAM use."
+      },
+      {
+       "text": "Change the transform set to AES 256",
+       "why": "The encryption algorithm does not affect how many TCAM entries the crypto ACL uses."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In GETVPN, what does the TEK (Traffic Encryption Key) become?",
+     "choices": [
+      {
+       "text": "The IPsec SA the group members use to talk to each other",
+       "why": "The TEK becomes the IPsec SA shared by group members to protect traffic between them."
+      },
+      {
+       "text": "The pre-shared key stored in the group member keyring",
+       "why": "Pre-shared keys authenticate peers; the TEK is a traffic key distributed by the key server."
+      },
+      {
+       "text": "The key that encrypts the rekey messages",
+       "why": "Encrypting rekey messages is the job of the KEK, not the TEK."
+      },
+      {
+       "text": "The ISAKMP SA between the member and the key server",
+       "why": "The ISAKMP SA is an IKE Phase 1 construct; the TEK is the data SA for group traffic."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A company with an MPLS private WAN wants to encrypt any-to-any unicast and multicast traffic without building tunnels, while keeping the natural routing path and QoS. Which technology fits?",
+     "choices": [
+      {
+       "text": "DMVPN",
+       "why": "DMVPN builds mGRE tunnels with NHRP between hub and spokes; GETVPN is the tunnel-less option that keeps the original IP header."
+      },
+      {
+       "text": "Clientless SSL VPN",
+       "why": "Clientless SSL VPN is a browser-based remote-access method, not a site-to-site WAN encryption technology."
+      },
+      {
+       "text": "Static crypto maps",
+       "why": "Static crypto maps build point-to-point tunnels per peer, which does not scale to any-to-any encryption and does not handle multicast natively."
+      },
+      {
+       "text": "GETVPN",
+       "why": "GETVPN gives tunnel-less encryption of native multicast and unicast over a private WAN, keeping full mesh, the natural routing path, and QoS."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A FlexVPN hub has hundreds of branches, each with its own pre-shared key. Which approach centralizes the key management?",
+     "choices": [
+      {
+       "text": "The tunnel default gateway on the hub",
+       "why": "The tunnel default gateway is an ASA routing feature for tunneled traffic; it does not manage keys."
+      },
+      {
+       "text": "A single wildcard key configured with address 0.0.0.0",
+       "why": "A wildcard key shares one secret with every peer, which is the opposite of unique keys per branch."
+      },
+      {
+       "text": "AAA-based pre-shared keys retrieved from RADIUS through aaa authorization network",
+       "why": "AAA-based pre-shared keys are retrieved per peer from a RADIUS server through AAA authorization, which scales the management of many keys."
+      },
+      {
+       "text": "A WebType ACL downloaded from ISE",
+       "why": "WebType ACLs filter clientless SSL VPN traffic; they do not store IKEv2 pre-shared keys."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "On a Cisco ASA, a crypto ACL for one site-to-site peer has 100 ACEs. How many SAs can it create?",
+     "choices": [
+      {
+       "text": "50",
+       "why": "ACEs do not share SAs in pairs; each one creates two SAs of its own."
+      },
+      {
+       "text": "200",
+       "why": "Each ACE creates two SAs on the ASA, so 100 ACEs can create 200 SAs, which is why host-based ACEs are discouraged."
+      },
+      {
+       "text": "400",
+       "why": "That would be four SAs per ACE; each ACE creates two."
+      },
+      {
+       "text": "100",
+       "why": "IPsec SAs are unidirectional, so each ACE produces an inbound and an outbound SA, not one."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the default IKE lifetime on a Cisco ASA, which is also the Cisco recommendation?",
+     "choices": [
+      {
+       "text": "120 seconds",
+       "why": "120 seconds is the minimum IKE lifetime on the ASA, not the default."
+      },
+      {
+       "text": "86,400 seconds (24 hours)",
+       "why": "The ASA default and Cisco-recommended IKE lifetime is 86,400 seconds, within a range of 120 to 2,147,483,647 seconds or Unlimited."
+      },
+      {
+       "text": "Unlimited",
+       "why": "Unlimited is an option, chosen when the peer doesn't propose a lifetime, but it is not the default."
+      },
+      {
+       "text": "3,600 seconds (1 hour)",
+       "why": "3600 seconds is the upper limit for the NAT-T keepalive interval, not the IKE lifetime default."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An ASA site-to-site tunnel never comes up because traffic from 192.168.10.0/24 is translated by a PAT rule before it is compared with the crypto ACL. What is the simplest fix?",
+     "choices": [
+      {
+       "text": "Lower the crypto map priority number",
+       "why": "Priority only controls the order in which crypto map entries are checked; the translated traffic still would not match."
+      },
+      {
+       "text": "Disable sysopt connection permit-vpn",
+       "why": "Disabling sysopt makes VPN traffic pass the interface ACLs; it does not stop translation."
+      },
+      {
+       "text": "Enable PFS with group 5",
+       "why": "PFS changes Phase 2 keying; it does not affect NAT."
+      },
+      {
+       "text": "Add a NAT exemption rule for the VPN traffic",
+       "why": "A NAT exemption (bypass NAT) rule stops the VPN traffic from being translated, so it matches the crypto ACL with its real addresses."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does a Cisco ASA do with an inbound cleartext packet that matches its crypto ACL?",
+     "choices": [
+      {
+       "text": "It forwards the packet because the ACL permits it",
+       "why": "A crypto ACL defines traffic to encrypt, not traffic to permit in cleartext."
+      },
+      {
+       "text": "It sends the packet to the tunnel default gateway",
+       "why": "The tunnel default gateway handles tunneled traffic with no route; it is not used for cleartext matches."
+      },
+      {
+       "text": "It encrypts the packet and sends it back to the peer",
+       "why": "The ASA does not encrypt inbound cleartext and return it; matching cleartext is dropped."
+      },
+      {
+       "text": "It drops the packet and generates a syslog message",
+       "why": "Traffic matching the crypto ACL is expected to arrive encrypted, so a cleartext match is dropped with a syslog."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In a WebType ACL, what does the asterisk (*) wildcard match?",
+     "choices": [
+      {
+       "text": "All URLs not otherwise listed",
+       "why": "In a WebType ACL, the asterisk matches every URL not matched by another entry."
+      },
+      {
+       "text": "Any source IP address",
+       "why": "WebType ACLs filter clientless traffic by URL and protocol; the asterisk is a URL wildcard, not a source address."
+      },
+      {
+       "text": "All users in the default group policy",
+       "why": "WebType ACLs are applied through group policies, but the asterisk does not select users."
+      },
+      {
+       "text": "Any TCP or UDP port",
+       "why": "The asterisk in WebType ACLs is used for URLs, not for port ranges."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An ASA has several clientless connection profiles, and the administrator does not want users to pick one from a list. Which feature lets users land in the right profile automatically?",
+     "choices": [
+      {
+       "text": "A smart tunnel list",
+       "why": "Smart tunnels forward chosen applications over the tunnel; they do not select profiles."
+      },
+      {
+       "text": "A bookmark on the clientless portal",
+       "why": "Bookmarks are links to internal resources on the portal, shown after login; they do not select the connection profile."
+      },
+      {
+       "text": "A group URL tied to the connection profile",
+       "why": "A group URL is tied to one connection profile, so handing out that URL means users don't have to choose a profile."
+      },
+      {
+       "text": "Portal customization with XML",
+       "why": "Portal customization changes the logon page and portal appearance, not which profile a user lands in."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What does split DNS do for a remote-access VPN client?",
+     "choices": [
+      {
+       "text": "Assigns the client an address from a local pool",
+       "why": "Address assignment comes from a local pool, DHCP, or RADIUS, not split DNS."
+      },
+      {
+       "text": "Sends DNS queries that match listed domains through the tunnel to the corporate DNS server",
+       "why": "With split DNS, queries for the listed domains go through the tunnel to the corporate DNS server."
+      },
+      {
+       "text": "Sends all DNS queries in clear text to the ISP resolver",
+       "why": "Sending non-matching queries in the clear happens with true split DNS, but only for domains that are not pushed; matching ones are tunneled."
+      },
+      {
+       "text": "Encrypts only the traffic for the secured subnets",
+       "why": "Encrypting only traffic to the secured subnets is split tunneling, not split DNS."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which mechanism does Rapid Threat Containment on Cisco Secure Firewall use to act on VPN sessions?",
+     "choices": [
+      {
+       "text": "RADIUS CoA or RADIUS dynamic authorization",
+       "why": "Rapid Threat Containment uses RADIUS Change of Authorization (CoA) or dynamic authorization to act on VPN sessions."
+      },
+      {
+       "text": "IKEv2 Dead Peer Detection",
+       "why": "DPD detects peers that have gone away; it is not used to contain threats."
+      },
+      {
+       "text": "Conditional debug filters",
+       "why": "Conditional debugs only filter troubleshooting output by group, IP, or user."
+      },
+      {
+       "text": "GDOI rekey messages",
+       "why": "GDOI rekeys distribute new group keys in GETVPN; they do not act on VPN user sessions."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which three options are available under show monitor event-trace crypto ikev2?",
+     "choices": [
+      {
+       "text": "stats, exchange, and timeout",
+       "why": "stats exchange and stats timeout belong to show crypto ikev2 stats, not event-trace."
+      },
+      {
+       "text": "all, back, and clock",
+       "why": "all, back, and clock are subkeywords under each option, not the three main options."
+      },
+      {
+       "text": "error, event, and exception",
+       "why": "show monitor event-trace crypto ikev2 offers error, event, and exception, each with subkeywords such as all, back, and latest."
+      },
+      {
+       "text": "pki, dmvpn, and gdoi",
+       "why": "pki, dmvpn, and gdoi are other event-trace subsystems, not the options under crypto ikev2."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 5",
+   "questions": [
+    {
+     "q": "Which of the following VPN technologies provides no built-in integrity, authentication, or encryption?",
+     "choices": [
+      {
+       "text": "TLS",
+       "why": "TLS provides confidentiality, integrity, and authentication, and is the basis of SSL VPNs."
+      },
+      {
+       "text": "MPLS VPN",
+       "why": "MPLS VPN is a provider VPN with no built-in integrity, authentication, or encryption; it can be combined with IPsec to get them."
+      },
+      {
+       "text": "IPsec",
+       "why": "IPsec provides integrity, authentication, and encryption, which is why it is the preferred VPN protocol."
+      },
+      {
+       "text": "DTLS",
+       "why": "DTLS secures UDP traffic and resists tampering and forgery, so it does provide security."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In IKEv1 main mode, what is the SKEYID used for?",
+     "choices": [
+      {
+       "text": "It carries the Diffie-Hellman public value",
+       "why": "The Diffie-Hellman public value is carried in the KE (Key Exchange) payload."
+      },
+      {
+       "text": "It keys the encryption of the fifth and sixth main mode packets",
+       "why": "SKEYID is derived from secret material known only to the peers and keys the encrypted MM5 and MM6 packets that carry the identities."
+      },
+      {
+       "text": "It is the random value sent with the Key Exchange payload",
+       "why": "The random value sent with the KE payload is the nonce."
+      },
+      {
+       "text": "It identifies the IPsec SA on each peer",
+       "why": "Identifying an SA is the job of the SPI (security parameter index)."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which RFC defines the original IKE (IKEv1)?",
+     "choices": [
+      {
+       "text": "RFC 3740",
+       "why": "RFC 3740 is the Multicast Group Security Architecture, not IKE."
+      },
+      {
+       "text": "RFC 2784",
+       "why": "RFC 2784 defines GRE, not IKE."
+      },
+      {
+       "text": "RFC 6407",
+       "why": "RFC 6407 defines GDOI, the group key management protocol used in GETVPN."
+      },
+      {
+       "text": "RFC 2409",
+       "why": "RFC 2409 defines IKE, the original version now called IKEv1."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In the IKEv1 Phase 2 (quick mode) exchange, what happens in the third and final message?",
+     "choices": [
+      {
+       "text": "The responder sends back the accepted proposal and its nonce",
+       "why": "The responder's accepted proposal, identities, and nonce are in the second quick mode message."
+      },
+      {
+       "text": "The initiator sends its identities and the IPsec SA proposal",
+       "why": "Identities and the IPsec SA proposal are in the first quick mode message, along with a nonce and an optional KE."
+      },
+      {
+       "text": "The peers exchange Diffie-Hellman values for the ISAKMP SA",
+       "why": "Diffie-Hellman for the ISAKMP SA is done in Phase 1 (MM3 and MM4), not in the last quick mode message."
+      },
+      {
+       "text": "The initiator sends a confirmation, and data encryption starts",
+       "why": "In QM3 the initiator sends a confirming hash, after which the peers start encrypting data."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A branch router configured only for IKEv1 must connect to a headend configured only for IKEv2. What happens?",
+     "choices": [
+      {
+       "text": "The headend automatically falls back to IKEv1 aggressive mode",
+       "why": "There is no automatic fallback; the versions are incompatible, and both sides must be configured for the same version."
+      },
+      {
+       "text": "The tunnel comes up using NAT-T on UDP 4500",
+       "why": "NAT-T only helps IPsec cross NAT devices; it does not make IKEv1 and IKEv2 interoperate."
+      },
+      {
+       "text": "The tunnel comes up but without encryption",
+       "why": "No tunnel is formed at all when the IKE versions differ, so there is no unencrypted tunnel either."
+      },
+      {
+       "text": "The tunnel cannot be built because IKEv1 and IKEv2 are incompatible",
+       "why": "IKEv1 and IKEv2 are incompatible, so an IKEv1 device cannot build a tunnel with an IKEv2 device."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does the PRF (pseudo random function) do in IKEv2?",
+     "choices": [
+      {
+       "text": "It sets which traffic the CHILD_SA protects",
+       "why": "The protected traffic is defined by the traffic selectors TSi and TSr."
+      },
+      {
+       "text": "It detects when a peer has gone away",
+       "why": "Detecting a peer that has gone away is Dead Peer Detection (DPD)."
+      },
+      {
+       "text": "It builds the keying material for all the algorithms used in the SAs",
+       "why": "The PRF is IKEv2 only and builds the keying material for all algorithms used in the SAs; the ASA IKEv2 policy sets it with prf sha."
+      },
+      {
+       "text": "It gives sessions zero state during a DoS attack",
+       "why": "Zero state during an attack is the stateless cookie, the IKEv2 anti-DoS feature."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which IKEv2 built-in feature detects that a VPN peer has gone away?",
+     "choices": [
+      {
+       "text": "Dead Peer Detection (DPD)",
+       "why": "DPD is built into IKEv2 and detects a peer that has gone away."
+      },
+      {
+       "text": "NAT-T keepalive",
+       "why": "NAT-T keepalives stop a NAT device from timing out the UDP 4500 entry; they do not detect dead peers."
+      },
+      {
+       "text": "Initial Contact",
+       "why": "Initial Contact tells the peer to clear old SAs; it does not monitor whether the peer is alive."
+      },
+      {
+       "text": "IKEv2 redirect",
+       "why": "IKEv2 redirect is used for server load balancing, sending clients to another gateway."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In GRE over IPsec, in what order is a packet processed?",
+     "choices": [
+      {
+       "text": "It is authenticated by AH, then sent in a GRE tunnel without encryption",
+       "why": "GRE over IPsec uses IPsec to protect the GRE packet; leaving it unencrypted inside GRE would give no confidentiality."
+      },
+      {
+       "text": "It is put directly in IPsec tunnel mode with no GRE",
+       "why": "Carrying traffic directly in IPsec tunnel mode with no GRE is a VTI, not GRE over IPsec."
+      },
+      {
+       "text": "It is encrypted by ESP first, then put in GRE",
+       "why": "Encrypting first and then adding GRE is the wrong order; GRE encapsulation happens before IPsec protection."
+      },
+      {
+       "text": "It is put in GRE with a new IP header first, then protected by IPsec transport mode",
+       "why": "In GRE over IPsec, traffic is first encapsulated in GRE and a new IP header, then IPsec (typically transport mode) protects the GRE packet."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "How much overhead does GRE add to an IPv4 packet when the GRE header has no options and the outer header is IPv4?",
+     "choices": [
+      {
+       "text": "44 bytes",
+       "why": "44 bytes would be the 4-byte GRE header plus a 40-byte outer IPv6 header."
+      },
+      {
+       "text": "20 bytes",
+       "why": "20 bytes is only the outer IPv4 header; the 4-byte GRE header must be added."
+      },
+      {
+       "text": "4 bytes",
+       "why": "4 bytes is only the GRE header; GRE also adds a new outer IP header."
+      },
+      {
+       "text": "24 bytes",
+       "why": "GRE adds a 4-byte GRE header plus a 20-byte outer IPv4 header, for 24 bytes."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A legacy hub-and-spoke design needs a crypto map, a crypto ACL, and a GRE tunnel interface on the hub for every new spoke. An engineer wants the hub configuration to stay the same size as spokes are added. Which technology should be used?",
+     "choices": [
+      {
+       "text": "Static crypto maps",
+       "why": "Static crypto maps need a separate entry and ACL per peer, which is exactly the growing configuration the engineer wants to avoid."
+      },
+      {
+       "text": "Point-to-point GRE with tunnel protection",
+       "why": "Point-to-point GRE still needs one tunnel interface per spoke on the hub."
+      },
+      {
+       "text": "DMVPN",
+       "why": "A DMVPN hub uses one mGRE interface, one IPsec profile, and no crypto ACLs, so its configuration stays the same size as spokes are added."
+      },
+      {
+       "text": "Clientless SSL VPN",
+       "why": "Clientless SSL VPN is browser-based remote access, not a site-to-site hub-and-spoke technology."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "On a DMVPN spoke, what does the command ip nhrp nhs 10.0.0.1 do?",
+     "choices": [
+      {
+       "text": "It sets the NHRP network ID",
+       "why": "The NHRP network ID is set with ip nhrp network-id, such as 99 in the example."
+      },
+      {
+       "text": "It sets the hub at tunnel address 10.0.0.1 as the next-hop server",
+       "why": "ip nhrp nhs sets the NHRP next-hop server, which is the hub; the spoke registers with it and queries it for other spokes' addresses."
+      },
+      {
+       "text": "It sends multicast traffic to the hub's physical address",
+       "why": "Sending multicast to the hub is done with ip nhrp map multicast followed by the hub's NBMA address."
+      },
+      {
+       "text": "It sets how long NHRP answers stay valid",
+       "why": "How long NHRP answers stay valid is set with ip nhrp holdtime, such as 300."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In DMVPN, spoke R2 needs to send traffic to spoke R3. How is the direct spoke-to-spoke tunnel built?",
+     "choices": [
+      {
+       "text": "All traffic must stay on the hub, which forwards it to R3",
+       "why": "DMVPN builds direct spoke-to-spoke tunnels on demand instead of forcing all traffic through the hub."
+      },
+      {
+       "text": "R2 asks the hub for R3's real address, then builds a dynamic tunnel straight to R3",
+       "why": "A spoke queries the hub (the NHRP server) for the target spoke's address and then builds a dynamic tunnel directly to it, with no spoke-to-spoke configuration."
+      },
+      {
+       "text": "The administrator configures a static tunnel between R2 and R3",
+       "why": "No spoke-to-spoke configuration is needed in DMVPN; the direct tunnels are built on demand."
+      },
+      {
+       "text": "The key server sends R2 a group SA for R3",
+       "why": "Key servers and group SAs belong to GETVPN, not DMVPN."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In GETVPN, what is the role of the key server?",
+     "choices": [
+      {
+       "text": "It registers with another router to receive the group SAs",
+       "why": "Registering to receive group SAs is what a group member does."
+      },
+      {
+       "text": "It creates and maintains the group keys and policy, services registrations, and sends rekeys",
+       "why": "The key server, also called the GCKS, creates and maintains group keys and policy, handles registrations, and sends rekeys."
+      },
+      {
+       "text": "It terminates IKEv2 remote-access clients",
+       "why": "Terminating IKEv2 remote-access clients is done by headends such as FlexVPN servers or SD-WAN edge routers, not the GETVPN key server."
+      },
+      {
+       "text": "It maps tunnel addresses to NBMA addresses",
+       "why": "Mapping tunnel addresses to NBMA addresses is the job of the NHRP server in DMVPN."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An ASA administrator wants to convert the existing IKEv1 site-to-site tunnel configuration to IKEv2. Which command does this?",
+     "choices": [
+      {
+       "text": "migrate remote-access ikev2",
+       "why": "migrate remote-access converts IKEv1 or SSL remote-access configuration, not site-to-site tunnels."
+      },
+      {
+       "text": "clear config crypto ikev2 policy",
+       "why": "clear config crypto ikev2 policy removes an IKEv2 policy; it does not migrate IKEv1 configuration."
+      },
+      {
+       "text": "migrate l2l",
+       "why": "migrate l2l converts IKEv1 site-to-site (LAN-to-LAN) tunnels to IKEv2."
+      },
+      {
+       "text": "crypto ikev2 enable outside",
+       "why": "crypto ikev2 enable outside only enables IKEv2 on the interface; it does not convert existing IKEv1 configuration."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An ASA receives a site-to-site connection from a peer whose IP address has no matching tunnel group, but the pre-shared key matches. Which tunnel group is used?",
+     "choices": [
+      {
+       "text": "DefaultL2LGroup",
+       "why": "DefaultL2LGroup is the default site-to-site tunnel group for peers with no matching tunnel group, if the pre-shared key matches."
+      },
+      {
+       "text": "DfltGrpPolicy",
+       "why": "DfltGrpPolicy is the default group policy for remote-access attributes, not a tunnel group."
+      },
+      {
+       "text": "The tunnel group named after the ASA's own outside IP address",
+       "why": "Site-to-site tunnel groups are named after the peer's IP address, not the ASA's own address."
+      },
+      {
+       "text": "DefaultWEBVPNGroup",
+       "why": "DefaultWEBVPNGroup is the default remote-access connection profile on Secure Firewall, not for site-to-site peers."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "When enrolling an ASA for an identity certificate from an external CA, what should be done first?",
+     "choices": [
+      {
+       "text": "Activate the certificate on the outside interface",
+       "why": "Activating the certificate with ssl trust-point is the last step, after the identity certificate is imported."
+      },
+      {
+       "text": "Request the identity certificate with crypto ca enroll",
+       "why": "The request comes after the CA certificate is obtained and the RSA key pair exists."
+      },
+      {
+       "text": "Get the CA (root) certificate in Base64 format",
+       "why": "The enrollment order starts with getting the CA root certificate, then generating the RSA key pair, requesting the identity certificate, importing it, and activating it."
+      },
+      {
+       "text": "Import the approved identity certificate",
+       "why": "The identity certificate can be imported only after it is requested and approved by the CA administrator."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which ASA command activates the identity certificate in trustpoint SecretCorpSSLCert on the outside interface?",
+     "choices": [
+      {
+       "text": "ssl trust-point SecretCorpSSLCert outside",
+       "why": "ssl trust-point followed by the trustpoint and interface activates the certificate on that interface."
+      },
+      {
+       "text": "crypto ca enroll SecretCorpSSLCert",
+       "why": "crypto ca enroll creates the certificate request, which stays pending until the CA admin approves it."
+      },
+      {
+       "text": "crypto ca authenticate SecretCorpSSLCert",
+       "why": "crypto ca authenticate imports the Base64 CA certificate into the trustpoint."
+      },
+      {
+       "text": "crypto key generate rsa label SecretCorpSSLRSA",
+       "why": "This generates the RSA key pair used by the trustpoint; it does not activate a certificate."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Clientless SSL VPN users at Internet cafes report that they cannot use application access to reach an internal SMTP server, because the method needs Oracle JRE installed and the ability to edit the HOSTS file. Which method are they using?",
+     "choices": [
+      {
+       "text": "Webification",
+       "why": "Webification turns web and some non-web applications, such as file shares, into browser format; it is not the Java-based port method described."
+      },
+      {
+       "text": "Smart tunnel",
+       "why": "Smart tunnels need no admin rights and do not require users to point applications at a loopback address and local port."
+      },
+      {
+       "text": "Port forwarding",
+       "why": "Port forwarding needs Oracle JRE and admin rights, edits the HOSTS file, and is 32-bit only, which is why it often fails on kiosks and web cafes."
+      },
+      {
+       "text": "Full tunnel mode",
+       "why": "Full tunnel mode uses Cisco Secure Client for full network access; it is not a clientless application access method."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is DefaultWEBVPNGroup in Cisco Secure Firewall?",
+     "choices": [
+      {
+       "text": "The default connection profile created with a remote-access VPN policy",
+       "why": "DefaultWEBVPNGroup is the default connection profile that is created when you configure a remote-access VPN policy."
+      },
+      {
+       "text": "The interface object that groups interfaces across devices",
+       "why": "Grouping interfaces is done with security zones and interface groups."
+      },
+      {
+       "text": "The default site-to-site tunnel group for unmatched peers",
+       "why": "The default site-to-site tunnel group for unmatched peers on the ASA is DefaultL2LGroup."
+      },
+      {
+       "text": "The wizard used to build a basic remote-access VPN",
+       "why": "The wizard is the Remote Access VPN Policy Wizard, started from Devices > VPN > Remote Access."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Many users connect to a Cisco Secure Firewall remote-access VPN, and an engineer needs WebVPN debug output only for user hannah. Which command should be used before enabling debug webvpn?",
+     "choices": [
+      {
+       "text": "debug webvpn condition user hannah",
+       "why": "Conditional debug filters output on a user, group policy, or client public IP, so this limits the output to hannah's session."
+      },
+      {
+       "text": "debug webvpn condition group hannah",
+       "why": "The group keyword filters on a group policy name, not on a user."
+      },
+      {
+       "text": "debug webvpn condition reset",
+       "why": "The reset keyword clears all conditional debug filters instead of adding one."
+      },
+      {
+       "text": "show webvpn debug-condition",
+       "why": "show webvpn debug-condition only displays the configured filters; it does not create one."
+      }
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}

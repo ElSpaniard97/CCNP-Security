@@ -1,0 +1,2230 @@
+{
+ "chapter": 4,
+ "tests": [
+  {
+   "title": "Practice Test 1",
+   "questions": [
+    {
+     "q": "Which transport protocol and port does TACACS+ use for all three AAA functions?",
+     "choices": [
+      {
+       "text": "UDP 1812",
+       "why": "UDP 1812 is the current RADIUS authentication and authorization port, not TACACS+."
+      },
+      {
+       "text": "TCP 49",
+       "why": "Correct. TACACS+ runs over TCP port 49 for authentication, authorization, and accounting."
+      },
+      {
+       "text": "UDP 3799",
+       "why": "UDP 3799 is used for RADIUS CoA-Request and Disconnect-Request messages, not TACACS+."
+      },
+      {
+       "text": "TCP 3868",
+       "why": "TCP 3868 is the port commonly used by Diameter, the RADIUS successor, not TACACS+."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A network engineer needs to control exactly which IOS commands each router administrator can run, checking every command against the AAA server. Which AAA protocol is the best fit?",
+     "choices": [
+      {
+       "text": "RADIUS",
+       "why": "RADIUS has only limited command authorization support because it combines authentication and authorization in one exchange."
+      },
+      {
+       "text": "Diameter",
+       "why": "Diameter is the RADIUS successor used mainly by mobile service providers for network access, not for router command authorization."
+      },
+      {
+       "text": "TACACS+",
+       "why": "Correct. TACACS+ separates authorization from authentication and supports granular command-by-command authorization, which makes it the choice for device administration."
+      },
+      {
+       "text": "Kerberos",
+       "why": "Kerberos is ticket-based authentication using symmetric keys; it does not provide per-command authorization on network devices."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In biometric authentication, what is a Type II error?",
+     "choices": [
+      {
+       "text": "The system rejects a valid, enrolled user",
+       "why": "Rejecting a valid user is a Type I error, a false rejection measured by the FRR."
+      },
+      {
+       "text": "The point where false rejections equal false acceptances",
+       "why": "That point is the crossover error rate (CER), also called the equal error rate (EER)."
+      },
+      {
+       "text": "The sensor fails to capture a readable sample",
+       "why": "A failed capture is not how the chapter defines either error type; Type I and Type II refer to wrong rejections and wrong acceptances."
+      },
+      {
+       "text": "The system accepts an impostor as a valid user",
+       "why": "Correct. A Type II error is a false acceptance, measured by the false acceptance rate (FAR)."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which login method is an example of multifactor authentication (MFA)?",
+     "choices": [
+      {
+       "text": "A password followed by a one-time password from a token",
+       "why": "Correct. A password is something you know and an OTP token is something you have, so two different factor types are used."
+      },
+      {
+       "text": "A password followed by a PIN",
+       "why": "A password and a PIN are both something you know, so this is multilayer authentication, not MFA."
+      },
+      {
+       "text": "A password followed by two security questions",
+       "why": "Security questions are also knowledge factors, so this is still one factor type used more than once."
+      },
+      {
+       "text": "A username followed by a password",
+       "why": "The username is only identification (claiming an identity); the password is the single authentication factor."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which standard uses XML assertions to exchange authentication and authorization data between an identity provider and a service provider?",
+     "choices": [
+      {
+       "text": "OAuth 2.0",
+       "why": "OAuth 2.0 is a delegated authorization framework common in REST APIs; it does not define XML assertions."
+      },
+      {
+       "text": "SAML",
+       "why": "Correct. SAML (Security Assertion Markup Language) is the XML-based standard for exchanging authentication and authorization data between an IdP and an SP."
+      },
+      {
+       "text": "OpenID Connect",
+       "why": "OIDC is an authentication layer on OAuth 2.0 that uses JSON, REST, and JWTs rather than XML assertions."
+      },
+      {
+       "text": "XACML",
+       "why": "XACML is an XML language for expressing ABAC access control policies, not for exchanging assertions between an IdP and SP."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is the size of a Cisco TrustSec Security Group Tag (SGT)?",
+     "choices": [
+      {
+       "text": "8 bits",
+       "why": "An 8-bit tag would allow only 256 values; the SGT is 16 bits."
+      },
+      {
+       "text": "12 bits",
+       "why": "12 bits is the size of an 802.1Q VLAN ID, not the TrustSec SGT."
+      },
+      {
+       "text": "16 bits",
+       "why": "Correct. The SGT is a 16-bit tag, which gives about 64K possible tags."
+      },
+      {
+       "text": "32 bits",
+       "why": "32 bits is the size of an IPv4 address; the SGT is only 16 bits."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In an 802.1X deployment, which protocol carries EAP between the supplicant and the authenticator?",
+     "choices": [
+      {
+       "text": "EAPoL",
+       "why": "Correct. EAP over LAN (EAPoL) carries EAP at Layer 2 between the supplicant and the authenticator, before the client has IP access."
+      },
+      {
+       "text": "RADIUS",
+       "why": "RADIUS carries EAP between the authenticator and the authentication server, not between the supplicant and the switch."
+      },
+      {
+       "text": "TACACS+",
+       "why": "TACACS+ is used for device administration AAA and is not part of the 802.1X supplicant-to-authenticator exchange."
+      },
+      {
+       "text": "SXP",
+       "why": "SXP shares IP-to-SGT mappings in TrustSec; it does not carry EAP."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which command must be entered first before any other AAA configuration on a Cisco IOS router?",
+     "choices": [
+      {
+       "text": "aaa session-id common",
+       "why": "This command makes AAA messages for a session share one session ID; it is not the command that enables AAA."
+      },
+      {
+       "text": "aaa authentication login default group tacacs+ local",
+       "why": "This defines a login authentication method list, but AAA must already be enabled for it to be accepted."
+      },
+      {
+       "text": "tacacs-server host 192.168.1.252 key thisisapassword",
+       "why": "This defines the TACACS+ server and shared secret, but it does not enable the AAA subsystem."
+      },
+      {
+       "text": "aaa new-model",
+       "why": "Correct. aaa new-model enables AAA and is always the first AAA command."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which UDP port does a switch listen on to receive RADIUS CoA-Request and Disconnect-Request messages from Cisco ISE?",
+     "choices": [
+      {
+       "text": "UDP 1813",
+       "why": "UDP 1813 is the RADIUS accounting port, not the CoA port."
+      },
+      {
+       "text": "UDP 1646",
+       "why": "UDP 1646 is the legacy RADIUS accounting port used by earlier implementations."
+      },
+      {
+       "text": "UDP 3799",
+       "why": "Correct. CoA-Request and Disconnect-Request messages use UDP port 3799."
+      },
+      {
+       "text": "UDP 1645",
+       "why": "UDP 1645 is the legacy RADIUS authentication port, not the CoA port."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A government agency requires that access be decided by system policy using classification labels such as secret and top secret, not by the owner of each file. Which access control model meets this requirement?",
+     "choices": [
+      {
+       "text": "Discretionary access control (DAC)",
+       "why": "In DAC the object owner decides who has access, which is the opposite of what the agency wants."
+      },
+      {
+       "text": "Role-based access control (RBAC)",
+       "why": "RBAC assigns permissions to roles that users inherit; it does not rely on classification labels and clearances."
+      },
+      {
+       "text": "Rule-based access control",
+       "why": "Rule-based control uses criteria independent of the user, such as time of day or source address, not security labels."
+      },
+      {
+       "text": "Mandatory access control (MAC)",
+       "why": "Correct. MAC sets access through system policy and security labels and is used in military and government environments."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which pair of Diameter messages acts as a keepalive between two Diameter peers?",
+     "choices": [
+      {
+       "text": "DWR and DWA",
+       "why": "Correct. Device-Watchdog-Request and Device-Watchdog-Answer are the Diameter keepalive messages, and either peer can send DWR."
+      },
+      {
+       "text": "CER and CEA",
+       "why": "Capability-Exchange-Request and Answer start the Diameter connection and negotiate capabilities; they are not keepalives."
+      },
+      {
+       "text": "DPR and DPA",
+       "why": "Disconnect-Peer-Request and Answer end the Diameter connection."
+      },
+      {
+       "text": "AAR and AAA",
+       "why": "AA-Request and AA-Answer carry the user's credentials and the authentication result."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In a distributed Cisco ISE deployment, which node persona makes the policy decisions and is the only persona that network devices and endpoints communicate with?",
+     "choices": [
+      {
+       "text": "Policy Administration Node (PAN)",
+       "why": "The PAN is the primary administration interface where policy is configured, but it does not answer network device requests."
+      },
+      {
+       "text": "Policy Service Node (PSN)",
+       "why": "Correct. PSNs make policy decisions, and all network devices and endpoints talk only to PSNs."
+      },
+      {
+       "text": "Monitoring and Troubleshooting node (MNT)",
+       "why": "The MNT collects logs and alarms; it does not make access decisions for network devices."
+      },
+      {
+       "text": "Inline Posture Node (IPN)",
+       "why": "The IPN is an older ISE node whose role CoA has made unnecessary; it is not the decision-making persona."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A developer plans to place a user's password inside the payload of a JWT because the token is signed. Why is this a bad idea?",
+     "choices": [
+      {
+       "text": "JWTs are signed but not encrypted, so anyone holding the token can read the payload",
+       "why": "Correct. The signature only proves the token was not changed; the Base64Url payload can be decoded by anyone, so secrets must not go in it."
+      },
+      {
+       "text": "JWTs are encrypted with the server's private key, so the password could never be read back",
+       "why": "JWTs are not encrypted; they are signed, and the payload is only Base64Url encoded."
+      },
+      {
+       "text": "The JWT header has no room for claims, so the token would be rejected",
+       "why": "Claims go in the payload, not the header; the header holds the algorithm and token type."
+      },
+      {
+       "text": "JWTs are stateful, so the server would store the password in its session table",
+       "why": "JWTs are stateless; the server does not store session data for them."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A switch port connects a network printer that has no 802.1X supplicant. Which method lets the switch authenticate the printer using its hardware address as the identity?",
+     "choices": [
+      {
+       "text": "WebAuth",
+       "why": "WebAuth redirects a user's browser to a portal, which a headless printer cannot use."
+      },
+      {
+       "text": "EAP-TLS",
+       "why": "EAP-TLS is a certificate-based EAP method that requires an 802.1X supplicant on the device."
+      },
+      {
+       "text": "Open Authentication",
+       "why": "Open Authentication lets all traffic flow before authentication; it does not use the MAC address as an identity."
+      },
+      {
+       "text": "MAC Authentication Bypass (MAB)",
+       "why": "Correct. MAB uses the endpoint's MAC address as its identity for devices with no supplicant, though MACs are easy to spoof."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which RFC defines RADIUS authentication and authorization?",
+     "choices": [
+      {
+       "text": "RFC 2866",
+       "why": "RFC 2866 defines RADIUS accounting, not authentication and authorization."
+      },
+      {
+       "text": "RFC 6733",
+       "why": "RFC 6733 defines the Diameter base protocol."
+      },
+      {
+       "text": "RFC 2865",
+       "why": "Correct. RFC 2865 defines RADIUS authentication and authorization."
+      },
+      {
+       "text": "RFC 7155",
+       "why": "RFC 7155 defines the Diameter Network Access Server Application."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An access port connects an IP phone with a PC plugged into the phone. The engineer wants exactly one authenticated device in the voice domain and one in the data domain. Which host mode should be configured?",
+     "choices": [
+      {
+       "text": "Single host",
+       "why": "Single host, the default, allows only one MAC address on the port, so the phone and PC could not both authenticate."
+      },
+      {
+       "text": "Multi-Domain Authentication (MDA)",
+       "why": "Correct. MDA allows one MAC in the data domain and one in the voice domain, which fits a phone with a PC behind it."
+      },
+      {
+       "text": "Multi-Auth",
+       "why": "Multi-Auth allows an unlimited number of MACs, each authenticated separately, rather than one per domain."
+      },
+      {
+       "text": "Open Authentication",
+       "why": "Open Authentication lets traffic flow before authentication; it is not a host mode that limits devices per domain."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which technologies does the current version of Cisco pxGrid use to share context between platforms?",
+     "choices": [
+      {
+       "text": "XMPP with an XCP server",
+       "why": "XMPP and the XCP server were used by legacy pxGrid; the current version moved away from this chat protocol."
+      },
+      {
+       "text": "SNMP traps and syslog",
+       "why": "SNMP and syslog are monitoring mechanisms, not the pxGrid context-sharing framework."
+      },
+      {
+       "text": "REST and WebSocket with JSON",
+       "why": "Correct. Current pxGrid uses REST and WebSocket with JSON, and WebSocket handles publish and subscribe."
+      },
+      {
+       "text": "SXP over TCP",
+       "why": "SXP shares IP-to-SGT mappings in TrustSec; it is not the pxGrid transport."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "During a TACACS+ authentication exchange, which packet does the access server send first?",
+     "choices": [
+      {
+       "text": "REPLY",
+       "why": "REPLY is sent by the TACACS+ server, for example to ask for the username or to return pass or fail."
+      },
+      {
+       "text": "CONTINUE",
+       "why": "CONTINUE is sent by the access server after the first REPLY, carrying the username or password."
+      },
+      {
+       "text": "REQUEST",
+       "why": "REQUEST is used in TACACS+ authorization and accounting exchanges, not to begin authentication."
+      },
+      {
+       "text": "START",
+       "why": "Correct. The access server begins authentication with START, then the server answers with REPLY."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Cisco ISE posture agent installs nothing permanent on the endpoint, checks only limited conditions, and is typically used for guests?",
+     "choices": [
+      {
+       "text": "Temporal agent",
+       "why": "Correct. The temporal agent installs nothing permanent and checks limited conditions, which suits guest endpoints."
+      },
+      {
+       "text": "Stealth AnyConnect",
+       "why": "Stealth AnyConnect is a headless agent with no user interface, but it is installed on the endpoint."
+      },
+      {
+       "text": "Full AnyConnect",
+       "why": "Full AnyConnect is installed and provides automatic remediation and passive reassessment."
+      },
+      {
+       "text": "Duo Security Checkup",
+       "why": "Duo Security Checkup checks the posture of a user's phone; it is not an ISE posture agent."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A security manager discovers that the administrators who manage the servers also review the audit logs for those servers. Which principle is being violated?",
+     "choices": [
+      {
+       "text": "Least privilege",
+       "why": "Least privilege means giving a subject only the access it needs; the core problem here is one group both acting and auditing."
+      },
+      {
+       "text": "Separation of duties",
+       "why": "Correct. Separation of duties splits critical tasks so auditors are not administrators and administrators cannot alter the logs."
+      },
+      {
+       "text": "Need to know",
+       "why": "Need to know limits access to information required for a task, even if clearance allows more; it is not about splitting admin and audit roles."
+      },
+      {
+       "text": "Implicit deny",
+       "why": "Implicit deny means anything not explicitly allowed is denied; it does not address who reviews logs."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 2",
+   "questions": [
+    {
+     "q": "Which port does a current RADIUS implementation use for accounting?",
+     "choices": [
+      {
+       "text": "UDP 1812",
+       "why": "UDP 1812 is the current RADIUS authentication and authorization port, not accounting."
+      },
+      {
+       "text": "UDP 1645",
+       "why": "UDP 1645 is the legacy RADIUS authentication port from earlier implementations."
+      },
+      {
+       "text": "UDP 1813",
+       "why": "Correct. Current RADIUS implementations use UDP 1813 for accounting."
+      },
+      {
+       "text": "TCP 49",
+       "why": "TCP 49 is the TACACS+ port, which TACACS+ uses for all three AAA functions."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which part of a RADIUS ACCESS-REQUEST packet is encrypted?",
+     "choices": [
+      {
+       "text": "Only the user password",
+       "why": "Correct. RADIUS encrypts only the password, leaving the rest of the packet, such as the username and attributes, in clear text."
+      },
+      {
+       "text": "The entire packet body",
+       "why": "Encrypting the full packet body is a capability of TACACS+, not RADIUS."
+      },
+      {
+       "text": "Only the username",
+       "why": "RADIUS does not encrypt the username; the password is the only field it protects."
+      },
+      {
+       "text": "Only the vendor-specific attributes",
+       "why": "VSAs (attribute 26) carry vendor extensions and are not the part RADIUS encrypts."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "When comparing biometric systems, what does the crossover error rate (CER) represent?",
+     "choices": [
+      {
+       "text": "The rate at which impostors are accepted",
+       "why": "That is the false acceptance rate (FAR), which measures Type II errors."
+      },
+      {
+       "text": "The rate at which valid users are rejected",
+       "why": "That is the false rejection rate (FRR), which measures Type I errors."
+      },
+      {
+       "text": "The number of samples needed to enroll a user",
+       "why": "Enrollment sample count is not the CER; the CER is about the balance of the two error rates."
+      },
+      {
+       "text": "The point where the FRR equals the FAR",
+       "why": "Correct. The CER (or EER) is where FRR equals FAR, and a lower CER means a more accurate system."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A company's login requires a password and then a separate PIN. How is this method classified?",
+     "choices": [
+      {
+       "text": "Multifactor authentication",
+       "why": "MFA requires two or more different factor types; a password and a PIN are both something you know."
+      },
+      {
+       "text": "Multilayer authentication",
+       "why": "Correct. Multilayer authentication uses two or more of the same factor type, such as a password and a PIN, and is not MFA."
+      },
+      {
+       "text": "Out-of-band authentication",
+       "why": "Out-of-band authentication verifies through a separate channel such as a phone call or text, which is not happening here."
+      },
+      {
+       "text": "Passwordless authentication",
+       "why": "Passwordless authentication replaces the password with SMS codes, magic links, or biometrics; this method still uses a password."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A mobile app needs to post photos to a user's cloud storage account on the user's behalf without ever learning the user's password. Which framework is designed for this?",
+     "choices": [
+      {
+       "text": "SAML",
+       "why": "SAML is an XML-based standard for enterprise web SSO between an IdP and an SP, not delegated authorization for apps."
+      },
+      {
+       "text": "Kerberos",
+       "why": "Kerberos is ticket-based authentication with symmetric keys inside a domain, not a delegated authorization framework for apps."
+      },
+      {
+       "text": "OAuth 2.0",
+       "why": "Correct. OAuth 2.0 is a delegated authorization framework that lets an app act on a user's behalf without the password, using access tokens."
+      },
+      {
+       "text": "WS-Federation",
+       "why": "WS-Federation is Microsoft's federation standard used with Windows Identity Foundation, not an app delegation framework."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Where is the Security Group Tag carried when Cisco TrustSec tags traffic inline?",
+     "choices": [
+      {
+       "text": "In the IP header DSCP field",
+       "why": "DSCP marks QoS priority; TrustSec does not carry the SGT in the IP header."
+      },
+      {
+       "text": "In a RADIUS Access-Accept attribute on every frame",
+       "why": "RADIUS delivers the SGT to the switch during authorization, but it does not travel inside user frames."
+      },
+      {
+       "text": "In the 802.1Q VLAN ID field",
+       "why": "The VLAN ID identifies the VLAN; TrustSec uses a separate field instead of VLANs and IPs."
+      },
+      {
+       "text": "In the Cisco Metadata (CMD) field of the Layer 2 frame",
+       "why": "Correct. The SGT is embedded in the CMD field of the Layer 2 frame."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which EAP method is certificate-based?",
+     "choices": [
+      {
+       "text": "EAP-TLS",
+       "why": "Correct. EAP-TLS is the certificate-based EAP method named in the chapter."
+      },
+      {
+       "text": "EAPoL",
+       "why": "EAPoL is the Layer 2 encapsulation that carries EAP between supplicant and authenticator, not an EAP method."
+      },
+      {
+       "text": "CHAP",
+       "why": "CHAP is a challenge-handshake authentication protocol that RADIUS supports, not a certificate-based EAP method."
+      },
+      {
+       "text": "PAP",
+       "why": "PAP sends a username and password and is not certificate-based."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "What is the effect of the global command dot1x system-auth-control on a Cisco switch?",
+     "choices": [
+      {
+       "text": "It enables 802.1X on every access port immediately",
+       "why": "Ports are not turned on by this command; each port needs commands such as access-session port-control auto."
+      },
+      {
+       "text": "It enables 802.1X globally but does not turn on any ports by itself",
+       "why": "Correct. dot1x system-auth-control enables 802.1X globally, and authentication must still be enabled per port."
+      },
+      {
+       "text": "It enables CoA so ISE can change active sessions",
+       "why": "CoA is enabled with aaa server radius dynamic-author, not dot1x system-auth-control."
+      },
+      {
+       "text": "It tracks endpoint IP addresses so dACLs can be applied",
+       "why": "Endpoint IP tracking for dACLs is done by ip device tracking."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "ISE sends a Disconnect-Request to a switch to end a session. Which responses can the switch send back?",
+     "choices": [
+      {
+       "text": "CoA-ACK or CoA-NAK",
+       "why": "CoA-ACK and CoA-NAK answer a CoA-Request, not a Disconnect-Request."
+      },
+      {
+       "text": "ACCESS-ACCEPT or ACCESS-REJECT",
+       "why": "These answer an ACCESS-REQUEST during authentication, not a Disconnect-Request."
+      },
+      {
+       "text": "Disconnect-ACK or Disconnect-NAK",
+       "why": "Correct. A Disconnect-Request is answered with Disconnect-ACK or Disconnect-NAK."
+      },
+      {
+       "text": "ACCOUNTING-RESPONSE",
+       "why": "ACCOUNTING-RESPONSE answers an ACCOUNTING-REQUEST in the accounting exchange."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Derek is placed in the Engineer group and automatically receives the permissions assigned to that group, and he cannot be given permissions outside it. Which access control model is in use?",
+     "choices": [
+      {
+       "text": "Discretionary access control",
+       "why": "In DAC the object owner grants access and permissions add up from many sources; access is not limited to a role."
+      },
+      {
+       "text": "Mandatory access control",
+       "why": "MAC compares clearances and categories against classification labels, not job roles."
+      },
+      {
+       "text": "Attribute-based access control",
+       "why": "ABAC evaluates Boolean rules over subject, object, operation, and environment attributes rather than role membership."
+      },
+      {
+       "text": "Role-based access control",
+       "why": "Correct. In RBAC permissions are assigned to roles and users inherit them, so Derek gets the Engineer role's permissions only."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which transport protocols can Diameter use?",
+     "choices": [
+      {
+       "text": "TCP or SCTP",
+       "why": "Correct. Diameter runs over TCP or SCTP, unlike RADIUS, which uses UDP."
+      },
+      {
+       "text": "UDP only",
+       "why": "UDP is the RADIUS transport; Diameter was designed to fix RADIUS weaknesses and uses TCP or SCTP."
+      },
+      {
+       "text": "TCP only",
+       "why": "TCP alone describes TACACS+; Diameter can also run over SCTP."
+      },
+      {
+       "text": "UDP or DTLS only",
+       "why": "DTLS is one of the Diameter security options, but the transport is TCP or SCTP."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which Cisco ISE node persona collects logs and alarms from the deployment?",
+     "choices": [
+      {
+       "text": "Policy Service Node (PSN)",
+       "why": "The PSN makes policy decisions for network devices and endpoints; it is not the logging persona."
+      },
+      {
+       "text": "Policy Administration Node (PAN)",
+       "why": "The PAN is the primary administration interface for configuring ISE."
+      },
+      {
+       "text": "Monitoring and Troubleshooting node (MNT)",
+       "why": "Correct. The MNT collects logs and alarms, and the S-MNT is the secondary."
+      },
+      {
+       "text": "Secondary Administration Node (SAN)",
+       "why": "The SAN is the backup administration node, not the log collector."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is the key difference between a memory card and a smartcard?",
+     "choices": [
+      {
+       "text": "A memory card has a microprocessor, while a smartcard only stores data",
+       "why": "This is reversed; the smartcard is the one with a microprocessor."
+      },
+      {
+       "text": "A memory card is a knowledge factor, while a smartcard is a possession factor",
+       "why": "Both are possession factors, something you have."
+      },
+      {
+       "text": "A smartcard is a biometric factor, while a memory card is a possession factor",
+       "why": "A smartcard is something you have, not something you are."
+      },
+      {
+       "text": "A smartcard has a microprocessor and can process data, while a memory card only stores it",
+       "why": "Correct. A memory card stores information such as a hashed PIN but cannot process it, while a smartcard can hold a private key, generate an OTP, or answer a challenge."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In what order does Flex-Auth try authentication methods on a port?",
+     "choices": [
+      {
+       "text": "802.1X, then MAB, then WebAuth",
+       "why": "Correct. Flex-Auth tries 802.1X first, then MAB, then WebAuth, with the same configuration on every port."
+      },
+      {
+       "text": "MAB, then 802.1X, then WebAuth",
+       "why": "MAB is not first by default; in the chapter MAB runs after the 802.1X timeout."
+      },
+      {
+       "text": "WebAuth, then 802.1X, then MAB",
+       "why": "WebAuth is the last fallback in Flex-Auth, not the first method tried."
+      },
+      {
+       "text": "802.1X, then WebAuth, then MAB",
+       "why": "MAB comes before WebAuth in Flex-Auth."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which RFC defines the Diameter base protocol?",
+     "choices": [
+      {
+       "text": "RFC 5176",
+       "why": "RFC 5176 defines RADIUS Change of Authorization (CoA)."
+      },
+      {
+       "text": "RFC 6733",
+       "why": "Correct. RFC 6733 is the Diameter base protocol."
+      },
+      {
+       "text": "RFC 2865",
+       "why": "RFC 2865 defines RADIUS authentication and authorization."
+      },
+      {
+       "text": "RFC 2866",
+       "why": "RFC 2866 defines RADIUS accounting."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "During the early phases of a TrustSec deployment, an engineer wants a port to support an unlimited number of MAC addresses, each authenticated separately. Which host mode is the best practice?",
+     "choices": [
+      {
+       "text": "Single host",
+       "why": "Single host allows only one MAC per port."
+      },
+      {
+       "text": "Multi-Domain Authentication",
+       "why": "MDA allows one MAC in the data domain and one in the voice domain, and the chapter places it in the enforcement phase."
+      },
+      {
+       "text": "Multi-Auth",
+       "why": "Correct. Multi-Auth allows unlimited MACs, each authenticated separately, and is best practice in the early TrustSec phases."
+      },
+      {
+       "text": "Port Security",
+       "why": "Port Security is not an 802.1X host mode and is not compatible with 802.1X."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which Duo component acts as an on-premises SAML 2.0 identity provider to protect cloud applications such as Office 365, Google Apps, and AWS?",
+     "choices": [
+      {
+       "text": "Duo Beyond",
+       "why": "Duo Beyond is the Duo edition that adds a Trusted Endpoints posture policy, not an on-premises IdP."
+      },
+      {
+       "text": "Duo Security Checkup",
+       "why": "Duo Security Checkup checks the posture of the user's phone."
+      },
+      {
+       "text": "Cisco ISE pxGrid",
+       "why": "pxGrid is ISE's context-sharing framework, not a Duo SAML IdP."
+      },
+      {
+       "text": "Duo Access Gateway",
+       "why": "Correct. Duo Access Gateway is an on-premises SAML 2.0 IdP that protects cloud apps and talks to them over TCP 443."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What is the correct order of the four 802.1X phases?",
+     "choices": [
+      {
+       "text": "Authentication, initiation, authorization, accounting",
+       "why": "Initiation, where the authenticator sends EAP-Request-Identity or the supplicant sends EAPoL-Start, must come before authentication."
+      },
+      {
+       "text": "Initiation, authentication, authorization, accounting",
+       "why": "Correct. The session is initiated, the EAP method authenticates the supplicant, the server authorizes with Access-Accept, and the session is then accounted."
+      },
+      {
+       "text": "Initiation, authorization, authentication, accounting",
+       "why": "Authorization (Access-Accept with VLAN and dACL) comes after authentication, not before."
+      },
+      {
+       "text": "Authentication, authorization, initiation, accounting",
+       "why": "Initiation is the first phase, not the third."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which ISE posture agent provides automatic remediation and passive reassessment?",
+     "choices": [
+      {
+       "text": "Temporal agent",
+       "why": "The temporal agent installs nothing permanent and checks only limited conditions, mainly for guests."
+      },
+      {
+       "text": "Stealth AnyConnect",
+       "why": "Stealth AnyConnect is the headless agent with no user interface."
+      },
+      {
+       "text": "Full AnyConnect",
+       "why": "Correct. The full AnyConnect agent provides automatic remediation and passive reassessment."
+      },
+      {
+       "text": "Supplicant-only mode",
+       "why": "A supplicant handles 802.1X authentication; supplicant-only mode is not one of the posture agent options in the chapter."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A firewall policy allows only the traffic listed in its rules and blocks everything else without a specific rule for it. Which principle does this describe?",
+     "choices": [
+      {
+       "text": "Implicit deny",
+       "why": "Correct. Implicit deny means anything not explicitly allowed is denied, and every policy should use it."
+      },
+      {
+       "text": "Least privilege",
+       "why": "Least privilege gives a subject only the access it needs to do its job; it is related, but the rule of blocking anything unlisted is implicit deny."
+      },
+      {
+       "text": "Separation of duties",
+       "why": "Separation of duties splits critical tasks across people; it does not describe how unmatched traffic is handled."
+      },
+      {
+       "text": "Need to know",
+       "why": "Need to know limits access to information required for a task; it is not a rule-matching default."
+      }
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 3",
+   "questions": [
+    {
+     "q": "Earlier RADIUS implementations used which ports for authentication and accounting?",
+     "choices": [
+      {
+       "text": "UDP 1812 and UDP 1813",
+       "why": "UDP 1812 and 1813 are the current RADIUS authentication and accounting ports, not the legacy ones."
+      },
+      {
+       "text": "UDP 1645 and UDP 1646",
+       "why": "Correct. Earlier RADIUS implementations used UDP 1645 for authentication and UDP 1646 for accounting."
+      },
+      {
+       "text": "TCP 49 and TCP 50",
+       "why": "TCP 49 is the TACACS+ port; RADIUS never used TCP 49 or 50."
+      },
+      {
+       "text": "UDP 3799 and UDP 3868",
+       "why": "UDP 3799 is the CoA port and 3868 is commonly used by Diameter, not legacy RADIUS."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An organization wants device administrators to authenticate against one AAA server while command authorization is handled by a different server. Which protocol characteristic makes this possible with TACACS+?",
+     "choices": [
+      {
+       "text": "TACACS+ combines authentication and authorization in one exchange",
+       "why": "Combining authentication and authorization in one exchange is how RADIUS works, and it would prevent splitting them."
+      },
+      {
+       "text": "TACACS+ uses UDP so requests can be sent to any server",
+       "why": "TACACS+ uses TCP 49, not UDP."
+      },
+      {
+       "text": "TACACS+ separates authentication, authorization, and accounting into separate exchanges",
+       "why": "Correct. Because each AAA function is a separate exchange in TACACS+, each can use a different server."
+      },
+      {
+       "text": "TACACS+ uses Diameter agents to relay requests",
+       "why": "Proxy, relay, redirect, and translation agents are Diameter features, not TACACS+."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A fingerprint reader repeatedly refuses to let a legitimate, enrolled employee log in. What type of error is this?",
+     "choices": [
+      {
+       "text": "Type II error, measured by the FAR",
+       "why": "A Type II error is a false acceptance, where an impostor is let in."
+      },
+      {
+       "text": "Crossover error, measured by the CER",
+       "why": "The CER is the point where FRR equals FAR, not a type of individual error."
+      },
+      {
+       "text": "Type II error, measured by the FRR",
+       "why": "This mixes up the terms; the FRR measures Type I errors, and Type II errors are false acceptances."
+      },
+      {
+       "text": "Type I error, measured by the FRR",
+       "why": "Correct. Rejecting a valid user is a Type I error, or false rejection, measured by the false rejection rate."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Why do out-of-wallet question sets often include a red herring question that has no correct answer?",
+     "choices": [
+      {
+       "text": "To catch someone who is guessing",
+       "why": "Correct. A red herring question with no correct answer reveals an impostor who guesses instead of saying none apply."
+      },
+      {
+       "text": "To serve as a second authentication factor",
+       "why": "All out-of-wallet questions are knowledge factors; a red herring does not add a different factor type."
+      },
+      {
+       "text": "To generate a one-time password for the session",
+       "why": "OTPs come from a possession factor such as a token, not from knowledge questions."
+      },
+      {
+       "text": "To create a cognitive password based on the user's opinions",
+       "why": "A cognitive password uses facts or opinions only the user knows, such as a favorite color; it is a different technique."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which statement correctly describes OpenID Connect (OIDC)?",
+     "choices": [
+      {
+       "text": "It is an XML-based standard for enterprise web SSO",
+       "why": "That describes SAML, which uses XML assertions."
+      },
+      {
+       "text": "It is an authentication layer built on top of OAuth 2.0",
+       "why": "Correct. OIDC adds authentication on top of OAuth 2.0, uses JSON and REST, and issues JWTs."
+      },
+      {
+       "text": "It is a delegated authorization framework with no authentication",
+       "why": "That describes OAuth 2.0 by itself; OIDC adds the authentication layer."
+      },
+      {
+       "text": "It is Microsoft's federation standard used with Windows Identity Foundation",
+       "why": "That describes WS-Federation."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In Cisco TrustSec, where are SGTs applied and where are SGACLs enforced?",
+     "choices": [
+      {
+       "text": "Applied at egress and enforced at ingress",
+       "why": "This is reversed; tags are added when traffic enters the TrustSec network."
+      },
+      {
+       "text": "Applied and enforced on the ISE PSN",
+       "why": "ISE assigns the SGT during authorization, but tagging and enforcement happen on network devices."
+      },
+      {
+       "text": "Applied at ingress and enforced at egress",
+       "why": "Correct. Tags are applied at ingress and enforced at egress with SGACLs, using the source SGT and destination DGT."
+      },
+      {
+       "text": "Applied by the supplicant and enforced by the authenticator",
+       "why": "The supplicant does not tag traffic; network devices apply SGTs at ingress."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An access switch in a TrustSec network does not support SGT tagging in hardware. Which protocol can it use to share IP-to-SGT mappings with an upstream device that can enforce SGACLs?",
+     "choices": [
+      {
+       "text": "pxGrid",
+       "why": "pxGrid shares ISE context with other security platforms; it is not the protocol switches use for IP-to-SGT mappings."
+      },
+      {
+       "text": "MACsec",
+       "why": "MACsec (802.1AE) encrypts links at Layer 2; it does not share IP-to-SGT mappings."
+      },
+      {
+       "text": "EAPoL",
+       "why": "EAPoL carries EAP between a supplicant and an authenticator."
+      },
+      {
+       "text": "SGT Exchange Protocol (SXP)",
+       "why": "Correct. SXP shares IP-to-SGT mappings with devices that cannot tag in hardware."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does the command radius-server dead-criteria time 5 tries 3 do?",
+     "choices": [
+      {
+       "text": "Marks a RADIUS server dead after 3 tries with 5 seconds each",
+       "why": "Correct. The switch declares the server dead after 3 unanswered tries, waiting 5 seconds for each."
+      },
+      {
+       "text": "Waits 5 minutes before trying a dead server 3 more times",
+       "why": "The wait before retrying a dead server is set by radius-server deadtime, which is 15 minutes in the chapter."
+      },
+      {
+       "text": "Sends accounting updates every 5 minutes for 3 sessions",
+       "why": "Accounting updates are set by aaa accounting update newinfo periodic 1440."
+      },
+      {
+       "text": "Sends 3 EAP-Identity-Requests 5 seconds apart",
+       "why": "EAP-Identity-Request spacing is set per port with dot1x timeout tx-period."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which global switch command enables Change of Authorization so that Cisco ISE can modify active sessions?",
+     "choices": [
+      {
+       "text": "aaa authorization network default group radius",
+       "why": "This enables network authorization through RADIUS for VLAN and dACL assignment, but it does not enable CoA."
+      },
+      {
+       "text": "aaa server radius dynamic-author",
+       "why": "Correct. aaa server radius dynamic-author enables CoA, with a client entry such as client 10.1.1.33 server-key that allows ISE to send CoA."
+      },
+      {
+       "text": "radius-server vsa send authentication",
+       "why": "This sends vendor-specific attributes in authentication requests; it does not enable CoA."
+      },
+      {
+       "text": "aaa session-id common",
+       "why": "This keeps one session ID across all AAA messages for a session."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "John receives read permission on the Income Tax folder through the Accounting group and is separately granted write permission by the folder's owner. Under discretionary access control, what is his effective access?",
+     "choices": [
+      {
+       "text": "Read only, because group permissions override user permissions",
+       "why": "In the chapter's DAC example, permissions are not overridden; they add up."
+      },
+      {
+       "text": "Write only, because user permissions override group permissions",
+       "why": "DAC permissions are cumulative, so the group's read permission is not lost."
+      },
+      {
+       "text": "Read and write, because DAC permissions add up",
+       "why": "Correct. DAC permissions are cumulative, so John has read from the group and write on his own."
+      },
+      {
+       "text": "No access, because conflicting permissions trigger implicit deny",
+       "why": "There is no conflict here; implicit deny applies only to access that is not explicitly allowed."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In Diameter network access, which messages carry the user's credentials and the authentication result?",
+     "choices": [
+      {
+       "text": "CER and CEA",
+       "why": "CER and CEA exchange capabilities, such as Auth-Application-Id, to start the connection."
+      },
+      {
+       "text": "DWR and DWA",
+       "why": "DWR and DWA are the Device-Watchdog keepalive messages."
+      },
+      {
+       "text": "DPR and DPA",
+       "why": "DPR and DPA end the connection between peers."
+      },
+      {
+       "text": "AAR and AAA",
+       "why": "Correct. The AA-Request carries the user's credentials and the AA-Answer returns the result."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Cisco ISE persona provides the primary administration interface?",
+     "choices": [
+      {
+       "text": "Policy Administration Node (PAN)",
+       "why": "Correct. The PAN is the primary ISE admin interface, and the SAN is its backup."
+      },
+      {
+       "text": "Policy Service Node (PSN)",
+       "why": "The PSN makes policy decisions for network devices and endpoints."
+      },
+      {
+       "text": "Monitoring and Troubleshooting node (MNT)",
+       "why": "The MNT collects logs and alarms."
+      },
+      {
+       "text": "pxGrid controller",
+       "why": "pxGrid shares context with other platforms; it is not the administration persona."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which of the following is a behavioral biometric rather than a physical one?",
+     "choices": [
+      {
+       "text": "Iris pattern",
+       "why": "The iris is a physical characteristic."
+      },
+      {
+       "text": "Hand geometry",
+       "why": "Palm or hand geometry is a physical characteristic."
+      },
+      {
+       "text": "Keystroke dynamics",
+       "why": "Correct. Keystroke dynamics measure how a person types, which is behavioral, like signature dynamics."
+      },
+      {
+       "text": "Vascular pattern",
+       "why": "Blood or vascular patterns are physical characteristics."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Why does the WEBAUTH-REDIRECT ACL in the chapter begin with deny udp any any eq 53?",
+     "choices": [
+      {
+       "text": "To block DNS traffic entirely until the user authenticates",
+       "why": "In a redirect ACL, deny means do not redirect, so DNS is not blocked by this entry."
+      },
+      {
+       "text": "To exempt DNS from redirection, because in a redirect ACL permit means redirect",
+       "why": "Correct. Permit entries mark traffic to redirect, so denying UDP 53 keeps DNS from being redirected to the portal."
+      },
+      {
+       "text": "To stop DHCP from reaching the client before authentication",
+       "why": "UDP 53 is DNS, not DHCP; DHCP uses bootps and bootpc."
+      },
+      {
+       "text": "To prevent TFTP and PXE boot traffic",
+       "why": "TFTP uses UDP 69 and is allowed in the LOW_IMPACT ACL; port 53 is DNS."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which RFC defines RADIUS accounting?",
+     "choices": [
+      {
+       "text": "RFC 2865",
+       "why": "RFC 2865 defines RADIUS authentication and authorization."
+      },
+      {
+       "text": "RFC 7155",
+       "why": "RFC 7155 defines the Diameter Network Access Server Application."
+      },
+      {
+       "text": "RFC 5176",
+       "why": "RFC 5176 defines RADIUS Change of Authorization."
+      },
+      {
+       "text": "RFC 2866",
+       "why": "Correct. RFC 2866 defines RADIUS accounting."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Thin clients on a network need to PXE boot before they can run an 802.1X supplicant. Which port setting lets all traffic flow before authentication completes?",
+     "choices": [
+      {
+       "text": "no access-session closed",
+       "why": "Correct. This enables Open Authentication, where all traffic flows before authentication, which is useful for PXE boot and thin clients."
+      },
+      {
+       "text": "access-session host-mode multi-auth",
+       "why": "This sets the host mode to allow many authenticated MACs, but it does not open the port before authentication."
+      },
+      {
+       "text": "dot1x timeout tx-period 10",
+       "why": "This sets 10 seconds between EAP-Identity-Requests; it does not let traffic pass before authentication."
+      },
+      {
+       "text": "authentication periodic",
+       "why": "This enables periodic reauthentication, not open access before authentication."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A company using Duo wants to allow access only from endpoints that meet a Trusted Endpoints posture policy. Which Duo edition adds this capability?",
+     "choices": [
+      {
+       "text": "Duo free tier",
+       "why": "The Duo free tier supports up to 10 users and is not the edition that adds Trusted Endpoints."
+      },
+      {
+       "text": "Duo Access Gateway",
+       "why": "Duo Access Gateway is an on-premises SAML 2.0 IdP, not a Duo edition with Trusted Endpoints policy."
+      },
+      {
+       "text": "Duo Beyond",
+       "why": "Correct. Duo Beyond is the edition that adds a Trusted Endpoints posture policy."
+      },
+      {
+       "text": "Duo Security Checkup",
+       "why": "Duo Security Checkup checks the posture of the user's phone; it is not a Duo edition."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is the correct order of messages in a Diameter network access flow?",
+     "choices": [
+      {
+       "text": "AAR, AAA, CER, CEA",
+       "why": "Capabilities must be exchanged with CER and CEA before credentials are sent in the AAR."
+      },
+      {
+       "text": "CER, CEA, DWR, DWA",
+       "why": "DWR and DWA are keepalives; the flow carries credentials in AAR and the result in AAA."
+      },
+      {
+       "text": "CER, AAR, CEA, AAA",
+       "why": "The server answers the CER with a CEA before the access server sends the AAR."
+      },
+      {
+       "text": "CER, CEA, AAR, AAA",
+       "why": "Correct. The access server sends CER with Auth-Application-Id 1, the server sends CEA, then AAR carries the credentials and AAA returns the result."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In Threat-Centric NAC, how is CoA triggered for vulnerability events compared with threat events?",
+     "choices": [
+      {
+       "text": "Automatically for vulnerability events, manually for threat events",
+       "why": "Correct. ISE triggers CoA automatically for vulnerability events, but threat events require a manual CoA."
+      },
+      {
+       "text": "Manually for vulnerability events, automatically for threat events",
+       "why": "This is reversed from how the chapter describes TC-NAC."
+      },
+      {
+       "text": "Automatically for both event types",
+       "why": "Only vulnerability events trigger CoA automatically."
+      },
+      {
+       "text": "Manually for both event types",
+       "why": "Vulnerability events, which carry CVSS scores, trigger CoA automatically."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A database administrator creates a view so that users can see only the rows of a table that relate to their own region. Which type of access control is this?",
+     "choices": [
+      {
+       "text": "Context-dependent access control",
+       "why": "Context-dependent control decides based on context, such as session state in a stateful firewall, not on the data itself."
+      },
+      {
+       "text": "Content-dependent access control",
+       "why": "Correct. Content-dependent access control makes the decision based on the data itself, as a database view does."
+      },
+      {
+       "text": "Mandatory access control",
+       "why": "MAC uses classification labels and clearances set by system policy, not database views."
+      },
+      {
+       "text": "Rule-based access control",
+       "why": "Rule-based control uses criteria independent of the user, such as time or location, rather than the data content."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 4",
+   "questions": [
+    {
+     "q": "Which RADIUS attribute number is the vendor-specific attribute (VSA) used for vendor extensions?",
+     "choices": [
+      {
+       "text": "Attribute 11",
+       "why": "Attribute 11 is Filter-ID, used for example by CoA to change a session's filtering."
+      },
+      {
+       "text": "Attribute 31",
+       "why": "Attribute 31 is Calling-Station-ID, which carries the endpoint MAC address."
+      },
+      {
+       "text": "Attribute 26",
+       "why": "Correct. RADIUS attribute 26 is the vendor-specific attribute for vendor extensions."
+      },
+      {
+       "text": "Attribute 92",
+       "why": "Attribute 92 is NAS-Filter-Rule, another filter attribute used with CoA."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A wireless user authenticates with RADIUS and the server must place the user in a specific VLAN. How does RADIUS deliver that VLAN assignment?",
+     "choices": [
+      {
+       "text": "In a separate authorization exchange after authentication succeeds",
+       "why": "A separate authorization exchange is how TACACS+ works; RADIUS combines authentication and authorization."
+      },
+      {
+       "text": "As authorization attributes carried in the ACCESS-ACCEPT",
+       "why": "Correct. RADIUS combines authentication and authorization, so the ACCESS-ACCEPT can carry attributes such as a VLAN or ACL."
+      },
+      {
+       "text": "In an ACCOUNTING-RESPONSE sent after the session starts",
+       "why": "ACCOUNTING-RESPONSE acknowledges accounting records and does not carry authorization."
+      },
+      {
+       "text": "In a CONTINUE packet sent by the server",
+       "why": "CONTINUE is a TACACS+ authentication packet sent by the access server, not a RADIUS message."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What does a RADIUS server indicate when it sends an ACCESS-CHALLENGE?",
+     "choices": [
+      {
+       "text": "Access is denied and the session must end",
+       "why": "A denial is sent as ACCESS-REJECT."
+      },
+      {
+       "text": "The accounting record was received",
+       "why": "An accounting record is acknowledged with ACCOUNTING-RESPONSE."
+      },
+      {
+       "text": "The session's authorization is being changed",
+       "why": "Changing an active session's authorization is done with a CoA-Request."
+      },
+      {
+       "text": "More information is needed, and the client answers with a new ACCESS-REQUEST",
+       "why": "Correct. ACCESS-CHALLENGE asks for more information, and the client replies with a new ACCESS-REQUEST."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What are the three parts of a JSON Web Token, in order?",
+     "choices": [
+      {
+       "text": "Header, payload, signature",
+       "why": "Correct. A JWT has a header (algorithm and type), a payload (claims), and a signature, each Base64Url encoded and separated by dots."
+      },
+      {
+       "text": "Header, signature, payload",
+       "why": "The signature comes last because it is calculated over the header and payload."
+      },
+      {
+       "text": "Issuer, subject, expiration",
+       "why": "iss, sub, and exp are claims inside the payload, not the three parts of the token."
+      },
+      {
+       "text": "Assertion, protocol, binding",
+       "why": "Assertions, protocols, and bindings are SAML concepts, not JWT parts."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A consumer website wants to let visitors sign in with their existing Google or Facebook accounts using JSON-based tokens over REST. Which standard is most commonly used for this?",
+     "choices": [
+      {
+       "text": "SAML",
+       "why": "SAML uses XML assertions and was built for enterprise web SSO with a pre-established IdP-SP trust, not typical consumer social login."
+      },
+      {
+       "text": "TACACS+",
+       "why": "TACACS+ is a Cisco AAA protocol for device administration, not web sign-in."
+      },
+      {
+       "text": "OpenID Connect",
+       "why": "Correct. OIDC uses JSON, REST, and JWTs and is common for consumer social login with social IdPs such as Google and Facebook."
+      },
+      {
+       "text": "Kerberos",
+       "why": "Kerberos is ticket-based authentication inside a domain, not consumer web social login."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A security architect wants to divide the network into small isolated zones based on identity and context to shrink the attack surface. Which zero trust feature is this?",
+     "choices": [
+      {
+       "text": "Continuous verification",
+       "why": "Continuous verification means every user, device, and application is verified before access; it does not create isolated zones."
+      },
+      {
+       "text": "Micro-segmentation",
+       "why": "Correct. Micro-segmentation creates small isolated zones based on identity and context, which shrinks the attack surface."
+      },
+      {
+       "text": "Automation and orchestration",
+       "why": "Automation and orchestration streamline security operations and reduce load on IT staff."
+      },
+      {
+       "text": "Policy-based control",
+       "why": "Policy-based control enforces security and compliance requirements, not network zoning specifically."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which IEEE standard provides the Layer 2 link encryption used by Cisco TrustSec?",
+     "choices": [
+      {
+       "text": "802.1X",
+       "why": "802.1X is port-based network access control, used to authenticate devices, not to encrypt the link."
+      },
+      {
+       "text": "802.1Q",
+       "why": "802.1Q defines VLAN tagging, not encryption."
+      },
+      {
+       "text": "802.11i",
+       "why": "802.11i is a wireless security standard and is not the TrustSec link encryption named in the chapter."
+      },
+      {
+       "text": "802.1AE",
+       "why": "Correct. 802.1AE is MACsec, the Layer 2 link encryption TrustSec uses."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does the switch command aaa accounting update newinfo periodic 1440 do?",
+     "choices": [
+      {
+       "text": "Sends accounting updates when session information changes and every 1440 minutes",
+       "why": "Correct. newinfo sends an update when information changes, and periodic 1440 also sends one every 1440 minutes."
+      },
+      {
+       "text": "Reauthenticates every session every 1440 seconds",
+       "why": "Reauthentication is set with authentication periodic and the server timer, not with accounting updates."
+      },
+      {
+       "text": "Keeps accounting records on the switch for 1440 minutes",
+       "why": "The command controls when updates are sent to the RADIUS server, not local record retention."
+      },
+      {
+       "text": "Marks the RADIUS server dead after 1440 seconds",
+       "why": "Dead server detection is set with radius-server dead-criteria."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which global switch command is required for downloadable ACLs to work because it tracks endpoint IP addresses?",
+     "choices": [
+      {
+       "text": "aaa session-id common",
+       "why": "This command keeps one session ID across AAA messages; it does not track endpoint IPs."
+      },
+      {
+       "text": "ip radius source-interface",
+       "why": "This forces RADIUS traffic out a specific interface; it does not track endpoints."
+      },
+      {
+       "text": "ip device tracking",
+       "why": "Correct. ip device tracking tracks endpoint IP addresses, which dACLs require."
+      },
+      {
+       "text": "dot1x system-auth-control",
+       "why": "This enables 802.1X globally but does not track endpoint IP addresses."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which access control model evaluates Boolean rules over attributes of the subject, object, operation, and environment, and is commonly expressed with XACML?",
+     "choices": [
+      {
+       "text": "Role-based access control",
+       "why": "RBAC assigns permissions to roles that users inherit, rather than evaluating many attributes."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "DAC lets the object owner decide access, typically with ACLs."
+      },
+      {
+       "text": "Mandatory access control",
+       "why": "MAC uses security labels and clearances set by system policy."
+      },
+      {
+       "text": "Attribute-based access control",
+       "why": "Correct. ABAC uses Boolean rules over subject, object, operation, and environment attributes, and XACML is the standard used to express ABAC policies."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In the Diameter network access flow, which value does the access server send in the CER to identify the Diameter NAS application?",
+     "choices": [
+      {
+       "text": "Auth-Application-Id = 0",
+       "why": "The chapter gives Auth-Application-Id 1 for the NAS application, not 0."
+      },
+      {
+       "text": "Auth-Application-Id = 1",
+       "why": "Correct. The CER carries Auth-Application-Id = 1 for the Diameter NAS application."
+      },
+      {
+       "text": "Auth-Application-Id = 26",
+       "why": "26 is the RADIUS vendor-specific attribute number, not a Diameter application ID."
+      },
+      {
+       "text": "Auth-Application-Id = 43",
+       "why": "43 is the RADIUS CoA-Request packet code, not a Diameter application ID."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An organization wants a simple Cisco ISE deployment with two nodes in an active-standby pair, with data replicated from the primary to the secondary. Which deployment model is this?",
+     "choices": [
+      {
+       "text": "High-availability standalone",
+       "why": "Correct. High-availability standalone uses two nodes in active-standby with replication from primary to secondary."
+      },
+      {
+       "text": "Standalone",
+       "why": "A standalone deployment is one node doing everything, with no standby."
+      },
+      {
+       "text": "Distributed",
+       "why": "A distributed deployment spreads personas such as PAN, PSN, and MNT across many nodes."
+      },
+      {
+       "text": "Multitenant",
+       "why": "Multitenancy means one service instance serves many customers, as in SaaS; it is not an ISE deployment model."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An analyst holds a Top Secret clearance but is allowed to open only the reports required for her current assignment. Which principle is being applied?",
+     "choices": [
+      {
+       "text": "Separation of duties",
+       "why": "Separation of duties splits critical tasks across people; it does not limit what one cleared person may read."
+      },
+      {
+       "text": "Implicit deny",
+       "why": "Implicit deny blocks anything not explicitly allowed; the key point here is limiting access to what the task requires despite clearance."
+      },
+      {
+       "text": "Need to know",
+       "why": "Correct. Need to know grants access only when the information is required for the task, even if the clearance allows more."
+      },
+      {
+       "text": "Multilayer authentication",
+       "why": "Multilayer authentication uses two of the same factor type; it is about proving identity, not limiting access."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement about C3PL on Cisco switches is true?",
+     "choices": [
+      {
+       "text": "Once C3PL is configured, the switch cannot return to the legacy display",
+       "why": "Correct. authentication display legacy works only until C3PL is configured; after that you cannot go back."
+      },
+      {
+       "text": "C3PL is available only on IOS-XE 17 and later",
+       "why": "The chapter says C3PL is available on IOS 15.2.x and IOS-XE 3.6.x."
+      },
+      {
+       "text": "C3PL prevents 802.1X and MAB from running at the same time",
+       "why": "One C3PL benefit is that 802.1X and MAB can run at the same time, so DHCP is not delayed."
+      },
+      {
+       "text": "C3PL stores the configuration once per interface in memory",
+       "why": "A C3PL benefit is that the configuration exists in memory only once."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which RFC defines the Diameter Network Access Server Application?",
+     "choices": [
+      {
+       "text": "RFC 6733",
+       "why": "RFC 6733 is the Diameter base protocol."
+      },
+      {
+       "text": "RFC 2865",
+       "why": "RFC 2865 defines RADIUS authentication and authorization."
+      },
+      {
+       "text": "RFC 5176",
+       "why": "RFC 5176 defines RADIUS Change of Authorization."
+      },
+      {
+       "text": "RFC 7155",
+       "why": "Correct. RFC 7155 defines the Diameter Network Access Server Application."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What is the default 802.1X host mode on a Cisco switch port?",
+     "choices": [
+      {
+       "text": "Multi-Auth",
+       "why": "Multi-Auth allows unlimited separately authenticated MACs but is not the default."
+      },
+      {
+       "text": "Single host",
+       "why": "Correct. Single host, which allows one MAC per port, is the default host mode."
+      },
+      {
+       "text": "Multi-Domain Authentication",
+       "why": "MDA allows one data MAC and one voice MAC but must be configured; it is not the default."
+      },
+      {
+       "text": "Open Authentication",
+       "why": "Open Authentication lets traffic flow before authentication and is enabled with no access-session closed; it is not the default host mode."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A small business wants to try Cisco Duo MFA at no cost. What is the user limit of the Duo free tier?",
+     "choices": [
+      {
+       "text": "Up to 5 users",
+       "why": "The free tier allows more than 5; the chapter gives a limit of 10 users."
+      },
+      {
+       "text": "Up to 25 users",
+       "why": "25 users is above the free tier limit of 10 users."
+      },
+      {
+       "text": "Up to 10 users",
+       "why": "Correct. The Duo free tier supports up to 10 users."
+      },
+      {
+       "text": "Up to 100 users",
+       "why": "100 users is far above the free tier limit of 10 users."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In the VPN posture flow, what happens immediately after AnyConnect checks the client against the posture rules?",
+     "choices": [
+      {
+       "text": "The firewall redirects web traffic to ISE",
+       "why": "The redirect to ISE happens earlier, right after the VPN client connects and logs in."
+      },
+      {
+       "text": "The user is provisioned with AnyConnect and its Compliance Module",
+       "why": "Provisioning happens before the posture check, since the module performs the check."
+      },
+      {
+       "text": "ISE sends a RADIUS CoA to the ASA",
+       "why": "The CoA comes after ISE has received the results and found the client compliant."
+      },
+      {
+       "text": "The posture results are sent to ISE",
+       "why": "Correct. After AnyConnect checks patches, antivirus, services, applications, and registry entries, the results go to ISE, which then sends a CoA if compliant."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Why will a downloadable ACL applied to a session not appear when an engineer later saves the switch configuration?",
+     "choices": [
+      {
+       "text": "dACLs are not saved in the running configuration",
+       "why": "Correct. dACLs are downloaded from ISE during authorization, are not saved in the running config, and are removed at session end, auth failure, or link-down."
+      },
+      {
+       "text": "dACLs are stored only in the startup configuration",
+       "why": "dACLs are not written to either configuration; they exist only for the session."
+      },
+      {
+       "text": "dACLs are stored on the supplicant",
+       "why": "The switch enforces the dACL; the supplicant does not store it."
+      },
+      {
+       "text": "dACLs are converted into VLAN ACLs when saved",
+       "why": "VLAN ACLs filter traffic entering a VLAN and are configured separately; dACLs are not converted into them."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A company wants contractors to reach the internal network only between 8 a.m. and 6 p.m., regardless of who the contractor is. Which access control model uses criteria like this?",
+     "choices": [
+      {
+       "text": "Discretionary access control",
+       "why": "DAC lets the object owner choose who has access; it does not use time-of-day criteria by nature."
+      },
+      {
+       "text": "Rule-based access control",
+       "why": "Correct. Rule-based access control uses criteria independent of the user, such as time of day, location, or source and destination."
+      },
+      {
+       "text": "Mandatory access control",
+       "why": "MAC uses classification labels and clearances, not time-of-day windows."
+      },
+      {
+       "text": "Object capability",
+       "why": "Object capability grants access through an unforgeable reference plus an operational message."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 5",
+   "questions": [
+    {
+     "q": "What are the RADIUS packet codes for CoA-Request and Disconnect-Request?",
+     "choices": [
+      {
+       "text": "CoA-Request 40 and Disconnect-Request 43",
+       "why": "The codes are swapped; CoA-Request is 43 and Disconnect-Request is 40."
+      },
+      {
+       "text": "CoA-Request 26 and Disconnect-Request 11",
+       "why": "26 is the vendor-specific attribute and 11 is Filter-ID; these are attribute numbers, not packet codes."
+      },
+      {
+       "text": "CoA-Request 1812 and Disconnect-Request 1813",
+       "why": "1812 and 1813 are RADIUS UDP ports, not packet codes."
+      },
+      {
+       "text": "CoA-Request 43 and Disconnect-Request 40",
+       "why": "Correct. CoA-Request uses RADIUS packet code 43 and Disconnect-Request uses code 40."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In RADIUS terminology, which device is the RADIUS client?",
+     "choices": [
+      {
+       "text": "The network access server (NAS) that users connect through",
+       "why": "Correct. The RADIUS client is the access server (NAS), such as a switch or VPN gateway, not the end user."
+      },
+      {
+       "text": "The end user's laptop running a supplicant",
+       "why": "The end user's device is the supplicant in 802.1X; it is not the RADIUS client."
+      },
+      {
+       "text": "The RADIUS proxy server",
+       "why": "A RADIUS server can proxy requests to other servers, but the client is the NAS."
+      },
+      {
+       "text": "The Active Directory domain controller",
+       "why": "Active Directory can be an identity source behind the RADIUS server, but it is not the RADIUS client."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "According to NIST SP 800-63B as summarized in the chapter, which control helps stop online password guessing?",
+     "choices": [
+      {
+       "text": "Allowing remembered or automatic logon",
+       "why": "The chapter says never to allow remembered or automatic logon, because it weakens authentication."
+      },
+      {
+       "text": "Using cognitive passwords such as a favorite color",
+       "why": "Cognitive passwords are a type of knowledge factor, not a NIST control against online guessing."
+      },
+      {
+       "text": "Rate-limiting failed login attempts",
+       "why": "Correct. NIST SP 800-63B recommends rate-limiting failed attempts to stop online guessing."
+      },
+      {
+       "text": "Sending the password in clear text to the server",
+       "why": "Clear-text passwords make attacks easier and are not a NIST recommendation."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "After entering a password, a user receives a text message on a registered cell phone with a code to complete the login. Which concept does the text message illustrate?",
+     "choices": [
+      {
+       "text": "Cognitive password",
+       "why": "A cognitive password is based on facts or opinions only the user knows, not a code sent to a device."
+      },
+      {
+       "text": "Out-of-band authentication",
+       "why": "Correct. Out-of-band authentication verifies the user through a separate channel, such as a cellular call or text."
+      },
+      {
+       "text": "Multilayer authentication",
+       "why": "Multilayer authentication uses two of the same factor type, such as a password and a PIN."
+      },
+      {
+       "text": "Memory card authentication",
+       "why": "A memory card stores a hashed PIN on a magnetic strip, like an ATM card; no card is used here."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Two separate companies want their employees to use their own corporate credentials to access each other's partner portals, with each company trusting the other's identities. Which arrangement provides this?",
+     "choices": [
+      {
+       "text": "Multitenancy",
+       "why": "Multitenancy is one service instance serving many customers, as in SaaS; it does not create trust between organizations."
+      },
+      {
+       "text": "Multilayer authentication",
+       "why": "Multilayer authentication uses two of the same factor type and does not link identities across organizations."
+      },
+      {
+       "text": "Federated Identity Management (FIM)",
+       "why": "Correct. FIM is the arrangement that lets organizations trust each other's identities, linking a user's identity across separate systems."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "DAC is an authorization model where object owners decide access; it does not create cross-organization identity trust."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is Google BeyondCorp?",
+     "choices": [
+      {
+       "text": "A cloud MFA platform that Cisco acquired",
+       "why": "That describes Cisco Duo, not BeyondCorp."
+      },
+      {
+       "text": "An XML-based federation standard for enterprise SSO",
+       "why": "That describes SAML."
+      },
+      {
+       "text": "A consumer social identity provider",
+       "why": "Google can act as a social IdP, but BeyondCorp is its zero-trust access model, not a social login service."
+      },
+      {
+       "text": "Google's zero-trust model that moves access control from the perimeter to individual devices and users",
+       "why": "Correct. BeyondCorp is Google's zero-trust model that moves access control from the network perimeter to individual devices and users."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A stateful firewall allows return traffic only when it belongs to a session that an inside host started. Which type of access control is this?",
+     "choices": [
+      {
+       "text": "Context-dependent access control",
+       "why": "Correct. Context-dependent access control decides based on context, such as session state; Cisco ASA, FTD, and IOS Zone-Based Firewall are examples."
+      },
+      {
+       "text": "Content-dependent access control",
+       "why": "Content-dependent control decides based on the data itself, such as a database view."
+      },
+      {
+       "text": "Mandatory access control",
+       "why": "MAC uses classification labels set by system policy, not session state."
+      },
+      {
+       "text": "Discretionary access control",
+       "why": "DAC lets the object owner decide access; it does not track sessions."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An engineer configures ip radius source-interface GigabitEthernet1/8 on a switch. What requirement must be met in Cisco ISE?",
+     "choices": [
+      {
+       "text": "The interface must be configured as a trunk to ISE",
+       "why": "The command only sets the source of RADIUS packets; it has no trunk requirement."
+      },
+      {
+       "text": "The interface's IP address must match the Network Device object in ISE",
+       "why": "Correct. The command forces RADIUS out one interface, and that IP must match the Network Device defined in ISE."
+      },
+      {
+       "text": "ISE must use UDP 1645 for that interface",
+       "why": "The port is set with auth-port and acct-port under the radius server definition; the source interface does not force legacy ports."
+      },
+      {
+       "text": "The interface must run 802.1X with port-control auto",
+       "why": "access-session port-control auto turns on authentication for access ports; it is not tied to the RADIUS source interface."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What does the command radius-server deadtime 15 do?",
+     "choices": [
+      {
+       "text": "Waits 15 seconds for each RADIUS reply",
+       "why": "The per-try wait is set in radius-server dead-criteria time, which is 5 seconds in the chapter."
+      },
+      {
+       "text": "Sends a probe to the RADIUS server every 15 seconds",
+       "why": "Probing is done with automate-tester username radius-test probe-on."
+      },
+      {
+       "text": "Reauthenticates sessions every 15 minutes",
+       "why": "Reauthentication uses authentication periodic and the server-supplied timer."
+      },
+      {
+       "text": "Waits 15 minutes before trying a dead RADIUS server again",
+       "why": "Correct. radius-server deadtime 15 makes the switch wait 15 minutes before retrying a server marked dead."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "The ISE cluster becomes unreachable. A switch running a C3PL control policy should still give authenticating endpoints limited access instead of locking them out. Which configuration element provides this?",
+     "choices": [
+      {
+       "text": "A static port ACL that denies all traffic",
+       "why": "A static deny ACL is the legacy behavior, which causes a denial of service while RADIUS is down."
+      },
+      {
+       "text": "The Auth-Fail VLAN",
+       "why": "The Auth-Fail VLAN is for devices that fail 802.1X, not for when the RADIUS server is unreachable."
+      },
+      {
+       "text": "A service template such as CRITICAL_AUTH, activated when the RADIUS-SERVER-DOWN class matches",
+       "why": "Correct. The policy matches aaa-timeout in RADIUS-SERVER-DOWN, authorizes the session, and activates the CRITICAL_AUTH service template with its ACL."
+      },
+      {
+       "text": "The dot1x timeout tx-period 10 command",
+       "why": "This sets the interval between EAP-Identity-Requests; it does not provide access when RADIUS is down."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "How does a Diameter message indicate that it is a REQUEST rather than an ANSWER?",
+     "choices": [
+      {
+       "text": "The R bit is set in the header",
+       "why": "Correct. A Diameter REQUEST has the R bit set, and an ANSWER has the R bit unset."
+      },
+      {
+       "text": "The Application ID is set to zero",
+       "why": "The Application ID identifies the Diameter application, such as NAS, not whether the message is a request."
+      },
+      {
+       "text": "It uses UDP instead of TCP",
+       "why": "Diameter uses TCP or SCTP for all messages; transport does not indicate request or answer."
+      },
+      {
+       "text": "It carries a vendor-specific attribute 26",
+       "why": "Attribute 26 is the RADIUS vendor-specific attribute and does not mark a Diameter request."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which policy matching method is most common in Cisco ISE?",
+     "choices": [
+      {
+       "text": "Multiple-match, where every matching rule applies",
+       "why": "Multiple-match exists, but the chapter calls first-match the most common."
+      },
+      {
+       "text": "Last-match, where the bottom rule always wins",
+       "why": "There is no last-match method; the bottom rule is the default catch-all used only when nothing else matches."
+      },
+      {
+       "text": "Best-match, where the most specific rule wins",
+       "why": "Best-match is not one of the ISE methods described in the chapter."
+      },
+      {
+       "text": "First-match, where the first matching rule wins",
+       "why": "Correct. First-match, where the first rule that matches wins, is the most common, with a default catch-all at the bottom."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "How does a capability table differ from an access control list?",
+     "choices": [
+      {
+       "text": "A capability table is object-centric, while an ACL is subject-centric",
+       "why": "This is reversed; an ACL is attached to an object and lists who can access it."
+      },
+      {
+       "text": "A capability table lists what each subject can access, while an ACL lists who can do what to an object",
+       "why": "Correct. A capability table is subject-centric, while an ACL is a list attached to an object."
+      },
+      {
+       "text": "A capability table is used only for MAC, while an ACL is used only for RBAC",
+       "why": "The ACL is the simplest DAC mechanism; neither is limited this way."
+      },
+      {
+       "text": "A capability table filters network traffic on a 5-tuple, while an ACL filters files",
+       "why": "Network ACLs are the ones that match on the 5-tuple, and ACLs can protect files too."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In an access control matrix (ACM), what are the rows and columns, and which model is it associated with?",
+     "choices": [
+      {
+       "text": "Rows are objects, columns are roles; associated with RBAC",
+       "why": "An ACM uses subjects and objects, not roles, and is associated with DAC."
+      },
+      {
+       "text": "Rows are labels, columns are clearances; associated with MAC",
+       "why": "Labels and clearances are MAC concepts, but the ACM is a subject-by-object table tied to DAC."
+      },
+      {
+       "text": "Rows are subjects, columns are objects; associated with DAC",
+       "why": "Correct. The ACM is a table with subjects as rows and objects as columns, associated with DAC."
+      },
+      {
+       "text": "Rows are attributes, columns are environments; associated with ABAC",
+       "why": "ABAC uses Boolean rules over attributes, not a subject-by-object matrix."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is the standards status of TACACS+ described in the chapter?",
+     "choices": [
+      {
+       "text": "It is defined in RFC 2865",
+       "why": "RFC 2865 defines RADIUS authentication and authorization, not TACACS+."
+      },
+      {
+       "text": "It is an open IEEE standard",
+       "why": "TACACS+ is not an IEEE standard; IEEE defines 802.1X."
+      },
+      {
+       "text": "It is defined in RFC 6733",
+       "why": "RFC 6733 is the Diameter base protocol."
+      },
+      {
+       "text": "It is described in draft-ietf-opsawg-tacacs-13 but is still Cisco proprietary",
+       "why": "Correct. TACACS+ has an IETF draft, but it is still Cisco proprietary despite years of efforts to make it an RFC."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An engineer plans to enable Port Security alongside 802.1X on the same access ports. What should the engineer know?",
+     "choices": [
+      {
+       "text": "Port Security is not compatible with 802.1X",
+       "why": "Correct. The chapter states Port Security is not compatible with 802.1X; host modes control how many MACs are allowed instead."
+      },
+      {
+       "text": "Port Security is required before 802.1X can be enabled",
+       "why": "802.1X is enabled with dot1x system-auth-control and per-port commands; Port Security is not a prerequisite."
+      },
+      {
+       "text": "Port Security replaces the need for MAB",
+       "why": "MAB authenticates devices without a supplicant using their MAC; Port Security does not replace it."
+      },
+      {
+       "text": "Port Security is the same as Multi-Domain Authentication",
+       "why": "MDA is an 802.1X host mode with one data and one voice MAC; it is not Port Security."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which authentication method is recommended for pxGrid clients connecting to Cisco ISE?",
+     "choices": [
+      {
+       "text": "A username and password from the Account Create API",
+       "why": "This is supported, but the chapter recommends certificate-based authentication."
+      },
+      {
+       "text": "A pre-shared RADIUS key",
+       "why": "RADIUS shared secrets are used between a NAS and the RADIUS server, not for pxGrid clients."
+      },
+      {
+       "text": "A certificate",
+       "why": "Correct. pxGrid clients can authenticate with a certificate, which is recommended, or with a username and password."
+      },
+      {
+       "text": "An SGT assigned by TrustSec",
+       "why": "SGTs classify traffic for segmentation; they do not authenticate pxGrid clients."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is the correct order of the Cisco TrustSec three-step authentication process?",
+     "choices": [
+      {
+       "text": "Link encryption is negotiated, then 802.1X runs, then the SGT is sent",
+       "why": "The security association and link encryption are negotiated last, after authentication and authorization."
+      },
+      {
+       "text": "The server sends the SGT, then the device authenticates, then link encryption is negotiated",
+       "why": "The device must authenticate before the server can authorize it with an SGT."
+      },
+      {
+       "text": "The device authenticates with 802.1X, then link encryption is negotiated, then the SGT is sent",
+       "why": "The server sends authorization including the SGT before the security association is negotiated."
+      },
+      {
+       "text": "The device authenticates with 802.1X, then the server sends authorization with the SGT, then the devices negotiate a security association and link encryption",
+       "why": "Correct. TrustSec authenticates with 802.1X, authorizes with the SGT, and then negotiates the security association and link encryption."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "How does replication work between Cisco ISE nodes?",
+     "choices": [
+      {
+       "text": "Full replication only, every time any change is made",
+       "why": "Full replication happens when a node registers; after that, replication is incremental."
+      },
+      {
+       "text": "Full replication when a node registers, then incremental replication",
+       "why": "Correct. A node gets full replication when it registers and incremental replication afterward, and all nodes should use the same NTP server."
+      },
+      {
+       "text": "Incremental replication only, with no full copy",
+       "why": "A newly registered node needs a full replication first."
+      },
+      {
+       "text": "Replication through pxGrid WebSocket subscriptions",
+       "why": "pxGrid shares context with other platforms; it is not how ISE nodes replicate configuration."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "While testing TACACS+ on router R1, the engineer runs debug tacacs and sees that ISE does not answer. What does the router do?",
+     "choices": [
+      {
+       "text": "It falls back to the local database after 5 seconds",
+       "why": "Correct. The debug shows that when the server does not answer in 5 seconds, the router falls back to local, as set by the local keyword in the method list."
+      },
+      {
+       "text": "It denies all logins until ISE returns",
+       "why": "Because the method lists end with local, the router falls back to the local account rather than locking everyone out."
+      },
+      {
+       "text": "It switches to RADIUS on UDP 1812",
+       "why": "The method lists name group tacacs+ then local; RADIUS is not configured as a fallback."
+      },
+      {
+       "text": "It waits 15 minutes before trying again",
+       "why": "15 minutes is the radius-server deadtime on the switch, not the TACACS+ fallback behavior on R1."
+      }
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}

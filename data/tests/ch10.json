@@ -1,0 +1,2230 @@
+{
+ "chapter": 10,
+ "tests": [
+  {
+   "title": "Practice Test 1",
+   "questions": [
+    {
+     "q": "Which company, later acquired by Cisco, originally created the products now called Cisco Secure Web Appliance and Cisco Secure Email?",
+     "choices": [
+      {
+       "text": "Sourcefire",
+       "why": "Cisco acquired Sourcefire for its Snort-based intrusion prevention and FirePOWER technology, not for the web and email appliances."
+      },
+      {
+       "text": "Ironport",
+       "why": "Correct. Ironport built the web and email security appliances that Cisco acquired and now sells as Cisco Secure Web Appliance and Cisco Secure Email."
+      },
+      {
+       "text": "OpenDNS",
+       "why": "OpenDNS became Cisco Umbrella, a cloud DNS-layer security service, not the on-premises web and email appliances."
+      },
+      {
+       "text": "Cloudlock",
+       "why": "Cloudlock is the cloud access security broker (CASB) named in the chapter; it did not create the content security appliances."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Cisco Secure Web Appliance was formerly known by which name?",
+     "choices": [
+      {
+       "text": "Email Security Appliance (ESA)",
+       "why": "ESA is the former name of Cisco Secure Email, the gateway that handles an organization's SMTP connections."
+      },
+      {
+       "text": "Content Security Management Appliance (SMA)",
+       "why": "The SMA is a separate product that centralizes management and reporting for multiple web and email appliances."
+      },
+      {
+       "text": "Firepower Threat Defense (FTD)",
+       "why": "FTD refers to Cisco Secure Firewall software, which is managed by FMC; it is not the web proxy appliance."
+      },
+      {
+       "text": "Web Security Appliance (WSA)",
+       "why": "Correct. The web proxy, threat analytics, antimalware, policy and reporting appliance was formerly called the Web Security Appliance (WSA)."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "The AsyncOS operating system used on Cisco Secure Web Appliance, Cisco Secure Email, and the SMA is based on which kernel?",
+     "choices": [
+      {
+       "text": "FreeBSD",
+       "why": "Correct. AsyncOS is built on a FreeBSD kernel that Cisco enhanced for scalability to thousands of connections per minute."
+      },
+      {
+       "text": "Linux",
+       "why": "AsyncOS is not Linux-based; Cisco enhanced its FreeBSD base specifically to overcome the limits of traditional Linux and UNIX."
+      },
+      {
+       "text": "Windows NT",
+       "why": "Windows NT is Microsoft's kernel; AsyncOS has no relation to it and is managed through its own GUI and CLI."
+      },
+      {
+       "text": "Cisco IOS XE",
+       "why": "IOS XE runs Cisco routers and switches; the content security appliances run AsyncOS, a separate FreeBSD-based operating system."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "How many factors does the Web Reputation engine analyze when scoring an unknown URL?",
+     "choices": [
+      {
+       "text": "More than 20 factors",
+       "why": "This far understates it; the Web Reputation engine looks at more than 200 factors to produce its score."
+      },
+      {
+       "text": "More than 50 factors",
+       "why": "This is too low; the chapter states the engine analyzes more than 200 factors."
+      },
+      {
+       "text": "More than 200 factors",
+       "why": "Correct. The Web Reputation engine analyzes more than 200 factors and produces a score from minus 10 to plus 10."
+      },
+      {
+       "text": "More than 1000 factors",
+       "why": "1000 is the number of File Analysis results shown before you must export to .csv, not a count of reputation factors."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A marketing team must be allowed to use Facebook, but security wants to block the games that run inside Facebook. Which Cisco Secure Web Appliance feature meets this requirement?",
+     "choices": [
+      {
+       "text": "Web Reputation filters",
+       "why": "Web reputation scores a URL from minus 10 to plus 10 by risk; it judges the site, not individual micro-applications inside it."
+      },
+      {
+       "text": "File reputation",
+       "why": "File reputation judges files using Talos intelligence updated every three to five minutes; it does not control applications inside a website."
+      },
+      {
+       "text": "Application Visibility and Control (AVC)",
+       "why": "Correct. AVC can allow a site like Facebook while blocking micro-applications inside it, such as Facebook games."
+      },
+      {
+       "text": "Cognitive threat analytics",
+       "why": "Cognitive threat analytics performs anomaly detection on HTTP and HTTPS traffic to find threats; it is not an acceptable-use application control."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In explicit forward proxy mode, which device performs the DNS resolution for the URL a user requests?",
+     "choices": [
+      {
+       "text": "The Cisco Secure Web Appliance",
+       "why": "Correct. In explicit mode the client sends the request straight to the proxy without a DNS lookup, and the appliance resolves the name."
+      },
+      {
+       "text": "The client browser",
+       "why": "The client resolves the name itself in transparent mode, where it sends the request toward the web server and is redirected on the way."
+      },
+      {
+       "text": "The WCCP-enabled router",
+       "why": "WCCP routers redirect traffic in transparent mode; they do not resolve names for clients, and explicit mode needs no redirection device."
+      },
+      {
+       "text": "The Cisco ASA firewall",
+       "why": "An ASA can redirect traffic with WCCP in transparent mode, but it does not perform DNS resolution on behalf of explicit proxy clients."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which DHCP option can be used to hand clients the WPAD URL, such as https://secretcorp.org/wpad.dat, as a string?",
+     "choices": [
+      {
+       "text": "DHCP option 66",
+       "why": "Option 66 carries a TFTP server name, commonly used by IP phones; it is not used for WPAD."
+      },
+      {
+       "text": "DHCP option 43",
+       "why": "Option 43 carries vendor-specific information, often used for wireless controller discovery, not the WPAD URL."
+      },
+      {
+       "text": "DHCP option 150",
+       "why": "Option 150 is the Cisco option for a list of TFTP server addresses for IP phones, not proxy auto-discovery."
+      },
+      {
+       "text": "DHCP option 252",
+       "why": "Correct. DHCP option 252 carries the WPAD URL as a string so browsers set to auto-detect can find the PAC file."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An administrator plans to use the Cisco Secure Web Appliance SOCKS proxy for a group of clients. Which limitation should the administrator expect?",
+     "choices": [
+      {
+       "text": "It can forward only to upstream proxies, not directly to servers",
+       "why": "This is reversed: the SOCKS proxy supports only direct forward connections and does not forward to upstream proxies."
+      },
+      {
+       "text": "It provides no scanning services such as AVC, DLP, or malware detection",
+       "why": "Correct. The SOCKS proxy offers no scanning services, so AVC, DLP, and malware detection do not apply to SOCKS traffic."
+      },
+      {
+       "text": "It works only when traffic is redirected by WCCP",
+       "why": "SOCKS clients negotiate the proxy connection themselves with SOCKS protocol messages; the appliance needs a SOCKS policy, not WCCP."
+      },
+      {
+       "text": "It decrypts SSL only after a root certificate is installed",
+       "why": "The SOCKS proxy cannot decrypt SSL at all because it tunnels traffic from client to server; root certificates belong to the HTTPS proxy."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "On a Cisco ASA, what does the command wccp interface inside web-cache redirect in do?",
+     "choices": [
+      {
+       "text": "Turns on redirection of web-cache service traffic arriving inbound on the inside interface",
+       "why": "Correct. This command enables WCCP redirection for the web-cache service inbound on the inside interface, the source of the client traffic."
+      },
+      {
+       "text": "Defines the access list that identifies the web appliance",
+       "why": "The appliance is identified by access-list WSA extended permit ip host 10.1.2.3 any, which the redirect list references with group-list WSA."
+      },
+      {
+       "text": "Creates dynamic WCCP service 20 for HTTPS traffic",
+       "why": "Service 20 for HTTPS is created with wccp 20 redirect-list HTTPS-TRAFFIC group-list WSA, not with the interface command."
+      },
+      {
+       "text": "Redirects traffic leaving the outside interface toward the Internet",
+       "why": "The command applies to the inside interface in the inbound direction, where client traffic enters the ASA, not to the outside interface."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Why does the chapter advise checking router documentation before using policy-based routing (PBR) to send web traffic to the web appliance?",
+     "choices": [
+      {
+       "text": "PBR cannot match HTTPS traffic on TCP 443",
+       "why": "PBR can match HTTPS; the example access list 101 matches both port 80 and port 443 from the source subnets."
+      },
+      {
+       "text": "PBR requires a PAC file on every client",
+       "why": "PAC files configure browsers for explicit proxy mode; PBR is a transparent method that needs no client configuration."
+      },
+      {
+       "text": "PBR done in software without hardware acceleration can hurt router performance",
+       "why": "Correct. If the router performs PBR in software rather than with hardware acceleration, performance can suffer, so check the platform documentation."
+      },
+      {
+       "text": "PBR must negotiate WCCP version 2 with the appliance",
+       "why": "PBR is separate from WCCP; with PBR the appliance only needs Layer 4 Switch selected under Network > Transparent Redirection."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An engineer reviewing web server logs sees that all proxied requests come from the web appliance's address rather than from users' addresses. What explains this?",
+     "choices": [
+      {
+       "text": "Web proxy IP spoofing is enabled, so the client IP is preserved",
+       "why": "IP spoofing does the opposite: it keeps the client's source IP on forwarded requests. It is not the default."
+      },
+      {
+       "text": "By default the appliance replaces the request's source IP with its own",
+       "why": "Correct. Unless web proxy IP spoofing is enabled, the appliance replaces the client's source IP with its own address on forwarded requests."
+      },
+      {
+       "text": "The WCCP router rewrites the source to its own interface address",
+       "why": "WCCP only redirects flows to the appliance; it is the proxy that opens the new connection and, by default, uses its own address."
+      },
+      {
+       "text": "The SMA translates all proxied requests through a NAT pool",
+       "why": "The SMA centralizes management and reporting for the appliances; it does not translate or forward web traffic."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which web appliance authentication method is typically used with Windows Active Directory but can also work with Mac clients if extra client configuration is done?",
+     "choices": [
+      {
+       "text": "Basic authentication",
+       "why": "Basic authentication prompts through the web browser and is not transparent; it is the only method an LDAP realm supports."
+      },
+      {
+       "text": "Kerberos",
+       "why": "Kerberos is mainly for Windows clients and is called the more secure option; the note about Mac with extra configuration applies to NTLMSSP."
+      },
+      {
+       "text": "RADIUS",
+       "why": "The chapter's authentication realms are AD or LDAP servers; RADIUS is not one of the web appliance identification methods described."
+      },
+      {
+       "text": "NTLMSSP",
+       "why": "Correct. NTLMSSP transparently authenticates with AD domain credentials, is typically used with Windows AD, and can work with Mac given extra configuration."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which term is another name for a mail transfer agent (MTA)?",
+     "choices": [
+      {
+       "text": "Mail user agent",
+       "why": "A mail user agent (MUA) is the email client or reader on a computer or mobile device, not the server that transfers mail."
+      },
+      {
+       "text": "Mail delivery agent",
+       "why": "A mail delivery agent (MDA) is the part of an MTA that performs final delivery to the mailbox, not another name for the MTA."
+      },
+      {
+       "text": "Mail submission agent",
+       "why": "A mail submission agent (MSA) is the part of an MTA that accepts new messages from an MUA using SMTP."
+      },
+      {
+       "text": "Mail exchanger",
+       "why": "Correct. An MTA, what most people call the mail server, is also called a mail router, mail transport agent, or mail exchanger (MX)."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Linux command displays the MX records for the domain h4cker.org?",
+     "choices": [
+      {
+       "text": "nslookup -type=A h4cker.org",
+       "why": "This queries the A records, which return IPv4 addresses for the name, not the mail exchangers for the domain."
+      },
+      {
+       "text": "dig h4cker.org MX",
+       "why": "Correct. dig h4cker.org MX shows the domain's MX records with their preference values and TTL."
+      },
+      {
+       "text": "dig h4cker.org TXT",
+       "why": "This returns TXT records, where SPF and DKIM information is published, not the MX records."
+      },
+      {
+       "text": "host -t PTR h4cker.org",
+       "why": "A PTR query is a reverse lookup that maps an address to a name; it does not list mail exchangers."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "On Cisco Secure Email, which component accepts incoming SMTP connections from the Internet?",
+     "choices": [
+      {
+       "text": "Public listener",
+       "why": "Correct. A public listener handles SMTP connection requests from the Internet, as on interface 1 facing external mail servers in Figure 10-13."
+      },
+      {
+       "text": "Private listener",
+       "why": "A private listener accepts email from internal systems, such as the organization's own mail server."
+      },
+      {
+       "text": "Recipient access table (RAT)",
+       "why": "The RAT defines which recipients a public listener accepts; it is a table used by the listener, not the component that accepts connections."
+      },
+      {
+       "text": "Mail flow policy",
+       "why": "A mail flow policy is where settings such as SPF and DKIM verification are configured; it does not itself listen for connections."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Outbreak filters on Cisco Secure Email are on by default and provide which kind of quarantine?",
+     "choices": [
+      {
+       "text": "A spam quarantine for messages flagged by antispam",
+       "why": "A spam quarantine holds messages the antispam engine flags; outbreak filters use their own dynamic DELAY quarantine."
+      },
+      {
+       "text": "A policy quarantine for content filter matches",
+       "why": "A policy quarantine holds messages matched by content or mail policy rules, which is different from the outbreak filter quarantine."
+      },
+      {
+       "text": "A dynamic quarantine, also called a DELAY quarantine",
+       "why": "Correct. Outbreak filters provide a dynamic quarantine, known as a DELAY quarantine, to hold suspect messages during an outbreak."
+      },
+      {
+       "text": "A retrospective quarantine for changed file verdicts",
+       "why": "Retrospection is AMP's re-evaluation of file verdicts over time; it is not the quarantine that outbreak filters provide."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "According to the book, which RFC defines the Sender Policy Framework (SPF)?",
+     "choices": [
+      {
+       "text": "RFC 4408",
+       "why": "Correct. The book cites RFC 4408 for SPF; RFC 7208 later replaced it in 2014."
+      },
+      {
+       "text": "RFC 6376",
+       "why": "RFC 6376 defines DKIM signatures, the cryptographic signing of outgoing mail, not SPF."
+      },
+      {
+       "text": "RFC 5617",
+       "why": "RFC 5617 defines Author Domain Signing Practices (ADSP), a DKIM-related specification, not SPF."
+      },
+      {
+       "text": "RFC 5863",
+       "why": "RFC 5863 covers DKIM development, deployment, and operation, not SPF."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which severity levels are used for DLP incidents on Cisco Secure Email and the SMA?",
+     "choices": [
+      {
+       "text": "Informational, Warning, Error, Critical",
+       "why": "These resemble logging severity names; DLP incidents use Low, Medium, High, and Critical."
+      },
+      {
+       "text": "Low, Medium, High, Severe",
+       "why": "There is no Severe level; the highest DLP severity is Critical."
+      },
+      {
+       "text": "Clean, Unknown, Low Risk, Malicious",
+       "why": "These are AMP file dispositions shown in the AMP summary dashboard, not DLP severities."
+      },
+      {
+       "text": "Low, Medium, High, Critical",
+       "why": "Correct. DLP severities are Low, Medium, High, and Critical, and the DLP Incident Summary shows how severe the incidents are."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An SMA administrator notices that some files sent for analysis were whitelisted on the on-premises Cisco Secure Malware Analytics appliance. How do those files appear in the File Analysis report?",
+     "choices": [
+      {
+       "text": "As malicious",
+       "why": "A malicious verdict is for files found to be malware; whitelisting marks a file as trusted, so it is not shown as malicious."
+      },
+      {
+       "text": "As unknown",
+       "why": "Unknown is a disposition for files without a conclusive verdict; whitelisted files are reported as clean."
+      },
+      {
+       "text": "As clean",
+       "why": "Correct. Files whitelisted on the Secure Malware Analytics appliance show as clean in the File Analysis report."
+      },
+      {
+       "text": "As pending",
+       "why": "Pending describes files whose analysis requests are not yet complete; it is not how whitelisted files are shown."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which sequence correctly enables HTTPS decryption on Cisco Secure Web Appliance?",
+     "choices": [
+      {
+       "text": "Add a decryption policy, turn on the HTTPS proxy, then upload a root certificate",
+       "why": "A decryption policy controls decryption once the HTTPS proxy is configured, so it is the last step, not the first."
+      },
+      {
+       "text": "Turn on the HTTPS proxy, create or upload a root certificate, then add or edit a decryption policy",
+       "why": "Correct. You enable the HTTPS proxy, provide a root certificate to sign traffic, and then add a decryption policy or edit the global one."
+      },
+      {
+       "text": "Upload a root certificate, add a decryption policy, then turn on the HTTPS proxy",
+       "why": "The HTTPS proxy must be turned on first; decryption policies depend on it being configured."
+      },
+      {
+       "text": "Turn on the HTTPS proxy, add a decryption policy, then install an OCSP responder on every client",
+       "why": "OCSP is certificate status checking configured in the HTTPS proxy; clients need the signing root certificate, not an OCSP responder."
+      }
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 2",
+   "questions": [
+    {
+     "q": "Cisco Secure Email was formerly known by which name?",
+     "choices": [
+      {
+       "text": "Web Security Appliance (WSA)",
+       "why": "WSA is the former name of Cisco Secure Web Appliance, the web proxy product, not the email gateway."
+      },
+      {
+       "text": "Content Security Management Appliance (SMA)",
+       "why": "The SMA centralizes management and reporting for the web and email appliances; Cisco has since renamed it Cisco Secure Email and Web Manager."
+      },
+      {
+       "text": "Email Security Appliance (ESA)",
+       "why": "Correct. Cisco Secure Email, the gateway that handles all SMTP connections for an organization, was formerly the Email Security Appliance (ESA)."
+      },
+      {
+       "text": "Adaptive Security Appliance (ASA)",
+       "why": "The ASA is Cisco's firewall, which can redirect web traffic to the web appliance with WCCP; it is not an email gateway."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An organization runs two Cisco Secure Email appliances and three Cisco Secure Web Appliances and wants one place for configuration, monitoring, and reporting across all of them. Which product should it deploy?",
+     "choices": [
+      {
+       "text": "Cisco Content Security Management Appliance (SMA)",
+       "why": "Correct. The SMA centralizes management and reporting for multiple Cisco Secure Email and Cisco Secure Web Appliance devices, as Figure 10-14 shows."
+      },
+      {
+       "text": "Cisco Firewall Management Center (FMC)",
+       "why": "FMC manages Cisco Secure Firewall devices and their FlexConfig policies; it does not manage the email and web appliances."
+      },
+      {
+       "text": "Cisco Secure Malware Analytics",
+       "why": "Secure Malware Analytics is Cisco's sandbox for file analysis; it does not centralize appliance configuration and reporting."
+      },
+      {
+       "text": "Cisco Cloudlock",
+       "why": "Cloudlock is a cloud access security broker (CASB) for cloud app security, not a manager for content security appliances."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "How do administrators configure AsyncOS on the Cisco content security appliances?",
+     "choices": [
+      {
+       "text": "Through a user UNIX shell with root access",
+       "why": "AsyncOS deliberately has no user UNIX shell even though it is FreeBSD-based."
+      },
+      {
+       "text": "Only through the SMA, never on the appliance itself",
+       "why": "The SMA centralizes management, but each appliance still has its own web admin portal and CLI."
+      },
+      {
+       "text": "Through a Windows-based management console installed on a server",
+       "why": "AsyncOS does not use an installed Windows console; it is managed through a web-based GUI or its CLI."
+      },
+      {
+       "text": "Through the web admin portal (GUI) or a fully scriptable CLI",
+       "why": "Correct. AsyncOS is configured through its web admin portal or a fully scriptable command-line interface."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "How often is the file reputation intelligence used by Cisco Secure Web Appliance updated?",
+     "choices": [
+      {
+       "text": "Every 30 minutes",
+       "why": "30 minutes is how often each managed Cisco Secure Email checks for file analysis results, not the file reputation update interval."
+      },
+      {
+       "text": "Every three to five minutes",
+       "why": "Correct. File reputation is based on Cisco Talos intelligence and is updated every three to five minutes."
+      },
+      {
+       "text": "Once every 24 hours",
+       "why": "A daily update would be far too slow; Talos file reputation data is refreshed every three to five minutes."
+      },
+      {
+       "text": "Every nine hours",
+       "why": "Nine hours relates to outbreak filters, which give more than nine hours of lead time over antivirus engines for zero-day outbreaks."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Cloud access security on Cisco Secure Web Appliance combines AVC with integration to a CASB. Which CASB does the chapter name?",
+     "choices": [
+      {
+       "text": "Cisco Talos",
+       "why": "Talos is Cisco's threat intelligence group whose feeds the content security products digest; it is not a CASB."
+      },
+      {
+       "text": "Cisco Cloudlock",
+       "why": "Correct. Cisco Cloudlock is the cloud access security broker named in the chapter for cloud app security."
+      },
+      {
+       "text": "Cisco Secure Endpoint",
+       "why": "Secure Endpoint is endpoint malware protection that, with Secure Malware Analytics, supports file sandboxing; it is not a CASB."
+      },
+      {
+       "text": "Cisco Secure Malware Analytics",
+       "why": "Secure Malware Analytics, formerly AMP Threat Grid, is Cisco's sandbox, not a cloud access security broker."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A company has HTTPS inspection disabled on its web appliance for privacy reasons but still wants anomaly detection on HTTP and HTTPS traffic that can find confirmed threats. Which feature fits?",
+     "choices": [
+      {
+       "text": "Data loss prevention (DLP)",
+       "why": "DLP stops sensitive data from leaving the network; it does not perform anomaly detection to find threats."
+      },
+      {
+       "text": "Web filtering",
+       "why": "Web filtering combines URL filtering with dynamic content analysis to enforce acceptable use, not anomaly-based threat detection."
+      },
+      {
+       "text": "File retrospection",
+       "why": "File retrospection keeps re-examining downloaded files over time; it is not anomaly detection on traffic."
+      },
+      {
+       "text": "Cognitive threat analytics",
+       "why": "Correct. Cognitive threat analytics performs anomaly detection on HTTP and HTTPS traffic and can find confirmed threats even when HTTPS inspection is disabled."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What is a PAC file?",
+     "choices": [
+      {
+       "text": "A file that tells web browsers which proxy settings to use",
+       "why": "Correct. A proxy auto-configuration (PAC) file tells browsers which proxy settings to use, and WPAD can advertise it."
+      },
+      {
+       "text": "A file listing the recipients a public listener accepts",
+       "why": "That describes the recipient access table (RAT) on Cisco Secure Email, not a PAC file."
+      },
+      {
+       "text": "A file containing the public keys used to verify DKIM signatures",
+       "why": "DKIM public keys are published in DNS TXT records, not in a proxy configuration file."
+      },
+      {
+       "text": "A FlexConfig object that generates ASA commands for WCCP",
+       "why": "A FlexConfig object contains Apache Velocity scripting, ASA commands, and variables in FMC; it is unrelated to browser proxy settings."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "In transparent proxy mode, how does the client handle a request for h4cker.org?",
+     "choices": [
+      {
+       "text": "It sends the request to the proxy without a DNS lookup, and the proxy resolves the name",
+       "why": "That is explicit forward mode, where the client is configured to use the proxy and the appliance does the DNS resolution."
+      },
+      {
+       "text": "It asks a WPAD server for the IP address of the web server",
+       "why": "WPAD advertises PAC settings for explicit proxy configuration; it does not resolve web server addresses."
+      },
+      {
+       "text": "It resolves the name itself with DNS and sends the request to the web server, and a network device redirects it",
+       "why": "Correct. In transparent mode the client is unaware of the proxy, resolves the domain itself, and a device such as an ASA redirects the request."
+      },
+      {
+       "text": "It negotiates a SOCKS session so the appliance can resolve the name",
+       "why": "SOCKS is a separate proxy mode where the client negotiates the connection with SOCKS messages; it is not how transparent mode works."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What is a WCCP service group?",
+     "choices": [
+      {
+       "text": "An ordered container of FlexConfig objects in FMC",
+       "why": "That describes a FlexConfig policy, used to configure features FMC does not directly support."
+      },
+      {
+       "text": "A route map entry that matches traffic for policy-based routing",
+       "why": "Route maps with match and set commands are used for PBR, which is a different redirection method from WCCP."
+      },
+      {
+       "text": "A set of appliances managed together by the SMA for reporting",
+       "why": "The SMA centrally manages appliances, but that grouping is not what WCCP calls a service group."
+      },
+      {
+       "text": "A set of devices providing or using the same redirection service, named by a keyword such as web-cache or an ID such as 10 or 20",
+       "why": "Correct. A WCCP service group is identified by a predefined keyword like web-cache or a dynamic service ID number, and members must provide or use the same service."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An engineer must configure WCCP redirection to the web appliance on a Cisco Secure Firewall (FTD) managed by Cisco FMC. Which approach does the chapter describe?",
+     "choices": [
+      {
+       "text": "Enter Secure Firewall native WCCP commands in a dedicated FMC CLI",
+       "why": "Cisco Secure Firewall has no separate set of its own commands for this; it reuses ASA commands for some features through FlexConfig."
+      },
+      {
+       "text": "Use an FMC FlexConfig policy whose objects generate the ASA WCCP commands",
+       "why": "Correct. WCCP on Secure Firewall is done with FMC FlexConfig, which Cisco recommends only for advanced users with a strong ASA background."
+      },
+      {
+       "text": "Configure policy-based routing on the SMA",
+       "why": "The SMA centralizes management and reporting for content appliances; it does not route or redirect firewall traffic."
+      },
+      {
+       "text": "Use Network > Transparent Redirection on the firewall",
+       "why": "Network > Transparent Redirection is a menu on the web appliance, where you choose WCCP v2 Router or Layer 4 Switch, not on the firewall."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which protocol does Cisco Secure Web Appliance use to forward web requests to external DLP servers?",
+     "choices": [
+      {
+       "text": "OCSP",
+       "why": "OCSP (Online Certificate Status Protocol) checks certificate status and is configured in the HTTPS proxy, not used for DLP forwarding."
+      },
+      {
+       "text": "SOCKS",
+       "why": "SOCKS is a client proxy protocol the appliance can serve; it is not used to send requests to DLP servers."
+      },
+      {
+       "text": "ICAP",
+       "why": "Correct. ICAP (Internet Content Adaptation Protocol) is a lightweight HTTP-like protocol that forwards requests to external DLP servers or content scanners, with Secure ICAP as the other option."
+      },
+      {
+       "text": "WCCP",
+       "why": "WCCP redirects traffic from routers, switches, or firewalls to the appliance; it does not send content to DLP servers."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which Cisco Secure Web Appliance policy type manages data uploads to the web?",
+     "choices": [
+      {
+       "text": "Data security policy",
+       "why": "Correct. A data security policy manages data uploads to the web, and external DLP policies extend it to third-party DLP servers."
+      },
+      {
+       "text": "Decryption policy",
+       "why": "A decryption policy controls HTTPS decryption once the HTTPS proxy is configured; it does not govern uploads."
+      },
+      {
+       "text": "Identification policy",
+       "why": "An identification policy identifies the user behind a web request; it does not control data uploads."
+      },
+      {
+       "text": "Access policy",
+       "why": "An access policy maps identification profiles and users to rules, including time-based restrictions, for web access rather than uploads."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which authentication surrogate keeps a user's identity until the browser is closed or the session times out?",
+     "choices": [
+      {
+       "text": "Session cookie",
+       "why": "Correct. With a session cookie surrogate, the identity is used until the browser closes or the session times out."
+      },
+      {
+       "text": "Persistent cookie",
+       "why": "With a persistent cookie, the identity is used until the surrogate times out, not when the browser closes."
+      },
+      {
+       "text": "IP address",
+       "why": "With an IP address surrogate, the identity is tied to the client's IP and used until the surrogate times out."
+      },
+      {
+       "text": "Kerberos ticket",
+       "why": "Kerberos is an authentication method; the surrogate options are IP address, persistent cookie, and session cookie."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which email component is the part of an MTA that performs final delivery of a message to the recipient's mailbox?",
+     "choices": [
+      {
+       "text": "Mail submission agent (MSA)",
+       "why": "The MSA accepts new messages from a mail client using SMTP; it handles submission, not final delivery."
+      },
+      {
+       "text": "Mail user agent (MUA)",
+       "why": "The MUA is the email client or reader used by the person, not part of the MTA."
+      },
+      {
+       "text": "Mail delivery agent (MDA)",
+       "why": "Correct. The MDA is the part of an MTA that does final delivery to the mailbox."
+      },
+      {
+       "text": "Mail Exchanger (MX) record",
+       "why": "An MX record is a DNS resource record naming the mail server for a domain; it does not deliver mail."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A user wants messages to stay on the mail server and be shown directly from it, with the option to download some for archiving. Which client protocol fits?",
+     "choices": [
+      {
+       "text": "POP",
+       "why": "POP is used to retrieve, meaning download, email from a remote server, rather than keeping and showing it on the server."
+      },
+      {
+       "text": "SMTP",
+       "why": "SMTP is the protocol for sending and transferring email between systems, not for a client reading mail kept on the server."
+      },
+      {
+       "text": "SOCKS",
+       "why": "SOCKS is a proxy protocol for tunneling client connections; it is not an email retrieval protocol."
+      },
+      {
+       "text": "IMAP",
+       "why": "Correct. IMAP keeps messages on the server and shows them from there, while still allowing downloads for archiving."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "On Cisco Secure Email, what does RAT stand for and do?",
+     "choices": [
+      {
+       "text": "Remote access Trojan engine that scans attachments for backdoors",
+       "why": "RAT here is not a remote-access Trojan; the chapter warns not to confuse the two. Attachment malware scanning is done by antivirus and AMP."
+      },
+      {
+       "text": "Recipient access table, which defines which recipients a public listener accepts",
+       "why": "Correct. The recipient access table states, at minimum, the address and whether to accept or reject mail for it on a public listener."
+      },
+      {
+       "text": "Reputation assessment table that scores senders from minus 10 to plus 10",
+       "why": "Sender scoring from minus 10 to plus 10 is done by SenderBase, Ironport's sender reputation service."
+      },
+      {
+       "text": "Routing address table that decides how SMTP routes mail between domains",
+       "why": "How SMTP routes mail for a domain is decided by its set of MX records in DNS, not by a table on the appliance."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Where does DKIM publish the public keys that recipients use to verify signed mail?",
+     "choices": [
+      {
+       "text": "In the recipient access table",
+       "why": "The RAT lists which recipients a public listener accepts; it does not hold signing keys."
+      },
+      {
+       "text": "Only in the message header",
+       "why": "The header carries the signature and verification data, but the public keys themselves are published in DNS."
+      },
+      {
+       "text": "In DNS MX records",
+       "why": "MX records name the mail servers that accept mail for a domain; they do not carry keys."
+      },
+      {
+       "text": "In DNS TXT records",
+       "why": "Correct. DKIM publishes its public keys in DNS TXT records so recipients can verify message integrity."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "How often does each Cisco Secure Email appliance managed by the SMA check for file analysis results?",
+     "choices": [
+      {
+       "text": "Every 30 minutes",
+       "why": "Correct. Each managed Cisco Secure Email checks for file analysis results every 30 minutes."
+      },
+      {
+       "text": "Every three to five minutes",
+       "why": "Three to five minutes is the file reputation update interval from Talos, not the file analysis check interval."
+      },
+      {
+       "text": "Every 60 minutes",
+       "why": "The check interval is half that; each managed appliance checks every 30 minutes."
+      },
+      {
+       "text": "Once every 24 hours",
+       "why": "Daily checking would delay verdicts far too long; the interval is 30 minutes."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "What are the T1 and T2 interfaces on Cisco Secure Web Appliance used for?",
+     "choices": [
+      {
+       "text": "Management, and optionally data in a one-armed configuration",
+       "why": "That describes the M1 interface, which is usually management and can also carry data in a one-armed setup."
+      },
+      {
+       "text": "Layer 4 traffic monitoring on all TCP ports, with no IP address because they are promiscuous",
+       "why": "Correct. T1 and T2 are promiscuous Layer 4 monitoring ports that listen on all TCP ports and have no IP address."
+      },
+      {
+       "text": "Proxy data traffic, and they must be in different subnets",
+       "why": "That describes P1 and P2, the data interfaces for proxy traffic, which must be in different subnets if both are enabled."
+      },
+      {
+       "text": "Terminating WCCP redirected traffic from routers and switches",
+       "why": "Redirected proxy traffic is handled on the addressed proxy interfaces; T1 and T2 have no IP address and only monitor traffic."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which TCP port is normally used for SMTP transfer between mail servers?",
+     "choices": [
+      {
+       "text": "TCP 110",
+       "why": "TCP 110 is POP3, which a client uses to download mail from a server, not server-to-server transfer."
+      },
+      {
+       "text": "TCP 143",
+       "why": "TCP 143 is IMAP, which a client uses to view mail kept on the server."
+      },
+      {
+       "text": "TCP 25",
+       "why": "Correct. SMTP between mail servers normally uses TCP 25; TCP 587 is used for message submission."
+      },
+      {
+       "text": "TCP 1344",
+       "why": "TCP 1344 is the usual ICAP port, used by the web appliance to reach external DLP servers."
+      }
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 3",
+   "questions": [
+    {
+     "q": "Why does content security focus on protecting email and the web?",
+     "choices": [
+      {
+       "text": "They are the only protocols that can carry file attachments",
+       "why": "Other protocols such as FTP also move files; the chapter's reason is that email and web are the most popular protocols."
+      },
+      {
+       "text": "They run over UDP, which stateful firewalls cannot inspect",
+       "why": "HTTP and SMTP run over TCP; the focus comes from their popularity, not from the transport they use."
+      },
+      {
+       "text": "Regulations require a separate appliance for each protocol",
+       "why": "No such regulatory requirement is the reason; email and web are targeted because they are the top threat vectors."
+      },
+      {
+       "text": "They are the most popular protocols, which makes them the top threat vectors",
+       "why": "Correct. Email and the web are the most popular protocols for individuals and organizations, so attackers use them as their top threat vectors."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "The Cisco content security products digest threat intelligence feeds from which Cisco group?",
+     "choices": [
+      {
+       "text": "Cisco Cloudlock",
+       "why": "Cloudlock is a cloud access security broker that integrates with AVC for cloud access security, not a threat intelligence group."
+      },
+      {
+       "text": "Cisco Talos",
+       "why": "Correct. Cisco Talos is the threat intelligence group whose feeds the web and email products digest, including file reputation data."
+      },
+      {
+       "text": "Cisco SMA",
+       "why": "The SMA centralizes management and reporting for the appliances; it consumes their data rather than producing threat intelligence."
+      },
+      {
+       "text": "Cisco FMC",
+       "why": "FMC manages Cisco Secure Firewall devices and FlexConfig policies; it is not the source of the appliances' threat feeds."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Web filtering on Cisco Secure Web Appliance combines which two techniques?",
+     "choices": [
+      {
+       "text": "DNS sinkholing and IP blacklisting",
+       "why": "These are not how the chapter describes web filtering, which pairs URL filtering with real-time content analysis."
+      },
+      {
+       "text": "File reputation and file sandboxing",
+       "why": "File reputation and sandboxing are malware defenses for files, not the components of web filtering."
+      },
+      {
+       "text": "Traditional URL filtering and real-time dynamic content analysis",
+       "why": "Correct. Web filtering combines URL filtering with real-time dynamic content analysis, allowing granular acceptable use policies."
+      },
+      {
+       "text": "SPF and DKIM verification",
+       "why": "SPF and DKIM are email sender authentication methods configured in a mail flow policy on Cisco Secure Email."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which antivirus scanning engines does Cisco Secure Web Appliance support?",
+     "choices": [
+      {
+       "text": "McAfee, Sophos, and Webroot",
+       "why": "Correct. The web appliance's antivirus scanning supports the McAfee, Sophos, and Webroot engines."
+      },
+      {
+       "text": "Symantec, Kaspersky, and Trend Micro",
+       "why": "These vendors are not the antivirus engines listed for the web appliance in the chapter."
+      },
+      {
+       "text": "Talos, Cloudlock, and Umbrella",
+       "why": "These are Cisco products and teams; Talos is threat intelligence and Cloudlock is a CASB, not antivirus engines."
+      },
+      {
+       "text": "Snort, ClamAV, and Suricata",
+       "why": "Snort and Suricata are intrusion detection engines and none of these are listed as the web appliance's antivirus engines."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Cisco Secure Malware Analytics, the Cisco sandbox available as a cloud service or on-premises appliance, was formerly called what?",
+     "choices": [
+      {
+       "text": "Cisco AMP Threat Grid",
+       "why": "Correct. Cisco Secure Malware Analytics was formerly Cisco AMP Threat Grid."
+      },
+      {
+       "text": "Cisco AMP for Endpoints",
+       "why": "AMP for Endpoints is the former name of Cisco Secure Endpoint, the endpoint protection product, not the sandbox."
+      },
+      {
+       "text": "Cisco Stealthwatch",
+       "why": "Stealthwatch is the former name of Cisco Secure Network Analytics, a flow-based visibility product, not a sandbox."
+      },
+      {
+       "text": "Cisco SenderBase",
+       "why": "SenderBase is Ironport's sender reputation service used by Cisco Secure Email, not a file sandbox."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "How many sets of TCP sockets does a web proxy use for each request?",
+     "choices": [
+      {
+       "text": "One set shared end to end between client and server",
+       "why": "A proxy does not pass one connection through; it terminates the client connection and opens its own to the server."
+      },
+      {
+       "text": "Three sets, including one to the DNS server",
+       "why": "DNS queries use UDP 53 and are not counted as a proxy socket set; the proxy uses two TCP socket sets."
+      },
+      {
+       "text": "Two sets: client to proxy, and proxy to web server",
+       "why": "Correct. A proxy sits between HTTP clients and servers and uses one set of sockets toward the client and another toward the server."
+      },
+      {
+       "text": "Four sets, one per direction on each side",
+       "why": "Each TCP connection carries both directions, so there are two socket sets, not four."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A Windows domain administrator wants to push proxy settings to every browser and prevent users from changing them. Which tool does this?",
+     "choices": [
+      {
+       "text": "A PAC file",
+       "why": "A PAC file tells browsers which proxy settings to use, but it does not lock the settings against user changes."
+      },
+      {
+       "text": "A Microsoft Group Policy Object (GPO)",
+       "why": "Correct. GPOs can push browser proxy settings and also lock them so users cannot change them."
+      },
+      {
+       "text": "WPAD",
+       "why": "WPAD advertises PAC settings through the browser's auto-detect option; it does not lock the configuration."
+      },
+      {
+       "text": "DHCP option 252",
+       "why": "Option 252 only carries the WPAD URL to clients; it cannot prevent users from changing proxy settings."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "When a Cisco ASA uses WCCP to redirect web traffic to the web appliance, what requirement does the chapter state?",
+     "choices": [
+      {
+       "text": "The appliance must be in a different security zone from the clients",
+       "why": "This is the opposite of the requirement; on an ASA the appliance and clients must be in the same security zone."
+      },
+      {
+       "text": "The ASA must run in transparent firewall mode",
+       "why": "The chapter does not require transparent firewall mode; the stated requirement is that the appliance and clients share a security zone."
+      },
+      {
+       "text": "Every client must load a PAC file",
+       "why": "PAC files are for explicit proxy mode; WCCP redirection is transparent and needs no client configuration."
+      },
+      {
+       "text": "The appliance and the clients must be in the same security zone",
+       "why": "Correct. WCCP requires review of routing and firewall policies, and on a Cisco ASA the appliance and clients must be in the same security zone."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In Cisco FMC, what does a FlexConfig object contain?",
+     "choices": [
+      {
+       "text": "Python scripts and native Secure Firewall commands",
+       "why": "Secure Firewall has no separate native command set for these features, and FlexConfig uses Apache Velocity, not Python."
+      },
+      {
+       "text": "Snort rules and network variables",
+       "why": "Snort rules belong to intrusion policies; FlexConfig objects hold Velocity scripting, ASA commands, and variables."
+      },
+      {
+       "text": "Apache Velocity scripting commands, Cisco ASA commands, and variables",
+       "why": "Correct. A FlexConfig object combines Apache Velocity scripting, ASA commands, and variables, acting as a program that generates ASA commands."
+      },
+      {
+       "text": "IOS route maps and PBR access lists",
+       "why": "Route maps and PBR ACLs are configured on routers for policy-based routing, not stored in FlexConfig objects."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An engineer enables web proxy IP spoofing and redirects traffic with a WCCP router. What WCCP configuration is needed to track the HTTP transactions?",
+     "choices": [
+      {
+       "text": "Two WCCP services, one based on source ports and one based on destination ports",
+       "why": "Correct. With IP spoofing and a WCCP router, you need two services, one on source ports and one on destination ports, so return traffic also reaches the appliance."
+      },
+      {
+       "text": "Only the single predefined web-cache service",
+       "why": "The web-cache service alone matches one direction; spoofing requires a second service so replies are also redirected."
+      },
+      {
+       "text": "A PAC file that points replies back to the appliance",
+       "why": "PAC files configure browsers for explicit proxying; they cannot steer server replies back through the appliance."
+      },
+      {
+       "text": "No WCCP at all, because spoofing works only with PBR",
+       "why": "IP spoofing is supported in both transparent and explicit modes, and the chapter describes how to make it work with a WCCP router."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Where on Cisco Secure Web Appliance is OCSP certificate status checking configured?",
+     "choices": [
+      {
+       "text": "Network > External DLP Servers",
+       "why": "That page defines external DLP servers, with protocol, service address, URL, and load balancing; it does not configure OCSP."
+      },
+      {
+       "text": "Mail Policies > Mail Flow Policy",
+       "why": "Mail flow policies are on Cisco Secure Email and are where SPF and DKIM verification are configured."
+      },
+      {
+       "text": "Network > Transparent Redirection",
+       "why": "This page sets WCCP v2 router or Layer 4 switch redirection, not certificate status checking."
+      },
+      {
+       "text": "Security Services > HTTPS Proxy",
+       "why": "Correct. The HTTPS Proxy page turns on decryption and sets decryption options, invalid certificate handling, and OCSP."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which Cisco Secure Web Appliance policy type blocks malware from being uploaded?",
+     "choices": [
+      {
+       "text": "Data security policy",
+       "why": "A data security policy manages which data may be uploaded to the web; malware uploads are handled by the outbound malware policy."
+      },
+      {
+       "text": "Outbound malware policy",
+       "why": "Correct. The outbound malware policy blocks malware uploads."
+      },
+      {
+       "text": "Decryption policy",
+       "why": "A decryption policy controls HTTPS decryption once the HTTPS proxy is on; it does not block uploads by itself."
+      },
+      {
+       "text": "Identification policy",
+       "why": "An identification policy identifies the user behind a request; it does not inspect uploads for malware."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which web appliance authentication method is mainly for Windows clients and is described as the more secure option?",
+     "choices": [
+      {
+       "text": "Basic authentication",
+       "why": "Basic authentication is done through a browser prompt, is not transparent, and is not the more secure option."
+      },
+      {
+       "text": "Kerberos",
+       "why": "Correct. Kerberos is mainly for Windows clients and is the more secure authentication option."
+      },
+      {
+       "text": "NTLMSSP",
+       "why": "NTLMSSP transparently authenticates with AD credentials and needs a compatible browser, but Kerberos is the more secure choice."
+      },
+      {
+       "text": "LDAP simple bind",
+       "why": "An LDAP realm supports only basic authentication, which is not the more secure option."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A user reads and writes email in a mail client application on a laptop. In email architecture terms, what is that application?",
+     "choices": [
+      {
+       "text": "A mail delivery agent (MDA)",
+       "why": "An MDA is the part of an MTA that does final delivery to the mailbox, not the user's client."
+      },
+      {
+       "text": "A mail submission agent (MSA)",
+       "why": "An MSA is part of an MTA that accepts new messages from a client; it runs on the server side."
+      },
+      {
+       "text": "A mail transfer agent (MTA)",
+       "why": "An MTA is the mail server that transfers email from sender to recipient, not the user's reader."
+      },
+      {
+       "text": "A mail user agent (MUA)",
+       "why": "Correct. The MUA is the email client or reader on a computer or mobile device."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "In the ASA and switch WCCP redirect ACLs, which port range is matched along with the ftp keyword?",
+     "choices": [
+      {
+       "text": "TCP 1024 to 65535",
+       "why": "That is the general ephemeral port range and is not what the example FTP ACLs match."
+      },
+      {
+       "text": "TCP 3128 to 3130",
+       "why": "3128 is a default explicit proxy listening port on the web appliance, not the FTP range in the redirect ACLs."
+      },
+      {
+       "text": "TCP 11000 to 11006",
+       "why": "Correct. The FTP-TRAFFIC ACLs match the ftp keyword and the range 11000 to 11006 for both source subnets."
+      },
+      {
+       "text": "UDP 2048 to 2050",
+       "why": "UDP 2048 is used by WCCP itself for router and appliance communication, not matched as an FTP range."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "A message arrives at Cisco Secure Email from a sender that SenderBase rates as highly reputable. What does the appliance do?",
+     "choices": [
+      {
+       "text": "Delivers it without content scanning",
+       "why": "Correct. Mail from known or highly reputable senders is delivered with no content scanning."
+      },
+      {
+       "text": "Places it in the outbreak filter DELAY quarantine",
+       "why": "The DELAY quarantine is used by outbreak filters for suspect messages during outbreaks, not for highly reputable senders."
+      },
+      {
+       "text": "Runs full antispam and antivirus scanning",
+       "why": "Antispam and antivirus scanning is applied to mail from unknown or less reputable senders."
+      },
+      {
+       "text": "Rejects it unless it carries a DKIM signature",
+       "why": "The chapter does not tie reputation-based delivery to DKIM; reputable senders are simply delivered without scanning."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "For zero-day outbreaks, how much lead time do Cisco Secure Email outbreak filters give over antivirus engines?",
+     "choices": [
+      {
+       "text": "More than 30 minutes",
+       "why": "30 minutes is how often managed Cisco Secure Email appliances check for file analysis results, not the outbreak filter lead time."
+      },
+      {
+       "text": "More than three to five minutes",
+       "why": "Three to five minutes is the file reputation update interval, not the outbreak filter advantage."
+      },
+      {
+       "text": "More than nine hours",
+       "why": "Correct. Outbreak filters give more than nine hours of lead time over antivirus engines for zero-day outbreaks."
+      },
+      {
+       "text": "More than 24 hours",
+       "why": "This overstates the figure; the chapter gives more than nine hours."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which RFC defines DKIM signatures?",
+     "choices": [
+      {
+       "text": "RFC 4408",
+       "why": "RFC 4408 is the SPF specification cited by the book, not DKIM signatures."
+      },
+      {
+       "text": "RFC 6376",
+       "why": "Correct. RFC 6376 is the DKIM signatures standard."
+      },
+      {
+       "text": "RFC 5617",
+       "why": "RFC 5617 defines Author Domain Signing Practices (ADSP), a DKIM-related specification later declared historic."
+      },
+      {
+       "text": "RFC 7208",
+       "why": "RFC 7208 replaced RFC 4408 for SPF in 2014; it does not define DKIM."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An SMA administrator needs to review more than 1000 File Analysis results. What should the administrator do?",
+     "choices": [
+      {
+       "text": "Export the results to a .csv file",
+       "why": "Correct. To see more than 1000 File Analysis results, export them to .csv."
+      },
+      {
+       "text": "Switch to the File Retrospection report",
+       "why": "File Retrospection shows files whose verdict changed after arrival; it is not a way to see more File Analysis rows."
+      },
+      {
+       "text": "Drill down on a SHA value",
+       "why": "Drilling down on a SHA gives detailed results for one file, not access to more than 1000 results."
+      },
+      {
+       "text": "Query Cisco Talos directly for the list",
+       "why": "Talos provides threat intelligence, not the SMA's File Analysis report; the report limit is handled with a .csv export."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "If both the P1 and P2 data interfaces on Cisco Secure Web Appliance are enabled, what is required?",
+     "choices": [
+      {
+       "text": "They must be in the same subnet for load balancing",
+       "why": "This is the opposite of the rule; P1 and P2 must be in different subnets."
+      },
+      {
+       "text": "They must have no IP addresses",
+       "why": "Having no IP address applies to T1 and T2, the promiscuous monitoring ports, not the proxy data interfaces."
+      },
+      {
+       "text": "One of them must be dedicated to management",
+       "why": "Management is usually on M1; P1 and P2 are data interfaces for proxy traffic."
+      },
+      {
+       "text": "They must be in different subnets",
+       "why": "Correct. If both P1 and P2 are on, they must be in different subnets, and static routes send traffic out the right interface."
+      }
+     ],
+     "answer": 3
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 4",
+   "questions": [
+    {
+     "q": "Why is the operating system of the Cisco content security appliances called AsyncOS?",
+     "choices": [
+      {
+       "text": "It is optimized for asynchronous handling of email and web transactions",
+       "why": "Correct. AsyncOS, the Async Operating System, is named for its optimized asynchronous handling of email and web transactions."
+      },
+      {
+       "text": "It asynchronously synchronizes configuration between appliances",
+       "why": "Centralized configuration across appliances is the SMA's role; it is not the reason for the operating system's name."
+      },
+      {
+       "text": "It is managed through an asynchronous serial console only",
+       "why": "AsyncOS is managed through a web admin portal or a fully scriptable CLI; the name does not refer to a serial console."
+      },
+      {
+       "text": "It runs Asynchronous Transfer Mode (ATM) networking",
+       "why": "ATM is a legacy WAN technology unrelated to AsyncOS; the name refers to asynchronous transaction handling."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "File sandboxing on Cisco Secure Web Appliance runs unknown files through which Cisco technologies?",
+     "choices": [
+      {
+       "text": "Cisco Cloudlock and AVC",
+       "why": "Cloudlock and AVC together provide cloud access security; they do not run files in a sandbox."
+      },
+      {
+       "text": "Talos file reputation lookups alone",
+       "why": "File reputation is a Talos intelligence lookup updated every three to five minutes; it does not execute the file to watch its behavior."
+      },
+      {
+       "text": "Cisco Secure Endpoint and Cisco Secure Malware Analytics, using machine learning to set the threat level",
+       "why": "Correct. Sandboxing runs unknown files through Secure Endpoint and Secure Malware Analytics, which use machine learning to determine the threat level."
+      },
+      {
+       "text": "ICAP connections to an external DLP server",
+       "why": "ICAP forwards requests to external DLP servers for content inspection, not to a malware sandbox."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which values are examples of file dispositions on Cisco Secure Web Appliance?",
+     "choices": [
+      {
+       "text": "Low, Medium, High, Critical",
+       "why": "These are DLP incident severities, not file dispositions."
+      },
+      {
+       "text": "Unknown, Clean, Malware",
+       "why": "Correct. A file disposition is the verdict on a file, such as Unknown, Clean, or Malware."
+      },
+      {
+       "text": "Block, Monitor, Warn",
+       "why": "These are actions that can be applied to URL categories, not verdicts on files."
+      },
+      {
+       "text": "Public, Private",
+       "why": "These are the two types of listeners on Cisco Secure Email, not file verdicts."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "A company with 20,000 laptops is evaluating explicit forward proxy mode. What is the main operational drawback the chapter notes?",
+     "choices": [
+      {
+       "text": "WCCP must be configured on every router",
+       "why": "WCCP is used for transparent mode; explicit mode needs no configuration on other network devices."
+      },
+      {
+       "text": "The appliance cannot block malicious websites in this mode",
+       "why": "Explicit mode can block malicious sites; Figure 10-1 shows the appliance blocking malicious.h4cker.org."
+      },
+      {
+       "text": "Every client must perform its own DNS lookup first",
+       "why": "In explicit mode the client skips the DNS lookup and the appliance resolves the name."
+      },
+      {
+       "text": "Every client must be configured, which can be a problem in large environments",
+       "why": "Correct. Explicit mode needs no network device changes but requires configuring every client, which is hard at scale."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Which statement best describes WCCP?",
+     "choices": [
+      {
+       "text": "A protocol that advertises PAC file settings to browsers",
+       "why": "That is WPAD, which uses the auto-detect proxy setting in browsers to find the PAC file."
+      },
+      {
+       "text": "A lightweight HTTP-like protocol for sending requests to DLP servers",
+       "why": "That is ICAP, used by the web appliance to reach external DLP servers or content scanners."
+      },
+      {
+       "text": "A Microsoft tool that pushes and locks browser proxy settings",
+       "why": "That is a Group Policy Object (GPO)."
+      },
+      {
+       "text": "A Cisco-developed content-routing protocol that redirects traffic in real time with built-in load balancing and failsafe",
+       "why": "Correct. WCCP redirects traffic flows in real time and includes load balancing, scaling, fault tolerance, and service-assurance mechanisms."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A router uses policy-based routing to send web traffic to Cisco Secure Web Appliance. What must be configured on the appliance?",
+     "choices": [
+      {
+       "text": "A separate WCCP service entry for each service ID",
+       "why": "Per-service entries are needed when using a WCCP v2 router, not with PBR."
+      },
+      {
+       "text": "Select Layer 4 Switch under Network > Transparent Redirection; nothing else is needed",
+       "why": "Correct. For PBR or Layer 4 switch redirection, you choose Layer 4 Switch under Network > Transparent Redirection and need nothing else on the appliance."
+      },
+      {
+       "text": "A SOCKS policy for the redirected clients",
+       "why": "A SOCKS policy is required for the SOCKS proxy, where clients negotiate connections with SOCKS messages; it is unrelated to PBR."
+      },
+      {
+       "text": "A PAC file published for the redirected clients",
+       "why": "PAC files configure browsers for explicit mode; PBR redirection is transparent to clients."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "In the router PBR example, which command sends the matched web traffic to the web appliance?",
+     "choices": [
+      {
+       "text": "match ip address 101",
+       "why": "This line matches the web traffic defined in access list 101; it does not choose where the traffic goes."
+      },
+      {
+       "text": "ip policy route-map WebRedirect",
+       "why": "This applies the route map to interface vlan88 where web traffic comes in; the forwarding target is set inside the route map."
+      },
+      {
+       "text": "set ip next-hop",
+       "why": "Correct. set ip next-hop in route map WebRedirect sends the matched traffic to the web appliance's address."
+      },
+      {
+       "text": "route-map WebRedirect permit 10",
+       "why": "This creates the route map entry; the match and set statements beneath it do the matching and forwarding."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "In the switch WCCP example line permit tcp 10.1.1.0 0.0.0.255 any eq www, what does 0.0.0.255 represent?",
+     "choices": [
+      {
+       "text": "A wildcard mask that matches the 10.1.1.0/24 subnet",
+       "why": "Correct. Switch IOS ACLs use wildcard masks, so 0.0.0.255 matches 10.1.1.0/24, while the ASA example uses the subnet mask 255.255.255.0."
+      },
+      {
+       "text": "A subnet mask for a /8 network",
+       "why": "0.0.0.255 is not a subnet mask; as a wildcard it matches a /24, and a /8 subnet mask would be 255.0.0.0."
+      },
+      {
+       "text": "The WCCP service ID used for HTTP",
+       "why": "HTTP uses the predefined web-cache service in the examples; service IDs are not written into ACL lines."
+      },
+      {
+       "text": "The address of the web appliance",
+       "why": "The appliance address is defined separately, in the standard ACL named WSA referenced by group-list WSA."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "What is the purpose of an identification policy (identification profile) on Cisco Secure Web Appliance?",
+     "choices": [
+      {
+       "text": "To control HTTPS decryption",
+       "why": "HTTPS decryption is controlled by a decryption policy once the HTTPS proxy is configured."
+      },
+      {
+       "text": "To identify the user behind a web request instead of only the IP address",
+       "why": "Correct. An identification policy identifies who is making the request, so policies can apply by user rather than just by address."
+      },
+      {
+       "text": "To manage data uploads to the web",
+       "why": "Data uploads are managed by a data security policy."
+      },
+      {
+       "text": "To define the AD or LDAP authentication server",
+       "why": "An AD or LDAP authentication server definition is called a realm."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which actions can be applied to a custom URL category on Cisco Secure Web Appliance?",
+     "choices": [
+      {
+       "text": "Accept, reject, and relay",
+       "why": "Accept and reject are RAT decisions on Cisco Secure Email for recipient addresses; they are not URL category actions."
+      },
+      {
+       "text": "Deliver, drop, and quarantine",
+       "why": "These describe handling of email messages, not the actions for web URL categories."
+      },
+      {
+       "text": "Permit, deny, and log",
+       "why": "These are ACL-style actions; URL category actions use different terms such as block, allow, and monitor."
+      },
+      {
+       "text": "Block, redirect, allow, monitor, warn, or quota-based and time-based filters",
+       "why": "Correct. Custom URL categories can be set to block, redirect, allow, monitor, or warn, or use quota-based or time-based filters."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "A web appliance realm points to an LDAP server rather than Active Directory. Which authentication methods are available?",
+     "choices": [
+      {
+       "text": "Basic authentication only",
+       "why": "Correct. LDAP supports only basic authentication, while AD supports NTLM, Kerberos, and basic."
+      },
+      {
+       "text": "NTLMSSP and Kerberos only",
+       "why": "NTLMSSP and Kerberos require an Active Directory realm; they are not available with LDAP."
+      },
+      {
+       "text": "Kerberos, NTLM, and basic",
+       "why": "All three are supported with an Active Directory realm, not with an LDAP realm."
+      },
+      {
+       "text": "Transparent identification only",
+       "why": "Transparent identification relies on another trusted source's authentication state; LDAP itself supports only basic authentication."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A user clicks Send in a mail client. Which component accepts the new message from the client using SMTP?",
+     "choices": [
+      {
+       "text": "Mail delivery agent (MDA)",
+       "why": "The MDA performs final delivery into the recipient's mailbox, at the end of the path, not submission."
+      },
+      {
+       "text": "Mail user agent (MUA)",
+       "why": "The MUA is the client that the user clicked Send in; it hands the message off rather than accepting it."
+      },
+      {
+       "text": "Mail submission agent (MSA)",
+       "why": "Correct. The MSA is the part of an MTA that accepts new messages from an MUA using SMTP."
+      },
+      {
+       "text": "Mail Exchanger (MX) record",
+       "why": "An MX record is a DNS record naming the mail server that accepts mail for a domain; it does not accept messages itself."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "The domain h4cker.org has MX records with preference values 5, 10, 20, 30, and 40, all with a TTL of 3600. Which server do sending mail servers try first?",
+     "choices": [
+      {
+       "text": "The server with preference 40",
+       "why": "The highest preference value has the lowest priority, so preference 40 is tried last."
+      },
+      {
+       "text": "A random server, since preference does not set order",
+       "why": "The preference value does set priority among multiple MX records; the choice is not random."
+      },
+      {
+       "text": "The server with preference 5",
+       "why": "Correct. The preference value sets priority, and the lowest value is tried first."
+      },
+      {
+       "text": "The server with the TTL of 3600",
+       "why": "All five records share the 3600 TTL, which only controls how long the record is cached, not delivery order."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "What can Cisco Secure Email outbreak filters do with messages they are holding?",
+     "choices": [
+      {
+       "text": "Release them back through antivirus and AMP for additional scans",
+       "why": "Correct. Outbreak filters can hold messages or release them back through antivirus and AMP for more scanning."
+      },
+      {
+       "text": "Forward them to an external DLP server with ICAP",
+       "why": "ICAP to external DLP servers is a web appliance feature; outbreak filters work with antivirus and AMP."
+      },
+      {
+       "text": "Add the senders to the recipient access table",
+       "why": "The RAT lists recipients a public listener accepts; outbreak filters do not modify it."
+      },
+      {
+       "text": "Sign them with DKIM before delivery",
+       "why": "DKIM signing is applied to outgoing mail by the gateway; it is not an outbreak filter action."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "On Cisco Secure Email, where are SPF and DKIM verification configured?",
+     "choices": [
+      {
+       "text": "In the recipient access table",
+       "why": "The RAT defines which recipients a public listener accepts; it does not hold sender verification settings."
+      },
+      {
+       "text": "Mail Policies > Mail Flow Policy",
+       "why": "Correct. SPF and DKIM verification are configured in the mail flow policy."
+      },
+      {
+       "text": "The Outgoing Mail Policies table",
+       "why": "The Outgoing Mail Policies table is where DLP email policies are enabled."
+      },
+      {
+       "text": "Security Services > HTTPS Proxy",
+       "why": "This is a web appliance page for HTTPS decryption and OCSP, not an email setting."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which identities does Cisco Secure Email verify with SPF?",
+     "choices": [
+      {
+       "text": "The DKIM signature in the message header",
+       "why": "The signature in the header is checked by DKIM verification, not SPF."
+      },
+      {
+       "text": "The recipient address in each RCPT TO",
+       "why": "Which recipients are accepted is decided by the recipient access table, not by SPF."
+      },
+      {
+       "text": "The Subject line of the message",
+       "why": "SPF does not check message content; the subject is one of the parameters the SMA aggregates for reporting."
+      },
+      {
+       "text": "The HELO/EHLO and MAIL FROM identity (FQDN)",
+       "why": "Correct. Cisco Secure Email uses SPF to verify the HELO/EHLO and MAIL FROM identity against the domain's DNS records."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "What does RFC 5617 define?",
+     "choices": [
+      {
+       "text": "Sender Policy Framework (SPF)",
+       "why": "The book cites RFC 4408 for SPF, later replaced by RFC 7208."
+      },
+      {
+       "text": "Author Domain Signing Practices (ADSP)",
+       "why": "Correct. RFC 5617 defines ADSP, a DKIM-related specification that was later declared historic."
+      },
+      {
+       "text": "DKIM signatures",
+       "why": "DKIM signatures are defined in RFC 6376."
+      },
+      {
+       "text": "DKIM development, deployment, and operation",
+       "why": "That guidance is RFC 5863."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Cisco Secure Web Appliance report shows blocked transactions for top users and top users by bandwidth used?",
+     "choices": [
+      {
+       "text": "Web Sites report",
+       "why": "The Web Sites report shows top domains requested, top domains blocked, and similar domain data."
+      },
+      {
+       "text": "URL Categories report",
+       "why": "The URL Categories report shows top categories by total transactions and blocked or warned transactions by category."
+      },
+      {
+       "text": "Users report",
+       "why": "Correct. The Users report shows blocked transactions for top users and top users by bandwidth."
+      },
+      {
+       "text": "Malware Threats report",
+       "why": "The Malware Threats report shows top malware threat files, detection trends, and malware by category."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which statement describes the M1 interface on Cisco Secure Web Appliance?",
+     "choices": [
+      {
+       "text": "It is a promiscuous Layer 4 monitoring port with no IP address",
+       "why": "That describes T1 and T2, which listen on all TCP ports for Layer 4 traffic monitoring."
+      },
+      {
+       "text": "It only sends proxied traffic to the Internet",
+       "why": "Sending traffic to the Internet is P1's role in the M1 plus P1 setup, where M1 takes the proxy requests."
+      },
+      {
+       "text": "It receives only incoming Internet traffic in simplex mode",
+       "why": "Simplex monitoring is how T1 and T2 work together, with one taking outgoing and the other incoming traffic."
+      },
+      {
+       "text": "It is usually for management but can also carry data in a one-armed configuration",
+       "why": "Correct. M1 is usually the management interface, and it can also carry proxy data, which is called a one-armed configuration."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Besides DHCP option 252, how else can an organization provide WPAD settings to clients?",
+     "choices": [
+      {
+       "text": "Create a DNS A host record such as wpad.secretcorp.org",
+       "why": "Correct. WPAD can be provisioned through DNS by creating an A host record named wpad in the domain."
+      },
+      {
+       "text": "Create an MX record named wpad",
+       "why": "MX records name the mail servers for a domain; browsers do not use them to find proxy settings."
+      },
+      {
+       "text": "Publish the PAC location in an SPF TXT record",
+       "why": "SPF TXT records list a domain's authorized mail gateways; they are not used for proxy discovery."
+      },
+      {
+       "text": "Add the clients to a WCCP service group",
+       "why": "WCCP service groups are for redirection devices in transparent mode; clients do not join them to get proxy settings."
+      }
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "title": "Practice Test 5",
+   "questions": [
+    {
+     "q": "For regulatory compliance, a company must redirect outbound web traffic to a third-party system for deep content inspection and stop users storing files in services like Dropbox and Google Drive. Which web appliance feature addresses this?",
+     "choices": [
+      {
+       "text": "File reputation",
+       "why": "File reputation judges whether a file is malicious using Talos intelligence; it does not inspect outbound content for sensitive data."
+      },
+      {
+       "text": "Data loss prevention (DLP)",
+       "why": "Correct. DLP redirects outbound traffic to a third-party DLP system for deep content inspection and can stop users storing files in cloud services."
+      },
+      {
+       "text": "Cognitive threat analytics",
+       "why": "Cognitive threat analytics detects anomalies in HTTP and HTTPS traffic to find threats; it does not perform data loss inspection."
+      },
+      {
+       "text": "Web Reputation filters",
+       "why": "Web reputation scores destination URLs from minus 10 to plus 10 for risk; it does not inspect uploaded content."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "What is a retrospective disposition?",
+     "choices": [
+      {
+       "text": "A file disposition that has changed after the fact",
+       "why": "Correct. A retrospective disposition is a file verdict that changed after the file was first seen, as more information became available."
+      },
+      {
+       "text": "The first verdict a sandbox gives a file",
+       "why": "The first result is the file's disposition or an interim verdict; a retrospective disposition is a later change to it."
+      },
+      {
+       "text": "A reputation score from minus 10 to plus 10",
+       "why": "Scores from minus 10 to plus 10 are web reputation and SenderBase scores, not file dispositions."
+      },
+      {
+       "text": "A DLP incident severity level",
+       "why": "DLP severities are Low, Medium, High, and Critical; they are unrelated to file dispositions."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Network printers and IP phones need web access but cannot display a login prompt. Which identification approach helps with these devices?",
+     "choices": [
+      {
+       "text": "Basic authentication",
+       "why": "Basic authentication prompts the user through the browser, which these devices cannot display."
+      },
+      {
+       "text": "Persistent cookie surrogate",
+       "why": "A surrogate ties transactions to a user after a successful login; the device would still need to log in first."
+      },
+      {
+       "text": "A custom URL category",
+       "why": "A custom URL category is used for URL filtering decisions, not for identifying who is making the request."
+      },
+      {
+       "text": "Transparent identification",
+       "why": "Correct. Transparent identification authenticates without a prompt using another trusted source's authentication state, which helps devices such as printers and IP phones."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "On Cisco Secure Web Appliance, what is a realm?",
+     "choices": [
+      {
+       "text": "A WCCP service group of redirecting devices",
+       "why": "A service group is a set of devices providing or using the same WCCP redirection service, not an authentication definition."
+      },
+      {
+       "text": "A set of public listeners on one interface",
+       "why": "Listeners are a Cisco Secure Email concept for handling SMTP connections, unrelated to web authentication realms."
+      },
+      {
+       "text": "An AD or LDAP authentication server definition",
+       "why": "Correct. A realm defines the Active Directory or LDAP server the appliance uses to authenticate users."
+      },
+      {
+       "text": "A group of custom URL categories",
+       "why": "Custom URL categories are administrator-defined categories for URL filtering, not authentication server definitions."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Management wants social media blocked during working hours for most staff but allowed during lunch for a specific user group. Which web appliance policy type implements this?",
+     "choices": [
+      {
+       "text": "Access policy",
+       "why": "Correct. An access policy maps identification profiles and users to rules, including time-based restrictions."
+      },
+      {
+       "text": "Decryption policy",
+       "why": "A decryption policy controls HTTPS decryption, not time-based access rules for groups of users."
+      },
+      {
+       "text": "Data security policy",
+       "why": "A data security policy manages data uploads to the web, not when users may browse certain sites."
+      },
+      {
+       "text": "Outbound malware policy",
+       "why": "An outbound malware policy blocks malware uploads; it does not schedule access to site categories."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "An administrator creates the HTTPS proxy root certificate on the web appliance itself. What must then happen?",
+     "choices": [
+      {
+       "text": "The certificate must be submitted to Cisco Talos",
+       "why": "Talos provides threat intelligence; it does not need the appliance's signing certificate."
+      },
+      {
+       "text": "The certificate must be published in a DNS TXT record",
+       "why": "DNS TXT records carry SPF data and DKIM public keys, not the proxy's signing certificate."
+      },
+      {
+       "text": "The certificate must be installed on all clients",
+       "why": "Correct. A root certificate created on the appliance must be installed on all clients so they trust the traffic the appliance signs."
+      },
+      {
+       "text": "Nothing, because OCSP distributes it automatically",
+       "why": "OCSP checks certificate status; it does not install the appliance's root certificate on clients."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "How does Cisco Secure Web Appliance evaluate its policies, and what does the chapter recommend for performance?",
+     "choices": [
+      {
+       "text": "Bottom up, so the most used policies belong at the bottom",
+       "why": "Policies are evaluated top down, so the most used ones should be placed at the top, not the bottom."
+      },
+      {
+       "text": "By most specific match regardless of order",
+       "why": "The appliance evaluates policies in order from the top, like ACLs, not by specificity."
+      },
+      {
+       "text": "In a random order spread across policies for load balancing",
+       "why": "Policy evaluation is deterministic, top down; load balancing is a WCCP feature, not a policy evaluation method."
+      },
+      {
+       "text": "Top down like ACLs, so the most used policies belong at the top",
+       "why": "Correct. Policies are evaluated top down like ACLs, and placing the most used policies at the top improves performance."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "An engineer sets up transparent redirection but has not enabled the HTTPS proxy. By default, which traffic does the web appliance redirect and decode?",
+     "choices": [
+      {
+       "text": "All TCP ports",
+       "why": "Listening on all TCP ports is what the T1 and T2 Layer 4 monitoring ports do, not the default proxy behavior."
+      },
+      {
+       "text": "Only port 80 HTTP traffic",
+       "why": "Correct. By default the web appliance only redirects and decodes port 80 HTTP traffic."
+      },
+      {
+       "text": "Only port 443 HTTPS traffic",
+       "why": "HTTPS on 443 is decrypted only when the HTTPS proxy is enabled."
+      },
+      {
+       "text": "Only port 21 FTP traffic",
+       "why": "FTP matching is an optional step in the WCCP examples so the appliance can inspect it; it is not the default."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "On which hypervisors can Cisco Secure Web Appliance run as a virtual machine?",
+     "choices": [
+      {
+       "text": "Oracle VirtualBox, Parallels, and Xen",
+       "why": "These are not the hypervisors the chapter lists for the virtual web appliance."
+      },
+      {
+       "text": "VMware Workstation, Docker, and Podman",
+       "why": "Docker and Podman are container engines, not hypervisors, and these are not the listed platforms."
+      },
+      {
+       "text": "VMware ESX, KVM, and Microsoft Hyper-V",
+       "why": "Correct. The virtual web appliance runs on VMware ESX, KVM, and Microsoft Hyper-V."
+      },
+      {
+       "text": "VMware ESX only",
+       "why": "ESX is one supported hypervisor, but KVM and Microsoft Hyper-V are listed as well."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Where is Cisco Secure Web Appliance usually placed in the network, and why?",
+     "choices": [
+      {
+       "text": "Inside the Internet edge firewall or in a DMZ, to centralize proxying and reduce the number of appliances",
+       "why": "Correct. The appliance usually sits inside the edge firewall or in a DMZ so proxying is centralized and fewer appliances are needed."
+      },
+      {
+       "text": "Outside the Internet edge firewall, directly on the Internet",
+       "why": "The chapter places it inside the edge firewall or in a DMZ, not exposed outside the firewall."
+      },
+      {
+       "text": "On every access switch, one appliance per switch",
+       "why": "That would multiply the number of appliances; central placement exists to reduce them."
+      },
+      {
+       "text": "Only in the cloud, since no physical model exists",
+       "why": "The web appliance is available as a physical appliance or a virtual machine."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which statement about deploying Cisco Secure Email as the organization's MTA is correct?",
+     "choices": [
+      {
+       "text": "It sits behind the internal mail server and receives mail after it",
+       "why": "Cisco Secure Email must be the first hop in the email infrastructure, in front of the internal mail server."
+      },
+      {
+       "text": "The public MX records point to the internal mail server's private IP",
+       "why": "The public MX records point to Cisco Secure Email's public IP, not to an internal server."
+      },
+      {
+       "text": "It needs no Internet reachability because it pulls mail with POP",
+       "why": "It must be reachable from the Internet, since sending servers open SMTP connections to it."
+      },
+      {
+       "text": "It is the destination of the public MX records, reachable from the Internet, and the first hop",
+       "why": "Correct. Cisco Secure Email acts as the MTA, the MX records point to its public IP, and it must be reachable and be the first hop."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Someone sends a message to omar@secretcorp.org, which is protected by Cisco Secure Email. Which sequence matches the delivery flow?",
+     "choices": [
+      {
+       "text": "The sending server opens SMTP to the gateway, then looks up the MX record, then the gateway inspects the mail",
+       "why": "The MX lookup must come first; the sending server needs it to know which host to open an SMTP connection to."
+      },
+      {
+       "text": "The sending server looks up the MX and its IP, opens SMTP to Cisco Secure Email, which inspects and passes the mail to the internal server, and the recipient retrieves it with IMAP or POP",
+       "why": "Correct. This matches Figure 10-12: MX and DNS lookup, SMTP connection, inspection and delivery to the internal server, then retrieval with IMAP or POP."
+      },
+      {
+       "text": "Cisco Secure Email looks up the sender's MX record, pulls the mail with POP, and delivers it with IMAP",
+       "why": "The sending server pushes mail to the gateway with SMTP; the gateway does not pull mail with POP."
+      },
+      {
+       "text": "The recipient's client retrieves the mail with IMAP from Cisco Secure Email before it reaches the internal server",
+       "why": "The recipient's client gets the mail from the internal mail server, after the gateway has inspected and relayed it."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "The DLP Incident Summary on the SMA has which two sections?",
+     "choices": [
+      {
+       "text": "DLP Incident Trend and DLP Incident Details",
+       "why": "Correct. The DLP Incident Trend graphs top incidents by severity and policy matches, and DLP Incident Details gives the listing."
+      },
+      {
+       "text": "Incoming files and outgoing files",
+       "why": "Incoming and outgoing file counts are shown in the File Analysis view, not the DLP Incident Summary."
+      },
+      {
+       "text": "Top domains requested and top domains blocked",
+       "why": "These are shown in the Web Sites report for the web appliance."
+      },
+      {
+       "text": "Clean and malicious",
+       "why": "These are AMP summary dispositions for incoming files in email, not DLP report sections."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "A file sent for analysis was extracted from a .zip attachment. Which SHA value appears in the File Analysis report?",
+     "choices": [
+      {
+       "text": "Only the SHA of the .zip archive",
+       "why": "The report does not show the archive's SHA for an extracted file; it shows the extracted file's SHA."
+      },
+      {
+       "text": "Both the archive SHA and the extracted file SHA",
+       "why": "The report lists only one value in this case, the SHA of the extracted file."
+      },
+      {
+       "text": "No SHA, because archived files are not recorded",
+       "why": "Extracted files are recorded; the report includes the extracted file's SHA."
+      },
+      {
+       "text": "Only the SHA of the extracted file",
+       "why": "Correct. For a file pulled from a compressed or archived file, only the extracted file's SHA is included in the report."
+      }
+     ],
+     "answer": 3
+    },
+    {
+     "q": "Where are DLP email policies enabled on Cisco Secure Email?",
+     "choices": [
+      {
+       "text": "Mail Policies > Mail Flow Policy",
+       "why": "The mail flow policy is where SPF and DKIM verification are configured, not where DLP policies are enabled."
+      },
+      {
+       "text": "The Outgoing Mail Policies table",
+       "why": "Correct. DLP email policies are enabled in the Outgoing Mail Policies table, so outgoing messages are scanned for data users may not send."
+      },
+      {
+       "text": "The recipient access table",
+       "why": "The RAT defines which recipients a public listener accepts and does not hold DLP settings."
+      },
+      {
+       "text": "Network > External DLP Servers",
+       "why": "This web appliance page defines ICAP-based external DLP servers for web traffic, not email DLP policies."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "An email administrator is considering rejecting all incoming mail from domains that have no SPF record. What trade-off does the chapter describe?",
+     "choices": [
+      {
+       "text": "It disables DKIM verification for all messages",
+       "why": "SPF and DKIM are separate checks; rejecting mail without SPF does not turn off DKIM verification."
+      },
+      {
+       "text": "It stops outbreak filters from working",
+       "why": "Outbreak filters are independent of SPF enforcement and remain on by default."
+      },
+      {
+       "text": "It blocks more spam but may drop legitimate mail from misconfigured senders",
+       "why": "Correct. Rejecting all mail without SPF stops more spam, but legitimate senders with misconfigured or missing records may be dropped."
+      },
+      {
+       "text": "It has no effect because major providers do not use SPF",
+       "why": "The opposite is true; many organizations use SPF because major providers do not accept mail without SPF records."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Which of the following is listed as content a Cisco Secure Email mail policy can target?",
+     "choices": [
+      {
+       "text": "WCCP-redirected HTTP traffic",
+       "why": "WCCP redirection carries web traffic to the web appliance; it is not email content for a mail policy."
+      },
+      {
+       "text": "Graymail, such as newsletters the user once agreed to receive",
+       "why": "Correct. Graymail is among the content types a mail policy can target, alongside marketing, spam, malware, phishing, confidential data, and PII."
+      },
+      {
+       "text": "SOCKS proxy sessions",
+       "why": "SOCKS sessions are handled by the web appliance's SOCKS proxy, not by email mail policies."
+      },
+      {
+       "text": "Micro-applications such as Facebook games",
+       "why": "Micro-applications inside websites are controlled by AVC on the web appliance, not by mail policies."
+      }
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which Cisco Secure Web Appliance report shows top categories by total transactions along with blocked and warned transactions by category?",
+     "choices": [
+      {
+       "text": "URL Categories report",
+       "why": "Correct. The URL Categories report shows top categories by total transactions and blocked and warned transactions by category."
+      },
+      {
+       "text": "Users report",
+       "why": "The Users report shows blocked transactions for top users and top users by bandwidth."
+      },
+      {
+       "text": "Malware Threats report",
+       "why": "The Malware Threats report shows top malware threat files, detection trends, files by type, and malware by category."
+      },
+      {
+       "text": "Web Sites report",
+       "why": "The Web Sites report shows top domains requested and top domains blocked, not URL category totals."
+      }
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Which GUI path on Cisco Secure Web Appliance defines an external DLP server, including its protocol, service address, service URL, and load-balancing method?",
+     "choices": [
+      {
+       "text": "Security Services > HTTPS Proxy",
+       "why": "This page turns on SSL decryption and sets decryption options, invalid certificate handling, and OCSP."
+      },
+      {
+       "text": "Web Security Manager > Access Policies > Add Policy",
+       "why": "This path creates a new access policy with a name and identification profile, not a DLP server."
+      },
+      {
+       "text": "Network > External DLP Servers",
+       "why": "Correct. Network > External DLP Servers defines the server with ICAP or Secure ICAP, the service address and URL, and a load-balancing method."
+      },
+      {
+       "text": "Network > Transparent Redirection",
+       "why": "This page configures WCCP v2 router or Layer 4 switch redirection, not DLP servers."
+      }
+     ],
+     "answer": 2
+    },
+    {
+     "q": "An ASA redirects traffic to the web appliance using the web-cache service, service 10, and service 20. What must be configured on the appliance after choosing WCCP v2 Router under Network > Transparent Redirection?",
+     "choices": [
+      {
+       "text": "One service entry that covers all service IDs",
+       "why": "A single entry is not enough; each WCCP service ID needs its own entry on the appliance."
+      },
+      {
+       "text": "Select Layer 4 Switch as well",
+       "why": "Layer 4 Switch is the alternative used for PBR or Layer 4 switch redirection, not an addition to WCCP."
+      },
+      {
+       "text": "A FlexConfig policy on the appliance",
+       "why": "FlexConfig is an FMC feature for configuring Cisco Secure Firewall devices; it is not configured on the web appliance."
+      },
+      {
+       "text": "A separate service entry for each WCCP service ID",
+       "why": "Correct. After choosing WCCP v2 Router, you use Add Service for each WCCP service, because each service ID needs its own entry."
+      }
+     ],
+     "answer": 3
+    }
+   ]
+  }
+ ]
+}
