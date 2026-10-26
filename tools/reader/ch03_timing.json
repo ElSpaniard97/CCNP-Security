@@ -1,0 +1,1453 @@
+{
+"total": 1048.252,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 3: Software-Defined Networking Security and Network Programmability",
+"spoken": "Chapter 3: Software-Defined Networking Security and Network Programmability.",
+"start": 1.6,
+"end": 7.018
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. SDN and SDN Security",
+"spoken": "1. SDN and SDN Security.",
+"start": 9.418,
+"end": 12.021
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why SDN",
+"spoken": "Why SDN.",
+"start": 13.821,
+"end": 15.058
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Modern applications and the cloud add complexity, which leads to configuration errors, downtime, and security problems.",
+"spoken": "Modern applications and the cloud add complexity, which leads to configuration errors, downtime, and security problems.",
+"start": 15.508,
+"end": 23.914
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network infrastructure must keep pace with the business and help simplify the network.",
+"spoken": "Network infrastructure must keep pace with the business and help simplify the network.",
+"start": 24.364,
+"end": 30.038
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Traditional Networking",
+"spoken": "Traditional Networking.",
+"start": 31.488,
+"end": 33.088
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The control plane was always separate from the data plane, but there was no central brain.",
+"spoken": "The control plane was always separate from the data plane, but there was no central brain.",
+"start": 33.538,
+"end": 39.128
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each device had its own brain and did not share intelligent information with others.",
+"spoken": "Each device had its own brain and did not share intelligent information with others.",
+"start": 39.578,
+"end": 44.954
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Devices were managed separately: CLI, GUI, Tcl scripts, and ASDM for firewalls.",
+"spoken": "Devices were managed separately: CLI, gooey, Tcl scripts, and ASDM for firewalls.",
+"start": 45.404,
+"end": 51.569
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "What SDN Changed",
+"spoken": "What SDN Changed.",
+"start": 53.019,
+"end": 54.598
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Moved from a distributed \"semi-intelligent brain\" to a \"central and intelligent brain.\"",
+"spoken": "Moved from a distributed \"semi-intelligent brain\" to a \"central and intelligent brain.\"",
+"start": 55.048,
+"end": 61.213
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The biggest change was in the control and data planes of software-based switches and routers, including virtual switches in hypervisors. The Open vSwitch project started much of this.",
+"spoken": "The biggest change was in the control and data planes of software-based switches and routers, including virtual switches in hypervisors. The Open vSwitch project started much of this.",
+"start": 61.663,
+"end": 74.122
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SDN gives many benefits in the management plane for physical and virtual switches.",
+"spoken": "SDN gives many benefits in the management plane for physical and virtual switches.",
+"start": 74.572,
+"end": 80.268
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SDN is now widely adopted in data centers.",
+"spoken": "SDN is now widely adopted in data centers.",
+"start": 80.718,
+"end": 84.259
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SDN controller examples: OVS with OVSDB and OpenFlow, and Cisco APIC.",
+"spoken": "SDN controller examples: OVS with O.V.S. D.B. and OpenFlow, and Cisco A-pick.",
+"start": 84.709,
+"end": 92.069
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "APIC Functions",
+"spoken": "A-pick Functions.",
+"start": 93.519,
+"end": 94.948
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Observer: monitors the health, state, and performance of the ACI pod.",
+"spoken": "Observer: monitors the health, state, and performance of the A.C.I. pod.",
+"start": 95.398,
+"end": 100.22
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Boot director: booting and firmware updates for spine switches, leaf switches, and APICs.",
+"spoken": "Boot director: booting and firmware updates for spine switches, leaf switches, and A-picks.",
+"start": 100.67,
+"end": 106.643
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Appliance director: forms and controls the APIC appliance cluster.",
+"spoken": "Appliance director: forms and controls the A-pick appliance cluster.",
+"start": 107.093,
+"end": 111.786
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VMM (virtual machine manager): agent between the policy repository and a hypervisor. Talks to systems such as VMware vCenter.",
+"spoken": "VMM (virtual machine manager): agent between the policy repository and a hypervisor. Talks to systems such as VMware vCenter.",
+"start": 112.236,
+"end": 122.839
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Event manager: stores all events and faults from the APIC and fabric nodes.",
+"spoken": "Event manager: stores all events and faults from the A-pick and fabric nodes.",
+"start": 123.289,
+"end": 128.494
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Appliance element: inventory and state of the local APIC.",
+"spoken": "Appliance element: inventory and state of the local A-pick.",
+"start": 128.944,
+"end": 133.168
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACI Design Guide: https://www.cisco.com/c/en/us/solutions/collateral/data-center-virtualization/application-centric-infrastructure/white-paper-c11-737909.pdf.",
+"spoken": "A.C.I. Design Guide: the link in the notes",
+"start": 133.618,
+"end": 136.498
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "VXLAN and Overlays",
+"spoken": "V.X. lan and Overlays.",
+"start": 137.948,
+"end": 139.975
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Modern data centers need load balancing, scalability, elasticity, and faster convergence.",
+"spoken": "Modern data centers need load balancing, scalability, elasticity, and faster convergence.",
+"start": 140.425,
+"end": 146.74
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Overlay requirements:",
+"spoken": "Overlay requirements:",
+"start": 147.19,
+"end": 148.768
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Separate tenant flows in the underlay.",
+"spoken": "Separate tenant flows in the underlay.",
+"start": 149.218,
+"end": 151.352
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Switch within the same Layer 2 broadcast domain.",
+"spoken": "Switch within the same Layer 2 broadcast domain.",
+"start": 151.802,
+"end": 154.746
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Route between Layer 3 domains.",
+"spoken": "Route between Layer 3 domains.",
+"start": 155.196,
+"end": 157.222
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Provide IP separation.",
+"spoken": "Provide IP separation.",
+"start": 157.672,
+"end": 159.678
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "All tunneling protocols carry an Ethernet frame in an IP frame. They differ in the IP frame type: VXLAN uses UDP, and STT uses TCP.",
+"spoken": "All tunneling protocols carry an Ethernet frame in an IP frame. They differ in the IP frame type: V.X. lan uses UDP, and STT uses TCP.",
+"start": 160.128,
+"end": 172.8
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "UDP lets routers hash the outer UDP header to load balance with ECMP.",
+"spoken": "UDP lets routers hash the outer UDP header to load balance with ECMP.",
+"start": 173.25,
+"end": 178.583
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The VXLAN source port is a hash of the inner headers, which adds entropy for ECMP.",
+"spoken": "The V.X. lan source port is a hash of the inner headers, which adds entropy for ECMP.",
+"start": 179.033,
+"end": 184.857
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traditional access-to-distribution designs block redundant links because of spanning tree.",
+"spoken": "Traditional access-to-distribution designs block redundant links because of spanning tree.",
+"start": 185.307,
+"end": 191.216
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Overlays can provide Layer 2 capabilities or Layer 3 routing.",
+"spoken": "Overlays can provide Layer 2 capabilities or Layer 3 routing.",
+"start": 191.666,
+"end": 196.061
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VXLAN frame flags: RRRRIRRR.",
+"spoken": "V.X. lan frame flags: R R R R I R R R.",
+"start": 196.511,
+"end": 201.076
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Micro-Segmentation",
+"spoken": "Micro-Segmentation.",
+"start": 202.526,
+"end": 204.062
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Old model: servers were assigned subnets and VLANs, so policy was tied to VLAN boundaries in one data center or campus.",
+"spoken": "Old model: servers were assigned subnets and V-lans, so policy was tied to V-lan boundaries in one data center or campus.",
+"start": 204.512,
+"end": 213.515
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applications now move between servers, data centers, and clouds.",
+"spoken": "Applications now move between servers, data centers, and clouds.",
+"start": 213.965,
+"end": 218.488
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VLAN segmentation keeps policy in central firewalls, but most data center traffic is east-west and often never hits the firewall or even leaves the physical server.",
+"spoken": "V-lan segmentation keeps policy in central firewalls, but most data center traffic is east-west and often never hits the firewall or even leaves the physical server.",
+"start": 218.938,
+"end": 230.948
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies should not depend on VLAN, subnet, rack, or data center, and traffic should not bounce back and forth to a central firewall.",
+"spoken": "Policies should not depend on V-lan, subnet, rack, or data center, and traffic should not bounce back and forth to a central firewall.",
+"start": 231.398,
+"end": 240.7
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Containers make segmentation harder because they move and change more often.",
+"spoken": "Containers make segmentation harder because they move and change more often.",
+"start": 241.15,
+"end": 246.099
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Micro-segmentation starts and ends with the application itself.",
+"spoken": "Micro-segmentation starts and ends with the application itself.",
+"start": 246.549,
+"end": 250.858
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Open-Source Initiatives",
+"spoken": "Open-Source Initiatives.",
+"start": 252.308,
+"end": 254.186
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Projects: Neutron, OVS, OVN, ODL, OPNFV, Contiv.",
+"spoken": "Projects: Neutron, OVS, OVN, ODL, O.P.N.F.V., Contiv.",
+"start": 254.636,
+"end": 259.286
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Every vendor and project takes SDN in a different direction.",
+"spoken": "Every vendor and project takes SDN in a different direction.",
+"start": 259.736,
+"end": 263.96
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Neutron:",
+"spoken": "Neutron:",
+"start": 264.41,
+"end": 265.349
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Uses plug-ins for advanced networking and third-party integration.",
+"spoken": "Uses plug-ins for advanced networking and third-party integration.",
+"start": 265.799,
+"end": 269.895
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Two main components: the neutron server and a database for persistent storage and plug-ins.",
+"spoken": "Two main components: the neutron server and a database for persistent storage and plug-ins.",
+"start": 270.345,
+"end": 276.361
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Docs: https://docs.openstack.org/neutron/latest.",
+"spoken": "Docs: the link in the notes",
+"start": 276.811,
+"end": 278.475
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OVN is often used in OpenStack with OVS. It can also use OpenFlow.",
+"spoken": "OVN is often used in OpenStack with OVS. It can also use OpenFlow.",
+"start": 278.925,
+"end": 284.984
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ODL talks to Neutron through a northbound interface and manages southbound interfaces including OVSDB and OpenFlow.",
+"spoken": "ODL talks to Neutron through a northbound interface and manages southbound interfaces including O.V.S. D.B. and OpenFlow.",
+"start": 285.434,
+"end": 295.418
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With northbound APIs, applications tell the network what resources they need, and the SDN solution provides them.",
+"spoken": "With northbound A.P.I.s, applications tell the network what resources they need, and the SDN solution provides them.",
+"start": 295.868,
+"end": 305.041
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NFV Infrastructure Requirements",
+"spoken": "N.F.V. Infrastructure Requirements.",
+"start": 306.491,
+"end": 309.392
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A hypervisor to separate virtual routers, switches, and firewalls from the hardware.",
+"spoken": "A hypervisor to separate virtual routers, switches, and firewalls from the hardware.",
+"start": 309.842,
+"end": 315.624
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A virtual forwarder to connect individual instances.",
+"spoken": "A virtual forwarder to connect individual instances.",
+"start": 316.074,
+"end": 319.807
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A network controller to control all virtual forwarders.",
+"spoken": "A network controller to control all virtual forwarders.",
+"start": 320.257,
+"end": 323.82
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A VM manager to manage the network-based VMs.",
+"spoken": "A VM manager to manage the network-based VMs.",
+"start": 324.27,
+"end": 328.067
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NFV was created to fix inefficiencies introduced by virtualization.",
+"spoken": "N.F.V. was created to fix inefficiencies introduced by virtualization.",
+"start": 328.517,
+"end": 334.213
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NFV architecture layers: hardware resources, virtualization layer, virtual resources (NFVI), VNF instances, and the end-to-end network service (service chain).",
+"spoken": "N.F.V. architecture layers: hardware resources, virtualization layer, virtual resources (N.F.V.I.), V.N.F. instances, and the end-to-end network service (service chain).",
+"start": 334.663,
+"end": 347.378
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NFV MANO Components",
+"spoken": "N.F.V. mano Components.",
+"start": 348.828,
+"end": 351.196
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NFV Orchestrator: onboards new network services and VNF packages. Handles lifecycle management, global resource management, and validating and authorizing NFVI resource requests.",
+"spoken": "N.F.V. Orchestrator: onboards new network services and V.N.F. packages. Handles lifecycle management, global resource management, and validating and authorizing N.F.V.I. resource requests.",
+"start": 351.646,
+"end": 366.728
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VNF Manager: lifecycle management of VNF instances. Coordinates configuration and event reporting between the NFVI and element and network management systems.",
+"spoken": "V.N.F. Manager: lifecycle management of V.N.F. instances. Coordinates configuration and event reporting between the N.F.V.I. and element and network management systems.",
+"start": 367.178,
+"end": 380.704
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VIM (Virtualized Infrastructure Manager): controls and manages NFVI compute, storage, and network resources.",
+"spoken": "VIM (Virtualized Infrastructure Manager): controls and manages N.F.V.I. compute, storage, and network resources.",
+"start": 381.154,
+"end": 390.178
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MANO integrates with open APIs and lets implementers pick and choose existing NFV resources.",
+"spoken": "mano integrates with open A.P.I.s and lets implementers pick and choose existing N.F.V. resources.",
+"start": 390.628,
+"end": 398.521
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Contiv",
+"spoken": "Contiv.",
+"start": 399.971,
+"end": 400.846
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Assigns an IP address to each container, so no host-based port NAT is needed.",
+"spoken": "Assigns an IP address to each container, so no host-based port NAT is needed.",
+"start": 401.296,
+"end": 407.141
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Works on Layer 2, Layer 3 (BGP), VXLAN overlays, and Cisco ACI mode.",
+"spoken": "Works on Layer 2, Layer 3 (BGP), V.X. lan overlays, and Cisco A.C.I. mode.",
+"start": 407.591,
+"end": 414.162
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Built-in east-west service load balancing and traffic isolation.",
+"spoken": "Built-in east-west service load balancing and traffic isolation.",
+"start": 414.612,
+"end": 418.964
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Works with Kubernetes and Docker Swarm. Kubernetes provides compute, and Contiv provides networking.",
+"spoken": "Works with Kubernetes and Docker Swarm. Kubernetes provides compute, and Contiv provides networking.",
+"start": 419.414,
+"end": 426.518
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ThousandEyes Monitoring",
+"spoken": "ThousandEyes Monitoring.",
+"start": 427.968,
+"end": 429.845
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TEA tests BGP routing, DNS resolution, browser response times, network paths and connectivity, routing status, and VoIP quality.",
+"spoken": "TEA tests BGP routing, DNS resolution, browser response times, network paths and connectivity, routing status, and voice over I.P. quality.",
+"start": 430.295,
+"end": 442.412
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Monitoring types: API, BGP, CDN, customer and enterprise digital experience, DDoS, DNS, hybrid WAN, network devices, network, IaaS, ISP, multi-cloud, SaaS, SD-WAN, VPN, website, and Wi-Fi and LAN.",
+"spoken": "Monitoring types: API, BGP, CDN, customer and enterprise digital experience, D.D.O.S., DNS, hybrid wan, network devices, network, I.A.A.S., ISP, multi-cloud, SASS, S.D. wan, VPN, website, and Wi-Fi and lan.",
+"start": 442.862,
+"end": 462.596
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco DNA Center",
+"spoken": "Cisco DNA Center.",
+"start": 464.046,
+"end": 465.752
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrates with external services such as Cisco ISE as the AAA server (Network Settings screen).",
+"spoken": "Integrates with external services such as Cisco ice as the triple A server (Network Settings screen).",
+"start": 466.202,
+"end": 473.029
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policy types:",
+"spoken": "Policy types:",
+"start": 473.479,
+"end": 474.674
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Group-based access control.",
+"spoken": "Group-based access control.",
+"start": 475.124,
+"end": 477.001
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IP-based access control.",
+"spoken": "IP-based access control.",
+"start": 477.451,
+"end": 479.499
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Application.",
+"spoken": "Application.",
+"start": 479.949,
+"end": 481.144
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Traffic copy.",
+"spoken": "Traffic copy.",
+"start": 481.594,
+"end": 482.81
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policy Overview dashboard shows active policies by security group, ISE profile, and Secure Network Analytics (formerly Stealthwatch) host group.",
+"spoken": "Policy Overview dashboard shows active policies by security group, ice profile, and Secure Network Analytics (formerly Stealthwatch) host group.",
+"start": 483.26,
+"end": 493.756
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policy matrix:",
+"spoken": "Policy matrix:",
+"start": 494.206,
+"end": 495.507
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Source axis: vertical, source security groups.",
+"spoken": "Source axis: vertical, source security groups.",
+"start": 495.957,
+"end": 499.093
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Destination axis: horizontal, destination security groups.",
+"spoken": "Destination axis: horizontal, destination security groups.",
+"start": 499.543,
+"end": 504.194
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cell colors: Allow green, Block red, Custom gold, Default gray.",
+"spoken": "Cell colors: Allow green, Block red, Custom gold, Default gray.",
+"start": 504.644,
+"end": 509.166
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Group-Based Access Control",
+"spoken": "Group-Based Access Control.",
+"start": 510.616,
+"end": 512.494
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Requires ISE integrated with DNA Center.",
+"spoken": "Requires ice integrated with DNA Center.",
+"start": 512.944,
+"end": 515.866
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In ISE, set the work process to Single Matrix so there is one policy matrix for all TrustSec devices.",
+"spoken": "In ice, set the work process to Single Matrix so there is one policy matrix for all TrustSec devices.",
+"start": 516.316,
+"end": 523.548
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Groups can be split into different virtual networks for more segmentation.",
+"spoken": "Groups can be split into different virtual networks for more segmentation.",
+"start": 523.998,
+"end": 528.18
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Scalable groups come from ISE. Create, edit, or delete them in ISE, not DNA Center.",
+"spoken": "Scalable groups come from ice. Create, edit, or delete them in ice, not DNA Center.",
+"start": 528.63,
+"end": 534.816
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Book example: omar_policy_1 denies traffic from the Guests group to the Finance group.",
+"spoken": "Book example: omar_policy_1 denies traffic from the Guests group to the Finance group.",
+"start": 535.266,
+"end": 541.026
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IP-Based Access Control",
+"spoken": "IP-Based Access Control.",
+"start": 542.476,
+"end": 544.524
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Book example: permits Omar's PC to reach h4cker.org using the h4cker_website IP network group.",
+"spoken": "Book example: permits Omar's P.C. to reach h4cker.org using the h4cker_website IP network group.",
+"start": 544.974,
+"end": 554.169
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies can be tied to wireless SSIDs (corp-net in the example).",
+"spoken": "Policies can be tied to wireless SSIDs (corp-net in the example).",
+"start": 554.619,
+"end": 559.526
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Application Policies (QoS)",
+"spoken": "Application Policies (QoS).",
+"start": 560.976,
+"end": 563.408
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Components: applications, application sets, application policies, and queuing profiles.",
+"spoken": "Components: applications, application sets, application policies, and queuing profiles.",
+"start": 563.858,
+"end": 569.831
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applications are software programs or network signaling protocols on the network.",
+"spoken": "Applications are software programs or network signaling protocols on the network.",
+"start": 570.281,
+"end": 576.084
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Application sets are logical groups that can be given a business relevance.",
+"spoken": "Application sets are logical groups that can be given a business relevance.",
+"start": 576.534,
+"end": 581.483
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Traffic Copy Policy",
+"spoken": "Traffic Copy Policy.",
+"start": 582.933,
+"end": 584.576
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses ERSPAN (Encapsulated Remote Switched Port Analyzer) to copy traffic between two entities to a destination for monitoring or troubleshooting.",
+"spoken": "Uses E.R. span (Encapsulated Remote Switched Port Analyzer) to copy traffic between two entities to a destination for monitoring or troubleshooting.",
+"start": 585.026,
+"end": 595.97
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The policy defines the source and destination of the flow. The traffic copy contract defines the device and interface that receives the copy.",
+"spoken": "The policy defines the source and destination of the flow. The traffic copy contract defines the device and interface that receives the copy.",
+"start": 596.42,
+"end": 606.148
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Assurance",
+"spoken": "Assurance.",
+"start": 607.598,
+"end": 608.643
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Investigates networkwide (global) issues.",
+"spoken": "Investigates networkwide (global) issues.",
+"start": 609.093,
+"end": 611.909
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Wireless sensors test AP radios, WLAN configurations, and wireless services.",
+"spoken": "Wireless sensors test AP radios, W-lan configurations, and wireless services.",
+"start": 612.359,
+"end": 618.759
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Dedicated sensor: an AP converted to a sensor that stays in sensor mode until manually changed back.",
+"spoken": "Dedicated sensor: an AP converted to a sensor that stays in sensor mode until manually changed back.",
+"start": 619.209,
+"end": 626.868
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "On-demand sensor: an AP temporarily converted to run tests, then returned to AP mode.",
+"spoken": "On-demand sensor: an AP temporarily converted to run tests, then returned to AP mode.",
+"start": 627.318,
+"end": 634.315
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DNA Center APIs",
+"spoken": "DNA Center A.P.I.s.",
+"start": 635.765,
+"end": 638.218
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Intent APIs conform to the REST architectural style and are simple, extensible, and secure.",
+"spoken": "Intent A.P.I.s conform to the rest architectural style and are simple, extensible, and secure.",
+"start": 638.668,
+"end": 645.687
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multivendor support uses an SDK to build device packages that map DNA Center features to third-party southbound protocols.",
+"spoken": "Multivendor support uses an SDK to build device packages that map DNA Center features to third-party southbound protocols.",
+"start": 646.137,
+"end": 656.078
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Southbound interfaces use CLI, SNMP, or NETCONF and are not exposed to the consumer.",
+"spoken": "Southbound interfaces use CLI, SNMP, or net-conf and are not exposed to the consumer.",
+"start": 656.528,
+"end": 663.718
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Events and notifications forward Assurance and Automation (SWIM) events to third-party apps through a webhook URL.",
+"spoken": "Events and notifications forward Assurance and Automation (swim) events to third-party apps through a webhook URL.",
+"start": 664.168,
+"end": 672.296
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "APIs are governed by DNA Center RBAC and require authentication.",
+"spoken": "A.P.I.s are governed by DNA Center R-back and require authentication.",
+"start": 672.746,
+"end": 678.655
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The Authentication API creates a security token holding the caller's privileges. Every request is authorized against that token.",
+"spoken": "The Authentication API creates a security token holding the caller's privileges. Every request is authorized against that token.",
+"start": 679.105,
+"end": 688.342
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DNA Security",
+"spoken": "DNA Security.",
+"start": 689.792,
+"end": 691.414
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ETA requires Cisco Secure Network Analytics plus one of:",
+"spoken": "ETA requires Cisco Secure Network Analytics plus one of:",
+"start": 691.864,
+"end": 695.704
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Catalyst 9000 switches.",
+"spoken": "Catalyst 9000 switches.",
+"start": 696.154,
+"end": 698.351
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "ASR 1000 routers.",
+"spoken": "ASR 1000 routers.",
+"start": 698.801,
+"end": 701.084
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "ISR 4000 routers.",
+"spoken": "ISR 4000 routers.",
+"start": 701.534,
+"end": 703.88
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "CSR 1000V virtual routers.",
+"spoken": "CSR 1000V virtual routers.",
+"start": 704.33,
+"end": 707.274
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "ISR 1000 routers.",
+"spoken": "ISR 1000 routers.",
+"start": 707.724,
+"end": 710.05
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Catalyst 9800 wireless controllers.",
+"spoken": "Catalyst 9800 wireless controllers.",
+"start": 710.5,
+"end": 713.977
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TrustSec and ISE control networkwide access, enforce policy, and help meet compliance.",
+"spoken": "TrustSec and ice control networkwide access, enforce policy, and help meet compliance.",
+"start": 714.427,
+"end": 720.592
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. Network Programmability",
+"spoken": "2. Network Programmability.",
+"start": 722.642,
+"end": 724.754
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why Programmability",
+"spoken": "Why Programmability.",
+"start": 726.554,
+"end": 728.154
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "APIs replace clicking, typing, copying, and repetitive tasks.",
+"spoken": "A.P.I.s replace clicking, typing, copying, and repetitive tasks.",
+"start": 728.604,
+"end": 733.212
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example API requests to a router: get interface status, get last-change time, shut down an interface.",
+"spoken": "Example API requests to a router: get interface status, get last-change time, shut down an interface.",
+"start": 733.662,
+"end": 741.428
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Python is recommended as a first language. JavaScript, Go, and Swift are also modern options.",
+"spoken": "Python is recommended as a first language. JavaScript, Go, and Swift are also modern options.",
+"start": 741.878,
+"end": 748.896
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Code reuse: instead of writing TCP, TLS, certificate, and HTTP handling yourself, use a package like requests.",
+"spoken": "Code reuse: instead of writing TCP, TLS, certificate, and HTTP handling yourself, use a package like requests.",
+"start": 749.346,
+"end": 758.754
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Python learning sites: learnpython.org, w3schools.com/python, docs.python.org/3/tutorial.",
+"spoken": "Python learning sites: learnpython.org, w3schools.com or python, docs.python.org or 3 or tutorial.",
+"start": 759.204,
+"end": 767.823
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "HTTP Request Structure",
+"spoken": "HTTP Request Structure.",
+"start": 769.273,
+"end": 771.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Method (such as GET).",
+"spoken": "Method (such as get).",
+"start": 771.942,
+"end": 773.435
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "URI and path to the resource.",
+"spoken": "URI and path to the resource.",
+"start": 773.885,
+"end": 776.104
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HTTP version.",
+"spoken": "HTTP version.",
+"start": 776.554,
+"end": 778.26
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User agent (the browser).",
+"spoken": "User agent (the browser).",
+"start": 778.71,
+"end": 780.716
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Other headers: accept, accept-language, accept-encoding.",
+"spoken": "Other headers: accept, accept-language, accept-encoding.",
+"start": 781.166,
+"end": 785.134
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The server replies with a three-digit status code, a short explanation, and the body.",
+"spoken": "The server replies with a three-digit status code, a short explanation, and the body.",
+"start": 785.584,
+"end": 791.173
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "API Types and Documentation",
+"spoken": "API Types and Documentation.",
+"start": 792.623,
+"end": 795.119
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SOAP was created to replace DCOM and CORBA. Specs: https://www.w3.org/TR/soap.",
+"spoken": "soap was created to replace D-com and cor-ba. Specs: the link in the notes",
+"start": 795.569,
+"end": 800.945
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "REST uses Swagger and OpenAPI for documentation and adoption.",
+"spoken": "rest uses Swagger and Open A.P.I. for documentation and adoption.",
+"start": 801.395,
+"end": 806.6
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SOAP and REST both work over HTTP, but SOAP has a stricter set of messaging patterns.",
+"spoken": "soap and rest both work over HTTP, but soap has a stricter set of messaging patterns.",
+"start": 807.05,
+"end": 813.386
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "API documentation shows how an application works underneath, which is valuable to security professionals.",
+"spoken": "API documentation shows how an application works underneath, which is valuable to security professionals.",
+"start": 813.836,
+"end": 821.41
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "REST API Example (Deck of Cards)",
+"spoken": "rest API Example (Deck of Cards).",
+"start": 822.86,
+"end": 825.633
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "curl gets a new shuffled deck with a deck_id (wkc12q20frlh in the book).",
+"spoken": "curl gets a new shuffled deck with a deck_id (wkc12q20frlh in the book).",
+"start": 826.083,
+"end": 833.464
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Drawing a card returns JSON with remaining cards and the card details (9 of spades).",
+"spoken": "Drawing a card returns jay-son with remaining cards and the card details (9 of spades).",
+"start": 833.914,
+"end": 840.186
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Python script (Example 3-1) has four functions, each sending an HTTP GET:",
+"spoken": "The Python script (Example 3-1) has four functions, each sending an HTTP get:",
+"start": 840.636,
+"end": 847.1
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "create_deck(): /api/deck/new/ and saves deck_id.",
+"spoken": "create_deck(): or api or deck or new or and saves deck_id.",
+"start": 847.55,
+"end": 852.094
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "shuffle_deck(): /api/deck/{deck_id}/shuffle/.",
+"spoken": "shuffle_deck(): or api or deck or {deck_id} or shuffle or .",
+"start": 852.544,
+"end": 856.875
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "draw_card(): /api/deck/{deck_id}/draw/?count=1.",
+"spoken": "draw_card(): or api or deck or {deck_id} or draw or ?count=1.",
+"start": 857.325,
+"end": 862.872
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "add_jokers(): /api/deck/{deck_id}/jokers/?count=2.",
+"spoken": "add_jokers(): or api or deck or {deck_id} or jokers or ?count=2.",
+"start": 863.322,
+"end": 869.231
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "A while loop shows a menu until the user quits.",
+"spoken": "A while loop shows a menu until the user quits.",
+"start": 869.681,
+"end": 872.988
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "YANG",
+"spoken": "yang.",
+"start": 874.438,
+"end": 875.227
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The YANG controller is the client, and network elements are the server, in NETCONF and RESTCONF.",
+"spoken": "The yang controller is the client, and network elements are the server, in net-conf and rest-conf.",
+"start": 875.677,
+"end": 882.098
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What a client can do with YANG models:",
+"spoken": "What a client can do with yang models:",
+"start": 882.548,
+"end": 884.938
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Configure: enable a routing protocol or interface.",
+"spoken": "Configure: enable a routing protocol or interface.",
+"start": 885.388,
+"end": 888.993
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Receive notifications: repeated login failures, interface failures.",
+"spoken": "Receive notifications: repeated login failures, interface failures.",
+"start": 889.443,
+"end": 894.115
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Monitor status: CPU, memory, packet counters.",
+"spoken": "Monitor status: CPU, memory, packet counters.",
+"start": 894.565,
+"end": 898.256
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Invoke actions: reset counters, reboot.",
+"spoken": "Invoke actions: reset counters, reboot.",
+"start": 898.706,
+"end": 901.5
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "New modules can reuse data hierarchies from other modules, and new statements can extend the language.",
+"spoken": "New modules can reuse data hierarchies from other modules, and new statements can extend the language.",
+"start": 901.95,
+"end": 908.521
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NETCONF",
+"spoken": "net-conf.",
+"start": 909.971,
+"end": 910.995
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Client is the management application. Server is the managed device.",
+"spoken": "Client is the management application. Server is the managed device.",
+"start": 911.445,
+"end": 916.053
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Controllers can be a server to managers and a client to devices.",
+"spoken": "Controllers can be a server to managers and a client to devices.",
+"start": 916.503,
+"end": 920.855
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NETCONF came before YANG, but YANG is now the only widely used language with it.",
+"spoken": "net-conf came before yang, but yang is now the only widely used language with it.",
+"start": 921.305,
+"end": 927.044
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Session flow:",
+"spoken": "Session flow:",
+"start": 927.494,
+"end": 928.667
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Both sides send a hello with supported NETCONF versions. The server lists optional capabilities.",
+"spoken": "Both sides send a hello with supported net-conf versions. The server lists optional capabilities.",
+"start": 929.117,
+"end": 935.624
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The client initiates all exchanges.",
+"spoken": "The client initiates all exchanges.",
+"start": 936.074,
+"end": 938.548
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Messages are an RPC (request) or an rpc-reply. An rpc-reply can be an rpc-error.",
+"spoken": "Messages are an RPC (request) or an rpc-reply. An rpc-reply can be an rpc-error.",
+"start": 938.998,
+"end": 946.572
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Replies to subscriptions technically never end.",
+"spoken": "Replies to subscriptions technically never end.",
+"start": 947.022,
+"end": 950.115
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Clients often edit the candidate datastore with edit-config and can send a validation call.",
+"spoken": "Clients often edit the candidate datastore with edit-config and can send a validation call.",
+"start": 950.565,
+"end": 956.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example: CSR-1000v at ios-xe-mgmt.cisco.com, user root, NETCONF on TCP 10000.",
+"spoken": "Example: C.S.R. 1000 V at ios-xe-mgmt.cisco.com, user root, net-conf on TCP 10000.",
+"start": 957.052,
+"end": 966.375
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "RESTCONF",
+"spoken": "rest-conf.",
+"start": 967.825,
+"end": 968.913
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Follows REST principles, but not all REST APIs are compatible with RESTCONF.",
+"spoken": "Follows rest principles, but not all rest A.P.I.s are compatible with rest-conf.",
+"start": 969.363,
+"end": 975.251
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Five requests: GET, PUT, POST, PATCH, DELETE.",
+"spoken": "Five requests: get, put, post, patch, delete.",
+"start": 975.701,
+"end": 978.901
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shared with NETCONF: client-server model, layered system, and the first two uniform interface principles.",
+"spoken": "Shared with net-conf: client-server model, layered system, and the first two uniform interface principles.",
+"start": 979.351,
+"end": 986.455
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Key difference is the stateless server principle. NETCONF uses sessions, so it is not stateless.",
+"spoken": "Key difference is the stateless server principle. net-conf uses sessions, so it is not stateless.",
+"start": 986.905,
+"end": 993.092
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Every RESTCONF request is acted on immediately. Transactions cannot span multiple messages, so networkwide transactions are not possible.",
+"spoken": "Every rest-conf request is acted on immediately. Transactions cannot span multiple messages, so networkwide transactions are not possible.",
+"start": 993.542,
+"end": 1003.504
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book also says RESTCONF \"requires the server to keep some client state,\" which conflicts with the stateless point. Expect the exam to treat RESTCONF as stateless.",
+"spoken": "The book also says rest-conf \"requires the server to keep some client state,\" which conflicts with the stateless point. Expect the exam to treat rest-conf as stateless.",
+"start": 1003.954,
+"end": 1015.24
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "OpenConfig and gNMI",
+"spoken": "OpenConfig and G.N.M.I.",
+"start": 1016.69,
+"end": 1019.079
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "gNMI uses YANG models but can use other IDLs.",
+"spoken": "G.N.M.I. uses yang models but can use other IDLs.",
+"start": 1019.529,
+"end": 1024.649
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OpenConfig YANG models cover interfaces, routing protocols, QoS, and Wi-Fi.",
+"spoken": "OpenConfig yang models cover interfaces, routing protocols, QoS, and Wi-Fi.",
+"start": 1025.099,
+"end": 1031.542
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RPC uses an IDL, client libraries, and a serialization, marshalling, and transport mechanism (the RPC protocol).",
+"spoken": "RPC uses an IDL, client libraries, and a serialization, marshalling, and transport mechanism (the RPC protocol).",
+"start": 1031.992,
+"end": 1041.741
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Ways to retrieve a device configuration: RESTCONF, NETCONF, and SNMP.",
+"spoken": "Ways to retrieve a device configuration: rest-conf, net-conf, and SNMP.",
+"start": 1042.191,
+"end": 1047.802
+}
+]
+}

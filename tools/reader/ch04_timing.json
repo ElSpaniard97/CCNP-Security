@@ -1,0 +1,2181 @@
+{
+"total": 1424.166,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 4: Authentication, Authorization, Accounting (AAA) and Identity Management",
+"spoken": "Chapter 4: Authentication, Authorization, Accounting (triple A) and Identity Management.",
+"start": 1.6,
+"end": 7.893
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Introduction to AAA",
+"spoken": "1. Introduction to triple A.",
+"start": 10.293,
+"end": 12.341
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Identification",
+"spoken": "Identification.",
+"start": 14.141,
+"end": 15.613
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Identities must be unique, so each action traces to one subject.",
+"spoken": "Identities must be unique, so each action traces to one subject.",
+"start": 16.063,
+"end": 20.607
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Identities should be nondescriptive. \"admin\" reveals the role; \"om1337ar\" doesn't.",
+"spoken": "Identities should be nondescriptive. \"admin\" reveals the role; \"om1337ar\" doesn't.",
+"start": 21.057,
+"end": 29.292
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Identities must be issued securely, after verifying who the person is.",
+"spoken": "Identities must be issued securely, after verifying who the person is.",
+"start": 29.742,
+"end": 34.542
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Identity can be location-based, such as allowing access only from a certain network.",
+"spoken": "Identity can be location-based, such as allowing access only from a certain network.",
+"start": 34.992,
+"end": 40.688
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Authentication by Knowledge",
+"spoken": "Authentication by Knowledge.",
+"start": 42.138,
+"end": 44.015
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Weak passwords fall to password crackers and social engineering.",
+"spoken": "Weak passwords fall to password crackers and social engineering.",
+"start": 44.465,
+"end": 48.582
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST SP 800-63B: rate-limit failed attempts to stop online guessing.",
+"spoken": "NIST S.P. 800-63B: rate-limit failed attempts to stop online guessing.",
+"start": 49.032,
+"end": 56.115
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Never allow remembered or automatic logon.",
+"spoken": "Never allow remembered or automatic logon.",
+"start": 56.565,
+"end": 59.594
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use breach data (VERIS VCDB, haveibeenpwned) to block known compromised passwords.",
+"spoken": "Use breach data (veris VCDB, haveibeenpwned) to block known compromised passwords.",
+"start": 60.044,
+"end": 66.7
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Authentication by Characteristic",
+"spoken": "Authentication by Characteristic.",
+"start": 68.15,
+"end": 70.433
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Physical: fingerprints, face, retina, iris, palm or hand geometry, blood or vascular patterns, voice.",
+"spoken": "Physical: fingerprints, face, retina, iris, palm or hand geometry, blood or vascular patterns, voice.",
+"start": 70.883,
+"end": 78.286
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Behavioral: signature dynamics (how you sign), keystroke dynamics (how you type).",
+"spoken": "Behavioral: signature dynamics (how you sign), keystroke dynamics (how you type).",
+"start": 78.736,
+"end": 83.834
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco Duo",
+"spoken": "Cisco Duo.",
+"start": 85.284,
+"end": 86.543
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Works with RADIUS, SAML, and LDAP.",
+"spoken": "Works with radius, sam-ul, and L-dap.",
+"start": 86.993,
+"end": 89.574
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies can be global, per group, or per application.",
+"spoken": "Policies can be global, per group, or per application.",
+"start": 90.024,
+"end": 93.608
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protects Cisco ASA and FTD remote access VPN.",
+"spoken": "Protects Cisco ASA and FTD remote access VPN.",
+"start": 94.058,
+"end": 98.346
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protects Webex, Meraki, Umbrella (formerly OpenDNS), VPN, Azure, RDP, SSH, and APIs.",
+"spoken": "Protects Webex, Meraki, Umbrella (formerly Open D.N.S.), VPN, Azure, RDP, SSH, and A.P.I.s.",
+"start": 98.796,
+"end": 107.479
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Duo Access Gateway talks to cloud apps over TCP 443.",
+"spoken": "Duo Access Gateway talks to cloud apps over TCP 443.",
+"start": 107.929,
+"end": 113.348
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Zero Trust",
+"spoken": "Zero Trust.",
+"start": 114.798,
+"end": 115.971
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Reason: many attacks come from insiders, and apps now live outside the perimeter.",
+"spoken": "Reason: many attacks come from insiders, and apps now live outside the perimeter.",
+"start": 116.421,
+"end": 121.605
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Duo is at the heart of the Cisco Zero Trust framework.",
+"spoken": "Duo is at the heart of the Cisco Zero Trust framework.",
+"start": 122.055,
+"end": 125.575
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Zero trust features:",
+"spoken": "Zero trust features:",
+"start": 126.025,
+"end": 127.625
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Continuous verification: every user, device, and application is verified and authenticated before getting access.",
+"spoken": "Continuous verification: every user, device, and application is verified and authenticated before getting access.",
+"start": 128.075,
+"end": 136.331
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Strict access controls: granular policies based on user, device, and application identity. Limits lateral movement.",
+"spoken": "Strict access controls: granular policies based on user, device, and application identity. Limits lateral movement.",
+"start": 136.781,
+"end": 145.186
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Micro-segmentation: small isolated zones based on identity and context. Shrinks the attack surface.",
+"spoken": "Micro-segmentation: small isolated zones based on identity and context. Shrinks the attack surface.",
+"start": 145.636,
+"end": 153.146
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "MFA: verifies users and devices. Removes the need for complex password policies and multiple usernames and passwords.",
+"spoken": "MFA: verifies users and devices. Removes the need for complex password policies and multiple usernames and passwords.",
+"start": 153.596,
+"end": 163.025
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Policy-based control: enforces security and compliance requirements.",
+"spoken": "Policy-based control: enforces security and compliance requirements.",
+"start": 163.475,
+"end": 168.339
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Automation and orchestration: streamlines security operations and reduces the load on IT staff.",
+"spoken": "Automation and orchestration: streamlines security operations and reduces the load on I.T. staff.",
+"start": 168.789,
+"end": 176.469
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SSO Flow (Derek example)",
+"spoken": "SSO Flow (Derek example).",
+"start": 177.919,
+"end": 180.266
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Without SSO, Derek authenticates separately to each server, which takes 6 steps for three servers.",
+"spoken": "Without SSO, Derek authenticates separately to each server, which takes 6 steps for three servers.",
+"start": 180.716,
+"end": 187.372
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With SSO, Derek authenticates once to an authentication server at domain3.com.",
+"spoken": "With SSO, Derek authenticates once to an authentication server at domain3.com.",
+"start": 187.822,
+"end": 194.115
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The server gives a token, and cookies let the other servers accept him without another login.",
+"spoken": "The server gives a token, and cookies let the other servers accept him without another login.",
+"start": 194.565,
+"end": 200.176
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SAML",
+"spoken": "sam-ul.",
+"start": 201.626,
+"end": 202.564
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses XML assertions.",
+"spoken": "Uses XML assertions.",
+"start": 203.014,
+"end": 205.062
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The IdP and SP must have a pre-established trust.",
+"spoken": "The IdP and S.P. must have a pre-established trust.",
+"start": 205.512,
+"end": 209.523
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Built for enterprise web SSO.",
+"spoken": "Built for enterprise web SSO.",
+"start": 209.973,
+"end": 212.213
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports single logout.",
+"spoken": "Supports single logout.",
+"start": 212.663,
+"end": 214.391
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Moves the user between IdP and SP with browser redirects and form posts.",
+"spoken": "Moves the user between IdP and S.P. with browser redirects and form posts.",
+"start": 214.841,
+"end": 220.708
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "OAuth 2.0 and OIDC",
+"spoken": "oh-auth 2.0 and O.I.D.C.",
+"start": 222.158,
+"end": 224.632
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OAuth 2.0 is for delegated authorization, common in REST APIs.",
+"spoken": "oh-auth 2.0 is for delegated authorization, common in rest A.P.I.s.",
+"start": 225.082,
+"end": 231.418
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OIDC adds authentication on top of OAuth 2.0 and uses JSON and REST.",
+"spoken": "O.I.D.C. adds authentication on top of oh-auth 2.0 and uses jay-son and rest.",
+"start": 231.868,
+"end": 238.823
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OIDC uses JWTs and is common for consumer social login.",
+"spoken": "O.I.D.C. uses jots and is common for consumer social login.",
+"start": 239.273,
+"end": 244.478
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Summary: SAML is for SSO, OAuth is for delegated authorization, OIDC is for authentication.",
+"spoken": "Summary: sam-ul is for SSO, oh-auth is for delegated authorization, O.I.D.C. is for authentication.",
+"start": 244.928,
+"end": 253.184
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "JWT Structure",
+"spoken": "jot Structure.",
+"start": 254.634,
+"end": 255.893
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Three Base64Url-encoded parts separated by dots.",
+"spoken": "Three Base64Url-encoded parts separated by dots.",
+"start": 256.343,
+"end": 261.143
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Header: algorithm and token type.",
+"spoken": "Header: algorithm and token type.",
+"start": 261.593,
+"end": 263.812
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Payload: claims, such as sub (subject), iss (issuer), and exp (expiration).",
+"spoken": "Payload: claims, such as sub (subject), iss (issuer), and exp (expiration).",
+"start": 264.262,
+"end": 269.083
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Signature: made with a secret key. Proves the token wasn't changed.",
+"spoken": "Signature: made with a secret key. Proves the token wasn't changed.",
+"start": 269.533,
+"end": 273.97
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stateless: the server doesn't store session data.",
+"spoken": "Stateless: the server doesn't store session data.",
+"start": 274.42,
+"end": 277.428
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Signed but not encrypted, so anyone can read the payload. Don't put secrets in it.",
+"spoken": "Signed but not encrypted, so anyone can read the payload. Don't put secrets in it.",
+"start": 277.878,
+"end": 283.041
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Authorization Examples",
+"spoken": "Authorization Examples.",
+"start": 284.491,
+"end": 286.24
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MAC: clearance must be equal to or higher than the classification, and the category must match. To read a Secret document in the Flight Plans category, the user needs Secret or Top Secret clearance and the Flight Plans category.",
+"spoken": "mac: clearance must be equal to or higher than the classification, and the category must match. To read a Secret document in the Flight Plans category, the user needs Secret or Top Secret clearance and the Flight Plans category.",
+"start": 286.69,
+"end": 301.965
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DAC: permissions add up. John gets read from the Accounting group and write on his own, so he has read and write on the Income Tax folder.",
+"spoken": "DAC: permissions add up. John gets read from the Accounting group and write on his own, so he has read and write on the Income Tax folder.",
+"start": 302.415,
+"end": 311.61
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RBAC: Derek is in the Engineer role and inherits its permissions. He can't get extra permissions outside the role. Hannah is in Sales and can't reach engineering resources. Users can belong to multiple roles.",
+"spoken": "R-back: Derek is in the Engineer role and inherits its permissions. He can't get extra permissions outside the role. Hannah is in Sales and can't reach engineering resources. Users can belong to multiple roles.",
+"start": 312.06,
+"end": 326.822
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rule-based: can be combined with DAC and RBAC.",
+"spoken": "Rule-based: can be combined with DAC and R-back.",
+"start": 327.272,
+"end": 330.814
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Accounting",
+"spoken": "Accounting.",
+"start": 332.264,
+"end": 333.373
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The audit trail records who accessed what, what they did, and when they stopped.",
+"spoken": "The audit trail records who accessed what, what they did, and when they stopped.",
+"start": 333.823,
+"end": 338.751
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protect the logs from tampering.",
+"spoken": "Protect the logs from tampering.",
+"start": 339.201,
+"end": 341.121
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Infrastructure Access Controls",
+"spoken": "Infrastructure Access Controls.",
+"start": 342.571,
+"end": 344.875
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Covers physical and logical network design, border devices, communication mechanisms, and host security settings.",
+"spoken": "Covers physical and logical network design, border devices, communication mechanisms, and host security settings.",
+"start": 345.325,
+"end": 353.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Monitor continuously.",
+"spoken": "Monitor continuously.",
+"start": 354.052,
+"end": 355.652
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ACLs and ACEs",
+"spoken": "A.C.L.s and ACEs.",
+"start": 357.102,
+"end": 359.214
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "File ACL example: User A can read, User B can read and execute, User C can read and write.",
+"spoken": "File ACL example: User A can read, User B can read and execute, User C can read and write.",
+"start": 359.664,
+"end": 367.302
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACEs can inspect:",
+"spoken": "ACEs can inspect:",
+"start": 367.752,
+"end": 369.416
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Layer 2: EtherType.",
+"spoken": "Layer 2: EtherType.",
+"start": 369.866,
+"end": 371.658
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Layer 3: protocol (ICMP, TCP, UDP) and IP addresses.",
+"spoken": "Layer 3: protocol (ICMP, TCP, UDP) and IP addresses.",
+"start": 372.108,
+"end": 377.782
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Layer 4: ports.",
+"spoken": "Layer 4: ports.",
+"start": 378.232,
+"end": 379.875
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Layer 7: application and service calls.",
+"spoken": "Layer 7: application and service calls.",
+"start": 380.325,
+"end": 383.333
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An ACL filters inbound or outbound on an interface.",
+"spoken": "An ACL filters inbound or outbound on an interface.",
+"start": 383.783,
+"end": 387.644
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Context-dependent examples: Cisco ASA, Cisco FTD, and IOS Zone-Based Firewall.",
+"spoken": "Context-dependent examples: Cisco ASA, Cisco FTD, and I.O.S. Zone-Based Firewall.",
+"start": 388.094,
+"end": 395.54
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. AAA Protocols",
+"spoken": "2. triple A Protocols.",
+"start": 397.59,
+"end": 399.403
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "RADIUS",
+"spoken": "radius.",
+"start": 401.203,
+"end": 402.12
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The client is the access server (NAS), not the end user.",
+"spoken": "The client is the access server (NAS), not the end user.",
+"start": 402.57,
+"end": 406.304
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses a shared secret between the NAS and the server.",
+"spoken": "Uses a shared secret between the NAS and the server.",
+"start": 406.754,
+"end": 410.423
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Encrypts only the password.",
+"spoken": "Encrypts only the password.",
+"start": 410.873,
+"end": 412.75
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports PAP, CHAP, and EAP.",
+"spoken": "Supports pap, chap, and eep.",
+"start": 413.2,
+"end": 415.12
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can proxy requests to other RADIUS servers.",
+"spoken": "Can proxy requests to other radius servers.",
+"start": 415.57,
+"end": 418.322
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An ACCESS-ACCEPT can carry authorization attributes, such as a VLAN or ACL.",
+"spoken": "An access accept can carry authorization attributes, such as a V-lan or ACL.",
+"start": 418.772,
+"end": 424.831
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "TACACS+",
+"spoken": "tack-acks plus.",
+"start": 426.281,
+"end": 427.518
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication, authorization, and accounting are separate exchanges, so each can use a different server.",
+"spoken": "Authentication, authorization, and accounting are separate exchanges, so each can use a different server.",
+"start": 427.968,
+"end": 434.966
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can encrypt the full packet body. The book says \"optionally\" in Table 4-4.",
+"spoken": "Can encrypt the full packet body. The book says \"optionally\" in Table 4-4.",
+"start": 435.416,
+"end": 440.962
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Command-by-command authorization makes it the choice for device administration.",
+"spoken": "Command-by-command authorization makes it the choice for device administration.",
+"start": 441.412,
+"end": 446.383
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication exchange:",
+"spoken": "Authentication exchange:",
+"start": 446.833,
+"end": 448.646
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. The access server sends START.",
+"spoken": "1. The access server sends start.",
+"start": 449.096,
+"end": 451.23
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. The TACACS+ server sends REPLY asking for the username.",
+"spoken": "2. The tack-acks plus server sends reply asking for the username.",
+"start": 451.68,
+"end": 455.776
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. The access server sends CONTINUE with the username.",
+"spoken": "3. The access server sends continue with the username.",
+"start": 456.226,
+"end": 459.746
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. The TACACS+ server sends REPLY asking for the password.",
+"spoken": "4. The tack-acks plus server sends reply asking for the password.",
+"start": 460.196,
+"end": 464.377
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. The access server sends CONTINUE with the password.",
+"spoken": "5. The access server sends continue with the password.",
+"start": 464.827,
+"end": 468.176
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "6. The TACACS+ server sends REPLY with pass or fail.",
+"spoken": "6. The tack-acks plus server sends reply with pass or fail.",
+"start": 468.626,
+"end": 472.552
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "RADIUS vs TACACS+ (Table 4-4)",
+"spoken": "radius vs tack-acks plus (Table 4-4).",
+"start": 474.002,
+"end": 477.372
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Transport: RADIUS uses UDP; TACACS+ uses TCP.",
+"spoken": "Transport: radius uses UDP; tack-acks plus uses TCP.",
+"start": 477.822,
+"end": 482.964
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security: RADIUS encrypts the user password in ACCESS-REQUEST packets; TACACS+ optionally encrypts the full payload.",
+"spoken": "Security: radius encrypts the user password in access request packets; tack-acks plus optionally encrypts the full payload.",
+"start": 483.414,
+"end": 492.032
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AAA phases: RADIUS does authentication and authorization in one exchange, with accounting separate; TACACS+ uses separate exchanges for all three.",
+"spoken": "triple A phases: radius does authentication and authorization in one exchange, with accounting separate; tack-acks plus uses separate exchanges for all three.",
+"start": 492.482,
+"end": 503.853
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Command authorization: RADIUS has limited support; TACACS+ is granular.",
+"spoken": "Command authorization: radius has limited support; tack-acks plus is granular.",
+"start": 504.303,
+"end": 509.978
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Accounting: RADIUS supports strong accounting; TACACS+ provides basic accounting.",
+"spoken": "Accounting: radius supports strong accounting; tack-acks plus provides basic accounting.",
+"start": 510.428,
+"end": 516.422
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Diameter",
+"spoken": "diameter.",
+"start": 517.872,
+"end": 518.854
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Designed to fix RADIUS weaknesses.",
+"spoken": "Designed to fix radius weaknesses.",
+"start": 519.304,
+"end": 521.629
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Failover: built-in.",
+"spoken": "Failover: built-in.",
+"start": 522.079,
+"end": 523.7
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security: TLS or DTLS.",
+"spoken": "Security: TLS or DTLS.",
+"start": 524.15,
+"end": 526.817
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Transport: TCP or SCTP.",
+"spoken": "Transport: TCP or SCTP.",
+"start": 527.267,
+"end": 530.019
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Agents: proxy, relay, redirect, and translation.",
+"spoken": "Agents: proxy, relay, redirect, and translation.",
+"start": 530.469,
+"end": 533.946
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Server-initiated messages: the server can start a re-authentication.",
+"spoken": "Server-initiated messages: the server can start a re-authentication.",
+"start": 534.396,
+"end": 538.983
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RADIUS transition: can work alongside RADIUS.",
+"spoken": "radius transition: can work alongside radius.",
+"start": 539.433,
+"end": 542.889
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Capability negotiation: peers agree on supported AVPs.",
+"spoken": "Capability negotiation: peers agree on supported A.V.P.s.",
+"start": 543.339,
+"end": 548.203
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Peer discovery: dynamic, through DNS.",
+"spoken": "Peer discovery: dynamic, through DNS.",
+"start": 548.653,
+"end": 551.512
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applications: Diameter base, Mobile IPv4, NAS (RFC 7155), and Credit-Control. The header has an Application ID field and a command code.",
+"spoken": "Applications: diameter base, Mobile I.P. version 4, NAS (RFC 7155), and Credit-Control. The header has an Application ID field and a command code.",
+"start": 551.962,
+"end": 566.02
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network access flow:",
+"spoken": "Network access flow:",
+"start": 566.47,
+"end": 568.177
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. The access server sends CER with Auth-Application-Id = 1.",
+"spoken": "1. The access server sends CER with Auth-Application-Id = 1.",
+"start": 568.627,
+"end": 573.576
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. The server sends CEA.",
+"spoken": "2. The server sends CEA.",
+"start": 574.026,
+"end": 575.989
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. The access server sends AAR with the username and password.",
+"spoken": "3. The access server sends AAR with the username and password.",
+"start": 576.439,
+"end": 580.919
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. The server returns AAA with the result.",
+"spoken": "4. The server returns triple A with the result.",
+"start": 581.369,
+"end": 584.27
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. 802.1X",
+"spoken": "3. 802 dot 1 X.",
+"start": 586.32,
+"end": 588.731
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Protocols Between the Roles",
+"spoken": "Protocols Between the Roles.",
+"start": 590.531,
+"end": 592.323
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supplicant to authenticator: EAPoL.",
+"spoken": "Supplicant to authenticator: E-pole.",
+"start": 592.773,
+"end": 595.354
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supplicant to authentication server: EAP, carried end to end.",
+"spoken": "Supplicant to authentication server: eep, carried end to end.",
+"start": 595.804,
+"end": 599.922
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authenticator to authentication server: RADIUS or Diameter.",
+"spoken": "Authenticator to authentication server: radius or diameter.",
+"start": 600.372,
+"end": 604.745
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "The Four Phases",
+"spoken": "The Four Phases.",
+"start": 606.195,
+"end": 607.475
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Initiation: the authenticator sends EAP-Request-Identity, or the supplicant sends EAPoL-Start. Only EAPoL, CDP, and STP pass before authorization.",
+"spoken": "Initiation: the authenticator sends eep-Request-Identity, or the supplicant sends E-pole-Start. Only E-pole, CDP, and STP pass before authorization.",
+"start": 607.925,
+"end": 619.978
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication: the authenticator puts the EAP message in a RADIUS Access-Request AV pair. The EAP method, such as EAP-TLS, is negotiated.",
+"spoken": "Authentication: the authenticator puts the eep message in a radius Access-Request AV pair. The eep method, such as eep T.L.S., is negotiated.",
+"start": 620.428,
+"end": 631.607
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authorization: the server sends Access-Accept with a VLAN and a dACL (VLAN 88 in the example). The authenticator sends EAP-Success to the supplicant.",
+"spoken": "Authorization: the server sends Access-Accept with a V-lan and a D-A.C.L. (V-lan 88 in the example). The authenticator sends eep-Success to the supplicant.",
+"start": 632.057,
+"end": 644.153
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Accounting: the session is recorded.",
+"spoken": "Accounting: the session is recorded.",
+"start": 644.603,
+"end": 647.014
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The supplicant ends the session with EAPoL-Logoff.",
+"spoken": "The supplicant ends the session with E-pole-Logoff.",
+"start": 647.464,
+"end": 650.386
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Network Access Control Lists",
+"spoken": "Network Access Control Lists.",
+"start": 651.836,
+"end": 653.863
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network ACLs can be seen as special cases of ABAC, or as identity-based or rule-based controls.",
+"spoken": "Network A.C.L.s can be seen as special cases of A-back, or as identity-based or rule-based controls.",
+"start": 654.313,
+"end": 662.164
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Layer 2 MAC ACL: filters on MAC addresses.",
+"spoken": "Layer 2 mac ACL: filters on mac addresses.",
+"start": 662.614,
+"end": 666.368
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Layer 3 ACL: IPv4 or IPv6, including raw IP protocols such as OSPF and ESP.",
+"spoken": "Layer 3 ACL: I.P. version 4 or I.P. version 6, including raw IP protocols such as OSPF and E.S.P.",
+"start": 666.818,
+"end": 676.994
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Layer 4 ACL: TCP and UDP ports.",
+"spoken": "Layer 4 ACL: TCP and UDP ports.",
+"start": 677.444,
+"end": 681.327
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VLAN ACLs: apply to traffic entering a VLAN.",
+"spoken": "V-lan A.C.L.s: apply to traffic entering a V-lan.",
+"start": 681.777,
+"end": 685.958
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SGACLs: Layer 3 and Layer 4 ACEs applied to tags.",
+"spoken": "S.G. A.C.L.s: Layer 3 and Layer 4 ACEs applied to tags.",
+"start": 686.408,
+"end": 692.104
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "dACLs: downloaded from ISE during authorization.",
+"spoken": "D-A.C.L.s: downloaded from ice during authorization.",
+"start": 692.554,
+"end": 696.928
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACLs are stateless. Stateful firewalls track sessions. NGFWs add context such as location, device type, and the sequence of events.",
+"spoken": "A.C.L.s are stateless. Stateful firewalls track sessions. N.G.F.W.s add context such as location, device type, and the sequence of events.",
+"start": 697.378,
+"end": 708.706
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "4. Cisco ISE",
+"spoken": "4. Cisco ice.",
+"start": 710.756,
+"end": 712.292
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "What ISE Does",
+"spoken": "What ice Does.",
+"start": 714.092,
+"end": 715.329
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Centralized access control for wired, wireless, and VPN users. Supports compliance and audits.",
+"spoken": "Centralized access control for wired, wireless, and VPN users. Supports compliance and audits.",
+"start": 715.779,
+"end": 722.904
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Matches users, endpoints, and posture with location, time, and access method.",
+"spoken": "Matches users, endpoints, and posture with location, time, and access method.",
+"start": 723.354,
+"end": 728.794
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Profiles devices and offers guest self-service portals and BYOD onboarding.",
+"spoken": "Profiles devices and offers guest self-service portals and BYOD onboarding.",
+"start": 729.244,
+"end": 735.068
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Has an internal certificate authority and integrates with EMM and MDM.",
+"spoken": "Has an internal certificate authority and integrates with EMM and MDM.",
+"start": 735.518,
+"end": 741.022
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Provides software-defined segmentation with TrustSec SGTs and SGACLs.",
+"spoken": "Provides software-defined segmentation with TrustSec S.G.T.s and S.G. A.C.L.s.",
+"start": 741.472,
+"end": 748.235
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shares context through pxGrid.",
+"spoken": "Shares context through P.X. grid.",
+"start": 748.685,
+"end": 751.245
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports TACACS+ and RADIUS, Duo, LDAP, and Active Directory.",
+"spoken": "Supports tack-acks plus and radius, Duo, L-dap, and Active Directory.",
+"start": 751.695,
+"end": 756.666
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Runs on a physical appliance or as a VM (VMware ESXi, KVM on Red Hat 7.x). Nodes can be clustered.",
+"spoken": "Runs on a physical appliance or as a VM (VMware E.S.X.I., KVM on Red Hat 7.x). Nodes can be clustered.",
+"start": 757.116,
+"end": 766.972
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "pxGrid",
+"spoken": "P.X. grid.",
+"start": 768.422,
+"end": 769.702
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shares data one way or two ways across platforms.",
+"spoken": "Shares data one way or two ways across platforms.",
+"start": 770.152,
+"end": 773.458
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Legacy pxGrid used XMPP, a protocol built for chat.",
+"spoken": "Legacy P.X. grid used X.M.P.P., a protocol built for chat.",
+"start": 773.908,
+"end": 779.22
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Current pxGrid uses REST and WebSocket with JSON. WebSocket handles publish and subscribe.",
+"spoken": "Current P.X. grid uses rest and WebSocket with jay-son. WebSocket handles publish and subscribe.",
+"start": 779.67,
+"end": 787.18
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Clients authenticate with a certificate (recommended) or a username and password from the Account Create API.",
+"spoken": "Clients authenticate with a certificate (recommended) or a username and password from the Account Create API.",
+"start": 787.63,
+"end": 795.459
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Client flow:",
+"spoken": "Client flow:",
+"start": 795.909,
+"end": 797.104
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Account Activate: polled until the state is ENABLED.",
+"spoken": "Account Activate: polled until the state is enabled.",
+"start": 797.554,
+"end": 800.988
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Register Service and Unregister Service: a provider announces or removes a service.",
+"spoken": "Register Service and Unregister Service: a provider announces or removes a service.",
+"start": 801.438,
+"end": 807.39
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Service Lookup: a consumer finds a service.",
+"spoken": "Service Lookup: a consumer finds a service.",
+"start": 807.84,
+"end": 810.891
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Query or Subscribe: a consumer gets data once or receives updates.",
+"spoken": "Query or Subscribe: a consumer gets data once or receives updates.",
+"start": 811.341,
+"end": 816.354
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Context",
+"spoken": "Context.",
+"start": 817.804,
+"end": 818.892
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Context answers who, what, where, when, and how.",
+"spoken": "Context answers who, what, where, when, and how.",
+"start": 819.342,
+"end": 822.286
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Context elements: profiling, posture, guest, and threat data.",
+"spoken": "Context elements: profiling, posture, guest, and threat data.",
+"start": 822.736,
+"end": 826.811
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Profiling",
+"spoken": "Profiling.",
+"start": 828.261,
+"end": 829.306
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The MAC address is the endpoint's unique identifier.",
+"spoken": "The mac address is the endpoint's unique identifier.",
+"start": 829.756,
+"end": 833.063
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example: an IP phone gets VLAN 10 through MAB, Omar's laptop gets VLAN 20, and a printer gets VLAN 30 through MAB.",
+"spoken": "Example: an IP phone gets V-lan 10 through mab, Omar's laptop gets V-lan 20, and a printer gets V-lan 30 through mab.",
+"start": 833.513,
+"end": 843.156
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A corporate laptop can get full access while a personal iPhone gets limited access.",
+"spoken": "A corporate laptop can get full access while a personal iPhone gets limited access.",
+"start": 843.606,
+"end": 849.28
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Identity Sources",
+"spoken": "Identity Sources.",
+"start": 850.73,
+"end": 852.266
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "802.1X: port-based authentication with a supplicant.",
+"spoken": "802 dot 1 X: port-based authentication with a supplicant.",
+"start": 852.716,
+"end": 857.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VPN with RADIUS: from Cisco FTD or ASA.",
+"spoken": "VPN with radius: from Cisco FTD or ASA.",
+"start": 858.052,
+"end": 862.212
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASA identity firewall: identity-based firewall rules.",
+"spoken": "ASA identity firewall: identity-based firewall rules.",
+"start": 862.662,
+"end": 867.078
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Web authentication: a URL redirect to the ISE guest portal, often on an open WLAN.",
+"spoken": "Web authentication: a URL redirect to the ice guest portal, often on an open W-lan.",
+"start": 867.528,
+"end": 874.354
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MAB: by itself it is not real authentication, since MACs can be spoofed. Combine it with profiling.",
+"spoken": "mab: by itself it is not real authentication, since macs can be spoofed. Combine it with profiling.",
+"start": 874.804,
+"end": 881.887
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TrustSec SGTs: a finance_user tag can reach only finance_net. Static IP-to-SGT mappings are possible, and ISE distributes the mapping tables.",
+"spoken": "TrustSec S.G.T.s: a finance_user tag can reach only finance_net. Static I.P. to S.G.T. mappings are possible, and ice distributes the mapping tables.",
+"start": 882.337,
+"end": 894.902
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Guest access: unauthenticated through a captive portal (still logged), or authenticated with temporary credentials sent by SMS or printed.",
+"spoken": "Guest access: unauthenticated through a captive portal (still logged), or authenticated with temporary credentials sent by SMS or printed.",
+"start": 895.352,
+"end": 905.294
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Authorization Attributes",
+"spoken": "Authorization Attributes.",
+"start": 906.744,
+"end": 908.685
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Posture, profiler results, AD groups and attributes, time and date, location, access method, MDM data, certificates, and RADIUS attributes.",
+"spoken": "Posture, profiler results, AD groups and attributes, time and date, location, access method, MDM data, certificates, and radius attributes.",
+"start": 909.135,
+"end": 920.122
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Policy Matching",
+"spoken": "Policy Matching.",
+"start": 921.572,
+"end": 922.873
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "First-match: the first rule that matches wins. The most common.",
+"spoken": "First-match: the first rule that matches wins. The most common.",
+"start": 923.323,
+"end": 927.376
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multiple-match: more than one rule can apply.",
+"spoken": "Multiple-match: more than one rule can apply.",
+"start": 927.826,
+"end": 930.813
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A default catch-all rule sits at the bottom.",
+"spoken": "A default catch-all rule sits at the bottom.",
+"start": 931.263,
+"end": 933.823
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book's example shows an \"Employees\" rule with 560,219 hits and a VPN rule.",
+"spoken": "The book's example shows an \"Employees\" rule with 560,219 hits and a VPN rule.",
+"start": 934.273,
+"end": 942.38
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "5. Cisco TrustSec",
+"spoken": "5. Cisco TrustSec.",
+"start": 944.43,
+"end": 946.222
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Components",
+"spoken": "Components.",
+"start": 948.022,
+"end": 949.003
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authenticated networking infrastructure.",
+"spoken": "Authenticated networking infrastructure.",
+"start": 949.453,
+"end": 952.312
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security group\u2013based access control with SGTs.",
+"spoken": "Security group, based access control with S.G.T.s.",
+"start": 952.762,
+"end": 956.73
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Encrypted communication with 802.1AE MACsec.",
+"spoken": "Encrypted communication with 802 dot 1 A.E. mac-sec.",
+"start": 957.18,
+"end": 962.172
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Three-Step Authentication",
+"spoken": "Three-Step Authentication.",
+"start": 963.622,
+"end": 965.456
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. The device authenticates with 802.1X.",
+"spoken": "1. The device authenticates with 802 dot 1 X.",
+"start": 965.906,
+"end": 970.109
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. The server sends authorization, including the SGT.",
+"spoken": "2. The server sends authorization, including the S.G.T.",
+"start": 970.559,
+"end": 974.655
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. The devices negotiate a security association and link encryption.",
+"spoken": "3. The devices negotiate a security association and link encryption.",
+"start": 975.105,
+"end": 980.31
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Tagging and Enforcement",
+"spoken": "Tagging and Enforcement.",
+"start": 981.76,
+"end": 983.403
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The SGT is embedded in the CMD field of the Layer 2 frame.",
+"spoken": "The S.G.T. is embedded in the CMD field of the Layer 2 frame.",
+"start": 983.853,
+"end": 989.165
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tags are applied at ingress and enforced at egress with SGACLs.",
+"spoken": "Tags are applied at ingress and enforced at egress with S.G. A.C.L.s.",
+"start": 989.615,
+"end": 994.991
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example: Derek's traffic gets SGT 4 (Engineering) and the destination has DGT 5. The egress device checks the SGACL for 4 to 5.",
+"spoken": "Example: Derek's traffic gets S.G.T. 4 (Engineering) and the destination has DGT 5. The egress device checks the S.G. A.C.L. for 4 to 5.",
+"start": 995.441,
+"end": 1007.622
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SXP carries IP-to-SGT mappings for devices that can't tag in hardware.",
+"spoken": "SXP carries I.P. to S.G.T. mappings for devices that can't tag in hardware.",
+"start": 1008.072,
+"end": 1014.856
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "6. Posture Assessment and Change of Authorization",
+"spoken": "6. Posture Assessment and Change of Authorization.",
+"start": 1016.906,
+"end": 1020.512
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Posture Checks",
+"spoken": "Posture Checks.",
+"start": 1022.312,
+"end": 1023.442
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Patches, host firewall, antivirus and anti-malware, and disk encryption.",
+"spoken": "Patches, host firewall, antivirus and anti-malware, and disk encryption.",
+"start": 1023.892,
+"end": 1028.948
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An endpoint is compliant only when it meets all conditions.",
+"spoken": "An endpoint is compliant only when it meets all conditions.",
+"start": 1029.398,
+"end": 1033.409
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Requires the AnyConnect Posture Module.",
+"spoken": "Requires the AnyConnect Posture Module.",
+"start": 1033.859,
+"end": 1036.419
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Posture Configuration Components",
+"spoken": "Posture Configuration Components.",
+"start": 1037.869,
+"end": 1040.194
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Conditions, remediations, requirements, posture policy, client provisioning, and access policy.",
+"spoken": "Conditions, remediations, requirements, posture policy, client provisioning, and access policy.",
+"start": 1040.644,
+"end": 1047.343
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Posture Agents",
+"spoken": "Posture Agents.",
+"start": 1048.793,
+"end": 1050.052
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Temporal agent: installs nothing permanent and checks limited conditions. Used for guests.",
+"spoken": "Temporal agent: installs nothing permanent and checks limited conditions. Used for guests.",
+"start": 1050.502,
+"end": 1056.539
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stealth AnyConnect: headless, with no user interface.",
+"spoken": "Stealth AnyConnect: headless, with no user interface.",
+"start": 1056.989,
+"end": 1060.53
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Full AnyConnect: automatic remediation and passive reassessment.",
+"spoken": "Full AnyConnect: automatic remediation and passive reassessment.",
+"start": 1060.98,
+"end": 1065.268
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threat-Centric NAC",
+"spoken": "Threat-Centric NAC.",
+"start": 1066.718,
+"end": 1068.318
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ISE takes in vulnerability data with CVSS scores.",
+"spoken": "ice takes in vulnerability data with C.V.S.S. scores.",
+"start": 1068.768,
+"end": 1073.014
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CoA is triggered automatically for vulnerability events, but manually for threat events.",
+"spoken": "CoA is triggered automatically for vulnerability events, but manually for threat events.",
+"start": 1073.464,
+"end": 1079.096
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sources: Cisco Secure Malware Defense for Endpoints, Cognitive Threat Analytics (CTA), Qualys, Rapid7 Nexpose, and Tenable Security Center.",
+"spoken": "Sources: Cisco Secure Malware Defense for Endpoints, Cognitive Threat Analytics (CTA), Qualys, Rapid7 Nexpose, and Tenable Security Center.",
+"start": 1079.546,
+"end": 1090.916
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "CoA",
+"spoken": "CoA.",
+"start": 1092.366,
+"end": 1093.284
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Changes the authorization of an active session without the user reconnecting.",
+"spoken": "Changes the authorization of an active session without the user reconnecting.",
+"start": 1093.734,
+"end": 1098.768
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The DAC can be co-resident with the RADIUS server.",
+"spoken": "The DAC can be co-resident with the radius server.",
+"start": 1099.218,
+"end": 1102.589
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses Filter-ID or NAS-Filter-Rule to change the session's filtering.",
+"spoken": "Uses Filter-ID or NAS-Filter-Rule to change the session's filtering.",
+"start": 1103.039,
+"end": 1107.967
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CoA after a VPN posture check removes the need for an Inline Posture Node.",
+"spoken": "CoA after a VPN posture check removes the need for an Inline Posture Node.",
+"start": 1108.417,
+"end": 1114.006
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VPN posture flow:",
+"spoken": "VPN posture flow:",
+"start": 1114.456,
+"end": 1116.27
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. The VPN client connects to the firewall and logs in.",
+"spoken": "1. The VPN client connects to the firewall and logs in.",
+"start": 1116.72,
+"end": 1120.624
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. The firewall redirects web traffic to ISE.",
+"spoken": "2. The firewall redirects web traffic to ice.",
+"start": 1121.074,
+"end": 1124.21
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. The user is provisioned with AnyConnect and its Compliance Module.",
+"spoken": "3. The user is provisioned with AnyConnect and its Compliance Module.",
+"start": 1124.66,
+"end": 1129.417
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. AnyConnect checks the client against the posture rules (patches, antivirus, services, applications, registry entries).",
+"spoken": "4. AnyConnect checks the client against the posture rules (patches, antivirus, services, applications, registry entries).",
+"start": 1129.867,
+"end": 1138.4
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. The results go to ISE.",
+"spoken": "5. The results go to ice.",
+"start": 1138.85,
+"end": 1140.813
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "6. If compliant, ISE sends a RADIUS CoA to the ASA with the new authorization policies.",
+"spoken": "6. If compliant, ice sends a radius CoA to the ASA with the new authorization policies.",
+"start": 1141.263,
+"end": 1148.068
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "7. The user gets access to internal resources.",
+"spoken": "7. The user gets access to internal resources.",
+"start": 1148.518,
+"end": 1151.804
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "7. Configuring TACACS+ Device Administration",
+"spoken": "7. Configuring tack-acks plus Device Administration.",
+"start": 1153.854,
+"end": 1157.502
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Topology",
+"spoken": "Topology.",
+"start": 1159.302,
+"end": 1160.347
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ISE at 192.168.1.252. Router R1 at 192.168.1.123 (company SecretCorp).",
+"spoken": "ice at 192.168.1.252. Router R 1 at 192.168.1.123 (company SecretCorp).",
+"start": 1160.797,
+"end": 1174.301
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The router's commands are listed under Commands and Tools.",
+"spoken": "The router's commands are listed under Commands and Tools.",
+"start": 1174.751,
+"end": 1178.186
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Admin Groups in the Example",
+"spoken": "Admin Groups in the Example.",
+"start": 1179.636,
+"end": 1181.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetAdmin: full control.",
+"spoken": "NetAdmin: full control.",
+"start": 1181.942,
+"end": 1183.947
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetOps: full control, but can't erase the configuration.",
+"spoken": "NetOps: full control, but can't erase the configuration.",
+"start": 1184.397,
+"end": 1188.429
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SecAdmin: read-only.",
+"spoken": "SecAdmin: read-only.",
+"start": 1188.879,
+"end": 1190.65
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Helpdesk: status commands only.",
+"spoken": "Helpdesk: status commands only.",
+"start": 1191.1,
+"end": 1193.382
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Verification",
+"spoken": "Verification.",
+"start": 1194.832,
+"end": 1196.112
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "debug tacacs shows the router falling back to local after 5 seconds if ISE doesn't answer.",
+"spoken": "debug tacacs shows the router falling back to local after 5 seconds if ice doesn't answer.",
+"start": 1196.562,
+"end": 1202.898
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "debug aaa authorization shows the priv-lvl=15 attribute from ISE.",
+"spoken": "debug aaa authorization shows the priv-lvl=15 attribute from ice.",
+"start": 1203.348,
+"end": 1209.642
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "8. Configuring RADIUS and 802.1X on a Switch",
+"spoken": "8. Configuring radius and 802 dot 1 X on a Switch.",
+"start": 1211.692,
+"end": 1216.342
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "C3PL",
+"spoken": "C 3 P L.",
+"start": 1218.142,
+"end": 1219.593
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Available on IOS 15.2.x and IOS-XE 3.6.x.",
+"spoken": "Available on I.O.S. 15.2.x and I.O.S. X.E. 3.6.x.",
+"start": 1220.043,
+"end": 1225.568
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Built on events, conditions (class maps), and actions.",
+"spoken": "Built on events, conditions (class maps), and actions.",
+"start": 1226.018,
+"end": 1229.261
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Once C3PL is configured, you can't go back to the legacy display.",
+"spoken": "Once C 3 P L is configured, you can't go back to the legacy display.",
+"start": 1229.711,
+"end": 1234.682
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Benefits:",
+"spoken": "Benefits:",
+"start": 1235.132,
+"end": 1236.134
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The configuration exists in memory only once.",
+"spoken": "The configuration exists in memory only once.",
+"start": 1236.584,
+"end": 1240.04
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "802.1X and MAB can run at the same time, so DHCP isn't delayed.",
+"spoken": "802 dot 1 X and mab can run at the same time, so DHCP isn't delayed.",
+"start": 1240.49,
+"end": 1246.997
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Service templates provide a Critical ACL when RADIUS is down.",
+"spoken": "Service templates provide a Critical ACL when radius is down.",
+"start": 1247.447,
+"end": 1251.948
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Differentiated authentication can use different servers per method.",
+"spoken": "Differentiated authentication can use different servers per method.",
+"start": 1252.398,
+"end": 1256.729
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Critical MAB uses a local MAC list when RADIUS is down.",
+"spoken": "Critical mab uses a local mac list when radius is down.",
+"start": 1257.179,
+"end": 1261.403
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Legacy devices use a static ACL that denies access (a DoS) while RADIUS is down.",
+"spoken": "Legacy devices use a static ACL that denies access (a D.O.S.) while radius is down.",
+"start": 1261.853,
+"end": 1268.957
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Port Authentication Behavior",
+"spoken": "Port Authentication Behavior.",
+"start": 1270.407,
+"end": 1272.434
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Default 802.1X behavior: deny the port when authentication fails.",
+"spoken": "Default 802 dot 1 X behavior: deny the port when authentication fails.",
+"start": 1272.884,
+"end": 1279.348
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Next came the Auth-Fail VLAN, then Flex-Auth.",
+"spoken": "Next came the Auth-Fail V-lan, then Flex-Auth.",
+"start": 1279.798,
+"end": 1282.87
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The switch sends EAP-Identity-Requests periodically, and a supplicant can send EAPoL-Start.",
+"spoken": "The switch sends eep-Identity-Requests periodically, and a supplicant can send E-pole-Start.",
+"start": 1283.32,
+"end": 1289.208
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MAB runs after the 802.1X timeout.",
+"spoken": "mab runs after the 802 dot 1 X timeout.",
+"start": 1289.658,
+"end": 1293.391
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Running 802.1X and MAB at the same time with 802.1X priority is not recommended for production.",
+"spoken": "Running 802 dot 1 X and mab at the same time with 802 dot 1 X priority is not recommended for production.",
+"start": 1293.841,
+"end": 1303.313
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Host Modes",
+"spoken": "Host Modes.",
+"start": 1304.763,
+"end": 1305.936
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Single host (default): one MAC per port.",
+"spoken": "Single host (default): one mac per port.",
+"start": 1306.386,
+"end": 1309.352
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multi-Auth: unlimited MACs, each authenticated separately. Best practice in the early TrustSec phases.",
+"spoken": "Multi-Auth: unlimited macs, each authenticated separately. Best practice in the early TrustSec phases.",
+"start": 1309.802,
+"end": 1317.396
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MDA (Multi-Domain Authentication): one MAC in the data domain and one in the voice domain. Used in the enforcement phase.",
+"spoken": "MDA (Multi-Domain Authentication): one mac in the data domain and one in the voice domain. Used in the enforcement phase.",
+"start": 1317.846,
+"end": 1327.126
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Port Security is not compatible with 802.1X.",
+"spoken": "Port Security is not compatible with 802 dot 1 X.",
+"start": 1327.576,
+"end": 1332.12
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Open Authentication: all traffic flows before authentication. Useful for PXE boot and thin clients.",
+"spoken": "Open Authentication: all traffic flows before authentication. Useful for PXE boot and thin clients.",
+"start": 1332.57,
+"end": 1340.165
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Service Templates and dACLs",
+"spoken": "Service Templates and D-A.C.L.s.",
+"start": 1341.615,
+"end": 1344.111
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "dACLs are removed at session end, on authentication failure, or on link-down.",
+"spoken": "D-A.C.L.s are removed at session end, on authentication failure, or on link-down.",
+"start": 1344.561,
+"end": 1350.897
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "dACLs are not saved in the running config.",
+"spoken": "D-A.C.L.s are not saved in the running config.",
+"start": 1351.347,
+"end": 1355.251
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "9. ISE Design",
+"spoken": "9. ice Design.",
+"start": 1357.301,
+"end": 1358.88
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Deployment Models",
+"spoken": "Deployment Models.",
+"start": 1360.68,
+"end": 1362.088
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Standalone: one node does everything.",
+"spoken": "Standalone: one node does everything.",
+"start": 1362.538,
+"end": 1365.098
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "High-availability standalone: two nodes, active-standby. Replication from primary to secondary.",
+"spoken": "High-availability standalone: two nodes, active-standby. Replication from primary to secondary.",
+"start": 1365.548,
+"end": 1372.545
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Distributed: personas spread across many nodes.",
+"spoken": "Distributed: personas spread across many nodes.",
+"start": 1372.995,
+"end": 1376.259
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Node Personas",
+"spoken": "Node Personas.",
+"start": 1377.709,
+"end": 1378.946
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PAN, SAN, PSN, MNT, and S-MNT (defined in Vocabulary).",
+"spoken": "PAN, SAN, PSN, MNT, and secondary M.N.T. (defined in Vocabulary).",
+"start": 1379.396,
+"end": 1385.519
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PSN node groups can sit in different geographic locations.",
+"spoken": "PSN node groups can sit in different geographic locations.",
+"start": 1385.969,
+"end": 1390.108
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Replication",
+"spoken": "Replication.",
+"start": 1391.558,
+"end": 1392.667
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Full replication when a node registers, then incremental replication.",
+"spoken": "Full replication when a node registers, then incremental replication.",
+"start": 1393.117,
+"end": 1397.853
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use the same NTP server on all nodes.",
+"spoken": "Use the same N.T.P. server on all nodes.",
+"start": 1398.303,
+"end": 1401.716
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Sizing",
+"spoken": "Sizing.",
+"start": 1403.166,
+"end": 1404.084
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Size on maximum concurrent sessions and authentications per second.",
+"spoken": "Size on maximum concurrent sessions and authentications per second.",
+"start": 1404.534,
+"end": 1409.142
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Put a load balancer in front of PSNs.",
+"spoken": "Put a load balancer in front of P.S.N.s.",
+"start": 1409.592,
+"end": 1412.621
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Anomalous Suppression Detection suppresses misbehaving clients and repeated successful authentications, which helps at peak times or after a device reboot.",
+"spoken": "Anomalous Suppression Detection suppresses misbehaving clients and repeated successful authentications, which helps at peak times or after a device reboot.",
+"start": 1413.071,
+"end": 1423.716
+}
+]
+}
