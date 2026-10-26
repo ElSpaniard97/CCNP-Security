@@ -1,0 +1,7 @@
+{
+  "name": "ccnp-security-study",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "playwright test", "test:content": "python3 tools/validate_tests.py"},
+  "devDependencies": {"@playwright/test": "1.58.2"}
+}

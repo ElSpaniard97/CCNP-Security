@@ -8,7 +8,9 @@ appears in the right answer (or, for multi-word terms, the question or explanati
 Run after the tests or data/flashcards.json change. The results page and dashboard group misses by these fields.
 """
 import glob, json, math, os, re, sys
+from pathlib import Path
 from collections import Counter
+from section_overrides import apply_overrides
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STOP = set("""a an and are as at be by can for from has have how in is it its of on or that the this to
@@ -26,7 +28,7 @@ def sections(path):
     def flush():
         if sec and buf:
             out.append((sec, topic or sec, " ".join(buf)))
-    for line in open(path, encoding="utf-8"):
+    for line in Path(path).read_text(encoding="utf-8").splitlines():
         m = re.match(r"^(#{2,3}) (.*)$", line.rstrip())
         if m:
             flush(); buf = []
@@ -102,8 +104,9 @@ def tag(notes_dir, n, flashcards):
             q.pop("topic", None)
             q["cards"] = cards_for(q, flashcards.get(str(n), []))
             best = max(range(len(subs)), key=lambda i: cos(qv, sub_v[i]) + 0.6 * cos(qv, sec_v[subs[i][0]]))
-            q["section"] = subs[best][0]
+            q["section"] = f"{subs[best][0]} / {subs[best][1]}" if n in (2, 3, 11) else subs[best][0]
             counts[q["section"]] += 1
+    apply_overrides(data, n)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=1, ensure_ascii=False)
         f.write("\n")
