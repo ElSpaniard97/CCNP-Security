@@ -5,6 +5,7 @@ import { registerOffline, offlineHTML, wireOffline } from "./offline.js";
 import { dashboard, trendChart, wireTrend, syncHTML, wireSync, backupHTML, wireBackup } from "./progress.js";
 import { packItems, hydrate, newItem, runQuiz, resumePrompt, testView, recordResult, resultsView, attemptStrip, lastView } from "./quiz.js";
 import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards.js";
+import { readerView, readerListView, readerIndex } from "./reader.js";
 
   // ---------- theme ----------
   const themeBtn = document.getElementById("theme");
@@ -88,7 +89,8 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
     setCrumbs([{label:"Home",href:"#/"},{label:"Study"}]); document.title="Study";
     app.innerHTML=`<h1>Study</h1><p class="muted">Review what needs attention, or choose a flashcard deck.</p>
       <div class="tools"><a class="card tool" href="#/srs"><b>Spaced repetition</b><span>${srsDue().length} cards due</span></a>
-      <a class="card tool" href="#/bank"><b>Missed questions</b><span>${bankActive().length} to clear</span></a></div>
+      <a class="card tool" href="#/bank"><b>Missed questions</b><span>${bankActive().length} to clear</span></a>
+      <a class="card tool" href="#/read"><b>Listen and read</b><span>Narrated notes with word highlighting</span></a></div>
       <h2>Flashcards by chapter</h2><div class="grid">${chapters.map(c=>`<a class="card tool" href="#/ch/${c.n}/cards"><b>${c.n}. ${esc(c.title)}</b><span>${c.cards} cards · ${srsDue(c.n).length} due</span></a>`).join("")}</div>${offlineHTML()}`;
     wireOffline();
   }
@@ -148,6 +150,7 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
           </div>`;
         }).join("")}
       </div>` : `<p class="muted">The practice tests for this chapter are not ready yet.</p>`}
+      ${(await readerIndex()).some(x => x.n === n) ? `<h2>Listen and read</h2><div class="row"><a class="btn" href="#/ch/${n}/read">${icon("headphones")}Read along with the narration</a></div>` : ""}
       <h2>Flashcards</h2>
       <div class="row">
         <a class="btn primary" href="#/ch/${n}/cards">All ${c.cards} cards</a>
@@ -262,8 +265,8 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
   }
 
   function updateNav(parts) {
-    const route=parts[0], exact=route==="ch" ? (parts[2]==="cards" ? "study" : "practice") : ["srs","bank","review"].includes(route) ? (route==="review" ? "study" : route) : ["study","exam","progress","search","chapters","practice","settings"].includes(route) ? route : "home";
-    const mobile=["srs","bank","review","study"].includes(exact) ? "study" : ["chapters","practice","settings"].includes(exact) ? (exact==="settings" ? "progress" : "home") : exact;
+    const route=parts[0], exact=route==="ch" ? (parts[2]==="cards" ? "study" : parts[2]==="read" ? "read" : "practice") : ["srs","bank","review"].includes(route) ? (route==="review" ? "study" : route) : ["study","exam","progress","search","chapters","practice","settings","read"].includes(route) ? route : "home";
+    const mobile=["srs","bank","review","study","read"].includes(exact) ? "study" : ["chapters","practice","settings"].includes(exact) ? (exact==="settings" ? "progress" : "home") : exact;
     document.body.dataset.page=exact;
     document.querySelectorAll("[data-nav]").forEach(a=>{
       if(a.dataset.nav===(a.closest(".mobile-nav") ? mobile : exact)) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
@@ -278,13 +281,15 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
     try {
       if (parts[0] === "ch" && parts[1]) {
         const n = parseInt(parts[1], 10);
-        if (parts[2] === "cards") { await loadCards(n); cardsView(n, parts[3]); }
+        if (parts[2] === "read") await readerView(n);
+        else if (parts[2] === "cards") { await loadCards(n); cardsView(n, parts[3]); }
         else if (parts[2] === "test" && parts[3] && parts[4] === "last") await lastView(n, parseInt(parts[3], 10));
         else if (parts[2] === "test" && parts[3]) await testView(n, parseInt(parts[3], 10));
         else await chapterView(n);
       } else if (parts[0] === "review") { const r = store.get("review", null); if(r && r.cards) { await Promise.all([...new Set(r.cards.map(x=>x[0]))].map(loadCards)); cardsView(null,null,r); } else home(); }
       else if (parts[0] === "chapters" || parts[0] === "practice") directoryView(parts[0] === "practice");
       else if (parts[0] === "settings") settingsView();
+      else if (parts[0] === "read") await readerListView();
       else if (parts[0] === "study") studyView();
       else if (parts[0] === "srs") { if(parts[1]) await loadCards(parseInt(parts[1],10)); else await loadAllCards(); srsView(parts[1] ? parseInt(parts[1], 10) : undefined); }
       else if (parts[0] === "bank") await bankView(parts[1] ? parseInt(parts[1], 10) : undefined);

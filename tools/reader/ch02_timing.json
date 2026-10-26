@@ -1,0 +1,1541 @@
+{
+"total": 1068.906,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 2: Cryptography",
+"spoken": "Chapter 2: Cryptography.",
+"start": 1.6,
+"end": 3.499
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Introduction to Cryptography",
+"spoken": "1. Introduction to Cryptography.",
+"start": 5.899,
+"end": 8.203
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Goals of Cryptography",
+"spoken": "Goals of Cryptography.",
+"start": 10.003,
+"end": 11.667
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data confidentiality.",
+"spoken": "Data confidentiality.",
+"start": 12.117,
+"end": 13.866
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data integrity.",
+"spoken": "Data integrity.",
+"start": 14.316,
+"end": 15.639
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication.",
+"spoken": "Authentication.",
+"start": 16.089,
+"end": 17.39
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Nonrepudiation.",
+"spoken": "Nonrepudiation.",
+"start": 17.84,
+"end": 19.184
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Combines mathematics and computer science.",
+"spoken": "Combines mathematics and computer science.",
+"start": 19.634,
+"end": 22.343
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Used in VPNs, ecommerce, secure email, credit card chips, and any site using TLS (Facebook, Instagram, YouTube).",
+"spoken": "Used in V.P.N.s, ecommerce, secure email, credit card chips, and any site using TLS (Facebook, Instagram, YouTube).",
+"start": 22.793,
+"end": 31.881
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Block Cipher Examples",
+"spoken": "Block Cipher Examples.",
+"start": 33.331,
+"end": 34.931
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AES, 3DES, Blowfish, DES, IDEA, Serpent, Twofish.",
+"spoken": "A.E.S., triple D.E.S., Blowfish, D.E.S., I.D.E.A., Serpent, Twofish.",
+"start": 35.381,
+"end": 41.099
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Padding causes a very small amount of wasted overhead.",
+"spoken": "Padding causes a very small amount of wasted overhead.",
+"start": 41.549,
+"end": 45.303
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Symmetric Versus Asymmetric",
+"spoken": "Symmetric Versus Asymmetric.",
+"start": 46.753,
+"end": 48.972
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Symmetric: both VPN peers need the same key or keys. Used for most VPN data today.",
+"spoken": "Symmetric: both VPN peers need the same key or keys. Used for most VPN data today.",
+"start": 49.422,
+"end": 56.505
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Longer key means better security. Keys are usually described by length.",
+"spoken": "Longer key means better security. Keys are usually described by length.",
+"start": 56.955,
+"end": 61.904
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Asymmetric: shipping container analogy.",
+"spoken": "Asymmetric: shipping container analogy.",
+"start": 62.354,
+"end": 65.277
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "One lock with a small and a large keyhole. Lock with one key, and only the other key unlocks it.",
+"spoken": "One lock with a small and a large keyhole. Lock with one key, and only the other key unlocks it.",
+"start": 65.727,
+"end": 72.191
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The two keys are the public and private keys.",
+"spoken": "The two keys are the public and private keys.",
+"start": 72.641,
+"end": 75.499
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Asymmetric is more secure but needs more CPU, so it is used for infrequent tasks:",
+"spoken": "Asymmetric is more secure but needs more CPU, so it is used for infrequent tasks:",
+"start": 75.949,
+"end": 81.923
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Authenticating a VPN peer.",
+"spoken": "Authenticating a VPN peer.",
+"start": 82.373,
+"end": 84.655
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Generating keying material for symmetric algorithms.",
+"spoken": "Generating keying material for symmetric algorithms.",
+"start": 85.105,
+"end": 88.476
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure website example: your PC has the server's public key, and only the server knows its private key.",
+"spoken": "Secure website example: your P.C. has the server's public key, and only the server knows its private key.",
+"start": 88.926,
+"end": 96.542
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RSA is the common asymmetric algorithm for authentication (RSA digital signatures).",
+"spoken": "R.S.A. is the common asymmetric algorithm for authentication (R.S.A. digital signatures).",
+"start": 96.992,
+"end": 104.395
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Hashes",
+"spoken": "Hashes.",
+"start": 105.845,
+"end": 106.762
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrity check: the sender hashes the packet and attaches the hash. The receiver hashes the packet again and compares.",
+"spoken": "Integrity check: the sender hashes the packet and attaches the hash. The receiver hashes the packet again and compares.",
+"start": 107.212,
+"end": 114.828
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "If one bit changes, the hashes will not match.",
+"spoken": "If one bit changes, the hashes will not match.",
+"start": 115.278,
+"end": 118.499
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malware analysts share a malware file's hash instead of the file to avoid infection. Cisco Secure Malware Defense uses malware hashes.",
+"spoken": "Malware analysts share a malware file's hash instead of the file to avoid infection. Cisco Secure Malware Defense uses malware hashes.",
+"start": 118.949,
+"end": 128.827
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Why MD5 is no longer secure:",
+"spoken": "Why M.D. 5 is no longer secure:",
+"start": 129.277,
+"end": 132.477
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Vulnerable to collisions.",
+"spoken": "Vulnerable to collisions.",
+"start": 132.927,
+"end": 134.463
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Simple algorithm that modern computing can break. Also vulnerable to pre-image attacks.",
+"spoken": "Simple algorithm that modern computing can break. Also vulnerable to pre-image attacks.",
+"start": 134.913,
+"end": 140.971
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "NIST no longer recommends it for any cryptographic use.",
+"spoken": "NIST no longer recommends it for any cryptographic use.",
+"start": 141.421,
+"end": 145.112
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use SHA-3, SHA-2 (512 bits), or BLAKE2 instead of MD5 or SHA-1.",
+"spoken": "Use SHA 3, SHA 2 (512 bits), or blake 2 instead of M.D. 5 or SHA 1.",
+"start": 145.562,
+"end": 152.453
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "More bits means better security.",
+"spoken": "More bits means better security.",
+"start": 152.903,
+"end": 155.015
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Quantum computing is an active research area. The industry is labeling which algorithms are post-quantum ready, but few standards support post-quantum public key algorithms yet.",
+"spoken": "Quantum computing is an active research area. The industry is labeling which algorithms are post-quantum ready, but few standards support post-quantum public key algorithms yet.",
+"start": 155.465,
+"end": 167.561
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco SHA512 checksum blog: https://blogs.cisco.com/security/sha512-checksums-for-all-cisco-software.",
+"spoken": "Cisco SHA 512 checksum blog: https: or or blogs.cisco.com or security or sha512-checksums-for-all-cisco-software.",
+"start": 168.011,
+"end": 180.576
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Algorithms to use and avoid: https://github.com/The-Art-of-Hacking/h4cker/blob/master/crypto/crypto_algorithms.md.",
+"spoken": "Algorithms to use and avoid: https: or or github.com or The-Art-of-Hacking or h4cker or blob or master or crypto or crypto_algorithms.md.",
+"start": 181.026,
+"end": 194.167
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "HMAC",
+"spoken": "H-mac.",
+"start": 195.617,
+"end": 196.684
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An eavesdropper cannot add or remove data without being noticed, because they cannot recalculate the hash without the key.",
+"spoken": "An eavesdropper cannot add or remove data without being noticed, because they cannot recalculate the hash without the key.",
+"start": 197.134,
+"end": 205.347
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HMAC-MD5: legacy. Adequate today, but keys should be renewed often.",
+"spoken": "H-mac M.D. 5: legacy. Adequate today, but keys should be renewed often.",
+"start": 205.797,
+"end": 211.408
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HMAC-SHA-1: the NIST-recommended HMAC function, per the book.",
+"spoken": "H-mac SHA 1: the NIST-recommended H-mac function, per the book.",
+"start": 211.858,
+"end": 216.445
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book also calls SHA-1 a legacy algorithm that is \"adequately secure,\" which conflicts with the hash list. Read exam wording carefully.",
+"spoken": "The book also calls SHA 1 a legacy algorithm that is \"adequately secure,\" which conflicts with the hash list. Read exam wording carefully.",
+"start": 216.895,
+"end": 227.113
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Digital Signatures",
+"spoken": "Digital Signatures.",
+"start": 228.563,
+"end": 230.014
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Characters: the book uses Thor and Ironman (instead of Bob and Alice) exchanging data, and Thanos (instead of Eve) eavesdropping.",
+"spoken": "Characters: the book uses Thor and Ironman (instead of Bob and Alice) exchanging data, and Thanos (instead of Eve) eavesdropping.",
+"start": 230.464,
+"end": 239.168
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Setup: both have key pairs and certificates from a common CA.",
+"spoken": "Setup: both have key pairs and certificates from a common C.A.",
+"start": 239.618,
+"end": 243.714
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Certificate enrollment: Thor sends a request to the CA, and the CA issues a certificate holding Thor's name and public key.",
+"spoken": "Certificate enrollment: Thor sends a request to the C.A., and the C.A. issues a certificate holding Thor's name and public key.",
+"start": 244.164,
+"end": 253.209
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Signing (Thor):",
+"spoken": "Signing (Thor):",
+"start": 253.659,
+"end": 254.961
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Hashes the packet.",
+"spoken": "Hashes the packet.",
+"start": 255.411,
+"end": 256.84
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Encrypts the hash with Thor's private key. This is the digital signature.",
+"spoken": "Encrypts the hash with Thor's private key. This is the digital signature.",
+"start": 257.29,
+"end": 262.069
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Attaches it to the packet and sends it.",
+"spoken": "Attaches it to the packet and sends it.",
+"start": 262.519,
+"end": 264.865
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Verifying (Ironman):",
+"spoken": "Verifying (Ironman):",
+"start": 265.315,
+"end": 266.894
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Decrypts the signature with Thor's public key.",
+"spoken": "Decrypts the signature with Thor's public key.",
+"start": 267.344,
+"end": 269.989
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Hashes the received packet with the same algorithm.",
+"spoken": "Hashes the received packet with the same algorithm.",
+"start": 270.439,
+"end": 273.831
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "If the hashes match, only Thor could have signed it, and the data is intact.",
+"spoken": "If the hashes match, only Thor could have signed it, and the data is intact.",
+"start": 274.281,
+"end": 279.081
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In an IPsec VPN, this usually happens in both directions.",
+"spoken": "In an I.P. sec VPN, this usually happens in both directions.",
+"start": 279.531,
+"end": 284.523
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Peers get each other's public keys by exchanging certificates. They trust only certificates signed by a CA they trust, so they also need the CA's public key.",
+"spoken": "Peers get each other's public keys by exchanging certificates. They trust only certificates signed by a C.A. they trust, so they also need the C.A.'s public key.",
+"start": 284.973,
+"end": 296.771
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Browsers and operating systems ship with root certificates and public keys for the mainstream CAs.",
+"spoken": "Browsers and operating systems ship with root certificates and public keys for the mainstream C.A.s.",
+"start": 297.221,
+"end": 304.453
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Key Management",
+"spoken": "Key Management.",
+"start": 305.903,
+"end": 307.161
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If VPN peers send their keys in plaintext, an eavesdropper can decrypt the traffic and confidentiality is lost.",
+"spoken": "If VPN peers send their keys in plaintext, an eavesdropper can decrypt the traffic and confidentiality is lost.",
+"start": 307.611,
+"end": 315.505
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Next-Generation Encryption (Suite B)",
+"spoken": "Next-Generation Encryption (Suite B).",
+"start": 316.955,
+"end": 319.664
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ECC: ECDSA replaces RSA signatures, and ECDH replaces DH.",
+"spoken": "E.C.C.: E.C.D.S.A. replaces R.S.A. signatures, and E.C.D.H. replaces D.H.",
+"start": 320.114,
+"end": 327.41
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AES in GCM mode.",
+"spoken": "A.E.S. in G.C.M. mode.",
+"start": 327.86,
+"end": 330.1
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ECC digital signature algorithm.",
+"spoken": "E.C.C. digital signature algorithm.",
+"start": 330.55,
+"end": 333.665
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SHA-256, SHA-384, SHA-512.",
+"spoken": "SHA 256, SHA 384, SHA 512.",
+"start": 334.115,
+"end": 339.469
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IPsec",
+"spoken": "I.P. sec.",
+"start": 340.919,
+"end": 342.157
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Benefits:",
+"spoken": "Benefits:",
+"start": 342.607,
+"end": 343.609
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Confidentiality through encryption.",
+"spoken": "Confidentiality through encryption.",
+"start": 344.059,
+"end": 346.235
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Integrity through hashing and HMAC.",
+"spoken": "Integrity through hashing and H-mac.",
+"start": 346.685,
+"end": 348.904
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Authentication with digital signatures or a PSK.",
+"spoken": "Authentication with digital signatures or a P.S.K.",
+"start": 349.354,
+"end": 353.066
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Anti-replay.",
+"spoken": "Anti-replay.",
+"start": 353.516,
+"end": 354.839
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Components:",
+"spoken": "Components:",
+"start": 355.289,
+"end": 356.27
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Methods: ESP and AH.",
+"spoken": "Methods: E.S.P. and A.H.",
+"start": 356.72,
+"end": 358.811
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Encryption: DES, 3DES, AES.",
+"spoken": "Encryption: D.E.S., triple D.E.S., A.E.S.",
+"start": 359.261,
+"end": 362.738
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Hashing: MD5, SHA, Whirlpool, BLAKE2.",
+"spoken": "Hashing: M.D. 5, SHA, Whirlpool, blake 2.",
+"start": 363.188,
+"end": 366.793
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Authentication: PSKs and RSA digital signatures.",
+"spoken": "Authentication: P.S.K.s and R.S.A. digital signatures.",
+"start": 367.243,
+"end": 371.915
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Key management: DH (dynamically generates symmetric keys), PKI (certificates from trusted CAs), and IKE.",
+"spoken": "Key management: D.H. (dynamically generates symmetric keys), P.K.I. (certificates from trusted C.A.s), and I.K.E.",
+"start": 372.365,
+"end": 381.581
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPsec VPN details are in Chapter 8.",
+"spoken": "I.P. sec VPN details are in Chapter 8.",
+"start": 382.031,
+"end": 385.786
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Post-Quantum Cryptography",
+"spoken": "Post-Quantum Cryptography.",
+"start": 387.236,
+"end": 389.156
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Classical algorithms rely on integer factorization and discrete logarithms, which quantum computers threaten.",
+"spoken": "Classical algorithms rely on integer factorization and discrete logarithms, which quantum computers threaten.",
+"start": 389.606,
+"end": 397.286
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Post-quantum math constructs: lattice-based, code-based, multivariate polynomial-based, and hash-based.",
+"spoken": "Post-quantum math constructs: lattice-based, code-based, multivariate polynomial-based, and hash-based.",
+"start": 397.736,
+"end": 405.011
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST runs a public competition to standardize quantum-resistant algorithms.",
+"spoken": "NIST runs a public competition to standardize quantum-resistant algorithms.",
+"start": 405.461,
+"end": 410.965
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Three tracks: key-establishment, digital signature, and public-key encryption algorithms.",
+"spoken": "Three tracks: key-establishment, digital signature, and public-key encryption algorithms.",
+"start": 411.415,
+"end": 417.26
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Judged on resilience to classical and quantum attacks, efficiency, maturity, and ease of integration.",
+"spoken": "Judged on resilience to classical and quantum attacks, efficiency, maturity, and ease of integration.",
+"start": 417.71,
+"end": 424.75
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Multiple evaluation rounds with public feedback. NIST continues to announce new candidates.",
+"spoken": "Multiple evaluation rounds with public feedback. NIST continues to announce new candidates.",
+"start": 425.2,
+"end": 431.557
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Quantum-resistant algorithms are a proactive measure. They are not meant to replace existing systems immediately, and the transition will be gradual.",
+"spoken": "Quantum-resistant algorithms are a proactive measure. They are not meant to replace existing systems immediately, and the transition will be gradual.",
+"start": 432.007,
+"end": 441.693
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CRYSTALS details: https://pq-crystals.org/.",
+"spoken": "crystals details: https: or or pq-crystals.org or .",
+"start": 442.143,
+"end": 446.836
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SSL and TLS",
+"spoken": "SSL and TLS.",
+"start": 448.286,
+"end": 450.099
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Why not IPsec for everything: not everyone has an IPsec client, a digital certificate, or a PSK.",
+"spoken": "Why not I.P. sec for everything: not everyone has an I.P. sec client, a digital certificate, or a P.S.K.",
+"start": 450.549,
+"end": 458.869
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TLS 1.3 improvements:",
+"spoken": "TLS 1.3 improvements:",
+"start": 459.319,
+"end": 461.645
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Separates key agreement and authentication algorithms from the cipher suites.",
+"spoken": "Separates key agreement and authentication algorithms from the cipher suites.",
+"start": 462.095,
+"end": 466.937
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Removes weak and less-used named elliptic curves.",
+"spoken": "Removes weak and less-used named elliptic curves.",
+"start": 467.387,
+"end": 470.673
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Removes MD5 and SHA-224.",
+"spoken": "Removes M.D. 5 and SHA 224.",
+"start": 471.123,
+"end": 474.92
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST SP 800-52 Rev. 2 requirements:",
+"spoken": "NIST S.P. 800-52 Rev. 2 requirements:",
+"start": 475.37,
+"end": 479.914
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "TLS servers use one or more public-key certificates and their private keys.",
+"spoken": "TLS servers use one or more public-key certificates and their private keys.",
+"start": 480.364,
+"end": 485.719
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Multiple server certificates support algorithm and key size agility.",
+"spoken": "Multiple server certificates support algorithm and key size agility.",
+"start": 486.169,
+"end": 490.883
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Certificates must come from a CA that publishes revocation information in OCSP responses. The CA may also publish a CRL.",
+"spoken": "Certificates must come from a C.A. that publishes revocation information in O.C.S.P. responses. The C.A. may also publish a C.R.L.",
+"start": 491.333,
+"end": 502.021
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HTTPS session flow:",
+"spoken": "HTTPS session flow:",
+"start": 502.471,
+"end": 504.583
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The browser asks the server to identify itself.",
+"spoken": "The browser asks the server to identify itself.",
+"start": 505.033,
+"end": 508.276
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The server sends its digital certificate (SSL certificate).",
+"spoken": "The server sends its digital certificate (SSL certificate).",
+"start": 508.726,
+"end": 512.843
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The browser checks the CA signature. If trusted, it now has the server's public key.",
+"spoken": "The browser checks the C.A. signature. If trusted, it now has the server's public key.",
+"start": 513.293,
+"end": 519.096
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "If the certificate is not trusted, the user gets a pop-up. Train users never to accept an untrusted certificate.",
+"spoken": "If the certificate is not trusted, the user gets a pop-up. Train users never to accept an untrusted certificate.",
+"start": 519.546,
+"end": 527.098
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The server usually does not authenticate the browser. It uses username and password instead.",
+"spoken": "The server usually does not authenticate the browser. It uses username and password instead.",
+"start": 527.548,
+"end": 533.607
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Browser and server then agree on the encryption algorithm and keys.",
+"spoken": "Browser and server then agree on the encryption algorithm and keys.",
+"start": 534.057,
+"end": 538.409
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Fundamental Encryption Components (Figure 2-7)",
+"spoken": "Fundamental Encryption Components (Figure 2-7).",
+"start": 539.859,
+"end": 543.72
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Symmetric encryption: same key encrypts and decrypts. AES, DES, 3DES, IDEA.",
+"spoken": "Symmetric encryption: same key encrypts and decrypts. A.E.S., D.E.S., triple D.E.S., I.D.E.A.",
+"start": 544.17,
+"end": 552.127
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Asymmetric encryption: public and private key. RSA, Diffie-Hellman.",
+"spoken": "Asymmetric encryption: public and private key. R.S.A., Diffie Hellman.",
+"start": 552.577,
+"end": 557.548
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Digital signatures: hash encrypted with the private key, decrypted with the sender's public key. RSA signatures.",
+"spoken": "Digital signatures: hash encrypted with the private key, decrypted with the sender's public key. R.S.A. signatures.",
+"start": 557.998,
+"end": 566.126
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Diffie-Hellman key exchange: asymmetric, but creates shared symmetric keys. Used in IPsec.",
+"spoken": "Diffie Hellman key exchange: asymmetric, but creates shared symmetric keys. Used in I.P. sec.",
+"start": 566.576,
+"end": 573.701
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Confidentiality: encryption turns clear text into ciphertext. AES, DES, 3DES, IDEA.",
+"spoken": "Confidentiality: encryption turns clear text into ciphertext. A.E.S., D.E.S., triple D.E.S., I.D.E.A.",
+"start": 574.151,
+"end": 583.197
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data integrity: compares hash values. RSA, MD5, SHA-1, SHA-2, SHA-3.",
+"spoken": "Data integrity: compares hash values. R.S.A., M.D. 5, SHA 1, SHA 2, SHA 3.",
+"start": 583.647,
+"end": 590.58
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication: verifies the peer's identity. PSKs, RSA signatures.",
+"spoken": "Authentication: verifies the peer's identity. P.S.K.s, R.S.A. signatures.",
+"start": 591.03,
+"end": 597.153
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. Fundamentals of PKI",
+"spoken": "2. Fundamentals of P.K.I.",
+"start": 599.203,
+"end": 601.635
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why PKI",
+"spoken": "Why P.K.I.",
+"start": 603.435,
+"end": 604.949
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Simple passwords are inadequate. PKI confirms identities and validates the information being transferred.",
+"spoken": "Simple passwords are inadequate. P.K.I. confirms identities and validates the information being transferred.",
+"start": 605.399,
+"end": 613.549
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The binding of keys to identities is maintained by a CA issuing and managing certificates.",
+"spoken": "The binding of keys to identities is maintained by a C.A. issuing and managing certificates.",
+"start": 613.999,
+"end": 620.441
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Key Pairs in Practice",
+"spoken": "Key Pairs in Practice.",
+"start": 621.891,
+"end": 623.491
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Encrypt with the public key, decrypt with the private key. The reverse also works.",
+"spoken": "Encrypt with the public key, decrypt with the private key. The reverse also works.",
+"start": 623.941,
+"end": 629.275
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Also called public key cryptography or asymmetric key cryptography.",
+"spoken": "Also called public key cryptography or asymmetric key cryptography.",
+"start": 629.725,
+"end": 634.759
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PGP email: to send Ironman an encrypted email, Thor uses Ironman's public key. Ironman decrypts it with his private key.",
+"spoken": "P.G.P. email: to send Ironman an encrypted email, Thor uses Ironman's public key. Ironman decrypts it with his private key.",
+"start": 635.209,
+"end": 644.831
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Ironman can send his public key directly or publish it to a public key server.",
+"spoken": "Ironman can send his public key directly or publish it to a public key server.",
+"start": 645.281,
+"end": 650.379
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "RSA Digital Signatures in PKI",
+"spoken": "R.S.A. Digital Signatures in P.K.I.",
+"start": 651.829,
+"end": 655.072
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each party has its own key pair, because both sides authenticate each other.",
+"spoken": "Each party has its own key pair, because both sides authenticate each other.",
+"start": 655.522,
+"end": 660.386
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The CA takes each party's public key, name, and IP address, creates the certificate, and signs it.",
+"spoken": "The C.A. takes each party's public key, name, and IP address, creates the certificate, and signs it.",
+"start": 660.836,
+"end": 667.897
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Trusting a CA means you know who it is and have its public key to verify its signature.",
+"spoken": "Trusting a C.A. means you know who it is and have its public key to verify its signature.",
+"start": 668.347,
+"end": 674.491
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "What a CA Puts in a Certificate",
+"spoken": "What a C.A. Puts in a Certificate.",
+"start": 675.941,
+"end": 678.331
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Device identity: IP address, FQDN, and public key.",
+"spoken": "Device identity: IP address, F.Q.D.N., and public key.",
+"start": 678.781,
+"end": 683.239
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A serial number assigned by the CA.",
+"spoken": "A serial number assigned by the C.A.",
+"start": 683.689,
+"end": 686.441
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The CA's own digital signature.",
+"spoken": "The C.A.'s own digital signature.",
+"start": 686.891,
+"end": 689.515
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A URL to check whether the certificate has been revoked.",
+"spoken": "A URL to check whether the certificate has been revoked.",
+"start": 689.965,
+"end": 693.613
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Validity dates.",
+"spoken": "Validity dates.",
+"start": 694.063,
+"end": 695.258
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Information about the issuing CA and other PKI parameters.",
+"spoken": "Information about the issuing C.A. and other P.K.I. parameters.",
+"start": 695.708,
+"end": 700.316
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Commercial Versus Internal CA",
+"spoken": "Commercial Versus Internal C.A.",
+"start": 701.766,
+"end": 704.369
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Commercial CA: charges a fee. Browsers already trust common public CAs, so anyone can verify your server with no changes.",
+"spoken": "Commercial C.A.: charges a fee. Browsers already trust common public C.A.s, so anyone can verify your server with no changes.",
+"start": 704.819,
+"end": 714.952
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Internal CA: no fee, but you must configure each device to trust it. Only trusted inside the company and its managed devices.",
+"spoken": "Internal C.A.: no fee, but you must configure each device to trust it. Only trusted inside the company and its managed devices.",
+"start": 715.402,
+"end": 724.789
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Root Certificate Fields",
+"spoken": "Root Certificate Fields.",
+"start": 726.239,
+"end": 727.86
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Serial number: issued and tracked by the CA.",
+"spoken": "Serial number: issued and tracked by the C.A.",
+"start": 728.31,
+"end": 731.467
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Issuer: the CA that issued it. Even a root certificate needs an issuer, possibly itself.",
+"spoken": "Issuer: the C.A. that issued it. Even a root certificate needs an issuer, possibly itself.",
+"start": 731.917,
+"end": 738.445
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Validity dates: a PC with the wrong date may reject a valid certificate. Use NTP.",
+"spoken": "Validity dates: a P.C. with the wrong date may reject a valid certificate. Use N.T.P.",
+"start": 738.895,
+"end": 745.402
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Subject: OU, O, C, and other X.500 details. For a root certificate the subject is the CA. For an identity certificate it is the client.",
+"spoken": "Subject: O.U., O, C, and other X 500 details. For a root certificate the subject is the C.A. For an identity certificate it is the client.",
+"start": 745.852,
+"end": 756.86
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Public key: the key contents and length.",
+"spoken": "Public key: the key contents and length.",
+"start": 757.31,
+"end": 759.891
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Thumbprint algorithm and thumbprint.",
+"spoken": "Thumbprint algorithm and thumbprint.",
+"start": 760.341,
+"end": 762.496
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Identity Certificates",
+"spoken": "Identity Certificates.",
+"start": 763.946,
+"end": 765.589
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Any device that verifies a digital signature needs the sender's public key.",
+"spoken": "Any device that verifies a digital signature needs the sender's public key.",
+"start": 766.039,
+"end": 771.351
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Peers exchange identity certificates, verify the CA's signature on each using the CA's public key, then trust the public key inside.",
+"spoken": "Peers exchange identity certificates, verify the C.A.'s signature on each using the C.A.'s public key, then trust the public key inside.",
+"start": 771.801,
+"end": 782.339
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Public CA keys are built into most browsers.",
+"spoken": "Public C.A. keys are built into most browsers.",
+"start": 782.789,
+"end": 786.352
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "X.500 and X.509v3",
+"spoken": "X 500 and X 509 version 3.",
+"start": 787.802,
+"end": 791.621
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Directory elements are structured like an org chart (a pyramid):",
+"spoken": "Directory elements are structured like an org chart (a pyramid):",
+"start": 792.071,
+"end": 796.081
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "CN: common name (CN=Thor).",
+"spoken": "C.N.: common name (C.N.=Thor).",
+"start": 796.531,
+"end": 799.411
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "OU: organizational unit (OU=engineering).",
+"spoken": "O.U.: organizational unit (O.U.=engineering).",
+"start": 799.861,
+"end": 803.915
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "O: organization (O=cisco.com).",
+"spoken": "O: organization (O=cisco.com).",
+"start": 804.365,
+"end": 807.607
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Common use: a certificate field such as OU=sales assigns the user's access rights from Active Directory or another LDAP database after they authenticate. Define rights in one place and reuse them.",
+"spoken": "Common use: a certificate field such as O.U.=sales assigns the user's access rights from Active Directory or another L-dap database after they authenticate. Define rights in one place and reuse them.",
+"start": 808.057,
+"end": 823.481
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Fields in Most Digital Certificates",
+"spoken": "Fields in Most Digital Certificates.",
+"start": 824.931,
+"end": 827.363
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Serial number: uniquely identifies the certificate.",
+"spoken": "Serial number: uniquely identifies the certificate.",
+"start": 827.813,
+"end": 831.483
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Subject: the person or entity identified.",
+"spoken": "Subject: the person or entity identified.",
+"start": 831.933,
+"end": 834.813
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Signature algorithm: the algorithm used to sign the certificate.",
+"spoken": "Signature algorithm: the algorithm used to sign the certificate.",
+"start": 835.263,
+"end": 839.679
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Signature: the CA's digital signature.",
+"spoken": "Signature: the C.A.'s digital signature.",
+"start": 840.129,
+"end": 843.115
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Issuer: the CA that created and issued it.",
+"spoken": "Issuer: the C.A. that created and issued it.",
+"start": 843.565,
+"end": 846.509
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Valid from and Valid to: start and expiration dates.",
+"spoken": "Valid from and Valid to: start and expiration dates.",
+"start": 846.959,
+"end": 850.714
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Key usage: what the public key may be used for.",
+"spoken": "Key usage: what the public key may be used for.",
+"start": 851.164,
+"end": 854.3
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Public key: the public half of the host's key pair.",
+"spoken": "Public key: the public half of the host's key pair.",
+"start": 854.75,
+"end": 857.822
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Thumbprint algorithm and Thumbprint.",
+"spoken": "Thumbprint algorithm and Thumbprint.",
+"start": 858.272,
+"end": 860.427
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CRL location: URL to check whether any serial numbers issued by the CA have been revoked.",
+"spoken": "C.R.L. location: URL to check whether any serial numbers issued by the C.A. have been revoked.",
+"start": 860.877,
+"end": 868.429
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Authenticating and Enrolling with the CA (Two Steps)",
+"spoken": "Authenticating and Enrolling with the C.A. (Two Steps).",
+"start": 869.879,
+"end": 873.591
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Step 1, authenticate the CA: get the root CA certificate.",
+"spoken": "Step 1, authenticate the C.A.: get the root C.A. certificate.",
+"start": 874.041,
+"end": 878.457
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "You need the CA's public key to verify its signature, but the key is inside the certificate you are trying to verify (chicken and egg).",
+"spoken": "You need the C.A.'s public key to verify its signature, but the key is inside the certificate you are trying to verify (chicken and egg).",
+"start": 878.907,
+"end": 888.571
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Fix: download the root certificate and verify its hash out of band, such as by phone.",
+"spoken": "Fix: download the root certificate and verify its hash out of band, such as by phone.",
+"start": 889.021,
+"end": 895.015
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Browsers automate this for well-known CAs.",
+"spoken": "Browsers automate this for well-known C.A.s.",
+"start": 895.465,
+"end": 898.665
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Step 2, enroll: generate a key pair and send an identity certificate request that includes the public key.",
+"spoken": "Step 2, enroll: generate a key pair and send an identity certificate request that includes the public key.",
+"start": 899.115,
+"end": 906.475
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The CA issues and signs your identity certificate.",
+"spoken": "The C.A. issues and signs your identity certificate.",
+"start": 906.925,
+"end": 910.872
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "You verify the CA's signature with the CA public key from step 1. If valid, install and use it.",
+"spoken": "You verify the C.A.'s signature with the C.A. public key from step 1. If valid, install and use it.",
+"start": 911.322,
+"end": 918.789
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Public Key Cryptography Standards",
+"spoken": "Public Key Cryptography Standards.",
+"start": 920.239,
+"end": 922.415
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PKCS standards cover certificate request formats, identity certificate file formats, and usage access.",
+"spoken": "P.K.C.S. standards cover certificate request formats, identity certificate file formats, and usage access.",
+"start": 922.865,
+"end": 930.715
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "They give interoperability between different CA servers and CA clients.",
+"spoken": "They give interoperability between different C.A. servers and C.A. clients.",
+"start": 931.165,
+"end": 936.755
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Revoking Certificates",
+"spoken": "Revoking Certificates.",
+"start": 938.205,
+"end": 939.762
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Revoke when a device is decommissioned or its private key is compromised.",
+"spoken": "Revoke when a device is decommissioned or its private key is compromised.",
+"start": 940.212,
+"end": 944.884
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Peers normally do not contact the CA when authenticating, so they must be configured to check revocation.",
+"spoken": "Peers normally do not contact the C.A. when authenticating, so they must be configured to check revocation.",
+"start": 945.334,
+"end": 952.673
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The certificate holds the URL of the revocation list, on the CA or another public server. Revoked certificates are listed by serial number.",
+"spoken": "The certificate holds the URL of the revocation list, on the C.A. or another public server. Revoked certificates are listed by serial number.",
+"start": 953.123,
+"end": 963.235
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If the peer's certificate is on the CRL, authentication stops.",
+"spoken": "If the peer's certificate is on the C.R.L., authentication stops.",
+"start": 963.685,
+"end": 968.463
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Three ways to check revocation, in order of popularity:",
+"spoken": "Three ways to check revocation, in order of popularity:",
+"start": 968.913,
+"end": 972.839
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "CRL: the primary method. Can be large, and the client must process the whole list. Accessed by LDAP, HTTP, or SCEP.",
+"spoken": "C.R.L.: the primary method. Can be large, and the client must process the whole list. Accessed by L-dap, HTTP, or skep.",
+"start": 973.289,
+"end": 982.697
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "OCSP: the alternative to CRLs. Queries one certificate.",
+"spoken": "O.C.S.P.: the alternative to C.R.L.s. Queries one certificate.",
+"start": 983.147,
+"end": 988.544
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "AAA: Cisco AAA services can validate certificates and check revocation. Proprietary, so rarely used in PKI.",
+"spoken": "triple A: Cisco triple A services can validate certificates and check revocation. Proprietary, so rarely used in P.K.I.",
+"start": 988.994,
+"end": 998.615
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Digital Certificates in Practice",
+"spoken": "Digital Certificates in Practice.",
+"start": 1000.065,
+"end": 1002.177
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HTTPS, TLS, and SSL to authenticate web servers, such as online banking.",
+"spoken": "HTTPS, TLS, and SSL to authenticate web servers, such as online banking.",
+"start": 1002.627,
+"end": 1009.433
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SSL remote-access VPNs, to authenticate both ends.",
+"spoken": "SSL remote-access V.P.N.s, to authenticate both ends.",
+"start": 1009.883,
+"end": 1014.832
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPsec, for the authentication portion.",
+"spoken": "I.P. sec, for the authentication portion.",
+"start": 1015.282,
+"end": 1018.503
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "802.1X network edge authentication, such as wireless access for PCs and users.",
+"spoken": "802 dot 1 X network edge authentication, such as wireless access for P.C.s and users.",
+"start": 1018.953,
+"end": 1026.804
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "PKI Topologies",
+"spoken": "P.K.I. Topologies.",
+"start": 1028.254,
+"end": 1029.982
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Single root CA: may be overloaded with tens of thousands of clients and has no fault tolerance. Publishing CRLs on other servers offloads some work.",
+"spoken": "Single root C.A.: may be overloaded with tens of thousands of clients and has no fault tolerance. Publishing C.R.L.s on other servers offloads some work.",
+"start": 1030.432,
+"end": 1041.696
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hierarchical CA with subordinate CAs: adds fault tolerance and capacity. The root CA is \"king of the hill.\"",
+"spoken": "Hierarchical C.A. with subordinate C.A.s: adds fault tolerance and capacity. The root C.A. is \"king of the hill.\"",
+"start": 1042.146,
+"end": 1050.573
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "To verify the chain, a client needs every certificate from the root down to the CA that issued the client's certificate.",
+"spoken": "To verify the chain, a client needs every certificate from the root down to the C.A. that issued the client's certificate.",
+"start": 1051.023,
+"end": 1059.215
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cross-certifying CAs: horizontal trust between two CAs.",
+"spoken": "Cross-certifying C.A.s: horizontal trust between two C.A.s.",
+"start": 1059.665,
+"end": 1064.657
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Subordinate CA servers can be invalidated.",
+"spoken": "Subordinate C.A. servers can be invalidated.",
+"start": 1065.107,
+"end": 1068.456
+}
+]
+}
