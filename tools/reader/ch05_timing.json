@@ -1,0 +1,3749 @@
+{
+"total": 3519.842,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 5: Network Visibility and Segmentation",
+"spoken": "Chapter 5: Network Visibility and Segmentation.",
+"start": 1.6,
+"end": 5.226
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Introduction to Network Visibility",
+"spoken": "1. Introduction to Network Visibility.",
+"start": 7.626,
+"end": 10.25
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why Visibility",
+"spoken": "Why Visibility.",
+"start": 12.05,
+"end": 13.288
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Total visibility and complete control are hard, especially with multi-cloud. At least keep a good level of visibility to maintain services and business continuity.",
+"spoken": "Total visibility and complete control are hard, especially with multi-cloud. At least keep a good level of visibility to maintain services and business continuity.",
+"start": 13.738,
+"end": 24.874
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Design a flexible architecture that doesn't rely on a single technology or product.",
+"spoken": "Design a flexible architecture that doesn't rely on a single technology or product.",
+"start": 25.324,
+"end": 31.19
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book asks: how good is your network if you can't manage it during an outbreak or attack?",
+"spoken": "The book asks: how good is your network if you can't manage it during an outbreak or attack?",
+"start": 31.64,
+"end": 37.059
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Common Visibility Technologies",
+"spoken": "Common Visibility Technologies.",
+"start": 38.509,
+"end": 40.77
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow, IPFIX, Cisco Secure Network Analytics, IDS and IPS (Chapter 7), and Cisco Secure Endpoint, formerly AMP for Endpoints (Chapter 11).",
+"spoken": "NetFlow, I.P. fix, Cisco Secure Network Analytics, IDS and IPS (Chapter 7), and Cisco Secure Endpoint, formerly AMP for Endpoints (Chapter 11).",
+"start": 41.22,
+"end": 53.658
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco renamed many security products under the \"Cisco Secure\" name.",
+"spoken": "Cisco renamed many security products under the \"Cisco Secure\" name.",
+"start": 54.108,
+"end": 58.673
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. NetFlow",
+"spoken": "2. NetFlow.",
+"start": 60.723,
+"end": 62.046
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "What NetFlow Does",
+"spoken": "What NetFlow Does.",
+"start": 63.846,
+"end": 65.19
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses: billing and accounting, bandwidth and application performance, capacity planning, availability monitoring, and now security.",
+"spoken": "Uses: billing and accounting, bandwidth and application performance, capacity planning, availability monitoring, and now security.",
+"start": 65.64,
+"end": 74.45
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security value: nonrepudiation, anomaly detection, and investigative capabilities.",
+"spoken": "Security value: nonrepudiation, anomaly detection, and investigative capabilities.",
+"start": 74.9,
+"end": 81.215
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Telemetry tasks:",
+"spoken": "Telemetry tasks:",
+"start": 81.665,
+"end": 83.052
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "See what is actually happening across the whole network.",
+"spoken": "See what is actually happening across the whole network.",
+"start": 83.502,
+"end": 86.808
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Identify DoS attacks.",
+"spoken": "Identify D.O.S. attacks.",
+"start": 87.258,
+"end": 89.712
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Quickly identify compromised endpoints and infrastructure devices.",
+"spoken": "Quickly identify compromised endpoints and infrastructure devices.",
+"start": 90.162,
+"end": 94.812
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Monitor network use by employees, contractors, or partners.",
+"spoken": "Monitor network use by employees, contractors, or partners.",
+"start": 95.262,
+"end": 99.401
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Get telemetry during incident response and forensics.",
+"spoken": "Get telemetry during incident response and forensics.",
+"start": 99.851,
+"end": 103.307
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Detect firewall misconfigurations and inappropriate access to corporate resources.",
+"spoken": "Detect firewall misconfigurations and inappropriate access to corporate resources.",
+"start": 103.757,
+"end": 109.41
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports both IPv4 and IPv6.",
+"spoken": "Supports both I.P. version 4 and I.P. version 6.",
+"start": 109.86,
+"end": 114.511
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Crucial for network security, traffic engineering, network planning, and troubleshooting.",
+"spoken": "Crucial for network security, traffic engineering, network planning, and troubleshooting.",
+"start": 114.961,
+"end": 120.465
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "The Threat Landscape",
+"spoken": "The Threat Landscape.",
+"start": 121.915,
+"end": 123.259
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Organized cybercrime trades exploits. Hacker groups follow software development life cycles and run quality-assurance tests against security products.",
+"spoken": "Organized cybercrime trades exploits. Hacker groups follow software development life cycles and run quality-assurance tests against security products.",
+"start": 123.709,
+"end": 134.098
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attacker techniques: port and protocol hopping, tunneling over many protocols, encryption, droppers, social engineering, and zero-day exploits.",
+"spoken": "Attacker techniques: port and protocol hopping, tunneling over many protocols, encryption, droppers, social engineering, and zero-day exploits.",
+"start": 134.548,
+"end": 144.49
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security should detect and reduce the impact after a successful attack, not only defend against Internet threats.",
+"spoken": "Security should detect and reduce the impact after a successful attack, not only defend against Internet threats.",
+"start": 144.94,
+"end": 152.364
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Firewall and Cisco Secure Endpoint help before an attack. NetFlow detects attacks before, during, and after.",
+"spoken": "Cisco Secure Firewall and Cisco Secure Endpoint help before an attack. NetFlow detects attacks before, during, and after.",
+"start": 152.814,
+"end": 161.71
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Network as a Sensor and Enforcer",
+"spoken": "Network as a Sensor and Enforcer.",
+"start": 163.16,
+"end": 165.464
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Devices that help: Catalyst and data center switches, ASRs, ISRs, Cisco Secure Firewalls, FlowSensors, Cisco Secure Endpoint, and wireless products, together with Cisco ACI.",
+"spoken": "Devices that help: Catalyst and data center switches, A.S.R.s, I.S.R.s, Cisco Secure Firewalls, FlowSensors, Cisco Secure Endpoint, and wireless products, together with Cisco A.C.I.",
+"start": 165.914,
+"end": 180.655
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With TrustSec, even a successful intruder is limited to one segment.",
+"spoken": "With TrustSec, even a successful intruder is limited to one segment.",
+"start": 181.105,
+"end": 185.606
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Flows and the Cache",
+"spoken": "Flows and the Cache.",
+"start": 187.056,
+"end": 188.443
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-1: source 10.1.1.2 port 1872 to destination 10.2.2.3 port 443, protocol TCP.",
+"spoken": "Figure 5-1: source 10.1.1.2 port 1872 to destination 10.2.2.3 port 443, protocol TCP.",
+"start": 188.893,
+"end": 203.336
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-2: the client at 10.1.1.2 opens HTTPS to a server at 10.2.2.3 through a NetFlow router, which creates a flow record and exports it to a collector.",
+"spoken": "Figure 5-2: the client at 10.1.1.2 opens HTTPS to a server at 10.2.2.3 through a NetFlow router, which creates a flow record and exports it to a collector.",
+"start": 203.786,
+"end": 219.444
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Depending on the version, the router also records the ToS byte, DSCP, input interface, TCP flags, byte counters, and start and end times.",
+"spoken": "Depending on the version, the router also records the ToS byte, DSCP, input interface, TCP flags, byte counters, and start and end times.",
+"start": 219.894,
+"end": 231.137
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flexible NetFlow can track:",
+"spoken": "Flexible NetFlow can track:",
+"start": 231.587,
+"end": 233.507
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Source and destination MAC addresses, IPv4 or IPv6 addresses, and ports.",
+"spoken": "Source and destination mac addresses, I.P. version 4 or I.P. version 6 addresses, and ports.",
+"start": 233.957,
+"end": 241.765
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "ToS, DSCP, packet and byte counts, and flow timestamps.",
+"spoken": "ToS, DSCP, packet and byte counts, and flow timestamps.",
+"start": 242.215,
+"end": 246.418
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Input and output interface numbers.",
+"spoken": "Input and output interface numbers.",
+"start": 246.868,
+"end": 249.3
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "TCP flags, encapsulated protocol, and individual TCP flags.",
+"spoken": "TCP flags, encapsulated protocol, and individual TCP flags.",
+"start": 249.75,
+"end": 255.403
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Sections of the packet for deep packet inspection.",
+"spoken": "Sections of the packet for deep packet inspection.",
+"start": 255.853,
+"end": 258.605
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "All IPv4 header fields, including IP-ID and TTL.",
+"spoken": "All I.P. version 4 header fields, including IP-ID and TTL.",
+"start": 259.055,
+"end": 264.41
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "All IPv6 header fields, including Flow Label and Option Header.",
+"spoken": "All I.P. version 6 header fields, including Flow Label and Option Header.",
+"start": 264.86,
+"end": 270.385
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Routing information: next hop, source and destination ASN, source and destination prefix mask, BGP next hop, and BGP policy accounting traffic index.",
+"spoken": "Routing information: next hop, source and destination ASN, source and destination prefix mask, BGP next hop, and BGP policy accounting traffic index.",
+"start": 270.835,
+"end": 283.635
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cache Types in Detail",
+"spoken": "Cache Types in Detail.",
+"start": 285.085,
+"end": 286.749
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Immediate cache: good for real-time monitoring and DDoS detection, and when only very small flows are expected, such as with sampling. Can create a lot of export data, which raises CPU and memory use.",
+"spoken": "Immediate cache: good for real-time monitoring and D.D.O.S. detection, and when only very small flows are expected, such as with sampling. Can create a lot of export data, which raises CPU and memory use.",
+"start": 287.199,
+"end": 302.708
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Permanent cache: the whole cache is exported periodically on the update timer. The cache size is configurable. When it fills, new flows aren't monitored. Uses update counters instead of delta counters.",
+"spoken": "Permanent cache: the whole cache is exported periodically on the update timer. The cache size is configurable. When it fills, new flows aren't monitored. Uses update counters instead of delta counters.",
+"start": 303.158,
+"end": 317.238
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Security and Visibility",
+"spoken": "Security and Visibility.",
+"start": 318.688,
+"end": 320.694
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The first step to identifying threats is complete network visibility. You can't protect against what you can't see.",
+"spoken": "The first step to identifying threats is complete network visibility. You can't protect against what you can't see.",
+"start": 321.144,
+"end": 328.461
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use features on devices you already have. Draw strategic network diagrams of packet flows and where to enable security mechanisms.",
+"spoken": "Use features on devices you already have. Draw strategic network diagrams of packet flows and where to enable security mechanisms.",
+"start": 328.911,
+"end": 338.298
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Anomaly Detection and DDoS",
+"spoken": "Anomaly Detection and D.D.O.S.",
+"start": 339.748,
+"end": 342.436
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "First define what normal is.",
+"spoken": "First define what normal is.",
+"start": 342.886,
+"end": 344.891
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DDoS attacks overwhelm network resources or a system's CPU and memory, usually with many IP packets or forged requests.",
+"spoken": "D.D.O.S. attacks overwhelm network resources or a system's CPU and memory, usually with many IP packets or forged requests.",
+"start": 345.341,
+"end": 355.922
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The anomaly system monitors traffic, alerts, and reacts to sudden increases.",
+"spoken": "The anomaly system monitors traffic, alerts, and reacts to sudden increases.",
+"start": 356.372,
+"end": 361.876
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Combine NetFlow with syslog and SNMP. Do traffic analysis first, and learn over a long interval that includes peaks and valleys.",
+"spoken": "Combine NetFlow with syslog and SNMP. Do traffic analysis first, and learn over a long interval that includes peaks and valleys.",
+"start": 362.326,
+"end": 371.798
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Cloud Analytics Example (Figure 5-3)",
+"spoken": "Secure Cloud Analytics Example (Figure 5-3).",
+"start": 373.248,
+"end": 377.11
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Captures traffic from on premises or a public cloud, learns each host's normal behavior, and alerts on changes.",
+"spoken": "Captures traffic from on premises or a public cloud, learns each host's normal behavior, and alerts on changes.",
+"start": 377.56,
+"end": 385.389
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In the web portal you can see the observations behind an alert, with context on the entities, their traffic, and external threat intelligence.",
+"spoken": "In the web portal you can see the observations behind an alert, with context on the entities, their traffic, and external threat intelligence.",
+"start": 385.839,
+"end": 395.119
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Data Leak Detection and Prevention",
+"spoken": "Data Leak Detection and Prevention.",
+"start": 396.569,
+"end": 398.958
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Analytics on NetFlow find large amounts of data leaving and abnormal internal patterns.",
+"spoken": "Analytics on NetFlow find large amounts of data leaving and abnormal internal patterns.",
+"start": 399.408,
+"end": 405.702
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With identity management, you can see who started the transfer, the hosts involved, how much data moved, the services used, how long it lasted, and how often the connection repeats.",
+"spoken": "With identity management, you can see who started the transfer, the hosts involved, how much data moved, the services used, how long it lasted, and how often the connection repeats.",
+"start": 406.152,
+"end": 418.461
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tuning is often needed because legitimate large transfers or streaming training to partners cause false positives. Baseline analytics can learn normal file transfers.",
+"spoken": "Tuning is often needed because legitimate large transfers or streaming training to partners cause false positives. Baseline analytics can learn normal file transfers.",
+"start": 418.911,
+"end": 431.412
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Incident Response, Threat Hunting, and Forensics",
+"spoken": "Incident Response, Threat Hunting, and Forensics.",
+"start": 432.862,
+"end": 435.956
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow is like a phone bill: a record of who talked to whom.",
+"spoken": "NetFlow is like a phone bill: a record of who talked to whom.",
+"start": 436.406,
+"end": 440.267
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST incident handling steps:",
+"spoken": "NIST incident handling steps:",
+"start": 440.717,
+"end": 442.68
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Preparation.",
+"spoken": "1. Preparation.",
+"start": 443.13,
+"end": 444.538
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Detection and analysis.",
+"spoken": "2. Detection and analysis.",
+"start": 444.988,
+"end": 446.993
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Containment, eradication, and recovery.",
+"spoken": "3. Containment, eradication, and recovery.",
+"start": 447.443,
+"end": 450.771
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. Post-incident activity (postmortem and lessons learned).",
+"spoken": "4. Post-incident activity (postmortem and lessons learned).",
+"start": 451.221,
+"end": 455.445
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow is crucial in preparation and in detection and analysis. It helps identify, categorize, and scope incidents, and supports traceback and attribution.",
+"spoken": "NetFlow is crucial in preparation and in detection and analysis. It helps identify, categorize, and scope incidents, and supports traceback and attribution.",
+"start": 455.895,
+"end": 466.69
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-4: a botnet of IoT devices runs a DDoS attack. NetFlow routers detect the anomaly and help find other IOCs.",
+"spoken": "Figure 5-4: a botnet of I.O.T. devices runs a D.D.O.S. attack. NetFlow routers detect the anomaly and help find other IOCs.",
+"start": 467.14,
+"end": 479.406
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-5: a stepping-stone attack. A compromised call center host pulls data from a data center server and sends it to the attacker's command and control server. A NetFlow switch sees it leave.",
+"spoken": "Figure 5-5: a stepping-stone attack. A compromised call center host pulls data from a data center server and sends it to the attacker's command and control server. A NetFlow switch sees it leave.",
+"start": 479.856,
+"end": 494.363
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow plus DNS records can reveal:",
+"spoken": "NetFlow plus DNS records can reveal:",
+"start": 494.813,
+"end": 497.458
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Requests to .gov, .mil, and .edu sites you don't do business with.",
+"spoken": "Requests to .gov, .mil, and .edu sites you don't do business with.",
+"start": 497.908,
+"end": 502.068
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Large traffic leaving late at night to suspicious sites.",
+"spoken": "Large traffic leaving late at night to suspicious sites.",
+"start": 502.518,
+"end": 505.996
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Traffic to embargoed countries.",
+"spoken": "Traffic to embargoed countries.",
+"start": 506.446,
+"end": 508.472
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Suspicious VPN requests and traffic.",
+"spoken": "Suspicious VPN requests and traffic.",
+"start": 508.922,
+"end": 511.696
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Requests to sites without any content.",
+"spoken": "Requests to sites without any content.",
+"start": 512.146,
+"end": 514.578
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Pornography or other policy violations.",
+"spoken": "Pornography or other policy violations.",
+"start": 515.028,
+"end": 517.929
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Illegal file-sharing sites.",
+"spoken": "Illegal file-sharing sites.",
+"start": 518.379,
+"end": 520.32
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Crypto mining informational sites.",
+"spoken": "Crypto mining informational sites.",
+"start": 520.77,
+"end": 523.16
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NetFlow versus Packet Captures and Syslog",
+"spoken": "NetFlow versus Packet Captures and Syslog.",
+"start": 524.61,
+"end": 527.404
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hundreds of sniffers are hard and costly to deploy, and responders don't have time for terabytes of captures.",
+"spoken": "Hundreds of sniffers are hard and costly to deploy, and responders don't have time for terabytes of captures.",
+"start": 527.854,
+"end": 535.108
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use NetFlow for the high-level view, then deep-dive with packet captures placed where needed.",
+"spoken": "Use NetFlow for the high-level view, then deep-dive with packet captures placed where needed.",
+"start": 535.558,
+"end": 541.403
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow runs on supported routers, switches, Cisco ASA, Cisco FTD, and Cisco Secure Firewall, or use a FlowSensor.",
+"spoken": "NetFlow runs on supported routers, switches, Cisco ASA, Cisco FTD, and Cisco Secure Firewall, or use a FlowSensor.",
+"start": 541.853,
+"end": 551.56
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FlowSensors also give deeper visibility into performance metrics and packet data. You typically configure them with a FlowCollector.",
+"spoken": "FlowSensors also give deeper visibility into performance metrics and packet data. You typically configure them with a FlowCollector.",
+"start": 552.01,
+"end": 560.372
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow is a transactional record, so it is easy to store and keep a long history.",
+"spoken": "NetFlow is a transactional record, so it is easy to store and keep a long history.",
+"start": 560.822,
+"end": 566.326
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "History shows where an infection began, which command-and-control channel the malware used, which internal hosts it touched, and whether others reached the same attacker.",
+"spoken": "History shows where an infection began, which command-and-control channel the malware used, which internal hosts it touched, and whether others reached the same attacker.",
+"start": 566.776,
+"end": 577.571
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Syslog on routers, switches, ASA, and FTD goes to a logging process, which delivers to the buffer, terminal lines, a syslog server, or a correlation system. Set the severity level and timestamps.",
+"spoken": "Syslog on routers, switches, ASA, and FTD goes to a logging process, which delivers to the buffer, terminal lines, a syslog server, or a correlation system. Set the severity level and timestamps.",
+"start": 578.021,
+"end": 592.869
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Syslog limits: you must enable it on each endpoint, so coverage is often incomplete, and you can't trust logs from a compromised device.",
+"spoken": "Syslog limits: you must enable it on each endpoint, so coverage is often incomplete, and you can't trust logs from a compromised device.",
+"start": 593.319,
+"end": 602.94
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Telemetry to Correlate with NetFlow",
+"spoken": "Telemetry to Correlate with NetFlow.",
+"start": 604.39,
+"end": 606.822
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DHCP logs, VPN logs, NAT information, 802.1X authentication logs, server logs (syslog), web proxy logs, and spam filters from Cisco Secure Email (formerly ESA).",
+"spoken": "DHCP logs, VPN logs, nat information, 802 dot 1 X authentication logs, server logs (syslog), web proxy logs, and spam filters from Cisco Secure Email (formerly ESA).",
+"start": 607.272,
+"end": 623.102
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-6, attribution:",
+"spoken": "Figure 5-6, attribution:",
+"start": 623.552,
+"end": 626.133
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "DHCP server logs: IP assignments to systems, MAC addresses.",
+"spoken": "DHCP server logs: IP assignments to systems, mac addresses.",
+"start": 626.583,
+"end": 631.874
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "VPN logs: IP assignments to users, VPN source addresses, traffic statistics (such as the AnyConnect Network Visibility Module).",
+"spoken": "VPN logs: IP assignments to users, VPN source addresses, traffic statistics (such as the AnyConnect Network Visibility Module).",
+"start": 632.324,
+"end": 642.841
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "NAT gateway: NAT and PAT logs.",
+"spoken": "nat gateway: nat and pat logs.",
+"start": 643.291,
+"end": 645.552
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "802.1X authentication logs: IP address assignments, policy assignments, security posture (if TrustSec is deployed), MAC addresses.",
+"spoken": "802 dot 1 X authentication logs: IP address assignments, policy assignments, security posture (if TrustSec is deployed), mac addresses.",
+"start": 646.002,
+"end": 657.437
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-7, system activity:",
+"spoken": "Figure 5-7, system activity:",
+"start": 657.887,
+"end": 660.874
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Application server logs: authentication and authorization events, services starting and stopping, configuration changes, security events.",
+"spoken": "Application server logs: authentication and authorization events, services starting and stopping, configuration changes, security events.",
+"start": 661.324,
+"end": 671.414
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Web server logs: access logs and error logs.",
+"spoken": "Web server logs: access logs and error logs.",
+"start": 671.864,
+"end": 675.192
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "LDAP servers and domain controllers: authentication and authorization events, failed logins.",
+"spoken": "L-dap servers and domain controllers: authentication and authorization events, failed logins.",
+"start": 675.642,
+"end": 682.213
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-8:",
+"spoken": "Figure 5-8:",
+"start": 682.663,
+"end": 684.348
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Web proxy logs: web malware downloads, command-and-control communication, known compromised or malicious sites.",
+"spoken": "Web proxy logs: web malware downloads, command-and-control communication, known compromised or malicious sites.",
+"start": 684.798,
+"end": 692.756
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Spam filter logs: malicious URLs, malicious email attachments, spearphishing campaigns.",
+"spoken": "Spam filter logs: malicious U.R.L.s, malicious email attachments, spearphishing campaigns.",
+"start": 693.206,
+"end": 699.904
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Firewall logs: access control logs, accepted and denied connections, deep packet inspection logs.",
+"spoken": "Firewall logs: access control logs, accepted and denied connections, deep packet inspection logs.",
+"start": 700.354,
+"end": 707.501
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Timestamps must be correct, so NTP is strongly recommended.",
+"spoken": "Timestamps must be correct, so N.T.P. is strongly recommended.",
+"start": 707.951,
+"end": 712.388
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Forensics Team Focus Areas",
+"spoken": "Forensics Team Focus Areas.",
+"start": 713.838,
+"end": 715.886
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Know the assets, risks, impact, and likelihood of events.",
+"spoken": "Know the assets, risks, impact, and likelihood of events.",
+"start": 716.336,
+"end": 720.027
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Practice incident response in mock events, and collect NetFlow regularly.",
+"spoken": "Practice incident response in mock events, and collect NetFlow regularly.",
+"start": 720.477,
+"end": 725.298
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stay aware of current vulnerabilities and threats.",
+"spoken": "Stay aware of current vulnerabilities and threats.",
+"start": 725.748,
+"end": 728.628
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Understand evidence handling and chain of custody. NetFlow events can be evidence.",
+"spoken": "Understand evidence handling and chain of custody. NetFlow events can be evidence.",
+"start": 729.078,
+"end": 734.582
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enact mitigation based on the evidence.",
+"spoken": "Enact mitigation based on the evidence.",
+"start": 735.032,
+"end": 737.571
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Know the documentation requirements for evidence in your country and local laws.",
+"spoken": "Know the documentation requirements for evidence in your country and local laws.",
+"start": 738.021,
+"end": 743.376
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Understand the analysis process during and after the incident.",
+"spoken": "Understand the analysis process during and after the incident.",
+"start": 743.826,
+"end": 747.964
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Have a communications framework inside and outside the team.",
+"spoken": "Have a communications framework inside and outside the team.",
+"start": 748.414,
+"end": 752.51
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Traffic Engineering, Planning, and Troubleshooting",
+"spoken": "Traffic Engineering, Planning, and Troubleshooting.",
+"start": 753.96,
+"end": 756.776
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Find non-mission-critical traffic using resources, like audio and video downloads or social networking sites.",
+"spoken": "Find non-mission-critical traffic using resources, like audio and video downloads or social networking sites.",
+"start": 757.226,
+"end": 765.077
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow can reveal configuration problems.",
+"spoken": "NetFlow can reveal configuration problems.",
+"start": 765.527,
+"end": 768.514
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Service providers correlate NetFlow with BGP for peering and IP transit analysis (profitability, costs, violations). Enterprises correlate with OSPF, EIGRP, and RIP.",
+"spoken": "Service providers correlate NetFlow with BGP for peering and IP transit analysis (profitability, costs, violations). Enterprises correlate with OSPF, EIGRP, and RIP.",
+"start": 768.964,
+"end": 781.87
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Troubleshooting example: poor VoIP or TelePresence calls caused by users streaming YouTube, Netflix, or Hulu. Fix with ACLs or QoS that prioritizes voice and video.",
+"spoken": "Troubleshooting example: poor voice over I.P. or TelePresence calls caused by users streaming YouTube, Netflix, or Hulu. Fix with A.C.L.s or QoS that prioritizes voice and video.",
+"start": 782.32,
+"end": 796.678
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Capacity planning examples: a merger adding thousands of users, or a new application with many users.",
+"spoken": "Capacity planning examples: a merger adding thousands of users, or a new application with many users.",
+"start": 797.128,
+"end": 804.424
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NetFlow Versions (Table 5-2)",
+"spoken": "NetFlow Versions (Table 5-2).",
+"start": 805.874,
+"end": 808.711
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Version 1: obsolete. The first one. IPv4 only, without network masks or ASNs.",
+"spoken": "Version 1: obsolete. The first one. I.P. version 4 only, without network masks or A.S.N.s.",
+"start": 809.161,
+"end": 816.926
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Versions 2, 3, and 4: never released to the public.",
+"spoken": "Versions 2, 3, and 4: never released to the public.",
+"start": 817.376,
+"end": 821.067
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Version 5: one of the most popular in earlier implementations. Still used in some places but obsolete.",
+"spoken": "Version 5: one of the most popular in earlier implementations. Still used in some places but obsolete.",
+"start": 821.517,
+"end": 829.154
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Version 6: obsolete, no longer supported.",
+"spoken": "Version 6: obsolete, no longer supported.",
+"start": 829.604,
+"end": 832.89
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Version 7: obsolete, no longer supported. Introduced a source router field.",
+"spoken": "Version 7: obsolete, no longer supported. Introduced a source router field.",
+"start": 833.34,
+"end": 839.014
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Version 8: obsolete, no longer supported.",
+"spoken": "Version 8: obsolete, no longer supported.",
+"start": 839.464,
+"end": 842.622
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Version 9: template-based. Introduced IPv6, MPLS, and BGP next hop support.",
+"spoken": "Version 9: template-based. Introduced I.P. version 6, MPLS, and BGP next hop support.",
+"start": 843.072,
+"end": 851.072
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flexible NetFlow: template-based, modeled after version 9.",
+"spoken": "Flexible NetFlow: template-based, modeled after version 9.",
+"start": 851.522,
+"end": 855.81
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPFIX: not a NetFlow version. The IETF standard based on version 9, with extensions.",
+"spoken": "I.P. fix: not a NetFlow version. The IETF standard based on version 9, with extensions.",
+"start": 856.26,
+"end": 863.62
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Templates are supported by version 9, Flexible NetFlow, and IPFIX.",
+"spoken": "Templates are supported by version 9, Flexible NetFlow, and I.P. fix.",
+"start": 864.07,
+"end": 869.318
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. IP Flow Information Export (IPFIX)",
+"spoken": "3. IP Flow Information Export (I.P. fix).",
+"start": 871.368,
+"end": 875.058
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Basics",
+"spoken": "Basics.",
+"start": 876.858,
+"end": 877.754
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Created as a common, universal export standard for routers, switches, firewalls, and other devices.",
+"spoken": "Created as a common, universal export standard for routers, switches, firewalls, and other devices.",
+"start": 878.204,
+"end": 885.287
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Defines how flow information is formatted and sent from an exporter to a collector.",
+"spoken": "Defines how flow information is formatted and sent from an exporter to a collector.",
+"start": 885.737,
+"end": 890.964
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Changes some NetFlow terminology, but uses the same principles as version 9.",
+"spoken": "Changes some NetFlow terminology, but uses the same principles as version 9.",
+"start": 891.414,
+"end": 897.046
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The sender controls most of the orchestration and can use user-defined data types.",
+"spoken": "The sender controls most of the orchestration and can use user-defined data types.",
+"start": 897.496,
+"end": 902.85
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traditional NetFlow export needs the collector IP and destination UDP port configured on the sender.",
+"spoken": "Traditional NetFlow export needs the collector IP and destination UDP port configured on the sender.",
+"start": 903.3,
+"end": 910.959
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "The 12 Element Categories",
+"spoken": "The 12 Element Categories.",
+"start": 912.409,
+"end": 914.308
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Identifiers.",
+"spoken": "1. Identifiers.",
+"start": 914.758,
+"end": 916.187
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Metering and exporting process configuration.",
+"spoken": "2. Metering and exporting process configuration.",
+"start": 916.637,
+"end": 920.2
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Metering and exporting process statistics.",
+"spoken": "3. Metering and exporting process statistics.",
+"start": 920.65,
+"end": 923.914
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. IP header fields.",
+"spoken": "4. IP header fields.",
+"start": 924.364,
+"end": 926.22
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5. Transport header fields.",
+"spoken": "5. Transport header fields.",
+"start": 926.67,
+"end": 928.696
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "6. Sub-IP header fields.",
+"spoken": "6. Sub-IP header fields.",
+"start": 929.146,
+"end": 931.173
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "7. Derived-packet properties.",
+"spoken": "7. Derived-packet properties.",
+"start": 931.623,
+"end": 933.82
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "8. Min/max flow properties.",
+"spoken": "8. Min or max flow properties.",
+"start": 934.27,
+"end": 936.596
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "9. Flow timestamps.",
+"spoken": "9. Flow timestamps.",
+"start": 937.046,
+"end": 938.774
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "10. Per-flow counters.",
+"spoken": "10. Per-flow counters.",
+"start": 939.224,
+"end": 940.866
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "11. Miscellaneous flow properties.",
+"spoken": "11. Miscellaneous flow properties.",
+"start": 941.316,
+"end": 943.706
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "12. Padding.",
+"spoken": "12. Padding.",
+"start": 944.156,
+"end": 945.35
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Architecture",
+"spoken": "Architecture.",
+"start": 946.8,
+"end": 947.995
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The metering process keeps flows in an internal data structure and passes complete flows to the exporting process.",
+"spoken": "The metering process keeps flows in an internal data structure and passes complete flows to the exporting process.",
+"start": 948.445,
+"end": 955.741
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-9: several MPs feed an EP on the exporter, which sends to a CP on the collector, which stores to a database.",
+"spoken": "Figure 5-9: several M.P.s feed an EP on the exporter, which sends to a CP on the collector, which stores to a database.",
+"start": 956.191,
+"end": 966.282
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Mediators",
+"spoken": "Mediators.",
+"start": 967.732,
+"end": 968.82
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The intermediate process allows:",
+"spoken": "The intermediate process allows:",
+"start": 969.27,
+"end": 971.574
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Keeping NetFlow data anonymous.",
+"spoken": "Keeping NetFlow data anonymous.",
+"start": 972.024,
+"end": 974.2
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Aggregating NetFlow data.",
+"spoken": "Aggregating NetFlow data.",
+"start": 974.65,
+"end": 976.527
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Filtering NetFlow data.",
+"spoken": "Filtering NetFlow data.",
+"start": 976.977,
+"end": 978.662
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Proxying web traffic.",
+"spoken": "Proxying web traffic.",
+"start": 979.112,
+"end": 980.734
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IP translation.",
+"spoken": "IP translation.",
+"start": 981.184,
+"end": 982.741
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-10: exporter EP to mediator CP and EP, then to the collector CP and database.",
+"spoken": "Figure 5-10: exporter EP to mediator CP and EP, then to the collector CP and database.",
+"start": 983.191,
+"end": 991.17
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Templates",
+"spoken": "Templates.",
+"start": 992.62,
+"end": 993.516
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The template ID matches the set ID in the set header of the data set.",
+"spoken": "The template ID matches the set ID in the set header of the data set.",
+"start": 993.966,
+"end": 998.68
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-11: a template set has a set header, then a template ID and IE count, then a list of IE and length pairs.",
+"spoken": "Figure 5-11: a template set has a set header, then a template ID and IE count, then a list of IE and length pairs.",
+"start": 999.13,
+"end": 1008.176
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-12: data set 123 holds flow records with values such as source 10.1.1.2, destination 10.2.2.3, start 2020-02-28 09:08:42.260, end 09:09:01.120, packetDeltaCount 18, and octetDeltaCount 321.",
+"spoken": "Figure 5-12: data set 123 holds flow records with values such as source 10.1.1.2, destination 10.2.2.3, start 2020-02-28 09 colon 08 colon 42.260, end 09 colon 09 colon 01.120, packetDeltaCount 18, and octetDeltaCount 321.",
+"start": 1008.626,
+"end": 1041.323
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Common use cases IPFIX covers:",
+"spoken": "Common use cases I.P. fix covers:",
+"start": 1041.773,
+"end": 1044.653
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The traditional five-tuple.",
+"spoken": "The traditional five-tuple.",
+"start": 1045.103,
+"end": 1046.938
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Packet treatment, such as IPv4 next hop and BGP destination ASN.",
+"spoken": "Packet treatment, such as I.P. version 4 next hop and BGP destination ASN.",
+"start": 1047.388,
+"end": 1054.172
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Timestamps.",
+"spoken": "Timestamps.",
+"start": 1054.622,
+"end": 1055.71
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IPv4, IPv6, ICMP, UDP, and TCP header fields.",
+"spoken": "I.P. version 4, I.P. version 6, ICMP, UDP, and TCP header fields.",
+"start": 1056.16,
+"end": 1063.477
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Sub-IP header fields, like source MAC and WLAN SSID.",
+"spoken": "Sub-IP header fields, like source mac and W-lan SSID.",
+"start": 1063.927,
+"end": 1068.748
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Counters, such as packet delta counts, total connection counts, and top talkers.",
+"spoken": "Counters, such as packet delta counts, total connection counts, and top talkers.",
+"start": 1069.198,
+"end": 1074.468
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Flow metadata, such as ingress and egress interfaces, flow direction, and VRF.",
+"spoken": "Flow metadata, such as ingress and egress interfaces, flow direction, and VRF.",
+"start": 1074.918,
+"end": 1080.678
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Option records describe the collection infrastructure, metadata about flows or sets of flows, and other properties of a set of flows.",
+"spoken": "Option records describe the collection infrastructure, metadata about flows or sets of flows, and other properties of a set of flows.",
+"start": 1081.128,
+"end": 1090.002
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SCTP",
+"spoken": "SCTP.",
+"start": 1091.452,
+"end": 1092.732
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Features: packet streams, the partial reliability extension, unordered delivery of packets or records, and transport layer multihoming.",
+"spoken": "Features: packet streams, the partial reliability extension, unordered delivery of packets or records, and transport layer multihoming.",
+"start": 1093.182,
+"end": 1102.868
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Often called a simpler state machine than TCP, with an \"a la carte\" choice of features.",
+"spoken": "Often called a simpler state machine than TCP, with an \"a la carte\" choice of features.",
+"start": 1103.318,
+"end": 1109.035
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PR-SCTP lets applications with different reliability needs share one flow association. It combines UDP's best effort reliability with TCP-like congestion control.",
+"spoken": "PR-SCTP lets applications with different reliability needs share one flow association. It combines UDP's best effort reliability with TCP-like congestion control.",
+"start": 1109.485,
+"end": 1123.266
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SCTP sends IPFIX templates reliably and improves end-to-end delay.",
+"spoken": "SCTP sends I.P. fix templates reliably and improves end-to-end delay.",
+"start": 1123.716,
+"end": 1129.882
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Application Visibility and Control (AVC)",
+"spoken": "Application Visibility and Control (AVC).",
+"start": 1131.332,
+"end": 1134.745
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Capabilities: application recognition, metrics collection and exporting, management and reporting systems, and network traffic control.",
+"spoken": "Capabilities: application recognition, metrics collection and exporting, management and reporting systems, and network traffic control.",
+"start": 1135.195,
+"end": 1144.39
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NBAR works with QoS to guarantee bandwidth to critical apps, limit others, drop selected packets to avoid congestion, and mark packets for end-to-end QoS.",
+"spoken": "N-bar works with QoS to guarantee bandwidth to critical apps, limit others, drop selected packets to avoid congestion, and mark packets for end-to-end QoS.",
+"start": 1144.84,
+"end": 1156.509
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The embedded monitoring agent, combined with NetFlow, collects:",
+"spoken": "The embedded monitoring agent, combined with NetFlow, collects:",
+"start": 1156.959,
+"end": 1161.034
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "TCP performance metrics: bandwidth use, response time, and latency.",
+"spoken": "TCP performance metrics: bandwidth use, response time, and latency.",
+"start": 1161.484,
+"end": 1166.625
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "VoIP performance metrics: packet loss and jitter.",
+"spoken": "voice over I.P. performance metrics: packet loss and jitter.",
+"start": 1167.075,
+"end": 1171.363
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Metrics are exported in NetFlow version 9 or IPFIX format.",
+"spoken": "Metrics are exported in NetFlow version 9 or I.P. fix format.",
+"start": 1171.813,
+"end": 1176.826
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On IOS and IOS-XE, records leave directly from the data plane when possible. Complex processing, like keeping a history of exported records, may export from the route processor at lower speed.",
+"spoken": "On I.O.S. and I.O.S. X.E., records leave directly from the data plane when possible. Complex processing, like keeping a history of exported records, may export from the route processor at lower speed.",
+"start": 1177.276,
+"end": 1192.572
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protocol discovery shows the application mix, with per-protocol bidirectional packet and byte counts and bit rates, to help define QoS classes.",
+"spoken": "Protocol discovery shows the application mix, with per-protocol bidirectional packet and byte counts and bit rates, to help define QoS classes.",
+"start": 1193.022,
+"end": 1203.134
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "QoS features after classification: CBWFQ for guaranteed bandwidth, policing for limits, marking with ToS bits or DSCP, and WRED drop policy.",
+"spoken": "QoS features after classification: CBWFQ for guaranteed bandwidth, policing for limits, marking with ToS bits or DSCP, and W-red drop policy.",
+"start": 1203.584,
+"end": 1216.406
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "4. NetFlow Deployment Scenarios",
+"spoken": "4. NetFlow Deployment Scenarios.",
+"start": 1218.456,
+"end": 1221.016
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Overview",
+"spoken": "Overview.",
+"start": 1222.816,
+"end": 1223.818
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enable NetFlow at all layers to catch threats like malware spreading laterally between adjacent hosts.",
+"spoken": "Enable NetFlow at all layers to catch threats like malware spreading laterally between adjacent hosts.",
+"start": 1224.268,
+"end": 1231.095
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Scenarios: user access layer, wireless LANs, Internet edge, data center, site-to-site and remote-access VPNs, and cloud environments.",
+"spoken": "Scenarios: user access layer, wireless lans, Internet edge, data center, site-to-site and remote-access V.P.N.s, and cloud environments.",
+"start": 1231.545,
+"end": 1241.913
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Best practices: enable NetFlow as close to the access layer as possible (user access, data center access, VPN termination), and send all records of one flow to the same collector.",
+"spoken": "Best practices: enable NetFlow as close to the access layer as possible (user access, data center access, VPN termination), and send all records of one flow to the same collector.",
+"start": 1242.363,
+"end": 1256.23
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "User Access Layer",
+"spoken": "User Access Layer.",
+"start": 1257.68,
+"end": 1259.301
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-13: NetFlow on access switches in several parts of the network.",
+"spoken": "Figure 5-13: NetFlow on access switches in several parts of the network.",
+"start": 1259.751,
+"end": 1265.66
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If the access switches can't do NetFlow, deploy a FlowSensor, placed Layer 1 or Layer 2 adjacent to the monitored area.",
+"spoken": "If the access switches can't do NetFlow, deploy a FlowSensor, placed Layer 1 or Layer 2 adjacent to the monitored area.",
+"start": 1266.11,
+"end": 1274.409
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TAP or SPAN ports must be configured when FlowSensors are deployed.",
+"spoken": "tap or span ports must be configured when FlowSensors are deployed.",
+"start": 1274.859,
+"end": 1279.446
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Wireless LAN",
+"spoken": "Wireless lan.",
+"start": 1280.896,
+"end": 1282.09
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow works together with AVC on Cisco WLCs.",
+"spoken": "NetFlow works together with AVC on Cisco W.L.C.s.",
+"start": 1282.54,
+"end": 1286.999
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AVC works on traffic from APs in local or enhanced local mode, and on FlexConnect central switching and OEAP traffic.",
+"spoken": "AVC works on traffic from A.P.s in local or enhanced local mode, and on FlexConnect central switching and OEAP traffic.",
+"start": 1287.449,
+"end": 1297.07
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AVC classifies by port, destination, and heuristics for reliable classification with deep visibility.",
+"spoken": "AVC classifies by port, destination, and heuristics for reliable classification with deep visibility.",
+"start": 1297.52,
+"end": 1305.499
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Because it only examines the first packets of a flow, controller load is minimal.",
+"spoken": "Because it only examines the first packets of a flow, controller load is minimal.",
+"start": 1305.949,
+"end": 1311.048
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-14: laptops and mobile devices connect to an AP, which has a CAPWAP tunnel to a NetFlow-enabled WLC.",
+"spoken": "Figure 5-14: laptops and mobile devices connect to an AP, which has a cap-wap tunnel to a NetFlow-enabled WLC.",
+"start": 1311.498,
+"end": 1321.439
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CAPWAP gives an upgrade path from LWAPP products, works with third-party APs, and manages RFID readers and similar devices.",
+"spoken": "cap-wap gives an upgrade path from L-wap products, works with third-party A.P.s, and manages RFID readers and similar devices.",
+"start": 1321.889,
+"end": 1331.574
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Internet Edge",
+"spoken": "Internet Edge.",
+"start": 1333.024,
+"end": 1334.326
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "See what is knocking on your door and what is leaving.",
+"spoken": "See what is knocking on your door and what is leaving.",
+"start": 1334.776,
+"end": 1337.848
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASR 1000 routers give multigigabit performance for medium and large organizations.",
+"spoken": "ASR 1000 routers give multigigabit performance for medium and large organizations.",
+"start": 1338.298,
+"end": 1345.316
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Cisco QuantumFlow Processor provides ALGs, Layer 4 to Layer 7 zone-based firewall session processing, high-speed NAT and firewall translation logging, and NEL.",
+"spoken": "The Cisco QuantumFlow Processor provides A.L.G.s, Layer 4 to Layer 7 zone-based firewall session processing, high-speed nat and firewall translation logging, and NEL.",
+"start": 1345.766,
+"end": 1359.1
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NEL records NAT and firewall session creation and teardown at very high speed.",
+"spoken": "NEL records nat and firewall session creation and teardown at very high speed.",
+"start": 1359.55,
+"end": 1365.182
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-15: two NetFlow ASRs connect to two ISPs, in front of firewalls and the corporate network. The ISP edge is the interface to the public Internet.",
+"spoken": "Figure 5-15: two NetFlow A.S.R.s connect to two I.S.P.s, in front of firewalls and the corporate network. The ISP edge is the interface to the public Internet.",
+"start": 1365.632,
+"end": 1378.73
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Design redundancy: redundant interfaces, standby devices, dynamic routing for path selection, and multiple ISP connections on different interfaces. This removes single points of failure.",
+"spoken": "Design redundancy: redundant interfaces, standby devices, dynamic routing for path selection, and multiple ISP connections on different interfaces. This removes single points of failure.",
+"start": 1379.18,
+"end": 1392.94
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Data Center",
+"spoken": "Data Center.",
+"start": 1394.39,
+"end": 1395.521
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The data center hosts the crown jewels and has high-throughput, low-latency, and high-availability needs, plus automated provisioning and orchestration.",
+"spoken": "The data center hosts the crown jewels and has high-throughput, low-latency, and high-availability needs, plus automated provisioning and orchestration.",
+"start": 1395.971,
+"end": 1406.04
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Three modular layers:",
+"spoken": "Three modular layers:",
+"start": 1406.49,
+"end": 1408.09
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Data center foundation: the primary building block that everything relies on. Must be resilient, scalable, and flexible. Provides compute and transport between servers, storage, and users.",
+"spoken": "Data center foundation: the primary building block that everything relies on. Must be resilient, scalable, and flexible. Provides compute and transport between servers, storage, and users.",
+"start": 1408.54,
+"end": 1421.916
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Data center services: security infrastructure and virtual switching that extends network control into the hypervisor.",
+"spoken": "Data center services: security infrastructure and virtual switching that extends network control into the hypervisor.",
+"start": 1422.366,
+"end": 1430.75
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "User services: email, order processing, file sharing, databases, modeling, and transaction processing.",
+"spoken": "User services: email, order processing, file sharing, databases, modeling, and transaction processing.",
+"start": 1431.2,
+"end": 1438.688
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Service insertion examples: firewalls, IPSs, application delivery, server load balancing, network analysis tools like NetFlow, distributed virtualized services, and ACI service insertion.",
+"spoken": "Service insertion examples: firewalls, I.P.S.s, application delivery, server load balancing, network analysis tools like NetFlow, distributed virtualized services, and A.C.I. service insertion.",
+"start": 1439.138,
+"end": 1454.114
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Large data centers generate huge amounts of NetFlow. FlowSensors give high-performance visibility in multigigabit data centers and support millions of active flows.",
+"spoken": "Large data centers generate huge amounts of NetFlow. FlowSensors give high-performance visibility in multigigabit data centers and support millions of active flows.",
+"start": 1454.564,
+"end": 1466.639
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-17: two FlowSensors placed with the data center firewalls, servers, and storage.",
+"spoken": "Figure 5-17: two FlowSensors placed with the data center firewalls, servers, and storage.",
+"start": 1467.089,
+"end": 1474.47
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FlowSensors can receive data from the access, aggregation, and core layers. Placing them in aggregation and core gives effective monitoring plus statistics for traffic leaving.",
+"spoken": "FlowSensors can receive data from the access, aggregation, and core layers. Placing them in aggregation and core gives effective monitoring plus statistics for traffic leaving.",
+"start": 1474.92,
+"end": 1486.91
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VM-to-VM traffic can be monitored with the Nexus 1000V. Traffic entering and leaving can be monitored with the ASA, Secure Firewall, and Nexus 7000 and 9000 switches.",
+"spoken": "VM-to-VM traffic can be monitored with the Nexus 1000V. Traffic entering and leaving can be monitored with the ASA, Secure Firewall, and Nexus 7000 and 9000 switches.",
+"start": 1487.36,
+"end": 1501.162
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If you can't deploy a FlowSensor, enable NetFlow on the ASA or on distribution and access switches.",
+"spoken": "If you can't deploy a FlowSensor, enable NetFlow on the ASA or on distribution and access switches.",
+"start": 1501.612,
+"end": 1508.908
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Site-to-Site and Remote-Access VPNs",
+"spoken": "Site-to-Site and Remote-Access V.P.N.s.",
+"start": 1510.358,
+"end": 1513.601
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VPNs give data integrity, authentication, and encryption over untrusted networks, and avoid the cost of leased lines.",
+"spoken": "V.P.N.s give data integrity, authentication, and encryption over untrusted networks, and avoid the cost of leased lines.",
+"start": 1514.051,
+"end": 1523.267
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Remote-access VPNs let users work from home, hotels, and other places as if on the corporate network.",
+"spoken": "Remote-access V.P.N.s let users work from home, hotels, and other places as if on the corporate network.",
+"start": 1523.717,
+"end": 1531.824
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-18: two Secure Client users in Raleigh, North Carolina, connect to a NetFlow-enabled ASA, one with an IPsec IKEv2 tunnel and one with an SSL (TLS) tunnel.",
+"spoken": "Figure 5-18: two Secure Client users in Raleigh, North Carolina, connect to a NetFlow-enabled ASA, one with an I.P. sec IKEv2 tunnel and one with an SSL (TLS) tunnel.",
+"start": 1532.274,
+"end": 1547.122
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NVM uses expanded IPFIX elements to monitor application use, and can classify logical groups of applications, users, or endpoints.",
+"spoken": "NVM uses expanded I.P. fix elements to monitor application use, and can classify logical groups of applications, users, or endpoints.",
+"start": 1547.572,
+"end": 1559.113
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NVM data supports capacity and service planning, auditing, compliance, and security analytics.",
+"spoken": "NVM data supports capacity and service planning, auditing, compliance, and security analytics.",
+"start": 1559.563,
+"end": 1566.219
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NVM sends flows only on the trusted network, and only when configured in the NVM profile. Data collected on an untrusted network is cached until the endpoint is back on the trusted network.",
+"spoken": "NVM sends flows only on the trusted network, and only when configured in the NVM profile. Data collected on an untrusted network is cached until the endpoint is back on the trusted network.",
+"start": 1566.669,
+"end": 1580.77
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Site-to-site (LAN-to-LAN) tunnels terminate between infrastructure devices. Remote-access tunnels form between a VPN headend and an end-user workstation or hardware client.",
+"spoken": "Site-to-site (lan-to-lan) tunnels terminate between infrastructure devices. Remote-access tunnels form between a VPN headend and an end-user workstation or hardware client.",
+"start": 1581.22,
+"end": 1593.892
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-19: router R1 at New York headquarters terminates IPsec tunnels from R2 at a business partner in Boston, Massachusetts, and R3 at a branch in Raleigh, North Carolina. NetFlow on R1 monitors both.",
+"spoken": "Figure 5-19: router R 1 at New York headquarters terminates I.P. sec tunnels from R 2 at a business partner in Boston, Massachusetts, and R 3 at a branch in Raleigh, North Carolina. NetFlow on R 1 monitors both.",
+"start": 1594.342,
+"end": 1612.284
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+"spoken": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics.",
+"start": 1614.334,
+"end": 1619.816
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Purpose",
+"spoken": "Purpose.",
+"start": 1621.616,
+"end": 1622.47
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Both use NetFlow telemetry and context from the Cisco network to defend against:",
+"spoken": "Both use NetFlow telemetry and context from the Cisco network to defend against:",
+"start": 1622.92,
+"end": 1628.509
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Network reconnaissance.",
+"spoken": "Network reconnaissance.",
+"start": 1628.959,
+"end": 1630.495
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Malware spreading to steal data or create back doors.",
+"spoken": "Malware spreading to steal data or create back doors.",
+"start": 1630.945,
+"end": 1634.508
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Communication between attackers or command-and-control servers and compromised hosts.",
+"spoken": "Communication between attackers or command-and-control servers and compromised hosts.",
+"start": 1634.958,
+"end": 1640.696
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Data exfiltration.",
+"spoken": "Data exfiltration.",
+"start": 1641.146,
+"end": 1642.768
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "They aggregate and normalize large amounts of NetFlow and apply security analytics.",
+"spoken": "They aggregate and normalize large amounts of NetFlow and apply security analytics.",
+"start": 1643.218,
+"end": 1648.956
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Components",
+"spoken": "Components.",
+"start": 1650.406,
+"end": 1651.388
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Primary: FlowCollector, Management Console, and flow licenses.",
+"spoken": "Primary: FlowCollector, Management Console, and flow licenses.",
+"start": 1651.838,
+"end": 1656.211
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Optional: FlowSensor and FlowReplicator.",
+"spoken": "Optional: FlowSensor and FlowReplicator.",
+"start": 1656.661,
+"end": 1659.541
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The two minimum required components are the Management Console and the FlowCollector. All components can be physical or virtual.",
+"spoken": "The two minimum required components are the Management Console and the FlowCollector. All components can be physical or virtual.",
+"start": 1659.991,
+"end": 1668.482
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A FlowSensor works with a FlowCollector; it does not replace it.",
+"spoken": "A FlowSensor works with a FlowCollector; it does not replace it.",
+"start": 1668.932,
+"end": 1673.049
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-20: FlowSensor and NetFlow devices send to the FlowReplicator and FlowCollector, which feed the Management Console. Cisco ISE adds identity and Cisco Talos adds threat intelligence. Syslog and SNMP also flow in.",
+"spoken": "Figure 5-20: FlowSensor and NetFlow devices send to the FlowReplicator and FlowCollector, which feed the Management Console. Cisco ice adds identity and Cisco Talos adds threat intelligence. Syslog and SNMP also flow in.",
+"start": 1673.499,
+"end": 1691.419
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Cloud Analytics in Public Clouds",
+"spoken": "Secure Cloud Analytics in Public Clouds.",
+"start": 1692.869,
+"end": 1695.621
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Monitors AWS, Google Cloud Platform, and Microsoft Azure.",
+"spoken": "Monitors AWS, Google Cloud Platform, and Microsoft Azure.",
+"start": 1696.071,
+"end": 1700.914
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book writes \"GPC Flow Logs\" for Google; it means GCP.",
+"spoken": "The book writes \"GPC Flow Logs\" for Google; it means GCP.",
+"start": 1701.364,
+"end": 1705.908
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Not in the book: Microsoft is retiring NSG flow logs in favor of virtual network flow logs.",
+"spoken": "Not in the book: Microsoft is retiring NSG flow logs in favor of virtual network flow logs.",
+"start": 1706.358,
+"end": 1713.76
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The AWS Network Graph shows deployed nodes, with details when you mouse over each one.",
+"spoken": "The AWS Network Graph shows deployed nodes, with details when you mouse over each one.",
+"start": 1714.21,
+"end": 1720.61
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The console can build many reports, such as a network traffic overview (Figure 5-23).",
+"spoken": "The console can build many reports, such as a network traffic overview (Figure 5-23).",
+"start": 1721.06,
+"end": 1727.994
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Cloud Analytics On Premises",
+"spoken": "Secure Cloud Analytics On Premises.",
+"start": 1729.444,
+"end": 1731.94
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Deploy at least one Secure Cloud Analytics Sensor.",
+"spoken": "Deploy at least one Secure Cloud Analytics Sensor.",
+"start": 1732.39,
+"end": 1735.632
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Two modes, not mutually exclusive: process metadata from a SPAN or TAP, or process metadata from NetFlow or IPFIX records.",
+"spoken": "Two modes, not mutually exclusive: process metadata from a span or tap, or process metadata from NetFlow or I.P. fix records.",
+"start": 1736.082,
+"end": 1745.832
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-25: the sensor sends metadata from the corporate network to the Secure Cloud Analytics portal over IPsec.",
+"spoken": "Figure 5-25: the sensor sends metadata from the corporate network to the Secure Cloud Analytics portal over I.P. sec.",
+"start": 1746.282,
+"end": 1756.351
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrates with Meraki, and with the Umbrella Investigate REST API for external domain information.",
+"spoken": "Integrates with Meraki, and with the Umbrella Investigate rest API for external domain information.",
+"start": 1756.801,
+"end": 1763.862
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Network Analytics Dashboards",
+"spoken": "Secure Network Analytics Dashboards.",
+"start": 1765.312,
+"end": 1767.744
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security Insight Dashboard: events that triggered alarms on your premises.",
+"spoken": "Security Insight Dashboard: events that triggered alarms on your premises.",
+"start": 1768.194,
+"end": 1773.208
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Host Report: one host's activity, location, groups, and policy. You can assign the host to host groups here.",
+"spoken": "Host Report: one host's activity, location, groups, and policy. You can assign the host to host groups here.",
+"start": 1773.658,
+"end": 1781.274
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flow Search: high-level host behavior. Advanced Options narrow by host or time for in-depth forensics.",
+"spoken": "Flow Search: high-level host behavior. Advanced Options narrow by host or time for in-depth forensics.",
+"start": 1781.724,
+"end": 1789.126
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inside Hosts: active inside hosts with host group, location, and alarm categories.",
+"spoken": "Inside Hosts: active inside hosts with host group, location, and alarm categories.",
+"start": 1789.576,
+"end": 1795.656
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Users: active users with sessions, location, and alarms. Click a name for the User Report, or an alarm category column for that alarm.",
+"spoken": "Users: active users with sessions, location, and alarms. Click a name for the User Report, or an alarm category column for that alarm.",
+"start": 1796.106,
+"end": 1805.984
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Host Group Report: Top Host Groups by Traffic. Hover a line to see total traffic between two groups. Click a group, column, or line to run a flow search (flows for a host, group, or application) or a top report (more in-depth detail).",
+"spoken": "Host Group Report: Top Host Groups by Traffic. Hover a line to see total traffic between two groups. Click a group, column, or line to run a flow search (flows for a host, group, or application) or a top report (more in-depth detail).",
+"start": 1806.434,
+"end": 1823.287
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rebooting the FlowCollector deletes all alarm history. Replacing it keeps the old alarm history.",
+"spoken": "Rebooting the FlowCollector deletes all alarm history. Replacing it keeps the old alarm history.",
+"start": 1823.737,
+"end": 1830.329
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threat Hunting Methods",
+"spoken": "Threat Hunting Methods.",
+"start": 1831.779,
+"end": 1833.251
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threat intelligence driven: feeds, reports, malware analysis, and vulnerability assessment.",
+"spoken": "Threat intelligence driven: feeds, reports, malware analysis, and vulnerability assessment.",
+"start": 1833.701,
+"end": 1840.058
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Machine learning or analytics driven.",
+"spoken": "Machine learning or analytics driven.",
+"start": 1840.508,
+"end": 1843.175
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Situational or \"Crown Jewel\" analysis: start with a critical system and build a hypothesis of what an attacker could do and what indicators to collect.",
+"spoken": "Situational or \"Crown Jewel\" analysis: start with a critical system and build a hypothesis of what an attacker could do and what indicators to collect.",
+"start": 1843.625,
+"end": 1854.484
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threat Hunting Questions",
+"spoken": "Threat Hunting Questions.",
+"start": 1855.934,
+"end": 1857.512
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "From the Host Report: Who is this host contacting? Do any peer host groups raise concern? Is the traffic volume reasonable? Are alarm categories high? Click the active alarm count to investigate.",
+"spoken": "From the Host Report: Who is this host contacting? Do any peer host groups raise concern? Is the traffic volume reasonable? Are alarm categories high? Click the active alarm count to investigate.",
+"start": 1857.962,
+"end": 1871.957
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "From Application Traffic: which applications does the host use most, which move the most data, how many talk to inside versus outside hosts, and is this normal?",
+"spoken": "From Application Traffic: which applications does the host use most, which move the most data, how many talk to inside versus outside hosts, and is this normal?",
+"start": 1872.407,
+"end": 1883.564
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "6. Cisco Cognitive Intelligence and Encrypted Traffic Analytics (ETA)",
+"spoken": "6. Cisco Cognitive Intelligence and Encrypted Traffic Analytics (ETA).",
+"start": 1885.614,
+"end": 1890.841
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ETA",
+"spoken": "ETA.",
+"start": 1892.641,
+"end": 1893.473
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Components: NetFlow, Secure Network Analytics and Secure Cloud Analytics, and Cognitive Intelligence.",
+"spoken": "Components: NetFlow, Secure Network Analytics and Secure Cloud Analytics, and Cognitive Intelligence.",
+"start": 1893.923,
+"end": 1900.963
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Combined with Cognitive Intelligence and Secure Network Analytics, it shows malicious encrypted communication without decrypting any packets.",
+"spoken": "Combined with Cognitive Intelligence and Secure Network Analytics, it shows malicious encrypted communication without decrypting any packets.",
+"start": 1901.413,
+"end": 1911.269
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cognitive Intelligence Investigation Flow",
+"spoken": "Cognitive Intelligence Investigation Flow.",
+"start": 1912.719,
+"end": 1915.706
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The example starts with possible ransomware traffic. A user flagged in the Cognitive Intelligence widget of the Security Insight dashboard is clicked.",
+"spoken": "The example starts with possible ransomware traffic. A user flagged in the Cognitive Intelligence widget of the Security Insight dashboard is clicked.",
+"start": 1916.156,
+"end": 1926.225
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cognitive Intelligence must be configured to show this data.",
+"spoken": "Cognitive Intelligence must be configured to show this data.",
+"start": 1926.675,
+"end": 1930.579
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "It detects suspicious web traffic and NetFlow and responds to attempts to establish a presence and to attacks already underway.",
+"spoken": "It detects suspicious web traffic and NetFlow and responds to attempts to establish a presence and to attacks already underway.",
+"start": 1931.029,
+"end": 1939.434
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The main dashboard shows affected users or hosts sorted by incident risk, and top affected hosts with incident type. Hover the risk number for details.",
+"spoken": "The main dashboard shows affected users or hosts sorted by incident risk, and top affected hosts with incident type. Hover the risk number for details.",
+"start": 1939.884,
+"end": 1950.295
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malware investigation view (Figure 5-34): review connected lines and high-severity activity, since hosts may have more malware traffic. Assign the incident to an analyst (Omar Santos in the example) and mark it after investigation.",
+"spoken": "Malware investigation view (Figure 5-34): review connected lines and high-severity activity, since hosts may have more malware traffic. Assign the incident to an analyst (Omar Santos in the example) and mark it after investigation.",
+"start": 1950.745,
+"end": 1968.622
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Blocked communication doesn't mean clean. Aim for full remediation, and reimage on reinfection.",
+"spoken": "Blocked communication doesn't mean clean. Aim for full remediation, and reimage on reinfection.",
+"start": 1969.072,
+"end": 1975.792
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Click the SMC icon by each flow to see it in the Secure Network Analytics Management Console.",
+"spoken": "Click the SMC icon by each flow to see it in the Secure Network Analytics Management Console.",
+"start": 1976.242,
+"end": 1982.856
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Confirmed Tab",
+"spoken": "Confirmed Tab.",
+"start": 1984.306,
+"end": 1985.522
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Add notes, see affected users, malware occurrences, infection history, and risk types.",
+"spoken": "Add notes, see affected users, malware occurrences, infection history, and risk types.",
+"start": 1985.972,
+"end": 1991.689
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Global intelligence from Secure Malware Analytics: 32 Threat Grid samples, signatures Trojan.Agent, Win.Trojan.Agent, and Win.Trojan.Pramro, and common files.",
+"spoken": "Global intelligence from Secure Malware Analytics: 32 Threat Grid samples, signatures Trojan.Agent, Win.Trojan.Agent, and Win.Trojan.Pramro, and common files.",
+"start": 1992.139,
+"end": 2005.088
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Common endpoint behaviors include Umbrella data, such as \"Cisco Umbrella Flagged Domain As A Command & Control Server\", \"Domain in Cisco Umbrella Block List\", and \"Submitted Sample Alteration and Umbrella Flagged Domain\".",
+"spoken": "Common endpoint behaviors include Umbrella data, such as \"Cisco Umbrella Flagged Domain As A Command and Control Server\", \"Domain in Cisco Umbrella Block List\", and \"Submitted Sample Alteration and Umbrella Flagged Domain\".",
+"start": 2005.538,
+"end": 2021.624
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Malware Analytics is also integrated in Cisco Secure Endpoint.",
+"spoken": "Secure Malware Analytics is also integrated in Cisco Secure Endpoint.",
+"start": 2022.074,
+"end": 2027.194
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Detected Tab and Response Guide",
+"spoken": "Detected Tab and Response Guide.",
+"start": 2028.644,
+"end": 2030.798
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shows incidents being triaged, investigated, remediated, resolved, or all.",
+"spoken": "Shows incidents being triaged, investigated, remediated, resolved, or all.",
+"start": 2031.248,
+"end": 2036.411
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The incident response guide explains how each incident gets a risk value based on expected damage.",
+"spoken": "The incident response guide explains how each incident gets a risk value based on expected damage.",
+"start": 2036.861,
+"end": 2043.538
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "7. NetFlow Collection Considerations and Best Practices",
+"spoken": "7. NetFlow Collection Considerations and Best Practices.",
+"start": 2045.588,
+"end": 2049.514
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Design Recommendations",
+"spoken": "Design Recommendations.",
+"start": 2051.314,
+"end": 2053.02
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Minimizing overhead: collect as close to the NetFlow generator as possible, such as near data center servers or on the access switches where the monitored users are.",
+"spoken": "Minimizing overhead: collect as close to the NetFlow generator as possible, such as near data center servers or on the access switches where the monitored users are.",
+"start": 2053.47,
+"end": 2064.777
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Asymmetric routing: all devices in the asymmetric path send to the same collector.",
+"spoken": "Asymmetric routing: all devices in the asymmetric path send to the same collector.",
+"start": 2065.227,
+"end": 2070.944
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Distributed deployment: FlowCollectors at multiple sites, close to the sources producing the most records. Limits NetFlow overhead.",
+"spoken": "Distributed deployment: FlowCollectors at multiple sites, close to the sources producing the most records. Limits NetFlow overhead.",
+"start": 2071.394,
+"end": 2080.568
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Centralized deployment: all collectors in one place, possibly behind a load balancer with one global IP. Good when NetFlow generators are far apart.",
+"spoken": "Centralized deployment: all collectors in one place, possibly behind a load balancer with one global IP. Good when NetFlow generators are far apart.",
+"start": 2081.018,
+"end": 2092.154
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Bandwidth: don't collect NetFlow over WAN links. Plan monitoring locations ahead.",
+"spoken": "Bandwidth: don't collect NetFlow over wan links. Plan monitoring locations ahead.",
+"start": 2092.604,
+"end": 2098.321
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Flows per Second and Scale",
+"spoken": "Flows per Second and Scale.",
+"start": 2099.771,
+"end": 2101.563
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Measuring fps is one of the most important planning steps. It tells you how many records collectors must receive and analyze.",
+"spoken": "Measuring fps is one of the most important planning steps. It tells you how many records collectors must receive and analyze.",
+"start": 2102.013,
+"end": 2110.845
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An exact forecast is hard. Fps depends on the number of unique flows, new connections per second, and each flow's lifetime.",
+"spoken": "An exact forecast is hard. Fps depends on the number of unique flows, new connections per second, and each flow's lifetime.",
+"start": 2111.295,
+"end": 2120.234
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network overhead depends on fps and the record size.",
+"spoken": "Network overhead depends on fps and the record size.",
+"start": 2120.684,
+"end": 2124.673
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Start in some areas, learn the impact, and use forecasting tools.",
+"spoken": "Start in some areas, learn the impact, and use forecasting tools.",
+"start": 2125.123,
+"end": 2129.283
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Random sampling greatly cuts CPU and other overhead. The sampling rate is user-configurable. Its main use is traffic engineering, capacity planning, and other cases where full NetFlow isn't needed.",
+"spoken": "Random sampling greatly cuts CPU and other overhead. The sampling rate is user-configurable. Its main use is traffic engineering, capacity planning, and other cases where full NetFlow isn't needed.",
+"start": 2129.733,
+"end": 2143.962
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "8. Configuring NetFlow in Cisco IOS and Cisco IOS-XE",
+"spoken": "8. Configuring NetFlow in Cisco I.O.S. and Cisco I.O.S. X.E.",
+"start": 2146.012,
+"end": 2151.858
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Flexible NetFlow Benefits",
+"spoken": "Flexible NetFlow Benefits.",
+"start": 2153.658,
+"end": 2155.599
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Better optimization, lower cost, better capacity planning, and better security detection.",
+"spoken": "Better optimization, lower cost, better capacity planning, and better security detection.",
+"start": 2156.049,
+"end": 2162.086
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports IPv6 transition techniques (IPv6 inside IPv4).",
+"spoken": "Supports I.P. version 6 transition techniques (I.P. version 6 inside I.P. version 4).",
+"start": 2162.536,
+"end": 2170.43
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tracks different applications at once, such as security monitoring, traffic analysis, and billing, each customized.",
+"spoken": "Tracks different applications at once, such as security monitoring, traffic analysis, and billing, each customized.",
+"start": 2170.88,
+"end": 2178.453
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traditional NetFlow has one cache that all applications share. Flexible NetFlow allows multiple caches, such as security in one and traffic analysis in another, or multicast and security sent to two collectors.",
+"spoken": "Traditional NetFlow has one cache that all applications share. Flexible NetFlow allows multiple caches, such as security in one and traffic analysis in another, or multicast and security sent to two collectors.",
+"start": 2178.903,
+"end": 2194.306
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-41: Monitor 1 exports to Exporter 1, Monitor 2 to Exporter 2, and Monitor 3 to Exporters 1 and 3.",
+"spoken": "Figure 5-41: Monitor 1 exports to Exporter 1, Monitor 2 to Exporter 2, and Monitor 3 to Exporters 1 and 3.",
+"start": 2194.756,
+"end": 2204.825
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You choose what to track, so there are fewer flows. This scales in busy networks.",
+"spoken": "You choose what to track, so there are fewer flows. This scales in busy networks.",
+"start": 2205.275,
+"end": 2210.352
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Records",
+"spoken": "Records.",
+"start": 2211.802,
+"end": 2212.698
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Records combine key and non-key fields and are assigned to flow monitors to define the cache.",
+"spoken": "Records combine key and non-key fields and are assigned to flow monitors to define the cache.",
+"start": 2213.148,
+"end": 2219.164
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TCP flags, subnet masks, packets, and bytes are non-key fields, but are often exported.",
+"spoken": "TCP flags, subnet masks, packets, and bytes are non-key fields, but are often exported.",
+"start": 2219.614,
+"end": 2226.356
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Key fields are configurable for more granular analysis.",
+"spoken": "Key fields are configurable for more granular analysis.",
+"start": 2226.806,
+"end": 2230.56
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Key Fields (Figures 5-42 to 5-46)",
+"spoken": "Key Fields (Figures 5-42 to 5-46).",
+"start": 2232.01,
+"end": 2236.384
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flow: sampler ID, direction, class ID.",
+"spoken": "Flow: sampler ID, direction, class ID.",
+"start": 2236.834,
+"end": 2239.82
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Interface: input, output.",
+"spoken": "Interface: input, output.",
+"start": 2240.27,
+"end": 2242.34
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Layer 2: source VLAN, destination VLAN, dot1q VLAN, dot1q priority, source MAC, destination MAC.",
+"spoken": "Layer 2: source V-lan, destination V-lan, dot1q V-lan, dot1q priority, source mac, destination mac.",
+"start": 2242.79,
+"end": 2251.814
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPv4: source or destination IP, prefix, mask, and minimum mask; protocol; fragmentation flags and offset; identification; header length; total length; payload size; packet section header and payload; TTL; options bitmap; version; precedence; DSCP; ToS.",
+"spoken": "I.P. version 4: source or destination IP, prefix, mask, and minimum mask; protocol; fragmentation flags and offset; identification; header length; total length; payload size; packet section header and payload; TTL; options bitmap; version; precedence; DSCP; ToS.",
+"start": 2252.264,
+"end": 2273.426
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPv6: source or destination IP, prefix, mask, and minimum mask; protocol; traffic class; flow label; option header; header length; payload length; payload size; packet section header and payload; DSCP; extension headers; hop limit; length; next header; version.",
+"spoken": "I.P. version 6: source or destination IP, prefix, mask, and minimum mask; protocol; traffic class; flow label; option header; header length; payload length; payload size; packet section header and payload; DSCP; extension headers; hop limit; length; next header; version.",
+"start": 2273.876,
+"end": 2293.78
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Layer 3 routing: source or destination AS, peer AS, traffic index, forwarding status, input VRF name, IGP next hop, BGP next hop.",
+"spoken": "Layer 3 routing: source or destination AS, peer AS, traffic index, forwarding status, input VRF name, IGP next hop, BGP next hop.",
+"start": 2294.23,
+"end": 2305.43
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Transport: source and destination port, ICMP code and type (one ICMP type entry is IPv4 only), TCP ACK number, header length, sequence number, window size, source and destination port, and urgent pointer.",
+"spoken": "Transport: source and destination port, ICMP code and type (one ICMP type entry is I.P. version 4 only), TCP ack number, header length, sequence number, window size, source and destination port, and urgent pointer.",
+"start": 2305.88,
+"end": 2323.416
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multicast: replication factor (IPv4 only), RPF check drop (IPv4 only), IS-Multicast.",
+"spoken": "Multicast: replication factor (I.P. version 4 only), RPF check drop (I.P. version 4 only), IS-Multicast.",
+"start": 2323.866,
+"end": 2333.317
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Non-Key Fields",
+"spoken": "Non-Key Fields.",
+"start": 2334.767,
+"end": 2336.047
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Packet and byte counts help capacity planning and spotting DoS attacks.",
+"spoken": "Packet and byte counts help capacity planning and spotting D.O.S. attacks.",
+"start": 2336.497,
+"end": 2341.745
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Counters: byte counts, bytes long, bytes square sum, bytes square sum long, number of packets, packets long, bytes replicated, bytes replicated long.",
+"spoken": "Counters: byte counts, bytes long, bytes square sum, bytes square sum long, number of packets, packets long, bytes replicated, bytes replicated long.",
+"start": 2342.195,
+"end": 2352.456
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Timestamps: sysUpTime first packet, sysUpTime last packet, absolute first packet, absolute last packet.",
+"spoken": "Timestamps: sysUpTime first packet, sysUpTime last packet, absolute first packet, absolute last packet.",
+"start": 2352.906,
+"end": 2360.608
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPv4 only: total length minimum and maximum, TTL minimum and maximum.",
+"spoken": "I.P. version 4 only: total length minimum and maximum, TTL minimum and maximum.",
+"start": 2361.058,
+"end": 2368.226
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPv4 and IPv6: total length minimum and maximum.",
+"spoken": "I.P. version 4 and I.P. version 6: total length minimum and maximum.",
+"start": 2368.676,
+"end": 2374.926
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Non-key values are usually taken from only the first packet in the flow.",
+"spoken": "Non-key values are usually taken from only the first packet in the flow.",
+"start": 2375.376,
+"end": 2380.411
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Predefined and User-Defined Records",
+"spoken": "Predefined and User-Defined Records.",
+"start": 2381.861,
+"end": 2384.421
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Predefined records help you start without customization and guarantee backward compatibility with legacy collectors.",
+"spoken": "Predefined records help you start without customization and guarantee backward compatibility with legacy collectors.",
+"start": 2384.871,
+"end": 2392.871
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Popular user-defined records may become predefined over time.",
+"spoken": "Popular user-defined records may become predefined over time.",
+"start": 2393.321,
+"end": 2397.78
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Predefined records based on legacy aggregation caches do not aggregate. They track each flow separately.",
+"spoken": "Predefined records based on legacy aggregation caches do not aggregate. They track each flow separately.",
+"start": 2398.23,
+"end": 2405.504
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User-defined records let you pick key and non-key fields.",
+"spoken": "User-defined records let you pick key and non-key fields.",
+"start": 2405.954,
+"end": 2409.88
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flexible NetFlow adds a NetFlow version 9 export field type for header and packet sections, and tells the collector the section sizes in the template.",
+"spoken": "Flexible NetFlow adds a NetFlow version 9 export field type for header and packet sections, and tells the collector the section sizes in the template.",
+"start": 2410.33,
+"end": 2420.527
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Monitors, Exporters, and Samplers",
+"spoken": "Monitors, Exporters, and Samplers.",
+"start": 2421.977,
+"end": 2424.26
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flow data is added to the monitor cache based on the record's key and non-key fields.",
+"spoken": "Flow data is added to the monitor cache based on the record's key and non-key fields.",
+"start": 2424.71,
+"end": 2430.235
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Exporters are separate entities. You can create several and assign them to one or more monitors.",
+"spoken": "Exporters are separate entities. You can create several and assign them to one or more monitors.",
+"start": 2430.685,
+"end": 2436.872
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An exporter holds the destination, the transport (UDP or SCTP), and the export format (NetFlow version or IPFIX). The book's later note says exporters use UDP with version 9 format.",
+"spoken": "An exporter holds the destination, the transport (UDP or SCTP), and the export format (NetFlow version or I.P. fix). The book's later note says exporters use UDP with version 9 format.",
+"start": 2437.322,
+"end": 2453.066
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Exporting is optional. Exporters support IPv4 and IPv6.",
+"spoken": "Exporting is optional. Exporters support I.P. version 4 and I.P. version 6.",
+"start": 2453.516,
+"end": 2460.214
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Samplers are separate components. Sampling trades accuracy for router performance.",
+"spoken": "Samplers are separate components. Sampling trades accuracy for router performance.",
+"start": 2460.664,
+"end": 2465.912
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Configuration Steps (Figure 5-47)",
+"spoken": "Configuration Steps (Figure 5-47).",
+"start": 2467.362,
+"end": 2471.032
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Configure a flow record.",
+"spoken": "1. Configure a flow record.",
+"start": 2471.482,
+"end": 2473.423
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Configure a flow monitor.",
+"spoken": "2. Configure a flow monitor.",
+"start": 2473.873,
+"end": 2475.985
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Configure a flow exporter for the flow monitor.",
+"spoken": "3. Configure a flow exporter for the flow monitor.",
+"start": 2476.435,
+"end": 2479.55
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. Apply the flow monitor to an interface.",
+"spoken": "4. Apply the flow monitor to an interface.",
+"start": 2480.0,
+"end": 2482.752
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Topology (Figure 5-48): a Cisco ASR 1009-X at SecretCorp New York headquarters exports to a collector.",
+"spoken": "Topology (Figure 5-48): a Cisco ASR 1009-X at SecretCorp New York headquarters exports to a collector.",
+"start": 2483.202,
+"end": 2493.207
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "There are hundreds of ways to build a custom record. Build one that fits your requirements.",
+"spoken": "There are hundreds of ways to build a custom record. Build one that fits your requirements.",
+"start": 2493.657,
+"end": 2499.204
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The commands are listed under Commands and Tools.",
+"spoken": "The commands are listed under Commands and Tools.",
+"start": 2499.654,
+"end": 2502.598
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "9. Configuring NetFlow in NX-OS",
+"spoken": "9. Configuring NetFlow in NX-O.S.",
+"start": 2504.648,
+"end": 2507.741
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Steps",
+"spoken": "Steps.",
+"start": 2509.541,
+"end": 2510.309
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Very similar to IOS and IOS-XE.",
+"spoken": "Very similar to I.O.S. and I.O.S. X.E.",
+"start": 2510.759,
+"end": 2514.386
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Define a flow record.",
+"spoken": "1. Define a flow record.",
+"start": 2514.836,
+"end": 2516.585
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Define a flow exporter.",
+"spoken": "2. Define a flow exporter.",
+"start": 2517.035,
+"end": 2519.104
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Define a flow monitor.",
+"spoken": "3. Define a flow monitor.",
+"start": 2519.554,
+"end": 2521.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. Apply the flow monitor to an interface.",
+"spoken": "4. Apply the flow monitor to an interface.",
+"start": 2522.052,
+"end": 2524.804
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The NX-OS order puts the exporter before the monitor, unlike the IOS order in Figure 5-47.",
+"spoken": "The NX-O.S. order puts the exporter before the monitor, unlike the I.O.S. order in Figure 5-47.",
+"start": 2525.254,
+"end": 2533.66
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The commands are listed under Commands and Tools.",
+"spoken": "The commands are listed under Commands and Tools.",
+"start": 2534.11,
+"end": 2537.054
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "10. Introduction to Network Segmentation",
+"spoken": "10. Introduction to Network Segmentation.",
+"start": 2539.104,
+"end": 2541.877
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Segment Types",
+"spoken": "Segment Types.",
+"start": 2543.677,
+"end": 2544.808
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Listed from the inside out: enclave, trusted, semi-trusted, guest, and untrusted.",
+"spoken": "Listed from the inside out: enclave, trusted, semi-trusted, guest, and untrusted.",
+"start": 2545.258,
+"end": 2550.954
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enclave: internal access further restricted with firewalls, VPNs, VLANs, and NAC.",
+"spoken": "Enclave: internal access further restricted with firewalls, V.P.N.s, V-lans, and NAC.",
+"start": 2551.404,
+"end": 2557.846
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Trusted: external access restricted with firewalls, VPNs, and IDS/IPS. Internal access may be restricted with VLANs and NAC.",
+"spoken": "Trusted: external access restricted with firewalls, V.P.N.s, and IDS or IPS. Internal access may be restricted with V-lans and NAC.",
+"start": 2558.296,
+"end": 2569.411
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DMZ: internal and external access restricted with firewalls, VPNs, and IDS/IPS.",
+"spoken": "DMZ: internal and external access restricted with firewalls, V.P.N.s, and IDS or IPS.",
+"start": 2569.861,
+"end": 2577.349
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Data-Driven Segmentation",
+"spoken": "Data-Driven Segmentation.",
+"start": 2578.799,
+"end": 2580.634
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Consolidation onto shared physical and virtual networks drove segmentation. Cloud, SaaS, network function virtualization, containers, and IoT changed infrastructure further.",
+"spoken": "Consolidation onto shared physical and virtual networks drove segmentation. Cloud, SASS, network function virtualization, containers, and I.O.T. changed infrastructure further.",
+"start": 2581.084,
+"end": 2594.716
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security teams have used VLANs, VRFs, and virtual firewalls for segmentation. The book calls these Layer 2 technologies, but VRFs are really Layer 3. The book's answer key also lists VLANs and VRFs as the Layer 2 technologies.",
+"spoken": "Security teams have used V-lans, V.R.F.s, and virtual firewalls for segmentation. The book calls these Layer 2 technologies, but V.R.F.s are really Layer 3. The book's answer key also lists V-lans and V.R.F.s as the Layer 2 technologies.",
+"start": 2595.166,
+"end": 2614.28
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Many breaches still trace to \"lack of segmentation\".",
+"spoken": "Many breaches still trace to \"lack of segmentation\".",
+"start": 2614.73,
+"end": 2617.994
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The old model guards data in a fortress (the data center) behind a perimeter. That fails against insiders and against malware or bots that are already inside.",
+"spoken": "The old model guards data in a fortress (the data center) behind a perimeter. That fails against insiders and against malware or bots that are already inside.",
+"start": 2618.444,
+"end": 2629.324
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Granting access per individual user makes the N times R problem worse. Least privilege and grouping shrink it.",
+"spoken": "Granting access per individual user makes the N times R problem worse. Least privilege and grouping shrink it.",
+"start": 2629.774,
+"end": 2637.305
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-49: Engineering, Sales, and Marketing all reach Application A, Application B, and Database X.",
+"spoken": "Figure 5-49: Engineering, Sales, and Marketing all reach Application A, Application B, and Database X.",
+"start": 2637.755,
+"end": 2646.928
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-50: users Clark Kent, Bruce Wayne, and Tony Stark get only their authorized Database X, Finance Application, or Engineering Application.",
+"spoken": "Figure 5-50: users Clark Kent, Bruce Wayne, and Tony Stark get only their authorized Database X, Finance Application, or Engineering Application.",
+"start": 2647.378,
+"end": 2659.474
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applications now integrate through APIs and streaming, users work outside the office, and data lives in data centers, clouds, or partners' networks. Conventional data protection is practically obsolete.",
+"spoken": "Applications now integrate through A.P.I.s and streaming, users work outside the office, and data lives in data centers, clouds, or partners' networks. Conventional data protection is practically obsolete.",
+"start": 2659.924,
+"end": 2675.05
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VLANs, ACLs, and firewalls alone give limited separation. Look at the whole context of a connection before allowing access. Segmentation only at the network layer isn't enough.",
+"spoken": "V-lans, A.C.L.s, and firewalls alone give limited separation. Look at the whole context of a connection before allowing access. Segmentation only at the network layer isn't enough.",
+"start": 2675.5,
+"end": 2689.11
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Build policy from data about what users, applications, systems, and resources must talk to.",
+"spoken": "Build policy from data about what users, applications, systems, and resources must talk to.",
+"start": 2689.56,
+"end": 2696.152
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Start high level with zones (DMZ, data center, Internet edge, campus), then drill down to the application.",
+"spoken": "Start high level with zones (DMZ, data center, Internet edge, campus), then drill down to the application.",
+"start": 2696.602,
+"end": 2704.346
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "After discovering all objects, base the policy on their type and location and on who requests access.",
+"spoken": "After discovering all objects, base the policy on their type and location and on who requests access.",
+"start": 2704.796,
+"end": 2711.943
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-51: users, devices, and services such as App 1, App 2, PCI data, HR records, Webex, and Office 365, mapped to campus, data center, DMZ, and cloud zones across enterprise locations.",
+"spoken": "Figure 5-51: users, devices, and services such as App 1, App 2, PCI data, HR records, Webex, and Office 365, mapped to campus, data center, DMZ, and cloud zones across enterprise locations.",
+"start": 2712.393,
+"end": 2730.804
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network ACLs control access between large zones but are static and hard to scale. Many organizations use a hybrid model with multiple access control models, not only Layer 3 and Layer 4, for granular application segmentation.",
+"spoken": "Network A.C.L.s control access between large zones but are static and hard to scale. Many organizations use a hybrid model with multiple access control models, not only Layer 3 and Layer 4, for granular application segmentation.",
+"start": 2731.254,
+"end": 2748.896
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Application-Based Segmentation",
+"spoken": "Application-Based Segmentation.",
+"start": 2750.346,
+"end": 2752.48
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Machine-to-machine traffic must be segmented too.",
+"spoken": "Machine-to-machine traffic must be segmented too.",
+"start": 2752.93,
+"end": 2756.044
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In virtual and container environments, traffic between applications may never leave the physical server (Figure 5-52). That's why micro-segmentation is popular.",
+"spoken": "In virtual and container environments, traffic between applications may never leave the physical server (Figure 5-52). That's why micro-segmentation is popular.",
+"start": 2756.494,
+"end": 2768.718
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An older solution places virtual firewalls between VMs (Figure 5-53).",
+"spoken": "An older solution places virtual firewalls between VMs (Figure 5-53).",
+"start": 2769.168,
+"end": 2775.44
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example: do Active Directory servers need to talk to NTP servers, and how? NTP can also use broadcast or multicast after an initial round-trip calibration.",
+"spoken": "Example: do Active Directory servers need to talk to N.T.P. servers, and how? N.T.P. can also use broadcast or multicast after an initial round-trip calibration.",
+"start": 2775.89,
+"end": 2789.224
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An attacker could tunnel and exfiltrate data over NTP, so the segmentation strategy must consider it.",
+"spoken": "An attacker could tunnel and exfiltrate data over N.T.P., so the segmentation strategy must consider it.",
+"start": 2789.674,
+"end": 2797.46
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Know which applications run in your environment, which talk to or live in the cloud, and how to enumerate and map them.",
+"spoken": "Know which applications run in your environment, which talk to or live in the cloud, and how to enumerate and map them.",
+"start": 2797.91,
+"end": 2805.718
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "11. Micro-segmentation with Cisco ACI",
+"spoken": "11. Micro-segmentation with Cisco A.C.I.",
+"start": 2807.768,
+"end": 2811.139
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "EPGs and uSeg EPGs",
+"spoken": "E.P.G.s and uSeg E.P.G.s.",
+"start": 2812.939,
+"end": 2815.84
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACI assigns endpoints to EPGs automatically, based on network or VM attributes.",
+"spoken": "A.C.I. assigns endpoints to E.P.G.s automatically, based on network or VM attributes.",
+"start": 2816.29,
+"end": 2823.672
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "uSeg EPGs allow dynamic policies, and policies can apply to any endpoint in the tenant.",
+"spoken": "uSeg E.P.G.s allow dynamic policies, and policies can apply to any endpoint in the tenant.",
+"start": 2824.122,
+"end": 2831.524
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "By default, all endpoints in an EPG can talk to each other.",
+"spoken": "By default, all endpoints in an EPG can talk to each other.",
+"start": 2831.974,
+"end": 2836.134
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example: a web EPG mixes production and development servers. Create new EPGs that assign endpoints by VM name, such as \"prod-xxxx\" or \"dev-xxx\".",
+"spoken": "Example: a web EPG mixes production and development servers. Create new E.P.G.s that assign endpoints by VM name, such as \"prod-xxxx\" or \"dev-xxx\".",
+"start": 2836.584,
+"end": 2850.046
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Micro-segmentation integrates with vCenter or SCVMM, the APIC API, and leaf switches.",
+"spoken": "Micro-segmentation integrates with vCenter or SCVMM, the A-pick API, and leaf switches.",
+"start": 2850.496,
+"end": 2857.728
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attributes allow more granular forwarding and security policy than EPGs without them.",
+"spoken": "Attributes allow more granular forwarding and security policy than E.P.G.s without them.",
+"start": 2858.178,
+"end": 2864.642
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Attribute Types",
+"spoken": "Attribute Types.",
+"start": 2866.092,
+"end": 2867.457
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network-based: IP address filter and MAC address filter. One or more per uSeg EPG.",
+"spoken": "Network-based: IP address filter and mac address filter. One or more per uSeg EPG.",
+"start": 2867.907,
+"end": 2874.627
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VM-based: multiple per uSeg EPG. Operating System Type, VMM Domain, Hypervisor Identifier, Datacenter, VM Identifier, VM Name, vNIC Domain Name, custom attributes, and tags.",
+"spoken": "VM-based: multiple per uSeg EPG. Operating System Type, VMM Domain, Hypervisor Identifier, Datacenter, VM Identifier, VM Name, V-nic Domain Name, custom attributes, and tags.",
+"start": 2875.077,
+"end": 2890.992
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Example (Figure 5-55)",
+"spoken": "Example (Figure 5-55).",
+"start": 2892.442,
+"end": 2895.172
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VDI desktops from Engineering, HR, and Sales in the application EPG EPG_VDI are moved into uSeg EPGs Eng_MS, HR_MS, and SALES_MS for granular policy.",
+"spoken": "VDI desktops from Engineering, HR, and Sales in the application EPG EPG_VDI are moved into uSeg E.P.G.s Eng_MS, HR_MS, and SALES_MS for granular policy.",
+"start": 2895.622,
+"end": 2911.964
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "12. Segmentation with Cisco ISE",
+"spoken": "12. Segmentation with Cisco ice.",
+"start": 2914.014,
+"end": 2916.552
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Classification",
+"spoken": "Classification.",
+"start": 2918.352,
+"end": 2919.611
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "First, know which assets need protecting. Then design classification groups and mechanisms.",
+"spoken": "First, know which assets need protecting. Then design classification groups and mechanisms.",
+"start": 2920.061,
+"end": 2926.056
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use meaningful group names, like \"prod_servers\" and \"dev_servers\", since policies reference them.",
+"spoken": "Use meaningful group names, like \"prod_servers\" and \"dev_servers\", since policies reference them.",
+"start": 2926.506,
+"end": 2932.97
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic classification of employees, guests, and contractors uses ISE AAA: 802.1X with a supplicant, MAB or PassiveID/Easy Connect without one, or a guest web portal (Web-Auth).",
+"spoken": "Dynamic classification of employees, guests, and contractors uses ice triple A: 802 dot 1 X with a supplicant, mab or passive I.D. or Easy Connect without one, or a guest web portal (Web-Auth).",
+"start": 2933.42,
+"end": 2948.865
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use the classification precedence when rolling out. For example, start with VLAN-to-SGT or subnet-to-SGT for coarse classification, then roll out 802.1X so dynamic SGTs take precedence.",
+"spoken": "Use the classification precedence when rolling out. For example, start with V-lan-to-S.G.T. or subnet-to-S.G.T. for coarse classification, then roll out 802 dot 1 X so dynamic S.G.T.s take precedence.",
+"start": 2949.315,
+"end": 2966.275
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With VXLAN, the source SGT travels in every packet to the enforcement point (Figure 5-56, dev_sgt and prod_sgt).",
+"spoken": "With V.X. lan, the source S.G.T. travels in every packet to the enforcement point (Figure 5-56, dev_sgt and prod_sgt).",
+"start": 2966.725,
+"end": 2978.309
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SXP and ISE",
+"spoken": "SXP and ice.",
+"start": 2979.759,
+"end": 2981.359
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SXP identifies and classifies packets to SGTs in each device's mapping table.",
+"spoken": "SXP identifies and classifies packets to S.G.T.s in each device's mapping table.",
+"start": 2981.809,
+"end": 2989.276
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ISE supports both speaker and listener roles. Using ISE as a speaker simplifies propagation.",
+"spoken": "ice supports both speaker and listener roles. Using ice as a speaker simplifies propagation.",
+"start": 2989.726,
+"end": 2996.531
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ISE learns the user's IP at authentication and assigns the SGT from the authorization table. It is the first platform to learn IP-to-SGT mappings for dynamic endpoints.",
+"spoken": "ice learns the user's IP at authentication and assigns the S.G.T. from the authorization table. It is the first platform to learn I.P. to S.G.T. mappings for dynamic endpoints.",
+"start": 2996.981,
+"end": 3011.189
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An SXP connection from ISE to the enforcement point sends mappings directly. No inline tagging or multiple SXP connections from campus, DMZ, and data center are needed.",
+"spoken": "An SXP connection from ice to the enforcement point sends mappings directly. No inline tagging or multiple SXP connections from campus, DMZ, and data center are needed.",
+"start": 3011.639,
+"end": 3024.93
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Useful when the access switch doesn't support TrustSec. Works with any vendor's switch or AP that creates and tears down ISE sessions with RADIUS authentication and accounting.",
+"spoken": "Useful when the access switch doesn't support TrustSec. Works with any vendor's switch or AP that creates and tears down ice sessions with radius authentication and accounting.",
+"start": 3025.38,
+"end": 3037.241
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SXP uses TCP between two devices. Peers can be bidirectional, acting as both speaker and listener.",
+"spoken": "SXP uses TCP between two devices. Peers can be bidirectional, acting as both speaker and listener.",
+"start": 3037.691,
+"end": 3045.84
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Either peer can start the connection, but mappings always go from speaker to listener.",
+"spoken": "Either peer can start the connection, but mappings always go from speaker to listener.",
+"start": 3046.29,
+"end": 3051.346
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SGTs can be assigned statically or dynamically and used as classifiers in policy.",
+"spoken": "S.G.T.s can be assigned statically or dynamically and used as classifiers in policy.",
+"start": 3051.796,
+"end": 3058.623
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "pxGrid can send SGTs and group membership to Cisco Secure Firewall, Cisco Secure Web Appliance, Secure Network Analytics, and third parties.",
+"spoken": "P.X. grid can send S.G.T.s and group membership to Cisco Secure Firewall, Cisco Secure Web Appliance, Secure Network Analytics, and third parties.",
+"start": 3059.073,
+"end": 3070.849
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ISE handles SGT transfer, IP-to-SGT propagation, policy enforcement, and SGACL download.",
+"spoken": "ice handles S.G.T. transfer, I.P. to S.G.T. propagation, policy enforcement, and S.G. A.C.L. download.",
+"start": 3071.299,
+"end": 3080.174
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ISE Distributed Deployment",
+"spoken": "ice Distributed Deployment.",
+"start": 3081.624,
+"end": 3083.65
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each node can run the Administration, Policy Service, or Monitoring persona.",
+"spoken": "Each node can run the Administration, Policy Service, or Monitoring persona.",
+"start": 3084.1,
+"end": 3089.498
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A primary and secondary Administration node for high availability.",
+"spoken": "A primary and secondary Administration node for high availability.",
+"start": 3089.948,
+"end": 3094.556
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A single or a pair of non-Administration health check nodes for automatic PAN failover.",
+"spoken": "A single or a pair of non-Administration health check nodes for automatic PAN failover.",
+"start": 3095.006,
+"end": 3101.086
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "One or more PSNs for session failover.",
+"spoken": "One or more P.S.N.s for session failover.",
+"start": 3101.536,
+"end": 3104.97
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "All services can run on one node, but separating them is recommended for scale and performance.",
+"spoken": "All services can run on one node, but separating them is recommended for scale and performance.",
+"start": 3105.42,
+"end": 3111.671
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 5-57: three PSNs handle SGTs, RADIUS, profiling, and authorization policy and send logs to the MnT. The PAN does administration, and pxGrid connects the partner ecosystem.",
+"spoken": "Figure 5-57: three P.S.N.s handle S.G.T.s, radius, profiling, and authorization policy and send logs to the MnT. The PAN does administration, and P.X. grid connects the partner ecosystem.",
+"start": 3112.121,
+"end": 3129.23
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A new ISE node starts in standalone mode with all default services of the three personas enabled. Log in to the admin portal to configure it.",
+"spoken": "A new ice node starts in standalone mode with all default services of the three personas enabled. Log in to the admin portal to configure it.",
+"start": 3129.68,
+"end": 3139.963
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You can't edit the personas or services of a standalone node, only of primary and secondary nodes.",
+"spoken": "You can't edit the personas or services of a standalone node, only of primary and secondary nodes.",
+"start": 3140.413,
+"end": 3147.325
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configure the primary node first, then register secondary nodes to it.",
+"spoken": "Configure the primary node first, then register secondary nodes to it.",
+"start": 3147.775,
+"end": 3152.447
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Network Device Groups",
+"spoken": "Network Device Groups.",
+"start": 3153.897,
+"end": 3155.454
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Beyond user and server groups, plan for network-device-to-network-device traffic (EIGRP, OSPF, BGP, CDP, LACP, LLDP) and network-device-to-network-services traffic (DHCP, DNS, RADIUS, syslog, SNMP).",
+"spoken": "Beyond user and server groups, plan for network-device-to-network-device traffic (EIGRP, OSPF, BGP, CDP, LACP, LLDP) and network-device-to-network-services traffic (DHCP, DNS, radius, syslog, SNMP).",
+"start": 3155.904,
+"end": 3172.416
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ISE gives network devices the TrustSec_Devices SGT. The recommended way is through the environment-data download when the device authenticates.",
+"spoken": "ice gives network devices the TrustSec_Devices S.G.T. The recommended way is through the environment-data download when the device authenticates.",
+"start": 3172.866,
+"end": 3183.832
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Learning Identity and Profiling",
+"spoken": "Learning Identity and Profiling.",
+"start": 3185.282,
+"end": 3187.415
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "After the PAN and PSNs are installed and devices send authentication to the PSN (or Cisco DNA Center in DNA deployments), user identity and location are learned.",
+"spoken": "After the PAN and P.S.N.s are installed and devices send authentication to the PSN (or Cisco DNA Center in DNA deployments), user identity and location are learned.",
+"start": 3187.865,
+"end": 3202.692
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MAB or PassiveID covers devices without 802.1X. Guests use a captive portal and WebAuth.",
+"spoken": "mab or passive I.D. covers devices without 802 dot 1 X. Guests use a captive portal and WebAuth.",
+"start": 3203.142,
+"end": 3211.888
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Profiling uses DHCP, SNMP, SPAN, NetFlow, HTTP, RADIUS, DNS, or Nmap scans to collect metadata for the device fingerprint, then automates classification and policy.",
+"spoken": "Profiling uses DHCP, SNMP, span, NetFlow, HTTP, radius, DNS, or Nmap scans to collect metadata for the device fingerprint, then automates classification and policy.",
+"start": 3212.338,
+"end": 3227.4
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Network Analytics identifies hosts by \"what they do\" through flow de-duplication, flow stitching, and flow anomaly detection. For example, it finds all hosts talking to web servers (who, what, when, where, and how), builds a normal baseline, and alerts on behavior outside it.",
+"spoken": "Secure Network Analytics identifies hosts by \"what they do\" through flow de-duplication, flow stitching, and flow anomaly detection. For example, it finds all hosts talking to web servers (who, what, when, where, and how), builds a normal baseline, and alerts on behavior outside it.",
+"start": 3227.85,
+"end": 3247.391
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SGT Assignment and Deployment",
+"spoken": "S.G.T. Assignment and Deployment.",
+"start": 3248.841,
+"end": 3251.764
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SGTs from ISE are downloaded in the environment data.",
+"spoken": "S.G.T.s from ice are downloaded in the environment data.",
+"start": 3252.214,
+"end": 3256.886
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IP-to-SGT and subnet-to-SGT mappings can be managed centrally in ISE and deployed with SSH or SXP.",
+"spoken": "I.P. to S.G.T. and subnet-to-S.G.T. mappings can be managed centrally in ice and deployed with SSH or SXP.",
+"start": 3257.336,
+"end": 3267.384
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "More static classification can be configured by CLI on the devices.",
+"spoken": "More static classification can be configured by CLI on the devices.",
+"start": 3267.834,
+"end": 3272.868
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic classification uses 802.1X, MAB, WebAuth, or PassiveID, or can be learned from a Cisco ACI APIC.",
+"spoken": "Dynamic classification uses 802 dot 1 X, mab, WebAuth, or passive I.D., or can be learned from a Cisco A.C.I. A-pick.",
+"start": 3273.318,
+"end": 3283.75
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Access switches and APs need AAA, RADIUS, and interface configuration. ISE needs the network devices and authentication and authorization rules. In SDA, Cisco DNA Center orchestrates the whole switch configuration and the devices in ISE.",
+"spoken": "Access switches and A.P.s need triple A, radius, and interface configuration. ice needs the network devices and authentication and authorization rules. In SDA, Cisco DNA Center orchestrates the whole switch configuration and the devices in ice.",
+"start": 3284.2,
+"end": 3303.443
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Monitor Mode and Enforcement",
+"spoken": "Monitor Mode and Enforcement.",
+"start": 3304.893,
+"end": 3306.792
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Monitor mode scopes the deployment and protects productivity. Users still get on the network if something breaks, and admins see misconfigurations.",
+"spoken": "Monitor mode scopes the deployment and protects productivity. Users still get on the network if something breaks, and admins see misconfigurations.",
+"start": 3307.242,
+"end": 3316.948
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies are enforced only when cts role-based enforcement is applied.",
+"spoken": "Policies are enforced only when cts role-based enforcement is applied.",
+"start": 3317.398,
+"end": 3322.561
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In enforcement mode, if IP-to-SGT mappings exist, the matching policy is downloaded from ISE.",
+"spoken": "In enforcement mode, if I.P. to S.G.T. mappings exist, the matching policy is downloaded from ice.",
+"start": 3323.011,
+"end": 3330.968
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In SDA, contracts and policies are added in Cisco DNA Center and pushed to ISE through the ISE API.",
+"spoken": "In SDA, contracts and policies are added in Cisco DNA Center and pushed to ice through the ice API.",
+"start": 3331.418,
+"end": 3339.354
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "TrustSec Screens in ISE",
+"spoken": "TrustSec Screens in ice.",
+"start": 3340.804,
+"end": 3342.596
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TrustSec dashboard: central monitoring with General Metrics, Active SGT Sessions, Alarms, NAD / SGT Quick View, and TrustSec Sessions / Live Log.",
+"spoken": "TrustSec dashboard: central monitoring with General Metrics, Active S.G.T. Sessions, Alarms, NAD or S.G.T. Quick View, and TrustSec Sessions or Live Log.",
+"start": 3343.046,
+"end": 3354.95
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Components and security groups (Figure 5-60) and Policy Sets (Figure 5-61).",
+"spoken": "Components and security groups (Figure 5-60) and Policy Sets (Figure 5-61).",
+"start": 3355.4,
+"end": 3362.91
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Production Policy Matrix: source groups down the left, destination groups across the top, and SGACLs at the intersections.",
+"spoken": "Production Policy Matrix: source groups down the left, destination groups across the top, and S.G. A.C.L.s at the intersections.",
+"start": 3363.36,
+"end": 3372.597
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ISE and ACI Integration",
+"spoken": "ice and A.C.I. Integration.",
+"start": 3374.047,
+"end": 3376.543
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Not on the SCOR exam. Included for reference.",
+"spoken": "Not on the score exam. Included for reference.",
+"start": 3376.993,
+"end": 3380.065
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACI to TrustSec: ISE syncs IEPGs into read-only SGTs (Learned From \"ACI\") and creates matching SXP mappings for ACI endpoints.",
+"spoken": "A.C.I. to TrustSec: ice syncs I.E.P.G.s into read-only S.G.T.s (Learned From \"A.C.I.\") and creates matching SXP mappings for A.C.I. endpoints.",
+"start": 3380.515,
+"end": 3393.23
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mappings go to ACI only if the SXP device is in an SXP domain selected in ACI Settings. The Propagate to ACI option on a security group controls whether its mappings go to ACI. The book says SXP domain in one sentence and VPN in the next.",
+"spoken": "Mappings go to A.C.I. only if the SXP device is in an SXP domain selected in A.C.I. Settings. The Propagate to A.C.I. option on a security group controls whether its mappings go to A.C.I. The book says SXP domain in one sentence and VPN in the next.",
+"start": 3393.68,
+"end": 3414.501
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The SXP service must be enabled for ACI integration.",
+"spoken": "The SXP service must be enabled for A.C.I. integration.",
+"start": 3414.951,
+"end": 3419.346
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TrustSec to ACI: ACI syncs SGTs into EEPGs and creates subnets from the SXP mappings. These subnets are not deleted when the mappings are deleted in ISE.",
+"spoken": "TrustSec to A.C.I.: A.C.I. syncs S.G.T.s into E.E.P.G.s and creates subnets from the SXP mappings. These subnets are not deleted when the mappings are deleted in ice.",
+"start": 3419.796,
+"end": 3434.26
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Updating an IEPG updates the SGT in ISE. Adding an SGT creates an EEPG; deleting it deletes the EEPG. Updating an endpoint in ACI updates the SXP mapping.",
+"spoken": "Updating an IEPG updates the S.G.T. in ice. Adding an S.G.T. creates an EEPG; deleting it deletes the EEPG. Updating an endpoint in A.C.I. updates the SXP mapping.",
+"start": 3434.71,
+"end": 3448.47
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If the ACI connection drops, ISE resynchronizes when it returns.",
+"spoken": "If the A.C.I. connection drops, ice resynchronizes when it returns.",
+"start": 3448.92,
+"end": 3453.805
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Check TrustSec-ACI Policy Element Exchange to sync SGTs and SXP mappings with IEPGs, EEPGs, and endpoints.",
+"spoken": "Check TrustSec-A.C.I. Policy Element Exchange to sync S.G.T.s and SXP mappings with I.E.P.G.s, E.E.P.G.s, and endpoints.",
+"start": 3454.255,
+"end": 3465.562
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policy Plane: ISE talks only to the APIC to exchange SGT, EPG, and SXP information. Enter the IP or hostname, admin name and password, tenant name, Layer 3 route network name, new SGT suffix, and new EPG suffix.",
+"spoken": "Policy Plane: ice talks only to the A-pick to exchange S.G.T., EPG, and SXP information. Enter the IP or hostname, admin name and password, tenant name, Layer 3 route network name, new S.G.T. suffix, and new EPG suffix.",
+"start": 3466.012,
+"end": 3484.7
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data Plane: also gives information to the ASR devices between TrustSec and ACI, which hold the SGT-to-EPG and EPG-to-SGT translation tables. Enter up to three server addresses, admin username and password, tenant name, maximum IEPGs to SGTs, maximum SGTs to IEPGs, new SGT suffix, and new EPG suffix.",
+"spoken": "Data Plane: also gives information to the ASR devices between TrustSec and A.C.I., which hold the S.G.T.-to-EPG and EPG-to-S.G.T. translation tables. Enter up to three server addresses, admin username and password, tenant name, maximum I.E.P.G.s to S.G.T.s, maximum S.G.T.s to I.E.P.G.s, new S.G.T. suffix, and new EPG suffix.",
+"start": 3485.15,
+"end": 3512.499
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Propagate using SXP: check box to send mappings to ACI using SXP.",
+"spoken": "Propagate using SXP: check box to send mappings to A.C.I. using SXP.",
+"start": 3512.949,
+"end": 3519.392
+}
+]
+}
