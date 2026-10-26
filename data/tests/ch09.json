@@ -24,7 +24,12 @@
        "why": "NIST SP 800-61 is the Computer Security Incident Handling Guide, not the cloud computing definition."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. What Is Cloud and What Are the Cloud Service Models?",
+     "cards": [
+      "NIST SP 800-145",
+      "NIST SP 800-145"
+     ]
     },
     {
      "q": "A company moves its CRM to a SaaS offering. Under the shared responsibility model described in the chapter, which layers remain the customer's responsibility?",
@@ -46,7 +51,13 @@
        "why": "In SaaS the customer is responsible only for people and data. The CSP handles applications and every layer below them."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "SaaS (Software as a Service)",
+      "Shared responsibility model",
+      "CSP (cloud service provider)"
+     ]
     },
     {
      "q": "Which development methodology uses strict linear phases in which a phase cannot start until the previous phase is complete?",
@@ -68,7 +79,12 @@
        "why": "Agile breaks a project into stages with constant stakeholder collaboration and iteration, so the deliverable can change along the way. It is not strictly linear."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Waterfall",
+      "Waterfall"
+     ]
     },
     {
      "q": "Which of the following is one of the four values of the Agile Manifesto?",
@@ -90,7 +106,11 @@
        "why": "This reverses the actual Agile value. Agile values working software more than comprehensive documentation."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Agile Manifesto"
+     ]
     },
     {
      "q": "Which practice is described as programmers merging their code changes into a central repository multiple times a day?",
@@ -112,7 +132,11 @@
        "why": "Smoke tests are quick sanity checks from the user's point of view run early in a multistage test phase, not the practice of merging code."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "CI (Continuous Integration)"
+     ]
     },
     {
      "q": "A developer writes a small function that should run only when a database record is updated or an HTTP request arrives, and the company wants to pay only for execution time. Which computing model fits best?",
@@ -134,7 +158,11 @@
        "why": "Serverless functions are event-driven, triggered by events such as an HTTP request, a database update, or a timer, and you pay only for execution time."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Serverless computing (FaaS, function as a service)"
+     ]
     },
     {
      "q": "Which Docker command lists the images stored locally, such as the mypython image built in the chapter example?",
@@ -156,7 +184,12 @@
        "why": "docker ps lists running containers, not stored images."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "docker images",
+      "Docker"
+     ]
     },
     {
      "q": "In Kubernetes, what is a pod?",
@@ -178,7 +211,11 @@
        "why": "This describes a Dockerfile, which is used to build container images, not to group running containers."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Kubernetes (k8s)"
+     ]
     },
     {
      "q": "Which Kubernetes component routes traffic to load-balanced services and must run on every node?",
@@ -200,7 +237,11 @@
        "why": "etcd is a component of the master, not something that runs on every node to route service traffic."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Kubernetes (k8s)"
+     ]
     },
     {
      "q": "How does Contiv simplify container networking compared to standalone Docker?",
@@ -222,7 +263,9 @@
        "why": "Contiv gives each container its own IP address, which removes host-based port NAT, and adds a policy framework with service discovery and routing."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": []
     },
     {
      "q": "A security architect reviewing an application wants to prevent SQL injection. According to the chapter's best practices, what should the developers do?",
@@ -244,7 +287,11 @@
        "why": "Fuzzing is a software assurance method that finds input validation flaws during testing. It does not itself prevent SQL injection in the code."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)"
+     ]
     },
     {
      "q": "Which fuzzer uses compile-time instrumentation and genetic algorithms to improve fuzzing coverage?",
@@ -266,7 +313,12 @@
        "why": "Radamsa is a test case generator for fuzzers, used by Mutiny to create mutations. It is not known for compile-time instrumentation."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "American Fuzzy Lop (AFL)",
+      "Fuzzing (fuzz testing)"
+     ]
     },
     {
      "q": "How does Cisco Umbrella use anycast to provide reliability and scale for its recursive DNS service?",
@@ -288,7 +340,12 @@
        "why": "That is unicast to a single site. Umbrella uses shared anycast addresses such as 208.67.222.222 announced from all data centers."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Cisco Umbrella",
+     "cards": [
+      "Cisco Umbrella",
+      "DNS"
+     ]
     },
     {
      "q": "An administrator wants web traffic to most domains to go directly to the Internet with no proxy latency, while requests to sites like pastebin.com that host both safe and malicious user content are inspected. Which Umbrella capability does this?",
@@ -310,7 +367,13 @@
        "why": "The Security Overview report gives a high-level view of blocked requests and deployment activity. It does not inspect traffic."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. Cisco Umbrella",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "SIG (secure Internet gateway)",
+      "Risky domain"
+     ]
     },
     {
      "q": "In Cisco Umbrella Investigate, how far back do domain co-occurrences cover?",
@@ -332,7 +395,13 @@
        "why": "The chapter gives 7 days, not 24 hours, as the co-occurrence window."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Cisco Umbrella",
+     "cards": [
+      "Cisco Umbrella Investigate",
+      "Cisco Umbrella",
+      "Investigate co-occurrences"
+     ]
     },
     {
      "q": "Which email security feature detects spear phishing by checking the Envelope-From, Reply To, and From headers of an SMTP message for manipulation?",
@@ -354,7 +423,12 @@
        "why": "CASE is the antispam engine with a spam capture rate above 99 percent. It is not the header-forgery check described here."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "5. Cisco Secure Email Threat Defense",
+     "cards": [
+      "FED (Forged Email Detection)",
+      "SMTP"
+     ]
     },
     {
      "q": "A company using Office 365 wants all inbound mail inspected by Cisco's cloud email security before it reaches Exchange Online. What change makes this happen?",
@@ -376,7 +450,11 @@
        "why": "With Cisco, MX records such as esa1.cisco-ces.com and esa2.cisco-ces.com receive the mail, inspect it, and relay it to Office 365."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Cisco Secure Email Threat Defense",
+     "cards": [
+      "MX records"
+     ]
     },
     {
      "q": "A Cisco Secure Workload cluster cannot connect directly to the API server of an orchestrator in a protected network. Which feature solves this?",
@@ -398,7 +476,13 @@
        "why": "Secure Connector opens an outgoing connection from the orchestrator's network to the cluster, used as a reverse tunnel to reach the orchestrator API server."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "9. Cisco Secure Workload",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "Secure Connector",
+      "Cisco Secure Workload (formerly Tetration)"
+     ]
     },
     {
      "q": "An organization subscribes to Cisco Secure Cloud Analytics and also wants it to monitor its on-premises network. What does it need to deploy?",
@@ -420,7 +504,13 @@
        "why": "The Umbrella virtual appliance is an Umbrella DNS deployment option, not the on-prem sensor for Secure Cloud Analytics."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "Cisco Secure Cloud Sensor",
+      "Cisco Secure Cloud Analytics"
+     ]
     },
     {
      "q": "What does XDR (eXtended Detection and Response) do?",
@@ -442,7 +532,12 @@
        "why": "Blocking destinations through DNS is what Cisco Umbrella does, not the definition of XDR."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "10. Cisco XDR",
+     "cards": [
+      "SIEM (Security Information and Event Management) and SOAR (Security Orchestration, Automation, and Response)",
+      "XDR (eXtended Detection and Response)"
+     ]
     }
    ]
   },
@@ -469,7 +564,11 @@
        "why": "A hybrid cloud is made of two or more clouds, which can include on-prem services. Sharing among organizations is the community model."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "Community cloud"
+     ]
     },
     {
      "q": "A development team deploys its application on a PaaS offering. Which task is the customer responsible for?",
@@ -491,7 +590,11 @@
        "why": "In PaaS the customer is responsible for people, data, and applications, so it patches the applications and protects the data."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "PaaS (Platform as a Service)"
+     ]
     },
     {
      "q": "What is the correct order of the Waterfall phases shown in the chapter?",
@@ -513,7 +616,9 @@
        "why": "These are the general Agile steps in Figure 9-3, not the Waterfall phases."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": []
     },
     {
      "q": "Who developed Kanban, the scheduling system for lean development and just-in-time manufacturing?",
@@ -535,7 +640,9 @@
        "why": "Google originally developed Kubernetes, not Kanban."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": []
     },
     {
      "q": "Which of the Three Ways of DevOps focuses on seeing problems as they occur for faster detection and recovery, and preventing them from happening again?",
@@ -557,7 +664,11 @@
        "why": "Measurement is one of the four elements of embracing DevOps in Figure 9-6, not one of the Three Ways."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "DevOps"
+     ]
     },
     {
      "q": "How does Continuous Delivery (CD) relate to Continuous Integration (CI)?",
@@ -579,7 +690,12 @@
        "why": "The chapter describes CD as building on CI and automating the whole release process, which can include cloud infrastructure provisioning."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "CI (Continuous Integration)",
+      "CD (Continuous Delivery)"
+     ]
     },
     {
      "q": "In a multistage CI/CD test phase, which tests are quick sanity checks from the user's point of view that are run first?",
@@ -601,7 +717,13 @@
        "why": "Smoke tests are quick sanity checks from the user's point of view, run first in a multistage test phase."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Smoke tests",
+      "CI (Continuous Integration)",
+      "CD (Continuous Delivery)"
+     ]
     },
     {
      "q": "Why does the official Python Dockerfile in the chapter set ENV LANG C.UTF-8?",
@@ -623,7 +745,11 @@
        "why": "The Dockerfile comment explains that LANG=C breaks Python 3, so it sets LANG to C.UTF-8."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "ENV LANG C.UTF-8"
+     ]
     },
     {
      "q": "Which set of components runs on the Kubernetes master according to the chapter's architecture figure?",
@@ -645,7 +771,11 @@
        "why": "These are alternative container orchestration platforms, not components of the Kubernetes master."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Kubernetes (k8s)"
+     ]
     },
     {
      "q": "A student wants to practice Kubernetes on a laptop with a lightweight single-node implementation. Which tool should the student use?",
@@ -667,7 +797,12 @@
        "why": "GKE is Google Cloud Platform's hosted Kubernetes as a Service, not a lightweight local implementation."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "minikube",
+      "Kubernetes (k8s)"
+     ]
     },
     {
      "q": "Starting with which Kubernetes version did the cluster DNS move from kube-dns to CoreDNS?",
@@ -689,7 +824,13 @@
        "why": "The chapter notes that Kubernetes moved from kube-dns to CoreDNS in version 1.12."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Kubernetes (k8s)",
+      "Kubernetes 1.12",
+      "DNS"
+     ]
     },
     {
      "q": "Which open-source fuzzer from Cisco replays packet captures (pcaps) through a mutational fuzzer?",
@@ -711,7 +852,13 @@
        "why": "AFL uses compile-time instrumentation and genetic algorithms. It is not the Cisco pcap-replay fuzzer."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Mutiny Fuzzing Framework",
+      "Fuzzing (fuzz testing)",
+      "Cisco Talos"
+     ]
     },
     {
      "q": "Which IP addresses are the Cisco Umbrella and OpenDNS anycast resolver addresses?",
@@ -733,7 +880,13 @@
        "why": "These are Google Public DNS resolvers, not Umbrella or OpenDNS."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Cisco Umbrella",
+     "cards": [
+      "208.67.222.222 and 208.67.220.220",
+      "Cisco Umbrella",
+      "OpenDNS"
+     ]
     },
     {
      "q": "What is fast flux?",
@@ -755,7 +908,12 @@
        "why": "That is the co-occurrence model, which links domains used in the same attack."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Cisco Umbrella",
+     "cards": [
+      "DNS",
+      "Fast flux"
+     ]
     },
     {
      "q": "What is the range of the Umbrella Investigate anomaly (DGA) score?",
@@ -777,7 +935,11 @@
        "why": "A 0 to 10 scale resembles CVSS base scores, not the Investigate anomaly score."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Cisco Umbrella",
+     "cards": [
+      "Investigate anomaly (DGA) score"
+     ]
     },
     {
      "q": "Which rates does the chapter give for the Cisco Context Adaptive Scanning Engine (CASE) antispam engine?",
@@ -799,7 +961,12 @@
        "why": "The capture rate is right, but the false positive rate given in the chapter is below one in one million, not one in one thousand."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "5. Cisco Secure Email Threat Defense",
+     "cards": [
+      "CASE (Cisco Context Adaptive Scanning Engine)",
+      "CASE"
+     ]
     },
     {
      "q": "When Cisco cloud email security receives an email with an attachment, which hash does it send to the AMP cloud for the file reputation query?",
@@ -821,7 +988,11 @@
        "why": "MD5 is an older hash. The chapter's flow uses SHA256 for the AMP file reputation query."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "5. Cisco Secure Email Threat Defense",
+     "cards": [
+      "SHA256"
+     ]
     },
     {
      "q": "A Secure Workload analyst wants an alert when a process creates raw sockets, which is often tied to port knocking. Which forensic event type should the rule use?",
@@ -843,7 +1014,11 @@
        "why": "Unseen Library flags newly loaded libraries, not processes creating raw sockets."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "9. Cisco Secure Workload",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)"
+     ]
     },
     {
      "q": "A cloud team wants an agentless Cisco tool that maps relationships between applications and infrastructure, models what-if scenarios to forecast capacity, and recommends resizing actions. Which tool fits?",
@@ -865,7 +1040,11 @@
        "why": "Secure Analytics, formerly Stealthwatch, is on-prem NetFlow-based security analytics, not a capacity planning tool."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. AppDynamics Cloud Monitoring",
+     "cards": [
+      "Workload Optimization Manager"
+     ]
     },
     {
      "q": "How does the Cisco XDR Incidents view decide which detections appear at the top of the list?",
@@ -887,7 +1066,12 @@
        "why": "Code blocks are used to build automation workflows. They do not determine incident priority."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "10. Cisco XDR",
+     "cards": [
+      "XDR (eXtended Detection and Response)",
+      "Cisco XDR"
+     ]
     }
    ]
   },
@@ -914,7 +1098,12 @@
        "why": "A hybrid cloud is made of two or more clouds and can include on-prem services, which matches this mix."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Hybrid cloud",
+      "Public cloud"
+     ]
     },
     {
      "q": "In an IaaS deployment, which layers does the cloud service provider remain responsible for?",
@@ -936,7 +1125,12 @@
        "why": "In IaaS the CSP handles the hypervisor, servers, storage, and physical network. The customer handles everything above."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "IaaS (Infrastructure as a Service)",
+      "CSP (cloud service provider)"
+     ]
     },
     {
      "q": "According to NIST, how many essential characteristics, deployment models, and service models does cloud computing have?",
@@ -958,7 +1152,13 @@
        "why": "NIST has only 3 service models, IaaS, PaaS, and SaaS, and 5 essential characteristics."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. What Is Cloud and What Are the Cloud Service Models?",
+     "cards": [
+      "IaaS (Infrastructure as a Service)",
+      "SaaS (Software as a Service)",
+      "PaaS (Platform as a Service)"
+     ]
     },
     {
      "q": "Which statement about the Agile Manifesto is correct?",
@@ -980,7 +1180,11 @@
        "why": "NIST SP 800-145 is the cloud computing definition, and the Agile Manifesto has 4 values, not 5."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Agile Manifesto"
+     ]
     },
     {
      "q": "In the chapter's figure showing how development methods relate, at which level does Lean sit?",
@@ -1002,7 +1206,11 @@
        "why": "Lean sits at the business level. Agile is at the IT level, Scrum and Kanban at the team level, and Extreme Programming at the engineering practices level."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Extreme Programming (EP)"
+     ]
     },
     {
      "q": "In the chapter's model for embracing DevOps (culture, automation, measurement, sharing), what does measurement mean?",
@@ -1024,7 +1232,12 @@
        "why": "Improving speed and frequency while reducing effort is the automation element."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "SIEM (Security Information and Event Management) and SOAR (Security Orchestration, Automation, and Response)",
+      "DevOps"
+     ]
     },
     {
      "q": "In the chapter's CI/CD pipeline, what typically triggers the source stage?",
@@ -1046,7 +1259,13 @@
        "why": "Production deployment is the end of the deploy stage, not the trigger of the source stage."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "CI (Continuous Integration)",
+      "CD (Continuous Delivery)",
+      "CI/CD pipeline"
+     ]
     },
     {
      "q": "According to the chapter, how does moving from bare-metal servers toward serverless computing change the attack surface?",
@@ -1068,7 +1287,11 @@
        "why": "The chapter lists an increased attack surface as one of the effects of moving toward serverless."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Serverless computing (FaaS, function as a service)"
+     ]
     },
     {
      "q": "How do container image layers work?",
@@ -1090,7 +1313,12 @@
        "why": "Image layers build on their parent layer by changing files, and each parent reference is a pointer, forming a graph of layers."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Container image layer",
+      "Container image"
+     ]
     },
     {
      "q": "Which command builds an image named mypython from the Dockerfile in the current folder?",
@@ -1112,7 +1340,12 @@
        "why": "docker run mypython starts a new container from an existing mypython image. It does not build it."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "docker build -t mypython",
+      "Docker"
+     ]
     },
     {
      "q": "Which Kubernetes component bootstraps a minimum viable cluster and manages nodes in a multi-node cluster?",
@@ -1134,7 +1367,12 @@
        "why": "The kubelet runs on each node alongside Docker and kube-proxy. It does not bootstrap the cluster."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "kubeadm",
+      "Kubernetes (k8s)"
+     ]
     },
     {
      "q": "Which statement correctly contrasts Kubernetes networking with standalone Docker, according to the chapter?",
@@ -1156,7 +1394,11 @@
        "why": "The opposite is true: in Kubernetes the IP a container sees for itself is the IP others see."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Kubernetes (k8s)"
+     ]
     },
     {
      "q": "What is micro-segmentation?",
@@ -1178,7 +1420,11 @@
        "why": "That describes Scrum sprints, a development practice, not network segmentation."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Micro-segmentation"
+     ]
     },
     {
      "q": "What is fuzzing?",
@@ -1200,7 +1446,11 @@
        "why": "That is fast flux, a DNS technique used by botnets."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. AppDynamics Cloud Monitoring",
+     "cards": [
+      "Fuzzing (fuzz testing)"
+     ]
     },
     {
      "q": "Which Umbrella statistical model finds domains that are queried right before or after a given domain, linking domains in the same attack even on separate networks?",
@@ -1222,7 +1472,9 @@
        "why": "The traffic spike model spots traffic spikes that match patterns of other attacks, such as exploit kits."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Cisco Umbrella",
+     "cards": []
     },
     {
      "q": "An organization wants Umbrella DNS protection to follow employees' Windows and macOS laptops when they work from hotels and home networks. Which deployment option should it use?",
@@ -1244,7 +1496,11 @@
        "why": "The Security Connector is the Umbrella option for iOS devices, not Windows or macOS laptops."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. Cisco Umbrella",
+     "cards": [
+      "DNS"
+     ]
     },
     {
      "q": "Which email authentication method does the chapter describe as being used for sender authentication, as opposed to domain authentication?",
@@ -1266,7 +1522,11 @@
        "why": "The chapter lists DMARC for domain authentication, not sender authentication."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Cisco Secure Email Threat Defense",
+     "cards": [
+      "SPF (Sender Policy Framework)"
+     ]
     },
     {
      "q": "When integrating AWS with Cisco Attack Surface Management, which authentication method does the integration use?",
@@ -1288,7 +1548,13 @@
        "why": "Secure Connector is a Secure Workload feature for reaching orchestrator API servers, not the AWS authentication method in ASM."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "6. Cisco Attack Surface Management",
+     "cards": [
+      "Cisco Attack Surface Management (formerly Cisco Secure Cloud Insights)",
+      "Attack Surface Management",
+      "Attack Surface Management"
+     ]
     },
     {
      "q": "A Secure Workload scope shows a Forensics Score of 0. What does this mean?",
@@ -1310,7 +1576,11 @@
        "why": "No forensic events gives a score of 100, not 0."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "9. Cisco Secure Workload",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)"
+     ]
     },
     {
      "q": "A SOC manager wants to quickly add prebuilt automation, such as a workflow that pulls Talos blogs and checks their IOCs against the environment. Where in Cisco XDR should the team go?",
@@ -1332,7 +1602,13 @@
        "why": "The Automate Exchange is where prebuilt workflows are imported and set up with a wizard. The first example workflow checks Talos blog IOCs against your environment."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "10. Cisco XDR",
+     "cards": [
+      "SIEM (Security Information and Event Management) and SOAR (Security Orchestration, Automation, and Response)",
+      "XDR (eXtended Detection and Response)",
+      "Cisco XDR"
+     ]
     }
    ]
   },
@@ -1359,7 +1635,11 @@
        "why": "A community cloud is shared between several organizations, not used by one organization only."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "Private cloud"
+     ]
     },
     {
      "q": "Which cloud service model provides everything except the applications, covers all phases of the SDLC, and tends to be proprietary, causing problems if the customer moves away from the provider?",
@@ -1381,7 +1661,12 @@
        "why": "SaaS is a complete packaged software solution, usually reached through a web portal, so it includes the application."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "PaaS (Platform as a Service)",
+      "SDLC"
+     ]
     },
     {
      "q": "Which of the following is not one of the five NIST essential characteristics of cloud computing?",
@@ -1403,7 +1688,11 @@
        "why": "Micro-segmentation is a network segmentation technique for VMs and containers, not a NIST essential characteristic of cloud computing."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. What Is Cloud and What Are the Cloud Service Models?",
+     "cards": [
+      "Micro-segmentation"
+     ]
     },
     {
      "q": "What is a sprint in Scrum and Agile?",
@@ -1425,7 +1714,11 @@
        "why": "That is the Waterfall maintenance phase, not a Scrum sprint."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Scrum"
+     ]
     },
     {
      "q": "In the Scrum framework flow shown in the chapter, what comes immediately after the sprint review?",
@@ -1447,7 +1740,11 @@
        "why": "Project vision is the first step in the Scrum flow, not what follows the sprint review."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Sprint"
+     ]
     },
     {
      "q": "Which of the Three Ways of DevOps involves disciplined experimentation and risk taking, a defined time to fix issues, and shared code repositories?",
@@ -1469,7 +1766,11 @@
        "why": "Sharing means shared fate and goals in the culture, automation, measurement, sharing model. It is not one of the Three Ways."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "DevOps"
+     ]
     },
     {
      "q": "A team's microservice is written in Python. What happens to it in the build stage of the CI/CD pipeline?",
@@ -1491,7 +1792,13 @@
        "why": "The build stage compiles languages such as Java, C/C++, and Go. Python is interpreted and skips compiling."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Docker",
+      "CI (Continuous Integration)",
+      "CD (Continuous Delivery)"
+     ]
     },
     {
      "q": "A retailer runs a job that processes uploads at unpredictable times, sometimes a few times a week and sometimes thousands of times a day. Which serverless benefit best matches this workload?",
@@ -1513,7 +1820,9 @@
        "why": "The chapter says paying only for execution time makes serverless a good fit for sporadic or unpredictable workloads."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": []
     },
     {
      "q": "What is the OCI image format?",
@@ -1535,7 +1844,11 @@
        "why": "Pods are defined in Kubernetes specifications, not by the OCI image format."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Docker"
+     ]
     },
     {
      "q": "In the chapter's Python Dockerfile, what is the purpose of RUN apk add --no-cache ca-certificates?",
@@ -1557,7 +1870,11 @@
        "why": "The Dockerfile installs CA certificates so that HTTPS connections, such as downloading Python from python.org, work."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "RUN apk add --no-cache ca-certificates"
+     ]
     },
     {
      "q": "An engineer connected to a new GKE cluster in Google Cloud Shell wants to confirm how many worker machines the cluster has and whether they are Ready. Which command should be run?",
@@ -1579,7 +1896,13 @@
        "why": "minikube start starts a local minikube cluster. It does not inspect a GKE cluster."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "9. Cisco Secure Workload",
+     "cards": [
+      "kubectl get nodes",
+      "kubectl",
+      "Node"
+     ]
     },
     {
      "q": "How does the chapter describe the Kubernetes GUI (dashboard) deployment?",
@@ -1601,7 +1924,11 @@
        "why": "The official Kubernetes client is kubectl, a command-line tool, not the GUI."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Kubernetes (k8s)"
+     ]
     },
     {
      "q": "Which container orchestration option is integrated with the Docker Engine?",
@@ -1623,7 +1950,13 @@
        "why": "Docker Swarm provides container cluster management and orchestration integrated with the Docker Engine."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Docker Swarm",
+      "Docker",
+      "Container orchestration"
+     ]
     },
     {
      "q": "What does the DevSecOps principle \"secure by default\" mean?",
@@ -1645,7 +1978,13 @@
        "why": "Even in SaaS the customer is still responsible for people and data. This is not the meaning of secure by default."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "Secure by default",
+      "DevSecOps"
+     ]
     },
     {
      "q": "A team building Java web applications with Spring MVC and Apache Struts wants a tool that finds security bugs and plugs into Jenkins and SonarQube. Which tool fits?",
@@ -1667,7 +2006,12 @@
        "why": "Radamsa generates test cases for fuzzers. It is not a Java static bug-finding tool."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Findsecbugs",
+      "SonarQube"
+     ]
     },
     {
      "q": "In which cloud service model is patch management not a shared responsibility, because the CSP patches all software and hardware vulnerabilities?",
@@ -1689,7 +2033,13 @@
        "why": "Patch management is shared in IaaS and PaaS but not in SaaS, where the CSP patches all software and hardware vulnerabilities."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "SaaS (Software as a Service)",
+      "CSP (cloud service provider)",
+      "IaaS (Infrastructure as a Service)"
+     ]
     },
     {
      "q": "Which Umbrella model starts with domains from the traffic spike model and scores the attacker's setup steps, such as hosting provider, name server, and IP address, to block malicious domains in advance?",
@@ -1711,7 +2061,9 @@
        "why": "The passive DNS database is historical DNS data in Investigate, not a predictive blocking model."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Cisco Umbrella",
+     "cards": []
     },
     {
      "q": "Which standards-based method uses a public and private key pair to encrypt or sign email messages so they can be sent and received securely and verified?",
@@ -1733,7 +2085,11 @@
        "why": "Advanced outbreak filters inspect URLs in real time. They do not encrypt or sign email."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Cisco Secure Email Threat Defense",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)"
+     ]
     },
     {
      "q": "How does Cisco Secure Cloud Analytics detect threats that a simple session anomaly check would miss?",
@@ -1755,7 +2111,12 @@
        "why": "That is how the Umbrella secure Internet gateway works, not how Secure Cloud Analytics detects threats."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "7. Cisco Secure Cloud Analytics",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "Cisco Secure Cloud Analytics"
+     ]
     },
     {
      "q": "Which Cisco Secure Workload function builds tight security policies from network flows, processes, and side information such as load balancer configurations and route tags?",
@@ -1777,7 +2138,13 @@
        "why": "The Vulnerability Dashboard focuses on critical vulnerabilities and workloads by CVSS score. It does not build policies."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "9. Cisco Secure Workload",
+     "cards": [
+      "ADM (Application Dependency Mapping)",
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "Cisco Secure Workload (formerly Tetration)"
+     ]
     }
    ]
   },
@@ -1804,7 +2171,11 @@
        "why": "SaaS is a complete packaged software solution rented to users through a front end or web portal."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "IaaS (Infrastructure as a Service)"
+     ]
     },
     {
      "q": "Before signing with a cloud provider, a CISO wants to know how the provider will respond to fire, storms, natural disasters, or power loss, and what continued service it guarantees. Which provider document should be reviewed?",
@@ -1826,7 +2197,11 @@
        "why": "The shared responsibility model describes which security duties belong to the customer and which to the CSP, not disaster response."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": [
+      "DR/BCP (disaster recovery and business continuity plan)"
+     ]
     },
     {
      "q": "Which is a disadvantage of the Waterfall model described in the chapter?",
@@ -1848,7 +2223,9 @@
        "why": "Because Waterfall is linear, returning to earlier work after verification is very costly, and the rigid plan cannot adapt to unexpected events."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": []
     },
     {
      "q": "In Agile, what is the backlog?",
@@ -1870,7 +2247,11 @@
        "why": "That is the staging, or beta, environment."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "User stories"
+     ]
     },
     {
      "q": "Which development method improves quality and adapts to the customer's changing needs through iterative, frequent small releases, and was originally developed for the Chrysler C3 payroll software?",
@@ -1892,7 +2273,11 @@
        "why": "Lean is a management philosophy that eliminates waste at the business level, not a software engineering method tied to C3."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Extreme Programming (EP)"
+     ]
     },
     {
      "q": "Which deployment environment is used internally by the product team before code reaches production?",
@@ -1914,7 +2299,11 @@
        "why": "The staging, or beta, environment is used internally by the product team before production."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Staging (beta) environment"
+     ]
     },
     {
      "q": "According to the chapter, how do Agile organizations usually handle deployments?",
@@ -1936,7 +2325,11 @@
        "why": "A single release after verification describes Waterfall, not Agile."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Master"
+     ]
     },
     {
      "q": "Which container orchestration framework was originally developed by Google and automates the distribution, scheduling, and orchestration of containers across a cluster?",
@@ -1958,7 +2351,12 @@
        "why": "Apache Mesos is a distributed Linux kernel with native container support, not Google's orchestration framework."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "Kubernetes (k8s)",
+      "Container orchestration"
+     ]
     },
     {
      "q": "A developer started a container from the mypython image and wants to confirm it is currently running. Which command should be used?",
@@ -1980,7 +2378,12 @@
        "why": "kubectl version shows the Kubernetes client and server versions, not running Docker containers."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+     "cards": [
+      "docker ps",
+      "Docker"
+     ]
     },
     {
      "q": "A security team wants to run a penetration test against its workloads hosted at a cloud provider. What should it do first?",
@@ -2002,7 +2405,9 @@
        "why": "Hypervisors belong to the CSP, and the chapter stresses that your data still lives in a physical location somewhere."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": []
     },
     {
      "q": "A company asks a prospective provider how its data will be separated from other customers' data. Which concern does the chapter raise about a shared server?",
@@ -2024,7 +2429,9 @@
        "why": "The right to audit is a separate contract question to settle in writing. It does not depend on server sharing."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. Customer vs Provider Security Responsibility",
+     "cards": []
     },
     {
      "q": "When the Umbrella secure Internet gateway handles a risky request and the URL is still unknown after URL inspection, what happens if a file is present?",
@@ -2046,7 +2453,12 @@
        "why": "Identifying the customer and policy is the first step of the flow and is not repeated for file inspection."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Cisco Umbrella",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "SIG (secure Internet gateway)"
+     ]
     },
     {
      "q": "An incident responder investigating a malicious domain wants to find other domains registered with the same contact information. Which Umbrella Investigate feature should be used?",
@@ -2068,7 +2480,9 @@
        "why": "WHOIS Record Data shows domain ownership and other malicious domains that use the same contact information."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Cisco Umbrella",
+     "cards": []
     },
     {
      "q": "Which layer of Cisco cloud email protection inspects URLs in real time and blocks sites that change from benign to malicious?",
@@ -2090,7 +2504,9 @@
        "why": "Geolocation-based filtering controls email by sender location to fight spear phishing. It does not inspect URLs in real time."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Cisco Secure Email Threat Defense",
+     "cards": []
     },
     {
      "q": "How does Cisco XDR Investigate present its findings?",
@@ -2112,7 +2528,13 @@
        "why": "Emailed HTML tables with a .csv attachment describe scheduled Umbrella reports, not XDR Investigate."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "10. Cisco XDR",
+     "cards": [
+      "Node",
+      "XDR (eXtended Detection and Response)",
+      "Cisco XDR"
+     ]
     },
     {
      "q": "According to the chapter, what is the first step in using the Cisco Attack Surface Management platform?",
@@ -2134,7 +2556,13 @@
        "why": "The first step is to integrate your data with prebuilt integrations for end-to-end visibility, context, and automation. The platform works better with more data."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "6. Cisco Attack Surface Management",
+     "cards": [
+      "Cisco Attack Surface Management (formerly Cisco Secure Cloud Insights)",
+      "Attack Surface Management",
+      "Attack Surface Management"
+     ]
     },
     {
      "q": "A security analyst sees an infected internal host moving laterally to other servers in the same data center. How does the chapter classify this traffic?",
@@ -2156,7 +2584,11 @@
        "why": "North/south traffic crosses the perimeter, such as between the internal network and the Internet."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "7. Cisco Secure Cloud Analytics",
+     "cards": [
+      "East/west traffic"
+     ]
     },
     {
      "q": "Which Cisco-acquired company gives end-to-end application visibility and performance insight and builds a dynamic topology map of all applications?",
@@ -2178,7 +2610,11 @@
        "why": "Docker is a container runtime engine, not a Cisco-acquired application visibility company."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. AppDynamics Cloud Monitoring",
+     "cards": [
+      "AppDynamics (AppD)"
+     ]
     },
     {
      "q": "In Cisco Secure Workload, a client workload opens a connection to a database server that responds. What role does the client play in the flow?",
@@ -2200,7 +2636,12 @@
        "why": "Master is the Kubernetes component that coordinates cluster activity, not a role in a Secure Workload flow."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "9. Cisco Secure Workload",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "Cisco Secure Workload (formerly Tetration)"
+     ]
     },
     {
      "q": "Which Cisco Secure Workload forensic event type flags attempts to exploit flaws such as Meltdown?",
@@ -2222,7 +2663,12 @@
        "why": "The Side Channel event type flags attempts to exploit side-channel flaws such as Meltdown."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "9. Cisco Secure Workload",
+     "cards": [
+      "S/MIME (Secure/Multipurpose Internet Mail Extensions)",
+      "Cisco Secure Workload (formerly Tetration)"
+     ]
     }
    ]
   }

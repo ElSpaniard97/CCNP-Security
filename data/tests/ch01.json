@@ -24,7 +24,12 @@
        "why": "A threat vector (threat agent) is the path a malicious actor uses to carry out an attack, not the weakness in the system."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Vulnerability",
+      "Malicious actor"
+     ]
     },
     {
      "q": "A security analyst discovers malware that copied itself to dozens of servers overnight without any user opening a file or clicking a link. Which type of malware best fits this behavior?",
@@ -46,7 +51,11 @@
        "why": "A keylogger records keystrokes. It is used for capturing data, not for self-propagating across a network."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Worm"
+     ]
     },
     {
      "q": "Which standard is a language used for describing and sharing cyberattack information, and whose records can include C2 server IP addresses, domains, and malware hashes?",
@@ -68,7 +77,12 @@
        "why": "Correct. STIX (Structured Threat Information eXpression) is the language for describing and sharing cyberattack information, and its records can include C2 IPs, domains, and malware hashes."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "STIX (Structured Threat Information eXpression)",
+      "Command and control (C2 or CnC)"
+     ]
     },
     {
      "q": "A penetration tester submits crafted input to a web form. The application returns no database data and no error messages, but the tester infers information by watching how the page behaves differently for true and false conditions. Which type of SQL injection is this?",
@@ -90,7 +104,11 @@
        "why": "Command injection passes attacker-supplied OS commands to a system shell. It targets the operating system, not database queries."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "SQL injection (SQLi)"
+     ]
     },
     {
      "q": "An attacker gains access to a core router and changes its routing configuration without authorization. Which element of the CIA triad does this attack primarily violate?",
@@ -112,7 +130,12 @@
        "why": "Non-repudiation is not one of the three CIA triad elements. The triad is confidentiality, integrity, and availability."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": [
+      "Integrity",
+      "CIA triad"
+     ]
     },
     {
      "q": "Why do attackers prefer UDP-based services when launching a reflected DDoS attack?",
@@ -134,7 +157,12 @@
        "why": "Correct. Because UDP has no three-way handshake, the attacker can spoof the victim's address and the reflecting server replies to the victim."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": [
+      "Distributed denial of service (DDoS)",
+      "Reflected DDoS"
+     ]
     },
     {
      "q": "A company requires users to enter a password and then a PIN to log in. How is this authentication approach classified?",
@@ -156,7 +184,11 @@
        "why": "Rule-based access control grants access by criteria like time of day or location. It is an access control model, not a way of combining authentication factors."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "6. Cloud Security Threats",
+     "cards": [
+      "Multilayer authentication"
+     ]
     },
     {
      "q": "Which cloud service model provides everything except the applications and covers all phases of the system development life cycle (SDLC)?",
@@ -178,7 +210,12 @@
        "why": "Hybrid cloud is a deployment model that combines two or more clouds. It is not a service model."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "6. Cloud Security Threats",
+     "cards": [
+      "PaaS (Platform as a Service)",
+      "SDLC (system development life cycle)"
+     ]
     },
     {
      "q": "Zigbee, a popular protocol for consumer IoT devices, relies on the security of which underlying standard?",
@@ -200,7 +237,12 @@
        "why": "LoRaWAN is a separate long-range protocol with Class A, B, and C endpoints. Zigbee does not use it."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. IoT Security Threats",
+     "cards": [
+      "MAC (mandatory access control)",
+      "IoT (Internet of Things)"
+     ]
     },
     {
      "q": "According to NIST SP 800-61, which incident response phase comes immediately after detection and analysis?",
@@ -222,7 +264,12 @@
        "why": "Planning and direction is the first step of the threat intelligence process, not a phase of the NIST incident response life cycle."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "NIST (National Institute of Standards and Technology)",
+      "NIST"
+     ]
     },
     {
      "q": "Which CVSS metric group is the only mandatory group and represents the intrinsic characteristics of a vulnerability that stay constant over time?",
@@ -244,7 +291,11 @@
        "why": "Correct. The base group is intrinsic, constant over time, the only mandatory group, and comes with a vector string."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "CVSS (Common Vulnerability Scoring System)"
+     ]
     },
     {
      "q": "During an investigation, a SOC analyst suspects an attacker is exfiltrating data hidden inside DNS queries because DNS is almost always allowed through the firewall. Which tool is an example of what the attacker might be using?",
@@ -266,7 +317,12 @@
        "why": "Cryptcat, like Netcat, is listed for HTTP and HTTPS exfiltration, not DNS tunneling."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Security operations center (SOC)",
+      "DNS tunneling"
+     ]
     },
     {
      "q": "Why is address space layout randomization (ASLR) considered weak on 32-bit systems?",
@@ -288,7 +344,11 @@
        "why": "Correct. On 32-bit systems ASLR provides only 16 bits of randomization, which can be brute-forced. It is effective on 64-bit systems."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "ASLR (address space layout randomization)"
+     ]
     },
     {
      "q": "Which statement correctly describes cross-site request forgery (CSRF)?",
@@ -310,7 +370,12 @@
        "why": "Exploiting the timing gap between check and use describes a race condition (TOCTOU), not CSRF."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Exploit",
+      "Cross-site request forgery (CSRF or XSRF)"
+     ]
     },
     {
      "q": "What is the purpose of chain of custody in digital forensics?",
@@ -332,7 +397,11 @@
        "why": "Preventing changes during copying is the purpose of a write blocker, a hardware device."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Chain of custody"
+     ]
     },
     {
      "q": "Which type of threat actor uses existing scripts or tools created by others because they cannot write their own?",
@@ -354,7 +423,11 @@
        "why": "A hacktivist attacks to promote a social or political cause. The term describes motivation, not reliance on others' tools."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "Script kiddie"
+     ]
     },
     {
      "q": "Which document in the ISO/IEC 27000 series covers information security risk management?",
@@ -376,7 +449,12 @@
        "why": "ISO 27006 contains requirements for bodies that audit and certify ISMSs."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cybersecurity",
+     "cards": [
+      "ISO (International Organization for Standardization) and IEC (International Electrotechnical Commission)",
+      "Information security (InfoSec)"
+     ]
     },
     {
      "q": "Which type of virus changes its signature every time it replicates in order to evade signature-based detection?",
@@ -398,7 +476,12 @@
        "why": "A cluster virus changes directory table entries to point to the malware. It does not change its signature."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Polymorphic virus",
+      "Virus"
+     ]
     },
     {
      "q": "An engineer is defining access for a new help desk technician. Policy says the technician should receive only the minimum permissions required to reset passwords and nothing more. Which principle is being applied?",
@@ -420,7 +503,11 @@
        "why": "DAC is a model where the object's owner sets access. It describes who sets permissions, not the minimum-permission principle."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": [
+      "Least privilege"
+     ]
     },
     {
      "q": "A utility deploys thousands of smart grid sensors and wants to process their data locally on routers near the sensors, sending only summarized results to the cloud to save bandwidth. Which concept does this describe?",
@@ -442,7 +529,13 @@
        "why": "Correct. Fog computing processes IoT data as close to the source as possible, on fog-edge devices like routers, before sending it to the cloud."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. IoT Security Threats",
+     "cards": [
+      "Fog computing",
+      "IoT (Internet of Things)",
+      "Fog-edge device"
+     ]
     }
    ]
   },
@@ -469,7 +562,13 @@
        "why": "The time between disclosure and a patch being available is the window of exposure, not a type of exploit."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Vulnerability",
+      "Exploit",
+      "Zero-day exploit"
+     ]
     },
     {
      "q": "Which open standard provides the transport that automates the exchange of threat information between organizations?",
@@ -491,7 +590,12 @@
        "why": "Correct. TAXII (Trusted Automated eXchange of Indicator Information) is the open transport that automates the exchange of threat information."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "TAXII (Trusted Automated eXchange of Indicator Information)",
+      "Default allow (open)"
+     ]
     },
     {
      "q": "Which statement about Trojans is correct?",
@@ -513,7 +617,9 @@
        "why": "Changing its signature on every replication describes a polymorphic virus, and Trojans do not replicate."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Common Threats (Malware)",
+     "cards": []
     },
     {
      "q": "An attacker posts a comment containing malicious script on a public forum. The script is saved in the forum's database and runs in the browser of every user who later views the thread. Which type of XSS is this?",
@@ -535,7 +641,11 @@
        "why": "CSRF tricks a logged-in user's browser into sending unwanted requests. It does not store script on a forum for others to run."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Cross-site scripting (XSS)"
+     ]
     },
     {
      "q": "While testing an online store, a tester changes the URL parameter buy?customerID=1245 to buy?customerID=1246 and is shown another customer's order history. Which vulnerability has the tester found?",
@@ -557,7 +667,11 @@
        "why": "Correct. IDOR is changing a parameter that points directly to an object, such as a customer ID, to reach data you are not authorized for."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Insecure Direct Object Reference (IDOR)"
+     ]
     },
     {
      "q": "A service level agreement promises five nines of availability. What uptime percentage does this represent?",
@@ -579,7 +693,13 @@
        "why": "99.9999 percent is six nines. Five nines is 99.999 percent."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "Service level agreement (SLA)",
+      "Five nines",
+      "Five nines"
+     ]
     },
     {
      "q": "Which access control model is also called nondiscretionary and grants access based on a user's job role?",
@@ -601,7 +721,11 @@
        "why": "Rule-based access control uses criteria like time of day or location, not the user's role."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": [
+      "RBAC (role-based access control)"
+     ]
     },
     {
      "q": "Which cloud service model delivers a complete packaged application, usually through a web portal, that customers rent and use from anywhere?",
@@ -623,7 +747,11 @@
        "why": "Community cloud is a deployment model shared by several organizations, not a service model."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "6. Cloud Security Threats",
+     "cards": [
+      "SaaS (Software as a Service)"
+     ]
     },
     {
      "q": "What is the first step in the five-step threat intelligence process?",
@@ -645,7 +773,11 @@
        "why": "Dissemination is the fifth and final step, when finished intelligence is delivered to consumers."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "Threat intelligence"
+     ]
     },
     {
      "q": "Which value is a valid option for the CVSS Attack Vector (AV) base metric?",
@@ -667,7 +799,11 @@
        "why": "Remote is not a CVSS Attack Vector value. The values are Network, Adjacent, Local, and Physical."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "CVSS (Common Vulnerability Scoring System)"
+     ]
     },
     {
      "q": "A security team suspects a keylogger on an executive's desktop. Antimalware scans come back clean. Which type of keylogger could still be present, and how would it be found?",
@@ -689,7 +825,11 @@
        "why": "A compromised browser extension describes a man-in-the-browser attack. It would not explain a keylogger invisible to all software scans."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Keylogger"
+     ]
     },
     {
      "q": "Which malware distribution tool compresses malware to hide its code until it runs in memory?",
@@ -711,7 +851,11 @@
        "why": "Correct. A packer compresses malware, like WinZip or RAR but to hide code, so the code is hidden until it runs in memory."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Packer"
+     ]
     },
     {
      "q": "What is the title of NIST SP 800-61 Revision 2?",
@@ -733,7 +877,13 @@
        "why": "The Risk Management Framework is NIST SP 800-37, which replaced Certification and Accreditation."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cybersecurity",
+     "cards": [
+      "Incident",
+      "NIST (National Institute of Standards and Technology)",
+      "NIST SP 800-61 Revision 2"
+     ]
     },
     {
      "q": "A malware analyst wants to examine a suspicious binary's code without executing it. Which tool is a disassembler suited to this static analysis?",
@@ -755,7 +905,12 @@
        "why": "Correct. IDA Pro is a disassembler listed among the static analysis tools, which examine malware without running it."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Static analysis",
+      "Static analysis"
+     ]
     },
     {
      "q": "A firewall administrator configures a policy where any traffic not explicitly permitted is dropped. Which security posture is this?",
@@ -777,7 +932,12 @@
        "why": "Rule-based access control grants access by criteria like time or location. It does not define what happens to unmatched traffic."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Default deny (secure)",
+      "Security posture"
+     ]
     },
     {
      "q": "Which of the following is one of the three tasks of the designated incident handler (DIH)?",
@@ -799,7 +959,11 @@
        "why": "Keeping non-evidence documentation is one of the IRC's duties, not the DIH's."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Incident"
+     ]
     },
     {
      "q": "Which protocol is the chapter's example of an amplification DDoS, where responses are much larger than the requests?",
@@ -821,7 +985,12 @@
        "why": "ICMP is noted as a protocol used by ping and for tunneling. It is not the chapter's amplification example."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": [
+      "Distributed denial of service (DDoS)",
+      "Amplification DDoS"
+     ]
     },
     {
      "q": "A developer stores password hashes and wants to make sure precomputed rainbow tables cannot be used to reverse them. What should be added to each password before hashing?",
@@ -843,7 +1012,13 @@
        "why": "Putting a null byte in library addresses is ASCII armoring, a memory defense against string-based exploits, not a password protection."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Salt",
+      "Rainbow table",
+      "Default allow (open)"
+     ]
     },
     {
      "q": "An IDS fails to raise any alert while an attacker successfully exfiltrates data from the network. How is this outcome classified?",
@@ -865,7 +1040,11 @@
        "why": "Correct. A false negative is a real attack that is not detected."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "False negative"
+     ]
     },
     {
      "q": "Which LoRaWAN endpoint class offers the lowest power consumption while remaining bidirectional?",
@@ -887,7 +1066,9 @@
        "why": "LoRaWAN defines only Classes A, B, and C. There is no Class D."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. IoT Security Threats",
+     "cards": []
     }
    ]
   },
@@ -914,7 +1095,12 @@
        "why": "Correct. Residual risk is the risk left over after safeguards and controls are in place."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": [
+      "Risk",
+      "Residual risk"
+     ]
     },
     {
      "q": "A group defaces a government website to protest a new environmental policy. Which type of threat actor is this?",
@@ -936,7 +1122,11 @@
        "why": "A script kiddie is defined by lack of skill, using existing tools. The defining trait here is the political motive."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "Hacktivist"
+     ]
     },
     {
      "q": "Which resource is a knowledge base of real-world attacker tactics, techniques, and procedures (TTPs), organized into matrices by platform?",
@@ -958,7 +1148,13 @@
        "why": "Exploit-DB, run by Offensive Security, is a public database of exploits, not a framework of adversary TTPs."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge)",
+      "MITRE",
+      "Tactics, techniques, and procedures (TTPs)"
+     ]
     },
     {
      "q": "Which business model lets ransomware authors rent their tools to affiliates in exchange for a cut of the profits?",
@@ -980,7 +1176,12 @@
        "why": "An APT is a well-funded, patient attacker, often a nation-state, targeting sensitive data. It is a type of actor, not a rental model."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Ransomware as a Service (RaaS)",
+      "Ransomware"
+     ]
     },
     {
      "q": "An attacker submits a form field that causes a web application to pass OS commands to the system shell. With what privileges do those commands run?",
@@ -1002,7 +1203,11 @@
        "why": "Running in the victim's browser describes XSS. Command injection runs on the server, not in the browser."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Command injection"
+     ]
     },
     {
      "q": "An attacker convinces a public web server to fetch a URL that points to an internal administration system protected by the firewall. The request succeeds because it appears to come from the trusted web server. Which attack is this?",
@@ -1024,7 +1229,11 @@
        "why": "DOM-based XSS is processed only in the victim's browser and never reaches the server. It does not reach internal systems through the server."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Server-side request forgery (SSRF)"
+     ]
     },
     {
      "q": "Why can a non-executable stack not stop a return-to-libc (ret2libc) attack?",
@@ -1046,7 +1255,11 @@
        "why": "Overflowing null bytes is how an attacker defeats ASCII armoring, a different defense. It is not why NX fails against ret2libc."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Return-to-libc (ret2libc)"
+     ]
     },
     {
      "q": "In which access control model does the owner of the object decide who can access it?",
@@ -1068,7 +1281,11 @@
        "why": "Correct. DAC is set by the owner of the object."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "DAC (discretionary access control)"
+     ]
     },
     {
      "q": "Which of the following is one of the five NIST essential characteristics of cloud computing?",
@@ -1090,7 +1307,12 @@
        "why": "Shared responsibility describes how client and provider split security duties. It is not one of the NIST essential characteristics."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "6. Cloud Security Threats",
+     "cards": [
+      "NIST (National Institute of Standards and Technology)",
+      "NIST"
+     ]
     },
     {
      "q": "Several hospitals agree to share a cloud environment built for their common requirements. Which cloud deployment model is this?",
@@ -1112,7 +1334,9 @@
        "why": "A hybrid cloud combines two or more clouds, including on-premises. It describes mixing clouds, not sharing among organizations."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "6. Cloud Security Threats",
+     "cards": []
     },
     {
      "q": "Which IoT protocol was built for battery life, sleeps until it is needed, and uses frequency-hopping spread spectrum and AES?",
@@ -1134,7 +1358,12 @@
        "why": "6LoWPAN builds an IPv6 adaptation layer on top of 802.15.4. It is not defined by sleeping and frequency hopping."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "7. IoT Security Threats",
+     "cards": [
+      "Bluetooth Low Energy",
+      "IoT (Internet of Things)"
+     ]
     },
     {
      "q": "A firewall logs that it blocked an inbound connection attempt. Nothing was damaged and no policy was violated. How should this be classified?",
@@ -1156,7 +1385,11 @@
        "why": "Correct. An event is any observable occurrence, and a firewall blocking a connection is one of the chapter's event examples."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Event"
+     ]
     },
     {
      "q": "A forensic investigator needs to copy a suspect's hard drive while guaranteeing that nothing on the original drive is modified during the copy. What should be attached to the drive?",
@@ -1178,7 +1411,11 @@
        "why": "A logic analyzer is a hardware tool listed for IoT hacking and analysis, not for preserving evidence during imaging."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Write blocker"
+     ]
     },
     {
      "q": "A security researcher finds a vulnerability in a commercial firewall product and wants to report it to the vendor's team that handles flaws in its own products. Which team should receive the report?",
@@ -1200,7 +1437,11 @@
        "why": "An MSSP is an outsourced security and incident response provider, not the vendor's own product vulnerability team."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "PSIRT (product security incident response team)"
+     ]
     },
     {
      "q": "Which two organizations built the Stakeholder-Specific Vulnerability Categorization (SSVC) decision-tree method?",
@@ -1222,7 +1463,13 @@
        "why": "Correct. SSVC was built by the Software Engineering Institute (SEI) at Carnegie Mellon and CISA."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "CISA (Cybersecurity and Infrastructure Security Agency)",
+      "SEI (Software Engineering Institute)",
+      "SSVC (Stakeholder-Specific Vulnerability Categorization)"
+     ]
     },
     {
      "q": "A firewall filters packets based on the SYN flag. An attacker builds a covert channel using TCP ACK packets to slip past it. Which tool is designed for TCP ACK tunneling?",
@@ -1244,7 +1491,12 @@
        "why": "Netcat is listed for HTTP and HTTPS exfiltration, not for TCP ACK tunneling."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "TCP ACK tunneling",
+      "Covert channel"
+     ]
     },
     {
      "q": "An FTP Trojan lets an attacker upload, download, and move files on a victim machine. On which port does it typically operate?",
@@ -1266,7 +1518,9 @@
        "why": "Correct. FTP Trojans work on TCP port 21, the FTP port, to upload, download, and move files."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Common Threats (Malware)",
+     "cards": []
     },
     {
      "q": "When building a dynamic malware analysis lab, what is the number one goal?",
@@ -1288,7 +1542,9 @@
        "why": "Malware may want a network connection, but tools like FakeNet fake one. Giving real access conflicts with the containment goal."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Common Threats (Malware)",
+     "cards": []
     },
     {
      "q": "After removing spyware, a technician finds that the PC still cannot reach antivirus update sites and gets redirected to ad servers. Which file should the technician check?",
@@ -1310,7 +1566,9 @@
        "why": "The Shell= line in System.ini is a spyware persistence location for running at boot. It does not redirect web traffic."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Common Threats (Malware)",
+     "cards": []
     },
     {
      "q": "Which ISO/IEC 27000 series document is the ISMS specification?",
@@ -1332,7 +1590,13 @@
        "why": "ISO 27005 covers information security risk management."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cybersecurity",
+     "cards": [
+      "ISO (International Organization for Standardization) and IEC (International Electrotechnical Commission)",
+      "ISO 27001",
+      "ISMS (Information Security Management System)"
+     ]
     }
    ]
   },
@@ -1359,7 +1623,12 @@
        "why": "The path used to carry out the attack is the threat vector, also called the threat agent."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "Threat",
+      "Latent threat"
+     ]
     },
     {
      "q": "Why is it considered unethical to hire a gray hat hacker for security testing?",
@@ -1381,7 +1650,12 @@
        "why": "Attacking to promote a social or political cause describes a hacktivist."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Gray hat",
+      "Black hat"
+     ]
     },
     {
      "q": "A threat intelligence feed lists a malicious IP address, a phishing URL, and a file hash associated with a malware campaign. What are these items called?",
@@ -1403,7 +1677,12 @@
        "why": "A CVSS vector string records the base metric values for a vulnerability's severity score, not attack artifacts."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "Threat intelligence",
+      "Indicator of compromise (IoC)"
+     ]
     },
     {
      "q": "An attacker combines a legitimate game installer and a remote-access Trojan into a single executable so the Trojan installs silently when the game is installed. What type of tool was used?",
@@ -1425,7 +1704,12 @@
        "why": "Correct. A wrapper, also called a binder, packager, or EXE binder, combines two or more executables into one program."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Wrapper (binder, packager, EXE binder)",
+      "Remote-access Trojan (RAT)"
+     ]
     },
     {
      "q": "Every virus contains at least which two components?",
@@ -1447,7 +1731,9 @@
        "why": "The infection routine is required, but the trigger routine is not. The other required component is the search routine."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. Common Threats (Malware)",
+     "cards": []
     },
     {
      "q": "NATAS (Satan spelled backward) is an example of which type of virus?",
@@ -1469,7 +1755,12 @@
        "why": "A virus hoax is a chain letter or email warning of a fake threat, not real malware like NATAS."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Multipartite virus",
+      "Virus"
+     ]
     },
     {
      "q": "In which type of cross-site scripting does the malicious payload never reach the server, being processed only by the victim's browser?",
@@ -1491,7 +1782,11 @@
        "why": "Correct. In DOM-based XSS the payload never reaches the server and only the browser processes it."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Cross-site scripting (XSS)"
+     ]
     },
     {
      "q": "A developer finds that two threads update a shared counter at the same time, occasionally closing a file early and losing data. Which mechanism prevents this kind of race condition?",
@@ -1513,7 +1808,11 @@
        "why": "Input validation helps prevent injection and IDOR. A race condition is a timing problem between threads, not bad input."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Race condition (TOCTOU, time of check to time of use)"
+     ]
     },
     {
      "q": "Which API type uses only XML, is governed by XML Schema Definition (XSD), and replaced DCOM and CORBA?",
@@ -1535,7 +1834,11 @@
        "why": "Correct. SOAP, from Microsoft, uses XML only, is governed by XSD, and replaced DCOM and CORBA."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Application programming interface (API)"
+     ]
     },
     {
      "q": "An attacker sends thousands of carefully chosen queries to a commercial machine learning API and uses the responses to build a functionally equivalent copy of the model. Which AI attack is this?",
@@ -1557,7 +1860,11 @@
        "why": "Data poisoning corrupts the training data to affect specific inputs or overall performance. It does not clone the model."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Application programming interface (API)"
+     ]
     },
     {
      "q": "An organization deploys server clustering, data redundancy, and continuity of operations planning. Which element of the CIA triad are these safeguards primarily designed to protect?",
@@ -1579,7 +1886,12 @@
        "why": "Authentication is proving a claimed identity, part of access control. It is not one of the CIA triad elements."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": [
+      "Availability",
+      "CIA triad"
+     ]
     },
     {
      "q": "A bank sends a one-time code to a customer's registered phone by SMS during login from a web browser. What type of authentication does sending the code over a separate channel represent?",
@@ -1601,7 +1913,11 @@
        "why": "DAC is an access control model where the object's owner sets access. It is not an authentication method."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Out-of-band authentication"
+     ]
     },
     {
      "q": "A company allows contractors to access the file server only between 8 a.m. and 6 p.m. and only from the corporate office. Which access control model applies criteria like these?",
@@ -1623,7 +1939,11 @@
        "why": "DAC lets the object's owner decide who has access. Time-of-day and location criteria describe rule-based access control."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": [
+      "Rule-based access control"
+     ]
     },
     {
      "q": "In a cloud environment, an attacker places a malicious virtual machine near a target server in order to attack it. What is this called?",
@@ -1645,7 +1965,11 @@
        "why": "An amplification attack is a reflected DDoS where responses are much larger than requests, not a co-located VM attack."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "6. Cloud Security Threats",
+     "cards": [
+      "Side-channel attack"
+     ]
     },
     {
      "q": "What does 6LoWPAN provide for IoT devices?",
@@ -1667,7 +1991,12 @@
        "why": "Long-range wide area networking with Class A, B, and C endpoints describes LoRaWAN."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. IoT Security Threats",
+     "cards": [
+      "IPv6",
+      "IoT (Internet of Things)"
+     ]
     },
     {
      "q": "When choosing a containment strategy, NIST describes durations for the solution. How long is an emergency workaround expected to last?",
@@ -1689,7 +2018,12 @@
        "why": "Correct. The duration criteria are an emergency workaround of four hours, a temporary solution of two weeks, or a permanent fix."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "NIST (National Institute of Standards and Technology)",
+      "NIST"
+     ]
     },
     {
      "q": "Which metric belongs to the CVSS temporal metric group?",
@@ -1711,7 +2045,12 @@
        "why": "Modified Attack Vector (MAV) is one of the Modified Base Metrics in the environmental group."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Exploit",
+      "CVSS (Common Vulnerability Scoring System)"
+     ]
     },
     {
      "q": "Which incident response role serves as the central point of contact, receiving, verifying, and logging incident reports and notifying the designated incident handler?",
@@ -1733,7 +2072,12 @@
        "why": "Correct. The IRC is the central point of contact who receives, verifies, and logs reports, notifies the DIH, and keeps non-evidence documentation."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "Incident",
+      "IRC (incident response coordinator), DIH (designated incident handler), IRT (incident response team)"
+     ]
     },
     {
      "q": "How does an offline brute-force password attack compare with an online brute-force attack?",
@@ -1755,7 +2099,11 @@
        "why": "Offline brute force is not limited to Kerberos. Kerberos vulnerabilities are a separate authentication attack method."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Brute-force attack"
+     ]
     },
     {
      "q": "Which RFC defines ICMP, the protocol used by ping that can also be tunneled to create a covert channel?",
@@ -1777,7 +2125,13 @@
        "why": "RFC 768 defines UDP (User Datagram Protocol), not ICMP. ICMP is defined in RFC 792."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "RFC 792",
+      "ICMP (Internet Control Message Protocol)",
+      "Covert channel"
+     ]
     }
    ]
   },
@@ -1804,7 +2158,12 @@
        "why": "Exploit-DB is a public exploit database run by Offensive Security, reachable with a normal browser. It is not a hidden part of the Internet."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Dark web (darknet)",
+      "Deep web"
+     ]
     },
     {
      "q": "Which term describes a well-funded, patient attacker, often a nation-state, that targets sensitive data over a long period?",
@@ -1826,7 +2185,12 @@
        "why": "Correct. An APT is a well-funded, patient attacker, often a nation-state, targeting sensitive data."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "Advanced persistent threat (APT)",
+      "Threat"
+     ]
     },
     {
      "q": "Which standard is a language for commanding and controlling cyber defense technologies, and originally came from a forum facilitated by the NSA?",
@@ -1848,7 +2212,13 @@
        "why": "OpenIOC is an open, machine-readable framework for sharing indicators of compromise, not for commanding defense technologies."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Threats, Vulnerabilities, and Exploits",
+     "cards": [
+      "OpenC2 (Open Command and Control)",
+      "Command and control (C2 or CnC)",
+      "Default allow (open)"
+     ]
     },
     {
      "q": "A vendor wants to tell customers, in a machine-readable way, that a widely reported library vulnerability does not actually affect one of its products. Which format is designed to share this kind of real-time status?",
@@ -1870,7 +2240,12 @@
        "why": "A CVE is the public identifier given to a vulnerability. It names the flaw but does not state whether each product is affected."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "VEX (Vulnerability Exploitability eXchange)",
+      "CSAF (Common Security Advisory Framework)"
+     ]
     },
     {
      "q": "According to the chapter, what is the number one way malware spreads?",
@@ -1892,7 +2267,9 @@
        "why": "Physical access and USB drops (poison apple) are infection methods, but email attachments are the top one."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Common Threats (Malware)",
+     "cards": []
     },
     {
      "q": "TCSEC divides covert channels into two categories. Which category involves one process writing to storage while another process reads it?",
@@ -1914,7 +2291,12 @@
        "why": "Correct. In a storage channel, one process writes to storage and another reads it."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "3. Common Threats (Malware)",
+     "cards": [
+      "TCSEC (Trusted Computer System Evaluation Criteria)",
+      "Covert channel"
+     ]
     },
     {
      "q": "Attackers learn that engineers at a defense contractor frequently visit a particular industry news site. They compromise that site so it infects visitors. What type of attack is this?",
@@ -1936,7 +2318,11 @@
        "why": "A virus hoax is a chain letter or email warning of a fake threat, not a real compromise of a website."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Watering hole attack"
+     ]
     },
     {
      "q": "Which algorithm is identified in the chapter as weak, making password cracking easier?",
@@ -1958,7 +2344,9 @@
        "why": "Blowfish is listed as one of the ciphers crypters use to encrypt malware, not as a weak algorithm."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": []
     },
     {
      "q": "A user installs a malicious browser extension that silently intercepts and alters online banking sessions inside the browser. Which session hijacking method is this?",
@@ -1980,7 +2368,12 @@
        "why": "Cookie manipulation is a stored DOM-based attack that writes attacker-controlled data into a cookie, not interception by an extension."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Session hijacking",
+      "Man-in-the-browser attack"
+     ]
     },
     {
      "q": "In the chapter's WebGoat example, what is the effect of entering Snow' OR 1='1 into the form field?",
@@ -2002,7 +2395,9 @@
        "why": "Changing an object ID in a URL to reach someone else's data is IDOR, not SQL injection."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. Common Threats (Malware)",
+     "cards": []
     },
     {
      "q": "A penetration tester wants to quickly search a local copy of the Exploit Database from the command line for exploits affecting SMB. Which command should they use?",
@@ -2024,7 +2419,11 @@
        "why": "Correct. searchsploit searches a local copy of the Exploit Database from the command line, and searchsploit smb is the chapter's example."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "searchsploit"
+     ]
     },
     {
      "q": "Which of the following is listed as a mechanism that preserves confidentiality?",
@@ -2046,7 +2445,9 @@
        "why": "Code testing is a process control that protects integrity, not confidentiality."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": []
     },
     {
      "q": "A finance department requires that the employee who creates a vendor payment cannot also approve it. Which type of integrity safeguard is this?",
@@ -2068,7 +2469,9 @@
        "why": "Correct. Behavioral controls for integrity include separation of duties, rotation of duties, and training."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Confidentiality, Integrity, and Availability",
+     "cards": []
     },
     {
      "q": "Which access control model is set by policy and cannot be changed by the owner of the object?",
@@ -2090,7 +2493,11 @@
        "why": "Rule-based access control uses criteria like time of day or location to decide access."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "MAC (mandatory access control)"
+     ]
     },
     {
      "q": "A company signs a cloud contract quickly without deciding how compliance responsibilities are divided between itself and the provider. Which major cloud issue does this represent?",
@@ -2112,7 +2519,9 @@
        "why": "Resource pooling is a NIST essential characteristic of cloud computing, not a cloud security issue."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "6. Cloud Security Threats",
+     "cards": []
     },
     {
      "q": "Which frequency does Z-Wave use in North America?",
@@ -2134,7 +2543,9 @@
        "why": "915.00 MHz is not the Z-Wave frequency given. Z-Wave uses 908.42 MHz in North America."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "7. IoT Security Threats",
+     "cards": []
     },
     {
      "q": "Investigators seize a suspect's smartphone and want to stop it from receiving a remote wipe command over Wi-Fi or cellular. What should they place it in?",
@@ -2156,7 +2567,11 @@
        "why": "A sandbox is an isolated software environment for running a suspicious program, not a physical container for seized devices."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Common Software and Hardware Vulnerabilities",
+     "cards": [
+      "Faraday cage"
+     ]
     },
     {
      "q": "During which NIST incident response phase does the team ask questions such as \"What would you do differently?\" and \"What corrective actions would prevent a repeat?\"",
@@ -2178,7 +2593,12 @@
        "why": "This phase gathers evidence, identifies attacking hosts, and chooses a containment strategy. The review questions come afterward."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "NIST (National Institute of Standards and Technology)",
+      "NIST"
+     ]
     },
     {
      "q": "What is the first step in establishing a CSIRT?",
@@ -2200,7 +2620,11 @@
        "why": "Deciding whether the CSIRT is central, distributed, or virtual is the fifth step."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "CSIRT (computer security incident response team)"
+     ]
     },
     {
      "q": "A crafted packet crashes a router, and as a result the devices behind that router also lose connectivity. In CVSS, which base metric value reflects that systems beyond the vulnerable component are affected?",
@@ -2222,7 +2646,11 @@
        "why": "Correct. Scope Changed means other systems are affected, such as devices behind a crashed router."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Digital Forensics and Incident Response",
+     "cards": [
+      "CVSS (Common Vulnerability Scoring System)"
+     ]
     }
    ]
   }

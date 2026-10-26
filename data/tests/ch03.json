@@ -24,7 +24,11 @@
        "why": "That describes a perimeter security design, not SDN. SDN is about centralized, programmable control of network devices."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "SDN (software-defined networking)"
+     ]
     },
     {
      "q": "Which protocol is an example of a southbound API used between an SDN controller and the switches it manages?",
@@ -46,7 +50,13 @@
        "why": "WADL (Web Application Description Language) is an XML-based language for describing web applications, not a southbound API."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "OpenFlow",
+      "API (application programming interface)",
+      "SDN (software-defined networking)"
+     ]
     },
     {
      "q": "An engineer must permit VXLAN traffic between VTEPs through an infrastructure ACL using the default VXLAN port. Which port should be permitted?",
@@ -68,7 +78,11 @@
        "why": "Correct. VXLAN encapsulates Layer 2 frames in UDP, and its default destination port is UDP 4789."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VXLAN (Virtual Extensible LAN)"
+     ]
     },
     {
      "q": "Which Cisco APIC function monitors the health, state, and performance of the ACI pod?",
@@ -90,7 +104,11 @@
        "why": "The event manager stores events and faults from the APIC and fabric nodes; it does not perform health and performance monitoring."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "APIC (Application Policy Infrastructure Controller)"
+     ]
     },
     {
      "q": "A security architect wants policies that are applied at the VM and container level and follow each workload regardless of its VLAN or subnet. Which approach meets this need?",
@@ -112,7 +130,11 @@
        "why": "Spanning tree prevents Layer 2 loops by blocking redundant links; it provides no security segmentation."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Micro-segmentation"
+     ]
     },
     {
      "q": "Which NFV MANO component controls and manages the NFVI compute, storage, and network resources?",
@@ -134,7 +156,13 @@
        "why": "Correct. The VIM controls and manages the NFVI compute, storage, and network resources."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "NFV MANO (management and network orchestration)",
+      "NFV (Network Functions Virtualization)",
+      "NFVI (NFV infrastructure)"
+     ]
     },
     {
      "q": "Which combination of encoding and transport does NETCONF use?",
@@ -156,7 +184,11 @@
        "why": "This describes SNMP, the legacy management protocol that NETCONF was created to overcome."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "NETCONF"
+     ]
     },
     {
      "q": "Which RFC defines RESTCONF?",
@@ -178,7 +210,13 @@
        "why": "RFC 4594 defines the standard traffic classes used by DNA Center application policies."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Network Programmability",
+     "cards": [
+      "RFC 8040",
+      "RESTCONF",
+      "NETCONF"
+     ]
     },
     {
      "q": "A Python script calling a REST API receives an HTTP status code in the 400 range. What does this category of code indicate?",
@@ -200,7 +238,12 @@
        "why": "Correct. 400-series status codes indicate client errors, such as a bad request or missing authentication."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Network Programmability",
+     "cards": [
+      "API (application programming interface)",
+      "REST (Representational State Transfer)"
+     ]
     },
     {
      "q": "A developer is writing a script for Cisco DNA Center and must first obtain a token that holds the user's identity and role. Which API endpoint should be called first?",
@@ -222,7 +265,13 @@
        "why": "This is a RESTCONF path on a network device for retrieving interfaces, not a DNA Center authentication endpoint."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "/api/system/v1/auth/token",
+      "Cisco DNA (Digital Network Architecture)",
+      "API (application programming interface)"
+     ]
     },
     {
      "q": "Which OpenStack component provides networking as a service for private, public, and hybrid clouds?",
@@ -244,7 +293,11 @@
        "why": "Open vSwitch is a virtual switch in the hypervisor that Neutron uses by default, not the OpenStack networking service itself."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Neutron"
+     ]
     },
     {
      "q": "How many bytes of overhead does VXLAN encapsulation add to a frame without the optional VLAN tag?",
@@ -266,7 +319,12 @@
        "why": "14 bytes is only the outer MAC header, one part of the total VXLAN overhead."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VXLAN (Virtual Extensible LAN)",
+      "VXLAN header"
+     ]
     },
     {
      "q": "Which API protocol was originally developed by Microsoft and uses only XML for its messages?",
@@ -288,7 +346,12 @@
        "why": "gRPC is a modern RPC framework used by gNMI, not the XML-only protocol from Microsoft."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "SOAP (Simple Object Access Protocol)",
+      "API (application programming interface)"
+     ]
     },
     {
      "q": "While reviewing the Cisco DNA Center group-based policy matrix, an administrator sees a cell colored gold. What does this color mean?",
@@ -310,7 +373,12 @@
        "why": "Default cells are shown in gray in the policy matrix."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Cisco DNA (Digital Network Architecture)",
+      "DNAC (Cisco DNA Center)"
+     ]
     },
     {
      "q": "An engineer is adding a new server and a firewall to a Cisco ACI fabric. Where should these devices be connected?",
@@ -332,7 +400,13 @@
        "why": "The VMM is an APIC function that talks to systems such as vCenter; it is not a physical connection point."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Leaf switch",
+      "Cisco ACI (Application Centric Infrastructure)",
+      "ToR (Top-of-Rack)"
+     ]
     },
     {
      "q": "Which HTTP method returns the list of methods that a server supports?",
@@ -354,7 +428,9 @@
        "why": "Correct. OPTIONS returns the HTTP methods the server supports for a resource."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Network Programmability",
+     "cards": []
     },
     {
      "q": "A company wants to detect malware hidden in encrypted traffic without decrypting it. Which Cisco DNA security capability addresses this?",
@@ -376,7 +452,12 @@
        "why": "NBAR2 is the application library DNA Center uses for application policies, not an encrypted threat detection feature."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "ETA (Encrypted Traffic Analytics)",
+      "Cisco DNA (Digital Network Architecture)"
+     ]
     },
     {
      "q": "In the NETCONF and RESTCONF client-server model, which role does the managed network device play?",
@@ -398,7 +479,13 @@
        "why": "A manager sits above controllers and talks to them; the managed device is never the manager in this model."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "RESTCONF",
+      "NETCONF",
+      "YANG"
+     ]
     },
     {
      "q": "Which are the two major components of the Contiv project?",
@@ -420,7 +507,11 @@
        "why": "Correct. Netmaster and Netplugin (the Contiv host agent) are the two major Contiv components."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Netmaster and Netplugin (Contiv host agent)"
+     ]
     },
     {
      "q": "An engineer retrieves data from a REST API with curl and wants the returned JSON displayed in an easy-to-read, indented format. Which command should the output be piped to?",
@@ -442,7 +533,13 @@
        "why": "This is a Python call that sends an HTTP GET request; it is not a command that formats piped output."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Network Programmability",
+     "cards": [
+      "python -m json.tool",
+      "API (application programming interface)",
+      "REST (Representational State Transfer)"
+     ]
     }
    ]
   },
@@ -469,7 +566,11 @@
        "why": "Overlay refers to tunneling Layer 2 frames over a Layer 3 network, not to a configuration and monitoring plane."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Management plane"
+     ]
     },
     {
      "q": "Which API sits between the SDN controller and the applications and services, is typically RESTful, and is also called an intent-based API?",
@@ -491,7 +592,13 @@
        "why": "Correct. The northbound API connects the controller to applications, is typically RESTful, and is used for orchestration and automation."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "API (application programming interface)",
+      "Northbound API",
+      "SDN (software-defined networking)"
+     ]
     },
     {
      "q": "In a Cisco ACI fabric, which component stores all endpoint-to-VTEP mappings?",
@@ -513,7 +620,12 @@
        "why": "The PTEP is the IP address of a leaf's VTEP, not a database of endpoint mappings."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Spine switch",
+      "Cisco ACI (Application Centric Infrastructure)"
+     ]
     },
     {
      "q": "Which overlay tunneling mechanism carries the Ethernet frame over TCP rather than UDP?",
@@ -535,7 +647,12 @@
        "why": "GENEVE is a UDP-based network virtualization encapsulation, not a TCP tunnel."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "STT (Stateless Transport Tunneling)",
+      "VXLAN (Virtual Extensible LAN)"
+     ]
     },
     {
      "q": "A network engineer notices that VXLAN traffic between two VTEPs is spread across several equal-cost paths. Which part of the VXLAN packet provides the entropy that makes this ECMP load balancing work?",
@@ -557,7 +674,12 @@
        "why": "The I flag (RRRRIRRR) marks that a valid VNI is present; it is identical on every packet and gives no entropy."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VXLAN (Virtual Extensible LAN)",
+      "ECMP (equal-cost multi-path)"
+     ]
     },
     {
      "q": "Which statement describes the zero-trust model as it applies to micro-segmentation?",
@@ -579,7 +701,12 @@
        "why": "Sending traffic back and forth to a central firewall is exactly what micro-segmentation tries to avoid."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Micro-segmentation",
+      "Zero-trust model"
+     ]
     },
     {
      "q": "Which NFV MANO component handles lifecycle management of VNF instances and coordinates configuration and event reporting between the NFVI and the element and network management systems?",
@@ -601,7 +728,13 @@
        "why": "Correct. The VNF Manager handles VNF instance lifecycle and coordinates configuration and event reporting with the NFVI and EMS/NMS."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VNF (virtual network function)",
+      "NFV MANO (management and network orchestration)",
+      "NFV (Network Functions Virtualization)"
+     ]
     },
     {
      "q": "An engineer enables NETCONF on a router with default settings and must allow it through a management ACL. Which port should be allowed?",
@@ -623,7 +756,11 @@
        "why": "UDP 161 is SNMP, the legacy protocol NETCONF was designed to replace."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "NETCONF"
+     ]
     },
     {
      "q": "Which RFC defines the YANG data modeling language?",
@@ -645,7 +782,12 @@
        "why": "RFC 4594 defines standard traffic classes used for DNA Center application policies."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Network Programmability",
+     "cards": [
+      "RFC 6020",
+      "YANG"
+     ]
     },
     {
      "q": "Which HTTP method is like GET but returns only the response headers, with no body?",
@@ -667,7 +809,9 @@
        "why": "TRACE performs a message loopback test along the path to the resource."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": []
     },
     {
      "q": "Which API style is described as easier to use than SOAP, uses JSON, and is used by most Cisco products?",
@@ -689,7 +833,13 @@
        "why": "DCOM is an older Microsoft distributed object technology that SOAP was created to replace."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Network Programmability",
+     "cards": [
+      "REST (Representational State Transfer)",
+      "API (application programming interface)",
+      "SOAP (Simple Object Access Protocol)"
+     ]
     },
     {
      "q": "An administrator needs to create a new scalable group for group-based access control policies in Cisco DNA Center. Where must the group be created?",
@@ -711,7 +861,13 @@
        "why": "Correct. Scalable groups are propagated from ISE, so they are created, edited, or deleted in ISE rather than in DNA Center."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Cisco DNA (Digital Network Architecture)",
+      "DNAC (Cisco DNA Center)",
+      "Scalable group"
+     ]
     },
     {
      "q": "A security team needs DNA Center to copy traffic flowing between two entities to a monitoring tool for troubleshooting. Which policy type and technology should be used?",
@@ -733,7 +889,9 @@
        "why": "Correct. Traffic copy policies use ERSPAN to copy traffic between two entities to a destination for monitoring or troubleshooting."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": []
     },
     {
      "q": "What is Open vSwitch (OVS)?",
@@ -755,7 +913,13 @@
        "why": "That describes NFV MANO, defined by the ETSI ISG NFV."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Hypervisor",
+      "OVS (Open vSwitch)",
+      "Control plane"
+     ]
     },
     {
      "q": "What does Network Functions Virtualization (NFV) virtualize?",
@@ -777,7 +941,11 @@
        "why": "Centralizing management of devices is part of SDN; NFV turns network service appliances into VMs."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "NFV (Network Functions Virtualization)"
+     ]
     },
     {
      "q": "An engineer wants to use the Cisco DNA Center API to trace the path that traffic takes between two IP addresses. Which endpoint should be used?",
@@ -799,7 +967,13 @@
        "why": "This endpoint returns the first 500 network devices sorted by host name."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "/api/v1/flow-analysis",
+      "Cisco DNA (Digital Network Architecture)",
+      "API (application programming interface)"
+     ]
     },
     {
      "q": "Which media type is set in the Content-Type and Accept headers of the chapter's RESTCONF script to exchange JSON data?",
@@ -821,7 +995,13 @@
        "why": "This media type is used for submitting HTML form fields, not RESTCONF data."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "JSON (JavaScript Object Notation)",
+      "RESTCONF",
+      "YANG"
+     ]
     },
     {
      "q": "Which Contiv feature removes the need for host-based port NAT for containers?",
@@ -843,7 +1023,9 @@
        "why": "Correct. Because Contiv gives every container its own IP address, host-based port NAT is not needed."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": []
     },
     {
      "q": "Which protocol, used by OpenConfig and built on gRPC, is similar in purpose to NETCONF and RESTCONF?",
@@ -865,7 +1047,13 @@
        "why": "OpFlex is a Cisco southbound SDN protocol, not the OpenConfig management interface."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Network Programmability",
+     "cards": [
+      "gNMI (gRPC Network Management Interface)",
+      "OpenConfig",
+      "RESTCONF"
+     ]
     },
     {
      "q": "An administrator converts an access point into a wireless sensor that stays in sensor mode until someone manually changes it back. What type of sensor is this?",
@@ -887,7 +1075,9 @@
        "why": "A Flow Sensor generates flow telemetry for Secure Network Analytics; it is not a DNA Center Assurance wireless sensor."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": []
     }
    ]
   },
@@ -914,7 +1104,11 @@
        "why": "Correct. The control plane consists of the Layer 2 and Layer 3 protocols, such as OSPF, RIP, and BGP, that control the hardware."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Control plane"
+     ]
     },
     {
      "q": "Which statement describes traditional networking before SDN?",
@@ -936,7 +1130,12 @@
        "why": "Northbound REST APIs are an SDN controller feature; traditional devices were managed one by one."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "SDN (software-defined networking)",
+      "ASDM (Adaptive Security Device Manager)"
+     ]
     },
     {
      "q": "In Cisco ACI, what is the PTEP?",
@@ -958,7 +1157,13 @@
        "why": "Spines store endpoint-to-VTEP mappings, but that database is not called the PTEP."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VTEP (VXLAN tunnel endpoint)",
+      "Leaf switch",
+      "Cisco ACI (Application Centric Infrastructure)"
+     ]
     },
     {
      "q": "A data center team wants the Cisco APIC to integrate with VMware vCenter so that policy follows virtual machines. Which APIC function acts as the agent between the policy repository and the hypervisor?",
@@ -980,7 +1185,11 @@
        "why": "The observer monitors the health, state, and performance of the ACI pod."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "APIC (Application Policy Infrastructure Controller)"
+     ]
     },
     {
      "q": "VXLAN uses a 24-bit VNI. Approximately how many logical segments does this allow?",
@@ -1002,7 +1211,11 @@
        "why": "Correct. A 24-bit VNI allows about 16 million segments."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VXLAN (Virtual Extensible LAN)"
+     ]
     },
     {
      "q": "What is the term for traffic flowing between servers, VMs, and containers inside the data center?",
@@ -1024,7 +1237,11 @@
        "why": "Southbound refers to the API between an SDN controller and network devices, not workload traffic."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "East-west traffic"
+     ]
     },
     {
      "q": "An organization enforces segmentation with VLANs and a central firewall, but discovers that traffic between VMs on the same physical host is never inspected. What explains this?",
@@ -1046,7 +1263,11 @@
        "why": "Spanning tree blocks redundant links to prevent loops; it does not cause local VM-to-VM traffic to skip the firewall."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "East-west traffic"
+     ]
     },
     {
      "q": "Which open-source project enhances SDN controllers to provide services across multiple vendors, talking to Neutron northbound and managing OVSDB and OpenFlow southbound?",
@@ -1068,7 +1289,13 @@
        "why": "Contiv provides micro-segmentation and networking for containers, not a multivendor SDN controller platform."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "ODL (OpenDaylight)",
+      "OVSDB (OVS Database Management Protocol)",
+      "SDN (software-defined networking)"
+     ]
     },
     {
      "q": "Which NFV MANO component onboards new network services and VNF packages and validates and authorizes NFVI resource requests?",
@@ -1090,7 +1317,13 @@
        "why": "The NFVI is the compute, storage, and network infrastructure itself, not a management component."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "NFV (Network Functions Virtualization)",
+      "NFV MANO (management and network orchestration)",
+      "VNF (virtual network function)"
+     ]
     },
     {
      "q": "Which RFC defines the NETCONF protocol?",
@@ -1112,7 +1345,11 @@
        "why": "Correct. RFC 6241 (with RFC 6242 for SSH transport) defines NETCONF."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Network Programmability",
+     "cards": [
+      "NETCONF"
+     ]
     },
     {
      "q": "A REST API returns HTTP status code 301. Which category does this code belong to?",
@@ -1134,7 +1371,12 @@
        "why": "Informational codes are in the 100 range."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Network Programmability",
+     "cards": [
+      "API (application programming interface)",
+      "REST (Representational State Transfer)"
+     ]
     },
     {
      "q": "Which XML-based language is used to document a web service?",
@@ -1156,7 +1398,11 @@
        "why": "Swagger is a modern REST API documentation framework, not an XML-based language."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "WSDL (Web Services Description Language)"
+     ]
     },
     {
      "q": "An engineer needs a list of hosts that includes each host's VLAN ID, IP address, MAC address, and the IP of the network device it connects to. Which DNA Center API endpoint provides this?",
@@ -1178,7 +1424,12 @@
        "why": "This endpoint traces a path between two IP addresses."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "/api/v1/host",
+      "API (application programming interface)"
+     ]
     },
     {
      "q": "Which list contains the five request types supported by RESTCONF?",
@@ -1200,7 +1451,12 @@
        "why": "OPTIONS and CONNECT are HTTP methods that are not part of the five RESTCONF requests."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "RESTCONF",
+      "requests"
+     ]
     },
     {
      "q": "An administrator integrating Cisco ISE with DNA Center for group-based access control wants one policy matrix for all TrustSec devices. What should be configured in ISE?",
@@ -1222,7 +1478,9 @@
        "why": "Correct. Setting the ISE work process to Single Matrix provides one policy matrix for all TrustSec devices."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": []
     },
     {
      "q": "Which query language for APIs is used by many mobile applications and dashboards?",
@@ -1244,7 +1502,11 @@
        "why": "XSD governs XML-based specifications; it is not an API query language."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "GraphQL"
+     ]
     },
     {
      "q": "Using YANG models, a client sends a request that resets the packet counters on a router interface. Which category of YANG-based operation is this?",
@@ -1266,7 +1528,11 @@
        "why": "Correct. Resetting counters or rebooting a device are examples of invoking actions with YANG."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Network Programmability",
+     "cards": [
+      "YANG"
+     ]
     },
     {
      "q": "What is OpenConfig?",
@@ -1288,7 +1554,12 @@
        "why": "That describes NFV MANO under the ETSI ISG NFV."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "YANG",
+      "OpenConfig"
+     ]
     },
     {
      "q": "A developer wants to write a Python script that manages routers over NETCONF. Which command installs the needed Python client library?",
@@ -1310,7 +1581,13 @@
        "why": "This opens an interactive NETCONF SSH session to a device; it does not install a Python library."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Network Programmability",
+     "cards": [
+      "pip install ncclient",
+      "pip",
+      "NETCONF"
+     ]
     },
     {
      "q": "What are Cisco DNA Center's northbound REST APIs called?",
@@ -1332,7 +1609,13 @@
        "why": "OpFlex is a Cisco southbound protocol, not DNA Center's northbound API."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Intent APIs",
+      "Cisco DNA (Digital Network Architecture)",
+      "REST (Representational State Transfer)"
+     ]
     }
    ]
   },
@@ -1359,7 +1642,11 @@
        "why": "Policy is defined in controllers such as APIC or DNA Center; the forwarding function itself is the data plane."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Data plane"
+     ]
     },
     {
      "q": "In this chapter, what does the term westbound interface refer to?",
@@ -1381,7 +1668,13 @@
        "why": "ACI leaf-and-spine designs have no spine-to-spine links, and this is not an API at all."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Cisco DNA (Digital Network Architecture)",
+      "DNAC (Cisco DNA Center)",
+      "Westbound interface"
+     ]
     },
     {
      "q": "Which statement about the Cisco ACI leaf-and-spine topology is true?",
@@ -1403,7 +1696,12 @@
        "why": "Servers and all other workloads connect to leaf switches, not spines."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Cisco ACI (Application Centric Infrastructure)",
+      "Leaf-and-spine topology"
+     ]
     },
     {
      "q": "An administrator must upgrade firmware on the spine switches, leaf switches, and APICs of an ACI fabric. Which APIC function manages this?",
@@ -1425,7 +1723,11 @@
        "why": "Correct. The boot director controls booting and firmware updates for spines, leaves, and APICs."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "APIC (Application Policy Infrastructure Controller)"
+     ]
     },
     {
      "q": "Which device encapsulates and decapsulates VXLAN traffic?",
@@ -1447,7 +1749,12 @@
        "why": "ECMP load balances traffic over multiple equal-cost links; it is not an encapsulation device."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VTEP (VXLAN tunnel endpoint)",
+      "VXLAN (Virtual Extensible LAN)"
+     ]
     },
     {
      "q": "Which IP protocol value appears in the outer IP header of a VXLAN packet?",
@@ -1469,7 +1776,11 @@
        "why": "Protocol 50 is ESP, used by IPsec, not VXLAN."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VXLAN (Virtual Extensible LAN)"
+     ]
     },
     {
      "q": "What does an overlay network do?",
@@ -1491,7 +1802,11 @@
        "why": "That describes VRFs, the traditional way to provide IP separation."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Overlay network"
+     ]
     },
     {
      "q": "Which open-source project provides a base infrastructure layer for running VNFs and turns NFV integration from a private task into an open community effort?",
@@ -1513,7 +1828,12 @@
        "why": "Correct. OPNFV is the open-source base infrastructure layer for running VNFs and makes NFV integration an open community effort."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "OPNFV (Open Platform for NFV)",
+      "NFV (Network Functions Virtualization)"
+     ]
     },
     {
      "q": "A team runs containers on Kubernetes and needs container micro-segmentation with a policy framework, service discovery, and service routing. Which open-source project fits?",
@@ -1535,7 +1855,12 @@
        "why": "NFV MANO is an ETSI framework for onboarding and orchestrating network functions, not container networking."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Contiv",
+      "Micro-segmentation"
+     ]
     },
     {
      "q": "Among the NFV infrastructure requirements, which component controls all of the virtual forwarders?",
@@ -1557,7 +1882,12 @@
        "why": "The virtual forwarder connects individual instances; it is the thing being controlled."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "NFV (Network Functions Virtualization)",
+      "NFVI (NFV infrastructure)"
+     ]
     },
     {
      "q": "Which Cisco DNA Center capability provides contextual visibility with historical, real-time, and predictive insights to reduce troubleshooting time?",
@@ -1579,7 +1909,13 @@
        "why": "Correct. DNA Center Assurance provides historical, real-time, and predictive insights to cut troubleshooting time."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Cisco DNA (Digital Network Architecture)",
+      "DNAC (Cisco DNA Center)",
+      "DNA Center Assurance"
+     ]
     },
     {
      "q": "An administrator wants a DNA Center rule that permits only SSH between two scalable groups and denies everything else. What should be created?",
@@ -1601,7 +1937,12 @@
        "why": "Application sets group applications for QoS business relevance; they do not permit or deny traffic."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Access control contract",
+      "Scalable group"
+     ]
     },
     {
      "q": "Which HTTP method turns the connection into a transparent TCP/IP tunnel?",
@@ -1623,7 +1964,9 @@
        "why": "PATCH partially modifies a resource and is one of the five RESTCONF requests."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Network Programmability",
+     "cards": []
     },
     {
      "q": "What happens first when a NETCONF session is established?",
@@ -1645,7 +1988,11 @@
        "why": "Correct. Both sides exchange hello messages with their supported versions, and the server lists its optional capabilities."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Network Programmability",
+     "cards": [
+      "NETCONF"
+     ]
     },
     {
      "q": "In YANG terminology, what is a YANG model?",
@@ -1667,7 +2014,12 @@
        "why": "YANG data is carried by protocols such as NETCONF or RESTCONF; the model is not a transport."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Network Programmability",
+     "cards": [
+      "YANG module",
+      "YANG"
+     ]
     },
     {
      "q": "An engineer wants to retrieve all interfaces from an IOS XE router using RESTCONF and the IETF interfaces model. Which URL path should be used?",
@@ -1689,7 +2041,13 @@
        "why": "This is the DNA Center authentication endpoint that returns a token."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "/restconf/data/ietf-interfaces:interfaces",
+      "requests.get(url, auth=(USER, PASS), headers=headers, verify=False)",
+      "import requests then requests.get(url)"
+     ]
     },
     {
      "q": "Which API documentation framework is the basis of the OpenAPI Specification?",
@@ -1711,7 +2069,13 @@
        "why": "XSD governs XML-based specifications and is unrelated to OpenAPI."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "Swagger (OpenAPI)",
+      "API (application programming interface)",
+      "OpenAPI Specification"
+     ]
     },
     {
      "q": "Encrypted Traffic Analytics requires Cisco Secure Network Analytics plus a supported network device. Which device is one of the supported options?",
@@ -1733,7 +2097,11 @@
        "why": "Correct. Catalyst 9000 switches are a supported ETA platform, along with ASR 1000, ISR 4000, CSR 1000V, ISR 1000, and Catalyst 9800 controllers."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "ETA (Encrypted Traffic Analytics)"
+     ]
     },
     {
      "q": "An organization wants Cisco DNA Center Assurance and SWIM automation events to be sent automatically to its third-party ticketing application. Which DNA Center mechanism should be used?",
@@ -1755,7 +2123,13 @@
        "why": "The Policy Overview dashboard displays active policies; it does not push events to external systems."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "requests.get(url, auth=(USER, PASS), headers=headers, verify=False)",
+      "import requests then requests.get(url)",
+      "Cisco DNA (Digital Network Architecture)"
+     ]
     },
     {
      "q": "What is the Python requests package used for?",
@@ -1777,7 +2151,11 @@
        "why": "Pretty-printing JSON is done with python -m json.tool."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Network Programmability",
+     "cards": [
+      "requests"
+     ]
     }
    ]
   },
@@ -1804,7 +2182,13 @@
        "why": "That describes NFV MANO, not an SDN controller."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Flows",
+      "SDN (software-defined networking)",
+      "SDN controller"
+     ]
     },
     {
      "q": "Cisco DNA provides intent-based networking automation and assurance across which environments?",
@@ -1826,7 +2210,12 @@
        "why": "Correct. Cisco DNA is Cisco's intent-based networking solution for automation and assurance across campus, WAN, and branch."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Cisco DNA (Digital Network Architecture)",
+      "Intent-based networking"
+     ]
     },
     {
      "q": "While troubleshooting an ACI fabric, an engineer needs to review all events and faults generated by the APIC and fabric nodes. Which APIC function stores this information?",
@@ -1848,7 +2237,11 @@
        "why": "The VMM is the agent between the policy repository and hypervisors such as vCenter."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "APIC (Application Policy Infrastructure Controller)"
+     ]
     },
     {
      "q": "What does the VXLAN Network Identifier (VNID) identify?",
@@ -1870,7 +2263,12 @@
        "why": "The source port hash adds entropy for ECMP; it does not identify a segment."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VNID (VXLAN Network Identifier)",
+      "VXLAN (Virtual Extensible LAN)"
+     ]
     },
     {
      "q": "Which breakdown of the VXLAN outer headers is correct?",
@@ -1892,7 +2290,13 @@
        "why": "The outer IP header is 20 bytes and the UDP header is 8 bytes, so these values are incorrect."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "VXLAN (Virtual Extensible LAN)",
+      "VXLAN outer headers",
+      "VXLAN header"
+     ]
     },
     {
      "q": "In overlay and data center terminology, what is a tenant?",
@@ -1914,7 +2318,9 @@
        "why": "Standard traffic classes come from RFC 4594 for DNA Center application policies."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": []
     },
     {
      "q": "A security team is placing a perimeter firewall to inspect all traffic entering and leaving the data center. What type of traffic is it inspecting?",
@@ -1936,7 +2342,11 @@
        "why": "There are no spine-to-spine links in a leaf-and-spine fabric, and this is not traffic entering or leaving the data center."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "North-south traffic"
+     ]
     },
     {
      "q": "What are the two main components of OpenStack Neutron?",
@@ -1958,7 +2368,11 @@
        "why": "Correct. Neutron's two main components are the neutron server and a database for persistent storage and plug-ins."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Neutron"
+     ]
     },
     {
      "q": "Which open-source virtual networking and SDN project was created by the Open vSwitch team?",
@@ -1980,7 +2394,13 @@
        "why": "Correct. OVN was created by the OVS team and is often used in OpenStack with OVS."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "OVN (Open Virtual Network)",
+      "SDN (software-defined networking)",
+      "OVS (Open vSwitch)"
+     ]
     },
     {
      "q": "NFV MANO is a framework and working group of which organization's ISG NFV?",
@@ -2002,7 +2422,13 @@
        "why": "The W3C publishes web specifications such as SOAP, not NFV MANO."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "ETSI",
+      "NFV MANO (management and network orchestration)",
+      "NFV (Network Functions Virtualization)"
+     ]
     },
     {
      "q": "An administrator is building a Cisco DNA Center application policy and wants traffic classes to follow the industry standard that DNA Center uses. Which RFC defines these classes?",
@@ -2024,7 +2450,13 @@
        "why": "RFC 6242 is part of the NETCONF standards (NETCONF over SSH)."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "RFC 4594",
+      "Cisco DNA (Digital Network Architecture)",
+      "DNAC (Cisco DNA Center)"
+     ]
     },
     {
      "q": "In Cisco DNA Center application policies, what is an application set?",
@@ -2046,7 +2478,12 @@
        "why": "IP network groups are used in IP-based access control policies."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Cisco DNA (Digital Network Architecture)",
+      "DNAC (Cisco DNA Center)"
+     ]
     },
     {
      "q": "In the Cisco DNA Center policy matrix, what does the vertical axis represent?",
@@ -2068,7 +2505,12 @@
        "why": "Virtual networks can further segment groups, but they are not an axis of the matrix."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "Cisco DNA (Digital Network Architecture)",
+      "DNAC (Cisco DNA Center)"
+     ]
     },
     {
      "q": "An administrator wants an access point to run wireless tests temporarily and then go back to normal AP mode automatically. Which sensor type should be used?",
@@ -2090,7 +2532,9 @@
        "why": "An ERSPAN destination receives copied traffic for monitoring; it does not run wireless tests."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. SDN and SDN Security",
+     "cards": []
     },
     {
      "q": "Which tool monitors network performance from a global view and tests BGP routing, DNS resolution, browser response times, and VoIP quality?",
@@ -2112,7 +2556,12 @@
        "why": "The policy matrix shows permissions between security groups, not performance tests."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "TEA (ThousandEyes Enterprise Agent)",
+      "ThousandEyes"
+     ]
     },
     {
      "q": "How does Cisco DNA Center authorize requests made to its APIs?",
@@ -2134,7 +2583,13 @@
        "why": "Correct. The Authentication API creates a token holding the caller's privileges, and every request is authorized against it under DNA Center RBAC."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. SDN and SDN Security",
+     "cards": [
+      "API (application programming interface)",
+      "Cisco DNA (Digital Network Architecture)",
+      "DNAC (Cisco DNA Center)"
+     ]
     },
     {
      "q": "Which HTTP method performs a message loopback test along the path to the target resource?",
@@ -2156,7 +2611,9 @@
        "why": "Correct. TRACE performs a message loopback test along the path to the resource."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Network Programmability",
+     "cards": []
     },
     {
      "q": "An engineer reviews the chapter's RESTCONF script and sees requests.get(url, auth=(USER, PASS), headers=headers, verify=False). What does verify=False do?",
@@ -2178,7 +2635,13 @@
        "why": "Response parsing is controlled by the Accept header and code that reads the body, not by verify."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Network Programmability",
+     "cards": [
+      "requests.get(url, auth=(USER, PASS), headers=headers, verify=False)",
+      "import requests then requests.get(url)",
+      "requests"
+     ]
     },
     {
      "q": "Which statement describes a RESTCONF limitation compared with NETCONF?",
@@ -2200,7 +2663,12 @@
        "why": "RESTCONF runs over HTTPS; SNMP is the legacy protocol NETCONF was built to replace."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Network Programmability",
+     "cards": [
+      "RESTCONF",
+      "NETCONF"
+     ]
     },
     {
      "q": "Why was NETCONF created?",
@@ -2222,7 +2690,12 @@
        "why": "Encapsulating Layer 2 frames in UDP is what VXLAN does."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Network Programmability",
+     "cards": [
+      "SNMP",
+      "NETCONF"
+     ]
     }
    ]
   }
