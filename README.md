@@ -6,6 +6,13 @@ Flashcards and practice tests for each chapter of the *CCNP and CCIE Security Co
 - **Practice tests:** 5 tests of 20 questions per chapter. Answer choices are shuffled each time. A wrong answer shows the right answer, why it's right, and why the chosen answer was wrong.
 - **Results:** the score at the top, a comparison with your last attempt, and the areas to study: the chapter sections where you missed questions, weakest first, with a one-click deck of the flashcards behind those misses.
 - **Progress dashboard** (`#/progress`): tests passed, average score, streak, a score trend chart, your weakest sections across all tests, a best-score grid for all 55 tests, and recent attempts. Progress is saved in the browser; export and import it to move between devices.
+- **Resume:** leave any test, exam, or drill and pick it back up where you were. Unfinished tests show on the home page.
+- **Last results:** each test keeps the full results of your latest attempt (replaced on every retake), plus a bar chart of every score.
+- **Mock exam** (`#/exam`): 25, 50, or 100 questions from every chapter, weighted by chapter size, 72 seconds a question, flag and review, no answers until the end.
+- **Missed questions** (`#/bank`): every wrong answer lands here until you get it right twice in a row.
+- **Spaced repetition** (`#/srs`): flashcards come back after 1, 3, 7, 14, 30, then 60 days; cards behind missed questions come due right away.
+- **Search** (`#/search`): every flashcard term, definition, and detail.
+- **Sync:** optional, through a private GitHub gist and a fine-grained token with only Gists read and write.
 
 It's a static site (plain HTML, CSS, and JavaScript, no build step) served by GitHub Pages from the `main` branch.
 
