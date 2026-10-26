@@ -16,7 +16,7 @@ test('initial home transfer budget and no eager flashcards', async ({page})=>{
   const json=[]; page.on('request',r=>{if(r.url().endsWith('.json'))json.push(r.url());});
   await page.goto('/'); await expect(page.locator('h1')).toBeVisible();
   expect(json.some(p=>p.includes('/flashcards'))).toBe(false);
-  const initial=['index.html','assets/style.css',...fs.readdirSync('assets').filter(p=>p.endsWith('.js')).map(p=>'assets/'+p),'data/chapters.json','data/blueprint.json'];
+  const initial=['index.html','assets/style.css','assets/design.css',...fs.readdirSync('assets').filter(p=>p.endsWith('.js')).map(p=>'assets/'+p),'data/chapters.json','data/blueprint.json'];
   const gzip=initial.reduce((total,p)=>total+zlib.gzipSync(fs.readFileSync(p)).length,0);
   expect(gzip).toBeLessThan(150*1024);
 });

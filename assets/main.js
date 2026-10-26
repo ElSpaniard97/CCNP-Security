@@ -1,3 +1,5 @@
+import { icon, chapterDetails } from "./visuals.js";
+import { dashboardHTML, chapterGrid } from "./dashboard.js";
 import { leaveView, app, DECKS, DECK_LABEL, PASS, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, leaveFns, setCrumbs, onKey, getJSON, loadCards, loadAllCards, getTests, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, getResume, clearResume, unfinished, resumeHref, bankActive, store, syncNow, esc, shuffle, plural, pctOf, srsDue, selectExam, setNavigation, setStudyData } from "./runtime.js";
 import { registerOffline, offlineHTML, wireOffline } from "./offline.js";
 import { dashboard, trendChart, wireTrend, syncHTML, wireSync, backupHTML, wireBackup } from "./progress.js";
@@ -7,7 +9,11 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
   // ---------- theme ----------
   const themeBtn = document.getElementById("theme");
   const savedTheme = store.get("theme", null);
-  if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+  document.documentElement.dataset.theme = savedTheme || "dark";
+  document.querySelector(".skip-link").onclick=e=>{e.preventDefault();document.getElementById("main").focus();};
+  document.querySelectorAll("[data-icon]").forEach(el=>el.innerHTML=icon(el.dataset.icon));
+  document.querySelector(".header-search").onsubmit=e=>{e.preventDefault(); const q=document.getElementById("header-search").value.trim(); location.hash=q ? `#/search/${encodeURIComponent(q)}` : "#/search";};
+  document.addEventListener("keydown",e=>{if((e.metaKey || e.ctrlKey) && e.key.toLowerCase()==="k"){e.preventDefault();const input=document.getElementById("header-search");if(input.getBoundingClientRect().width)input.focus();else location.hash="#/search";}});
   themeBtn.addEventListener("click", () => {
     const dark = document.documentElement.dataset.theme
       ? document.documentElement.dataset.theme === "dark"
@@ -64,14 +70,17 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
     return result.slice(0,3);
   }
   function nextAction(n, fresh = false) {
-    const choices = recommendations(n);
-    return `<section class="card next-action" aria-label="Recommended study">
-      <p class="eyebrow">${fresh ? "Welcome · start here" : n ? "Continue this chapter" : "Your next step"}</p>
-      <h2>${fresh ? "Start with Chapter 1" : esc(choices[0]?.text || "Keep studying")}</h2>
-      ${fresh ? `<p class="muted">Take a practice test to find your gaps.<br>Missed questions build your personal drill bank.<br>Spaced repetition helps you remember the flashcards.</p>` : ""}
-      ${choices[0] ? `<a class="btn primary" data-recommendation="primary" href="${choices[0].href}">${fresh ? "Start Chapter 1 · Test 1" : "Continue →"}</a>` : ""}
+    const choices = recommendations(n), selected = choices[0];
+    const match=selected?.href.match(/#\/ch\/(\d+)/), c=chap(n || Number(match?.[1]));
+    const passed=c ? chapterStatus(c.n).passed : Object.values(bests()).filter(v=>v>=PASS).length;
+    const total=c ? 5 : chapters.length*5, percent=pctOf(passed,total);
+    return `<section class="card next-action" aria-label="Recommended study"><div class="next-action-content">
+      <p class="eyebrow">${icon('target')} ${fresh ? "Welcome · start here" : "Continue studying"}</p>
+      <h2>${fresh ? "Start with Chapter 1" : esc(selected?.text || "Keep studying")}</h2>
+      ${fresh ? `<p class="muted">Take a practice test to find your gaps.<br>Missed questions build your personal drill bank.<br>Spaced repetition helps you remember the flashcards.</p>` : `<p class="muted">${c ? esc(chapterDetails[c.n]?.[1] || c.title) : "A little focused practice today builds lasting confidence."}</p>`}
+      <div class="row">${selected ? `<a class="btn primary" data-recommendation="primary" href="${selected.href}">${fresh ? "Start Chapter 1 · Test 1" : "Continue Studying"} ${icon('arrow')}</a>` : ""}${c ? `<a class="btn view-chapter" href="#/ch/${c.n}">View Chapter</a>` : ""}</div>
       ${choices.length>1 ? `<div class="row secondary-actions">${choices.slice(1).map(x=>`<a href="${x.href}">${esc(x.text)}</a>`).join("")}</div>` : ""}
-    </section>`;
+    </div><div class="continue-visual" aria-label="${passed} of ${total} ${c ? 'chapter' : 'practice'} tests passed"><div class="study-ring" style="--p:${percent}"><span><strong>${percent}%</strong><small>Tests passed</small></span></div><p>${passed} of ${total} passed${c ? `<br>Chapter ${c.n}` : ''}</p></div></section>`;
   }
   function studyView() {
     setCrumbs([{label:"Home",href:"#/"},{label:"Study"}]); document.title="Study";
@@ -82,34 +91,7 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
     wireOffline();
   }
 
-  function home() {
-    setCrumbs([]);
-    document.title = "CCNP Security SCOR Study";
-    app.innerHTML = `
-      <h1>CCNP Security SCOR 350-701</h1>
-      <p class="muted">Flashcards and practice tests for every chapter, built from the study notes.</p>
-      ${nextAction(undefined, !attempts().length && !Object.keys(bests()).length && !unfinished().length && !store.keys().some(k => k === "srs" || k === "bank"))}
-      ${homeSummary()}
-      ${toolsRow()}
-      <h2>Chapters</h2>
-      <div class="chips" role="group" aria-label="Filter chapters">${["All","In progress","Not started","Below 80%"].map((f,i)=>`<button class="chip" data-filter="${f}" aria-pressed="${i===0}">${f}</button>`).join("")}</div>
-      <p id="filter-empty" class="muted" hidden>No chapters match this filter.</p>
-      <div class="grid">
-        ${chapters.map(c => {
-          const taken = [1, 2, 3, 4, 5].map(t => store.get(`best.${c.n}.${t}`, null)).filter(v => v !== null);
-          const passed = taken.filter(v => v >= PASS).length;
-          const done = taken.length ? ` · ${taken.length} of 5 taken, ${passed} passed` : "";
-          return `<div class="card chapter" data-chapter="${c.n}">
-            <div class="num">Chapter ${c.n}</div>
-            <h3>${esc(c.title)}</h3>
-            <div class="stats">${c.cards} flashcards · 5 practice tests<br>${statusLine(c.n)}</div>
-            <div class="row">
-              <a class="btn" href="#/ch/${c.n}/cards">Flashcards</a>
-              <a class="btn primary" href="#/ch/${c.n}">Practice tests</a>
-            </div>
-          </div>`;
-        }).join("")}
-      </div>`;
+  function wireChapterFilters() {
     app.querySelectorAll("[data-filter]").forEach(btn => btn.onclick = () => {
       app.querySelectorAll("[data-filter]").forEach(b=>b.setAttribute("aria-pressed",b===btn));
       let shown=0;
@@ -121,17 +103,23 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
       document.getElementById("filter-empty").hidden=!!shown;
     });
   }
-
-  function homeSummary() {
-    const b = Object.values(bests());
-    if (!b.length) return "";
-    const total = chapters.length * 5, passed = b.filter(v => v >= PASS).length;
-    return `<a class="card summary" href="#/progress">
-      <div><div class="kpi-num">${passed}<span class="muted"> / ${total}</span></div><div class="muted small">tests passed</div></div>
-      <div><div class="kpi-num">${b.length}</div><div class="muted small">tests taken</div></div>
-      <div><div class="kpi-num">${streak()}</div><div class="muted small">day streak</div></div>
-      <span class="spacer"></span><span>Open progress →</span>
-    </a>`;
+  function home() {
+    setCrumbs([]); document.title = "CCNP Security SCOR Study";
+    app.classList.add("dashboard-view");
+    const fresh=!attempts().length && !Object.keys(bests()).length && !unfinished().length && !store.keys().some(k=>k==="srs" || k==="bank");
+    app.innerHTML=dashboardHTML(()=>nextAction(undefined,fresh),chapterStatus,statusLine);
+    wireChapterFilters();
+  }
+  function directoryView(practice) {
+    const title=practice ? "Practice Tests" : "Chapters";
+    setCrumbs([{label:"Dashboard",href:"#/"},{label:title}]);document.title=title;
+    app.innerHTML=`<div class="page-heading"><p class="eyebrow">YOUR SCOR STUDY LIBRARY</p><h1>${title}</h1><p class="muted">${practice ? 'Five practice tests per chapter. Choose a chapter to test your knowledge.' : 'Explore every chapter, review the flashcards, and build your confidence.'}</p></div>${chapterGrid(chapterStatus,statusLine)}`;
+    wireChapterFilters();
+  }
+  function settingsView() {
+    setCrumbs([{label:"Dashboard",href:"#/"},{label:"Settings"}]);document.title="Settings";
+    app.innerHTML=`<h1>Settings</h1><p class="muted">Manage your progress, backups, and offline study.</p>${syncHTML()}${backupHTML()}${offlineHTML()}`;
+    wireSync();wireBackup();wireOffline();
   }
 
   async function chapterView(n) {
@@ -272,15 +260,18 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
   }
 
   function updateNav(parts) {
-    const section = ["study","srs","bank","review"].includes(parts[0]) || parts[2]==="cards" ? "study" : ["exam","progress","search"].includes(parts[0]) ? parts[0] : "home";
+    const route=parts[0], exact=route==="ch" ? (parts[2]==="cards" ? "study" : "practice") : ["srs","bank","review"].includes(route) ? (route==="review" ? "study" : route) : ["study","exam","progress","search","chapters","practice","settings"].includes(route) ? route : "home";
+    const mobile=["srs","bank","review","study"].includes(exact) ? "study" : ["chapters","practice","settings"].includes(exact) ? (exact==="settings" ? "progress" : "home") : exact;
+    document.body.dataset.page=exact;
     document.querySelectorAll("[data-nav]").forEach(a=>{
-      if(a.dataset.nav===section) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+      if(a.dataset.nav===(a.closest(".mobile-nav") ? mobile : exact)) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
     });
   }
 
   // ---------- router ----------
   async function route() {
     leaveView();
+    app.className="";
     const parts = location.hash.replace(/^#\/?/, "").split("/").map(decodeURIComponent);
     try {
       if (parts[0] === "ch" && parts[1]) {
@@ -290,6 +281,8 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
         else if (parts[2] === "test" && parts[3]) await testView(n, parseInt(parts[3], 10));
         else await chapterView(n);
       } else if (parts[0] === "review") { const r = store.get("review", null); if(r && r.cards) { await Promise.all([...new Set(r.cards.map(x=>x[0]))].map(loadCards)); cardsView(null,null,r); } else home(); }
+      else if (parts[0] === "chapters" || parts[0] === "practice") directoryView(parts[0] === "practice");
+      else if (parts[0] === "settings") settingsView();
       else if (parts[0] === "study") studyView();
       else if (parts[0] === "srs") { if(parts[1]) await loadCards(parseInt(parts[1],10)); else await loadAllCards(); srsView(parts[1] ? parseInt(parts[1], 10) : undefined); }
       else if (parts[0] === "bank") await bankView(parts[1] ? parseInt(parts[1], 10) : undefined);
