@@ -87,3 +87,11 @@ The known vulnerability-definition mis-tag in Chapter 1 is corrected. For chapte
 ## Browser security rule
 
 Do not add third-party scripts, analytics scripts, or script CDNs. Optional gist sync stores a GitHub token in localStorage, accessible to scripts on this origin. Keep all application code local. If external scripts become necessary, first replace persistent token storage with a per-session re-entry flow. Exports and gist payloads exclude the token and other device-local settings.
+
+## Workspace design
+
+The default workspace follows a dark navy dashboard style with a persistent desktop sidebar, local mountain and network artwork, blue actions, and color-coded study cards. The theme button keeps light mode available and remembers your choice. On phones and tablets, bottom navigation replaces the sidebar.
+
+Dashboard totals, scores, activity, due reviews, and weak sections come from existing local progress. New learners see empty states rather than sample scores. Chapter completion means practice tests passed, and the coverage metric is explicitly practice coverage rather than an estimate of exam readiness.
+
+The sidebar adds chapter and practice directories plus Settings, which brings together existing sync, progress backups, and offline downloads. Header search supports Enter and Ctrl/Cmd+K. The original deep links, progress keys, question data, quiz engine, and review behavior are preserved. All artwork and icons are local assets, so the design works offline and loads no third-party scripts or fonts.

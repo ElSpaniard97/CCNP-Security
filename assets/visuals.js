@@ -1,0 +1,38 @@
+// Local SVG artwork and icons: no external fonts, scripts, or icon CDN.
+const paths = {
+  shield:'<path d="M12 3 21 7v6c0 5-4 8-9 11C7 21 3 18 3 13V7z"/><path d="m8 12 3 3 5-6"/>',
+  home:'<path d="m3 11 9-8 9 8v10h-6v-7H9v7H3z"/>',
+  book:'<path d="M12 5c-4-3-7-2-10-1v16c3-1 6-2 10 1 4-3 7-2 10-1V4c-3-1-6-2-10 1Zm0 0v16"/>',
+  cards:'<rect x="6" y="3" width="15" height="17" rx="3"/><path d="M3 7v13a3 3 0 0 0 3 3h11M10 8h7m-7 4h5"/>',
+  test:'<rect x="5" y="4" width="15" height="18" rx="2"/><path d="M9 2h7v4H9zm0 9h7m-7 4h7m-7 4h4"/>',
+  chart:'<path d="M4 21V12m6 9V7m6 14V3m6 18V10"/>',
+  repeat:'<path d="M20 8a8 8 0 0 0-14-3L3 8m0-5v5h5m-4 8a8 8 0 0 0 14 3l3-3m0 5v-5h-5"/>',
+  alert:'<path d="m12 3 10 18H2zM12 9v5m0 3v1"/>',
+  search:'<circle cx="10" cy="10" r="7"/><path d="m15 15 7 7"/>',
+  settings:'<path d="m10 2 4 0 1 3 3 1 3-1 2 4-2 2v3l2 2-2 4-3-1-3 1-1 3h-4l-1-3-3-1-3 1-2-4 2-2v-3L1 9l2-4 3 1 3-1z"/><circle cx="12" cy="12" r="3"/>',
+  arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',
+  chevron:'<path d="m9 5 7 7-7 7"/>',
+  check:'<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
+  fire:'<path d="M13 2c2 6-3 7-1 11 2 0 4-2 4-5 6 7 5 14-4 15C2 22 1 15 7 8c-1 5 1 6 2 6 3-4-1-7 4-12Z"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="m12 12 9-9m-4 0h4v4"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
+  lock:'<rect x="5" y="10" width="14" height="12" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v3"/>',
+  network:'<circle cx="5" cy="12" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="19" cy="19" r="3"/><path d="m8 11 8-5m-8 7 8 5"/>',
+  cloud:'<path d="M6 19a5 5 0 0 1-1-10 7 7 0 0 1 13-2 6 6 0 0 1 0 12z"/>',
+  terminal:'<rect x="2" y="4" width="20" height="16" rx="3"/><path d="m6 9 4 3-4 3m7 0h5"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/>',
+};
+export const icon = (name, extra='') => `<svg class="ui-icon ${extra}" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths[name] || paths.book}</svg>`;
+export const chapterDetails = {
+  1:['shield','Security concepts, threats, vulnerabilities, and defense strategies.'],
+  2:['lock','Encryption, hashing, PKI, certificates, and cryptographic protocols.'],
+  3:['terminal','Software-defined networks, programmability, and APIs.'],
+  4:['network','Authentication, authorization, accounting, and identity services.'],
+  5:['chart','Network visibility, telemetry, and segmentation.'],
+  6:['shield','Protect the network infrastructure and management plane.'],
+  7:['shield','Firewall technologies, policies, and threat prevention.'],
+  8:['network','IPsec, SSL VPN, GRE, DMVPN, and remote access solutions.'],
+  9:['cloud','Cloud architectures, shared responsibility, and security controls.'],
+  10:['book','Email, web, and content security technologies.'],
+  11:['target','Endpoint protection, detection, and incident investigation.'],
+};
