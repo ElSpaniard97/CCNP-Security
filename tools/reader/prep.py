@@ -1,5 +1,30 @@
 import re
+
+def ipv6(addr):
+    """Read an IPv6 address group by group: letters spelled, "::" as "colon colon"."""
+    addr, _, plen = addr.partition("/")
+    groups = re.split(r"(::|:)", addr)
+    words = []
+    for g in groups:
+        if g == "::": words.append("colon colon")
+        elif g == ":": words.append("colon")
+        elif g: words.append(" ".join(g.upper()) if re.search(r"[A-Fa-f]", g) else g)
+    return " ".join(words) + (f" slash {plen}" if plen else "")
 FIX = [  # (regex, spoken)
+ # --- Chapters 5 and 6: visibility, segmentation, infrastructure security ---
+ (r"\b[0-9A-Fa-f]{0,4}(?::[0-9A-Fa-f]{0,4}){2,}(?:/\d+)?", lambda m: ipv6(m.group(0))),
+ (r"\bGigabitEthernet(\d+)/(\d+)", r"gigabit ethernet \1 slash \2"), (r"\bGigabit(\d+)/(\d+)", r"gigabit \1 slash \2"),
+ (r"\bGi(\d+)/(\d+)", r"gig \1 slash \2"), (r"(\d)/(\d)", r"\1 slash \2"),
+ (r"\bSW(\d)\b", r"S.W. \1"), (r"\bR(\d)\b", r"R \1"), (r"\bC800\b","C 800"), (r"\bC8\b","C 8"), (r"\bSCOR\b","score"), (r"\bCCNP\b","C.C.N.P."),
+ (r"\bCAPWAP\b","cap-wap"), (r"\bLWAPP\b","L-wap"), (r"\bBOOTP\b","boot P"), (r"\bNBAR\b","N-bar"), (r"\bCoPP\b","cop"), (r"\bCPPr\b","C.P.P.R."),
+ (r"\bIPFIX\b","I.P. fix"), (r"\bNVRAM\b","N.V. ram"), (r"\bSPAN\b","span"), (r"\bTAP\b","tap"), (r"\bNAT\b","nat"), (r"\bPAT\b","pat"),
+ (r"\bCAM\b","cam"), (r"\bMIB\b","mib"), (r"\bSeND\b","send"), (r"\bRH0\b","R.H. zero"), (r"\bEUI-64\b","E.U.I. 64"), (r"\bARP\b","arp"),
+ (r"\bMOP\b","mop"), (r"\bPAD\b","pad"), (r"\bAUX\b","aux"), (r"\bEXEC\b","exec"), (r"\bFAIL\b","fail"), (r"\bPASS\b","pass"),
+ (r"\bLINEPROTO-5-UPDOWN\b","line proto 5 up down"), (r"\bLINK-3-UPDOWN\b","link 3 up down"), (r"\bMY-AUTHEN-LIST-1\b","my authen list 1"),
+ (r"\bLAB-Router\b","lab router"), (r"\bWRED\b","W-red"), (r"\bACK\b","ack"), (r"\bvNIC\b","V-nic"), (r"\bALGs\b","A.L.G.s"), (r"\bIPSs\b","I.P.S.s"),
+ (r"\bVRFs\b","V.R.F.s"), (r"\bEPGs\b","E.P.G.s"), (r"\bIEPGs\b","I.E.P.G.s"), (r"\bEEPGs\b","E.E.P.G.s"), (r"\bBPDUs\b","B.P.D.U.s"),
+ (r"\bAPs\b","A.P.s"), (r"\bASRs\b","A.S.R.s"), (r"\bISRs\b","I.S.R.s"), (r"\bWLCs\b","W.L.C.s"), (r"\bASNs\b","A.S.N.s"), (r"\bIGPs\b","I.G.P.s"),
+ (r"\bMPs\b","M.P.s"), (r"\bPassiveID\b","passive I.D."), (r"\bDB8\b","D B 8"),
  # --- Chapters 3 and 4: SDN, programmability, AAA (most-specific first) ---
  (r"https?://\S+","the link in the notes"), (r"www\.\S+","the link in the notes"),
  (r"\bTACACS\+","tack-acks plus"), (r"\bTACACS\b","tack-acks"), (r"\bRADIUS\b","radius"), (r"\bDiameter\b","diameter"),

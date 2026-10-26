@@ -1,0 +1,3453 @@
+{
+"total": 3296.67,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 6: Infrastructure Security",
+"spoken": "Chapter 6: Infrastructure Security.",
+"start": 1.6,
+"end": 4.416
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Securing Layer 2 Technologies",
+"spoken": "1. Securing Layer 2 Technologies.",
+"start": 6.816,
+"end": 9.354
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why Review Layer 2",
+"spoken": "Why Review Layer 2.",
+"start": 11.154,
+"end": 12.712
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Layer 2 is often taken for granted because ARP and Ethernet forwarding just work.",
+"spoken": "Layer 2 is often taken for granted because arp and Ethernet forwarding just work.",
+"start": 13.162,
+"end": 19.007
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The CCNP and CCIE Security exams assume you know VLANs, trunking, and inter-VLAN routing. The chapter reviews them so the later mitigation section makes sense.",
+"spoken": "The C.C.N.P. and CCIE Security exams assume you know V-lans, trunking, and inter-V-lan routing. The chapter reviews them so the later mitigation section makes sense.",
+"start": 19.457,
+"end": 32.108
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 6-1 topology: router R1 connects to SW1 on Gi0/1. SW1 links to SW2 (SW1 Gi0/3 to SW2 Gi0/1). Host A (VLAN 10) is on SW1 Gi0/2. Host B (VLAN 20) is on SW2 Gi0/2. The STP examples instead show the switches linked on ports 23 and 24.",
+"spoken": "Figure 6-1 topology: router R 1 connects to S.W. 1 on gig 0 slash 1. S.W. 1 links to S.W. 2 (S.W. 1 gig 0 slash 3 to S.W. 2 gig 0 slash 1). Host A (V-lan 10) is on S.W. 1 gig 0 slash 2. Host B (V-lan 20) is on S.W. 2 gig 0 slash 2. The STP examples instead show the switches linked on ports 23 and 24.",
+"start": 32.558,
+"end": 66.386
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "VLANs",
+"spoken": "V-lans.",
+"start": 67.836,
+"end": 68.903
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A LAN is all devices sharing one Layer 3 network address and one Layer 2 broadcast domain.",
+"spoken": "A lan is all devices sharing one Layer 3 network address and one Layer 2 broadcast domain.",
+"start": 69.353,
+"end": 76.052
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In the default configuration every port is in VLAN 1, so both users and the router share one broadcast domain.",
+"spoken": "In the default configuration every port is in V-lan 1, so both users and the router share one broadcast domain.",
+"start": 76.502,
+"end": 84.779
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With hundreds of users, separate groups into individual subnets, each with its own VLAN.",
+"spoken": "With hundreds of users, separate groups into individual subnets, each with its own V-lan.",
+"start": 85.229,
+"end": 91.288
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Devices in a VLAN should share an IP subnet. DHCP often assigns addresses from it.",
+"spoken": "Devices in a V-lan should share an IP subnet. DHCP often assigns addresses from it.",
+"start": 91.738,
+"end": 98.372
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VLANs can also be assigned to wireless clients to enforce policy (from Chapter 5).",
+"spoken": "V-lans can also be assigned to wireless clients to enforce policy (from Chapter 5).",
+"start": 98.822,
+"end": 104.966
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Trunking",
+"spoken": "Trunking.",
+"start": 106.416,
+"end": 107.27
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Two users in the same VLAN on different switches can't talk until the inter-switch links are trunks.",
+"spoken": "Two users in the same V-lan on different switches can't talk until the inter-switch links are trunks.",
+"start": 107.72,
+"end": 114.354
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Following the frame: a broadcast from Host A enters SW1 in VLAN 10, crosses the trunk tagged VLAN 10, and SW2 removes the tag and floods it to its VLAN 10 ports. The book says SW2 sees \"a broadcast associated with VLAN 20\" and forwards it to Host B, which contradicts the VLAN 10 tag in the same sentence.",
+"spoken": "Following the frame: a broadcast from Host A enters S.W. 1 in V-lan 10, crosses the trunk tagged V-lan 10, and S.W. 2 removes the tag and floods it to its V-lan 10 ports. The book says S.W. 2 sees \"a broadcast associated with V-lan 20\" and forwards it to Host B, which contradicts the V-lan 10 tag in the same sentence.",
+"start": 114.804,
+"end": 139.85
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Access ports in one VLAN, plus trunks that tag frames, are the core building blocks that let a VLAN extend beyond one switch.",
+"spoken": "Access ports in one V-lan, plus trunks that tag frames, are the core building blocks that let a V-lan extend beyond one switch.",
+"start": 140.3,
+"end": 149.43
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Native VLAN frames are sent untagged when both switches agree on the same native VLAN. Attackers can abuse this, so use a dedicated native VLAN other than VLAN 1 and never use it for user traffic.",
+"spoken": "Native V-lan frames are sent untagged when both switches agree on the same native V-lan. Attackers can abuse this, so use a dedicated native V-lan other than V-lan 1 and never use it for user traffic.",
+"start": 149.88,
+"end": 164.771
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Automatic trunk negotiation is risky because an attacker's PC could negotiate a trunk and tag its way into any VLAN.",
+"spoken": "Automatic trunk negotiation is risky because an attacker's P.C. could negotiate a trunk and tag its way into any V-lan.",
+"start": 165.221,
+"end": 173.861
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Inter-VLAN Routing",
+"spoken": "Inter-V-lan Routing.",
+"start": 175.311,
+"end": 176.996
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hosts need a default gateway to leave their VLAN.",
+"spoken": "Hosts need a default gateway to leave their V-lan.",
+"start": 177.446,
+"end": 180.753
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A router with one physical interface per VLAN works but doesn't scale: 50 VLANs would need 50 router interfaces and 50 switch ports.",
+"spoken": "A router with one physical interface per V-lan works but doesn't scale: 50 V-lans would need 50 router interfaces and 50 switch ports.",
+"start": 181.203,
+"end": 191.336
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Router-on-a-stick solves this. The switch trunks to the router exactly as it would to another switch, and the router maps each VLAN tag to a sub-interface.",
+"spoken": "Router-on-a-stick solves this. The switch trunks to the router exactly as it would to another switch, and the router maps each V-lan tag to a sub-interface.",
+"start": 191.786,
+"end": 201.813
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Repeat sub-interfaces until the router has one in every VLAN you want.",
+"spoken": "Repeat sub-interfaces until the router has one in every V-lan you want.",
+"start": 202.263,
+"end": 207.106
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Spanning Tree Operation",
+"spoken": "Spanning Tree Operation.",
+"start": 208.556,
+"end": 210.305
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "STP is on by default on most Cisco switches.",
+"spoken": "STP is on by default on most Cisco switches.",
+"start": 210.755,
+"end": 214.147
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Life of a loop without STP: Host A's ARP broadcast leaves SW1 on port 23, SW2 floods it out port 24 back to SW1, and SW1 sends it out port 23 again. The same happens in the other direction.",
+"spoken": "Life of a loop without STP: Host A's arp broadcast leaves S.W. 1 on port 23, S.W. 2 floods it out port 24 back to S.W. 1, and S.W. 1 sends it out port 23 again. The same happens in the other direction.",
+"start": 214.597,
+"end": 233.477
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Trunk ports allow all VLANs by default, so the broadcast is tagged and carried on every trunk.",
+"spoken": "Trunk ports allow all V-lans by default, so the broadcast is tagged and carried on every trunk.",
+"start": 233.927,
+"end": 240.455
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Non-root switches block all but one of their parallel paths to the root.",
+"spoken": "Non-root switches block all but one of their parallel paths to the root.",
+"start": 240.905,
+"end": 245.172
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If every switch uses the default priority, the lowest MAC address becomes root.",
+"spoken": "If every switch uses the default priority, the lowest mac address becomes root.",
+"start": 245.622,
+"end": 250.934
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In Example 6-12, SW1 (MAC 0019.060c.9080) beats SW2 (0019.0617.6600) because .060c is lower than .0617.",
+"spoken": "In Example 6-12, S.W. 1 (mac 0019.060c.9080) beats S.W. 2 (0019.0617.6600) because .060c is lower than .0617.",
+"start": 251.384,
+"end": 271.288
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SW2 adds its local interface cost of 19 to the advertised cost of 0, so its cost to root is 19.",
+"spoken": "S.W. 2 adds its local interface cost of 19 to the advertised cost of 0, so its cost to root is 19.",
+"start": 271.738,
+"end": 281.188
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SW2 hears BPDUs on both 23 and 24 at equal cost, so it uses the sender's port priority and picks the lower value. It blocks port 24. In STP, lower is always preferred, and lower-numbered ports have lower port priorities by default.",
+"spoken": "S.W. 2 hears B.P.D.U.s on both 23 and 24 at equal cost, so it uses the sender's port priority and picks the lower value. It blocks port 24. In STP, lower is always preferred, and lower-numbered ports have lower port priorities by default.",
+"start": 281.638,
+"end": 301.649
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The blocking shows in show interfaces trunk: port 24 forwards for no VLANs, while port 23 forwards VLANs 1 and 10.",
+"spoken": "The blocking shows in show interfaces trunk: port 24 forwards for no V-lans, while port 23 forwards V-lans 1 and 10.",
+"start": 302.099,
+"end": 311.763
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book calls root, designated, and nondesignated \"port states\". They are really port roles. The actual 802.1D states (blocking, listening, learning, forwarding, disabled) are not listed together in the book, though it describes listening, learning, forwarding, and blocking.",
+"spoken": "The book calls root, designated, and nondesignated \"port states\". They are really port roles. The actual 802.1D states (blocking, listening, learning, forwarding, disabled) are not listed together in the book, though it describes listening, learning, forwarding, and blocking.",
+"start": 312.213,
+"end": 331.477
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Time Until Forwarding",
+"spoken": "Time Until Forwarding.",
+"start": 332.927,
+"end": 334.612
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A new port waits 30 seconds before forwarding, in case another switch is attached and creates a loop.",
+"spoken": "A new port waits 30 seconds before forwarding, in case another switch is attached and creates a loop.",
+"start": 335.062,
+"end": 341.526
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PortFast skips the wait but leaves a small window for a loop if someone adds a parallel path.",
+"spoken": "PortFast skips the wait but leaves a small window for a loop if someone adds a parallel path.",
+"start": 341.976,
+"end": 348.163
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. Common Layer 2 Threats and How to Mitigate Them",
+"spoken": "2. Common Layer 2 Threats and How to Mitigate Them.",
+"start": 350.213,
+"end": 353.456
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Disrupt the Bottom of the Wall",
+"spoken": "Disrupt the Bottom of the Wall.",
+"start": 355.256,
+"end": 357.197
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Everything at Layer 3 and above is carried in a Layer 2 frame.",
+"spoken": "Everything at Layer 3 and above is carried in a Layer 2 frame.",
+"start": 357.647,
+"end": 361.935
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An attacker who can interrupt, copy, redirect, or confuse Layer 2 forwarding disrupts every upper-layer protocol too.",
+"spoken": "An attacker who can interrupt, copy, redirect, or confuse Layer 2 forwarding disrupts every upper-layer protocol too.",
+"start": 362.385,
+"end": 370.94
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Layer 2 Best Practices",
+"spoken": "Layer 2 Best Practices.",
+"start": 372.39,
+"end": 374.288
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use an unused VLAN other than VLAN 1 as the native VLAN on all trunks, and never on enabled access ports.",
+"spoken": "Use an unused V-lan other than V-lan 1 as the native V-lan on all trunks, and never on enabled access ports.",
+"start": 374.738,
+"end": 383.314
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Avoid VLAN 1 anywhere, because it is a default.",
+"spoken": "Avoid V-lan 1 anywhere, because it is a default.",
+"start": 383.764,
+"end": 387.178
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hard-code access ports as access ports and disable trunk negotiation (no DTP).",
+"spoken": "Hard-code access ports as access ports and disable trunk negotiation (no DTP).",
+"start": 387.628,
+"end": 393.942
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Limit MAC addresses per port with port security.",
+"spoken": "Limit mac addresses per port with port security.",
+"start": 394.392,
+"end": 397.784
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Control spanning tree with BPDU Guard and Root Guard so users and unknown devices can't manipulate it.",
+"spoken": "Control spanning tree with BPDU Guard and Root Guard so users and unknown devices can't manipulate it.",
+"start": 398.234,
+"end": 406.213
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Turn off CDP on ports facing untrusted or unknown networks that don't need it.",
+"spoken": "Turn off CDP on ports facing untrusted or unknown networks that don't need it.",
+"start": 406.663,
+"end": 412.444
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On a new switch, shut down all ports and put them in a parking-lot VLAN. Bring them up and assign the right VLAN only as they are needed.",
+"spoken": "On a new switch, shut down all ports and put them in a parking-lot V-lan. Bring them up and assign the right V-lan only as they are needed.",
+"start": 412.894,
+"end": 422.43
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Do Not Allow Negotiations",
+"spoken": "Do Not Allow Negotiations.",
+"start": 423.88,
+"end": 425.928
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Forcing access mode with no negotiation stops a user from maliciously negotiating a trunk with custom dot1q software and VLAN hopping.",
+"spoken": "Forcing access mode with no negotiation stops a user from maliciously negotiating a trunk with custom dot1q software and V-lan hopping.",
+"start": 426.378,
+"end": 436.938
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Trunks are also hard-coded and set to nonegotiate.",
+"spoken": "Trunks are also hard-coded and set to nonegotiate.",
+"start": 437.388,
+"end": 440.994
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Layer 2 Security Toolkit",
+"spoken": "Layer 2 Security Toolkit.",
+"start": 442.444,
+"end": 444.428
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "BPDU Guard, Root Guard, port security, DHCP snooping, Dynamic ARP Inspection, IP Source Guard, 802.1X, Storm Control, and access control lists (for traffic control and policy).",
+"spoken": "BPDU Guard, Root Guard, port security, DHCP snooping, Dynamic arp Inspection, IP Source Guard, 802 dot 1 X, Storm Control, and access control lists (for traffic control and policy).",
+"start": 444.878,
+"end": 461.134
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The chapter's focus: BPDU Guard, Root Guard, port security, CDP and LLDP, and DHCP snooping.",
+"spoken": "The chapter's focus: BPDU Guard, Root Guard, port security, CDP and LLDP, and DHCP snooping.",
+"start": 461.584,
+"end": 470.458
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "BPDU Guard",
+"spoken": "BPDU Guard.",
+"start": 471.908,
+"end": 473.38
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Apply it only to ports that should connect to end stations.",
+"spoken": "Apply it only to ports that should connect to end stations.",
+"start": 473.83,
+"end": 477.329
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stops someone attaching another switch that sends BPDUs and changes the STP topology.",
+"spoken": "Stops someone attaching another switch that sends B.P.D.U.s and changes the STP topology.",
+"start": 477.779,
+"end": 485.139
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Root Guard",
+"spoken": "Root Guard.",
+"start": 486.589,
+"end": 487.677
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use it on ports to switches you don't manage.",
+"spoken": "Use it on ports to switches you don't manage.",
+"start": 488.127,
+"end": 491.199
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Prevents tampering with the existing STP topology.",
+"spoken": "Prevents tampering with the existing STP topology.",
+"start": 491.649,
+"end": 495.148
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Port Security",
+"spoken": "Port Security.",
+"start": 496.598,
+"end": 497.899
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A typical user has one MAC. Legitimate extras: a virtual machine or two, or an IP phone with a built-in switch.",
+"spoken": "A typical user has one mac. Legitimate extras: a virtual machine or two, or an IP phone with a built-in switch.",
+"start": 498.349,
+"end": 506.605
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stops a user from connecting dozens of devices through a rogue switch.",
+"spoken": "Stops a user from connecting dozens of devices through a rogue switch.",
+"start": 507.055,
+"end": 511.471
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stops CAM table overflow attacks.",
+"spoken": "Stops cam table overflow attacks.",
+"start": 511.921,
+"end": 514.225
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stops DHCP pool exhaustion through thousands of requests with different source MACs.",
+"spoken": "Stops DHCP pool exhaustion through thousands of requests with different source macs.",
+"start": 514.675,
+"end": 520.862
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Violation actions:",
+"spoken": "Violation actions:",
+"start": 521.312,
+"end": 522.805
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Shutdown: the default. Err-disables the port.",
+"spoken": "Shutdown: the default. Err-disables the port.",
+"start": 523.255,
+"end": 526.327
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Protect: keeps the port up but drops frames from new MACs over the limit.",
+"spoken": "Protect: keeps the port up but drops frames from new macs over the limit.",
+"start": 526.777,
+"end": 531.15
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Restrict: same as protect, plus a syslog message.",
+"spoken": "Restrict: same as protect, plus a syslog message.",
+"start": 531.6,
+"end": 534.864
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "CDP and LLDP",
+"spoken": "CDP and LLDP.",
+"start": 536.314,
+"end": 538.49
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CDP runs on Cisco routers, switches, and phones and is licensed to some other vendors.",
+"spoken": "CDP runs on Cisco routers, switches, and phones and is licensed to some other vendors.",
+"start": 538.94,
+"end": 545.447
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applications such as voice came to depend on discovery protocols, which caused interoperability problems between vendors. That led to the standard, LLDP.",
+"spoken": "Applications such as voice came to depend on discovery protocols, which caused interoperability problems between vendors. That led to the standard, LLDP.",
+"start": 545.897,
+"end": 557.246
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Disable CDP where it isn't needed, and likewise disable LLDP where it isn't needed.",
+"spoken": "Disable CDP where it isn't needed, and likewise disable LLDP where it isn't needed.",
+"start": 557.696,
+"end": 564.054
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says Example 6-18 shows disabling CDP. It is actually Example 6-19; 6-18 is port security.",
+"spoken": "The book says Example 6-18 shows disabling CDP. It is actually Example 6-19; 6-18 is port security.",
+"start": 564.504,
+"end": 575.085
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DHCP Snooping",
+"spoken": "DHCP Snooping.",
+"start": 576.535,
+"end": 578.156
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What it does:",
+"spoken": "What it does:",
+"start": 578.606,
+"end": 579.673
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Validates DHCP messages from untrusted sources and filters out invalid ones.",
+"spoken": "Validates DHCP messages from untrusted sources and filters out invalid ones.",
+"start": 580.123,
+"end": 586.438
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Rate-limits DHCP traffic from trusted and untrusted sources.",
+"spoken": "Rate-limits DHCP traffic from trusted and untrusted sources.",
+"start": 586.888,
+"end": 591.581
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Builds and maintains the binding database.",
+"spoken": "Builds and maintains the binding database.",
+"start": 592.031,
+"end": 594.847
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Uses the database to validate later requests from untrusted hosts.",
+"spoken": "Uses the database to validate later requests from untrusted hosts.",
+"start": 595.297,
+"end": 600.076
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enabled per VLAN, and inactive on all VLANs by default. One VLAN or a range.",
+"spoken": "Enabled per V-lan, and inactive on all V-lans by default. One V-lan or a range.",
+"start": 600.526,
+"end": 607.139
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Implementation steps:",
+"spoken": "Implementation steps:",
+"start": 607.589,
+"end": 609.168
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Define and configure the DHCP server. Not done on the switch and beyond the book's scope.",
+"spoken": "1. Define and configure the DHCP server. Not done on the switch and beyond the book's scope.",
+"start": 609.618,
+"end": 616.274
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Enable DHCP snooping globally.",
+"spoken": "2. Enable DHCP snooping globally.",
+"start": 616.724,
+"end": 619.646
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Enable it on at least one VLAN.",
+"spoken": "3. Enable it on at least one V-lan.",
+"start": 620.096,
+"end": 622.742
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. Make sure the DHCP server connects through a trusted interface.",
+"spoken": "4. Make sure the DHCP server connects through a trusted interface.",
+"start": 623.192,
+"end": 627.629
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. Configure the snooping database agent so entries are restored after a restart or switchover.",
+"spoken": "5. Configure the snooping database agent so entries are restored after a restart or switchover.",
+"start": 628.079,
+"end": 634.97
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says the feature is not active until step 5 is done. Its verification output shows VLAN 10 configured but \"operational on following VLANs: none\".",
+"spoken": "The book says the feature is not active until step 5 is done. Its verification output shows V-lan 10 configured but \"operational on following V-lans: none\".",
+"start": 635.42,
+"end": 646.62
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Also stops a rogue DHCP server from handing out a false default gateway.",
+"spoken": "Also stops a rogue DHCP server from handing out a false default gateway.",
+"start": 647.07,
+"end": 652.595
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Dynamic ARP Inspection",
+"spoken": "Dynamic arp Inspection.",
+"start": 654.045,
+"end": 655.88
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Normal ARP: Host B broadcasts a request for Host A's MAC, every host receives it, and Host A answers.",
+"spoken": "Normal arp: Host B broadcasts a request for Host A's mac, every host receives it, and Host A answers.",
+"start": 656.33,
+"end": 663.882
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 6-2 attack: Hosts A (IA, MA), B (IB, MB), and C (IC, MC) share one subnet. When A and B exchange ARP, the switch and hosts cache IA to MA and IB to MB.",
+"spoken": "Figure 6-2 attack: Hosts A (IA, MA), B (IB, MB), and C (IC, MC) share one subnet. When A and B exchange arp, the switch and hosts cache IA to MA and IB to MB.",
+"start": 664.332,
+"end": 678.177
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Host C broadcasts forged replies binding IA and IB to MC. Traffic for A and B goes to C, which forwards it with the true MACs. Host C is now a classic man-in-the-middle.",
+"spoken": "Host C broadcasts forged replies binding IA and IB to MC. Traffic for A and B goes to C, which forwards it with the true macs. Host C is now a classic man-in-the-middle.",
+"start": 678.627,
+"end": 692.003
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "After the attack, all traffic from the victim flows through the attacker to the router, switch, or host.",
+"spoken": "After the attack, all traffic from the victim flows through the attacker to the router, switch, or host.",
+"start": 692.453,
+"end": 698.746
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DAI validates ARP against the DHCP snooping binding database, which exists only if DHCP snooping is enabled on the switch and VLANs.",
+"spoken": "DAI validates arp against the DHCP snooping binding database, which exists only if DHCP snooping is enabled on the switch and V-lans.",
+"start": 699.196,
+"end": 710.311
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Trusted interfaces forward ARP without checks. Untrusted interfaces forward only valid packets.",
+"spoken": "Trusted interfaces forward arp without checks. Untrusted interfaces forward only valid packets.",
+"start": 710.761,
+"end": 717.886
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DAI can also drop ARP with invalid IP addresses, or where the MACs in the ARP body don't match the Ethernet header.",
+"spoken": "DAI can also drop arp with invalid IP addresses, or where the macs in the arp body don't match the Ethernet header.",
+"start": 718.336,
+"end": 727.232
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protects against some man-in-the-middle attacks.",
+"spoken": "Protects against some man-in-the-middle attacks.",
+"start": 727.682,
+"end": 730.328
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. Network Foundation Protection",
+"spoken": "3. Network Foundation Protection.",
+"start": 732.378,
+"end": 734.831
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why the Infrastructure Matters",
+"spoken": "Why the Infrastructure Matters.",
+"start": 736.631,
+"end": 738.572
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The infrastructure is mainly routers, switches, and cables. One broken component can fail the network, hurting revenue, productivity, other systems, and customers.",
+"spoken": "The infrastructure is mainly routers, switches, and cables. One broken component can fail the network, hurting revenue, productivity, other systems, and customers.",
+"start": 739.022,
+"end": 750.436
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Weak or missing passwords, software vulnerabilities, and misconfigured devices leave the door open to attackers.",
+"spoken": "Weak or missing passwords, software vulnerabilities, and misconfigured devices leave the door open to attackers.",
+"start": 750.886,
+"end": 758.672
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NFP breaks a big problem into smaller components and secures each systematically.",
+"spoken": "NFP breaks a big problem into smaller components and secures each systematically.",
+"start": 759.122,
+"end": 765.074
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "The Three Planes",
+"spoken": "The Three Planes.",
+"start": 766.524,
+"end": 767.847
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The management plane is listed first because a device isn't very functional until it is configured.",
+"spoken": "The management plane is listed first because a device isn't very functional until it is configured.",
+"start": 768.297,
+"end": 774.782
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If the data plane fails, customer traffic can't be forwarded. Policy may also deny some traffic in the data plane.",
+"spoken": "If the data plane fails, customer traffic can't be forwarded. Policy may also deny some traffic in the data plane.",
+"start": 775.232,
+"end": 782.955
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Interdependence",
+"spoken": "Interdependence.",
+"start": 784.405,
+"end": 785.728
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A control plane failure stops data plane forwarding because the router doesn't know where to send traffic.",
+"spoken": "A control plane failure stops data plane forwarding because the router doesn't know where to send traffic.",
+"start": 786.178,
+"end": 792.684
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A management plane failure can let an attacker reconfigure devices and break both the control and data planes.",
+"spoken": "A management plane failure can let an attacker reconfigure devices and break both the control and data planes.",
+"start": 793.134,
+"end": 800.729
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Security Measures per Plane (Table 6-2)",
+"spoken": "Security Measures per Plane (Table 6-2).",
+"start": 802.179,
+"end": 805.678
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Management plane: AAA, authenticated NTP, SSH, TLS, protected syslog, SNMPv3, and NETCONF/RESTCONF.",
+"spoken": "Management plane: triple A, authenticated N.T.P., SSH, TLS, protected syslog, SNMPv3, and net-conf or rest-conf.",
+"start": 806.128,
+"end": 816.645
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Control plane: CoPP, CPPr, and authenticated routing protocol updates.",
+"spoken": "Control plane: cop, C.P.P.R., and authenticated routing protocol updates.",
+"start": 817.095,
+"end": 823.324
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data plane: ACLs, Layer 2 controls (private VLANs and STP guards), Cisco IOS and IOS-XE Zone-Based Firewall, and SD-WAN security.",
+"spoken": "Data plane: A.C.L.s, Layer 2 controls (private V-lans and STP guards), Cisco I.O.S. and I.O.S. X.E. Zone-Based Firewall, and S.D. wan security.",
+"start": 823.774,
+"end": 836.852
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Limits of NFP",
+"spoken": "Limits of NFP.",
+"start": 838.302,
+"end": 839.944
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NFP won't keep the network up forever. Poor design with no fault tolerance still fails when a device, cable, or software breaks.",
+"spoken": "NFP won't keep the network up forever. Poor design with no fault tolerance still fails when a device, cable, or software breaks.",
+"start": 840.394,
+"end": 849.589
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lack of change control and accidental misconfiguration remain ongoing risks.",
+"spoken": "Lack of change control and accidental misconfiguration remain ongoing risks.",
+"start": 850.039,
+"end": 855.5
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "4. Understanding and Securing the Management Plane",
+"spoken": "4. Understanding and Securing the Management Plane.",
+"start": 857.55,
+"end": 860.9
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Configuration Comes First",
+"spoken": "Configuration Comes First.",
+"start": 862.7,
+"end": 864.534
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A device needs a working configuration from an administrator (console or SSH) or a management system such as Cisco DNA Center.",
+"spoken": "A device needs a working configuration from an administrator (console or SSH) or a management system such as Cisco DNA Center.",
+"start": 864.984,
+"end": 874.798
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A basic Layer 2 switch with all ports in one VLAN would work but is unlikely to be the desired configuration.",
+"spoken": "A basic Layer 2 switch with all ports in one V-lan would work but is unlikely to be the desired configuration.",
+"start": 875.248,
+"end": 883.077
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Best Practices",
+"spoken": "Best Practices.",
+"start": 884.527,
+"end": 885.85
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enforce a password policy, such as maximum login attempts and minimum password length.",
+"spoken": "Enforce a password policy, such as maximum login attempts and minimum password length.",
+"start": 886.3,
+"end": 892.444
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Implement RBAC. A role is like a group: it carries permissions, and users assigned to it inherit them. Implement with ACS, CLI parser views, or custom privilege levels.",
+"spoken": "Implement R-back. A role is like a group: it carries permissions, and users assigned to it inherit them. Implement with ACS, CLI parser views, or custom privilege levels.",
+"start": 892.894,
+"end": 905.8
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use AAA, centrally managed on a server such as Cisco ISE. The device asks the server before any login or command, and the server keeps an audit trail of who logged in and what they ran.",
+"spoken": "Use triple A, centrally managed on a server such as Cisco ice. The device asks the server before any login or command, and the server keeps an audit trail of who logged in and what they ran.",
+"start": 906.25,
+"end": 919.498
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Keep accurate time on all devices with secure NTP.",
+"spoken": "Keep accurate time on all devices with secure N.T.P.",
+"start": 919.948,
+"end": 923.938
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use encrypted and authenticated SNMP: Version 3, and some features from Version 2.",
+"spoken": "Use encrypted and authenticated SNMP: Version 3, and some features from Version 2.",
+"start": 924.388,
+"end": 930.98
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Control which IP addresses may start management sessions.",
+"spoken": "Control which IP addresses may start management sessions.",
+"start": 931.43,
+"end": 935.184
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lock down syslog:",
+"spoken": "Lock down syslog:",
+"start": 935.634,
+"end": 937.192
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Syslog is plain text. Permit it only between the device and its configured syslog destinations.",
+"spoken": "Syslog is plain text. Permit it only between the device and its configured syslog destinations.",
+"start": 937.642,
+"end": 944.447
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Encryption is better, but few people do it.",
+"spoken": "Encryption is better, but few people do it.",
+"start": 944.897,
+"end": 947.628
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Short of encryption, use out-of-band management, such as a separate management VLAN that user traffic never touches.",
+"spoken": "Short of encryption, use out-of-band management, such as a separate management V-lan that user traffic never touches.",
+"start": 948.078,
+"end": 955.843
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "In-band management traffic must be encrypted, natively or with IPsec.",
+"spoken": "In-band management traffic must be encrypted, natively or with I.P. sec.",
+"start": 956.293,
+"end": 961.776
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Disable unneeded services, especially UDP ones, which are rarely legitimate and can be used for DoS:",
+"spoken": "Disable unneeded services, especially UDP ones, which are rarely legitimate and can be used for D.O.S.:",
+"start": 962.226,
+"end": 970.567
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "TCP and UDP small services, Finger, BOOTP, DHCP, MOP (Maintenance Operation Protocol), DNS, PAD (packet assembler/disassembler), HTTP and HTTPS servers, CDP, and LLDP.",
+"spoken": "TCP and UDP small services, Finger, boot P, DHCP, mop (Maintenance Operation Protocol), DNS, pad (packet assembler or disassembler), HTTP and HTTPS servers, CDP, and LLDP.",
+"start": 971.017,
+"end": 988.254
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "5. Understanding the Control Plane",
+"spoken": "5. Understanding the Control Plane.",
+"start": 990.304,
+"end": 992.864
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why the CPU Needs Protection",
+"spoken": "Why the CPU Needs Protection.",
+"start": 994.664,
+"end": 996.947
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The router caches forwarding information so transit packets cost the CPU little. This mostly benefits the data plane.",
+"spoken": "The router caches forwarding information so transit packets cost the CPU little. This mostly benefits the data plane.",
+"start": 997.397,
+"end": 1005.653
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A packet addressed to the router itself, such as an OSPF or EIGRP advertisement, can't be forwarded from cache. The CPU must interpret it, read application data, and maybe respond.",
+"spoken": "A packet addressed to the router itself, such as an OSPF or EIGRP advertisement, can't be forwarded from cache. The CPU must interpret it, read application data, and maybe respond.",
+"start": 1006.103,
+"end": 1019.372
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Thousands of such packets, or a botnet of hundreds of thousands of devices, can exhaust the router.",
+"spoken": "Thousands of such packets, or a botnet of hundreds of thousands of devices, can exhaust the router.",
+"start": 1019.822,
+"end": 1026.606
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Control plane security mainly guards against attacks that hurt the CPU, including routing updates.",
+"spoken": "Control plane security mainly guards against attacks that hurt the CPU, including routing updates.",
+"start": 1027.056,
+"end": 1034.31
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "CoPP and CPPr Basics",
+"spoken": "cop and C.P.P.R. Basics.",
+"start": 1035.76,
+"end": 1038.021
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CoPP can police management traffic such as SSH, HTTPS, and SSL to a set level or drop it. Excess traffic over the threshold is ignored, not processed by the CPU.",
+"spoken": "cop can police management traffic such as SSH, HTTPS, and SSL to a set level or drop it. Excess traffic over the threshold is ignored, not processed by the CPU.",
+"start": 1038.471,
+"end": 1052.316
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Think of it as QoS for valid management traffic and policing for bogus management traffic.",
+"spoken": "Think of it as QoS for valid management traffic and policing for bogus management traffic.",
+"start": 1052.766,
+"end": 1059.294
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Because CoPP and CPPr sit on the logical control plane interface, they protect the processor no matter which physical or logical interface a packet arrives on.",
+"spoken": "Because cop and C.P.P.R. sit on the logical control plane interface, they protect the processor no matter which physical or logical interface a packet arrives on.",
+"start": 1059.744,
+"end": 1072.096
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CPPr sub-interfaces:",
+"spoken": "C.P.P.R. sub-interfaces:",
+"start": 1072.546,
+"end": 1074.978
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Host sub-interface: traffic to one of the router's physical or logical interfaces.",
+"spoken": "Host sub-interface: traffic to one of the router's physical or logical interfaces.",
+"start": 1075.428,
+"end": 1080.954
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Transit sub-interface: data plane traffic needing CPU help before forwarding, such as IP options.",
+"spoken": "Transit sub-interface: data plane traffic needing CPU help before forwarding, such as IP options.",
+"start": 1081.404,
+"end": 1088.742
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "CEF exception sub-interface: network operations traffic, such as keepalives or packets with expiring TTL.",
+"spoken": "CEF exception sub-interface: network operations traffic, such as keepalives or packets with expiring TTL.",
+"start": 1089.192,
+"end": 1097.619
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policy example: allow SSH at 100 packets per second and syslog at 200 packets per second. Drop traffic over the thresholds unless it comes from your management stations.",
+"spoken": "Policy example: allow SSH at 100 packets per second and syslog at 200 packets per second. Drop traffic over the thresholds unless it comes from your management stations.",
+"start": 1098.069,
+"end": 1111.296
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Other Control Plane Practices",
+"spoken": "Other Control Plane Practices.",
+"start": 1112.746,
+"end": 1114.922
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routing protocol authentication: authorized routers won't believe a rogue router that tries to pull traffic through itself or learn the routing tables.",
+"spoken": "Routing protocol authentication: authorized routers won't believe a rogue router that tries to pull traffic through itself or learn the routing tables.",
+"start": 1115.372,
+"end": 1125.462
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SPD protects the route processor from traffic sent to starve it.",
+"spoken": "SPD protects the route processor from traffic sent to starve it.",
+"start": 1125.912,
+"end": 1130.115
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "6. Understanding and Securing the Data Plane",
+"spoken": "6. Understanding and Securing the Data Plane.",
+"start": 1132.165,
+"end": 1135.237
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Best Practices",
+"spoken": "Best Practices.",
+"start": 1137.037,
+"end": 1138.36
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Block unwanted traffic with ACLs, inbound or outbound on any Layer 3 interface. Example: deny TFTP if policy forbids it.",
+"spoken": "Block unwanted traffic with A.C.L.s, inbound or outbound on any Layer 3 interface. Example: deny TFTP if policy forbids it.",
+"start": 1138.81,
+"end": 1149.796
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Place extended ACLs close to the source and filter inbound, so packets are dropped before using bandwidth and before route lookups.",
+"spoken": "Place extended A.C.L.s close to the source and filter inbound, so packets are dropped before using bandwidth and before route lookups.",
+"start": 1150.246,
+"end": 1159.505
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Filter protocols and traffic types known to be malicious.",
+"spoken": "Filter protocols and traffic types known to be malicious.",
+"start": 1159.955,
+"end": 1163.667
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Reduce DoS with TCP Intercept and firewall services against SYN floods.",
+"spoken": "Reduce D.O.S. with TCP Intercept and firewall services against sin floods.",
+"start": 1164.117,
+"end": 1170.282
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Reduce spoofing by denying packets from outside that claim an internal source address.",
+"spoken": "Reduce spoofing by denying packets from outside that claim an internal source address.",
+"start": 1170.732,
+"end": 1176.514
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Manage bandwidth by rate-limiting traffic such as ICMP, which is normally used only in small amounts.",
+"spoken": "Manage bandwidth by rate-limiting traffic such as ICMP, which is normally used only in small amounts.",
+"start": 1176.964,
+"end": 1184.537
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use an IPS where possible.",
+"spoken": "Use an IPS where possible.",
+"start": 1184.987,
+"end": 1187.227
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Layer 2 Data Plane Protection",
+"spoken": "Layer 2 Data Plane Protection.",
+"start": 1188.677,
+"end": 1190.917
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Port security against MAC flooding and CAM overflow. A full table makes the switch flood frames to all devices in the VLAN, which lets the attacker eavesdrop.",
+"spoken": "Port security against mac flooding and cam overflow. A full table makes the switch flood frames to all devices in the V-lan, which lets the attacker eavesdrop.",
+"start": 1191.367,
+"end": 1202.524
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DHCP snooping against rogue DHCP servers and starvation attacks.",
+"spoken": "DHCP snooping against rogue DHCP servers and starvation attacks.",
+"start": 1202.974,
+"end": 1208.393
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DAI against ARP spoofing, ARP poisoning, and Layer 2 man-in-the-middle.",
+"spoken": "DAI against arp spoofing, arp poisoning, and Layer 2 man-in-the-middle.",
+"start": 1208.843,
+"end": 1214.048
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IP Source Guard against IP spoofing by devices on the switch.",
+"spoken": "IP Source Guard against IP spoofing by devices on the switch.",
+"start": 1214.498,
+"end": 1219.341
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "7. Securing Management Traffic",
+"spoken": "7. Securing Management Traffic.",
+"start": 1221.391,
+"end": 1223.759
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "The Management Plane",
+"spoken": "The Management Plane.",
+"start": 1225.559,
+"end": 1226.988
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Includes configuration, who may access the system, what they may do, and status messages such as SNMP.",
+"spoken": "Includes configuration, who may access the system, what they may do, and status messages such as SNMP.",
+"start": 1227.438,
+"end": 1235.289
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Requiring a username or password on the console is the first step to improving it.",
+"spoken": "Requiring a username or password on the console is the first step to improving it.",
+"start": 1235.739,
+"end": 1241.286
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NETCONF and RESTCONF are more secure ways to manage devices than SNMP.",
+"spoken": "net-conf and rest-conf are more secure ways to manage devices than SNMP.",
+"start": 1241.736,
+"end": 1247.517
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NETCONF and RESTCONF vs SNMP",
+"spoken": "net-conf and rest-conf vs SNMP.",
+"start": 1248.967,
+"end": 1251.975
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Transport security: SSH and HTTPS give encryption and authentication, so exchanges are confidential, intact, and authentic. SNMP versions 1 and 2c are open to unauthorized access and eavesdropping.",
+"spoken": "Transport security: SSH and HTTPS give encryption and authentication, so exchanges are confidential, intact, and authentic. SNMP versions 1 and 2c are open to unauthorized access and eavesdropping.",
+"start": 1252.425,
+"end": 1269.236
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Access control: NACM and RBAC give fine-grained, role-based permissions. SNMP community strings are all or nothing across the tree.",
+"spoken": "Access control: NACM and R-back give fine-grained, role-based permissions. SNMP community strings are all or nothing across the tree.",
+"start": 1269.686,
+"end": 1279.67
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data models: YANG gives a standard structure that reduces misconfiguration and human error. SNMP's MIB is less intuitive.",
+"spoken": "Data models: yang gives a standard structure that reduces misconfiguration and human error. SNMP's mib is less intuitive.",
+"start": 1280.12,
+"end": 1289.229
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Transactions: NETCONF commits fully or rolls back, avoiding partial or inconsistent updates. SNMP has no built-in transactions.",
+"spoken": "Transactions: net-conf commits fully or rolls back, avoiding partial or inconsistent updates. SNMP has no built-in transactions.",
+"start": 1289.679,
+"end": 1299.834
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NETCONF encodes configuration data in XML, and neither NETCONF nor RESTCONF uses SNMP. The book states this only in its end-of-chapter questions.",
+"spoken": "net-conf encodes configuration data in XML, and neither net-conf nor rest-conf uses SNMP. The book states this only in its end-of-chapter questions.",
+"start": 1300.284,
+"end": 1311.932
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "YANG",
+"spoken": "yang.",
+"start": 1313.382,
+"end": 1314.171
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Models can represent network topologies, services, policies, and other network information.",
+"spoken": "Models can represent network topologies, services, policies, and other network information.",
+"start": 1314.621,
+"end": 1321.064
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 6-22 module \"example-interface\": namespace https://example.com/interface, prefix intf, and it imports ietf-inet-types with prefix inet.",
+"spoken": "Example 6-22 module \"example-interface\": namespace the link in the notes prefix intf, and it imports ietf-inet-types with prefix inet.",
+"start": 1321.514,
+"end": 1332.564
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "It has a container \"interfaces\" holding a list \"interface\" keyed by \"name\".",
+"spoken": "It has a container \"interfaces\" holding a list \"interface\" keyed by \"name\".",
+"start": 1333.014,
+"end": 1337.921
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Leaves: name (string), type (enumeration of ethernet, wifi, or loopback), and ip-address (inet:ipv4-address).",
+"spoken": "Leaves: name (string), type (enumeration of ethernet, wifi, or loopback), and ip-address (inet:ipv4-address).",
+"start": 1338.371,
+"end": 1346.606
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "gNMI",
+"spoken": "G.N.M.I.",
+"start": 1348.056,
+"end": 1349.464
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 6-23 is written in Protocol Buffers (proto3) syntax, package gnmi, importing Google's duration and timestamp definitions.",
+"spoken": "Example 6-23 is written in Protocol Buffers (proto3) syntax, package gnmi, importing Google's duration and timestamp definitions.",
+"start": 1349.914,
+"end": 1361.583
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Path: identifies the requested data, here the interfaces' operational state.",
+"spoken": "Path: identifies the requested data, here the interfaces' operational state.",
+"start": 1362.033,
+"end": 1367.452
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SubscribeRequest: starts the subscription. Holds paths, a subscribe or unsubscribe list, and a qos value.",
+"spoken": "SubscribeRequest: starts the subscription. Holds paths, a subscribe or unsubscribe list, and a qos value.",
+"start": 1367.902,
+"end": 1375.667
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Subscription: path, sample_interval, start_time, and heartbeat_interval.",
+"spoken": "Subscription: path, sample_interval, start_time, and heartbeat_interval.",
+"start": 1376.117,
+"end": 1380.64
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "InterfaceOperState: is_up, in_octets, and out_octets.",
+"spoken": "InterfaceOperState: is_up, in_octets, and out_octets.",
+"start": 1381.09,
+"end": 1384.972
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SubscribeResponse: returns a list of Update messages, each with a path and the current value, plus sync_complete.",
+"spoken": "SubscribeResponse: returns a list of Update messages, each with a path and the current value, plus sync_complete.",
+"start": 1385.422,
+"end": 1393.209
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Beyond the Console Cable",
+"spoken": "Beyond the Console Cable.",
+"start": 1394.659,
+"end": 1396.43
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The console is fairly safe but inconvenient for devices in many buildings or floors.",
+"spoken": "The console is fairly safe but inconvenient for devices in many buildings or floors.",
+"start": 1396.88,
+"end": 1402.853
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Giving the device an IP address for remote access raises the risk, since unauthorized people might connect too.",
+"spoken": "Giving the device an IP address for remote access raises the risk, since unauthorized people might connect too.",
+"start": 1403.303,
+"end": 1410.919
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A secure management plane controls who connects, when, and what they do, reports on it, and encrypts all packets so captured traffic reveals no configuration or passwords.",
+"spoken": "A secure management plane controls who connects, when, and what they do, reports on it, and encrypts all packets so captured traffic reveals no configuration or passwords.",
+"start": 1411.369,
+"end": 1423.444
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Management Plane Best Practices",
+"spoken": "Management Plane Best Practices.",
+"start": 1424.894,
+"end": 1427.07
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each practice raises the difficulty for an attacker.",
+"spoken": "Each practice raises the difficulty for an attacker.",
+"start": 1427.52,
+"end": 1430.848
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Strong passwords: complex and hard to guess. A tough password takes longer to break.",
+"spoken": "Strong passwords: complex and hard to guess. A tough password takes longer to break.",
+"start": 1431.298,
+"end": 1437.207
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User authentication and AAA: usernames plus passwords are better than a password alone, because you know exactly who the user is. AAA controls which administrators reach which devices and records what they did.",
+"spoken": "User authentication and triple A: usernames plus passwords are better than a password alone, because you know exactly who the user is. triple A controls which administrators reach which devices and records what they did.",
+"start": 1437.657,
+"end": 1452.74
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RBAC: junior administrators can go in a limited group, or on a custom privilege level. Use a change management plan regardless of access level.",
+"spoken": "R-back: junior administrators can go in a limited group, or on a custom privilege level. Use a change management plan regardless of access level.",
+"start": 1453.19,
+"end": 1463.515
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Encrypted management protocols: SSH or HTTPS, in band or out of band. If a plaintext protocol such as Telnet or HTTP must be used, put it in a VPN tunnel.",
+"spoken": "Encrypted management protocols: SSH or HTTPS, in band or out of band. If a plaintext protocol such as Telnet or HTTP must be used, put it in a VPN tunnel.",
+"start": 1463.965,
+"end": 1478.194
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Logging and monitoring:",
+"spoken": "Logging and monitoring:",
+"start": 1478.644,
+"end": 1480.031
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Logs create an audit trail of configuration changes and system events, such as problems or thresholds reached.",
+"spoken": "Logs create an audit trail of configuration changes and system events, such as problems or thresholds reached.",
+"start": 1480.481,
+"end": 1488.332
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Choose what to log and the right logging levels.",
+"spoken": "Choose what to log and the right logging levels.",
+"start": 1488.782,
+"end": 1491.534
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Protect log storage and transmission against tampering, since logs may contain sensitive information.",
+"spoken": "Protect log storage and transmission against tampering, since logs may contain sensitive information.",
+"start": 1491.984,
+"end": 1498.554
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Allocate enough storage.",
+"spoken": "Allocate enough storage.",
+"start": 1499.004,
+"end": 1500.711
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "If SNMP is used, use Version 3.",
+"spoken": "If SNMP is used, use Version 3.",
+"start": 1501.161,
+"end": 1503.977
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NTP: synchronized clocks let you correlate logs, which matters after a breach or in court.",
+"spoken": "N.T.P.: synchronized clocks let you correlate logs, which matters after a breach or in court.",
+"start": 1504.427,
+"end": 1510.912
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure system files: make it hard to delete the startup configuration and IOS images, accidentally or on purpose.",
+"spoken": "Secure system files: make it hard to delete the startup configuration and I.O.S. images, accidentally or on purpose.",
+"start": 1511.362,
+"end": 1520.493
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In-band management still has uses: reachability checks that ping hosts or test Layer 4 services must cross the production network, and it is cheaper for small networks. Even then, use a separate subnet or VLAN that few people and devices can reach.",
+"spoken": "In-band management still has uses: reachability checks that ping hosts or test Layer 4 services must cross the production network, and it is cheaper for small networks. Even then, use a separate subnet or V-lan that few people and devices can reach.",
+"start": 1520.943,
+"end": 1537.924
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Password Recommendations",
+"spoken": "Password Recommendations.",
+"start": 1539.374,
+"end": 1541.166
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A user ID with a password is better than a password alone.",
+"spoken": "A user ID with a password is better than a password alone.",
+"start": 1541.616,
+"end": 1545.755
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Passwords can use any alphanumeric character, upper and lower case, symbols, and spaces.",
+"spoken": "Passwords can use any alphanumeric character, upper and lower case, symbols, and spaces.",
+"start": 1546.205,
+"end": 1552.285
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Avoid dictionary words.",
+"spoken": "Avoid dictionary words.",
+"start": 1552.735,
+"end": 1554.484
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Leading spaces are ignored. Spaces in the middle or at the end become part of the password and are a good idea.",
+"spoken": "Leading spaces are ignored. Spaces in the middle or at the end become part of the password and are a good idea.",
+"start": 1554.934,
+"end": 1562.422
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use special characters, or a passphrase of two unrelated words.",
+"spoken": "Use special characters, or a passphrase of two unrelated words.",
+"start": 1562.872,
+"end": 1567.203
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Don't make passwords so complex that users write them down.",
+"spoken": "Don't make passwords so complex that users write them down.",
+"start": 1567.653,
+"end": 1571.429
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Change passwords periodically, as often as your security policy says. Passwords changed often are less likely to be compromised.",
+"spoken": "Change passwords periodically, as often as your security policy says. Passwords changed often are less likely to be compromised.",
+"start": 1571.879,
+"end": 1580.988
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Multifactor Authentication and Duo",
+"spoken": "Multifactor Authentication and Duo.",
+"start": 1582.438,
+"end": 1585.041
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Consider data classification, regulatory requirements, the impact of unauthorized access, and threat likelihood when choosing authentication strength. More factors mean more robust authentication.",
+"spoken": "Consider data classification, regulatory requirements, the impact of unauthorized access, and threat likelihood when choosing authentication strength. More factors mean more robust authentication.",
+"start": 1585.491,
+"end": 1599.635
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Duo protects on-premises and cloud applications through preconfigured integrations and generic RADIUS, SAML, and LDAP configurations.",
+"spoken": "Duo protects on-premises and cloud applications through preconfigured integrations and generic radius, sam-ul, and L-dap configurations.",
+"start": 1600.085,
+"end": 1610.005
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Duo policies can be global, per user group, or per application. The user enrollment strategy also shapes the policy.",
+"spoken": "Duo policies can be global, per user group, or per application. The user enrollment strategy also shapes the policy.",
+"start": 1610.455,
+"end": 1619.116
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Duo Beyond adds a Trusted Endpoints policy that checks device posture.",
+"spoken": "Duo Beyond adds a Trusted Endpoints policy that checks device posture.",
+"start": 1619.566,
+"end": 1624.409
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Using AAA to Verify Users",
+"spoken": "Using triple A to Verify Users.",
+"start": 1625.859,
+"end": 1628.462
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AAA identifies users before any access, gives them only what they are authorized for, and records who did what and when.",
+"spoken": "triple A identifies users before any access, gives them only what they are authorized for, and records who did what and when.",
+"start": 1628.912,
+"end": 1637.381
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You must authenticate before you can authorize.",
+"spoken": "You must authenticate before you can authorize.",
+"start": 1637.831,
+"end": 1640.818
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "For administrators, authorize the EXEC shell and place them at the correct privilege level.",
+"spoken": "For administrators, authorize the exec shell and place them at the correct privilege level.",
+"start": 1641.268,
+"end": 1646.814
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "For a remote ISE server doing administrator AAA, TACACS+ is likely, because it gives more granular control than RADIUS.",
+"spoken": "For a remote ice server doing administrator triple A, tack-acks plus is likely, because it gives more granular control than radius.",
+"start": 1647.264,
+"end": 1656.203
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Role-Based Access Control",
+"spoken": "Role-Based Access Control.",
+"start": 1657.653,
+"end": 1659.466
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Permissions are grouped for roles such as administrator or help desk, so users don't get full access.",
+"spoken": "Permissions are grouped for roles such as administrator or help desk, so users don't get full access.",
+"start": 1659.916,
+"end": 1666.423
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Nearly all configuration commands, and the commands to enter configuration mode, belong to level 15 by default.",
+"spoken": "Nearly all configuration commands, and the commands to enter configuration mode, belong to level 15 by default.",
+"start": 1666.873,
+"end": 1675.044
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Assigning individual commands to custom levels is tedious, so it is rarely used. Parser views are the easier alternative.",
+"spoken": "Assigning individual commands to custom levels is tedious, so it is rarely used. Parser views are the easier alternative.",
+"start": 1675.494,
+"end": 1684.134
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each option can be tied to a username, so the user lands at the right level or view after login.",
+"spoken": "Each option can be tied to a username, so the user lands at the right level or view after login.",
+"start": 1684.584,
+"end": 1690.898
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Encrypted Management Protocols",
+"spoken": "Encrypted Management Protocols.",
+"start": 1692.348,
+"end": 1694.588
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Telnet is the most common remote access application, but anyone capturing its packets sees usernames, passwords, and everything else.",
+"spoken": "Telnet is the most common remote access application, but anyone capturing its packets sees usernames, passwords, and everything else.",
+"start": 1695.038,
+"end": 1704.105
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SSH version 2 is better than version 1, and either is better than Telnet. Use SSH instead of Telnet whenever possible.",
+"spoken": "SSH version 2 is better than version 1, and either is better than Telnet. Use SSH instead of Telnet whenever possible.",
+"start": 1704.555,
+"end": 1713.643
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Using Logging Files",
+"spoken": "Using Logging Files.",
+"start": 1715.093,
+"end": 1716.629
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The author's story: a database server ran for weeks on its backup disk until someone noticed a log message. A second failure would have been catastrophic.",
+"spoken": "The author's story: a database server ran for weeks on its backup disk until someone noticed a log message. A second failure would have been catastrophic.",
+"start": 1717.079,
+"end": 1727.618
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Analyze logs regularly, especially router logs. Logs show the nature of an attack, help troubleshooting, and allow event correlation.",
+"spoken": "Analyze logs regularly, especially router logs. Logs show the nature of an attack, help troubleshooting, and allow event correlation.",
+"start": 1728.068,
+"end": 1737.284
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Log destinations:",
+"spoken": "Log destinations:",
+"start": 1737.734,
+"end": 1739.163
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Console: messages go to the attached terminal.",
+"spoken": "Console: messages go to the attached terminal.",
+"start": 1739.613,
+"end": 1742.642
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "vty lines: SSH and Telnet sessions, after you issue terminal monitor.",
+"spoken": "vty lines: SSH and Telnet sessions, after you issue terminal monitor.",
+"start": 1743.092,
+"end": 1748.874
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Buffer: router memory, kept up to the configured size.",
+"spoken": "Buffer: router memory, kept up to the configured size.",
+"start": 1749.324,
+"end": 1752.908
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "SNMP server: log messages sent as SNMP traps.",
+"spoken": "SNMP server: log messages sent as SNMP traps.",
+"start": 1753.358,
+"end": 1757.731
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Syslog server: easy to configure and stores a large volume. Messages can go to one or more servers.",
+"spoken": "Syslog server: easy to configure and stores a large volume. Messages can go to one or more servers.",
+"start": 1758.181,
+"end": 1765.904
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Console and vty messages aren't available later for analysis.",
+"spoken": "Console and vty messages aren't available later for analysis.",
+"start": 1766.354,
+"end": 1771.175
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "More detailed levels need more storage and more CPU, so take care logging to the console at the debugging level.",
+"spoken": "More detailed levels need more storage and more CPU, so take care logging to the console at the debugging level.",
+"start": 1771.625,
+"end": 1779.305
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Log entries carry timestamps and the severity level along with the message text.",
+"spoken": "Log entries carry timestamps and the severity level along with the message text.",
+"start": 1779.755,
+"end": 1784.96
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Understanding NTP",
+"spoken": "Understanding N.T.P.",
+"start": 1786.41,
+"end": 1788.416
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Ideally devices sync to a trusted time server, on the Internet or reachable through the network.",
+"spoken": "Ideally devices sync to a trusted time server, on the Internet or reachable through the network.",
+"start": 1788.866,
+"end": 1795.159
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example: 20 routers with the same synchronized time make it easy to correlate events on a syslog server.",
+"spoken": "Example: 20 routers with the same synchronized time make it easy to correlate events on a syslog server.",
+"start": 1795.609,
+"end": 1802.969
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Protecting IOS Files",
+"spoken": "Protecting I.O.S. Files.",
+"start": 1804.419,
+"end": 1806.488
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Boot order: power-on self-test, find an IOS image in flash, load it into RAM, then load the startup configuration.",
+"spoken": "Boot order: power-on self-test, find an I.O.S. image in flash, load it into ram, then load the startup configuration.",
+"start": 1806.938,
+"end": 1815.685
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If the image or startup configuration can't be loaded, the router is effectively nonfunctional.",
+"spoken": "If the image or startup configuration can't be loaded, the router is effectively nonfunctional.",
+"start": 1816.135,
+"end": 1822.514
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Once Resilient Configuration is enabled, it can't be disabled remotely, only from the console.",
+"spoken": "Once Resilient Configuration is enabled, it can't be disabled remotely, only from the console.",
+"start": 1822.964,
+"end": 1829.769
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Implementing Strong Passwords",
+"spoken": "Implementing Strong Passwords.",
+"start": 1831.219,
+"end": 1833.224
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The enable secret must be unique, because many other passwords, such as vty passwords, are stored in plain text and could be reused to get into privileged mode.",
+"spoken": "The enable secret must be unique, because many other passwords, such as vty passwords, are stored in plain text and could be reused to get into privileged mode.",
+"start": 1833.674,
+"end": 1845.13
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use the secret keyword instead of password for users.",
+"spoken": "Use the secret keyword instead of password for users.",
+"start": 1845.58,
+"end": 1849.356
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Service password encryption also scrambles new plaintext passwords as they are entered.",
+"spoken": "Service password encryption also scrambles new plaintext passwords as they are entered.",
+"start": 1849.806,
+"end": 1855.737
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Method List Examples",
+"spoken": "Method List Examples.",
+"start": 1857.187,
+"end": 1858.766
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 6-25: the default list covers the console and AUX; the custom lists cover the vty lines.",
+"spoken": "Example 6-25: the default list covers the console and aux; the custom lists cover the vty lines.",
+"start": 1859.216,
+"end": 1867.706
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With command authorization, the router asks the TACACS+ (ISE) server before each command. If the server can't be reached, it checks the user's privilege level in the local database.",
+"spoken": "With command authorization, the router asks the tack-acks plus (ice) server before each command. If the server can't be reached, it checks the user's privilege level in the local database.",
+"start": 1868.156,
+"end": 1880.914
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 6-26: user omar logs in and the debug shows MY-AUTHEN-LIST-1 picked. The book's who output then shows \"bob\" on vty 0, which doesn't match the omar login.",
+"spoken": "Example 6-26: user omar logs in and the debug shows my authen list 1 picked. The book's who output then shows \"bob\" on vty 0, which doesn't match the omar login.",
+"start": 1881.364,
+"end": 1895.401
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With no local users, the enable secret is used (\"Done status PASS\").",
+"spoken": "With no local users, the enable secret is used (\"Done status pass\").",
+"start": 1895.851,
+"end": 1900.715
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With no enable secret, the debug shows \"FAIL - secret not configured\" and none lets anyone in.",
+"spoken": "With no enable secret, the debug shows \"fail - secret not configured\" and none lets anyone in.",
+"start": 1901.165,
+"end": 1907.906
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 6-27: the configure terminal command triggers level 15 command authorization, which passes through the local method.",
+"spoken": "Example 6-27: the configure terminal command triggers level 15 command authorization, which passes through the local method.",
+"start": 1908.356,
+"end": 1918.148
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Privilege Levels in Practice",
+"spoken": "Privilege Levels in Practice.",
+"start": 1919.598,
+"end": 1921.412
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "At level 8 with only configure terminal, configuration mode shows just a few options (beep, call, default, end, exit, help, license, netconf, no, oer, sasl, wsma) and no interface commands.",
+"spoken": "At level 8 with only configure terminal, configuration mode shows just a few options (beep, call, default, end, exit, help, license, netconf, no, oer, sasl, wsma) and no interface commands.",
+"start": 1921.862,
+"end": 1936.582
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A user at level 8 also gets all the normal level 1 show commands.",
+"spoken": "A user at level 8 also gets all the normal level 1 show commands.",
+"start": 1937.032,
+"end": 1942.024
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Parser Views in Practice",
+"spoken": "Parser Views in Practice.",
+"start": 1943.474,
+"end": 1945.159
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A view needs an enable secret and aaa new-model first.",
+"spoken": "A view needs an enable secret and aaa new-model first.",
+"start": 1945.609,
+"end": 1949.684
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The view was given configure, not configure terminal. Typing configure terminal still works, because configure then asks where to configure from. Including configure terminal directly would avoid that step.",
+"spoken": "The view was given configure, not configure terminal. Typing configure terminal still works, because configure then asks where to configure from. Including configure terminal directly would avoid that step.",
+"start": 1950.134,
+"end": 1963.851
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inside the view, configuration mode offers only access-list, do, and exit.",
+"spoken": "Inside the view, configuration mode offers only access-list, do, and exit.",
+"start": 1964.301,
+"end": 1969.506
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SSH Requirements",
+"spoken": "SSH Requirements.",
+"start": 1970.956,
+"end": 1972.727
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A hostname other than the default Router.",
+"spoken": "A hostname other than the default Router.",
+"start": 1973.177,
+"end": 1975.908
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A domain name.",
+"spoken": "A domain name.",
+"start": 1976.358,
+"end": 1977.659
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A public and private key pair.",
+"spoken": "A public and private key pair.",
+"start": 1978.109,
+"end": 1979.986
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User login on the vty lines instead of just a password, either locally or through an ISE server.",
+"spoken": "User login on the vty lines instead of just a password, either locally or through an ice server.",
+"start": 1980.436,
+"end": 1987.434
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "At least one user account, local or on ISE.",
+"spoken": "At least one user account, local or on ice.",
+"start": 1987.884,
+"end": 1991.126
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The key pair's name is built from the hostname and domain name. Bigger moduli are better.",
+"spoken": "The key pair's name is built from the hostname and domain name. Bigger moduli are better.",
+"start": 1991.576,
+"end": 1997.23
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "8. Implementing Logging Features",
+"spoken": "8. Implementing Logging Features.",
+"start": 1999.28,
+"end": 2001.584
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Purpose",
+"spoken": "Purpose.",
+"start": 2003.384,
+"end": 2004.237
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Logging discovers events in the network and helps troubleshooting.",
+"spoken": "Logging discovers events in the network and helps troubleshooting.",
+"start": 2004.687,
+"end": 2008.591
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Correct logging setup to collect and correlate events across many devices is critical for a secure network.",
+"spoken": "Correct logging setup to collect and correlate events across many devices is critical for a secure network.",
+"start": 2009.041,
+"end": 2015.846
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Syslog Message Format",
+"spoken": "Syslog Message Format.",
+"start": 2017.296,
+"end": 2019.088
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each message shows the date (with timestamps on), the event after the percent sign, the severity level, and a description.",
+"spoken": "Each message shows the date (with timestamps on), the event after the percent sign, the severity level, and a description.",
+"start": 2019.538,
+"end": 2027.133
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In the example, %LINK-3-UPDOWN is level 3 and %LINEPROTO-5-UPDOWN is level 5.",
+"spoken": "In the example, %link 3 up down is level 3 and %line proto 5 up down is level 5.",
+"start": 2027.583,
+"end": 2035.135
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "9. Configuring NTP",
+"spoken": "9. Configuring N.T.P.",
+"start": 2037.185,
+"end": 2039.233
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Before You Start",
+"spoken": "Before You Start.",
+"start": 2041.033,
+"end": 2042.377
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You need the NTP server's IP address, the authentication key, and the key ID.",
+"spoken": "You need the N.T.P. server's IP address, the authentication key, and the key ID.",
+"start": 2042.827,
+"end": 2048.95
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication isn't required for NTP to work, but it stops a rogue server with a spoofed source IP from changing your time.",
+"spoken": "Authentication isn't required for N.T.P. to work, but it stops a rogue server with a spoofed source IP from changing your time.",
+"start": 2049.4,
+"end": 2058.808
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A Cisco router supports NTP authentication because it supports NTPv3.",
+"spoken": "A Cisco router supports N.T.P. authentication because it supports NTPv3.",
+"start": 2059.258,
+"end": 2065.807
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In Example 6-35, the server 192.168.78.96 is reached through GigabitEthernet0/1. The verification output is from a router named LAB-Router acting as an NTP client.",
+"spoken": "In Example 6-35, the server 192.168.78.96 is reached through gigabit ethernet 0 slash 1. The verification output is from a router named lab router acting as an N.T.P. client.",
+"start": 2066.257,
+"end": 2084.625
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "10. Securing the Network Infrastructure Device Image and Configuration Files",
+"spoken": "10. Securing the Network Infrastructure Device Image and Configuration Files.",
+"start": 2086.675,
+"end": 2092.414
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Resilient Configuration",
+"spoken": "Resilient Configuration.",
+"start": 2094.214,
+"end": 2096.006
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If an attacker deletes the flash file system and NVRAM, restoring the files means significant downtime.",
+"spoken": "If an attacker deletes the flash file system and N.V. ram, restoring the files means significant downtime.",
+"start": 2096.456,
+"end": 2104.093
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Resilient Configuration improves recovery time by keeping the primary bootset in a secure archive in persistent storage.",
+"spoken": "Resilient Configuration improves recovery time by keeping the primary bootset in a secure archive in persistent storage.",
+"start": 2104.543,
+"end": 2113.46
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The archive can't be deleted by a remote user.",
+"spoken": "The archive can't be deleted by a remote user.",
+"start": 2113.91,
+"end": 2116.897
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "11. Securing the Data Plane in IPv6",
+"spoken": "11. Securing the Data Plane in I.P. version 6.",
+"start": 2118.947,
+"end": 2122.979
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why IPv6",
+"spoken": "Why I.P. version 6.",
+"start": 2124.779,
+"end": 2126.955
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "More address space, and public IPv4 addresses are running out.",
+"spoken": "More address space, and public I.P. version 4 addresses are running out.",
+"start": 2127.405,
+"end": 2132.546
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPv4's life was extended more than a decade by NAT, which hides thousands of private addresses behind one public address.",
+"spoken": "I.P. version 4's life was extended more than a decade by nat, which hides thousands of private addresses behind one public address.",
+"start": 2132.996,
+"end": 2142.767
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Upper-layer applications work the same. The big change is a forklift upgrade of Layer 3, plus changes in how IPv6 works with the rest of the stack.",
+"spoken": "Upper-layer applications work the same. The big change is a forklift upgrade of Layer 3, plus changes in how I.P. version 6 works with the rest of the stack.",
+"start": 2143.217,
+"end": 2154.822
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IPv4 vs IPv6 (Table 6-4)",
+"spoken": "I.P. version 4 vs I.P. version 6 (Table 6-4).",
+"start": 2156.272,
+"end": 2161.84
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Addressing: IPv4 is 32 bits; IPv6 is 128 bits.",
+"spoken": "Addressing: I.P. version 4 is 32 bits; I.P. version 6 is 128 bits.",
+"start": 2162.29,
+"end": 2170.162
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NAT: IPv4 uses NAT to stretch its space. IPv6 doesn't support NAT by design, since it has plenty of addresses.",
+"spoken": "nat: I.P. version 4 uses nat to stretch its space. I.P. version 6 doesn't support nat by design, since it has plenty of addresses.",
+"start": 2170.612,
+"end": 2181.258
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Address assignment: IPv4 needs DHCP or static configuration. IPv6 hosts can autoconfigure, and can still use DHCP for extra information.",
+"spoken": "Address assignment: I.P. version 4 needs DHCP or static configuration. I.P. version 6 hosts can autoconfigure, and can still use DHCP for extra information.",
+"start": 2181.708,
+"end": 2196.172
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPsec: optional add-on in IPv4. Fully supported in IPv6 and was supposed to be mandatory, but IPv6 doesn't actually require it.",
+"spoken": "I.P. sec: optional add-on in I.P. version 4. Fully supported in I.P. version 6 and was supposed to be mandatory, but I.P. version 6 doesn't actually require it.",
+"start": 2196.622,
+"end": 2210.254
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Header: IPv4 has many fields. IPv6 has a simplified but larger header with optional extension headers.",
+"spoken": "Header: I.P. version 4 has many fields. I.P. version 6 has a simplified but larger header with optional extension headers.",
+"start": 2210.704,
+"end": 2220.944
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Broadcasts: IPv4 uses broadcasts, including for ARP. IPv6 uses no broadcasts and no ARP. It uses multicast and ND instead, and ND discovers the network address and routers.",
+"spoken": "Broadcasts: I.P. version 4 uses broadcasts, including for arp. I.P. version 6 uses no broadcasts and no arp. It uses multicast and ND instead, and ND discovers the network address and routers.",
+"start": 2221.394,
+"end": 2237.543
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Same in both: TCP and UDP, application protocols such as HTTP and FTP, Layer 2 technologies such as Ethernet and WAN standards, a network part on the left and host part on the right, and a mask whose 1 bits mark the network part.",
+"spoken": "Same in both: TCP and UDP, application protocols such as HTTP and FTP, Layer 2 technologies such as Ethernet and wan standards, a network part on the left and host part on the right, and a mask whose 1 bits mark the network part.",
+"start": 2237.993,
+"end": 2256.382
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Address Shortcuts",
+"spoken": "Address Shortcuts.",
+"start": 2257.832,
+"end": 2259.262
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Leading zeros in a group can be dropped, as with DB8.",
+"spoken": "Leading zeros in a group can be dropped, as with D B 8.",
+"start": 2259.712,
+"end": 2263.637
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In the example address, three zero groups exist (two together after DB8 and one after 1234). Using :: twice would be ambiguous, so the system shortens only the first run.",
+"spoken": "In the example address, three zero groups exist (two together after D B 8 and one after 1234). Using :: twice would be ambiguous, so the system shortens only the first run.",
+"start": 2264.087,
+"end": 2278.679
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Link-Local Behavior",
+"spoken": "Link-Local Behavior.",
+"start": 2280.129,
+"end": 2281.644
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "To reach remote devices, a host must use its global address and needs a route or default gateway.",
+"spoken": "To reach remote devices, a host must use its global address and needs a route or default gateway.",
+"start": 2282.094,
+"end": 2288.984
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Link-local addresses can be configured manually; otherwise the device creates them.",
+"spoken": "Link-local addresses can be configured manually; otherwise the device creates them.",
+"start": 2289.434,
+"end": 2294.725
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If the interface isn't Ethernet, modified EUI-64 borrows the MAC address of another interface.",
+"spoken": "If the interface isn't Ethernet, modified E.U.I. 64 borrows the mac address of another interface.",
+"start": 2295.175,
+"end": 2303.495
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 6-39: MAC ca00.4132.0006 becomes FE80::C800:41FF:FE32:6. CA becomes C8 because the seventh bit is inverted.",
+"spoken": "Example 6-39: mac ca00.4132.0006 becomes F E 8 0 colon colon C 8 0 0 colon 4 1 F F colon F E 3 2 colon 6. C.A. becomes C 8 because the seventh bit is inverted.",
+"start": 2303.945,
+"end": 2324.382
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says to look back at Example 6-37 for the FE80 address, but 6-37 is the secure bootset. The address is in Example 6-38.",
+"spoken": "The book says to look back at Example 6-37 for the FE80 address, but 6-37 is the secure bootset. The address is in Example 6-38.",
+"start": 2324.832,
+"end": 2337.611
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A device discards frames whose Layer 2 destination isn't itself or a group it joined, without decapsulating further.",
+"spoken": "A device discards frames whose Layer 2 destination isn't itself or a group it joined, without decapsulating further.",
+"start": 2338.061,
+"end": 2346.317
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The router in Example 6-39 joined FF02::1, FF02::2, FF02::9, FF02::1:FF32:6 (from the link-local ending 32:0006), and FF02::1:FF52:1 (from the global ending 52:0001).",
+"spoken": "The router in Example 6-39 joined F F 0 2 colon colon 1, F F 0 2 colon colon 2, F F 0 2 colon colon 9, F F 0 2 colon colon 1 colon F F 3 2 colon 6 (from the link-local ending 32:0006), and F F 0 2 colon colon 1 colon F F 5 2 colon 1 (from the global ending 52:0001).",
+"start": 2346.767,
+"end": 2376.314
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IPv6 Routing",
+"spoken": "I.P. version 6 Routing.",
+"start": 2377.764,
+"end": 2379.982
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routes come from static routes, routing protocols, and default routes.",
+"spoken": "Routes come from static routes, routing protocols, and default routes.",
+"start": 2380.432,
+"end": 2384.891
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPv6 IGPs don't use network statements. You enable them with interface commands.",
+"spoken": "I.P. version 6 I.G.P.s don't use network statements. You enable them with interface commands.",
+"start": 2385.341,
+"end": 2393.256
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If several protocols learn the same route, administrative distance picks the best, as in IPv4. In production you need only one protocol per interface.",
+"spoken": "If several protocols learn the same route, administrative distance picks the best, as in I.P. version 4. In production you need only one protocol per interface.",
+"start": 2393.706,
+"end": 2405.759
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Moving to IPv6",
+"spoken": "Moving to I.P. version 6.",
+"start": 2407.209,
+"end": 2409.641
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "It is a migration, not a one-time event.",
+"spoken": "It is a migration, not a one-time event.",
+"start": 2410.091,
+"end": 2413.078
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Coexistence mechanisms: dual stack, and tunneling IPv6 inside IPv4 across IPv4-only areas, de-encapsulated at the far end.",
+"spoken": "Coexistence mechanisms: dual stack, and tunneling I.P. version 6 inside I.P. version 4 across I.P. version 4-only areas, de-encapsulated at the far end.",
+"start": 2413.528,
+"end": 2427.394
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Best Practices Common to IPv4 and IPv6",
+"spoken": "Best Practices Common to I.P. version 4 and I.P. version 6.",
+"start": 2428.844,
+"end": 2434.156
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Most IPv4 risks also apply to IPv6, so secure both stacks.",
+"spoken": "Most I.P. version 4 risks also apply to I.P. version 6, so secure both stacks.",
+"start": 2434.606,
+"end": 2441.561
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Physical security: protect the router room from electrostatic and magnetic interference, control temperature and humidity, log and control access, and provide redundant power.",
+"spoken": "Physical security: protect the router room from electrostatic and magnetic interference, control temperature and humidity, log and control access, and provide redundant power.",
+"start": 2442.011,
+"end": 2454.47
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Device hardening: disable unused services, features, and interfaces. See the Cisco Guide to Harden Cisco IOS Devices.",
+"spoken": "Device hardening: disable unused services, features, and interfaces. See the Cisco Guide to Harden Cisco I.O.S. Devices.",
+"start": 2454.92,
+"end": 2464.69
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Control access between zones: ACLs, or stateful inspection on a router firewall or dedicated appliance.",
+"spoken": "Control access between zones: A.C.L.s, or stateful inspection on a router firewall or dedicated appliance.",
+"start": 2465.14,
+"end": 2473.738
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routing protocol security: authenticate routing updates.",
+"spoken": "Routing protocol security: authenticate routing updates.",
+"start": 2474.188,
+"end": 2478.262
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AAA: know who accessed what, when, and what they did. Use NTP for real timestamps, check logs, use cryptographic management protocols, and put Telnet and HTTP inside a VPN.",
+"spoken": "triple A: know who accessed what, when, and what they did. Use N.T.P. for real timestamps, check logs, use cryptographic management protocols, and put Telnet and HTTP inside a VPN.",
+"start": 2478.712,
+"end": 2492.963
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mitigating DoS: filter bogus source addresses coming in and going out, with Unicast RPF and ACLs. There is no complete solution, but this also stops your systems from attacking others.",
+"spoken": "Mitigating D.O.S.: filter bogus source addresses coming in and going out, with Unicast RPF and A.C.L.s. There is no complete solution, but this also stops your systems from attacking others.",
+"start": 2493.413,
+"end": 2507.685
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security policy: revisit it after major changes to practices, procedures, or staff, after new technology (such as a new VPN or an application with new protocols), and after a significant attack.",
+"spoken": "Security policy: revisit it after major changes to practices, procedures, or staff, after new technology (such as a new VPN or an application with new protocols), and after a significant attack.",
+"start": 2508.135,
+"end": 2522.62
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threats Common to IPv4 and IPv6",
+"spoken": "Threats Common to I.P. version 4 and I.P. version 6.",
+"start": 2524.07,
+"end": 2528.785
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Application layer attacks: a service used in an unexpected or malicious way. Allow only required protocols, use application inspection on the ASA or IOS Zone-Based Firewall or IPS, and stay patched.",
+"spoken": "Application layer attacks: a service used in an unexpected or malicious way. Allow only required protocols, use application inspection on the ASA or I.O.S. Zone-Based Firewall or IPS, and stay patched.",
+"start": 2529.235,
+"end": 2546.067
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Unauthorized access: use AAA to challenge and authorize users and administrators. Accounting records the activity.",
+"spoken": "Unauthorized access: use triple A to challenge and authorize users and administrators. Accounting records the activity.",
+"start": 2546.517,
+"end": 2555.029
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Man-in-the-middle: someone between two parties eavesdrops or changes data. Mitigate with DAI and STP guards at Layer 2, routing protocol authentication at Layer 3, and peer authentication in VPNs.",
+"spoken": "Man-in-the-middle: someone between two parties eavesdrops or changes data. Mitigate with DAI and STP guards at Layer 2, routing protocol authentication at Layer 3, and peer authentication in V.P.N.s.",
+"start": 2555.479,
+"end": 2571.991
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sniffing or eavesdropping: for example after a CAM table overflow. Mitigate with port security and encryption, natively or with a VPN.",
+"spoken": "Sniffing or eavesdropping: for example after a cam table overflow. Mitigate with port security and encryption, natively or with a VPN.",
+"start": 2572.441,
+"end": 2582.894
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DoS: mitigate with packet inspection and rate limiting of suspicious traffic, physical security, firewall inspection, and IPS.",
+"spoken": "D.O.S.: mitigate with packet inspection and rate limiting of suspicious traffic, physical security, firewall inspection, and IPS.",
+"start": 2583.344,
+"end": 2592.624
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Spoofed packets: forged addresses or content. Filter at the edge, deny inbound traffic claiming an inside source, and use reverse path checks.",
+"spoken": "Spoofed packets: forged addresses or content. Filter at the edge, deny inbound traffic claiming an inside source, and use reverse path checks.",
+"start": 2593.074,
+"end": 2603.464
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attacks against routers and network devices: turn off unneeded services and harden the devices.",
+"spoken": "Attacks against routers and network devices: turn off unneeded services and harden the devices.",
+"start": 2603.914,
+"end": 2610.655
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "The Focus on IPv6 Security",
+"spoken": "The Focus on I.P. version 6 Security.",
+"start": 2612.105,
+"end": 2615.561
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A traditional ping sweep is impractical across a subnet of 2 to the 64 addresses.",
+"spoken": "A traditional ping sweep is impractical across a subnet of 2 to the 64 addresses.",
+"start": 2616.011,
+"end": 2622.411
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "But it's a double-edged sword: a local attacker can ping FF02::1 and every device answers. FF02::1 is link-local in scope, so this doesn't work remotely.",
+"spoken": "But it's a double-edged sword: a local attacker can ping F F 0 2 colon colon 1 and every device answers. F F 0 2 colon colon 1 is link-local in scope, so this doesn't work remotely.",
+"start": 2622.861,
+"end": 2638.136
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Scanners and worms will still work in IPv6, just with different mechanisms.",
+"spoken": "Scanners and worms will still work in I.P. version 6, just with different mechanisms.",
+"start": 2638.586,
+"end": 2644.623
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Users may not know IPv6 is running on their workstations. An attacker can exploit the unused stack, so disable it if not used.",
+"spoken": "Users may not know I.P. version 6 is running on their workstations. An attacker can exploit the unused stack, so disable it if not used.",
+"start": 2645.073,
+"end": 2655.526
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "New Potential Risks with IPv6",
+"spoken": "New Potential Risks with I.P. version 6.",
+"start": 2656.976,
+"end": 2660.326
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rogue router through ND: it pretends to be a legitimate router and sends false network, gateway, and other details, leading to man-in-the-middle.",
+"spoken": "Rogue router through ND: it pretends to be a legitimate router and sends false network, gateway, and other details, leading to man-in-the-middle.",
+"start": 2660.776,
+"end": 2670.376
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Neighbor cache resource starvation: countered by IPv6 Destination Guard.",
+"spoken": "Neighbor cache resource starvation: countered by I.P. version 6 Destination Guard.",
+"start": 2670.826,
+"end": 2677.247
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DHCPv6: a rogue router can feed clients false DHCP information and make itself the default gateway.",
+"spoken": "DHCPv6: a rogue router can feed clients false DHCP information and make itself the default gateway.",
+"start": 2677.697,
+"end": 2686.166
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hop-by-hop extension headers:",
+"spoken": "Hop-by-hop extension headers:",
+"start": 2686.616,
+"end": 2688.686
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IPv4 IP options could cause high CPU use and dictate the packet's path. IPv6 has no IP options, but its extensions can be misused the same way.",
+"spoken": "I.P. version 4 IP options could cause high CPU use and dictate the packet's path. I.P. version 6 has no IP options, but its extensions can be misused the same way.",
+"start": 2689.136,
+"end": 2703.258
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "RH0 lets an attacker dictate the path. Cisco IOS, IOS-XE, NX-OS, and IOS-XR disable RH0 processing by default on most current versions.",
+"spoken": "R.H. zero lets an attacker dictate the path. Cisco I.O.S., I.O.S. X.E., NX-O.S., and I.O.S.-XR disable R.H. zero processing by default on most current versions.",
+"start": 2703.708,
+"end": 2718.983
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Many or very long extension headers can overwhelm router hardware, a DDoS vector on any platform. Cisco routers rate-limit packets diverted from the hardware path to the software path to protect the CPU.",
+"spoken": "Many or very long extension headers can overwhelm router hardware, a D.D.O.S. vector on any platform. Cisco routers rate-limit packets diverted from the hardware path to the software path to protect the CPU.",
+"start": 2719.433,
+"end": 2734.921
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Packet amplification: for example a neighbor solicitation sent to FF02::1 makes every device respond, or extension headers that loop a packet until TTL expires, injected thousands of times.",
+"spoken": "Packet amplification: for example a neighbor solicitation sent to F F 0 2 colon colon 1 makes every device respond, or extension headers that loop a packet until TTL expires, injected thousands of times.",
+"start": 2735.371,
+"end": 2751.947
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ICMPv6: used heavily by ND, so manipulating it can do a lot of harm.",
+"spoken": "ICMPv6: used heavily by ND, so manipulating it can do a lot of harm.",
+"start": 2752.397,
+"end": 2758.221
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tunneling: the IPv4 network may not inspect the IPv6 packets inside. Filter at the tunnel edges.",
+"spoken": "Tunneling: the I.P. version 4 network may not inspect the I.P. version 6 packets inside. Filter at the tunnel edges.",
+"start": 2758.671,
+"end": 2767.652
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Autoconfiguration: a rogue router can make hosts autoconfigure wrongly, causing failure or man-in-the-middle.",
+"spoken": "Autoconfiguration: a rogue router can make hosts autoconfigure wrongly, causing failure or man-in-the-middle.",
+"start": 2768.102,
+"end": 2775.654
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dual stacks: an unsecured second stack gives remote access, and the attacker can then change IP settings or other configuration.",
+"spoken": "Dual stacks: an unsecured second stack gives remote access, and the attacker can then change IP settings or other configuration.",
+"start": 2776.104,
+"end": 2785.32
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Bugs in code: IPv6 software on network devices and end stations can have bugs.",
+"spoken": "Bugs in code: I.P. version 6 software on network devices and end stations can have bugs.",
+"start": 2785.77,
+"end": 2793.13
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IPv6 Best Practices",
+"spoken": "I.P. version 6 Best Practices.",
+"start": 2794.58,
+"end": 2797.439
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Build security in at the start of deployment instead of waiting for an attack.",
+"spoken": "Build security in at the start of deployment instead of waiting for an attack.",
+"start": 2797.889,
+"end": 2802.582
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Filter bogus (bogon) addresses at the edge.",
+"spoken": "Filter bogus (bogon) addresses at the edge.",
+"start": 2803.032,
+"end": 2805.912
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Filter nonlocal multicast: without multicast applications, multicast never needs to leave its VLAN. IPv6 uses local multicast for routing updates and ND.",
+"spoken": "Filter nonlocal multicast: without multicast applications, multicast never needs to leave its V-lan. I.P. version 6 uses local multicast for routing updates and ND.",
+"start": 2806.362,
+"end": 2820.144
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Filter unneeded ICMPv6: keep what ND and path MTU discovery need, and filter the rest.",
+"spoken": "Filter unneeded ICMPv6: keep what ND and path MTU discovery need, and filter the rest.",
+"start": 2820.594,
+"end": 2827.719
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Drop RH0 packets: they can carry many next hops and loop until TTL expires. Cisco routers drop them by default.",
+"spoken": "Drop R.H. zero packets: they can carry many next hops and loop until TTL expires. Cisco routers drop them by default.",
+"start": 2828.169,
+"end": 2837.94
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use manual tunnels, not automatic ones, and don't let tunnels cross your perimeter, since you can't tightly control their contents.",
+"spoken": "Use manual tunnels, not automatic ones, and don't let tunnels cross your perimeter, since you can't tightly control their contents.",
+"start": 2838.39,
+"end": 2846.71
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protect against rogue IPv6 devices: the binding table, device tracking, port-based ACLs, RA Guard, ND Inspection, and SeND.",
+"spoken": "Protect against rogue I.P. version 6 devices: the binding table, device tracking, port-based A.C.L.s, RA Guard, ND Inspection, and send.",
+"start": 2847.16,
+"end": 2858.573
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IPv6 ACL Example",
+"spoken": "I.P. version 6 ACL Example.",
+"start": 2860.023,
+"end": 2863.074
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 6-41 on LAB-Router-1 protects DNS servers in 2001:DB8:1:60::/64. Only host 2001:DB8::100:1 may reach them on UDP 53, inbound on Gigabit0/0.",
+"spoken": "Example 6-41 on lab router-1 protects DNS servers in 2001 colon D B 8 colon 1 colon 60 colon colon slash 64. Only host 2001 colon D B 8 colon colon 100 colon 1 may reach them on UDP 53, inbound on gigabit 0 slash 0.",
+"start": 2863.524,
+"end": 2887.993
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Make sure all required routing and administrative traffic is permitted before denying everything else.",
+"spoken": "Make sure all required routing and administrative traffic is permitted before denying everything else.",
+"start": 2888.443,
+"end": 2895.12
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "12. Securing Routing Protocols and the Control Plane",
+"spoken": "12. Securing Routing Protocols and the Control Plane.",
+"start": 2897.17,
+"end": 2901.01
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why the Control Plane Is Critical",
+"spoken": "Why the Control Plane Is Critical.",
+"start": 2902.81,
+"end": 2904.88
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The control plane keeps the management and data planes running. If it becomes unstable during an incident, the network may be impossible to recover.",
+"spoken": "The control plane keeps the management and data planes running. If it becomes unstable during an incident, the network may be impossible to recover.",
+"start": 2905.33,
+"end": 2914.844
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Control plane packets are generated or received by the device, always have a receive destination IP, and are handled by the route processor's CPU.",
+"spoken": "Control plane packets are generated or received by the device, always have a receive destination IP, and are handled by the route processor's CPU.",
+"start": 2915.294,
+"end": 2925.982
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Examples: BGP, OSPF, EIGRP, ICMP, and RSVP.",
+"spoken": "Examples: BGP, OSPF, EIGRP, ICMP, and RSVP.",
+"start": 2926.432,
+"end": 2931.51
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Minimizing CPU Impact",
+"spoken": "Minimizing CPU Impact.",
+"start": 2932.96,
+"end": 2934.986
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Disable sending and receiving of unneeded packet types on interfaces to cut process-switched traffic.",
+"spoken": "Disable sending and receiving of unneeded packet types on interfaces to cut process-switched traffic.",
+"start": 2935.436,
+"end": 2942.711
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Process-switched traffic has two categories:",
+"spoken": "Process-switched traffic has two categories:",
+"start": 2943.161,
+"end": 2945.636
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Receive adjacency traffic: packets to the device's own addresses, multicast, and broadcast. In Example 6-42, addresses such as 192.168.10.1/32 and the loopbacks show \"receive\".",
+"spoken": "Receive adjacency traffic: packets to the device's own addresses, multicast, and broadcast. In Example 6-42, addresses such as 192.168.10.1 slash 32 and the loopbacks show \"receive\".",
+"start": 2946.086,
+"end": 2964.667
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Data plane traffic needing special CPU processing: listed below.",
+"spoken": "Data plane traffic needing special CPU processing: listed below.",
+"start": 2965.117,
+"end": 2969.81
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data plane traffic the CPU must process:",
+"spoken": "Data plane traffic the CPU must process:",
+"start": 2970.26,
+"end": 2973.311
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "ACL logging: packets matching an ACE with the log keyword.",
+"spoken": "ACL logging: packets matching an ACE with the log keyword.",
+"start": 2973.761,
+"end": 2978.412
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Unicast RPF: used with an ACL, can process-switch some packets.",
+"spoken": "Unicast RPF: used with an ACL, can process-switch some packets.",
+"start": 2978.862,
+"end": 2984.195
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IP options: every packet with options.",
+"spoken": "IP options: every packet with options.",
+"start": 2984.645,
+"end": 2987.738
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Fragmentation: every packet that needs fragmenting.",
+"spoken": "Fragmentation: every packet that needs fragmenting.",
+"start": 2988.188,
+"end": 2991.644
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "TTL expiry: TTL 1 or less needs an ICMP Time Exceeded reply.",
+"spoken": "TTL expiry: TTL 1 or less needs an ICMP Time Exceeded reply.",
+"start": 2992.094,
+"end": 2998.537
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "ICMP unreachables: caused by routing, MTU, or filtering.",
+"spoken": "ICMP unreachables: caused by routing, MTU, or filtering.",
+"start": 2998.987,
+"end": 3004.0
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Traffic requiring an ARP request: destinations with no ARP entry.",
+"spoken": "Traffic requiring an arp request: destinations with no arp entry.",
+"start": 3004.45,
+"end": 3009.421
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Non-IP traffic: all of it.",
+"spoken": "Non-IP traffic: all of it.",
+"start": 3009.871,
+"end": 3012.026
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Details about CoPP",
+"spoken": "Details about cop.",
+"start": 3013.476,
+"end": 3015.076
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Identifies the type and rate of traffic reaching the control plane, using granular classification ACLs, logging, and show policy-map control-plane.",
+"spoken": "Identifies the type and rate of traffic reaching the control plane, using granular classification A.C.L.s, logging, and show policy-map control-plane.",
+"start": 3015.526,
+"end": 3026.96
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A Cisco IOS-wide feature that stops unnecessary traffic from overwhelming the route processor.",
+"spoken": "A Cisco I.O.S.-wide feature that stops unnecessary traffic from overwhelming the route processor.",
+"start": 3027.41,
+"end": 3034.898
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Route processor resource exhaustion means all resources of the punt path and route processors: IOS process memory, buffers, and ingress packet queues.",
+"spoken": "Route processor resource exhaustion means all resources of the punt path and route processors: I.O.S. process memory, buffers, and ingress packet queues.",
+"start": 3035.348,
+"end": 3046.612
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Management plane, data plane exception, and some services plane packets also hit the route processor, but these resources are still commonly called the control plane.",
+"spoken": "Management plane, data plane exception, and some services plane packets also hit the route processor, but these resources are still commonly called the control plane.",
+"start": 3047.062,
+"end": 3058.241
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACL logic in CoPP is reversed:",
+"spoken": "ACL logic in cop is reversed:",
+"start": 3058.691,
+"end": 3061.294
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "\"Permit\" means the traffic is inspected by that class.",
+"spoken": "\"Permit\" means the traffic is inspected by that class.",
+"start": 3061.744,
+"end": 3065.072
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "\"Deny\" means it skips that class and cascades to the next class, if one exists.",
+"spoken": "\"Deny\" means it skips that class and cascades to the next class, if one exists.",
+"start": 3065.522,
+"end": 3070.855
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Never use log or log-input in CoPP ACLs; they can cause unexpected results.",
+"spoken": "Never use log or log-input in cop A.C.L.s; they can cause unexpected results.",
+"start": 3071.305,
+"end": 3077.876
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 6-43 intent: only Telnet and DNS from trusted hosts in 192.168.1.0/24 reach the CPU, and ICMP to infrastructure in 10.1.1.0/24 is rate-limited.",
+"spoken": "Example 6-43 intent: only Telnet and DNS from trusted hosts in 192.168.1.0 slash 24 reach the CPU, and ICMP to infrastructure in 10.1.1.0 slash 24 is rate-limited.",
+"start": 3078.326,
+"end": 3099.062
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says the ICMP is limited to 5000 packets per second, but the police command and the show output set a CIR of 50000 bits per second with 5000-byte bursts. That is a bit rate, not a packet rate.",
+"spoken": "The book says the ICMP is limited to 5000 packets per second, but the police command and the show output set a CIR of 50000 bits per second with 5000-byte bursts. That is a bit rate, not a packet rate.",
+"start": 3099.512,
+"end": 3115.17
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Details about CPPr",
+"spoken": "Details about C.P.P.R.",
+"start": 3116.62,
+"end": 3118.903
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Besides the three sub-interfaces, CPPr adds two features:",
+"spoken": "Besides the three sub-interfaces, C.P.P.R. adds two features:",
+"start": 3119.353,
+"end": 3124.068
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Port-filtering feature: polices and drops packets sent to closed or nonlistening TCP or UDP ports.",
+"spoken": "Port-filtering feature: polices and drops packets sent to closed or nonlistening TCP or UDP ports.",
+"start": 3124.518,
+"end": 3132.539
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Queue-thresholding feature: limits how many packets of a given protocol can sit in the control plane IP input queue.",
+"spoken": "Queue-thresholding feature: limits how many packets of a given protocol can sit in the control plane IP input queue.",
+"start": 3132.989,
+"end": 3140.754
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Securing Routing Protocols",
+"spoken": "Securing Routing Protocols.",
+"start": 3142.204,
+"end": 3144.231
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routing information is sent in the clear by default, so an attacker can see it and inject false routes.",
+"spoken": "Routing information is sent in the clear by default, so an attacker can see it and inject false routes.",
+"start": 3144.681,
+"end": 3151.508
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book's examples use MD5, because it is much more secure than password authentication. Use passwords with enough randomness.",
+"spoken": "The book's examples use M.D. 5, because it is much more secure than password authentication. Use passwords with enough randomness.",
+"start": 3151.958,
+"end": 3161.323
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "OSPF",
+"spoken": "OSPF.",
+"start": 3162.773,
+"end": 3163.605
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configure at the interface level or in the OSPF process.",
+"spoken": "Configure at the interface level or in the OSPF process.",
+"start": 3164.055,
+"end": 3167.916
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The authentication type must match on all routers and access servers in an area. The password must match on all OSPF routers on a network.",
+"spoken": "The authentication type must match on all routers and access servers in an area. The password must match on all OSPF routers on a network.",
+"start": 3168.366,
+"end": 3177.881
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The other peer needs the identical configuration except for its interface IP and router ID.",
+"spoken": "The other peer needs the identical configuration except for its interface IP and router ID.",
+"start": 3178.331,
+"end": 3185.179
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "EIGRP",
+"spoken": "EIGRP.",
+"start": 3186.629,
+"end": 3187.482
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routers accept updates only from routers that know the same pre-shared key. Without it, a rogue router with conflicting routes could corrupt routing tables and cause DoS.",
+"spoken": "Routers accept updates only from routers that know the same pre-shared key. Without it, a rogue router with conflicting routes could corrupt routing tables and cause D.O.S.",
+"start": 3187.932,
+"end": 3199.986
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configure on each interface. Unlike OSPF, EIGRP uses a key chain.",
+"spoken": "Configure on each interface. Unlike OSPF, EIGRP uses a key chain.",
+"start": 3200.436,
+"end": 3205.428
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The peer needs identical configuration except for the interface IP.",
+"spoken": "The peer needs identical configuration except for the interface IP.",
+"start": 3205.878,
+"end": 3210.784
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "RIP",
+"spoken": "RIP.",
+"start": 3212.234,
+"end": 3212.896
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RIPv2 supports plaintext and MD5 authentication. Plaintext is the default once authentication is enabled and sends the password in every packet, so don't use it when security matters.",
+"spoken": "RIPv2 supports plaintext and M.D. 5 authentication. Plaintext is the default once authentication is enabled and sends the password in every packet, so don't use it when security matters.",
+"start": 3213.346,
+"end": 3227.511
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RIPv1 doesn't support authentication.",
+"spoken": "RIPv1 doesn't support authentication.",
+"start": 3227.961,
+"end": 3230.5
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configured per interface with a key chain, like EIGRP.",
+"spoken": "Configured per interface with a key chain, like EIGRP.",
+"start": 3230.95,
+"end": 3234.342
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The peer needs identical configuration except for the interface IP and network statements.",
+"spoken": "The peer needs identical configuration except for the interface IP and network statements.",
+"start": 3234.792,
+"end": 3241.128
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "BGP",
+"spoken": "BGP.",
+"start": 3242.578,
+"end": 3243.708
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HMAC-MD5 builds a digest from parts of the IP and TCP headers, the TCP payload, and a secret key.",
+"spoken": "H-mac M.D. 5 builds a digest from parts of the IP and TCP headers, the TCP payload, and a secret key.",
+"start": 3244.158,
+"end": 3253.588
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The receiving speaker recomputes the digest with the same algorithm and key. If the digests differ, the packet is discarded.",
+"spoken": "The receiving speaker recomputes the digest with the same algorithm and key. If the digests differ, the packet is discarded.",
+"start": 3254.038,
+"end": 3262.742
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "BGP is the simplest to configure: one neighbor statement with the password option. The peer needs a similar configuration.",
+"spoken": "BGP is the simplest to configure: one neighbor statement with the password option. The peer needs a similar configuration.",
+"start": 3263.192,
+"end": 3272.13
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A rollover doesn't affect the BGP session unless a keychain mismatch leaves no common keys for sending or accepting.",
+"spoken": "A rollover doesn't affect the BGP session unless a keychain mismatch leaves no common keys for sending or accepting.",
+"start": 3272.58,
+"end": 3280.858
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The chapter's opening quiz says BGP endpoints use \"a keychain on one router and a password on the other router\". That conflicts with the keychain TIP, which describes keychains on both peers with matching keys.",
+"spoken": "The chapter's opening quiz says BGP endpoints use \"a keychain on one router and a password on the other router\". That conflicts with the keychain TIP, which describes keychains on both peers with matching keys.",
+"start": 3281.308,
+"end": 3296.22
+}
+]
+}
