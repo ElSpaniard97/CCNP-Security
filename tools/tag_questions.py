@@ -104,7 +104,10 @@ def tag(notes_dir, n, flashcards):
             q.pop("topic", None)
             q["cards"] = cards_for(q, flashcards.get(str(n), []))
             best = max(range(len(subs)), key=lambda i: cos(qv, sub_v[i]) + 0.6 * cos(qv, sec_v[subs[i][0]]))
-            q["section"] = f"{subs[best][0]} / {subs[best][1]}" if n in (2, 3, 11) else subs[best][0]
+            sec, topic = subs[best][0], subs[best][1]
+            # A subsection only helps when it names a real topic, not the section again or book navigation.
+            useful = topic != sec and not re.match(r"where this fits", topic, re.I)
+            q["section"] = f"{sec} / {topic}" if n in (2, 3, 11) and useful else sec
             counts[q["section"]] += 1
     apply_overrides(data, n)
     with open(path, "w", encoding="utf-8") as f:

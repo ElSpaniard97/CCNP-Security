@@ -25,7 +25,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / NFV Infrastructure Requirements",
      "cards": [
       "SDN (software-defined networking)"
      ]
@@ -51,7 +51,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / What SDN Changed",
      "cards": [
       "OpenFlow",
       "API (application programming interface)",
@@ -79,7 +79,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "VXLAN (Virtual Extensible LAN)"
      ]
@@ -105,7 +105,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / APIC Functions",
      "cards": [
       "APIC (Application Policy Infrastructure Controller)"
      ]
@@ -131,7 +131,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Micro-Segmentation",
      "cards": [
       "Micro-segmentation"
      ]
@@ -157,7 +157,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / NFV MANO Components",
      "cards": [
       "NFV MANO (management and network orchestration)",
       "NFV (Network Functions Virtualization)",
@@ -185,7 +185,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / NETCONF",
      "cards": [
       "NETCONF"
      ]
@@ -211,7 +211,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / RESTCONF",
      "cards": [
       "RFC 8040",
       "RESTCONF",
@@ -239,7 +239,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / HTTP Request Structure",
      "cards": [
       "API (application programming interface)",
       "REST (Representational State Transfer)"
@@ -266,7 +266,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Center APIs",
      "cards": [
       "/api/system/v1/auth/token",
       "Cisco DNA (Digital Network Architecture)",
@@ -294,7 +294,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Open-Source Initiatives",
      "cards": [
       "Neutron"
      ]
@@ -320,7 +320,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "VXLAN (Virtual Extensible LAN)",
       "VXLAN header"
@@ -347,7 +347,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / API Types and Documentation",
      "cards": [
       "SOAP (Simple Object Access Protocol)",
       "API (application programming interface)"
@@ -374,7 +374,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Cisco DNA Center",
      "cards": [
       "Cisco DNA (Digital Network Architecture)",
       "DNAC (Cisco DNA Center)"
@@ -401,7 +401,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Micro-Segmentation",
      "cards": [
       "Leaf switch",
       "Cisco ACI (Application Centric Infrastructure)",
@@ -429,7 +429,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / HTTP Request Structure",
      "cards": []
     },
     {
@@ -453,7 +453,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Security",
      "cards": [
       "ETA (Encrypted Traffic Analytics)",
       "Cisco DNA (Digital Network Architecture)"
@@ -480,7 +480,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / NETCONF",
      "cards": [
       "RESTCONF",
       "NETCONF",
@@ -508,7 +508,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Open-Source Initiatives",
      "cards": [
       "Netmaster and Netplugin (Contiv host agent)"
      ]
@@ -534,7 +534,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / REST API Example (Deck of Cards)",
      "cards": [
       "python -m json.tool",
       "API (application programming interface)",
@@ -567,7 +567,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Traditional Networking",
      "cards": [
       "Management plane"
      ]
@@ -593,7 +593,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Open-Source Initiatives",
      "cards": [
       "API (application programming interface)",
       "Northbound API",
@@ -621,7 +621,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / APIC Functions",
      "cards": [
       "Spine switch",
       "Cisco ACI (Application Centric Infrastructure)"
@@ -648,7 +648,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "STT (Stateless Transport Tunneling)",
       "VXLAN (Virtual Extensible LAN)"
@@ -675,7 +675,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "VXLAN (Virtual Extensible LAN)",
       "ECMP (equal-cost multi-path)"
@@ -702,7 +702,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Micro-Segmentation",
      "cards": [
       "Micro-segmentation",
       "Zero-trust model"
@@ -729,7 +729,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / NFV MANO Components",
      "cards": [
       "VNF (virtual network function)",
       "NFV MANO (management and network orchestration)",
@@ -757,7 +757,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Cisco DNA Center",
      "cards": [
       "NETCONF"
      ]
@@ -783,7 +783,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / YANG",
      "cards": [
       "RFC 6020",
       "YANG"
@@ -810,7 +810,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / HTTP Request Structure",
      "cards": []
     },
     {
@@ -834,7 +834,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / API Types and Documentation",
      "cards": [
       "REST (Representational State Transfer)",
       "API (application programming interface)",
@@ -862,7 +862,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Group-Based Access Control",
      "cards": [
       "Cisco DNA (Digital Network Architecture)",
       "DNAC (Cisco DNA Center)",
@@ -890,7 +890,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Traffic Copy Policy",
      "cards": []
     },
     {
@@ -914,7 +914,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Open-Source Initiatives",
      "cards": [
       "Hypervisor",
       "OVS (Open vSwitch)",
@@ -942,7 +942,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / NFV Infrastructure Requirements",
      "cards": [
       "NFV (Network Functions Virtualization)"
      ]
@@ -968,7 +968,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Cisco DNA Center",
      "cards": [
       "/api/v1/flow-analysis",
       "Cisco DNA (Digital Network Architecture)",
@@ -996,7 +996,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / YANG",
      "cards": [
       "JSON (JavaScript Object Notation)",
       "RESTCONF",
@@ -1024,7 +1024,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Contiv",
      "cards": []
     },
     {
@@ -1048,7 +1048,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / OpenConfig and gNMI",
      "cards": [
       "gNMI (gRPC Network Management Interface)",
       "OpenConfig",
@@ -1076,7 +1076,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Assurance",
      "cards": []
     }
    ]
@@ -1105,7 +1105,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Contiv",
      "cards": [
       "Control plane"
      ]
@@ -1131,7 +1131,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Traditional Networking",
      "cards": [
       "SDN (software-defined networking)",
       "ASDM (Adaptive Security Device Manager)"
@@ -1158,7 +1158,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Contiv",
      "cards": [
       "VTEP (VXLAN tunnel endpoint)",
       "Leaf switch",
@@ -1186,7 +1186,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / APIC Functions",
      "cards": [
       "APIC (Application Policy Infrastructure Controller)"
      ]
@@ -1212,7 +1212,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "VXLAN (Virtual Extensible LAN)"
      ]
@@ -1238,7 +1238,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Micro-Segmentation",
      "cards": [
       "East-west traffic"
      ]
@@ -1264,7 +1264,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Micro-Segmentation",
      "cards": [
       "East-west traffic"
      ]
@@ -1290,7 +1290,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Open-Source Initiatives",
      "cards": [
       "ODL (OpenDaylight)",
       "OVSDB (OVS Database Management Protocol)",
@@ -1318,7 +1318,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / NFV MANO Components",
      "cards": [
       "NFV (Network Functions Virtualization)",
       "NFV MANO (management and network orchestration)",
@@ -1346,7 +1346,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / OpenConfig and gNMI",
      "cards": [
       "NETCONF"
      ]
@@ -1372,7 +1372,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / HTTP Request Structure",
      "cards": [
       "API (application programming interface)",
       "REST (Representational State Transfer)"
@@ -1399,7 +1399,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / NFV Infrastructure Requirements",
      "cards": [
       "WSDL (Web Services Description Language)"
      ]
@@ -1425,7 +1425,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Contiv",
      "cards": [
       "/api/v1/host",
       "API (application programming interface)"
@@ -1452,7 +1452,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / RESTCONF",
      "cards": [
       "RESTCONF",
       "requests"
@@ -1479,7 +1479,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Group-Based Access Control",
      "cards": []
     },
     {
@@ -1503,7 +1503,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Center APIs",
      "cards": [
       "GraphQL"
      ]
@@ -1529,7 +1529,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / YANG",
      "cards": [
       "YANG"
      ]
@@ -1555,7 +1555,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / OpenConfig and gNMI",
      "cards": [
       "YANG",
       "OpenConfig"
@@ -1582,7 +1582,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / NETCONF",
      "cards": [
       "pip install ncclient",
       "pip",
@@ -1610,7 +1610,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Center APIs",
      "cards": [
       "Intent APIs",
       "Cisco DNA (Digital Network Architecture)",
@@ -1643,7 +1643,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Traditional Networking",
      "cards": [
       "Data plane"
      ]
@@ -1669,7 +1669,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Center APIs",
      "cards": [
       "Cisco DNA (Digital Network Architecture)",
       "DNAC (Cisco DNA Center)",
@@ -1697,7 +1697,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / APIC Functions",
      "cards": [
       "Cisco ACI (Application Centric Infrastructure)",
       "Leaf-and-spine topology"
@@ -1724,7 +1724,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / APIC Functions",
      "cards": [
       "APIC (Application Policy Infrastructure Controller)"
      ]
@@ -1750,7 +1750,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Traffic Copy Policy",
      "cards": [
       "VTEP (VXLAN tunnel endpoint)",
       "VXLAN (Virtual Extensible LAN)"
@@ -1777,7 +1777,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "VXLAN (Virtual Extensible LAN)"
      ]
@@ -1803,7 +1803,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "Overlay network"
      ]
@@ -1829,7 +1829,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Open-Source Initiatives",
      "cards": [
       "OPNFV (Open Platform for NFV)",
       "NFV (Network Functions Virtualization)"
@@ -1856,7 +1856,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Contiv",
      "cards": [
       "Contiv",
       "Micro-segmentation"
@@ -1883,7 +1883,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / NFV Infrastructure Requirements",
      "cards": [
       "NFV (Network Functions Virtualization)",
       "NFVI (NFV infrastructure)"
@@ -1910,7 +1910,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Center APIs",
      "cards": [
       "Cisco DNA (Digital Network Architecture)",
       "DNAC (Cisco DNA Center)",
@@ -1938,7 +1938,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Group-Based Access Control",
      "cards": [
       "Access control contract",
       "Scalable group"
@@ -1965,7 +1965,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / HTTP Request Structure",
      "cards": []
     },
     {
@@ -1989,7 +1989,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / NETCONF",
      "cards": [
       "NETCONF"
      ]
@@ -2015,7 +2015,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / YANG",
      "cards": [
       "YANG module",
       "YANG"
@@ -2042,7 +2042,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / OpenConfig and gNMI",
      "cards": [
       "/restconf/data/ietf-interfaces:interfaces",
       "requests.get(url, auth=(USER, PASS), headers=headers, verify=False)",
@@ -2070,7 +2070,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / API Types and Documentation",
      "cards": [
       "Swagger (OpenAPI)",
       "API (application programming interface)",
@@ -2098,7 +2098,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Security",
      "cards": [
       "ETA (Encrypted Traffic Analytics)"
      ]
@@ -2124,7 +2124,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Center APIs",
      "cards": [
       "requests.get(url, auth=(USER, PASS), headers=headers, verify=False)",
       "import requests then requests.get(url)",
@@ -2152,7 +2152,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / Why Programmability",
      "cards": [
       "requests"
      ]
@@ -2183,7 +2183,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / What SDN Changed",
      "cards": [
       "Flows",
       "SDN (software-defined networking)",
@@ -2211,7 +2211,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Center APIs",
      "cards": [
       "Cisco DNA (Digital Network Architecture)",
       "Intent-based networking"
@@ -2238,7 +2238,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / APIC Functions",
      "cards": [
       "APIC (Application Policy Infrastructure Controller)"
      ]
@@ -2264,7 +2264,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "VNID (VXLAN Network Identifier)",
       "VXLAN (Virtual Extensible LAN)"
@@ -2291,7 +2291,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": [
       "VXLAN (Virtual Extensible LAN)",
       "VXLAN outer headers",
@@ -2319,7 +2319,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / VXLAN and Overlays",
      "cards": []
     },
     {
@@ -2343,7 +2343,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Micro-Segmentation",
      "cards": [
       "North-south traffic"
      ]
@@ -2369,7 +2369,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Open-Source Initiatives",
      "cards": [
       "Neutron"
      ]
@@ -2395,7 +2395,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Open-Source Initiatives",
      "cards": [
       "OVN (Open Virtual Network)",
       "SDN (software-defined networking)",
@@ -2423,7 +2423,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / NFV MANO Components",
      "cards": [
       "ETSI",
       "NFV MANO (management and network orchestration)",
@@ -2451,7 +2451,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Cisco DNA Center",
      "cards": [
       "RFC 4594",
       "Cisco DNA (Digital Network Architecture)",
@@ -2479,7 +2479,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Application Policies (QoS)",
      "cards": [
       "Cisco DNA (Digital Network Architecture)",
       "DNAC (Cisco DNA Center)"
@@ -2506,7 +2506,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Cisco DNA Center",
      "cards": [
       "Cisco DNA (Digital Network Architecture)",
       "DNAC (Cisco DNA Center)"
@@ -2533,7 +2533,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / Assurance",
      "cards": []
     },
     {
@@ -2557,7 +2557,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / ThousandEyes Monitoring",
      "cards": [
       "TEA (ThousandEyes Enterprise Agent)",
       "ThousandEyes"
@@ -2584,7 +2584,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. SDN and SDN Security",
+     "section": "1. SDN and SDN Security / DNA Center APIs",
      "cards": [
       "API (application programming interface)",
       "Cisco DNA (Digital Network Architecture)",
@@ -2612,7 +2612,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / HTTP Request Structure",
      "cards": []
     },
     {
@@ -2636,7 +2636,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / Why Programmability",
      "cards": [
       "requests.get(url, auth=(USER, PASS), headers=headers, verify=False)",
       "import requests then requests.get(url)",
@@ -2664,7 +2664,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / RESTCONF",
      "cards": [
       "RESTCONF",
       "NETCONF"
@@ -2691,7 +2691,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Network Programmability",
+     "section": "2. Network Programmability / OpenConfig and gNMI",
      "cards": [
       "SNMP",
       "NETCONF"

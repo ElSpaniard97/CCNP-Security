@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('desktop sidebar destinations, active states, search and shortcut', async ({ page }) => {
   await page.setViewportSize({width:1448,height:1086});
+  await page.emulateMedia({colorScheme:'dark'});
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
   await expect(page.locator('.sidebar')).toBeVisible();
@@ -52,7 +53,7 @@ for(const theme of ['dark','light']) test(`all study surfaces in ${theme} theme`
 });
 
 test('mobile settings, theme persistence, and skip link preserve the quiz route', async ({ page }) => {
-  await page.setViewportSize({width:390,height:844});await page.goto('/');
+  await page.setViewportSize({width:390,height:844});await page.emulateMedia({colorScheme:'dark'});await page.goto('/');
   await page.locator('.mobile-settings').click();await expect(page.locator('#app h1')).toHaveText('Settings');
   await expect(page.locator('#export')).toBeVisible();await expect(page.locator('#download-offline')).toBeVisible();
   await page.locator('#theme').click();await expect(page.locator('html')).toHaveAttribute('data-theme','light');
@@ -60,4 +61,16 @@ test('mobile settings, theme persistence, and skip link preserve the quiz route'
   await page.goto('/#/ch/1/test/1');await expect(page.locator('.question')).toBeVisible();
   const before=page.url();await page.locator('.skip-link').focus();await page.keyboard.press('Enter');
   expect(page.url()).toBe(before);await expect(page.locator('#main')).toBeFocused();await expect(page.locator('.question')).toBeVisible();
+});
+
+test('theme follows the system setting until one is chosen', async ({ page }) => {
+  await page.emulateMedia({colorScheme:'light'});
+  await page.goto('/');
+  await expect(page.locator('html')).toHaveAttribute('data-theme','light');
+  await page.emulateMedia({colorScheme:'dark'});
+  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
+  await page.locator('#theme').click();
+  await page.emulateMedia({colorScheme:'dark'});
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-theme','light');
 });
