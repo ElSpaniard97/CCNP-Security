@@ -20,6 +20,13 @@ const paths = {
   network:'<circle cx="5" cy="12" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="19" cy="19" r="3"/><path d="m8 11 8-5m-8 7 8 5"/>',
   cloud:'<path d="M6 19a5 5 0 0 1-1-10 7 7 0 0 1 13-2 6 6 0 0 1 0 12z"/>',
   terminal:'<rect x="2" y="4" width="20" height="16" rx="3"/><path d="m6 9 4 3-4 3m7 0h5"/>',
+  headphones:'<path d="M3 17v-4a9 9 0 0 1 18 0v4"/><rect x="2" y="15" width="5" height="8" rx="2"/><rect x="17" y="15" width="5" height="8" rx="2"/>',
+  play:'<path d="M7 4v18l14-9z" fill="currentColor"/>',
+  pause:'<path d="M7 4h3v18H7zm7 0h3v18h-3z" fill="currentColor"/>',
+  back:'<path d="M4 13a8 8 0 1 0 3-6.2M4 3v5h5"/><text x="12" y="17" font-size="7" text-anchor="middle" fill="currentColor" stroke="none" font-family="system-ui">10</text>',
+  forward:'<path d="M20 13a8 8 0 1 1-3-6.2M20 3v5h-5"/><text x="12" y="17" font-size="7" text-anchor="middle" fill="currentColor" stroke="none" font-family="system-ui">10</text>',
+  grammar:'<path d="M3 21 9 5l6 16M5 16h8"/><path d="M16 9h5m-5 5h5m-5 5h5"/>',
+  mic:'<rect x="8" y="2" width="8" height="13" rx="4"/><path d="M4 11a8 8 0 0 0 16 0M12 19v4"/>',
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/>',
 };
 export const icon = (name, extra='') => `<svg class="ui-icon ${extra}" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths[name] || paths.book}</svg>`;

@@ -12,13 +12,15 @@ def generated():
     output = {}
     for chapter, deck in cards.items():
         output[f'data/flashcards/ch{int(chapter):02}.json'] = json.dumps(deck, ensure_ascii=False, separators=(',', ':')) + '\n'
+    reader = [json.loads(p.read_text()) for p in sorted((ROOT / 'data/reader').glob('ch*.json'))]
+    output['data/reader/index.json'] = json.dumps([{'n': r['n'], 'title': r['title'], 'duration': r['duration']} for r in reader], separators=(',', ':')) + '\n'
     output['data/search-index.json'] = json.dumps([[int(n), c['front']] for n, deck in cards.items() for c in deck], ensure_ascii=False, separators=(',', ':')) + '\n'
     return output
 
 def main():
     output = generated()
     shell = ['index.html', 'manifest.webmanifest', 'data/chapters.json', 'data/blueprint.json'] + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'assets').rglob('*') if p.is_file())
-    data = ['data/search-index.json'] + sorted(output.keys() - {'data/search-index.json'}) + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'data/tests').glob('ch*.json'))
+    data = ['data/search-index.json'] + sorted(output.keys() - {'data/search-index.json'}) + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'data/tests').glob('ch*.json')) + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'data/reader').glob('ch*.json'))
     digest = hashlib.sha256()
     for name in shell + data + ['sw.js']:
         digest.update(name.encode())

@@ -1,0 +1,4493 @@
+{
+"total": 2965.018,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Introduction to Cybersecurity",
+"spoken": "1. Introduction to Cybersecurity.",
+"start": 1.6,
+"end": 4.075
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cybersecurity Versus InfoSec",
+"spoken": "Cybersecurity Versus info-sec.",
+"start": 5.875,
+"end": 8.221
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "InfoSec alone is no longer enough, because organizations are rarely self-contained and every organization is a potential target.",
+"spoken": "info-sec alone is no longer enough, because organizations are rarely self-contained and every organization is a potential target.",
+"start": 8.671,
+"end": 17.887
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cybersecurity programs build on InfoSec and add:",
+"spoken": "Cybersecurity programs build on info-sec and add:",
+"start": 18.337,
+"end": 21.815
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cyber risk management and oversight.",
+"spoken": "Cyber risk management and oversight.",
+"start": 22.265,
+"end": 24.611
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Threat intelligence and information sharing.",
+"spoken": "Threat intelligence and information sharing.",
+"start": 25.061,
+"end": 27.749
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Third-party organization, software, and hardware dependency management.",
+"spoken": "Third-party organization, software, and hardware dependency management.",
+"start": 28.199,
+"end": 33.191
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Incident response and resiliency.",
+"spoken": "Incident response and resiliency.",
+"start": 33.641,
+"end": 36.116
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Threat hunting and adversarial emulation.",
+"spoken": "Threat hunting and adversarial emulation.",
+"start": 36.566,
+"end": 39.425
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security is everyone's job, from entry-level employees to the board of directors, not just the IT team.",
+"spoken": "Security is everyone's job, from entry-level employees to the board of directors, not just the I.T. team.",
+"start": 39.875,
+"end": 47.832
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NIST",
+"spoken": "NIST.",
+"start": 49.282,
+"end": 50.05
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST Cybersecurity Framework: a collection of industry standards and best practices to help organizations manage cybersecurity risk.",
+"spoken": "NIST Cybersecurity Framework: a collection of industry standards and best practices to help organizations manage cybersecurity risk.",
+"start": 50.5,
+"end": 60.036
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Built by the U.S. government, corporations, and individuals together.",
+"spoken": "Built by the U.S. government, corporations, and individuals together.",
+"start": 60.486,
+"end": 64.987
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Uses a common taxonomy. Goal: manage risk cost-effectively to protect critical infrastructure. Any organization can use it as a blueprint.",
+"spoken": "Uses a common taxonomy. Goal: manage risk cost-effectively to protect critical infrastructure. Any organization can use it as a blueprint.",
+"start": 65.437,
+"end": 75.571
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Computer Security Division is one of seven divisions in NIST's Information Technology Laboratory (ITL).",
+"spoken": "The Computer Security Division is one of seven divisions in NIST's Information Technology Laboratory (ITL).",
+"start": 76.021,
+"end": 83.466
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST document series:",
+"spoken": "NIST document series:",
+"start": 83.916,
+"end": 85.537
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "FIPS (Federal Information Processing Standards): official standards and guidelines.",
+"spoken": "fips (Federal Information Processing Standards): official standards and guidelines.",
+"start": 85.987,
+"end": 91.321
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "SP 800 series: ITL research, guidelines, and outreach on information system security.",
+"spoken": "S.P. 800 series: ITL research, guidelines, and outreach on information system security.",
+"start": 91.771,
+"end": 99.429
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "SP 1800 series: cybersecurity practice guides.",
+"spoken": "S.P. 1800 series: cybersecurity practice guides.",
+"start": 99.879,
+"end": 105.149
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "NISTIR (NIST Internal or Interagency Reports): research findings and background for FIPS and SPs.",
+"spoken": "NIST I.R. (NIST Internal or Interagency Reports): research findings and background for fips and S.P.s.",
+"start": 105.599,
+"end": 114.004
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "ITL bulletins: one topic in depth, issued as needed.",
+"spoken": "ITL bulletins: one topic in depth, issued as needed.",
+"start": 114.454,
+"end": 118.699
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ISO/IEC 27000 Series",
+"spoken": "I.S.O. I.E.C. 27000 Series.",
+"start": 120.149,
+"end": 123.797
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Also called the ISMS Family of Standards, or ISO27k.",
+"spoken": "Also called the I.S.M.S. Family of Standards, or I.S.O. 27 K.",
+"start": 124.247,
+"end": 130.114
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The first six documents cover establishing, implementing, operating, monitoring, reviewing, maintaining, and improving an ISMS. More than 20 documents in total.",
+"spoken": "The first six documents cover establishing, implementing, operating, monitoring, reviewing, maintaining, and improving an I.S.M.S. More than 20 documents in total.",
+"start": 130.564,
+"end": 142.745
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applies to public and private organizations of every size.",
+"spoken": "Applies to public and private organizations of every size.",
+"start": 143.195,
+"end": 147.142
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. Threats, Vulnerabilities, and Exploits",
+"spoken": "2. Threats, Vulnerabilities, and Exploits.",
+"start": 149.192,
+"end": 152.115
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Where Vulnerabilities Are Found",
+"spoken": "Where Vulnerabilities Are Found.",
+"start": 153.915,
+"end": 155.771
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applications: configured for usability over security, may lack patches.",
+"spoken": "Applications: configured for usability over security, may lack patches.",
+"start": 156.221,
+"end": 161.511
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Operating systems: unpatched workstations and servers.",
+"spoken": "Operating systems: unpatched workstations and servers.",
+"start": 161.961,
+"end": 165.823
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hardware: may need microcode (firmware) patches.",
+"spoken": "Hardware: may need microcode (firmware) patches.",
+"start": 166.273,
+"end": 169.259
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Spectre and Meltdown abuse speculative execution, where the CPU predicts and prefetches code into cache.",
+"spoken": "Spectre and Meltdown abuse speculative execution, where the CPU predicts and prefetches code into cache.",
+"start": 169.709,
+"end": 176.92
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Spectre tricks programs into leaking their own data.",
+"spoken": "Spectre tricks programs into leaking their own data.",
+"start": 177.37,
+"end": 180.506
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Meltdown breaks the memory isolation between programs and the OS, exposing passwords and keys.",
+"spoken": "Meltdown breaks the memory isolation between programs and the O.S., exposing passwords and keys.",
+"start": 180.956,
+"end": 187.996
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Misconfiguration: open ports, vulnerable services, wireless with encryption off.",
+"spoken": "Misconfiguration: open ports, vulnerable services, wireless with encryption off.",
+"start": 188.446,
+"end": 194.313
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shrinkwrap software: off-the-shelf executables that ship with extra features, sample scripts, or code.",
+"spoken": "Shrinkwrap software: off-the-shelf executables that ship with extra features, sample scripts, or code.",
+"start": 194.763,
+"end": 201.611
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "CVE Facts",
+"spoken": "CVE Facts.",
+"start": 203.061,
+"end": 204.469
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sponsored by US-CERT, part of the DHS Office of Cybersecurity and Communications.",
+"spoken": "Sponsored by U S cert, part of the DHS Office of Cybersecurity and Communications.",
+"start": 204.919,
+"end": 211.169
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MITRE runs DHS's Federally Funded Research and Development Center (FFRDC) and:",
+"spoken": "my-ter runs DHS's Federally Funded Research and Development Center (FFRDC) and:",
+"start": 211.619,
+"end": 218.019
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Holds the copyright on the CVE list so it stays free and open.",
+"spoken": "Holds the copyright on the CVE list so it stays free and open.",
+"start": 218.469,
+"end": 222.587
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Maintains the list and website, runs the CVE Compatibility Program, oversees CVE Naming Authorities (CNAs), and advises the CVE Editorial Board.",
+"spoken": "Maintains the list and website, runs the CVE Compatibility Program, oversees CVE Naming Authorities (C.N.A.s), and advises the CVE Editorial Board.",
+"start": 223.037,
+"end": 235.73
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Goal: make it easy to share data across tools, databases, and services.",
+"spoken": "Goal: make it easy to share data across tools, databases, and services.",
+"start": 236.18,
+"end": 241.343
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Exploit Facts",
+"spoken": "Exploit Facts.",
+"start": 242.793,
+"end": 244.137
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Window of exposure: the time between disclosure and a patch being available.",
+"spoken": "Window of exposure: the time between disclosure and a patch being available.",
+"start": 244.587,
+"end": 249.685
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Critical servers are usually patched slowest, because of fear of downtime or instability.",
+"spoken": "Critical servers are usually patched slowest, because of fear of downtime or instability.",
+"start": 250.135,
+"end": 255.959
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Exploits are shared publicly on Exploit-DB (run by Offensive Security) and GitHub.",
+"spoken": "Exploits are shared publicly on Exploit-DB (run by Offensive Security) and GitHub.",
+"start": 256.409,
+"end": 262.596
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Risk",
+"spoken": "Risk.",
+"start": 264.046,
+"end": 264.771
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Risk Management Framework (RMF): the U.S. federal approach. Mission-based, risk-based, and cost-effective. Six steps.",
+"spoken": "Risk Management Framework (RMF): the U.S. federal approach. Mission-based, risk-based, and cost-effective. Six steps.",
+"start": 265.221,
+"end": 273.776
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threats can cause destruction, disclosure, modification, or corruption of data, or denial of service.",
+"spoken": "Threats can cause destruction, disclosure, modification, or corruption of data, or denial of service.",
+"start": 274.226,
+"end": 280.967
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example threat categories:",
+"spoken": "Example threat categories:",
+"start": 281.417,
+"end": 283.273
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Natural disasters, weather, and catastrophic damage.",
+"spoken": "Natural disasters, weather, and catastrophic damage.",
+"start": 283.723,
+"end": 287.307
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Threat actor attacks by unauthorized insiders or outsiders.",
+"spoken": "Threat actor attacks by unauthorized insiders or outsiders.",
+"start": 287.757,
+"end": 291.768
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Attacks on critical infrastructure such as water, power, gas, oil, nuclear, and waste plants. Example: Stuxnet.",
+"spoken": "Attacks on critical infrastructure such as water, power, gas, oil, nuclear, and waste plants. Example: Stuxnet.",
+"start": 292.218,
+"end": 300.09
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Viruses and malware.",
+"spoken": "Viruses and malware.",
+"start": 300.54,
+"end": 302.012
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Disclosure of confidential information, such as a PII breach or stolen source code.",
+"spoken": "Disclosure of confidential information, such as a PII breach or stolen source code.",
+"start": 302.462,
+"end": 308.606
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "DoS and DDoS. Today mostly from botnets. Older tools: Ping of Death and Teardrop. Older botnets: Storm and Mariposa.",
+"spoken": "D.O.S. and D.D.O.S. Today mostly from botnets. Older tools: Ping of Death and Teardrop. Older botnets: Storm and Mariposa.",
+"start": 309.056,
+"end": 318.805
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threat Intelligence Process (Five Steps)",
+"spoken": "Threat Intelligence Process (Five Steps).",
+"start": 320.255,
+"end": 322.986
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Planning and direction.",
+"spoken": "1. Planning and direction.",
+"start": 323.436,
+"end": 325.1
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Collection.",
+"spoken": "2. Collection.",
+"start": 325.55,
+"end": 326.745
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Processing.",
+"spoken": "3. Processing.",
+"start": 327.195,
+"end": 328.603
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. Analysis and production.",
+"spoken": "4. Analysis and production.",
+"start": 329.053,
+"end": 331.25
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5. Dissemination.",
+"spoken": "5. Dissemination.",
+"start": 331.7,
+"end": 333.236
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threat Intelligence Facts",
+"spoken": "Threat Intelligence Facts.",
+"start": 334.686,
+"end": 336.307
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Primary purpose: inform business decisions about threat risks.",
+"spoken": "Primary purpose: inform business decisions about threat risks.",
+"start": 336.757,
+"end": 340.981
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lets you prepare proactively instead of reacting, by learning from attacks on other organizations.",
+"spoken": "Lets you prepare proactively instead of reacting, by learning from attacks on other organizations.",
+"start": 341.431,
+"end": 347.746
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lets you hunt for specific IoCs, IPs, URLs, or exploit patterns instead of searching blindly.",
+"spoken": "Lets you hunt for specific I.O.C.s, I.P.s, U.R.L.s, or exploit patterns instead of searching blindly.",
+"start": 348.196,
+"end": 356.9
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threat intelligence platforms typically provide an enrichment data feed.",
+"spoken": "Threat intelligence platforms typically provide an enrichment data feed.",
+"start": 357.35,
+"end": 361.937
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "STIX records can include C2 server IPs and domains and malware hashes.",
+"spoken": "sticks records can include C 2 server I.P.s and domains and malware hashes.",
+"start": 362.387,
+"end": 368.381
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "STIX and TAXII were originally developed by MITRE. OpenC2 came from a forum facilitated by the NSA.",
+"spoken": "sticks and taxi were originally developed by my-ter. Open C 2 came from a forum facilitated by the NSA.",
+"start": 368.831,
+"end": 376.981
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Open-source and non-security sources also count: social media, forums, blogs, and vendor sites.",
+"spoken": "Open-source and non-security sources also count: social media, forums, blogs, and vendor sites.",
+"start": 377.431,
+"end": 384.748
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. Common Threats (Malware)",
+"spoken": "3. Common Threats (Malware).",
+"start": 386.798,
+"end": 388.867
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Malware Propagation Methods",
+"spoken": "Malware Propagation Methods.",
+"start": 390.667,
+"end": 392.63
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Master boot record infection: the original method.",
+"spoken": "Master boot record infection: the original method.",
+"start": 393.08,
+"end": 396.493
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "BIOS infection: can make the system unusable or hang before POST (Power On Self-Test).",
+"spoken": "BIOS infection: can make the system unusable or hang before POST (Power On Self-Test).",
+"start": 396.943,
+"end": 403.066
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "File infection: relies on the user running a .com or .exe file, often disguised as an image such as .jpg or .png.",
+"spoken": "File infection: relies on the user running a .com or .exe file, often disguised as an image such as .jpg or .png.",
+"start": 403.516,
+"end": 413.628
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Macro infection: abuses scripting in Excel, Word, and PowerPoint.",
+"spoken": "Macro infection: abuses scripting in Excel, Word, and PowerPoint.",
+"start": 414.078,
+"end": 418.814
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cluster virus: changes directory table entries to point to the malware.",
+"spoken": "Cluster virus: changes directory table entries to point to the malware.",
+"start": 419.264,
+"end": 424.085
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multipartite: example is NATAS (Satan spelled backward).",
+"spoken": "Multipartite: example is nah-tahs (Satan spelled backward).",
+"start": 424.535,
+"end": 428.653
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Viruses spread through human actions such as booting, autorun on removable media, and opening email attachments.",
+"spoken": "Viruses spread through human actions such as booting, autorun on removable media, and opening email attachments.",
+"start": 429.103,
+"end": 437.231
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Boot sector viruses can only spread by loading into RAM.",
+"spoken": "Boot sector viruses can only spread by loading into ram.",
+"start": 437.681,
+"end": 441.649
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Evasion Trends",
+"spoken": "Evasion Trends.",
+"start": 443.099,
+"end": 444.485
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flame (2012): considered the most sophisticated malware of its time. Spread over LANs, recorded audio, screenshots, and keystrokes, and used Bluetooth to grab nearby contacts.",
+"spoken": "Flame (2012): considered the most sophisticated malware of its time. Spread over lans, recorded audio, screenshots, and keystrokes, and used Bluetooth to grab nearby contacts.",
+"start": 444.935,
+"end": 458.183
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Modern malware is targeted at specific victims, which makes it harder for antivirus vendors to find and build signatures.",
+"spoken": "Modern malware is targeted at specific victims, which makes it harder for antivirus vendors to find and build signatures.",
+"start": 458.633,
+"end": 466.612
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Virus Components",
+"spoken": "Virus Components.",
+"start": 468.062,
+"end": 469.449
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Search routine: finds files, disk space, or RAM to infect. May use profiling to adapt and evade.",
+"spoken": "Search routine: finds files, disk space, or ram to infect. May use profiling to adapt and evade.",
+"start": 469.899,
+"end": 477.323
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Infection routine: copies the virus to a host. May include a reinfect or restart routine.",
+"spoken": "Infection routine: copies the virus to a host. May include a reinfect or restart routine.",
+"start": 477.773,
+"end": 484.621
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Payload: malicious action. Optional.",
+"spoken": "Payload: malicious action. Optional.",
+"start": 485.071,
+"end": 487.524
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Antidetection routine: helps avoid detection.",
+"spoken": "Antidetection routine: helps avoid detection.",
+"start": 487.974,
+"end": 491.281
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Trigger routine: launches the payload at a set date and time.",
+"spoken": "Trigger routine: launches the payload at a set date and time.",
+"start": 491.731,
+"end": 495.635
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Every virus has at least a search routine and an infection routine.",
+"spoken": "Every virus has at least a search routine and an infection routine.",
+"start": 496.085,
+"end": 500.586
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Trojan Types",
+"spoken": "Trojan Types.",
+"start": 502.036,
+"end": 503.231
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Full list: command-shell, GUI, HTTP/HTTPS, document, defacement, botnet, VNC (Virtual Network Computing), remote-access, data-hiding, banking, DoS, FTP, software-disabling, and covert-channel.",
+"spoken": "Full list: command-shell, gooey, HTTP and HTTPS, document, defacement, botnet, VNC (Virtual Network Computing), remote-access, data-hiding, banking, D.O.S., FTP, software-disabling, and covert-channel.",
+"start": 503.681,
+"end": 520.598
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Details:",
+"spoken": "Details:",
+"start": 521.048,
+"end": 522.072
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "RAT: client and server setup. Example: Poison Ivy.",
+"spoken": "RAT: client and server setup. Example: Poison Ivy.",
+"start": 522.522,
+"end": 526.255
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Data-hiding: also known as ransomware.",
+"spoken": "Data-hiding: also known as ransomware.",
+"start": 526.705,
+"end": 529.457
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "E-banking: example Zeus. Acts as a TAN (transaction authorization number) grabber, uses HTML injection, or grabs forms.",
+"spoken": "E-banking: example Zeus. Acts as a TAN (transaction authorization number) grabber, uses HTML injection, or grabs forms.",
+"start": 529.907,
+"end": 539.913
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "DoS: knocks out a service or system.",
+"spoken": "D.O.S.: knocks out a service or system.",
+"start": 540.363,
+"end": 543.584
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Proxy: the attacker works from the victim's machine to hide their trail.",
+"spoken": "Proxy: the attacker works from the victim's machine to hide their trail.",
+"start": 544.034,
+"end": 548.109
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "FTP: port 21.",
+"spoken": "FTP: port 21.",
+"start": 548.559,
+"end": 550.671
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Security-software disabler: kills antivirus and software firewalls.",
+"spoken": "Security-software disabler: kills antivirus and software firewalls.",
+"start": 551.121,
+"end": 555.899
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Trojan Communication",
+"spoken": "Trojan Communication.",
+"start": 557.349,
+"end": 558.949
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Overt channels do not hide data. Most Trojans use covert channels, often combined with a backdoor.",
+"spoken": "Overt channels do not hide data. Most Trojans use covert channels, often combined with a backdoor.",
+"start": 559.399,
+"end": 566.461
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Connections from inside out to the attacker are dangerous because outbound traffic is the least restricted.",
+"spoken": "Connections from inside out to the attacker are dangerous because outbound traffic is the least restricted.",
+"start": 566.911,
+"end": 574.015
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Trojan Targets",
+"spoken": "Trojan Targets.",
+"start": 575.465,
+"end": 576.83
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Credit card and banking data.",
+"spoken": "Credit card and banking data.",
+"start": 577.28,
+"end": 579.285
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Digital and cryptocurrency wallets (Bitcoin, Ethereum, Litecoin, Ripple).",
+"spoken": "Digital and cryptocurrency wallets (Bitcoin, Ethereum, Litecoin, Ripple).",
+"start": 579.735,
+"end": 584.663
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Passwords.",
+"spoken": "Passwords.",
+"start": 585.113,
+"end": 586.18
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Insider information.",
+"spoken": "Insider information.",
+"start": 586.63,
+"end": 588.166
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data storage for movies, music, or warez (pirated software).",
+"spoken": "Data storage for movies, music, or warez (pirated software).",
+"start": 588.616,
+"end": 592.947
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "APT campaigns.",
+"spoken": "APT campaigns.",
+"start": 593.397,
+"end": 594.997
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Trojan Infection Methods",
+"spoken": "Trojan Infection Methods.",
+"start": 596.447,
+"end": 598.324
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Peer-to-peer networks and file sharing (The Pirate Bay).",
+"spoken": "Peer-to-peer networks and file sharing (The Pirate Bay).",
+"start": 598.774,
+"end": 602.23
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Instant messaging (WhatsApp, Facebook Messenger, Discord).",
+"spoken": "Instant messaging (WhatsApp, Facebook Messenger, Discord).",
+"start": 602.68,
+"end": 606.328
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IRC (Internet Relay Chat).",
+"spoken": "IRC (Internet Relay Chat).",
+"start": 606.778,
+"end": 609.253
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Email attachments: the number one way malware spreads. Save and scan before opening.",
+"spoken": "Email attachments: the number one way malware spreads. Save and scan before opening.",
+"start": 609.703,
+"end": 615.548
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Physical access, such as copying from a thumb drive or planting a fake login screen.",
+"spoken": "Physical access, such as copying from a thumb drive or planting a fake login screen.",
+"start": 615.998,
+"end": 621.801
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Browser and browser extension vulnerabilities.",
+"spoken": "Browser and browser extension vulnerabilities.",
+"start": 622.251,
+"end": 625.344
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SMS messages.",
+"spoken": "SMS messages.",
+"start": 625.794,
+"end": 627.437
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Impersonated mobile apps, repackaged with malware and republished under another author.",
+"spoken": "Impersonated mobile apps, repackaged with malware and republished under another author.",
+"start": 627.887,
+"end": 633.711
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Watering holes.",
+"spoken": "Watering holes.",
+"start": 634.161,
+"end": 635.377
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Freeware, which is also a favorite for adware and spyware.",
+"spoken": "Freeware, which is also a favorite for adware and spyware.",
+"start": 635.827,
+"end": 639.453
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Trojan Effects",
+"spoken": "Trojan Effects.",
+"start": 640.903,
+"end": 642.205
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Range from harmless to extreme. Attackers want to stay hidden and \"own the box.\"",
+"spoken": "Range from harmless to extreme. Attackers want to stay hidden and \"own the box.\"",
+"start": 642.655,
+"end": 647.711
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Signs: programs opening by themselves, browser opening unrequested pages, changed background, reboots.",
+"spoken": "Signs: programs opening by themselves, browser opening unrequested pages, changed background, reboots.",
+"start": 648.161,
+"end": 656.054
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Distribution Tools Details",
+"spoken": "Distribution Tools Details.",
+"start": 657.504,
+"end": 659.531
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Wrappers add obfuscation and encryption and act like installation builders. Some bind three or more programs.",
+"spoken": "Wrappers add obfuscation and encryption and act like installation builders. Some bind three or more programs.",
+"start": 659.981,
+"end": 667.575
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Packers work like WinZip, RAR, or Tar but to hide code, and help evade host and network IDS.",
+"spoken": "Packers work like WinZip, RAR, or Tar but to hide code, and help evade host and network IDS.",
+"start": 668.025,
+"end": 675.385
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Droppers are basically another name for wrappers, since they drop standalone malware.",
+"spoken": "Droppers are basically another name for wrappers, since they drop standalone malware.",
+"start": 675.835,
+"end": 681.062
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Crypters use AES, RSA, or Blowfish, or simpler XOR, Base64, or ROT13.",
+"spoken": "Crypters use A.E.S., R.S.A., or Blowfish, or simpler XOR, Base64, or rot 13.",
+"start": 681.512,
+"end": 689.021
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Ransomware",
+"spoken": "Ransomware.",
+"start": 690.471,
+"end": 691.538
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can encrypt specific files, all files, or even the master boot record.",
+"spoken": "Can encrypt specific files, all files, or even the master boot record.",
+"start": 691.988,
+"end": 696.916
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Examples: Conti, Darkside, WannaCry, Pyeta, Nyeta, Sodinokibi, Bad Rabbit, Grandcrab, SamSam, CryptoLocker, CryptoDefense, CryptoWall, Spora.",
+"spoken": "Examples: Conti, Darkside, WannaCry, Pyeta, Nyeta, Sodinokibi, Bad Rabbit, Grandcrab, SamSam, CryptoLocker, CryptoDefense, CryptoWall, Spora.",
+"start": 697.366,
+"end": 708.801
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Not ransomware: Ret2Libc (a buffer overflow technique).",
+"spoken": "Not ransomware: return to lib C (a buffer overflow technique).",
+"start": 709.251,
+"end": 713.56
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RaaS lowered the skill needed, caused a surge in attacks on healthcare, government, and schools, and makes prosecution harder.",
+"spoken": "ransomware as a service lowered the skill needed, caused a surge in attacks on healthcare, government, and schools, and makes prosecution harder.",
+"start": 714.01,
+"end": 723.333
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Covert Channels",
+"spoken": "Covert Channels.",
+"start": 724.783,
+"end": 726.127
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TCSEC categories:",
+"spoken": "TCSEC categories:",
+"start": 726.577,
+"end": 728.283
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Timing channel: alters a component or the timing of resources. Hard to detect.",
+"spoken": "Timing channel: alters a component or the timing of resources. Hard to detect.",
+"start": 728.733,
+"end": 734.237
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Storage channel: one process writes to storage and another reads it.",
+"spoken": "Storage channel: one process writes to storage and another reads it.",
+"start": 734.687,
+"end": 739.231
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Main protocols used: IP, TCP, UDP, ICMP, and DNS.",
+"spoken": "Main protocols used: IP, TCP, UDP, ICMP, and DNS.",
+"start": 739.681,
+"end": 745.697
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPv6 misuse factors (per US-CERT): incomplete or inconsistent IPv6 support, IPv6 autoconfiguration, malware that enables IPv6, and malicious tunneling.",
+"spoken": "I.P. version 6 misuse factors (per U S cert): incomplete or inconsistent I.P. version 6 support, I.P. version 6 autoconfiguration, malware that enables I.P. version 6, and malicious tunneling.",
+"start": 746.147,
+"end": 763.001
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Devices that support IPv6 may still fail to inspect IPv4 packets encapsulated in IPv6.",
+"spoken": "Devices that support I.P. version 6 may still fail to inspect I.P. version 4 packets encapsulated in I.P. version 6.",
+"start": 763.451,
+"end": 774.16
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Normal TCP process: three-step handshake, exchange of control information such as maximum segment size, sequence numbers, acknowledgments, and four-step shutdown.",
+"spoken": "Normal TCP process: three-step handshake, exchange of control information such as maximum segment size, sequence numbers, acknowledgments, and four-step shutdown.",
+"start": 774.61,
+"end": 786.834
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "UDP is stateless and may not be logged in firewall connections.",
+"spoken": "UDP is stateless and may not be logged in firewall connections.",
+"start": 787.284,
+"end": 791.743
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DNS exfiltration is often paced to go undetected for days, weeks, or months.",
+"spoken": "DNS exfiltration is often paced to go undetected for days, weeks, or months.",
+"start": 792.193,
+"end": 798.123
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Keyloggers",
+"spoken": "Keyloggers.",
+"start": 799.573,
+"end": 800.619
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Software keyloggers are a shim between the OS and the keyboard and can run in stealth mode.",
+"spoken": "Software keyloggers are a shim between the O.S. and the keyboard and can run in stealth mode.",
+"start": 801.069,
+"end": 807.277
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hardware keyloggers are undetectable by software, only by physical inspection.",
+"spoken": "Hardware keyloggers are undetectable by software, only by physical inspection.",
+"start": 807.727,
+"end": 813.209
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Wireless ones use 802.11 or Bluetooth. Wired ones must be retrieved.",
+"spoken": "Wireless ones use 802.11 or Bluetooth. Wired ones must be retrieved.",
+"start": 813.659,
+"end": 820.209
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Example: KeyGhost (KeyGhost Ltd, New Zealand). Needs no power and cannot be detected by software.",
+"spoken": "Example: KeyGhost (KeyGhost Ltd, New Zealand). Needs no power and cannot be detected by software.",
+"start": 820.659,
+"end": 828.019
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Employers should have a policy and a warning banner. CERT/SEI banner: \"This system is for the use of authorized personnel only. If you continue to access this system, you are explicitly consenting to monitoring.\"",
+"spoken": "Employers should have a policy and a warning banner. cert, S.E.I. banner: \"This system is for the use of authorized personnel only. If you continue to access this system, you are explicitly consenting to monitoring.\"",
+"start": 828.469,
+"end": 843.274
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Spyware",
+"spoken": "Spyware.",
+"start": 844.724,
+"end": 845.684
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Two purposes: surveillance (profiling for marketers) and advertising (pop-ups).",
+"spoken": "Two purposes: surveillance (profiling for marketers) and advertising (pop-ups).",
+"start": 846.134,
+"end": 851.318
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Persistence locations: Registry run keys, Windows Startup folder, load= or run= lines in Win.ini, Shell= line in System.ini.",
+"spoken": "Persistence locations: Registry run keys, Windows Startup folder, load= or run= lines in Win.ini, Shell= line in System.ini.",
+"start": 851.768,
+"end": 863.416
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Modifies the hosts file to block security updates or redirect to ad servers.",
+"spoken": "Modifies the hosts file to block security updates or redirect to ad servers.",
+"start": 863.866,
+"end": 869.327
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cleanup: check the hosts file and startup locations, and use more than one antispyware tool.",
+"spoken": "Cleanup: check the hosts file and startup locations, and use more than one antispyware tool.",
+"start": 869.777,
+"end": 875.985
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Malware Analysis",
+"spoken": "Malware Analysis.",
+"start": 877.435,
+"end": 878.865
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Static analysis grew out of virus research. Studied examples: Conficker, Stuxnet, Aurora, Black Hole Exploit Kit.",
+"spoken": "Static analysis grew out of virus research. Studied examples: Conficker, Stuxnet, Aurora, Black Hole Exploit Kit.",
+"start": 879.315,
+"end": 887.912
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic analysis lab steps (number one goal is containment):",
+"spoken": "Dynamic analysis lab steps (number one goal is containment):",
+"start": 888.362,
+"end": 892.437
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Install a virtual machine.",
+"spoken": "1. Install a virtual machine.",
+"start": 892.887,
+"end": 895.127
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Install a guest OS.",
+"spoken": "2. Install a guest O.S.",
+"start": 895.577,
+"end": 897.667
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Isolate the system from the guest VM.",
+"spoken": "3. Isolate the system from the guest VM.",
+"start": 898.117,
+"end": 901.019
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. Verify all sharing and transfer between host and guest is blocked.",
+"spoken": "4. Verify all sharing and transfer between host and guest is blocked.",
+"start": 901.469,
+"end": 906.226
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. Copy the malware in and prepare for analysis.",
+"spoken": "5. Copy the malware in and prepare for analysis.",
+"start": 906.676,
+"end": 910.047
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Anti-VM trick: malware checks whether the MAC address OUI (Organizationally Unique Identifier) belongs to a VM vendor.",
+"spoken": "Anti-VM trick: malware checks whether the MAC address OUI (Organizationally Unique Identifier) belongs to a VM vendor.",
+"start": 910.497,
+"end": 920.011
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malware may refuse to run without a network connection.",
+"spoken": "Malware may refuse to run without a network connection.",
+"start": 920.461,
+"end": 923.896
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Where to look for installed malware: running processes, device drivers, Windows services, startup programs, OS files.",
+"spoken": "Where to look for installed malware: running processes, device drivers, Windows services, startup programs, O.S. files.",
+"start": 924.346,
+"end": 932.794
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Malware Analytics tracks file system, Registry, memory, and network changes. Cisco renamed its security products under the Cisco Secure brand.",
+"spoken": "Secure Malware Analytics tracks file system, Registry, memory, and network changes. Cisco renamed its security products under the Cisco Secure brand.",
+"start": 933.244,
+"end": 944.081
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Anti-analysis techniques: encryption, obfuscation, encoding, anti-VM, anti-debugger.",
+"spoken": "Anti-analysis techniques: encryption, obfuscation, encoding, anti-VM, anti-debugger.",
+"start": 944.531,
+"end": 951.166
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "4. Common Software and Hardware Vulnerabilities",
+"spoken": "4. Common Software and Hardware Vulnerabilities.",
+"start": 953.216,
+"end": 956.437
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Injection",
+"spoken": "Injection.",
+"start": 958.237,
+"end": 959.197
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Code injection forces an app to process invalid data and changes the course of execution.",
+"spoken": "Code injection forces an app to process invalid data and changes the course of execution.",
+"start": 959.647,
+"end": 966.005
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Examples of code injection: SQL injection, HTML script injection, dynamic code evaluation, object injection, remote file inclusion, uncontrolled format string, shell injection.",
+"spoken": "Examples of code injection: sequel injection, HTML script injection, dynamic code evaluation, object injection, remote file inclusion, uncontrolled format string, shell injection.",
+"start": 966.455,
+"end": 980.62
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SQL Injection",
+"spoken": "sequel Injection.",
+"start": 982.07,
+"end": 983.521
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lets an attacker view, insert, delete, or modify database records.",
+"spoken": "Lets an attacker view, insert, delete, or modify database records.",
+"start": 983.971,
+"end": 988.813
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can use string or numeric input.",
+"spoken": "Can use string or numeric input.",
+"start": 989.263,
+"end": 991.631
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Look for it where apps talk to databases: login forms, search engines, e-commerce sites.",
+"spoken": "Look for it where apps talk to databases: login forms, search engines, e-commerce sites.",
+"start": 992.081,
+"end": 998.225
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Three types:",
+"spoken": "Three types:",
+"start": 998.675,
+"end": 999.763
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "In-band: data returned through the same channel. Most basic.",
+"spoken": "In-band: data returned through the same channel. Most basic.",
+"start": 1000.213,
+"end": 1004.224
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Out-of-band: data sent through a different channel, such as email or another system.",
+"spoken": "Out-of-band: data sent through a different channel, such as email or another system.",
+"start": 1004.674,
+"end": 1009.901
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Blind (inferential): no data returned. The attacker infers it from the app's behavior.",
+"spoken": "Blind (inferential): no data returned. The attacker infers it from the app's behavior.",
+"start": 1010.351,
+"end": 1016.495
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The attacker needs a syntactically correct statement. Error messages help reconstruct the query.",
+"spoken": "The attacker needs a syntactically correct statement. Error messages help reconstruct the query.",
+"start": 1016.945,
+"end": 1023.153
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "HTML and Command Injection",
+"spoken": "HTML and Command Injection.",
+"start": 1024.603,
+"end": 1027.269
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HTML injection can expose session cookies and can lead to XSS.",
+"spoken": "HTML injection can expose session cookies and can lead to cross-site scripting.",
+"start": 1027.719,
+"end": 1033.415
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Command injection happens when user data (forms, cookies, HTTP headers) is passed to a shell. Commands run with the app's privileges.",
+"spoken": "Command injection happens when user data (forms, cookies, HTTP headers) is passed to a shell. Commands run with the app's privileges.",
+"start": 1033.865,
+"end": 1043.679
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Command injection is not the same as code injection through a buffer overflow.",
+"spoken": "Command injection is not the same as code injection through a buffer overflow.",
+"start": 1044.129,
+"end": 1049.419
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Authentication-Based Attacks",
+"spoken": "Authentication-Based Attacks.",
+"start": 1050.869,
+"end": 1052.853
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Methods: credential brute forcing, session hijacking, redirecting, default credentials, weak credentials, Kerberos vulnerabilities.",
+"spoken": "Methods: credential brute forcing, session hijacking, redirecting, default credentials, weak credentials, Kerberos vulnerabilities.",
+"start": 1053.303,
+"end": 1062.263
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Online brute force: easy to detect.",
+"spoken": "Online brute force: easy to detect.",
+"start": 1062.713,
+"end": 1065.508
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Offline brute force: harder to detect, needs more computing power.",
+"spoken": "Offline brute force: harder to detect, needs more computing power.",
+"start": 1065.958,
+"end": 1070.673
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Defenses: long complex passwords, MFA, throttling login attempts, and logging and auditing them.",
+"spoken": "Defenses: long complex passwords, MFA, throttling login attempts, and logging and auditing them.",
+"start": 1071.123,
+"end": 1078.184
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Weak algorithms that make cracking easy: RC4, MD5, DES. Weak protocol: WEP (Wired Equivalent Privacy).",
+"spoken": "Weak algorithms that make cracking easy: R.C. 4, M.D. 5, D.E.S. Weak protocol: wep (Wired Equivalent Privacy).",
+"start": 1078.634,
+"end": 1088.767
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Unsalted hashes are open to rainbow table attacks.",
+"spoken": "Unsalted hashes are open to rainbow table attacks.",
+"start": 1089.217,
+"end": 1092.716
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco's Next Generation Cryptography page lists algorithms to avoid and to use.",
+"spoken": "Cisco's Next Generation Cryptography page lists algorithms to avoid and to use.",
+"start": 1093.166,
+"end": 1098.969
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Session Hijacking Methods",
+"spoken": "Session Hijacking Methods.",
+"start": 1100.419,
+"end": 1102.211
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Predicting session tokens.",
+"spoken": "Predicting session tokens.",
+"start": 1102.661,
+"end": 1104.389
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Session sniffing of unencrypted traffic.",
+"spoken": "Session sniffing of unencrypted traffic.",
+"start": 1104.839,
+"end": 1107.313
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Man-in-the-middle.",
+"spoken": "Man-in-the-middle.",
+"start": 1107.763,
+"end": 1108.979
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Man-in-the-browser.",
+"spoken": "Man-in-the-browser.",
+"start": 1109.429,
+"end": 1110.752
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Unvalidated session IDs can enable SQL injection (if stored in a database) or persistent XSS (if reflected back).",
+"spoken": "Unvalidated session I.D.s can enable sequel injection (if stored in a database) or persistent cross-site scripting (if reflected back).",
+"start": 1111.202,
+"end": 1121.399
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Default Credentials",
+"spoken": "Default Credentials.",
+"start": 1122.849,
+"end": 1124.215
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "\"Why do you need hackers if you have default passwords?\"",
+"spoken": "\"Why do you need hackers if you have default passwords?\"",
+"start": 1124.665,
+"end": 1127.886
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Common on routers, switches, access points, and firewalls. Lists are online, and Shodan finds exposed devices.",
+"spoken": "Common on routers, switches, access points, and firewalls. Lists are online, and Shodan finds exposed devices.",
+"start": 1128.336,
+"end": 1136.293
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Fix: change defaults and restrict access to critical systems.",
+"spoken": "Fix: change defaults and restrict access to critical systems.",
+"start": 1136.743,
+"end": 1140.946
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IDOR Mitigations",
+"spoken": "I.D.O.R. Mitigations.",
+"start": 1142.396,
+"end": 1144.529
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Input validation.",
+"spoken": "Input validation.",
+"start": 1144.979,
+"end": 1146.409
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Per-user or per-session indirect object references.",
+"spoken": "Per-user or per-session indirect object references.",
+"start": 1146.859,
+"end": 1150.613
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Access control checks on every object request.",
+"spoken": "Access control checks on every object request.",
+"start": 1151.063,
+"end": 1154.413
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "XSS Types",
+"spoken": "cross-site scripting Types.",
+"start": 1155.863,
+"end": 1157.612
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Reflected (non-persistent): the server reflects malicious code back from a link the victim clicks. Delivered by phishing email, messaging apps, and search engines.",
+"spoken": "Reflected (non-persistent): the server reflects malicious code back from a link the victim clicks. Delivered by phishing email, messaging apps, and search engines.",
+"start": 1158.062,
+"end": 1168.835
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stored (persistent): stored on the server in a database, such as blog comments or forums.",
+"spoken": "Stored (persistent): stored on the server in a database, such as blog comments or forums.",
+"start": 1169.285,
+"end": 1175.493
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DOM-based: the payload never reaches the server. Only the browser processes it.",
+"spoken": "dom-based: the payload never reaches the server. Only the browser processes it.",
+"start": 1175.943,
+"end": 1181.319
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In reflected and stored XSS, the vulnerable server is usually a known or trusted site.",
+"spoken": "In reflected and stored cross-site scripting, the vulnerable server is usually a known or trusted site.",
+"start": 1181.769,
+"end": 1188.788
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attackers may encode XSS with Unicode to disguise it.",
+"spoken": "Attackers may encode cross-site scripting with Unicode to disguise it.",
+"start": 1189.238,
+"end": 1193.739
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Results: malicious code execution, account compromise, cookie hijacking, local file exposure or changes, and site redirection. The victim usually does not notice.",
+"spoken": "Results: malicious code execution, account compromise, cookie hijacking, local file exposure or changes, and site redirection. The victim usually does not notice.",
+"start": 1194.189,
+"end": 1206.072
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Where XSS is found: search fields that echo input, HTTP headers, input fields that echo data, error messages, hidden fields, and any page that shows user data.",
+"spoken": "Where cross-site scripting is found: search fields that echo input, HTTP headers, input fields that echo data, error messages, hidden fields, and any page that shows user data.",
+"start": 1206.522,
+"end": 1219.514
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Never store sensitive data (tokens, private URLs, OAuth values, credentials) in the DOM.",
+"spoken": "Never store sensitive data (tokens, private U.R.L.s, oh-auth values, credentials) in the dom.",
+"start": 1219.964,
+"end": 1227.068
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "XSS Versus CSRF",
+"spoken": "cross-site scripting Versus C.S.R.F.",
+"start": 1228.518,
+"end": 1231.59
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "XSS exploits the user's trust in a site.",
+"spoken": "cross-site scripting exploits the user's trust in a site.",
+"start": 1232.04,
+"end": 1235.624
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CSRF exploits the application's trust in the user's browser.",
+"spoken": "C.S.R.F. exploits the application's trust in the user's browser.",
+"start": 1236.074,
+"end": 1241.365
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CSRF example: a logged-in user with a saved cookie unknowingly sends a request that triggers an unwanted action.",
+"spoken": "C.S.R.F. example: a logged-in user with a saved cookie unknowingly sends a request that triggers an unwanted action.",
+"start": 1241.815,
+"end": 1250.668
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SSRF",
+"spoken": "S.S.R.F.",
+"start": 1252.118,
+"end": 1253.569
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The request appears to come from the trusted web server, so it reaches systems behind firewalls.",
+"spoken": "The request appears to come from the trusted web server, so it reaches systems behind firewalls.",
+"start": 1254.019,
+"end": 1259.821
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hard to detect because it is legitimate-looking traffic inside trusted networks.",
+"spoken": "Hard to detect because it is legitimate-looking traffic inside trusted networks.",
+"start": 1260.271,
+"end": 1265.69
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mitigations: validate input, allow list of URLs, restrict access to sensitive systems.",
+"spoken": "Mitigations: validate input, allow list of U.R.L.s, restrict access to sensitive systems.",
+"start": 1266.14,
+"end": 1273.265
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On the OWASP Top 10 (A10 in 2021).",
+"spoken": "On the oh-wasp Top 10 (A 10 in 2021).",
+"start": 1273.715,
+"end": 1277.726
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Race Conditions",
+"spoken": "Race Conditions.",
+"start": 1279.176,
+"end": 1280.435
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Very high attack complexity, so very hard to exploit.",
+"spoken": "Very high attack complexity, so very hard to exploit.",
+"start": 1280.885,
+"end": 1284.746
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example: a firewall or IPS rebuilding its ACLs and rules after a config push gives a tiny window to bypass controls.",
+"spoken": "Example: a firewall or IPS rebuilding its A.C.L.s and rules after a config push gives a tiny window to bypass controls.",
+"start": 1285.196,
+"end": 1295.543
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Code example: two threads changing a shared counter at once can close a file early and lose data.",
+"spoken": "Code example: two threads changing a shared counter at once can close a file early and lose data.",
+"start": 1295.993,
+"end": 1302.819
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "APIs",
+"spoken": "A.P.I.s.",
+"start": 1304.269,
+"end": 1305.613
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Many APIs lack controls and are hard to monitor and test automatically.",
+"spoken": "Many A.P.I.s lack controls and are hard to monitor and test automatically.",
+"start": 1306.063,
+"end": 1311.866
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SOAP (Simple Object Access Protocol): from Microsoft, XML only, governed by XSD (XML Schema Definition). Replaced DCOM and CORBA. Stricter messaging patterns than REST.",
+"spoken": "soap (Simple Object Access Protocol): from Microsoft, XML only, governed by XSD (XML Schema Definition). Replaced DCOM and cor-ba. Stricter messaging patterns than rest.",
+"start": 1312.316,
+"end": 1326.588
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "REST (Representational State Transfer): JSON, easier than SOAP, documented with Swagger and OpenAPI.",
+"spoken": "rest (Representational State Transfer): jay-son, easier than soap, documented with Swagger and OpenAPI.",
+"start": 1327.038,
+"end": 1335.401
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GraphQL: a query language for APIs, used by mobile apps and dashboards.",
+"spoken": "GraphQL: a query language for A.P.I.s, used by mobile apps and dashboards.",
+"start": 1335.851,
+"end": 1342.123
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SOAP and REST both use HTTP.",
+"spoken": "soap and rest both use HTTP.",
+"start": 1342.573,
+"end": 1345.111
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "API documentation (a roadmap for attackers too):",
+"spoken": "API documentation (a roadmap for attackers too):",
+"start": 1345.561,
+"end": 1349.38
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Swagger: the basis of the OpenAPI Specification (OAS).",
+"spoken": "Swagger: the basis of the OpenAPI Specification (O.A.S.).",
+"start": 1349.83,
+"end": 1354.715
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "WSDL (Web Services Description Language): XML, documents a web service.",
+"spoken": "wiz-dull (Web Services Description Language): XML, documents a web service.",
+"start": 1355.165,
+"end": 1360.733
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "WADL (Web Application Description Language): XML, describes a web application.",
+"spoken": "waddle (Web Application Description Language): XML, describes a web application.",
+"start": 1361.183,
+"end": 1367.263
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "AI and ML Attacks",
+"spoken": "A.I. and M.L. Attacks.",
+"start": 1368.713,
+"end": 1370.847
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data poisoning: targeted (specific inputs) or exploratory (overall performance).",
+"spoken": "Data poisoning: targeted (specific inputs) or exploratory (overall performance).",
+"start": 1371.297,
+"end": 1377.121
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Adversarial examples: inputs altered invisibly to cause misclassification, such as a cat image classified as a dog.",
+"spoken": "Adversarial examples: inputs altered invisibly to cause misclassification, such as a cat image classified as a dog.",
+"start": 1377.571,
+"end": 1386.317
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Model inversion: infers training data from outputs.",
+"spoken": "Model inversion: infers training data from outputs.",
+"start": 1386.767,
+"end": 1390.351
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Membership inference: determines whether a data point was in the training set.",
+"spoken": "Membership inference: determines whether a data point was in the training set.",
+"start": 1390.801,
+"end": 1395.452
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Model stealing: clones a model by repeatedly querying it.",
+"spoken": "Model stealing: clones a model by repeatedly querying it.",
+"start": 1395.902,
+"end": 1399.827
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AI Trojan (backdoor): a hidden trigger planted during training.",
+"spoken": "A.I. Trojan (backdoor): a hidden trigger planted during training.",
+"start": 1400.277,
+"end": 1404.693
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Defenses: robust training, differential privacy, adversarial training, careful feature selection, monitoring, regular updates, encrypting the model. Security is ongoing, not one-time.",
+"spoken": "Defenses: robust training, differential privacy, adversarial training, careful feature selection, monitoring, regular updates, encrypting the model. Security is ongoing, not one-time.",
+"start": 1405.143,
+"end": 1418.071
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Buffer Overflow and ret2libc Defenses",
+"spoken": "Buffer Overflow and return to lib C Defenses.",
+"start": 1419.521,
+"end": 1422.785
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A non-executable stack stops injected code but cannot stop ret2libc, because ret2libc reuses existing code.",
+"spoken": "A non-executable stack stops injected code but cannot stop return to lib C, because return to lib C reuses existing code.",
+"start": 1423.235,
+"end": 1432.985
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Stack-smashing protection: detects stack corruption and flushes the compromised segment.",
+"spoken": "Stack-smashing protection: detects stack corruption and flushes the compromised segment.",
+"start": 1433.435,
+"end": 1438.789
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASCII armoring: blocks string functions like strcpy(). Fails if the attacker can overflow null bytes.",
+"spoken": "ASCII armoring: blocks string functions like strcpy(). Fails if the attacker can overflow null bytes.",
+"start": 1439.239,
+"end": 1447.303
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASLR: the better approach. Effective on 64-bit, weak on 32-bit.",
+"spoken": "ASLR: the better approach. Effective on 64-bit, weak on 32-bit.",
+"start": 1447.753,
+"end": 1453.023
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "OWASP and Open Source",
+"spoken": "oh-wasp and Open Source.",
+"start": 1454.473,
+"end": 1456.371
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OWASP defines each Top 10 vulnerability, gives prevention techniques, and runs free local chapters.",
+"spoken": "oh-wasp defines each Top 10 vulnerability, gives prevention techniques, and runs free local chapters.",
+"start": 1456.821,
+"end": 1464.032
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Patching commercial and open-source software is one of the most important processes in any organization.",
+"spoken": "Patching commercial and open-source software is one of the most important processes in any organization.",
+"start": 1464.482,
+"end": 1471.437
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "5. Confidentiality, Integrity, and Availability",
+"spoken": "5. Confidentiality, Integrity, and Availability.",
+"start": 1473.487,
+"end": 1477.327
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Which matters most depends on the organization's mission, services, regulations, and contracts. The book's figure shows the triad as a triangle.",
+"spoken": "Which matters most depends on the organization's mission, services, regulations, and contracts. The book's figure shows the triad as a triangle.",
+"start": 1478.127,
+"end": 1488.111
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Confidentiality",
+"spoken": "Confidentiality.",
+"start": 1489.561,
+"end": 1491.033
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Three concepts:",
+"spoken": "Three concepts:",
+"start": 1491.483,
+"end": 1492.827
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Identify what information should be controlled.",
+"spoken": "Identify what information should be controlled.",
+"start": 1493.277,
+"end": 1496.455
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Identify who is or is not authorized.",
+"spoken": "Identify who is or is not authorized.",
+"start": 1496.905,
+"end": 1499.977
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Control access so only authorized parties get in.",
+"spoken": "Control access so only authorized parties get in.",
+"start": 1500.427,
+"end": 1504.054
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protection: encryption in transit (site-to-site and remote access VPNs, TLS) and at rest.",
+"spoken": "Protection: encryption in transit (site-to-site and remote access V.P.N.s, TLS) and at rest.",
+"start": 1504.504,
+"end": 1511.757
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sensitive data examples: Social Security numbers, bank and card data, criminal records, health records, trade secrets, source code, military secrets.",
+"spoken": "Sensitive data examples: Social Security numbers, bank and card data, criminal records, health records, trade secrets, source code, military secrets.",
+"start": 1512.207,
+"end": 1522.831
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mechanisms that preserve confidentiality:",
+"spoken": "Mechanisms that preserve confidentiality:",
+"start": 1523.281,
+"end": 1525.948
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Logical and physical access controls.",
+"spoken": "Logical and physical access controls.",
+"start": 1526.398,
+"end": 1529.001
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Encryption, in motion and at rest.",
+"spoken": "Encryption, in motion and at rest.",
+"start": 1529.451,
+"end": 1531.712
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Database views.",
+"spoken": "Database views.",
+"start": 1532.162,
+"end": 1533.549
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Controlled traffic routing.",
+"spoken": "Controlled traffic routing.",
+"start": 1533.999,
+"end": 1535.641
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data classification guides how to protect data.",
+"spoken": "Data classification guides how to protect data.",
+"start": 1536.091,
+"end": 1539.569
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threats: outside criminals, insiders copying data, and hacktivists.",
+"spoken": "Threats: outside criminals, insiders copying data, and hacktivists.",
+"start": 1540.019,
+"end": 1544.691
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Integrity",
+"spoken": "Integrity.",
+"start": 1546.141,
+"end": 1547.143
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applies to systems, not just data. An attacker changing a router's configuration is an integrity attack.",
+"spoken": "Applies to systems, not just data. An attacker changing a router's configuration is an integrity attack.",
+"start": 1547.593,
+"end": 1555.103
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example of system integrity loss: malware corrupting boot files.",
+"spoken": "Example of system integrity loss: malware corrupting boot files.",
+"start": 1555.553,
+"end": 1560.011
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Biggest threats: errors and omissions, bugs, and human error.",
+"spoken": "Biggest threats: errors and omissions, bugs, and human error.",
+"start": 1560.461,
+"end": 1564.387
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Safeguards:",
+"spoken": "Safeguards:",
+"start": 1564.837,
+"end": 1565.925
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Access controls: encryption, digital signatures.",
+"spoken": "Access controls: encryption, digital signatures.",
+"start": 1566.375,
+"end": 1569.98
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Process controls: code testing.",
+"spoken": "Process controls: code testing.",
+"start": 1570.43,
+"end": 1572.841
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Monitoring controls: file integrity monitoring, log analysis.",
+"spoken": "Monitoring controls: file integrity monitoring, log analysis.",
+"start": 1573.291,
+"end": 1577.92
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Behavioral controls: separation of duties, rotation of duties, training.",
+"spoken": "Behavioral controls: separation of duties, rotation of duties, training.",
+"start": 1578.37,
+"end": 1583.575
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrity and confidentiality are linked. A leaked password lets someone change or destroy data.",
+"spoken": "Integrity and confidentiality are linked. A leaked password lets someone change or destroy data.",
+"start": 1584.025,
+"end": 1590.767
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Availability",
+"spoken": "Availability.",
+"start": 1592.217,
+"end": 1593.454
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Most common attack: DoS.",
+"spoken": "Most common attack: D.O.S.",
+"start": 1593.904,
+"end": 1596.208
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Often the first concern for ISPs.",
+"spoken": "Often the first concern for I.S.P.s.",
+"start": 1596.658,
+"end": 1599.645
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threats are not always malicious. Human error and misconfiguration cause outages.",
+"spoken": "Threats are not always malicious. Human error and misconfiguration cause outages.",
+"start": 1600.095,
+"end": 1605.62
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "We are more vulnerable to availability threats than to the other two.",
+"spoken": "We are more vulnerable to availability threats than to the other two.",
+"start": 1606.07,
+"end": 1610.315
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Safeguards: access controls, monitoring, data redundancy, resilient systems, virtualization, server clustering, environmental controls, continuity of operations planning, incident response preparedness.",
+"spoken": "Safeguards: access controls, monitoring, data redundancy, resilient systems, virtualization, server clustering, environmental controls, continuity of operations planning, incident response preparedness.",
+"start": 1610.765,
+"end": 1625.784
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DDoS Categories",
+"spoken": "D.D.O.S. Categories.",
+"start": 1627.234,
+"end": 1629.218
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Direct: attacker sends packets straight to the victim. Example: TCP SYN flood.",
+"spoken": "Direct: attacker sends packets straight to the victim. Example: TCP sin flood.",
+"start": 1629.668,
+"end": 1635.279
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Reflected: attacker spoofs the victim's address in requests to a source (such as NTP), and the source replies to the victim. UDP is preferred because it has no three-way handshake.",
+"spoken": "Reflected: attacker spoofs the victim's address in requests to a source (such as N.T.P.), and the source replies to the victim. UDP is preferred because it has no three-way handshake.",
+"start": 1635.729,
+"end": 1648.678
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Amplification: reflected, with responses much larger than requests. Example: DNS.",
+"spoken": "Amplification: reflected, with responses much larger than requests. Example: DNS.",
+"start": 1649.128,
+"end": 1655.421
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DoS can also come from exploiting a bug such as a buffer overflow to crash a device.",
+"spoken": "D.O.S. can also come from exploiting a bug such as a buffer overflow to crash a device.",
+"start": 1655.871,
+"end": 1662.783
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Botnets can include end-user machines and IoT devices like cameras and sensors.",
+"spoken": "Botnets can include end-user machines and I.O.T. devices like cameras and sensors.",
+"start": 1663.233,
+"end": 1669.719
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Access Control",
+"spoken": "Access Control.",
+"start": 1671.169,
+"end": 1672.598
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Access decisions should consider need to know and least privilege.",
+"spoken": "Access decisions should consider need to know and least privilege.",
+"start": 1673.048,
+"end": 1677.144
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Choosing an authentication level depends on data classification, regulations, impact of unauthorized access, and threat likelihood.",
+"spoken": "Choosing an authentication level depends on data classification, regulations, impact of unauthorized access, and threat likelihood.",
+"start": 1677.594,
+"end": 1687.151
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "6. Cloud Security Threats",
+"spoken": "6. Cloud Security Threats.",
+"start": 1689.201,
+"end": 1691.207
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Most Fortune 500 companies are multicloud.",
+"spoken": "Most Fortune 500 companies are multicloud.",
+"start": 1692.007,
+"end": 1695.484
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Exam objective 1.1.b cloud threats: data breaches, insecure APIs, DoS/DDoS, compromised credentials.",
+"spoken": "Exam objective 1.1.b cloud threats: data breaches, insecure A.P.I.s, D.O.S. and D.D.O.S., compromised credentials.",
+"start": 1695.934,
+"end": 1706.643
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cloud Advantages",
+"spoken": "Cloud Advantages.",
+"start": 1708.093,
+"end": 1709.587
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Distributed storage, scalability, resource pooling, access from anywhere, measured service, automated management.",
+"spoken": "Distributed storage, scalability, resource pooling, access from anywhere, measured service, automated management.",
+"start": 1710.037,
+"end": 1717.482
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NIST Essential Characteristics",
+"spoken": "NIST Essential Characteristics.",
+"start": 1718.932,
+"end": 1721.087
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On-demand self-service.",
+"spoken": "On-demand self-service.",
+"start": 1721.537,
+"end": 1723.265
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Broad network access.",
+"spoken": "Broad network access.",
+"start": 1723.715,
+"end": 1725.272
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Resource pooling.",
+"spoken": "Resource pooling.",
+"start": 1725.722,
+"end": 1727.023
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rapid elasticity.",
+"spoken": "Rapid elasticity.",
+"start": 1727.473,
+"end": 1728.967
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Measured service.",
+"spoken": "Measured service.",
+"start": 1729.417,
+"end": 1730.633
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Deployment Models",
+"spoken": "Deployment Models.",
+"start": 1732.083,
+"end": 1733.491
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Public: open for public use.",
+"spoken": "Public: open for public use.",
+"start": 1733.941,
+"end": 1735.967
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Private: one organization, on-premises or in a dedicated area at a provider.",
+"spoken": "Private: one organization, on-premises or in a dedicated area at a provider.",
+"start": 1736.417,
+"end": 1742.241
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Community: shared by several organizations.",
+"spoken": "Community: shared by several organizations.",
+"start": 1742.691,
+"end": 1745.763
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hybrid: two or more clouds, including on-premises.",
+"spoken": "Hybrid: two or more clouds, including on-premises.",
+"start": 1746.213,
+"end": 1749.541
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Service Model Details",
+"spoken": "Service Model Details.",
+"start": 1750.991,
+"end": 1752.591
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IaaS is like a utility company: pay for what you use.",
+"spoken": "I.A.A.S. is like a utility company: pay for what you use.",
+"start": 1753.041,
+"end": 1757.265
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PaaS can use APIs, website portals, or gateway software. Tends to be proprietary, which causes lock-in.",
+"spoken": "PAZ can use A.P.I.s, website portals, or gateway software. Tends to be proprietary, which causes lock-in.",
+"start": 1757.715,
+"end": 1766.398
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SaaS is rented, used from anywhere, with a per-use fee.",
+"spoken": "SASS is rented, used from anywhere, with a per-use fee.",
+"start": 1766.848,
+"end": 1770.219
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Questions to Ask a Cloud Provider",
+"spoken": "Questions to Ask a Cloud Provider.",
+"start": 1771.669,
+"end": 1773.909
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Who has access, and how were they screened?",
+"spoken": "Who has access, and how were they screened?",
+"start": 1774.359,
+"end": 1776.94
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What are your regulatory requirements? Examples: ISO/IEC 27002, EU-U.S. Privacy Shield, ITIL, COBIT.",
+"spoken": "What are your regulatory requirements? Examples: I.S.O. I.E.C. 27002, EU-U.S. Privacy Shield, eye-till, co-bit.",
+"start": 1777.39,
+"end": 1788.014
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Do you have the right to audit, in writing?",
+"spoken": "Do you have the right to audit, in writing?",
+"start": 1788.464,
+"end": 1790.917
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What training do the provider's employees get?",
+"spoken": "What training do the provider's employees get?",
+"start": 1791.367,
+"end": 1794.269
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What data classification system is used?",
+"spoken": "What data classification system is used?",
+"start": 1794.719,
+"end": 1797.471
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Is your data on a shared or dedicated server?",
+"spoken": "Is your data on a shared or dedicated server?",
+"start": 1797.921,
+"end": 1800.929
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Is encryption used at rest and in transit, what type (DES versus AES), and who controls the keys?",
+"spoken": "Is encryption used at rest and in transit, what type (D.E.S. versus A.E.S.), and who controls the keys?",
+"start": 1801.379,
+"end": 1808.909
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What are the SLA terms?",
+"spoken": "What are the SLA terms?",
+"start": 1809.359,
+"end": 1811.087
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What is the provider's long-term viability, and what happens to your data if it closes?",
+"spoken": "What is the provider's long-term viability, and what happens to your data if it closes?",
+"start": 1811.537,
+"end": 1817.105
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Will the provider assume liability in a breach?",
+"spoken": "Will the provider assume liability in a breach?",
+"start": 1817.555,
+"end": 1820.521
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What is the DR/BCP plan?",
+"spoken": "What is the D.R. and B.C.P. plan?",
+"start": 1820.971,
+"end": 1823.68
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What happens to your data when the contract ends?",
+"spoken": "What happens to your data when the contract ends?",
+"start": 1824.13,
+"end": 1826.967
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Decide the division of compliance responsibilities before signing. Insufficient due diligence is one of the biggest cloud issues.",
+"spoken": "Decide the division of compliance responsibilities before signing. Insufficient due diligence is one of the biggest cloud issues.",
+"start": 1827.417,
+"end": 1836.207
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cloud Attacks",
+"spoken": "Cloud Attacks.",
+"start": 1837.657,
+"end": 1838.915
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Session hijacking.",
+"spoken": "Session hijacking.",
+"start": 1839.365,
+"end": 1840.731
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DNS attacks that send users to phishing sites.",
+"spoken": "DNS attacks that send users to phishing sites.",
+"start": 1841.181,
+"end": 1844.487
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "XSS to steal cookies.",
+"spoken": "cross-site scripting to steal cookies.",
+"start": 1844.937,
+"end": 1847.135
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SQL injection.",
+"spoken": "sequel injection.",
+"start": 1847.585,
+"end": 1849.035
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Session riding (CSRF).",
+"spoken": "Session riding (C.S.R.F.).",
+"start": 1849.485,
+"end": 1851.917
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DDoS, possibly more damaging because the cloud is shared.",
+"spoken": "D.D.O.S., possibly more damaging because the cloud is shared.",
+"start": 1852.367,
+"end": 1856.847
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On-path (man-in-the-middle) cryptographic attacks.",
+"spoken": "On-path (man-in-the-middle) cryptographic attacks.",
+"start": 1857.297,
+"end": 1860.369
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Side-channel attacks.",
+"spoken": "Side-channel attacks.",
+"start": 1860.819,
+"end": 1862.355
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication attacks.",
+"spoken": "Authentication attacks.",
+"start": 1862.805,
+"end": 1864.491
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "API attacks on misconfigured APIs.",
+"spoken": "API attacks on misconfigured A.P.I.s.",
+"start": 1864.941,
+"end": 1868.567
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cloud Security",
+"spoken": "Cloud Security.",
+"start": 1870.017,
+"end": 1871.425
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security is shared by the client and the provider, and must be agreed before signing.",
+"spoken": "Security is shared by the client and the provider, and must be agreed before signing.",
+"start": 1871.875,
+"end": 1877.294
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The provider should have the same logical, physical, and administrative layers you would have. Chapter 9 covers this in depth.",
+"spoken": "The provider should have the same logical, physical, and administrative layers you would have. Chapter 9 covers this in depth.",
+"start": 1877.744,
+"end": 1885.829
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "7. IoT Security Threats",
+"spoken": "7. I.O.T. Security Threats.",
+"start": 1887.879,
+"end": 1890.333
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why Distributed Intelligence",
+"spoken": "Why Distributed Intelligence.",
+"start": 1892.133,
+"end": 1894.138
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data collection: central collection does not scale (millions of smart grid sensors).",
+"spoken": "Data collection: central collection does not scale (millions of smart grid sensors).",
+"start": 1894.588,
+"end": 1900.156
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network resource preservation: bandwidth is limited.",
+"spoken": "Network resource preservation: bandwidth is limited.",
+"start": 1900.606,
+"end": 1904.083
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Closed-loop functioning: fast reaction times are needed.",
+"spoken": "Closed-loop functioning: fast reaction times are needed.",
+"start": 1904.533,
+"end": 1908.288
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book shows sensors sending to a fog-edge router that sends to the cloud, and a smart thermostat talking directly to the cloud over a RESTful API with TLS, controlled by a mobile app.",
+"spoken": "The book shows sensors sending to a fog-edge router that sends to the cloud, and a smart thermostat talking directly to the cloud over a restful API with TLS, controlled by a mobile app.",
+"start": 1908.738,
+"end": 1921.858
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IoT Challenges",
+"spoken": "I.O.T. Challenges.",
+"start": 1923.308,
+"end": 1925.057
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cheap devices with little or no security.",
+"spoken": "Cheap devices with little or no security.",
+"start": 1925.507,
+"end": 1928.537
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Limited memory and CPU, so no complex crypto.",
+"spoken": "Limited memory and CPU, so no complex crypto.",
+"start": 1928.987,
+"end": 1932.848
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "No backup connectivity.",
+"spoken": "No backup connectivity.",
+"start": 1933.298,
+"end": 1935.005
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure remote management and onboarding.",
+"spoken": "Secure remote management and onboarding.",
+"start": 1935.455,
+"end": 1938.079
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multiparty governance: who owns liability, incident response, provisioning, and data access.",
+"spoken": "Multiparty governance: who owns liability, incident response, provisioning, and data access.",
+"start": 1938.529,
+"end": 1945.035
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Crypto resilience for devices that last decades, such as smart meters.",
+"spoken": "Crypto resilience for devices that last decades, such as smart meters.",
+"start": 1945.485,
+"end": 1950.328
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Physical theft and tampering.",
+"spoken": "Physical theft and tampering.",
+"start": 1950.778,
+"end": 1952.655
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure authentication to multiple networks.",
+"spoken": "Secure authentication to multiple networks.",
+"start": 1953.105,
+"end": 1956.156
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protocols like INSTEON, Zigbee, Z-Wave, and LoRaWAN were not designed for security, though they have improved.",
+"spoken": "Protocols like INSTEON, Zigbee, Z-Wave, and LoRa WAN were not designed for security, though they have improved.",
+"start": 1956.606,
+"end": 1965.459
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IoT Communication Protocols",
+"spoken": "I.O.T. Communication Protocols.",
+"start": 1966.909,
+"end": 1969.981
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Zigbee: very popular for consumer devices. Uses IEEE 802.15.4 MAC layer security.",
+"spoken": "Zigbee: very popular for consumer devices. Uses IEEE 802.15.4 MAC layer security.",
+"start": 1970.431,
+"end": 1979.669
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Bluetooth Low Energy (BLE) and Bluetooth Smart: built for battery life. Sleeps until needed. Frequency-hopping spread spectrum and AES.",
+"spoken": "Bluetooth Low Energy (BLE) and Bluetooth Smart: built for battery life. Sleeps until needed. Frequency-hopping spread spectrum and A.E.S.",
+"start": 1980.119,
+"end": 1990.188
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Z-Wave: unicast, multicast, broadcast. Controllers and slaves. Primary controllers add and remove nodes.",
+"spoken": "Z-Wave: unicast, multicast, broadcast. Controllers and slaves. Primary controllers add and remove nodes.",
+"start": 1990.638,
+"end": 1998.894
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "INSTEON: wireless and power line. Dual-band, mesh, peer-to-peer.",
+"spoken": "INSTEON: wireless and power line. Dual-band, mesh, peer-to-peer.",
+"start": 1999.344,
+"end": 2003.952
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "LoRaWAN (Long Range Wide Area Network): three endpoint classes:",
+"spoken": "LoRa WAN (Long Range Wide Area Network): three endpoint classes:",
+"start": 2004.402,
+"end": 2009.223
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Class A: lowest power, bidirectional.",
+"spoken": "Class A: lowest power, bidirectional.",
+"start": 2009.673,
+"end": 2012.34
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Class B: bidirectional with deterministic downlink latency.",
+"spoken": "Class B: bidirectional with deterministic downlink latency.",
+"start": 2012.79,
+"end": 2017.206
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Class C: lowest latency, bidirectional.",
+"spoken": "Class C: lowest latency, bidirectional.",
+"start": 2017.656,
+"end": 2020.515
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Wi-Fi.",
+"spoken": "Wi-Fi.",
+"start": 2020.965,
+"end": 2021.925
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "6LoWPAN (IPv6 over Low Power Wireless Personal Area Networks): builds an IPv6 adaptation layer on top of 802.15.4 LRWPAN (Low Rate Wireless Personal Area Networks).",
+"spoken": "6LoWPAN (I.P. version 6 over Low Power Wireless Personal Area Networks): builds an I.P. version 6 adaptation layer on top of 802.15.4 L.R. W-PAN (Low Rate Wireless Personal Area Networks).",
+"start": 2022.375,
+"end": 2041.233
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cellular: 4G and 5G.",
+"spoken": "Cellular: 4G and 5G.",
+"start": 2041.683,
+"end": 2043.945
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Not an IoT protocol: 802.1X.",
+"spoken": "Not an I.O.T. protocol: 802 dot 1 X.",
+"start": 2044.395,
+"end": 2048.533
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IoT Messaging Protocols",
+"spoken": "I.O.T. Messaging Protocols.",
+"start": 2049.983,
+"end": 2052.693
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MQTT, CoAP (Constrained Application Protocol), DDP (Data Distribution Protocol), AMQP (Advanced Message Queuing Protocol), XMPP (Extensible Messaging and Presence Protocol).",
+"spoken": "M.Q.T.T., co-app (Constrained Application Protocol), DDP (Data Distribution Protocol), A.M.Q.P. (Advanced Message Queuing Protocol), X.M.P.P. (Extensible Messaging and Presence Protocol).",
+"start": 2053.143,
+"end": 2068.481
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IoT devices commonly use REST and MQTT on top of lower-layer protocols.",
+"spoken": "I.O.T. devices commonly use rest and M.Q.T.T. on top of lower-layer protocols.",
+"start": 2068.931,
+"end": 2076.377
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "8. Digital Forensics and Incident Response",
+"spoken": "8. Digital Forensics and Incident Response.",
+"start": 2078.427,
+"end": 2081.669
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Incident management is a predictable response to damaging situations.",
+"spoken": "Incident management is a predictable response to damaging situations.",
+"start": 2082.469,
+"end": 2087.355
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Preparing for Incidents",
+"spoken": "Preparing for Incidents.",
+"start": 2088.805,
+"end": 2090.49
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Reduce incidents with periodic risk assessments. Risks can be mitigated, transferred, or avoided until acceptable.",
+"spoken": "Reduce incidents with periodic risk assessments. Risks can be mitigated, transferred, or avoided until acceptable.",
+"start": 2090.94,
+"end": 2099.196
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Preparation: policies, strategies, plans, procedures, written guidelines, training, and mock exercises. \"An actual incident is not the time to learn.\"",
+"spoken": "Preparation: policies, strategies, plans, procedures, written guidelines, training, and mock exercises. \"An actual incident is not the time to learn.\"",
+"start": 2099.646,
+"end": 2110.121
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Benefits of a practiced capability:",
+"spoken": "Benefits of a practiced capability:",
+"start": 2110.571,
+"end": 2112.917
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Calm and systematic response.",
+"spoken": "Calm and systematic response.",
+"start": 2113.367,
+"end": 2115.714
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Minimized loss or damage.",
+"spoken": "Minimized loss or damage.",
+"start": 2116.164,
+"end": 2118.063
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Protection of affected parties.",
+"spoken": "Protection of affected parties.",
+"start": 2118.513,
+"end": 2120.603
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Compliance with laws and regulations.",
+"spoken": "Compliance with laws and regulations.",
+"start": 2121.053,
+"end": 2123.507
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Preservation of evidence.",
+"spoken": "Preservation of evidence.",
+"start": 2123.957,
+"end": 2125.791
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Integration of lessons learned.",
+"spoken": "Integration of lessons learned.",
+"start": 2126.241,
+"end": 2128.289
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Lower future risk and exposure.",
+"spoken": "Lower future risk and exposure.",
+"start": 2128.739,
+"end": 2130.83
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Incidents",
+"spoken": "Incidents.",
+"start": 2132.28,
+"end": 2133.304
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Start by defining \"incident\" for your organization. Declaring one should trigger a mandatory response.",
+"spoken": "Start by defining \"incident\" for your organization. Declaring one should trigger a mandatory response.",
+"start": 2133.754,
+"end": 2140.922
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Event examples: connecting to a file share, a web request, sending email, a firewall blocking a connection.",
+"spoken": "Event examples: connecting to a file share, a web request, sending email, a firewall blocking a connection.",
+"start": 2141.372,
+"end": 2148.753
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Adverse event examples: crashes, packet floods, unauthorized privilege use, unauthorized data access, data-destroying malware.",
+"spoken": "Adverse event examples: crashes, packet floods, unauthorized privilege use, unauthorized data access, data-destroying malware.",
+"start": 2149.203,
+"end": 2158.505
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Incident examples: crafted packet crashes a router, POS system card theft, hospital record theft, ransomware on a critical server.",
+"spoken": "Incident examples: crafted packet crashes a router, POS system card theft, hospital record theft, ransomware on a critical server.",
+"start": 2158.955,
+"end": 2168.683
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A PII breach usually requires strict disclosure.",
+"spoken": "A PII breach usually requires strict disclosure.",
+"start": 2169.133,
+"end": 2172.951
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Partners and vendors should be contractually required to report incidents.",
+"spoken": "Partners and vendors should be contractually required to report incidents.",
+"start": 2173.401,
+"end": 2178.223
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Detection Tuning and Evasion",
+"spoken": "Detection Tuning and Evasion.",
+"start": 2179.673,
+"end": 2181.614
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Too many false positives drain attention and cause real events to be missed.",
+"spoken": "Too many false positives drain attention and cause real events to be missed.",
+"start": 2182.064,
+"end": 2187.056
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traditional IDS and IPS need tuning. Next-generation IPS needs less and adds advanced malware protection and retrospective analysis.",
+"spoken": "Traditional IDS and IPS need tuning. Next-generation IPS needs less and adds advanced malware protection and retrospective analysis.",
+"start": 2187.506,
+"end": 2198.834
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Evasion techniques:",
+"spoken": "Evasion techniques:",
+"start": 2199.284,
+"end": 2200.777
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Fragmentation.",
+"spoken": "Fragmentation.",
+"start": 2201.227,
+"end": 2202.507
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Low-bandwidth attacks.",
+"spoken": "Low-bandwidth attacks.",
+"start": 2202.957,
+"end": 2204.451
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Address spoofing or proxying.",
+"spoken": "Address spoofing or proxying.",
+"start": 2204.901,
+"end": 2206.842
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Pattern change evasion (polymorphism).",
+"spoken": "Pattern change evasion (polymorphism).",
+"start": 2207.292,
+"end": 2209.959
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Encryption.",
+"spoken": "Encryption.",
+"start": 2210.409,
+"end": 2211.433
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Severity and Reporting",
+"spoken": "Severity and Reporting.",
+"start": 2212.883,
+"end": 2214.76
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Severity levels are based on operational, reputational, and legal impact. Each level has a maximum response time and minimum notification requirements.",
+"spoken": "Severity levels are based on operational, reputational, and legal impact. Each level has a maximum response time and minimum notification requirements.",
+"start": 2215.21,
+"end": 2226.495
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Severity is assigned by an incident manager or investigator.",
+"spoken": "Severity is assigned by an incident manager or investigator.",
+"start": 2226.945,
+"end": 2231.169
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "All employees must report actual and suspected incidents but should not assign severity.",
+"spoken": "All employees must report actual and suspected incidents but should not assign severity.",
+"start": 2231.619,
+"end": 2237.55
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Why people do not report: fear of being wrong, not wanting to be a whistleblower, not caring. Management must encourage reporting and never ridicule false alarms.",
+"spoken": "Why people do not report: fear of being wrong, not wanting to be a whistleblower, not caring. Management must encourage reporting and never ridicule false alarms.",
+"start": 2238.0,
+"end": 2249.499
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Evidence",
+"spoken": "Evidence.",
+"start": 2250.949,
+"end": 2251.909
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Legal evidence types: witness testimony or direct evidence, and indirect evidence in the form of an object.",
+"spoken": "Legal evidence types: witness testimony or direct evidence, and indirect evidence in the form of an object.",
+"start": 2252.359,
+"end": 2259.74
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Prefer a bit-for-bit physical copy. Logical copies miss data and alter metadata, inviting legal challenges.",
+"spoken": "Prefer a bit-for-bit physical copy. Logical copies miss data and alter metadata, inviting legal challenges.",
+"start": 2260.19,
+"end": 2268.318
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Chain of custody documents:",
+"spoken": "Chain of custody documents:",
+"start": 2268.768,
+"end": 2270.795
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "How evidence was collected.",
+"spoken": "How evidence was collected.",
+"start": 2271.245,
+"end": 2273.079
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "When it was collected.",
+"spoken": "When it was collected.",
+"start": 2273.529,
+"end": 2274.916
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "How it was transported.",
+"spoken": "How it was transported.",
+"start": 2275.366,
+"end": 2277.009
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "How it was tracked.",
+"spoken": "How it was tracked.",
+"start": 2277.459,
+"end": 2278.781
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "How it was stored.",
+"spoken": "How it was stored.",
+"start": 2279.231,
+"end": 2280.554
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Who accessed it and how.",
+"spoken": "Who accessed it and how.",
+"start": 2281.004,
+"end": 2282.753
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Work only on a copy. Use antistatic bags. Transport in a lockable container with the responsible person staying with it.",
+"spoken": "Work only on a copy. Use antistatic bags. Transport in a lockable container with the responsible person staying with it.",
+"start": 2283.203,
+"end": 2291.545
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Incident Response Program",
+"spoken": "Incident Response Program.",
+"start": 2292.995,
+"end": 2294.979
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Made of policies, plans, procedures, and people.",
+"spoken": "Made of policies, plans, procedures, and people.",
+"start": 2295.429,
+"end": 2298.586
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST SP 800-61 policy elements:",
+"spoken": "NIST S.P. 800-61 policy elements:",
+"start": 2299.036,
+"end": 2303.26
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Statement of management commitment.",
+"spoken": "Statement of management commitment.",
+"start": 2303.71,
+"end": 2305.822
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Purpose and objectives.",
+"spoken": "Purpose and objectives.",
+"start": 2306.272,
+"end": 2307.979
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Scope.",
+"spoken": "Scope.",
+"start": 2308.429,
+"end": 2309.175
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Definitions of incidents and related terms.",
+"spoken": "Definitions of incidents and related terms.",
+"start": 2309.625,
+"end": 2312.591
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Organizational structure, roles, responsibilities, and levels of authority.",
+"spoken": "Organizational structure, roles, responsibilities, and levels of authority.",
+"start": 2313.041,
+"end": 2318.054
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Prioritization or severity ratings.",
+"spoken": "Prioritization or severity ratings.",
+"start": 2318.504,
+"end": 2321.192
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Performance measures.",
+"spoken": "Performance measures.",
+"start": 2321.642,
+"end": 2322.986
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Reporting and contact forms.",
+"spoken": "Reporting and contact forms.",
+"start": 2323.436,
+"end": 2325.335
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST plan elements:",
+"spoken": "NIST plan elements:",
+"start": 2325.785,
+"end": 2327.257
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Mission.",
+"spoken": "Mission.",
+"start": 2327.707,
+"end": 2328.539
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Strategies and goals.",
+"spoken": "Strategies and goals.",
+"start": 2328.989,
+"end": 2330.589
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Senior management approval.",
+"spoken": "Senior management approval.",
+"start": 2331.039,
+"end": 2333.001
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Organizational approach.",
+"spoken": "Organizational approach.",
+"start": 2333.451,
+"end": 2335.179
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Communication with the organization and other organizations.",
+"spoken": "Communication with the organization and other organizations.",
+"start": 2335.629,
+"end": 2339.64
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Metrics for capability and effectiveness.",
+"spoken": "Metrics for capability and effectiveness.",
+"start": 2340.09,
+"end": 2342.671
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Roadmap for maturing the capability.",
+"spoken": "Roadmap for maturing the capability.",
+"start": 2343.121,
+"end": 2345.468
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "How the program fits into the organization.",
+"spoken": "How the program fits into the organization.",
+"start": 2345.918,
+"end": 2348.627
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NIST Incident Response Phases",
+"spoken": "NIST Incident Response Phases.",
+"start": 2350.077,
+"end": 2352.275
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Preparation:",
+"spoken": "1. Preparation:",
+"start": 2352.725,
+"end": 2354.09
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Create and train the team, deploy tools, build controls from risk assessments.",
+"spoken": "Create and train the team, deploy tools, build controls from risk assessments.",
+"start": 2354.54,
+"end": 2359.788
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Communication processes and SOC facilities.",
+"spoken": "Communication processes and SOC facilities.",
+"start": 2360.238,
+"end": 2363.779
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Analysis hardware and software, and mitigation software.",
+"spoken": "Analysis hardware and software, and mitigation software.",
+"start": 2364.229,
+"end": 2368.219
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Risk assessment capabilities.",
+"spoken": "Risk assessment capabilities.",
+"start": 2368.669,
+"end": 2370.503
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Host security, network security, and malware prevention.",
+"spoken": "Host security, network security, and malware prevention.",
+"start": 2370.953,
+"end": 2374.836
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "User awareness training.",
+"spoken": "User awareness training.",
+"start": 2375.286,
+"end": 2377.078
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Detection and analysis (often the hardest; breaches can go unnoticed for months). NIST recommendations:",
+"spoken": "2. Detection and analysis (often the hardest; breaches can go unnoticed for months). NIST recommendations:",
+"start": 2377.528,
+"end": 2385.123
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Profile networks and systems.",
+"spoken": "Profile networks and systems.",
+"start": 2385.573,
+"end": 2387.514
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Understand normal behaviors.",
+"spoken": "Understand normal behaviors.",
+"start": 2387.964,
+"end": 2390.14
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Create a log retention policy.",
+"spoken": "Create a log retention policy.",
+"start": 2390.59,
+"end": 2392.851
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Perform event correlation.",
+"spoken": "Perform event correlation.",
+"start": 2393.301,
+"end": 2395.157
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Maintain a knowledge base.",
+"spoken": "Maintain a knowledge base.",
+"start": 2395.607,
+"end": 2397.335
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Use Internet search engines for research.",
+"spoken": "Use Internet search engines for research.",
+"start": 2397.785,
+"end": 2400.473
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Run packet sniffers.",
+"spoken": "Run packet sniffers.",
+"start": 2400.923,
+"end": 2402.374
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Filter the data.",
+"spoken": "Filter the data.",
+"start": 2402.824,
+"end": 2404.083
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Seek assistance from others.",
+"spoken": "Seek assistance from others.",
+"start": 2404.533,
+"end": 2406.325
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Keep all host clocks synchronized.",
+"spoken": "Keep all host clocks synchronized.",
+"start": 2406.775,
+"end": 2408.908
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Know attack types and vectors.",
+"spoken": "Know attack types and vectors.",
+"start": 2409.358,
+"end": 2411.214
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Recognize the signs of an incident.",
+"spoken": "Recognize the signs of an incident.",
+"start": 2411.664,
+"end": 2413.925
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Understand sources of precursors and indicators.",
+"spoken": "Understand sources of precursors and indicators.",
+"start": 2414.375,
+"end": 2417.874
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Build documentation, prioritization, and communication processes.",
+"spoken": "Build documentation, prioritization, and communication processes.",
+"start": 2418.324,
+"end": 2423.167
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Containment, eradication, and recovery: gather evidence, identify attacking hosts, choose a strategy. Strategy criteria:",
+"spoken": "3. Containment, eradication, and recovery: gather evidence, identify attacking hosts, choose a strategy. Strategy criteria:",
+"start": 2423.617,
+"end": 2432.833
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Potential damage and theft of resources.",
+"spoken": "Potential damage and theft of resources.",
+"start": 2433.283,
+"end": 2435.971
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Need for evidence preservation.",
+"spoken": "Need for evidence preservation.",
+"start": 2436.421,
+"end": 2438.49
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Service availability.",
+"spoken": "Service availability.",
+"start": 2438.94,
+"end": 2440.625
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Time and resources needed.",
+"spoken": "Time and resources needed.",
+"start": 2441.075,
+"end": 2443.038
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Effectiveness (partial or full containment).",
+"spoken": "Effectiveness (partial or full containment).",
+"start": 2443.488,
+"end": 2446.304
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Duration (emergency workaround of four hours, temporary of two weeks, or permanent).",
+"spoken": "Duration (emergency workaround of four hours, temporary of two weeks, or permanent).",
+"start": 2446.754,
+"end": 2452.578
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. Post-incident activity (postmortem): lessons learned, use of incident data, evidence retention. Lessons-learned questions:",
+"spoken": "4. Post-incident activity (postmortem): lessons learned, use of incident data, evidence retention. Lessons-learned questions:",
+"start": 2453.028,
+"end": 2462.116
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "What happened, and when?",
+"spoken": "What happened, and when?",
+"start": 2462.566,
+"end": 2463.995
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "How well did staff and management perform?",
+"spoken": "How well did staff and management perform?",
+"start": 2464.445,
+"end": 2467.155
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Were procedures followed and adequate?",
+"spoken": "Were procedures followed and adequate?",
+"start": 2467.605,
+"end": 2470.143
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "What information was needed sooner?",
+"spoken": "What information was needed sooner?",
+"start": 2470.593,
+"end": 2472.663
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Did any actions inhibit recovery?",
+"spoken": "Did any actions inhibit recovery?",
+"start": 2473.113,
+"end": 2475.481
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "What would you do differently?",
+"spoken": "What would you do differently?",
+"start": 2475.931,
+"end": 2477.595
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "How could information sharing improve?",
+"spoken": "How could information sharing improve?",
+"start": 2478.045,
+"end": 2480.349
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "What corrective actions would prevent a repeat?",
+"spoken": "What corrective actions would prevent a repeat?",
+"start": 2480.799,
+"end": 2483.423
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "What precursors or indicators should be watched for?",
+"spoken": "What precursors or indicators should be watched for?",
+"start": 2483.873,
+"end": 2487.03
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "What extra tools or resources are needed?",
+"spoken": "What extra tools or resources are needed?",
+"start": 2487.48,
+"end": 2490.296
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Tabletop Exercises and Playbooks",
+"spoken": "Tabletop Exercises and Playbooks.",
+"start": 2491.746,
+"end": 2494.199
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Playbook contents: report identification, objective statement, result analysis, data query or code, analyst comments and notes.",
+"spoken": "Playbook contents: report identification, objective statement, result analysis, data query or code, analyst comments and notes.",
+"start": 2494.649,
+"end": 2504.356
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A playbook is only a proactive plan. Plays must be run, results analyzed, and fixes applied.",
+"spoken": "A playbook is only a proactive plan. Plays must be run, results analyzed, and fixes applied.",
+"start": 2504.806,
+"end": 2511.697
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Exercises can be technical (response team) or risk-based (executives).",
+"spoken": "Exercises can be technical (response team) or risk-based (executives).",
+"start": 2512.147,
+"end": 2517.139
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tabletop steps: preparation, execution, report.",
+"spoken": "Tabletop steps: preparation, execution, report.",
+"start": 2517.589,
+"end": 2521.194
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Information Sharing",
+"spoken": "Information Sharing.",
+"start": 2522.644,
+"end": 2524.265
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Outside parties: law enforcement, media, external experts, ISPs, vendors, threat intel feeds, coordination centers, other response teams.",
+"spoken": "Outside parties: law enforcement, media, external experts, I.S.P.s, vendors, threat intel feeds, coordination centers, other response teams.",
+"start": 2524.715,
+"end": 2535.83
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Get PR, legal, and upper management buy-in before sharing externally.",
+"spoken": "Get PR, legal, and upper management buy-in before sharing externally.",
+"start": 2536.28,
+"end": 2541.293
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Keep a list of external contacts and a record of all external communications.",
+"spoken": "Keep a list of external contacts and a record of all external communications.",
+"start": 2541.743,
+"end": 2547.034
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "CSIRTs",
+"spoken": "C-certs.",
+"start": 2548.484,
+"end": 2549.465
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Small organizations may combine InfoSec and CSIRT. In large ones, the CSIRT investigates and InfoSec handles configurations, monitoring, and policies.",
+"spoken": "Small organizations may combine info-sec and C-cert. In large ones, the C-cert investigates and info-sec handles configurations, monitoring, and policies.",
+"start": 2549.915,
+"end": 2562.054
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Steps to establish a CSIRT:",
+"spoken": "Steps to establish a C-cert:",
+"start": 2562.504,
+"end": 2564.381
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Define the constituency.",
+"spoken": "1. Define the constituency.",
+"start": 2564.831,
+"end": 2566.773
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Ensure management and executive support.",
+"spoken": "2. Ensure management and executive support.",
+"start": 2567.223,
+"end": 2570.273
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Allocate budget.",
+"spoken": "3. Allocate budget.",
+"start": 2570.723,
+"end": 2572.494
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. Decide where it sits in the hierarchy.",
+"spoken": "4. Decide where it sits in the hierarchy.",
+"start": 2572.944,
+"end": 2575.696
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. Decide central, distributed, or virtual.",
+"spoken": "5. Decide central, distributed, or virtual.",
+"start": 2576.146,
+"end": 2579.581
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "6. Develop processes and policies.",
+"spoken": "6. Develop processes and policies.",
+"start": 2580.031,
+"end": 2582.612
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Constituency questions: who is the customer, what is the scope, the whole organization or one area, and how are external entities chosen.",
+"spoken": "Constituency questions: who is the customer, what is the scope, the whole organization or one area, and how are external entities chosen.",
+"start": 2583.062,
+"end": 2592.961
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco example: Cisco CSIRT handles internal infrastructure and cisco.com. Cisco PSIRT handles Cisco product vulnerabilities.",
+"spoken": "Cisco example: Cisco C-cert handles internal infrastructure and cisco.com. Cisco P-cert handles Cisco product vulnerabilities.",
+"start": 2593.411,
+"end": 2603.48
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CSIRT goals: minimize risk, contain damage, save money. The Ponemon Institute publishes breach cost reports.",
+"spoken": "C-cert goals: minimize risk, contain damage, save money. The Ponemon Institute publishes breach cost reports.",
+"start": 2603.93,
+"end": 2612.143
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Basic policies:",
+"spoken": "Basic policies:",
+"start": 2612.593,
+"end": 2614.023
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Incident classification and handling.",
+"spoken": "Incident classification and handling.",
+"start": 2614.473,
+"end": 2617.097
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Information classification and protection.",
+"spoken": "Information classification and protection.",
+"start": 2617.547,
+"end": 2620.555
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Information dissemination.",
+"spoken": "Information dissemination.",
+"start": 2621.005,
+"end": 2623.117
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Record retention and destruction.",
+"spoken": "Record retention and destruction.",
+"start": 2623.567,
+"end": 2625.7
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Acceptable usage of encryption.",
+"spoken": "Acceptable usage of encryption.",
+"start": 2626.15,
+"end": 2628.262
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Engaging and cooperating with external groups.",
+"spoken": "Engaging and cooperating with external groups.",
+"start": 2628.712,
+"end": 2631.997
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Additional policies: hiring, outsourcing incident handling, working across legal jurisdictions. Not all need to exist on day one.",
+"spoken": "Additional policies: hiring, outsourcing incident handling, working across legal jurisdictions. Not all need to exist on day one.",
+"start": 2632.447,
+"end": 2642.047
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ISO references for policies: ISO/IEC 27001, 27002, 27005, ISO/PAS 22399, and ISO/IEC 27033.",
+"spoken": "I.S.O. references for policies: I.S.O. I.E.C. 27001, 27002, 27005, I.S.O. PAS 22399, and I.S.O. I.E.C. 27033.",
+"start": 2642.497,
+"end": 2660.695
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "PSIRTs and Vulnerability Handling",
+"spoken": "P-certs and Vulnerability Handling.",
+"start": 2662.145,
+"end": 2664.406
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PSIRTs learn of vulnerabilities from internal testing, development, researchers, customers, and other vendors.",
+"spoken": "P-certs learn of vulnerabilities from internal testing, development, researchers, customers, and other vendors.",
+"start": 2664.856,
+"end": 2672.429
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "There is no such thing as an entirely theoretical vulnerability. Someone may already be exploiting or selling it.",
+"spoken": "There is no such thing as an entirely theoretical vulnerability. Someone may already be exploiting or selling it.",
+"start": 2672.879,
+"end": 2680.367
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Exploits cannot exist without a vulnerability, but not every vulnerability has an exploit.",
+"spoken": "Exploits cannot exist without a vulnerability, but not every vulnerability has an exploit.",
+"start": 2680.817,
+"end": 2686.684
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Several low-severity vulnerabilities can chain into a severe one, changing patch order.",
+"spoken": "Several low-severity vulnerabilities can chain into a severe one, changing patch order.",
+"start": 2687.134,
+"end": 2692.873
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco SDL (part of Cisco Product Development Methodology and ISO 9000) includes:",
+"spoken": "Cisco SDL (part of Cisco Product Development Methodology and I.S.O. 9000) includes:",
+"start": 2693.323,
+"end": 2700.832
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Base product security requirements.",
+"spoken": "Base product security requirements.",
+"start": 2701.282,
+"end": 2703.565
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Third-party software security.",
+"spoken": "Third-party software security.",
+"start": 2704.015,
+"end": 2706.105
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Secure design.",
+"spoken": "Secure design.",
+"start": 2706.555,
+"end": 2707.878
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Secure coding.",
+"spoken": "Secure coding.",
+"start": 2708.328,
+"end": 2709.587
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Secure analysis.",
+"spoken": "Secure analysis.",
+"start": 2710.037,
+"end": 2711.487
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Vulnerability testing.",
+"spoken": "Vulnerability testing.",
+"start": 2711.937,
+"end": 2713.409
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TPS requirements: know which libraries are used and where, and patch them quickly (example: a new OpenSSL vulnerability).",
+"spoken": "TPS requirements: know which libraries are used and where, and patch them quickly (example: a new OpenSSL vulnerability).",
+"start": 2713.859,
+"end": 2723.267
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Many contracts now include vulnerability disclosure SLAs with third-party vendors.",
+"spoken": "Many contracts now include vulnerability disclosure S.L.A.s with third-party vendors.",
+"start": 2723.717,
+"end": 2730.352
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "CVSS Details",
+"spoken": "C.V.S.S. Details.",
+"start": 2731.802,
+"end": 2733.786
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Three groups: base, temporal, environmental. Watch for trick answers like \"basic\" or \"temporary.\"",
+"spoken": "Three groups: base, temporal, environmental. Watch for trick answers like \"basic\" or \"temporary.\"",
+"start": 2734.236,
+"end": 2740.913
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Base group: intrinsic, constant over time, and the only mandatory group. Comes with a vector string.",
+"spoken": "Base group: intrinsic, constant over time, and the only mandatory group. Comes with a vector string.",
+"start": 2741.363,
+"end": 2748.275
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Exploitability metrics:",
+"spoken": "Exploitability metrics:",
+"start": 2748.725,
+"end": 2750.411
+},
+{
+"kind": "B",
+"nest": 2,
+"text": "Attack Vector (AV): Network, Adjacent, Local, Physical.",
+"spoken": "Attack Vector (AV): Network, Adjacent, Local, Physical.",
+"start": 2750.861,
+"end": 2754.935
+},
+{
+"kind": "B",
+"nest": 2,
+"text": "Attack Complexity (AC): Low, High.",
+"spoken": "Attack Complexity (AC): Low, High.",
+"start": 2755.385,
+"end": 2758.244
+},
+{
+"kind": "B",
+"nest": 2,
+"text": "Privileges Required (PR): None, Low, High.",
+"spoken": "Privileges Required (PR): None, Low, High.",
+"start": 2758.694,
+"end": 2762.086
+},
+{
+"kind": "B",
+"nest": 2,
+"text": "User Interaction (UI): None, Required.",
+"spoken": "User Interaction (UI): None, Required.",
+"start": 2762.536,
+"end": 2765.629
+},
+{
+"kind": "B",
+"nest": 2,
+"text": "Scope (S): Unchanged, Changed. Changed means other systems are affected, such as devices behind a crashed router.",
+"spoken": "Scope (S): Unchanged, Changed. Changed means other systems are affected, such as devices behind a crashed router.",
+"start": 2766.079,
+"end": 2774.399
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Impact metrics: Confidentiality (C), Integrity (I), Availability (A). The book lists Low, Medium, High. The official CVSS v3 values are None, Low, High.",
+"spoken": "Impact metrics: Confidentiality (C), Integrity (I), Availability (A). The book lists Low, Medium, High. The official C.V.S.S. v3 values are None, Low, High.",
+"start": 2774.849,
+"end": 2787.82
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Temporal group: Exploit Code Maturity (E), Remediation Level (RL), Report Confidence (RC).",
+"spoken": "Temporal group: Exploit Code Maturity (E), Remediation Level (RL), Report Confidence (RC).",
+"start": 2788.27,
+"end": 2795.225
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Environmental group: Security Requirements (CR, IR, AR) and Modified Base Metrics (MAV, MAC, MAPR, MUI, MS, MC, MI, MA).",
+"spoken": "Environmental group: Security Requirements (CR, IR, AR) and Modified Base Metrics (MAV, MAC, MAPR, MUI, MS, MC, MI, MA).",
+"start": 2795.675,
+"end": 2805.787
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example, remote crash with crafted IP packets: AV Network, AC Low, PR None, UI None, S Unchanged, C None, I None, A High.",
+"spoken": "Example, remote crash with crafted IP packets: AV Network, AC Low, PR None, UI None, S Unchanged, C None, I None, A High.",
+"start": 2806.237,
+"end": 2816.477
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SSVC",
+"spoken": "S.S.V.C.",
+"start": 2817.927,
+"end": 2819.356
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Considers exploitation status, safety impact, and how widespread the product is.",
+"spoken": "Considers exploitation status, safety impact, and how widespread the product is.",
+"start": 2819.806,
+"end": 2825.481
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CISA built a custom decision tree for the U.S. government, SLTT (state, local, tribal, and territorial) governments, and critical infrastructure. CISA offers an SSVC calculator.",
+"spoken": "SIS-uh built a custom decision tree for the U.S. government, SLTT (state, local, tribal, and territorial) governments, and critical infrastructure. SIS-uh offers an S.S.V.C. calculator.",
+"start": 2825.931,
+"end": 2840.715
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "National CERTs and Coordination Centers",
+"spoken": "National certs and Coordination Centers.",
+"start": 2842.165,
+"end": 2844.853
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Examples: US-CERT, CERT-In (India), CERT Australia, AusCERT.",
+"spoken": "Examples: U S cert, cert In (India), cert Australia, Aus cert.",
+"start": 2845.303,
+"end": 2849.911
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "National CERTs provide vulnerability info, awareness training, and best practices.",
+"spoken": "National certs provide vulnerability info, awareness training, and best practices.",
+"start": 2850.361,
+"end": 2855.907
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "US-CERT mission: protect federal civilian agencies with intrusion detection and prevention, share actionable info, respond to incidents and analyze threats, and collaborate internationally.",
+"spoken": "U S cert mission: protect federal civilian agencies with intrusion detection and prevention, share actionable info, respond to incidents and analyze threats, and collaborate internationally.",
+"start": 2856.357,
+"end": 2869.691
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CERT Division of SEI: researches vulnerabilities, helps vendors fix them, builds forensic and monitoring tools, and works with DoD, DHS, FBI, and industry.",
+"spoken": "cert Division of SEI: researches vulnerabilities, helps vendors fix them, builds forensic and monitoring tools, and works with D.O.D., DHS, FBI, and industry.",
+"start": 2870.141,
+"end": 2883.047
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco and others provide outsourced incident response and managed security.",
+"spoken": "Cisco and others provide outsourced incident response and managed security.",
+"start": 2883.497,
+"end": 2888.745
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Key Incident Roles",
+"spoken": "Key Incident Roles.",
+"start": 2890.195,
+"end": 2891.646
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IRC: central point of contact. Receives, verifies, and logs reports, notifies the DIH, and keeps non-evidence documentation.",
+"spoken": "IRC: central point of contact. Receives, verifies, and logs reports, notifies the DIH, and keeps non-evidence documentation.",
+"start": 2892.096,
+"end": 2902.805
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DIH: senior person with three tasks: declare the incident, liaise with executives, manage the IRT.",
+"spoken": "DIH: senior person with three tasks: declare the incident, liaise with executives, manage the IRT.",
+"start": 2903.255,
+"end": 2910.701
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IRT: cross-functional (senior management, InfoSec, IT, operations, legal, compliance, HR, public affairs and media, customer service, physical security). Some members, like compliance, join only when relevant.",
+"spoken": "IRT: cross-functional (senior management, info-sec, I.T., operations, legal, compliance, HR, public affairs and media, customer service, physical security). Some members, like compliance, join only when relevant.",
+"start": 2911.151,
+"end": 2927.023
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IRT tasks:",
+"spoken": "IRT tasks:",
+"start": 2927.473,
+"end": 2928.945
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Overall incident management.",
+"spoken": "Overall incident management.",
+"start": 2929.395,
+"end": 2931.485
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Triage and impact analysis.",
+"spoken": "Triage and impact analysis.",
+"start": 2931.935,
+"end": 2934.09
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Containment and eradication strategies.",
+"spoken": "Containment and eradication strategies.",
+"start": 2934.54,
+"end": 2937.377
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Regulatory compliance.",
+"spoken": "Regulatory compliance.",
+"start": 2937.827,
+"end": 2939.491
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Communication with affected parties.",
+"spoken": "Communication with affected parties.",
+"start": 2939.941,
+"end": 2942.224
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Communication with external parties (board, partners, regulators, law enforcement, media).",
+"spoken": "Communication with external parties (board, partners, regulators, law enforcement, media).",
+"start": 2942.674,
+"end": 2948.797
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Root cause analysis and lessons learned.",
+"spoken": "Root cause analysis and lessons learned.",
+"start": 2949.247,
+"end": 2951.935
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Revising policies to prevent recurrence.",
+"spoken": "Revising policies to prevent recurrence.",
+"start": 2952.385,
+"end": 2955.179
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The goal of an exercise is not an \"A.\" It is to honestly evaluate the plan, find missing resources, and learn to work as a team.",
+"spoken": "The goal of an exercise is not an \"A.\" It is to honestly evaluate the plan, find missing resources, and learn to work as a team.",
+"start": 2955.629,
+"end": 2964.568
+}
+]
+}

@@ -4,7 +4,7 @@
     del(k) { try { localStorage.removeItem("scor." + k); } catch (e) { /* storage unavailable */ } },
     keys() { try { return Object.keys(localStorage).filter(k => k.startsWith("scor.")).map(k => k.slice(5)); } catch (e) { return []; } }
   };
-  const LOCAL_ONLY = new Set(["theme", "sync", "review", "cards.reverse"]); // never exported or synced
+  const LOCAL_ONLY = new Set(["theme", "sync", "review", "cards.reverse", "reader"]); // never exported or synced
 
 
   function snapshot() {
