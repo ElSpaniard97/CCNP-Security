@@ -2,16 +2,23 @@ let registration;
 export async function registerOffline() {
   if (!('serviceWorker' in navigator)) return;
   try {
-    registration=await navigator.serviceWorker.register('./sw.js');
+    registration=await navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'});
+    let applying=false;
+    const apply=()=>{ if(!registration.waiting) return; applying=true; registration.waiting.postMessage({type:'SKIP_WAITING'}); };
+    // A reload mid-question is jarring, so only update on its own when no quiz is on screen.
+    const busy=()=>!!document.querySelector('#app .quiz');
     const offerUpdate=()=>{
-      if(!registration.waiting || !navigator.serviceWorker.controller || document.getElementById('site-update')) return;
+      if(!registration.waiting || !navigator.serviceWorker.controller) return;
+      if(!busy()) { apply(); return; }
+      if(document.getElementById('site-update')) return;
       const button=document.createElement('button'); button.id='site-update';button.className='btn update-notice';button.textContent='Study site update available · Reload';
-      button.onclick=()=>registration.waiting.postMessage({type:'SKIP_WAITING'});document.body.append(button);
+      button.onclick=apply;document.body.append(button);
     };
     offerUpdate();
     registration.addEventListener('updatefound',()=>registration.installing?.addEventListener('statechange',offerUpdate));
+    addEventListener('hashchange',()=>setTimeout(offerUpdate,300));
     let reloading=false;
-    navigator.serviceWorker.addEventListener('controllerchange',()=>{ if(!reloading && document.getElementById('site-update')) { reloading=true;location.reload(); } });
+    navigator.serviceWorker.addEventListener('controllerchange',()=>{ if(!reloading && applying) { reloading=true;location.reload(); } });
   } catch { /* HTTP hosts without service-worker support can still study online. */ }
 }
 export function offlineHTML() {

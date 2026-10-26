@@ -51,7 +51,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "Gartner",
       "EDR (Endpoint Detection and Response)"
@@ -78,7 +78,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "Alert fatigue",
       "EDR (Endpoint Detection and Response)"
@@ -105,7 +105,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "Cisco Secure Endpoint"
      ]
@@ -131,7 +131,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "Malware Analytics Cloud",
       "Three verdicts"
@@ -184,7 +184,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "IOC (indicator of compromise)",
       "Application control",
@@ -212,7 +212,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "SHA-256",
       "Simple custom detection",
@@ -240,7 +240,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "ClamAV",
       "ClamAV",
@@ -268,7 +268,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / IP Blacklists and Whitelists",
      "cards": [
       "DFC (device flow correlation)"
      ]
@@ -294,7 +294,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / IP Blacklists and Whitelists",
      "cards": []
     },
     {
@@ -318,7 +318,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Exclusion set"
      ]
@@ -370,7 +370,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": []
     },
     {
@@ -394,7 +394,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "20MB",
       "Custom detection",
@@ -422,7 +422,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "Main Dashboard",
       "30 days"
@@ -449,7 +449,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Connectors and Distribution",
      "cards": [
       "AMP Enabler",
       "Cisco Secure Client"
@@ -476,7 +476,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Policies and Groups",
      "cards": [
       "Group"
      ]
@@ -502,7 +502,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Mobile Device Management",
      "cards": [
       "MDM (mobile device management)"
      ]
@@ -560,7 +560,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "Cisco Secure Endpoint"
      ]
@@ -638,7 +638,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "EDR (Endpoint Detection and Response)",
       "Alert fatigue"
@@ -741,7 +741,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "SHA-256",
       "Custom detection"
@@ -768,7 +768,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "Custom detection"
      ]
@@ -794,7 +794,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "Advanced custom detection",
       "Custom detection"
@@ -821,7 +821,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "Build Database From Signature Set",
       "Advanced custom detection",
@@ -849,7 +849,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Android Custom Detections",
      "cards": [
       "Android custom detection",
       "Outbreak Control",
@@ -877,7 +877,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / IP Blacklists and Whitelists",
      "cards": [
       "DFC (device flow correlation)",
       "IP whitelist (IP Allow List)"
@@ -904,7 +904,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / IP Blacklists and Whitelists",
      "cards": [
       "Outbreak Control > Network > IP Block & Allow Lists",
       "Outbreak Control",
@@ -932,7 +932,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Four exclusion types",
       "Exclusion set"
@@ -959,7 +959,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Cisco-maintained exclusions",
       "Cisco-Maintained Exclusions",
@@ -987,7 +987,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "Spero"
      ]
@@ -1039,7 +1039,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": []
     },
     {
@@ -1063,7 +1063,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "iOS Clarity",
       "Cisco Meraki SM (Systems Manager)",
@@ -1096,7 +1096,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "ETDR (Endpoint Threat Detection and Response)",
       "EDR (Endpoint Detection and Response)"
@@ -1123,7 +1123,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "EDR (Endpoint Detection and Response)"
      ]
@@ -1149,7 +1149,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "EDR (Endpoint Detection and Response)"
      ]
@@ -1175,7 +1175,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Mobile Device Management",
      "cards": [
       "Device trajectory"
      ]
@@ -1227,7 +1227,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "Malware Analytics Cloud"
      ]
@@ -1253,7 +1253,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "CSIDL (constant special ID list)",
       "CSIDL"
@@ -1280,7 +1280,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / IP Blacklists and Whitelists",
      "cards": [
       "DFC (device flow correlation)",
       "Create",
@@ -1308,7 +1308,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / IP Blacklists and Whitelists",
      "cards": []
     },
     {
@@ -1332,7 +1332,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / IP Blacklists and Whitelists",
      "cards": [
       "Download"
      ]
@@ -1358,7 +1358,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Application Control",
      "cards": [
       "Save"
      ]
@@ -1384,7 +1384,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Android Custom Detections",
      "cards": [
       "Upload",
       "Android custom detection",
@@ -1412,7 +1412,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": []
     },
     {
@@ -1436,7 +1436,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Custom detection",
       "Simple custom detection",
@@ -1464,7 +1464,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Engines",
      "cards": [
       "Connector",
       "TETRA"
@@ -1517,7 +1517,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "Overview dashboard"
      ]
@@ -1543,7 +1543,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "Inbox"
      ]
@@ -1595,7 +1595,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "TCP 32137",
       "Connector"
@@ -1627,7 +1627,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "DFIR (digital forensics and incident response)",
       "EDR (Endpoint Detection and Response)"
@@ -1654,7 +1654,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "Agent",
       "EDR (Endpoint Detection and Response)"
@@ -1709,7 +1709,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "IP blacklist (IP Block List)"
      ]
@@ -1735,7 +1735,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "Cisco Secure Endpoint"
      ]
@@ -1761,7 +1761,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "Custom detection",
       "SHA-256",
@@ -1789,7 +1789,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "Upload",
       "Simple custom detection",
@@ -1817,7 +1817,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "Remove",
       "Simple custom detection",
@@ -1845,7 +1845,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "View Changes",
       "Simple custom detection",
@@ -1873,7 +1873,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Application Control",
      "cards": [
       "Application control",
       "SHA-256"
@@ -1900,7 +1900,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Android Custom Detections",
      "cards": [
       "Application control",
       "Android custom detection",
@@ -1928,7 +1928,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Connector",
       "Policy",
@@ -1956,7 +1956,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "SHA-256",
       "Exclusion set"
@@ -1983,7 +1983,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Management > Exclusions",
       "New Exclusion Set",
@@ -2011,7 +2011,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Policies and Groups",
      "cards": [
       "Policy"
      ]
@@ -2037,7 +2037,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "Main Dashboard"
      ]
@@ -2063,7 +2063,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "Save"
      ]
@@ -2089,7 +2089,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "iOS Clarity",
       "More than seven days"
@@ -2140,7 +2140,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Mobile Device Management",
      "cards": [
       "MDM (mobile device management)"
      ]
@@ -2171,7 +2171,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Cloud-Based Architecture",
      "cards": [
       "Cisco Secure Endpoint"
      ]
@@ -2276,7 +2276,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Endpoint Protection and Detection",
+     "section": "1. Introduction to Endpoint Protection and Detection / EDR Solutions",
      "cards": [
       "EDR (Endpoint Detection and Response)"
      ]
@@ -2302,7 +2302,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Exclusion set"
      ]
@@ -2328,7 +2328,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Exclusion set"
      ]
@@ -2354,7 +2354,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": []
     },
     {
@@ -2378,7 +2378,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": []
     },
     {
@@ -2402,7 +2402,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Application Control",
      "cards": [
       "Outbreak Control > Application Control > Blocked Applications",
       "Application control",
@@ -2430,7 +2430,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Application Control",
      "cards": [
       "20MB"
      ]
@@ -2456,7 +2456,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Connectors and Distribution",
      "cards": [
       "Management > Download Connector",
       "Connector",
@@ -2484,7 +2484,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Connectors and Distribution",
      "cards": [
       "Connector",
       "Download"
@@ -2511,7 +2511,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "Advanced custom detection",
       "Custom detection"
@@ -2538,7 +2538,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Outbreak Control and Custom Detections",
      "cards": [
       "Save",
       "Simple custom detection",
@@ -2566,7 +2566,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "SHA-256"
      ]
@@ -2592,7 +2592,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Reporting",
      "cards": [
       "Inbox"
      ]
@@ -2618,7 +2618,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Exclusion Sets",
      "cards": [
       "Outbreak Control",
       "Outbreak Control",
@@ -2646,7 +2646,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Engines",
      "cards": []
     },
     {
@@ -2670,7 +2670,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Cisco Secure Endpoint",
+     "section": "2. Cisco Secure Endpoint / Mobile Device Management",
      "cards": [
       "MDM (mobile device management)"
      ]

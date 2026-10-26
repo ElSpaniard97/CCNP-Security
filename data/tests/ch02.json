@@ -25,7 +25,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Post-Quantum Cryptography",
      "cards": [
       "Cryptanalysis"
      ]
@@ -51,7 +51,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Block Cipher Examples",
      "cards": [
       "Stream cipher",
       "Cipher",
@@ -79,7 +79,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / IPsec",
      "cards": [
       "IKE (Internet Key Exchange)",
       "UDP 500, IKE (ISAKMP)",
@@ -107,7 +107,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Digital Signatures",
      "cards": [
       "Digest (message digest, hash)",
       "Private key",
@@ -135,7 +135,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "SHA-1 (Secure Hash Algorithm 1)",
       "Digest (message digest, hash)",
@@ -163,7 +163,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Root Certificate Fields",
      "cards": [
       "CA (certificate authority)",
       "Root certificate",
@@ -191,7 +191,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Revoking Certificates",
      "cards": [
       "OCSP (Online Certificate Status Protocol)",
       "CA (certificate authority)",
@@ -219,7 +219,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Public Key Cryptography Standards",
      "cards": [
       "PKCS (Public Key Cryptography Standards)",
       "PKCS #10",
@@ -247,7 +247,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Post-Quantum Cryptography",
      "cards": [
       "Kyber",
       "CRYSTALS (Cryptographic Suite for Algebraic Lattices)"
@@ -274,7 +274,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "Digest (message digest, hash)"
      ]
@@ -300,7 +300,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / IPsec",
      "cards": [
       "ESP (Encapsulating Security Payload)",
       "IPsec (IP Security)"
@@ -327,7 +327,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / SSL and TLS",
      "cards": [
       "TLS (Transport Layer Security)",
       "TLS 1.3"
@@ -354,7 +354,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Authenticating and Enrolling with the CA (Two Steps)",
      "cards": [
       "Out-of-band verification",
       "Digest (message digest, hash)",
@@ -382,7 +382,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Block Cipher Examples",
      "cards": [
       "Transposition cipher",
       "Cipher"
@@ -409,7 +409,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Fundamental Encryption Components (Figure 2-7)",
      "cards": [
       "3DES (Triple Digital Encryption Standard)",
       "AES (Advanced Encryption Standard)",
@@ -437,7 +437,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Next-Generation Encryption (Suite B)",
      "cards": [
       "Suite B"
      ]
@@ -463,7 +463,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / HMAC",
      "cards": [
       "Digest (message digest, hash)",
       "Key",
@@ -491,7 +491,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Commercial Versus Internal CA",
      "cards": [
       "CA (certificate authority)"
      ]
@@ -517,7 +517,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / X.500 and X.509v3",
      "cards": [
       "X.500"
      ]
@@ -543,7 +543,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Revoking Certificates",
      "cards": [
       "CRL (certificate revocation list)",
       "PKI (public key infrastructure)",
@@ -576,7 +576,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Symmetric Versus Asymmetric",
      "cards": [
       "Key"
      ]
@@ -602,7 +602,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Symmetric Versus Asymmetric",
      "cards": [
       "Key",
       "One-time pad (OTP)"
@@ -629,7 +629,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Symmetric Versus Asymmetric",
      "cards": [
       "Symmetric algorithm (symmetric cipher)",
       "AES (Advanced Encryption Standard)",
@@ -657,7 +657,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / What a CA Puts in a Certificate",
      "cards": [
       "ESP (Encapsulating Security Payload)"
      ]
@@ -683,7 +683,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "Digest (message digest, hash)",
       "MD5 (Message Digest 5)",
@@ -711,7 +711,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Next-Generation Encryption (Suite B)",
      "cards": [
       "ECDSA",
       "NGE (next-generation encryption)",
@@ -739,7 +739,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Post-Quantum Cryptography",
      "cards": [
       "Dilithium",
       "Digital signature",
@@ -767,7 +767,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Identity Certificates",
      "cards": [
       "PKCS (Public Key Cryptography Standards)",
       "PKCS #12",
@@ -795,7 +795,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / PKI Topologies",
      "cards": [
       "CA (certificate authority)",
       "PKI (public key infrastructure)",
@@ -823,7 +823,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Root Certificate Fields",
      "cards": []
     },
     {
@@ -847,7 +847,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / RSA Digital Signatures in PKI",
      "cards": [
       "Digital signature",
       "PKI (public key infrastructure)",
@@ -875,7 +875,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Digital Signatures",
      "cards": [
       "Public key",
       "Key",
@@ -903,7 +903,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Revoking Certificates",
      "cards": [
       "SCEP (Simple Certificate Enrollment Protocol)",
       "LDAP (Lightweight Directory Access Protocol)",
@@ -931,7 +931,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / SSL and TLS",
      "cards": [
       "MD5 (Message Digest 5)",
       "MD5",
@@ -959,7 +959,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Root Certificate Fields",
      "cards": []
     },
     {
@@ -983,7 +983,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Revoking Certificates",
      "cards": [
       "Enrollment",
       "SCEP (Simple Certificate Enrollment Protocol)"
@@ -1010,7 +1010,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / IPsec",
      "cards": [
       "Anti-replay",
       "IPsec (IP Security)"
@@ -1037,7 +1037,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / X.500 and X.509v3",
      "cards": [
       "LDAP (Lightweight Directory Access Protocol)"
      ]
@@ -1063,7 +1063,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Post-Quantum Cryptography",
      "cards": [
       "SHA-512",
       "Post-quantum safe (believed)"
@@ -1090,7 +1090,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Block Cipher Examples",
      "cards": [
       "Polyalphabetic cipher",
       "Cipher",
@@ -1123,7 +1123,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Goals of Cryptography",
      "cards": [
       "Nonrepudiation",
       "Digital signature"
@@ -1150,7 +1150,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "Pre-image attack",
       "Digest (message digest, hash)"
@@ -1177,7 +1177,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / IPsec",
      "cards": [
       "UDP 4500, NAT-T (NAT Traversal)",
       "IPsec (IP Security)"
@@ -1204,7 +1204,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Block Cipher Examples",
      "cards": [
       "Plaintext (clear text)",
       "Block cipher"
@@ -1231,7 +1231,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "BLAKE2",
       "Digest (message digest, hash)",
@@ -1259,7 +1259,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / IPsec",
      "cards": [
       "PSK (pre-shared key)",
       "IPsec (IP Security)"
@@ -1286,7 +1286,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Identity Certificates",
      "cards": [
       "Private key",
       "Key",
@@ -1314,7 +1314,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Public Key Cryptography Standards",
      "cards": [
       "PKCS (Public Key Cryptography Standards)",
       "PKCS #7",
@@ -1342,7 +1342,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / SSL and TLS",
      "cards": [
       "NIST SP 800-52 Revision 2",
       "TLS (Transport Layer Security)"
@@ -1369,7 +1369,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Fundamental Encryption Components (Figure 2-7)",
      "cards": [
       "ElGamal",
       "DH (Diffie-Hellman)"
@@ -1396,7 +1396,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / PKI Topologies",
      "cards": [
       "PKI (public key infrastructure)",
       "CA (certificate authority)",
@@ -1424,7 +1424,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Symmetric Versus Asymmetric",
      "cards": [
       "testssl.sh"
      ]
@@ -1450,7 +1450,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Post-Quantum Cryptography",
      "cards": [
       "Asymmetric algorithm (public key algorithm)",
       "Public key"
@@ -1477,7 +1477,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "Digest (message digest, hash)"
      ]
@@ -1503,7 +1503,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Symmetric Versus Asymmetric",
      "cards": [
       "Symmetric key length"
      ]
@@ -1529,7 +1529,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / SSL and TLS",
      "cards": []
     },
     {
@@ -1553,7 +1553,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Fields in Most Digital Certificates",
      "cards": [
       "Identity certificate",
       "Public key"
@@ -1580,7 +1580,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Authenticating and Enrolling with the CA (Two Steps)",
      "cards": [
       "CA (certificate authority)",
       "Root certificate",
@@ -1608,7 +1608,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Goals of Cryptography",
      "cards": [
       "TLS (Transport Layer Security)",
       "SSL (Secure Sockets Layer)"
@@ -1635,7 +1635,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Fundamental Encryption Components (Figure 2-7)",
      "cards": [
       "SHA-3",
       "Digest (message digest, hash)"
@@ -1667,7 +1667,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Block Cipher Examples",
      "cards": [
       "Cryptography (cryptology)"
      ]
@@ -1693,7 +1693,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Symmetric Versus Asymmetric",
      "cards": [
       "Asymmetric algorithm (public key algorithm)"
      ]
@@ -1719,7 +1719,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / HMAC",
      "cards": [
       "Digest (message digest, hash)"
      ]
@@ -1745,7 +1745,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Symmetric Versus Asymmetric",
      "cards": [
       "DSA (Digital Signature Algorithm)",
       "Asymmetric algorithm (public key algorithm)",
@@ -1773,7 +1773,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "Whirlpool",
       "Whirlpool",
@@ -1801,7 +1801,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / IPsec",
      "cards": [
       "AH (Authentication Header)",
       "IPsec (IP Security)"
@@ -1828,7 +1828,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Fields in Most Digital Certificates",
      "cards": [
       "Digest (message digest, hash)",
       "Thumbprint (fingerprint)"
@@ -1855,7 +1855,7 @@
       }
      ],
      "answer": 1,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Key Pairs in Practice",
      "cards": [
       "Public key",
       "Key",
@@ -1883,7 +1883,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / X.500 and X.509v3",
      "cards": [
       "LDAP (Lightweight Directory Access Protocol)",
       "CRL (certificate revocation list)"
@@ -1910,7 +1910,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Next-Generation Encryption (Suite B)",
      "cards": [
       "NGE (next-generation encryption)",
       "Digest (message digest, hash)"
@@ -1937,7 +1937,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Next-Generation Encryption (Suite B)",
      "cards": [
       "NGE (next-generation encryption)"
      ]
@@ -1963,7 +1963,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Revoking Certificates",
      "cards": [
       "PKI (public key infrastructure)"
      ]
@@ -1989,7 +1989,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / PKI Topologies",
      "cards": [
       "CA (certificate authority)",
       "PKI (public key infrastructure)"
@@ -2016,7 +2016,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Fundamental Encryption Components (Figure 2-7)",
      "cards": [
       "PKCS (Public Key Cryptography Standards)",
       "PKCS #3",
@@ -2044,7 +2044,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Post-Quantum Cryptography",
      "cards": [
       "CRYSTALS (Cryptographic Suite for Algebraic Lattices)"
      ]
@@ -2070,7 +2070,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / RSA Digital Signatures in PKI",
      "cards": [
       "rsa-signatures",
       "IPsec (IP Security)",
@@ -2098,7 +2098,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / IPsec",
      "cards": [
       "IPsec (IP Security)",
       "IKE (Internet Key Exchange)",
@@ -2126,7 +2126,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Fields in Most Digital Certificates",
      "cards": [
       "Key",
       "Public key"
@@ -2153,7 +2153,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / SSL and TLS",
      "cards": [
       "PSK (pre-shared key)",
       "IPsec (IP Security)",
@@ -2181,7 +2181,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / SSL and TLS",
      "cards": [
       "Cipher",
       "Key",
@@ -2214,7 +2214,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Key Management",
      "cards": [
       "Key",
       "Key management"
@@ -2241,7 +2241,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "Pre-image attack",
       "Collision",
@@ -2269,7 +2269,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "Digest (message digest, hash)"
      ]
@@ -2295,7 +2295,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / IPsec",
      "cards": [
       "IPsec (IP Security)"
      ]
@@ -2321,7 +2321,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / PKI Topologies",
      "cards": [
       "CA (certificate authority)",
       "Identity certificate",
@@ -2349,7 +2349,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Goals of Cryptography",
      "cards": [
       "Cryptography (cryptology)"
      ]
@@ -2375,7 +2375,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Public Key Cryptography Standards",
      "cards": [
       "PKCS (Public Key Cryptography Standards)",
       "PKCS #1",
@@ -2403,7 +2403,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / SSL and TLS",
      "cards": [
       "CA (certificate authority)"
      ]
@@ -2429,7 +2429,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Digital Certificates in Practice",
      "cards": [
       "802.1X",
       "Digital certificate"
@@ -2456,7 +2456,7 @@
       }
      ],
      "answer": 0,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / SSL and TLS",
      "cards": [
       "OCSP (Online Certificate Status Protocol)",
       "TLS (Transport Layer Security)",
@@ -2484,7 +2484,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Post-Quantum Cryptography",
      "cards": [
       "RSA (Rivest, Shamir, Adleman)"
      ]
@@ -2510,7 +2510,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Post-Quantum Cryptography",
      "cards": [
       "Digital signature"
      ]
@@ -2536,7 +2536,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / PKI Topologies",
      "cards": [
       "AES (Advanced Encryption Standard)"
      ]
@@ -2562,7 +2562,7 @@
       }
      ],
      "answer": 3,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Hashes",
      "cards": [
       "Digest (message digest, hash)",
       "SHA-512"
@@ -2589,7 +2589,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Identity Certificates",
      "cards": [
       "X.509 Version 3",
       "Digital certificate"
@@ -2616,7 +2616,7 @@
       }
      ],
      "answer": 2,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / X.500 and X.509v3",
      "cards": []
     },
     {
@@ -2640,7 +2640,7 @@
       }
      ],
      "answer": 0,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / Identity Certificates",
      "cards": [
       "Key pair",
       "Key",
@@ -2668,7 +2668,7 @@
       }
      ],
      "answer": 1,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Key Management",
      "cards": [
       "Plaintext (clear text)",
       "DH (Diffie-Hellman)",
@@ -2696,7 +2696,7 @@
       }
      ],
      "answer": 3,
-     "section": "2. Fundamentals of PKI",
+     "section": "2. Fundamentals of PKI / RSA Digital Signatures in PKI",
      "cards": [
       "PKI (public key infrastructure)",
       "RSA (Rivest, Shamir, Adleman)",
@@ -2724,7 +2724,7 @@
       }
      ],
      "answer": 2,
-     "section": "1. Introduction to Cryptography",
+     "section": "1. Introduction to Cryptography / Next-Generation Encryption (Suite B)",
      "cards": [
       "AES-GCM (Galois/Counter Mode)",
       "AES (Advanced Encryption Standard)",

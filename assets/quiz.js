@@ -92,11 +92,18 @@ import { chap, app, LETTERS, PASS, BANK_CLEAR, blueprint, flashcards, setCrumbs,
         b.onclick = () => choose(+b.dataset.ci);
         b.onkeydown = e => {
           const step = ["ArrowDown","ArrowRight"].includes(e.key) ? 1 : ["ArrowUp","ArrowLeft"].includes(e.key) ? -1 : 0;
-          if (!step) return;
+          if (!step) {
+            // The page-level handler ignores keys typed on buttons, so pass answer keys on here.
+            if (/^[1-4a-d]$/i.test(e.key) && !e.metaKey && !e.ctrlKey && !e.altKey) { e.preventDefault(); quizKey(e); }
+            return;
+          }
           e.preventDefault(); e.stopPropagation();
           const ci = it.order[(it.order.indexOf(+b.dataset.ci)+step+4)%4];
-          if (!locked) choose(ci);
-          app.querySelector(`[data-ci="${ci}"]`).focus();
+          // Practice answers are graded the moment they're picked, so arrows only move focus there.
+          if (exam && !locked) choose(ci);
+          const target = app.querySelector(`[data-ci="${ci}"]`);
+          app.querySelectorAll(".choice").forEach(c => c.tabIndex = c === target ? 0 : -1);
+          target.focus();
         };
       });
       app.querySelectorAll("[data-go]").forEach(b => b.onclick = () => { pos = +b.dataset.go; render(); });
@@ -110,13 +117,14 @@ import { chap, app, LETTERS, PASS, BANK_CLEAR, blueprint, flashcards, setCrumbs,
           reviewExam();
         };
       }
-      onKey(e => {
+      onKey(quizKey);
+      function quizKey(e) {
         const k = e.key.toUpperCase();
         const idx = "1234".indexOf(k) >= 0 ? "1234".indexOf(k) : LETTERS.indexOf(k);
         if (!locked && idx >= 0 && k.length === 1) choose(it.order[idx]);
         else if ((answered || exam) && (e.key === "Enter" || e.key === "ArrowRight") && !(exam && last)) next();
         else if (e.key === "ArrowLeft" && pos > 0) { pos--; render(); }
-      });
+      }
       const fbEl = app.querySelector(".feedback");
       const target = fbEl || app.querySelector(".question");
       target.setAttribute("tabindex", "-1"); target.focus({preventScroll:true});

@@ -49,9 +49,18 @@ test('radio semantics, keyboard focus, flashcard single flip and 44px controls',
   await page.setViewportSize({width:390,height:844});await page.goto('/#/ch/1/test/1');
   await expect(page.locator('.question')).toBeFocused();
   await page.keyboard.press('Tab'); await expect(page.getByRole('radio').first()).toBeFocused();
+  // Practice answers are graded on pick, so arrows must only move focus.
   await page.keyboard.press('ArrowDown');
+  await expect(page.getByRole('radio').nth(1)).toBeFocused();
+  await expect(page.getByRole('radio').nth(1)).toHaveAttribute('aria-checked','false');
+  await expect(page.locator('.feedback')).toHaveCount(0);
+  await page.keyboard.press('Space');
   await expect(page.getByRole('radio').nth(1)).toHaveAttribute('aria-checked','true');
   await page.locator('#next').click(); await expect(page.locator('.question')).toBeFocused();
+  // Number keys still answer while a choice button has focus.
+  await page.keyboard.press('Tab'); await expect(page.getByRole('radio').first()).toBeFocused();
+  await page.keyboard.press('3');
+  await expect(page.getByRole('radio').nth(2)).toHaveAttribute('aria-checked','true');
   await page.goto('/#/ch/1/cards');
   await expect(page.locator('.face.back')).toHaveAttribute('aria-hidden','true');
   await page.locator('#flip').focus(); await page.keyboard.press('Space');

@@ -193,3 +193,4 @@ input.search { background:var(--surface);font-size:14px; }
   .rail-copy { font-size:12px; }.rail-link { font-size:11px; }
   .rail-empty p { font-size:14px; }.rail-empty small { font-size:12px; }.rail-empty a { font-size:11px; }
 }
+.nowrap { white-space:nowrap; }

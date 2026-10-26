@@ -8,17 +8,19 @@ import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards
 
   // ---------- theme ----------
   const themeBtn = document.getElementById("theme");
-  const savedTheme = store.get("theme", null);
-  document.documentElement.dataset.theme = savedTheme || "dark";
+  // With no saved choice, follow the system setting and keep following it if it changes.
+  const systemDark = matchMedia("(prefers-color-scheme: dark)");
+  const applyTheme = () => { document.documentElement.dataset.theme = store.get("theme", null) || (systemDark.matches ? "dark" : "light"); };
+  applyTheme();
+  systemDark.addEventListener("change", applyTheme);
+  const isMac = /Mac|iPhone|iPad/.test(navigator.userAgentData?.platform || navigator.platform || "");
+  document.querySelector(".header-search kbd").textContent = isMac ? "⌘ K" : "Ctrl K";
   document.querySelector(".skip-link").onclick=e=>{e.preventDefault();document.getElementById("main").focus();};
   document.querySelectorAll("[data-icon]").forEach(el=>el.innerHTML=icon(el.dataset.icon));
   document.querySelector(".header-search").onsubmit=e=>{e.preventDefault(); const q=document.getElementById("header-search").value.trim(); location.hash=q ? `#/search/${encodeURIComponent(q)}` : "#/search";};
   document.addEventListener("keydown",e=>{if((e.metaKey || e.ctrlKey) && e.key.toLowerCase()==="k"){e.preventDefault();const input=document.getElementById("header-search");if(input.getBoundingClientRect().width)input.focus();else location.hash="#/search";}});
   themeBtn.addEventListener("click", () => {
-    const dark = document.documentElement.dataset.theme
-      ? document.documentElement.dataset.theme === "dark"
-      : matchMedia("(prefers-color-scheme: dark)").matches;
-    const next = dark ? "light" : "dark";
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     store.set("theme", next);
   });
