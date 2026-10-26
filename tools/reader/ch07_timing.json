@@ -1,0 +1,4077 @@
+{
+"total": 3612.786,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 7: Cisco Secure Firewall",
+"spoken": "Chapter 7: Cisco Secure Firewall.",
+"start": 1.6,
+"end": 4.394
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Introduction to Cisco Secure Firewall",
+"spoken": "1. Introduction to Cisco Secure Firewall.",
+"start": 6.794,
+"end": 9.717
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Overview",
+"spoken": "Overview.",
+"start": 11.517,
+"end": 12.52
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protects across the attack continuum. Integrated intrusion prevention and detection, ported from Cisco NGIPS, helps detect, block, and defend against attacks that already happened.",
+"spoken": "Protects across the attack continuum. Integrated intrusion prevention and detection, ported from Cisco N.G. I.P.S., helps detect, block, and defend against attacks that already happened.",
+"start": 12.97,
+"end": 26.964
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco ASA Features",
+"spoken": "Cisco ASA Features.",
+"start": 28.414,
+"end": 30.292
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Smaller model numbers usually mean lower throughput.",
+"spoken": "Smaller model numbers usually mean lower throughput.",
+"start": 30.742,
+"end": 33.835
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Simple packet filtering with ACLs, stateful inspection, and application inspection. Listening in on conversations lets it see application layer information.",
+"spoken": "Simple packet filtering with A.C.L.s, stateful inspection, and application inspection. Listening in on conversations lets it see application layer information.",
+"start": 34.285,
+"end": 46.125
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NAT, and DHCP server, client, or both.",
+"spoken": "nat, and DHCP server, client, or both.",
+"start": 46.575,
+"end": 49.54
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routed mode with IP addresses on each routable interface, or transparent mode with a pair of interfaces acting as a bridge. Traffic across the bridge is still inspected.",
+"spoken": "Routed mode with IP addresses on each routable interface, or transparent mode with a pair of interfaces acting as a bridge. Traffic across the bridge is still inspected.",
+"start": 49.99,
+"end": 62.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Often used as the headend or remote end of VPN tunnels.",
+"spoken": "Often used as the headend or remote end of VPN tunnels.",
+"start": 62.942,
+"end": 67.4
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Basic botnet traffic filtering. Users of botnet machines often don't know they are part of an attack.",
+"spoken": "Basic botnet traffic filtering. Users of botnet machines often don't know they are part of an attack.",
+"start": 67.85,
+"end": 74.485
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ASA FirePOWER Module Licensing",
+"spoken": "ASA Fire Power Module Licensing.",
+"start": 75.935,
+"end": 78.794
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The FMC and the FirePOWER module need additional licenses. The ASA itself needs no additional license.",
+"spoken": "The FMC and the Fire Power module need additional licenses. The ASA itself needs no additional license.",
+"start": 79.244,
+"end": 87.649
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On all models except the 5506-X, 5508-X, and 5516-X, licenses are installed in the FirePOWER module.",
+"spoken": "On all models except the 5506-X, 5508-X, and 5516-X, licenses are installed in the Fire Power module.",
+"start": 88.099,
+"end": 101.518
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On the 5506-X, 5508-X, and 5516-X, FirePOWER Services can be managed with ASDM and the licenses installed with ASDM.",
+"spoken": "On the 5506-X, 5508-X, and 5516-X, Fire Power Services can be managed with ASDM and the licenses installed with ASDM.",
+"start": 101.968,
+"end": 117.008
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "When the FMC manages FirePOWER Services, the license is installed on the FMC and used by the module.",
+"spoken": "When the FMC manages Fire Power Services, the license is installed on the FMC and used by the module.",
+"start": 117.458,
+"end": 125.458
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Where FTD Runs",
+"spoken": "Where FTD Runs.",
+"start": 126.908,
+"end": 128.444
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Firewall 1000, 2100, 3100, 4100, 4200, and 9300 Series.",
+"spoken": "Secure Firewall 1000, 2100, 3100, 4100, 4200, and 9300 Series.",
+"start": 128.894,
+"end": 141.395
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Natively on the ASA 5506-X, 5506H-X, 5506W-X, 5508-X, 5512-X, 5515-X, 5516-X, 5525-X, 5545-X, and 5555-X.",
+"spoken": "Natively on the ASA 5506-X, 55 oh 6 H X, 55 oh 6 W X, 5508-X, 5512-X, 5515-X, 5516-X, 5525-X, 5545-X, and 5555-X.",
+"start": 141.845,
+"end": 170.24
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Not supported on the ASA 5505 or 5585-X.",
+"spoken": "Not supported on the ASA 5505 or 5585-X.",
+"start": 170.69,
+"end": 178.007
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Firewall Models (Table 7-2)",
+"spoken": "Secure Firewall Models (Table 7-2).",
+"start": 179.457,
+"end": 182.934
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says Secure Firewall appliances are designed for small business and home offices, but Table 7-2 lists models up to service providers.",
+"spoken": "The book says Secure Firewall appliances are designed for small business and home offices, but Table 7-2 lists models up to service providers.",
+"start": 183.384,
+"end": 194.222
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1000 Series: smaller businesses and branch offices.",
+"spoken": "1000 Series: smaller businesses and branch offices.",
+"start": 194.672,
+"end": 198.64
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2100 Series: larger branch offices and organizations.",
+"spoken": "2100 Series: larger branch offices and organizations.",
+"start": 199.09,
+"end": 204.252
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3100 Series: medium-sized enterprises, with room to grow.",
+"spoken": "3100 Series: medium-sized enterprises, with room to grow.",
+"start": 204.702,
+"end": 210.42
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4100 Series: large enterprises, campus, and data center.",
+"spoken": "4100 Series: large enterprises, campus, and data center.",
+"start": 210.87,
+"end": 216.331
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4200 Series: large enterprises and high-performance data centers.",
+"spoken": "4200 Series: large enterprises and high-performance data centers.",
+"start": 216.781,
+"end": 222.733
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "9300 Series: service providers and high-performance data centers. The quiz calls it the choice for very large enterprises and service providers.",
+"spoken": "9300 Series: service providers and high-performance data centers. The quiz calls it the choice for very large enterprises and service providers.",
+"start": 223.183,
+"end": 234.511
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threat Defense Virtual: consistent policies across virtual environments.",
+"spoken": "Threat Defense Virtual: consistent policies across virtual environments.",
+"start": 234.961,
+"end": 240.038
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ISA3000: manufacturing, industrial, and OT.",
+"spoken": "I.S.A. 3000: manufacturing, industrial, and OT.",
+"start": 240.488,
+"end": 244.819
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cloud Native: Kubernetes-based cloud-native security.",
+"spoken": "Cloud Native: Kubernetes-based cloud-native security.",
+"start": 245.269,
+"end": 249.109
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure WAF and bot protection: application security and resilience.",
+"spoken": "Secure waff and bot protection: application security and resilience.",
+"start": 249.559,
+"end": 254.402
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Migration Tool",
+"spoken": "Migration Tool.",
+"start": 255.852,
+"end": 257.174
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Converts from any ASA or FDM, and from Check Point, Palo Alto Networks, and Fortinet, no matter how complex the policy.",
+"spoken": "Converts from any ASA or FDM, and from Check Point, Palo Alto Networks, and Fortinet, no matter how complex the policy.",
+"start": 257.624,
+"end": 267.096
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Gathers ASA data, processes it, and transfers it to the Secure Firewall Management Center.",
+"spoken": "Gathers ASA data, processes it, and transfers it to the Secure Firewall Management Center.",
+"start": 267.546,
+"end": 274.117
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threat Defense Virtual",
+"spoken": "Threat Defense Virtual.",
+"start": 275.567,
+"end": 277.188
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protects virtualized data center and cloud infrastructure that is hard to secure with a physical firewall.",
+"spoken": "Protects virtualized data center and cloud infrastructure that is hard to secure with a physical firewall.",
+"start": 277.638,
+"end": 284.444
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Needed because multi-cloud, microservices, and containers opened new paths for threats. Virtual firewalls, cloud IDS and IPS, and DLP (data loss prevention) have become important.",
+"spoken": "Needed because multi-cloud, microservices, and containers opened new paths for threats. Virtual firewalls, cloud IDS and IPS, and DLP (data loss prevention) have become important.",
+"start": 284.894,
+"end": 299.336
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Gives granular control so only authorized users and applications reach critical resources.",
+"spoken": "Gives granular control so only authorized users and applications reach critical resources.",
+"start": 299.786,
+"end": 306.186
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Private cloud: Cisco HyperFlex, Nutanix AHV, OpenStack, VMware, and KVM.",
+"spoken": "Private cloud: Cisco HyperFlex, Nutanix AHV, OpenStack, VMware, and KVM.",
+"start": 306.636,
+"end": 313.399
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Public cloud: AWS, Microsoft Azure, Google Cloud, and Oracle Cloud marketplaces.",
+"spoken": "Public cloud: AWS, Microsoft Azure, Google Cloud, and Oracle Cloud marketplaces.",
+"start": 313.849,
+"end": 319.993
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You don't need to deploy virtual firewalls for SCOR, but you do for the firewall concentration exam and the CCIE lab.",
+"spoken": "You don't need to deploy virtual firewalls for score, but you do for the firewall concentration exam and the CCIE lab.",
+"start": 320.443,
+"end": 328.507
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cloud Native (Figure 7-1)",
+"spoken": "Cloud Native (Figure 7-1).",
+"start": 329.957,
+"end": 332.709
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Runs in AWS on an EKS Kubernetes cluster inside a region and VPC, across availability zones.",
+"spoken": "Runs in AWS on an EKS Kubernetes cluster inside a region and VPC, across availability zones.",
+"start": 333.159,
+"end": 341.65
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tenant A and Tenant B each get a namespace, with firewall enforcement nodes.",
+"spoken": "Tenant A and Tenant B each get a namespace, with firewall enforcement nodes.",
+"start": 342.1,
+"end": 347.092
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Includes Kubernetes operators and controllers plus the CNFW.",
+"spoken": "Includes Kubernetes operators and controllers plus the CNFW.",
+"start": 347.542,
+"end": 352.448
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ISA3000",
+"spoken": "I.S.A. 3000.",
+"start": 353.898,
+"end": 355.882
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Adds industrial protocol visibility and control from Omron, Rockwell, GE, Schneider, and Siemens.",
+"spoken": "Adds industrial protocol visibility and control from Omron, Rockwell, GE, Schneider, and Siemens.",
+"start": 356.332,
+"end": 363.778
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Partitions industrial networks, protects OT assets, and supports compliance.",
+"spoken": "Partitions industrial networks, protects OT assets, and supports compliance.",
+"start": 364.228,
+"end": 369.497
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports DNP3, CIP, Modbus, and IEC 61850, among others.",
+"spoken": "Supports D.N.P. 3, CIP, Modbus, and IEC 61850, among others.",
+"start": 369.947,
+"end": 377.286
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure WAF and Bot Protection",
+"spoken": "Secure waff and Bot Protection.",
+"start": 378.736,
+"end": 381.018
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Standard WAFs block bots by IP and fingerprinting, but fall short against advanced bots that use open-source tools or spread violations across sessions.",
+"spoken": "Standard waffs block bots by IP and fingerprinting, but fall short against advanced bots that use open-source tools or spread violations across sessions.",
+"start": 381.468,
+"end": 392.306
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protects websites, applications, and APIs.",
+"spoken": "Protects websites, applications, and A.P.I.s.",
+"start": 392.756,
+"end": 396.062
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cloud WAF: adaptive security in public clouds.",
+"spoken": "Cloud waff: adaptive security in public clouds.",
+"start": 396.512,
+"end": 400.054
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Kubernetes WAF: scalable security for CI/CD environments.",
+"spoken": "Kubernetes waff: scalable security for C.I. C.D. environments.",
+"start": 400.504,
+"end": 405.73
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On-premises: for local corporate networks.",
+"spoken": "On-premises: for local corporate networks.",
+"start": 406.18,
+"end": 409.124
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "FTD on ISR Routers",
+"spoken": "FTD on ISR Routers.",
+"start": 410.574,
+"end": 412.772
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Historically, FTD ran on UCS E-Series blades in ISR routers, with FMC and FTD both as virtual machines.",
+"spoken": "Historically, FTD ran on UCS E-Series blades in ISR routers, with FMC and FTD both as virtual machines.",
+"start": 413.222,
+"end": 423.184
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Two internal interfaces connect the router to the blade. On ISR G2, Slot0 is a PCIe (Peripheral Component Interconnect Express) internal interface and Slot1 is a switched interface on the MGF.",
+"spoken": "Two internal interfaces connect the router to the blade. On ISR G2, Slot0 is a PCIe (Peripheral Component Interconnect Express) internal interface and Slot1 is a switched interface on the MGF.",
+"start": 423.634,
+"end": 439.464
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On ISR 4000 Series, both internal interfaces connect to the MGF.",
+"spoken": "On ISR 4000 Series, both internal interfaces connect to the MGF.",
+"start": 439.914,
+"end": 445.78
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Routers with Security Capabilities",
+"spoken": "Routers with Security Capabilities.",
+"start": 447.23,
+"end": 449.556
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco 800 Series, and 900, 1000, 1800, and 4000 Series ISRs.",
+"spoken": "Cisco 800 Series, and 900, 1000, 1800, and 4000 Series I.S.R.s.",
+"start": 450.006,
+"end": 458.518
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Catalyst 8300 and 8200 Series Edge Platforms, and Catalyst 8200 Series Edge uCPE.",
+"spoken": "Catalyst 8300 and 8200 Series Edge Platforms, and Catalyst 8200 Series Edge U.C.P.E.",
+"start": 458.968,
+"end": 469.378
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SD-WAN Security",
+"spoken": "S.D. wan Security.",
+"start": 470.828,
+"end": 472.684
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "High-speed logging Enterprise Firewall with Application Awareness.",
+"spoken": "High-speed logging Enterprise Firewall with Application Awareness.",
+"start": 473.134,
+"end": 477.38
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Self zone policy for zone-based firewalls, using a default zone tied to a VPN tunnel to control incoming and outgoing traffic.",
+"spoken": "Self zone policy for zone-based firewalls, using a default zone tied to a VPN tunnel to control incoming and outgoing traffic.",
+"start": 477.83,
+"end": 487.622
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure communication with IPsec pairwise keys.",
+"spoken": "Secure communication with I.P. sec pairwise keys.",
+"start": 488.072,
+"end": 492.04
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPS, URL filtering, Secure Malware Defense, SD-WAN Umbrella integration, and single sign-on.",
+"spoken": "IPS, URL filtering, Secure Malware Defense, S.D. wan Umbrella integration, and single sign-on.",
+"start": 492.49,
+"end": 499.551
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The stateful firewall filters on source and destination IP, ports, and protocols, and uses DPI to filter applications such as video streaming, VoIP, or web.",
+"spoken": "The stateful firewall filters on source and destination IP, ports, and protocols, and uses DPI to filter applications such as video streaming, voice over I.P., or web.",
+"start": 500.001,
+"end": 513.249
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The IPS uses signatures and machine learning for known and unknown threats.",
+"spoken": "The IPS uses signatures and machine learning for known and unknown threats.",
+"start": 513.699,
+"end": 518.947
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "URL filtering blocks by URL or category, such as social media or gambling.",
+"spoken": "URL filtering blocks by URL or category, such as social media or gambling.",
+"start": 519.397,
+"end": 525.477
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Machine learning and behavioral analysis block malware and ransomware in real time.",
+"spoken": "Machine learning and behavioral analysis block malware and ransomware in real time.",
+"start": 525.927,
+"end": 531.644
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Legacy IPS Characteristics",
+"spoken": "Legacy IPS Characteristics.",
+"start": 533.094,
+"end": 535.356
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sometimes deployed inline behind a firewall, and often without a firewall in front.",
+"spoken": "Sometimes deployed inline behind a firewall, and often without a firewall in front.",
+"start": 535.806,
+"end": 541.331
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Look for attempts to exploit a vulnerability, not for the vulnerability itself.",
+"spoken": "Look for attempts to exploit a vulnerability, not for the vulnerability itself.",
+"start": 541.781,
+"end": 546.666
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Generate large amounts of event data that are hard to correlate.",
+"spoken": "Generate large amounts of event data that are hard to correlate.",
+"start": 547.116,
+"end": 551.426
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Focus on individual events without context.",
+"spoken": "Focus on individual events without context.",
+"start": 551.876,
+"end": 555.076
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Need manual tuning.",
+"spoken": "Need manual tuning.",
+"start": 555.526,
+"end": 557.254
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IDS and IPS use basically the same detection methods.",
+"spoken": "IDS and IPS use basically the same detection methods.",
+"start": 557.704,
+"end": 562.44
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Legacy IPS Shortcomings",
+"spoken": "Legacy IPS Shortcomings.",
+"start": 563.89,
+"end": 565.959
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Need other tools such as firewalls, analytics, and correlation tools.",
+"spoken": "Need other tools such as firewalls, analytics, and correlation tools.",
+"start": 566.409,
+"end": 570.932
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sometimes not effective and ignored.",
+"spoken": "Sometimes not effective and ignored.",
+"start": 571.382,
+"end": 573.686
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "High operation costs and resources.",
+"spoken": "High operation costs and resources.",
+"start": 574.136,
+"end": 576.717
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can leave the infrastructure imperfectly covered.",
+"spoken": "Can leave the infrastructure imperfectly covered.",
+"start": 577.167,
+"end": 580.154
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NGIPS Added Capabilities",
+"spoken": "N.G. I.P.S. Added Capabilities.",
+"start": 581.604,
+"end": 584.654
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Application awareness and control: visibility into Layer 7 applications and protection against Layer 7 threats.",
+"spoken": "Application awareness and control: visibility into Layer 7 applications and protection against Layer 7 threats.",
+"start": 585.104,
+"end": 593.232
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Content awareness: for example, knowing which files moved between hosts to find viruses and trace an infection.",
+"spoken": "Content awareness: for example, knowing which files moved between hosts to find viruses and trace an infection.",
+"start": 593.682,
+"end": 601.064
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Contextual awareness: helps understand alerts, so the NGIPS is less complex and needs less tuning.",
+"spoken": "Contextual awareness: helps understand alerts, so the N.G. I.P.S. is less complex and needs less tuning.",
+"start": 601.514,
+"end": 609.514
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Host and user awareness: more conclusive event information.",
+"spoken": "Host and user awareness: more conclusive event information.",
+"start": 609.964,
+"end": 613.974
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Automated tuning and recommendations: tune signatures to your environment.",
+"spoken": "Automated tuning and recommendations: tune signatures to your environment.",
+"start": 614.424,
+"end": 619.395
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Impact and vulnerability assessment: for example, a Windows system that is patched against a vulnerability can't be severely impacted by an exploit attempt against it.",
+"spoken": "Impact and vulnerability assessment: for example, a Windows system that is patched against a vulnerability can't be severely impacted by an exploit attempt against it.",
+"start": 619.845,
+"end": 631.28
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco NGIPS Engine",
+"spoken": "Cisco N.G. I.P.S. Engine.",
+"start": 632.73,
+"end": 635.396
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco follows a before, during, and after model for mobile devices, virtual machines, and endpoints. The whole Firepower portfolio covers all phases.",
+"spoken": "Cisco follows a before, during, and after model for mobile devices, virtual machines, and endpoints. The whole Firepower portfolio covers all phases.",
+"start": 635.846,
+"end": 646.94
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Snort rules are developed by Talos, open for inspection, and offer broad coverage. Third-party rules can be integrated and customized.",
+"spoken": "Snort rules are developed by Talos, open for inspection, and offer broad coverage. Third-party rules can be integrated and customized.",
+"start": 647.39,
+"end": 657.331
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Most Important Cisco NGIPS Capabilities",
+"spoken": "Most Important Cisco N.G. I.P.S. Capabilities.",
+"start": 658.781,
+"end": 662.792
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threat containment and remediation: file analysis, packet- and flow-based inspection, and vulnerability assessment.",
+"spoken": "Threat containment and remediation: file analysis, packet- and flow-based inspection, and vulnerability assessment.",
+"start": 663.242,
+"end": 671.284
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Application visibility: deep inspection and control of application information.",
+"spoken": "Application visibility: deep inspection and control of application information.",
+"start": 671.734,
+"end": 677.26
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Identity management: policies use contextual user information.",
+"spoken": "Identity management: policies use contextual user information.",
+"start": 677.71,
+"end": 682.275
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security automation: automated event impact assessment and policy tuning.",
+"spoken": "Security automation: automated event impact assessment and policy tuning.",
+"start": 682.725,
+"end": 688.058
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Logging and traceability management: for retrospective analysis.",
+"spoken": "Logging and traceability management: for retrospective analysis.",
+"start": 688.508,
+"end": 692.882
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "High availability and stacking: redundancy and performance across multiple devices.",
+"spoken": "High availability and stacking: redundancy and performance across multiple devices.",
+"start": 693.332,
+"end": 699.22
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network behavioral analysis: key behavioral indicators and threat scores help prioritize.",
+"spoken": "Network behavioral analysis: key behavioral indicators and threat scores help prioritize.",
+"start": 699.67,
+"end": 705.984
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Access control and segmentation: separate traffic profiles.",
+"spoken": "Access control and segmentation: separate traffic profiles.",
+"start": 706.434,
+"end": 710.722
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Real-time contextual awareness: discovers applications, users, devices, operating systems, vulnerabilities, services, processes, files, and threat data.",
+"spoken": "Real-time contextual awareness: discovers applications, users, devices, operating systems, vulnerabilities, services, processes, files, and threat data.",
+"start": 711.172,
+"end": 722.5
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Adding Devices to the FMC",
+"spoken": "Adding Devices to the FMC.",
+"start": 723.95,
+"end": 726.169
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Provide the device's IP address and a registration key.",
+"spoken": "Provide the device's IP address and a registration key.",
+"start": 726.619,
+"end": 730.566
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If the IP is unknown or behind NAT or PAT, enter only the NAT ID and registration key and leave the IP blank.",
+"spoken": "If the IP is unknown or behind nat or pat, enter only the nat ID and registration key and leave the IP blank.",
+"start": 731.016,
+"end": 739.933
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The NAT ID can also simplify adding many devices, but must be unique per device.",
+"spoken": "The nat ID can also simplify adding many devices, but must be unique per device.",
+"start": 740.383,
+"end": 746.079
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The review question answer: a registration key is required.",
+"spoken": "The review question answer: a registration key is required.",
+"start": 746.529,
+"end": 750.54
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "FMC Analytics",
+"spoken": "FMC Analytics.",
+"start": 751.99,
+"end": 753.675
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Many prebuilt dashboards, or build your own. All are customizable.",
+"spoken": "Many prebuilt dashboards, or build your own. All are customizable.",
+"start": 754.125,
+"end": 758.392
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network File Trajectory charts file transfers, disposition, and whether the transfer was blocked or the file quarantined. Shows which hosts and users transferred malware, which are at risk, and transfer trends.",
+"spoken": "Network File Trajectory charts file transfers, disposition, and whether the transfer was blocked or the file quarantined. Shows which hosts and users transferred malware, which are at risk, and transfer trends.",
+"start": 758.842,
+"end": 773.37
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tracks any file with a Cisco cloud-assigned disposition, using data from Secure Malware Defense and Secure Endpoints.",
+"spoken": "Tracks any file with a Cisco cloud-assigned disposition, using data from Secure Malware Defense and Secure Endpoints.",
+"start": 773.82,
+"end": 781.841
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SIEM vs SOAR vs XDR (Table 7-4)",
+"spoken": "SIEM vs soar vs XDR (Table 7-4).",
+"start": 783.291,
+"end": 787.387
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SIEM: correlates events, finds patterns, investigates incidents, and generates compliance reports.",
+"spoken": "SIEM: correlates events, finds patterns, investigates incidents, and generates compliance reports.",
+"start": 787.837,
+"end": 794.792
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SOAR: automates repetitive tasks, uses machine learning and AI for insights, integrates many tools, and gives a central view of security posture.",
+"spoken": "soar: automates repetitive tasks, uses machine learning and A.I. for insights, integrates many tools, and gives a central view of security posture.",
+"start": 795.242,
+"end": 806.122
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "XDR: advanced analytics and machine learning, a central console, automated response, and better visibility with shorter response times.",
+"spoken": "XDR: advanced analytics and machine learning, a central console, automated response, and better visibility with shorter response times.",
+"start": 806.572,
+"end": 816.342
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "All three aim to improve security posture and reduce response times.",
+"spoken": "All three aim to improve security posture and reduce response times.",
+"start": 816.792,
+"end": 821.635
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SecureX Threat Response",
+"spoken": "SecureX Threat Response.",
+"start": 823.085,
+"end": 825.005
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Aggregates threat intelligence from Cisco and third parties for security operations teams, threat hunters, and incident responders.",
+"spoken": "Aggregates threat intelligence from Cisco and third parties for security operations teams, threat hunters, and incident responders.",
+"start": 825.455,
+"end": 834.5
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports detection, investigation, and remediation.",
+"spoken": "Supports detection, investigation, and remediation.",
+"start": 834.95,
+"end": 838.47
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A new investigation can show details about observed malware.",
+"spoken": "A new investigation can show details about observed malware.",
+"start": 838.92,
+"end": 843.208
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In the Graph panel you can drag nodes, select and move several together, or drag a blank area to move the whole graph.",
+"spoken": "In the Graph panel you can drag nodes, select and move several together, or drag a blank area to move the whole graph.",
+"start": 843.658,
+"end": 851.168
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Security Zones",
+"spoken": "Security Zones.",
+"start": 852.618,
+"end": 854.004
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "At least one interface must be in a zone to match traffic on that zone. An interface can belong to only one zone.",
+"spoken": "At least one interface must be in a zone to match traffic on that zone. An interface can belong to only one zone.",
+"start": 854.454,
+"end": 861.964
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A device can have multiple zones to segment the network.",
+"spoken": "A device can have multiple zones to segment the network.",
+"start": 862.414,
+"end": 866.19
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Zones are used in access control policies, network discovery rules, and event searches.",
+"spoken": "Zones are used in access control policies, network discovery rules, and event searches.",
+"start": 866.64,
+"end": 872.848
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FTD creates zones at registration based on the detection mode: a passive zone for passive deployments, External and Internal zones for inline deployments. You can also create zones when configuring interfaces.",
+"spoken": "FTD creates zones at registration based on the detection mode: a passive zone for passive deployments, External and Internal zones for inline deployments. You can also create zones when configuring interfaces.",
+"start": 873.298,
+"end": 888.615
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figures show an access control rule between inside and outside zones, a source- and destination-based rule, and an application-based rule.",
+"spoken": "Figures show an access control rule between inside and outside zones, a source- and destination-based rule, and an application-based rule.",
+"start": 889.065,
+"end": 898.75
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco Defense Orchestrator",
+"spoken": "Cisco Defense Orchestrator.",
+"start": 900.2,
+"end": 902.312
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Manages firewalls from the cloud, with central policy for ASA and FTD.",
+"spoken": "Manages firewalls from the cloud, with central policy for ASA and FTD.",
+"start": 902.762,
+"end": 908.245
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FTD in AWS needs two management interfaces enabled at launch, then two traffic interfaces, for four in total.",
+"spoken": "FTD in AWS needs two management interfaces enabled at launch, then two traffic interfaces, for four in total.",
+"start": 908.695,
+"end": 918.06
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. Comparing Network Security Solutions That Provide Firewall Capabilities",
+"spoken": "2. Comparing Network Security Solutions That Provide Firewall Capabilities.",
+"start": 920.11,
+"end": 925.273
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ZBFW Basics",
+"spoken": "ZBFW Basics.",
+"start": 927.073,
+"end": 928.929
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASA and FTD are dedicated firewalls. ZBFW builds the firewall into the router, which makes it cost-effective.",
+"spoken": "ASA and FTD are dedicated firewalls. ZBFW builds the firewall into the router, which makes it cost-effective.",
+"start": 929.379,
+"end": 938.552
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ZBFW adds features CBAC lacks, such as assigning interfaces to zones.",
+"spoken": "ZBFW adds features see-back lacks, such as assigning interfaces to zones.",
+"start": 939.002,
+"end": 944.89
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Zone-based firewalls can be implemented in SD-WAN. The quiz says the statement that they cannot is false.",
+"spoken": "Zone-based firewalls can be implemented in S.D. wan. The quiz says the statement that they cannot is false.",
+"start": 945.34,
+"end": 952.956
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SD-WAN Zone Components",
+"spoken": "S.D. wan Zone Components.",
+"start": 954.406,
+"end": 956.646
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Source zone: a group of VPNs where traffic originates. A VPN can be in only one source zone.",
+"spoken": "Source zone: a group of V.P.N.s where traffic originates. A VPN can be in only one source zone.",
+"start": 957.096,
+"end": 965.182
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Destination zone: a group of VPNs where traffic terminates. A VPN can be in only one destination zone.",
+"spoken": "Destination zone: a group of V.P.N.s where traffic terminates. A VPN can be in only one destination zone.",
+"start": 965.632,
+"end": 974.57
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Firewall policy: like a localized security policy. Matches IP prefixes, IP ports, TCP, UDP, ICMP, and applications.",
+"spoken": "Firewall policy: like a localized security policy. Matches IP prefixes, IP ports, TCP, UDP, ICMP, and applications.",
+"start": 975.02,
+"end": 986.135
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Matching prefixes, ports, and protocols can be accepted or dropped, and headers logged.",
+"spoken": "Matching prefixes, ports, and protocols can be accepted or dropped, and headers logged.",
+"start": 986.585,
+"end": 992.217
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Matching applications can only be denied.",
+"spoken": "Matching applications can only be denied.",
+"start": 992.667,
+"end": 995.398
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Nonmatching flows are dropped by default.",
+"spoken": "Nonmatching flows are dropped by default.",
+"start": 995.848,
+"end": 998.536
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Zone pair: applies the firewall policy between two zones.",
+"spoken": "Zone pair: applies the firewall policy between two zones.",
+"start": 998.986,
+"end": 1003.231
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Accepted flows can be inspected (the header is checked for source address and port) or passed (sent on with no header inspection).",
+"spoken": "Accepted flows can be inspected (the header is checked for source address and port) or passed (sent on with no header inspection).",
+"start": 1003.681,
+"end": 1012.001
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ZBFW Rules",
+"spoken": "ZBFW Rules.",
+"start": 1013.451,
+"end": 1015.264
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A zone must exist before interfaces can be assigned to it.",
+"spoken": "A zone must exist before interfaces can be assigned to it.",
+"start": 1015.714,
+"end": 1019.533
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An interface belongs to only one zone.",
+"spoken": "An interface belongs to only one zone.",
+"start": 1019.983,
+"end": 1022.778
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Assigning an interface to a zone implicitly blocks its traffic, except to other interfaces in the same zone and to the router itself.",
+"spoken": "Assigning an interface to a zone implicitly blocks its traffic, except to other interfaces in the same zone and to the router itself.",
+"start": 1023.228,
+"end": 1032.188
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traffic flows freely between interfaces in the same zone.",
+"spoken": "Traffic flows freely between interfaces in the same zone.",
+"start": 1032.638,
+"end": 1036.328
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "To permit traffic between zones, configure a policy that allows or inspects it.",
+"spoken": "To permit traffic between zones, configure a policy that allows or inspects it.",
+"start": 1036.778,
+"end": 1041.898
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The self zone is the only exception to deny all. Traffic to the router is allowed until explicitly denied.",
+"spoken": "The self zone is the only exception to deny all. Traffic to the router is allowed until explicitly denied.",
+"start": 1042.348,
+"end": 1049.879
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traffic can't flow between a zone member and a non-member interface.",
+"spoken": "Traffic can't flow between a zone member and a non-member interface.",
+"start": 1050.329,
+"end": 1054.681
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Pass, inspect, and drop actions apply only between two zones.",
+"spoken": "Pass, inspect, and drop actions apply only between two zones.",
+"start": 1055.131,
+"end": 1059.376
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. Deployment Modes of Network Security Solutions and Architectures That Provide Firewall Capabilities",
+"spoken": "3. Deployment Modes of Network Security Solutions and Architectures That Provide Firewall Capabilities.",
+"start": 1061.426,
+"end": 1068.872
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ASA Interfaces",
+"spoken": "ASA Interfaces.",
+"start": 1070.672,
+"end": 1072.421
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each interface gets a name for its role. You use that name to configure interface features.",
+"spoken": "Each interface gets a name for its role. You use that name to configure interface features.",
+"start": 1072.871,
+"end": 1078.716
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A DMZ interface should get a level between 0 and 100.",
+"spoken": "A DMZ interface should get a level between 0 and 100.",
+"start": 1079.166,
+"end": 1083.668
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "More than one interface can share a security level.",
+"spoken": "More than one interface can share a security level.",
+"start": 1084.118,
+"end": 1087.403
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An interface with no security level does not respond at the network layer.",
+"spoken": "An interface with no security level does not respond at the network layer.",
+"start": 1087.853,
+"end": 1092.888
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An IP address is required for an interface to pass traffic in routed mode. It can be static (address and mask) or from DHCP.",
+"spoken": "An IP address is required for an interface to pass traffic in routed mode. It can be static (address and mask) or from DHCP.",
+"start": 1093.338,
+"end": 1103.066
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DHCP is preferred when the ISP assigns the outside address dynamically.",
+"spoken": "DHCP is preferred when the ISP assigns the outside address dynamically.",
+"start": 1103.516,
+"end": 1109.126
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In transparent mode, the IP is assigned in global configuration mode or on a BVI, depending on the code version.",
+"spoken": "In transparent mode, the IP is assigned in global configuration mode or on a BVI, depending on the code version.",
+"start": 1109.576,
+"end": 1118.216
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DHCP interface addressing is not supported with failover.",
+"spoken": "DHCP interface addressing is not supported with failover.",
+"start": 1118.666,
+"end": 1123.168
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Routed vs Transparent",
+"spoken": "Routed vs Transparent.",
+"start": 1124.618,
+"end": 1126.452
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routed firewalls examine Layer 3 and up and the payload, then allow or drop based on ACLs. They usually translate addresses.",
+"spoken": "Routed firewalls examine Layer 3 and up and the payload, then allow or drop based on A.C.L.s. They usually translate addresses.",
+"start": 1126.902,
+"end": 1136.844
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routed firewalls can't filter between hosts in the same LAN segment, and need a new network segment, which means planning, downtime, and reconfiguration.",
+"spoken": "Routed firewalls can't filter between hosts in the same lan segment, and need a new network segment, which means planning, downtime, and reconfiguration.",
+"start": 1137.294,
+"end": 1147.555
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A transparent firewall goes between the LAN and the next-hop router without readdressing, and can optionally inspect Layer 2 traffic.",
+"spoken": "A transparent firewall goes between the lan and the next-hop router without readdressing, and can optionally inspect Layer 2 traffic.",
+"start": 1148.005,
+"end": 1156.517
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 7-20, SecretCorp: host 192.168.10.2 sends traffic to www.cisco.com. The transparent firewall checks it before the default gateway 192.168.10.1. The router translates 192.168.10.0/27 to 209.165.200.224/27 (the host becomes 209.165.200.226).",
+"spoken": "Figure 7-20, SecretCorp: host 192.168.10.2 sends traffic to the link in the notes The transparent firewall checks it before the default gateway 192.168.10.1. The router translates 192.168.10.0 slash 27 to 209.165.200.224 slash 27 (the host becomes 209.165.200.226).",
+"start": 1156.967,
+"end": 1198.006
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 7-21: FTD in routed mode with inside 10.1.1.0/24, outside 10.1.2.0/24, and DMZ 10.1.3.0/24.",
+"spoken": "Figure 7-21: FTD in routed mode with inside 10.1.1.0 slash 24, outside 10.1.2.0 slash 24, and DMZ 10.1.3.0 slash 24.",
+"start": 1198.456,
+"end": 1216.248
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 7-22: FTD in transparent mode with the same subnet, 10.1.1.0/24, on both interfaces.",
+"spoken": "Figure 7-22: FTD in transparent mode with the same subnet, 10.1.1.0 slash 24, on both interfaces.",
+"start": 1216.698,
+"end": 1227.941
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Both deployment modes are inherited from the ASA.",
+"spoken": "Both deployment modes are inherited from the ASA.",
+"start": 1228.391,
+"end": 1231.847
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Security Context Use Cases",
+"spoken": "Security Context Use Cases.",
+"start": 1233.297,
+"end": 1235.452
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A service provider offering firewall services without buying a firewall per customer.",
+"spoken": "A service provider offering firewall services without buying a firewall per customer.",
+"start": 1235.902,
+"end": 1241.704
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A school separating student and faculty networks on one appliance.",
+"spoken": "A school separating student and faculty networks on one appliance.",
+"start": 1242.154,
+"end": 1246.293
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A large enterprise whose departments want their own policies.",
+"spoken": "A large enterprise whose departments want their own policies.",
+"start": 1246.743,
+"end": 1250.882
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Overlapping networks that need firewalling without readdressing.",
+"spoken": "Overlapping networks that need firewalling without readdressing.",
+"start": 1251.332,
+"end": 1255.172
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Consolidating many physical firewalls into one.",
+"spoken": "Consolidating many physical firewalls into one.",
+"start": 1255.622,
+"end": 1259.056
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "End-to-end virtualization in a data center to cut costs.",
+"spoken": "End-to-end virtualization in a data center to cut costs.",
+"start": 1259.506,
+"end": 1263.368
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The quiz answer for separating management and policies on a shared appliance is multiple context mode.",
+"spoken": "The quiz answer for separating management and policies on a shared appliance is multiple context mode.",
+"start": 1263.818,
+"end": 1270.666
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Firewall mode, routed or transparent, can be set per context.",
+"spoken": "Firewall mode, routed or transparent, can be set per context.",
+"start": 1271.116,
+"end": 1275.468
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Single-Mode Transparent Firewall",
+"spoken": "Single-Mode Transparent Firewall.",
+"start": 1276.918,
+"end": 1279.179
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Acts as a secured bridge. No IP addresses on the inside or outside interfaces.",
+"spoken": "Acts as a secured bridge. No IP addresses on the inside or outside interfaces.",
+"start": 1279.629,
+"end": 1285.816
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Needs a global management IP for Telnet and SSH. Also used to source ARP requests and syslog.",
+"spoken": "Needs a global management IP for Telnet and SSH. Also used to source arp requests and syslog.",
+"start": 1286.266,
+"end": 1293.519
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Simplest setup: only ACLs, inspection rules, and optional NAT. No contexts, dynamic routing, or interface addresses.",
+"spoken": "Simplest setup: only A.C.L.s, inspection rules, and optional nat. No contexts, dynamic routing, or interface addresses.",
+"start": 1293.969,
+"end": 1303.377
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book discusses the admin context inside this single-mode section, although contexts only exist in multiple context mode.",
+"spoken": "The book discusses the admin context inside this single-mode section, although contexts only exist in multiple context mode.",
+"start": 1303.827,
+"end": 1312.552
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Admin Context",
+"spoken": "Admin Context.",
+"start": 1314.002,
+"end": 1315.517
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Assign the ASA's management interfaces to it, with IP addresses.",
+"spoken": "Assign the ASA's management interfaces to it, with IP addresses.",
+"start": 1315.967,
+"end": 1320.895
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Used to retrieve other contexts' configurations from a network share and for SSH or Telnet management.",
+"spoken": "Used to retrieve other contexts' configurations from a network share and for SSH or Telnet management.",
+"start": 1321.345,
+"end": 1328.641
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An administrator in the admin context can switch into other contexts.",
+"spoken": "An administrator in the admin context can switch into other contexts.",
+"start": 1329.091,
+"end": 1333.742
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sends syslogs about the physical system and handles file copying and SNMP traps for the system context.",
+"spoken": "Sends syslogs about the physical system and handles file copying and SNMP traps for the system context.",
+"start": 1334.192,
+"end": 1341.594
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Must be created before other contexts and must be on the local disk.",
+"spoken": "Must be created before other contexts and must be on the local disk.",
+"start": 1342.044,
+"end": 1346.396
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "When converting from single to multiple mode, the network configuration is saved into the admin context, named \"admin\" by default.",
+"spoken": "When converting from single to multiple mode, the network configuration is saved into the admin context, named \"admin\" by default.",
+"start": 1346.846,
+"end": 1356.105
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can be used as a regular context, but that's not recommended because of its system significance.",
+"spoken": "Can be used as a regular context, but that's not recommended because of its system significance.",
+"start": 1356.555,
+"end": 1362.742
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "User Context Features",
+"spoken": "User Context Features.",
+"start": 1364.192,
+"end": 1366.005
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPS functionality, dynamic routing, packet filtering, NAT, site-to-site VPN, and IPv6 and device management.",
+"spoken": "IPS functionality, dynamic routing, packet filtering, nat, site-to-site VPN, and I.P. version 6 and device management.",
+"start": 1366.455,
+"end": 1376.076
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Packet Classification",
+"spoken": "Packet Classification.",
+"start": 1377.526,
+"end": 1379.105
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With unique physical interfaces or subinterfaces per context, packets are classified by source interface.",
+"spoken": "With unique physical interfaces or subinterfaces per context, packets are classified by source interface.",
+"start": 1379.555,
+"end": 1387.171
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With shared interfaces, the ASA classifies by destination IP address or by a unique MAC address.",
+"spoken": "With shared interfaces, the ASA classifies by destination IP address or by a unique mac address.",
+"start": 1387.621,
+"end": 1395.258
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If a shared interface uses the same MAC across contexts (depending on version), the classifier uses the destination IP.",
+"spoken": "If a shared interface uses the same mac across contexts (depending on version), the classifier uses the destination IP.",
+"start": 1395.708,
+"end": 1404.796
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "It can't use routing tables, because contexts can overlap. It relies on each context's NAT table.",
+"spoken": "It can't use routing tables, because contexts can overlap. It relies on each context's nat table.",
+"start": 1405.246,
+"end": 1412.478
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Multimode Transparent Firewall Differences",
+"spoken": "Multimode Transparent Firewall Differences.",
+"start": 1413.928,
+"end": 1416.595
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each context needs an IP on its BVI for management.",
+"spoken": "Each context needs an IP on its BVI for management.",
+"start": 1417.045,
+"end": 1421.184
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Interfaces can't be shared between contexts.",
+"spoken": "Interfaces can't be shared between contexts.",
+"start": 1421.634,
+"end": 1424.62
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Firewall Interface Modes (Figure 7-24)",
+"spoken": "Secure Firewall Interface Modes (Figure 7-24).",
+"start": 1426.07,
+"end": 1430.486
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inherited from the ASA: routed, and switched (BVI).",
+"spoken": "Inherited from the ASA: routed, and switched (BVI).",
+"start": 1430.936,
+"end": 1434.798
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inherited from FirePOWER: passive, passive (ERSPAN), inline pair, and inline pair with tap.",
+"spoken": "Inherited from Fire Power: passive, passive (E.R. span), inline pair, and inline pair with tap.",
+"start": 1435.248,
+"end": 1442.565
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPS-only interfaces are used when a separate firewall already protects them.",
+"spoken": "IPS-only interfaces are used when a separate firewall already protects them.",
+"start": 1443.015,
+"end": 1448.604
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ERSPAN interfaces are only supported in routed mode.",
+"spoken": "E.R. span interfaces are only supported in routed mode.",
+"start": 1449.054,
+"end": 1453.513
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inline sets and passive interfaces only work on physical interfaces and EtherChannels.",
+"spoken": "Inline sets and passive interfaces only work on physical interfaces and EtherChannels.",
+"start": 1453.963,
+"end": 1460.128
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inline sets can't use redundant interfaces or VLANs.",
+"spoken": "Inline sets can't use redundant interfaces or V-lans.",
+"start": 1460.578,
+"end": 1464.589
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inline sets and passive interfaces work with intra-chassis and inter-chassis clustering.",
+"spoken": "Inline sets and passive interfaces work with intra-chassis and inter-chassis clustering.",
+"start": 1465.039,
+"end": 1470.671
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FTD drops BFD echo packets on inline sets because they have the same source and destination IP.",
+"spoken": "FTD drops BFD echo packets on inline sets because they have the same source and destination IP.",
+"start": 1471.121,
+"end": 1478.716
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Modes can be mixed on one device.",
+"spoken": "Modes can be mixed on one device.",
+"start": 1479.166,
+"end": 1481.256
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "BVI Communication Figures",
+"spoken": "BVI Communication Figures.",
+"start": 1482.706,
+"end": 1484.989
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Intra-BVI (Figure 7-25): hosts on Gi0/1 and Gi0/2 in BVI-1, with access control applied inside the BVI. No routing needed if the destination is in the BVI's subnet.",
+"spoken": "Intra-BVI (Figure 7-25): hosts on gig 0 slash 1 and gig 0 slash 2 in BVI-1, with access control applied inside the BVI. No routing needed if the destination is in the BVI's subnet.",
+"start": 1485.439,
+"end": 1503.487
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inter-BVI (Figure 7-26): traffic between BVI-1 and BVI-2. No routing needed if the destination is in a directly connected BVI subnet.",
+"spoken": "Inter-BVI (Figure 7-26): traffic between BVI-1 and BVI-2. No routing needed if the destination is in a directly connected BVI subnet.",
+"start": 1503.937,
+"end": 1517.313
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routed interface to BVI (Figure 7-27): traffic between routed interfaces (Internet, DMZ) and BVI-1, with access control applied between them.",
+"spoken": "Routed interface to BVI (Figure 7-27): traffic between routed interfaces (Internet, DMZ) and BVI-1, with access control applied between them.",
+"start": 1517.763,
+"end": 1530.776
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Inline Pair",
+"spoken": "Inline Pair.",
+"start": 1532.226,
+"end": 1533.485
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Placed between two communicating assets or at an aggregation point, such as between a switch and a firewall or a router and a switch.",
+"spoken": "Placed between two communicating assets or at an aggregation point, such as between a switch and a firewall or a router and a switch.",
+"start": 1533.935,
+"end": 1543.002
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traffic can be dropped, allowed, or reset.",
+"spoken": "Traffic can be dropped, allowed, or reset.",
+"start": 1543.452,
+"end": 1546.054
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On software failure or power loss, all traffic is dropped unless fail-open is used.",
+"spoken": "On software failure or power loss, all traffic is dropped unless fail-open is used.",
+"start": 1546.504,
+"end": 1552.435
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Don't use fail-open if policy forbids uninspected traffic.",
+"spoken": "Don't use fail-open if policy forbids uninspected traffic.",
+"start": 1552.885,
+"end": 1557.066
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inline mode can be routed (a Layer 3 hop) or switched (transparent, two interfaces in a VLAN pair bridged together).",
+"spoken": "Inline mode can be routed (a Layer 3 hop) or switched (transparent, two interfaces in a V-lan pair bridged together).",
+"start": 1557.516,
+"end": 1565.495
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Most legacy ASA features (NAT, routing, ACLs) are not available on an inline pair. A few ASA checks plus full Snort checks apply.",
+"spoken": "Most legacy ASA features (nat, routing, A.C.L.s) are not available on an inline pair. A few ASA checks plus full Snort checks apply.",
+"start": 1565.945,
+"end": 1576.868
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 7-28: an FTD with 10 interfaces and two inline sets, one with three pairs and one with two.",
+"spoken": "Figure 7-28: an FTD with 10 interfaces and two inline sets, one with three pairs and one with two.",
+"start": 1577.318,
+"end": 1585.702
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Needs no changes on adjacent devices. Inline interfaces receive all traffic and retransmit it unless explicitly dropped.",
+"spoken": "Needs no changes on adjacent devices. Inline interfaces receive all traffic and retransmit it unless explicitly dropped.",
+"start": 1586.152,
+"end": 1595.197
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multiple pairs in one set are treated as the same flow. For passive interfaces, put the pairs in the same security zone to get the same effect.",
+"spoken": "Multiple pairs in one set are treated as the same flow. For passive interfaces, put the pairs in the same security zone to get the same effect.",
+"start": 1595.647,
+"end": 1605.439
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Inline Pair with Tap",
+"spoken": "Inline Pair with Tap.",
+"start": 1606.889,
+"end": 1608.532
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Two physical interfaces internally bridged. A few firewall checks plus full Snort checks run on a copy of the traffic (Figure 7-29).",
+"spoken": "Two physical interfaces internally bridged. A few firewall checks plus full Snort checks run on a copy of the traffic (Figure 7-29).",
+"start": 1608.982,
+"end": 1619.606
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NAT, routing, and ACLs are not available.",
+"spoken": "nat, routing, and A.C.L.s are not available.",
+"start": 1620.056,
+"end": 1623.426
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supported in routed or transparent mode.",
+"spoken": "Supported in routed or transparent mode.",
+"start": 1623.876,
+"end": 1626.564
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Passive Mode",
+"spoken": "Passive Mode.",
+"start": 1628.014,
+"end": 1629.145
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Doesn't usually prevent attacks. Can reset malicious connections, but that is not a guaranteed mitigation.",
+"spoken": "Doesn't usually prevent attacks. Can reset malicious connections, but that is not a guaranteed mitigation.",
+"start": 1629.595,
+"end": 1636.55
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supported in routed or transparent mode.",
+"spoken": "Supported in routed or transparent mode.",
+"start": 1637.0,
+"end": 1639.688
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A few firewall checks plus full Snort checks run on a copy of the traffic.",
+"spoken": "A few firewall checks plus full Snort checks run on a copy of the traffic.",
+"start": 1640.138,
+"end": 1645.108
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 7-30: FTD connected to a SPAN port watching traffic between Host A and Host B.",
+"spoken": "Figure 7-30: FTD connected to a span port watching traffic between Host A and Host B.",
+"start": 1645.558,
+"end": 1652.812
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Passive with ERSPAN",
+"spoken": "Passive with E.R. span.",
+"start": 1654.262,
+"end": 1656.139
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "One physical interface acts as the sniffer.",
+"spoken": "One physical interface acts as the sniffer.",
+"start": 1656.589,
+"end": 1659.32
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supported only in routed mode.",
+"spoken": "Supported only in routed mode.",
+"start": 1659.77,
+"end": 1661.946
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Design Considerations (Table 7-5)",
+"spoken": "Design Considerations (Table 7-5).",
+"start": 1663.396,
+"end": 1666.809
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Management: local (FDM) or central (FMC). FMC is recommended for multiple appliances, visual analysis, central configuration, alerting, and reporting.",
+"spoken": "Management: local (FDM) or central (FMC). FMC is recommended for multiple appliances, visual analysis, central configuration, alerting, and reporting.",
+"start": 1667.259,
+"end": 1679.824
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Standalone or resilient: resilient is recommended. Affects the number of interfaces.",
+"spoken": "Standalone or resilient: resilient is recommended. Affects the number of interfaces.",
+"start": 1680.274,
+"end": 1686.376
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Link speeds and types: upstream and downstream speeds, internal and DMZ connections.",
+"spoken": "Link speeds and types: upstream and downstream speeds, internal and DMZ connections.",
+"start": 1686.826,
+"end": 1693.076
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Routed or transparent: routed for the edge. Transparent or NGIPS only for customers who already have a third-party firewall.",
+"spoken": "Routed or transparent: routed for the edge. Transparent or N.G. I.P.S. only for customers who already have a third-party firewall.",
+"start": 1693.526,
+"end": 1703.894
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Number of interfaces: internal, external, HA, or DMZs.",
+"spoken": "Number of interfaces: internal, external, HA, or D.M.Z.s.",
+"start": 1704.344,
+"end": 1709.038
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traffic profile: clear or encrypted, streaming, hosting services.",
+"spoken": "Traffic profile: clear or encrypted, streaming, hosting services.",
+"start": 1709.488,
+"end": 1714.032
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Application control: typical at the edge. A chance to discuss OpenAppID.",
+"spoken": "Application control: typical at the edge. A chance to discuss Open App I.D.",
+"start": 1714.482,
+"end": 1720.178
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "URL filtering: good for remote and branch sites. HQ may already have it.",
+"spoken": "URL filtering: good for remote and branch sites. HQ may already have it.",
+"start": 1720.628,
+"end": 1726.153
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Deep inspection: a Cisco strength that can affect performance, so size accordingly.",
+"spoken": "Deep inspection: a Cisco strength that can affect performance, so size accordingly.",
+"start": 1726.603,
+"end": 1732.235
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "File and malware protection: a Cisco differentiator. Can enhance existing Secure Malware Defense or lead to upsell.",
+"spoken": "File and malware protection: a Cisco differentiator. Can enhance existing Secure Malware Defense or lead to upsell.",
+"start": 1732.685,
+"end": 1741.005
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "4. High Availability and Clustering",
+"spoken": "4. High Availability and Clustering.",
+"start": 1743.055,
+"end": 1745.508
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Failover Basics",
+"spoken": "Failover Basics.",
+"start": 1747.308,
+"end": 1748.738
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supported on the ASA and Secure Firewall. Needs two identical devices joined by a dedicated failover link, plus an optional state link.",
+"spoken": "Supported on the ASA and Secure Firewall. Needs two identical devices joined by a dedicated failover link, plus an optional state link.",
+"start": 1749.188,
+"end": 1759.257
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 7-32: FTD 1 is active and FTD 2 is standby. FTD 2 syncs configuration and state, then becomes active on failover.",
+"spoken": "Figure 7-32: FTD 1 is active and FTD 2 is standby. FTD 2 syncs configuration and state, then becomes active on failover.",
+"start": 1759.707,
+"end": 1771.526
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use the same interface on both devices for each link, such as Gigabit Ethernet 1 for failover and Gigabit Ethernet 2 for state on both.",
+"spoken": "Use the same interface on both devices for each link, such as Gigabit Ethernet 1 for failover and Gigabit Ethernet 2 for state on both.",
+"start": 1771.976,
+"end": 1782.066
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use separate interfaces for the failover link and the state link.",
+"spoken": "Use separate interfaces for the failover link and the state link.",
+"start": 1782.516,
+"end": 1786.314
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The active unit's health (hardware, interfaces, software) is monitored for failover conditions.",
+"spoken": "The active unit's health (hardware, interfaces, software) is monitored for failover conditions.",
+"start": 1786.764,
+"end": 1793.014
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Failover Link Contents",
+"spoken": "Failover Link Contents.",
+"start": 1794.464,
+"end": 1796.235
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Firewall state (active or standby).",
+"spoken": "Firewall state (active or standby).",
+"start": 1796.685,
+"end": 1799.33
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hello messages (keepalives).",
+"spoken": "Hello messages (keepalives).",
+"start": 1799.78,
+"end": 1801.7
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network link status.",
+"spoken": "Network link status.",
+"start": 1802.15,
+"end": 1803.665
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MAC address exchange.",
+"spoken": "mac address exchange.",
+"start": 1804.115,
+"end": 1805.694
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configuration replication and synchronization.",
+"spoken": "Configuration replication and synchronization.",
+"start": 1806.144,
+"end": 1809.386
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Failover Interface Rules",
+"spoken": "Failover Interface Rules.",
+"start": 1810.836,
+"end": 1812.756
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can be a physical, redundant, or EtherChannel interface not otherwise used.",
+"spoken": "Can be a physical, redundant, or EtherChannel interface not otherwise used.",
+"start": 1813.206,
+"end": 1818.54
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can't be an interface already named, such as outside, inside, or dmz-1.",
+"spoken": "Can't be an interface already named, such as outside, inside, or dmz-1.",
+"start": 1818.99,
+"end": 1824.43
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Subinterfaces are not supported for failover links.",
+"spoken": "Subinterfaces are not supported for failover links.",
+"start": 1824.88,
+"end": 1828.336
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Failover and state interfaces can be used only for that purpose.",
+"spoken": "Failover and state interfaces can be used only for that purpose.",
+"start": 1828.786,
+"end": 1833.18
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Failover Requirements",
+"spoken": "Failover Requirements.",
+"start": 1834.63,
+"end": 1836.358
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Same firewall mode (routed or transparent).",
+"spoken": "Same firewall mode (routed or transparent).",
+"start": 1836.808,
+"end": 1839.944
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Same software version.",
+"spoken": "Same software version.",
+"start": 1840.394,
+"end": 1841.888
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Same domain or group in the FMC.",
+"spoken": "Same domain or group in the FMC.",
+"start": 1842.338,
+"end": 1844.812
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Same NTP configuration, with synchronized time.",
+"spoken": "Same N.T.P. configuration, with synchronized time.",
+"start": 1845.262,
+"end": 1849.444
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Fully deployed, with no uncommitted changes in the FMC.",
+"spoken": "Fully deployed, with no uncommitted changes in the FMC.",
+"start": 1849.894,
+"end": 1853.883
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "No DHCP or PPPoE on any interface.",
+"spoken": "No DHCP or PPPoE on any interface.",
+"start": 1854.333,
+"end": 1857.938
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Same licenses. The FMC releases unneeded licenses on the standby and assigns identical licenses to both.",
+"spoken": "Same licenses. The FMC releases unneeded licenses on the standby and assigns identical licenses to both.",
+"start": 1858.388,
+"end": 1866.986
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Connecting the Failover Link",
+"spoken": "Connecting the Failover Link.",
+"start": 1868.436,
+"end": 1870.185
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Through a switch with no other devices on that segment (broadcast domain or VLAN).",
+"spoken": "Through a switch with no other devices on that segment (broadcast domain or V-lan).",
+"start": 1870.635,
+"end": 1876.182
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Or a direct Ethernet cable. Without a switch, an interface failure takes the link down on both peers, making it hard to tell which unit failed.",
+"spoken": "Or a direct Ethernet cable. Without a switch, an interface failure takes the link down on both peers, making it hard to tell which unit failed.",
+"start": 1876.632,
+"end": 1886.253
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "State link bandwidth should be at least that of the data interfaces.",
+"spoken": "State link bandwidth should be at least that of the data interfaces.",
+"start": 1886.703,
+"end": 1890.65
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Clustering",
+"spoken": "Clustering.",
+"start": 1892.1,
+"end": 1893.038
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 7-33: four FTDs connected to two switches joined by a Virtual Switch Link, with FTD 1 as master. Gives single-device management with more throughput and redundancy.",
+"spoken": "Figure 7-33: four F.T.D.s connected to two switches joined by a Virtual Switch Link, with FTD 1 as master. Gives single-device management with more throughput and redundancy.",
+"start": 1893.488,
+"end": 1908.294
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "For inter-chassis clustering you must manually assign physical interfaces to the EtherChannel.",
+"spoken": "For inter-chassis clustering you must manually assign physical interfaces to the EtherChannel.",
+"start": 1908.744,
+"end": 1914.61
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The chassis supervisor pushes a minimal bootstrap configuration with the cluster name and cluster control link settings.",
+"spoken": "The chassis supervisor pushes a minimal bootstrap configuration with the cluster name and cluster control link settings.",
+"start": 1915.06,
+"end": 1922.548
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Members share the security policy and traffic flows.",
+"spoken": "Members share the security policy and traffic flows.",
+"start": 1922.998,
+"end": 1926.369
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The master is the first unit to join or the one with the configured priority. A new master is elected only when the current one leaves.",
+"spoken": "The master is the first unit to join or the one with the configured priority. A new master is elected only when the current one leaves.",
+"start": 1926.819,
+"end": 1935.864
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Do all configuration on the master; it replicates to the others.",
+"spoken": "Do all configuration on the master; it replicates to the others.",
+"start": 1936.314,
+"end": 1940.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The cluster control link carries data and control traffic, including state updates and forwarded packets. Size it to each member's expected throughput for the worst case.",
+"spoken": "The cluster control link carries data and control traffic, including state updates and forwarded packets. Size it to each member's expected throughput for the worst case.",
+"start": 1941.052,
+"end": 1952.082
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Forwarded traffic depends on load-balancing efficacy and on how much traffic needs centralized features.",
+"spoken": "Forwarded traffic depends on load-balancing efficacy and on how much traffic needs centralized features.",
+"start": 1952.532,
+"end": 1959.742
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Connect all members to one management network, separate from the cluster control link. Assign a management-type interface to reach each unit directly.",
+"spoken": "Connect all members to one management network, separate from the cluster control link. Assign a management-type interface to reach each unit directly.",
+"start": 1960.192,
+"end": 1969.579
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cluster Unit State Transition (Figure 7-34)",
+"spoken": "Cluster Unit State Transition (Figure 7-34).",
+"start": 1971.029,
+"end": 1975.125
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. After booting, the unit looks for a master over the cluster control link.",
+"spoken": "1. After booting, the unit looks for a master over the cluster control link.",
+"start": 1975.575,
+"end": 1980.418
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. With no master, it waits 45 seconds and becomes master. If a master exists, it becomes a slave and syncs its configuration (slave config and bulk sync).",
+"spoken": "2. With no master, it waits 45 seconds and becomes master. If a master exists, it becomes a slave and syncs its configuration (slave config and bulk sync).",
+"start": 1980.868,
+"end": 1992.558
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. A sync or health failure moves the unit to disabled.",
+"spoken": "3. A sync or health failure moves the unit to disabled.",
+"start": 1993.008,
+"end": 1996.998
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The master admits one unit at a time by default. A unit can also be in the On-Call state.",
+"spoken": "The master admits one unit at a time by default. A unit can also be in the On-Call state.",
+"start": 1997.448,
+"end": 2003.698
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "5. Implementing Access Control",
+"spoken": "5. Implementing Access Control.",
+"start": 2005.748,
+"end": 2008.074
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ASA ACL Parameters",
+"spoken": "ASA ACL Parameters.",
+"start": 2009.874,
+"end": 2012.092
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Layer 2 EtherTypes, Layer 3 protocols (ICMP, TCP, UDP), Layer 3 source and destination IPs, Layer 4 ports, and Layer 7 application and system service calls.",
+"spoken": "Layer 2 EtherTypes, Layer 3 protocols (ICMP, TCP, UDP), Layer 3 source and destination I.P.s, Layer 4 ports, and Layer 7 application and system service calls.",
+"start": 2012.542,
+"end": 2027.433
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACLs are identified by a number or a name.",
+"spoken": "A.C.L.s are identified by a number or a name.",
+"start": 2027.883,
+"end": 2031.787
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Inbound and Outbound ACLs",
+"spoken": "Inbound and Outbound A.C.L.s.",
+"start": 2033.237,
+"end": 2035.818
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inbound: packets are checked on arrival. Figure 7-36: an inbound ACL on outside allows only HTTP to 10.1.1.2 (inside 10.1.1.0/24, outside 10.2.2.0/24).",
+"spoken": "Inbound: packets are checked on arrival. Figure 7-36: an inbound ACL on outside allows only HTTP to 10.1.1.2 (inside 10.1.1.0 slash 24, outside 10.2.2.0 slash 24).",
+"start": 2036.268,
+"end": 2057.239
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Outbound: packets go through NAT, QoS, and VPN first, then the ACEs, before leaving. Figure 7-37: the same rule outbound on the inside interface.",
+"spoken": "Outbound: packets go through nat, QoS, and VPN first, then the A.C.E.s, before leaving. Figure 7-37: the same rule outbound on the inside interface.",
+"start": 2057.689,
+"end": 2070.766
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A denied packet is discarded and a syslog message is generated.",
+"spoken": "A denied packet is discarded and a syslog message is generated.",
+"start": 2071.216,
+"end": 2075.952
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Order: interface ACL, then global ACL, then implicit deny.",
+"spoken": "Order: interface ACL, then global ACL, then implicit deny.",
+"start": 2076.402,
+"end": 2081.309
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use an interface ACL when you know where traffic enters. Use a global ACL when you aren't sure.",
+"spoken": "Use an interface ACL when you know where traffic enters. Use a global ACL when you aren't sure.",
+"start": 2081.759,
+"end": 2088.564
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ACL Characteristics",
+"spoken": "ACL Characteristics.",
+"start": 2090.014,
+"end": 2091.913
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "New ACEs are appended at the end unless you give a line number.",
+"spoken": "New A.C.E.s are appended at the end unless you give a line number.",
+"start": 2092.363,
+"end": 2097.163
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACEs are evaluated in order, so order matters. A permit-all before a deny-all means the deny is never reached.",
+"spoken": "A.C.E.s are evaluated in order, so order matters. A permit-all before a deny-all means the deny is never reached.",
+"start": 2097.613,
+"end": 2106.445
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "High to low security traffic is permitted by default. An ACL on that path removes the implicit permit.",
+"spoken": "High to low security traffic is permitted by default. An ACL on that path removes the implicit permit.",
+"start": 2106.895,
+"end": 2114.596
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Low to high security traffic must be explicitly permitted, on the lower-security interface or globally.",
+"spoken": "Low to high security traffic must be explicitly permitted, on the lower-security interface or globally.",
+"start": 2115.046,
+"end": 2122.001
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Extended or IPv6 ACLs must be applied to an interface to filter through traffic.",
+"spoken": "Extended or I.P. version 6 A.C.L.s must be applied to an interface to filter through traffic.",
+"start": 2122.451,
+"end": 2130.238
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "One extended ACL and one EtherType ACL can be bound in each direction of an interface at the same time. Only one extended ACL per direction.",
+"spoken": "One extended ACL and one EtherType ACL can be bound in each direction of an interface at the same time. Only one extended ACL per direction.",
+"start": 2130.688,
+"end": 2142.4
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You can apply one ACL to many interfaces, but it's not good practice because hit counts can't be tied to one interface.",
+"spoken": "You can apply one ACL to many interfaces, but it's not good practice because hit counts can't be tied to one interface.",
+"start": 2142.85,
+"end": 2151.02
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACLs that control traffic to the appliance are applied differently from through-the-box ACLs.",
+"spoken": "A.C.L.s that control traffic to the appliance are applied differently from through-the-box A.C.L.s.",
+"start": 2151.47,
+"end": 2158.788
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TCP and UDP return traffic is automatically allowed, in either direction between security levels.",
+"spoken": "TCP and UDP return traffic is automatically allowed, in either direction between security levels.",
+"start": 2159.238,
+"end": 2167.046
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GRE, ESP, and other connectionless protocols need return traffic permitted in the ACL. For ICMP, permit it or enable ICMP inspection.",
+"spoken": "GRE, E.S.P., and other connectionless protocols need return traffic permitted in the ACL. For ICMP, permit it or enable ICMP inspection.",
+"start": 2167.496,
+"end": 2179.421
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ACL Types in Detail",
+"spoken": "ACL Types in Detail.",
+"start": 2180.871,
+"end": 2182.898
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Standard: used for split tunneling in remote-access VPN, route redistribution in route maps, OSPF, and VPN tunnels, when the source doesn't matter. Routed mode only, with the ASA acting as an extra Layer 3 hop.",
+"spoken": "Standard: used for split tunneling in remote-access VPN, route redistribution in route maps, OSPF, and VPN tunnels, when the source doesn't matter. Routed mode only, with the ASA acting as an extra Layer 3 hop.",
+"start": 2183.348,
+"end": 2199.625
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Extended: used for interface filtering, QoS classification, NAT and VPN traffic identification, and more. Works in routed and transparent mode.",
+"spoken": "Extended: used for interface filtering, QoS classification, nat and VPN traffic identification, and more. Works in routed and transparent mode.",
+"start": 2200.075,
+"end": 2211.168
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "EtherType: filters IP and non-IP traffic. Its implicit deny does not affect IP traffic, but an explicit deny at the end blocks IP even if an extended ACL allows it.",
+"spoken": "EtherType: filters IP and non-IP traffic. Its implicit deny does not affect IP traffic, but an explicit deny at the end blocks IP even if an extended ACL allows it.",
+"start": 2211.618,
+"end": 2225.144
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Webtype: a defined Webtype ACL with no match drops the packet. With no ACL defined, traffic is allowed.",
+"spoken": "Webtype: a defined Webtype ACL with no match drops the packet. With no ACL defined, traffic is allowed.",
+"start": 2225.594,
+"end": 2233.807
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An ACE can be as simple as permitting all IP between networks, or as specific as one source, ports, and a time period.",
+"spoken": "An ACE can be as simple as permitting all IP between networks, or as specific as one source, ports, and a time period.",
+"start": 2234.257,
+"end": 2243.345
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The SCOR exam doesn't cover detailed configuration, but may include high-level configuration scenarios.",
+"spoken": "The score exam doesn't cover detailed configuration, but may include high-level configuration scenarios.",
+"start": 2243.795,
+"end": 2251.091
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Example Topology (Figure 7-38)",
+"spoken": "Example Topology (Figure 7-38).",
+"start": 2252.541,
+"end": 2255.976
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inside 10.1.1.0/24 with web server 10.1.1.2 and email server 10.1.1.3. Outside 10.2.2.0/24 with clients 10.2.2.2 and 10.2.2.3.",
+"spoken": "Inside 10.1.1.0 slash 24 with web server 10.1.1.2 and email server 10.1.1.3. Outside 10.2.2.0 slash 24 with clients 10.2.2.2 and 10.2.2.3.",
+"start": 2256.426,
+"end": 2276.756
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ACEs allow HTTP and SMTP; everything else hits the implicit deny.",
+"spoken": "A.C.E.s allow HTTP and SMTP; everything else hits the implicit deny.",
+"start": 2277.206,
+"end": 2283.777
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Application Inspection",
+"spoken": "Application Inspection.",
+"start": 2285.227,
+"end": 2286.955
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Keeps state for each connection and validates it.",
+"spoken": "Keeps state for each connection and validates it.",
+"start": 2287.405,
+"end": 2290.306
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Needed for protocols that embed IP addresses in the payload or open secondary channels on dynamic ports. Lets NAT work and updates fields and checksums.",
+"spoken": "Needed for protocols that embed IP addresses in the payload or open secondary channels on dynamic ports. Lets nat work and updates fields and checksums.",
+"start": 2290.756,
+"end": 2302.106
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Steps:",
+"spoken": "Steps:",
+"start": 2302.556,
+"end": 2303.302
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Configure traffic classes to identify interesting traffic.",
+"spoken": "1. Configure traffic classes to identify interesting traffic.",
+"start": 2303.752,
+"end": 2308.083
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Associate actions with each class to create service policies.",
+"spoken": "2. Associate actions with each class to create service policies.",
+"start": 2308.533,
+"end": 2312.8
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Activate the service policies on an interface or globally.",
+"spoken": "3. Activate the service policies on an interface or globally.",
+"start": 2313.25,
+"end": 2317.474
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "To-the-Box Filtering Guidelines",
+"spoken": "To-the-Box Filtering Guidelines.",
+"start": 2318.924,
+"end": 2320.886
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SSH and Telnet have their own control lists, but they don't protect against other traffic such as IPsec.",
+"spoken": "SSH and Telnet have their own control lists, but they don't protect against other traffic such as I.P. sec.",
+"start": 2321.336,
+"end": 2328.974
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configure an ACL and apply it with the control-plane keyword.",
+"spoken": "Configure an ACL and apply it with the control-plane keyword.",
+"start": 2329.424,
+"end": 2333.861
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can't be applied to a management-only interface.",
+"spoken": "Can't be applied to a management-only interface.",
+"start": 2334.311,
+"end": 2337.298
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Management protocols' own lists take precedence. A host allowed by the ssh command can still SSH in even if a management access rule blocks it.",
+"spoken": "Management protocols' own lists take precedence. A host allowed by the ssh command can still SSH in even if a management access rule blocks it.",
+"start": 2337.748,
+"end": 2348.67
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Object Grouping",
+"spoken": "Object Grouping.",
+"start": 2350.12,
+"end": 2351.528
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Reduces viewable ACEs to one entry by grouping servers, hosts, and services. The actual number of ACEs doesn't change.",
+"spoken": "Reduces viewable A.C.E.s to one entry by grouping servers, hosts, and services. The actual number of A.C.E.s doesn't change.",
+"start": 2351.978,
+"end": 2361.621
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Small changes to large groups can add thousands of ACEs.",
+"spoken": "Small changes to large groups can add thousands of A.C.E.s.",
+"start": 2362.071,
+"end": 2366.658
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Object groups can be nested.",
+"spoken": "Object groups can be nested.",
+"start": 2367.108,
+"end": 2369.07
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Time-Based ACLs",
+"spoken": "Time-Based A.C.L.s.",
+"start": 2370.52,
+"end": 2372.419
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rely on the system clock, so NTP is highly recommended.",
+"spoken": "Rely on the system clock, so N.T.P. is highly recommended.",
+"start": 2372.869,
+"end": 2377.264
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Work with extended, IPv6, and Webtype ACLs.",
+"spoken": "Work with extended, I.P. version 6, and Webtype A.C.L.s.",
+"start": 2377.714,
+"end": 2382.407
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Apply only to new connections.",
+"spoken": "Apply only to new connections.",
+"start": 2382.857,
+"end": 2384.969
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Absolute: start and end time, such as for consultants. No start means right away, no end means indefinitely. Only one absolute per time range.",
+"spoken": "Absolute: start and end time, such as for consultants. No start means right away, no end means indefinitely. Only one absolute per time range.",
+"start": 2385.419,
+"end": 2396.171
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Periodic: recurring, such as weekday business hours. Multiple periodic entries allowed. Keywords include a day such as Monday, weekdays (Monday to Friday), and weekend (Saturday and Sunday), with optional 24-hour hh:mm times.",
+"spoken": "Periodic: recurring, such as weekday business hours. Multiple periodic entries allowed. Keywords include a day such as Monday, weekdays (Monday to Friday), and weekend (Saturday and Sunday), with optional 24-hour hh:mm times.",
+"start": 2396.621,
+"end": 2413.901
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Absolute is evaluated before periodic.",
+"spoken": "Absolute is evaluated before periodic.",
+"start": 2414.351,
+"end": 2417.444
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "ICMP Filtering",
+"spoken": "ICMP Filtering.",
+"start": 2418.894,
+"end": 2420.686
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Interface ACLs that block ICMP don't block ICMP to the ASA's own interface by default.",
+"spoken": "Interface A.C.L.s that block ICMP don't block ICMP to the ASA's own interface by default.",
+"start": 2421.136,
+"end": 2429.52
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Filter it with control-plane ACLs or an ICMP policy.",
+"spoken": "Filter it with control-plane A.C.L.s or an ICMP policy.",
+"start": 2429.97,
+"end": 2434.984
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ICMP commands are processed in order with an implicit deny.",
+"spoken": "ICMP commands are processed in order with an implicit deny.",
+"start": 2435.434,
+"end": 2440.084
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With no ICMP list, all ICMP to the ASA is allowed, so you can ping its interfaces.",
+"spoken": "With no ICMP list, all ICMP to the ASA is allowed, so you can ping its interfaces.",
+"start": 2440.534,
+"end": 2447.916
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ICMP filtering takes precedence over control-plane filtering.",
+"spoken": "ICMP filtering takes precedence over control-plane filtering.",
+"start": 2448.366,
+"end": 2453.187
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why Use Address Translation",
+"spoken": "Why Use Address Translation.",
+"start": 2454.637,
+"end": 2456.472
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Private internal addresses that need global addresses.",
+"spoken": "Private internal addresses that need global addresses.",
+"start": 2456.922,
+"end": 2460.506
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Changing service providers without readdressing.",
+"spoken": "Changing service providers without readdressing.",
+"start": 2460.956,
+"end": 2464.028
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hiding the internal addressing scheme.",
+"spoken": "Hiding the internal addressing scheme.",
+"start": 2464.478,
+"end": 2466.718
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Many internal networks sharing one or a few global addresses.",
+"spoken": "Many internal networks sharing one or a few global addresses.",
+"start": 2467.168,
+"end": 2471.264
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Connecting overlapping networks without readdressing.",
+"spoken": "Connecting overlapping networks without readdressing.",
+"start": 2471.714,
+"end": 2474.786
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NAT Examples",
+"spoken": "nat Examples.",
+"start": 2476.236,
+"end": 2477.494
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inside NAT, static (Figure 7-39): host 192.168.10.10 sends to 209.165.201.1. The source becomes 209.165.200.226, and replies are reverted.",
+"spoken": "Inside nat, static (Figure 7-39): host 192.168.10.10 sends to 209.165.201.1. The source becomes 209.165.200.226, and replies are reverted.",
+"start": 2477.944,
+"end": 2500.92
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Outside NAT (Figure 7-40): outside host 209.165.201.1 sends to the global address. The source becomes 192.168.10.100 and the destination becomes 192.168.10.10. The figure is titled \"Dynamic NAT Example\", but the text describes outside, bidirectional NAT.",
+"spoken": "Outside nat (Figure 7-40): outside host 209.165.201.1 sends to the global address. The source becomes 192.168.10.100 and the destination becomes 192.168.10.10. The figure is titled \"Dynamic nat Example\", but the text describes outside, bidirectional nat.",
+"start": 2501.37,
+"end": 2530.405
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PAT (Figure 7-41): 192.168.10.10 and 192.168.10.20 both use source port 1024. The ASA gives them random source ports so replies go to the right host.",
+"spoken": "pat (Figure 7-41): 192.168.10.10 and 192.168.10.20 both use source port 1024. The ASA gives them random source ports so replies go to the right host.",
+"start": 2530.855,
+"end": 2551.612
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Port redirection (Figure 7-42): traffic to 209.165.200.229 on TCP 80 goes to 192.168.10.10, and on TCP 25 to 192.168.10.20.",
+"spoken": "Port redirection (Figure 7-42): traffic to 209.165.200.229 on TCP 80 goes to 192.168.10.10, and on TCP 25 to 192.168.10.20.",
+"start": 2552.062,
+"end": 2575.849
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic PAT (Figure 7-43): two inside hosts reach a web server using the outside interface address 209.165.200.225.",
+"spoken": "Dynamic pat (Figure 7-43): two inside hosts reach a web server using the outside interface address 209.165.200.225.",
+"start": 2576.299,
+"end": 2590.87
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If an interface ACL denies the packet, no translation entry is built.",
+"spoken": "If an interface ACL denies the packet, no translation entry is built.",
+"start": 2591.32,
+"end": 2596.568
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NAT Method Details",
+"spoken": "nat Method Details.",
+"start": 2598.018,
+"end": 2599.532
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Static NAT: 100 inside hosts need 100 global addresses. Recommended for servers offering email, web, DNS, and FTP to outside users.",
+"spoken": "Static nat: 100 inside hosts need 100 global addresses. Recommended for servers offering email, web, DNS, and FTP to outside users.",
+"start": 2599.982,
+"end": 2612.292
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Static PAT: applied from lower to higher security. Can use a dedicated IP or the interface IP. When it uses the interface IP, that address serves both translated traffic and traffic to the appliance.",
+"spoken": "Static pat: applied from lower to higher security. Can use a dedicated IP or the interface IP. When it uses the interface IP, that address serves both translated traffic and traffic to the appliance.",
+"start": 2612.742,
+"end": 2627.59
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic NAT: 100 hosts need at least 100 pool addresses. After the entry is built, any outside host can connect to it if the ASA allows the connection.",
+"spoken": "Dynamic nat: 100 hosts need at least 100 pool addresses. After the entry is built, any outside host can connect to it if the ASA allows the connection.",
+"start": 2628.04,
+"end": 2639.986
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic PAT: uses source IP, source port, and protocol (TCP or UDP). Can use a dedicated address or the interface address.",
+"spoken": "Dynamic pat: uses source IP, source port, and protocol (TCP or UDP). Can use a dedicated address or the interface address.",
+"start": 2640.436,
+"end": 2650.74
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Identity NAT: used when hosts already have Internet NAT but shouldn't be translated to a specific host or network.",
+"spoken": "Identity nat: used when hosts already have Internet nat but shouldn't be translated to a specific host or network.",
+"start": 2651.19,
+"end": 2658.934
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "TCP Sequence Randomization",
+"spoken": "TCP Sequence Randomization.",
+"start": 2660.384,
+"end": 2662.816
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NAT also protects against TCP hijacking of hosts with weak SYN implementations by randomizing sequence numbers from higher to lower security.",
+"spoken": "nat also protects against TCP hijacking of hosts with weak sin implementations by randomizing sequence numbers from higher to lower security.",
+"start": 2663.266,
+"end": 2673.762
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Turn it off for BGP peering with MD5. A changed sequence number breaks the hash check.",
+"spoken": "Turn it off for BGP peering with M.D. 5. A changed sequence number breaks the hash check.",
+"start": 2674.212,
+"end": 2681.295
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The ASA also sets maximum connection limits for TCP and UDP.",
+"spoken": "The ASA also sets maximum connection limits for TCP and UDP.",
+"start": 2681.745,
+"end": 2687.014
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Auto NAT vs Manual NAT",
+"spoken": "Auto nat vs Manual nat.",
+"start": 2688.464,
+"end": 2690.512
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Auto NAT is popular because most policies only need source translation.",
+"spoken": "Auto nat is popular because most policies only need source translation.",
+"start": 2690.962,
+"end": 2695.976
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Manual NAT is needed for policy NAT and identity NAT, or for translating both source and destination.",
+"spoken": "Manual nat is needed for policy nat and identity nat, or for translating both source and destination.",
+"start": 2696.426,
+"end": 2703.828
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Firewall Access Control",
+"spoken": "Secure Firewall Access Control.",
+"start": 2705.278,
+"end": 2707.646
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies proliferate and defaults change, so keep things simple. Complexity is the enemy of security.",
+"spoken": "Policies proliferate and defaults change, so keep things simple. Complexity is the enemy of security.",
+"start": 2708.096,
+"end": 2715.243
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Combines ASA features with network discovery, application control, file control, Security Intelligence, and Snort IPS.",
+"spoken": "Combines ASA features with network discovery, application control, file control, Security Intelligence, and Snort IPS.",
+"start": 2715.693,
+"end": 2724.93
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If hosts have connectivity issues, analyze packets from both engines. Capture on the Firepower management interfaces for FTD to FMC registration problems.",
+"spoken": "If hosts have connectivity issues, analyze packets from both engines. Capture on the Firepower management interfaces for FTD to FMC registration problems.",
+"start": 2725.38,
+"end": 2737.327
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Firepower engine blocks noncompliant traffic or forwards it out the egress interface (Figure 7-44).",
+"spoken": "The Firepower engine blocks noncompliant traffic or forwards it out the egress interface (Figure 7-44).",
+"start": 2737.777,
+"end": 2746.033
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A block action can't drop packets if the interfaces aren't set up properly.",
+"spoken": "A block action can't drop packets if the interfaces aren't set up properly.",
+"start": 2746.483,
+"end": 2751.454
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Any interface mode can be used regardless of deployment mode, but the interface mode decides whether blocking is possible.",
+"spoken": "Any interface mode can be used regardless of deployment mode, but the interface mode decides whether blocking is possible.",
+"start": 2751.904,
+"end": 2759.882
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Block Telnet Example",
+"spoken": "Block Telnet Example.",
+"start": 2761.332,
+"end": 2762.847
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policy named Block Telnet, default action block all traffic, applied to a virtual FTD (vFTD) out of two available devices.",
+"spoken": "Policy named Block Telnet, default action block all traffic, applied to a virtual FTD (virtual F.T.D.) out of two available devices.",
+"start": 2763.297,
+"end": 2773.601
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rule named Block Telnet Rule, action Block with reset, blocking TCP port 23 on all interfaces.",
+"spoken": "Rule named Block Telnet Rule, action Block with reset, blocking TCP port 23 on all interfaces.",
+"start": 2774.051,
+"end": 2781.966
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Rule Matching",
+"spoken": "Rule Matching.",
+"start": 2783.416,
+"end": 2784.632
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rules match in the order you set, numbered from 1. With policy inheritance, rule 1 is the first rule in the outermost policy.",
+"spoken": "Rules match in the order you set, numbered from 1. With policy inheritance, rule 1 is the first rule in the outermost policy.",
+"start": 2785.082,
+"end": 2794.127
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Top-down by ascending number. Except for Monitor rules, the first match handles the traffic.",
+"spoken": "Top-down by ascending number. Except for Monitor rules, the first match handles the traffic.",
+"start": 2794.577,
+"end": 2800.828
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Actions: monitor, trust, block, or allow. Allowed traffic can first go through intrusion or file policies.",
+"spoken": "Actions: monitor, trust, block, or allow. Allowed traffic can first go through intrusion or file policies.",
+"start": 2801.278,
+"end": 2808.851
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sections and categories are only organizational and don't change rule position.",
+"spoken": "Sections and categories are only organizational and don't change rule position.",
+"start": 2809.301,
+"end": 2814.741
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "6. Cisco Secure Firewall Intrusion Policies",
+"spoken": "6. Cisco Secure Firewall Intrusion Policies.",
+"start": 2816.791,
+"end": 2820.119
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "System-Provided Policies",
+"spoken": "System-Provided Policies.",
+"start": 2821.919,
+"end": 2823.818
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Designed by Talos, which sets rule states, preprocessor rule states, and advanced settings. You can't modify them, but you can change the action for a rule.",
+"spoken": "Designed by Talos, which sets rule states, preprocessor rule states, and advanced settings. You can't modify them, but you can change the action for a rule.",
+"start": 2824.268,
+"end": 2834.593
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Selected in access control rules that allow traffic.",
+"spoken": "Selected in access control rules that allow traffic.",
+"start": 2835.043,
+"end": 2838.52
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Network Analysis and Intrusion Policies Together",
+"spoken": "Network Analysis and Intrusion Policies Together.",
+"start": 2839.97,
+"end": 2843.384
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Both are invoked by the parent access control policy, at different times.",
+"spoken": "Both are invoked by the parent access control policy, at different times.",
+"start": 2843.834,
+"end": 2848.527
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network analysis (decoding and preprocessing) happens before and separately from intrusion prevention (more preprocessing and intrusion rules).",
+"spoken": "Network analysis (decoding and preprocessing) happens before and separately from intrusion prevention (more preprocessing and intrusion rules).",
+"start": 2848.977,
+"end": 2858.982
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Together they give broad, deep inspection protecting availability, integrity, and confidentiality.",
+"spoken": "Together they give broad, deep inspection protecting availability, integrity, and confidentiality.",
+"start": 2859.432,
+"end": 2866.024
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Similarly named network analysis and intrusion policies, such as Balanced Security and Connectivity, work together.",
+"spoken": "Similarly named network analysis and intrusion policies, such as Balanced Security and Connectivity, work together.",
+"start": 2866.474,
+"end": 2874.346
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Intrusion Policy Example (Figure 7-48)",
+"spoken": "Intrusion Policy Example (Figure 7-48).",
+"start": 2875.796,
+"end": 2879.572
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Named omar-intrusion-policy-1, set to drop noncompliant traffic inline, with base policy Balanced Security and Connectivity.",
+"spoken": "Named omar-intrusion-policy-1, set to drop noncompliant traffic inline, with base policy Balanced Security and Connectivity.",
+"start": 2880.022,
+"end": 2889.452
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Intrusion Policy Facts",
+"spoken": "Intrusion Policy Facts.",
+"start": 2890.902,
+"end": 2892.736
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inline (routed, switched, transparent, or inline pair) deployments can block traffic at almost any step. Security Intelligence, the SSL policy, network analysis, file, and intrusion policies can drop or modify traffic.",
+"spoken": "Inline (routed, switched, transparent, or inline pair) deployments can block traffic at almost any step. Security Intelligence, the SSL policy, network analysis, file, and intrusion policies can drop or modify traffic.",
+"start": 2893.186,
+"end": 2909.976
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Only the network discovery policy, which is passive, can't affect traffic.",
+"spoken": "Only the network discovery policy, which is passive, can't affect traffic.",
+"start": 2910.426,
+"end": 2915.268
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Common problems: a flat policy structure, inconsistent rule sets, and rules too hard for a new administrator to understand.",
+"spoken": "Common problems: a flat policy structure, inconsistent rule sets, and rules too hard for a new administrator to understand.",
+"start": 2915.718,
+"end": 2924.529
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "All policies trace back to a Talos-provided base policy.",
+"spoken": "All policies trace back to a Talos-provided base policy.",
+"start": 2924.979,
+"end": 2928.819
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Base Policies",
+"spoken": "Base Policies.",
+"start": 2930.269,
+"end": 2931.528
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Connectivity Over Security: connectivity comes first. Far fewer rules; only the most critical blocking rules. For networks you're fairly confident in.",
+"spoken": "Connectivity Over Security: connectivity comes first. Far fewer rules; only the most critical blocking rules. For networks you're fairly confident in.",
+"start": 2931.978,
+"end": 2942.495
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Balanced Security and Connectivity: balances performance and security. Right for most networks.",
+"spoken": "Balanced Security and Connectivity: balances performance and security. Right for most networks.",
+"start": 2942.945,
+"end": 2949.366
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security Over Connectivity: security comes before user convenience. Many anomaly rules that may alert on or drop legitimate traffic. For high-risk traffic.",
+"spoken": "Security Over Connectivity: security comes before user convenience. Many anomaly rules that may alert on or drop legitimate traffic. For high-risk traffic.",
+"start": 2949.816,
+"end": 2961.4
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "No Rules Active: no rules are active.",
+"spoken": "No Rules Active: no rules are active.",
+"start": 2961.85,
+"end": 2964.73
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Maximum Detection: even more emphasis on security, with more operational impact. Enables malware, exploit kit, old and common vulnerabilities, and known in-the-wild exploits. Check that legitimate traffic isn't dropped.",
+"spoken": "Maximum Detection: even more emphasis on security, with more operational impact. Enables malware, exploit kit, old and common vulnerabilities, and known in-the-wild exploits. Check that legitimate traffic isn't dropped.",
+"start": 2965.18,
+"end": 2981.351
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Intrusion Events",
+"spoken": "Intrusion Events.",
+"start": 2982.801,
+"end": 2984.209
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Managed devices send events to the FMC. Inline devices can also drop or replace harmful packets.",
+"spoken": "Managed devices send events to the FMC. Inline devices can also drop or replace harmful packets.",
+"start": 2984.659,
+"end": 2992.51
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each event has a header with the name and classification, source and destination IPs, ports, the generating process, date and time, and context about the attacker and target.",
+"spoken": "Each event has a header with the name and classification, source and destination I.P.s, ports, the generating process, date and time, and context about the attacker and target.",
+"start": 2992.96,
+"end": 3005.632
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Packet-based events also log the decoded packet header and payload.",
+"spoken": "Packet-based events also log the decoded packet header and payload.",
+"start": 3006.082,
+"end": 3010.562
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Committing Changes",
+"spoken": "Committing Changes.",
+"start": 3012.012,
+"end": 3013.377
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A policy doesn't take effect until committed.",
+"spoken": "A policy doesn't take effect until committed.",
+"start": 3013.827,
+"end": 3016.771
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The commit comment is configurable in intrusion policy preferences. Comments go to the audit logs and are searchable.",
+"spoken": "The commit comment is configurable in intrusion policy preferences. Comments go to the audit logs and are searchable.",
+"start": 3017.221,
+"end": 3024.986
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You can discard changes since the last commit.",
+"spoken": "You can discard changes since the last commit.",
+"start": 3025.436,
+"end": 3028.444
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Leaving with uncommitted changes doesn't lose them.",
+"spoken": "Leaving with uncommitted changes doesn't lose them.",
+"start": 3028.894,
+"end": 3032.201
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "After a commit, a validation check flags invalid settings, such as a rule that needs a disabled preprocessor.",
+"spoken": "After a commit, a validation check flags invalid settings, such as a rule that needs a disabled preprocessor.",
+"start": 3032.651,
+"end": 3040.48
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Variables",
+"spoken": "Variables.",
+"start": 3041.93,
+"end": 3042.933
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "$HOME_NET: the inside, protected network.",
+"spoken": "$HOME_NET: the inside, protected network.",
+"start": 3043.383,
+"end": 3046.86
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "$EXTERNAL_NET: the outside, unprotected network.",
+"spoken": "$EXTERNAL_NET: the outside, unprotected network.",
+"start": 3047.31,
+"end": 3051.342
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "$HTTP_SERVERS and $HTTP_PORTS: web servers and their ports.",
+"spoken": "$HTTP_SERVERS and $HTTP_PORTS: web servers and their ports.",
+"start": 3051.792,
+"end": 3058.0
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Other system defaults: $AIM_SERVERS, $DNS_SERVERS, $FILE_DATA_PORTS, $GTP_PORTS, $ORACLE_PORTS, $SHELLCODE_PORTS, and more.",
+"spoken": "Other system defaults: $AIM_SERVERS, $DNS_SERVERS, $FILE_DATA_PORTS, $GTP_PORTS, $ORACLE_PORTS, $SHELLCODE_PORTS, and more.",
+"start": 3058.45,
+"end": 3070.184
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "System default variables: preconfigured.",
+"spoken": "System default variables: preconfigured.",
+"start": 3070.634,
+"end": 3073.322
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policy variables: override defaults in specific policies.",
+"spoken": "Policy variables: override defaults in specific policies.",
+"start": 3073.772,
+"end": 3077.996
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network variables take comma lists, CIDR, and exclusions with an exclamation point, for example [192.168.1.2, !10.10.10.2, 172.18.1.0/24].",
+"spoken": "Network variables take comma lists, CIDR, and exclusions with an exclamation point, for example [192.168.1.2, !10.10.10.2, 172.18.1.0 slash 24].",
+"start": 3078.446,
+"end": 3098.286
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Accurate variables optimize processing and let you update one variable instead of every rule.",
+"spoken": "Accurate variables optimize processing and let you update one variable instead of every rule.",
+"start": 3098.736,
+"end": 3105.093
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Platform Settings Policy",
+"spoken": "Platform Settings Policy.",
+"start": 3106.543,
+"end": 3108.335
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Changes take effect on every managed device that uses the policy. Improves consistency.",
+"spoken": "Changes take effect on every managed device that uses the policy. Improves consistency.",
+"start": 3108.785,
+"end": 3114.929
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Preprocessors",
+"spoken": "Preprocessors.",
+"start": 3116.379,
+"end": 3117.659
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Needed because matching a file in SMTP differs from matching it in compressed HTTP.",
+"spoken": "Needed because matching a file in SMTP differs from matching it in compressed HTTP.",
+"start": 3118.109,
+"end": 3124.616
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Make packet streams look like what the receiving endpoint will reassemble: checksums, stream and fragment reassembly, stateful inspection, and more.",
+"spoken": "Make packet streams look like what the receiving endpoint will reassemble: checksums, stream and fragment reassembly, stateful inspection, and more.",
+"start": 3125.066,
+"end": 3134.623
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tune settings to cut false positives and negatives.",
+"spoken": "Tune settings to cut false positives and negatives.",
+"start": 3135.073,
+"end": 3138.145
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DCE/RPC: watches DCE/RPC and SMB for anomalies and evasions.",
+"spoken": "D.C.E. R.P.C.: watches D.C.E. R.P.C. and SMB for anomalies and evasions.",
+"start": 3138.595,
+"end": 3145.571
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DNS: checks responses for overflow attempts and obsolete or experimental record types.",
+"spoken": "DNS: checks responses for overflow attempts and obsolete or experimental record types.",
+"start": 3146.021,
+"end": 3152.528
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FTP and Telnet: normalizes those streams. Needs TCP stream preprocessing.",
+"spoken": "FTP and Telnet: normalizes those streams. Needs TCP stream preprocessing.",
+"start": 3152.978,
+"end": 3159.164
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HTTP: normalizes requests and responses, separates messages, and detects URI-encoding attacks.",
+"spoken": "HTTP: normalizes requests and responses, separates messages, and detects URI-encoding attacks.",
+"start": 3159.614,
+"end": 3167.806
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sun RPC: normalizes and reassembles fragmented SunRPC records.",
+"spoken": "Sun RPC: normalizes and reassembles fragmented Sun R.P.C. records.",
+"start": 3168.256,
+"end": 3174.571
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SIP: extracts header and body and alerts on out-of-order calls and anomalies.",
+"spoken": "SIP: extracts header and body and alerts on out-of-order calls and anomalies.",
+"start": 3175.021,
+"end": 3180.077
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GTP: normalizes GTP command channel signaling.",
+"spoken": "GTP: normalizes GTP command channel signaling.",
+"start": 3180.527,
+"end": 3184.836
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IMAP and POP: monitor server-to-client email and decode attachments.",
+"spoken": "eye-map and pop: monitor server-to-client email and decode attachments.",
+"start": 3185.286,
+"end": 3190.214
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SMTP: checks for anomalies and decodes attachments.",
+"spoken": "SMTP: checks for anomalies and decodes attachments.",
+"start": 3190.664,
+"end": 3194.739
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SSH: detects buffer overflow attempts and illegal SSH versions.",
+"spoken": "SSH: detects buffer overflow attempts and illegal SSH versions.",
+"start": 3195.189,
+"end": 3200.458
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SSL: monitors the handshake, then stops once encrypted. Needs TCP stream preprocessing. Reduces false positives.",
+"spoken": "SSL: monitors the handshake, then stops once encrypted. Needs TCP stream preprocessing. Reduces false positives.",
+"start": 3200.908,
+"end": 3210.124
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SCADA: DNP3 and Modbus preprocessors detect anomalies and decode messages.",
+"spoken": "scada: D.N.P. 3 and Modbus preprocessors detect anomalies and decode messages.",
+"start": 3210.574,
+"end": 3217.358
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network: checksum verification, ignoring VLAN headers, inline normalization (prevents evasion inline), IP defragmentation, packet decoding (normalizes headers and payloads), TCP stream, and UDP stream.",
+"spoken": "Network: checksum verification, ignoring V-lan headers, inline normalization (prevents evasion inline), IP defragmentation, packet decoding (normalizes headers and payloads), TCP stream, and UDP stream.",
+"start": 3217.808,
+"end": 3234.299
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threat detection: port scan detection, rate-based attack prevention, and sensitive data detection.",
+"spoken": "Threat detection: port scan detection, rate-based attack prevention, and sensitive data detection.",
+"start": 3234.749,
+"end": 3241.192
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "7. Cisco Secure Malware Defense",
+"spoken": "7. Cisco Secure Malware Defense.",
+"start": 3243.242,
+"end": 3245.802
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Overview",
+"spoken": "Overview.",
+"start": 3247.602,
+"end": 3248.604
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrated in Secure Firewall and content security products.",
+"spoken": "Integrated in Secure Firewall and content security products.",
+"start": 3249.054,
+"end": 3253.236
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says \"Cisco Secure Endpoints is now called Cisco Secure Endpoints\", which looks like a typo; the old name was AMP for Endpoints, which is not stated in this chapter.",
+"spoken": "The book says \"Cisco Secure Endpoints is now called Cisco Secure Endpoints\", which looks like a typo; the old name was AMP for Endpoints, which is not stated in this chapter.",
+"start": 3253.686,
+"end": 3265.974
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Goes beyond point-in-time detection, so administrators can act during and after an attack.",
+"spoken": "Goes beyond point-in-time detection, so administrators can act during and after an attack.",
+"start": 3266.424,
+"end": 3272.269
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malware Analytics correlates millions of files with hundreds of millions of samples. Gives IOC reports and threat scores.",
+"spoken": "Malware Analytics correlates millions of files with hundreds of millions of samples. Gives IOC reports and threat scores.",
+"start": 3272.719,
+"end": 3280.996
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Architecture",
+"spoken": "Architecture.",
+"start": 3282.446,
+"end": 3283.641
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Three parts: the Malware Analytics cloud, Secure Endpoint connectors, and intelligence sources.",
+"spoken": "Three parts: the Malware Analytics cloud, Secure Endpoint connectors, and intelligence sources.",
+"start": 3284.091,
+"end": 3290.299
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The cloud has public and private deployments, with the same role either way.",
+"spoken": "The cloud has public and private deployments, with the same role either way.",
+"start": 3290.749,
+"end": 3295.549
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The cloud holds all detection signatures, which keeps connectors small and light.",
+"spoken": "The cloud holds all detection signatures, which keeps connectors small and light.",
+"start": 3295.999,
+"end": 3301.098
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Administrators can create custom signatures in the cloud that are pushed to connectors.",
+"spoken": "Administrators can create custom signatures in the cloud that are pushed to connectors.",
+"start": 3301.548,
+"end": 3307.03
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cross-referencing happens in the cloud, so it self-updates.",
+"spoken": "Cross-referencing happens in the cloud, so it self-updates.",
+"start": 3307.48,
+"end": 3311.0
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Handles big data from honeypots, threat feeds, open-source communities, and AV such as Immunet and ClamAV.",
+"spoken": "Handles big data from honeypots, threat feeds, open-source communities, and AV such as Immunet and clam A.V.",
+"start": 3311.45,
+"end": 3319.365
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malicious samples are stored and reported to connectors that see the same file.",
+"spoken": "Malicious samples are stored and reported to connectors that see the same file.",
+"start": 3319.815,
+"end": 3324.871
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Analytics and machine learning keep refining signatures and reevaluating past detections in real time.",
+"spoken": "Analytics and machine learning keep refining signatures and reevaluating past detections in real time.",
+"start": 3325.321,
+"end": 3332.617
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Intelligence Sources",
+"spoken": "Intelligence Sources.",
+"start": 3334.067,
+"end": 3335.56
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Snort, ClamAV, and Immunet AV communities: contribute daily.",
+"spoken": "Snort, clam A.V., and Immunet AV communities: contribute daily.",
+"start": 3336.01,
+"end": 3340.896
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Talos: maintains the official rule sets of Snort.org, ClamAV, SenderBase.org, and SpamCop. Gets data from malware samples, the web, and email traffic.",
+"spoken": "Talos: maintains the official rule sets of Snort.org, clam A.V., SenderBase.org, and SpamCop. Gets data from malware samples, the web, and email traffic.",
+"start": 3341.346,
+"end": 3353.015
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Malware Analytics: deep analysis of submitted samples, which updates the file disposition.",
+"spoken": "Secure Malware Analytics: deep analysis of submitted samples, which updates the file disposition.",
+"start": 3353.465,
+"end": 3360.526
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Protection Framework Details",
+"spoken": "Protection Framework Details.",
+"start": 3361.976,
+"end": 3363.832
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1-to-1 signatures: known hash returns clean or malicious; new hash returns unknown. Fast, but any file change evades it. AMP stores the full database in the cloud and compares there, in near real time.",
+"spoken": "1-to-1 signatures: known hash returns clean or malicious; new hash returns unknown. Fast, but any file change evades it. AMP stores the full database in the cloud and compares there, in near real time.",
+"start": 3364.282,
+"end": 3379.92
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Ethos: structure often stays the same when content changes. Uses distributed data mining of in-field data and is fully automated, instead of relying on \"rock star\" engineers.",
+"spoken": "Ethos: structure often stays the same when content changes. Uses distributed data mining of in-field data and is fully automated, instead of relying on \"rock star\" engineers.",
+"start": 3380.37,
+"end": 3393.426
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Spero: identifies malware by general appearance, not specific patterns.",
+"spoken": "Spero: identifies malware by general appearance, not specific patterns.",
+"start": 3393.876,
+"end": 3398.782
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IOCs: describe how and where to detect an intrusion. Can be host- or network-based, but scans run only on the host. Very high confidence. Items include FileItem, RegistryItem, EventLogItem, ProcessItem, and ServiceItem.",
+"spoken": "IOCs: describe how and where to detect an intrusion. Can be host- or network-based, but scans run only on the host. Very high confidence. Items include FileItem, RegistryItem, EventLogItem, ProcessItem, and ServiceItem.",
+"start": 3399.232,
+"end": 3416.192
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Device flow correlation: blocks or alerts on network activity, monitors internal and external networks, uses IP reputation, and logs URLs and domains. Flow points are extra telemetry, not file-specific. Cisco tracks C2 servers, phishing hosts, zero-access C2 servers, and more.",
+"spoken": "Device flow correlation: blocks or alerts on network activity, monitors internal and external networks, uses IP reputation, and logs U.R.L.s and domains. Flow points are extra telemetry, not file-specific. Cisco tracks C 2 servers, phishing hosts, zero-access C 2 servers, and more.",
+"start": 3416.642,
+"end": 3438.765
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Advanced analytics: ranks executed files from least to most common to find threats seen by few users.",
+"spoken": "Advanced analytics: ranks executed files from least to most common to find threats seen by few users.",
+"start": 3439.215,
+"end": 3446.404
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic analysis: high-speed, automated, with adjustable runtimes, without exposing tags malware could detect.",
+"spoken": "Dynamic analysis: high-speed, automated, with adjustable runtimes, without exposing tags malware could detect.",
+"start": 3446.854,
+"end": 3454.982
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Malware Analytics",
+"spoken": "Secure Malware Analytics.",
+"start": 3456.432,
+"end": 3458.224
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Video playback, glovebox, a process graph of process lineage, and a threat score with behavior indicators.",
+"spoken": "Video playback, glovebox, a process graph of process lineage, and a threat score with behavior indicators.",
+"start": 3458.674,
+"end": 3466.098
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Correlates each sample against billions of artifacts collected over years.",
+"spoken": "Correlates each sample against billions of artifacts collected over years.",
+"start": 3466.548,
+"end": 3471.412
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cloud-built with an API to integrate with other tools and create custom threat feeds. Receives submissions automatically.",
+"spoken": "Cloud-built with an API to integrate with other tools and create custom threat feeds. Receives submissions automatically.",
+"start": 3471.862,
+"end": 3480.204
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "More than a sandbox. Uses an outside-in approach with no presence in the virtual machine.",
+"spoken": "More than a sandbox. Uses an outside-in approach with no presence in the virtual machine.",
+"start": 3480.654,
+"end": 3486.776
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic analysis includes an external kernel monitor, dynamic disk analysis (such as master boot record changes), user interaction monitoring, video capture and playback, process information, artifacts, and network traffic.",
+"spoken": "Dynamic analysis includes an external kernel monitor, dynamic disk analysis (such as master boot record changes), user interaction monitoring, video capture and playback, process information, artifacts, and network traffic.",
+"start": 3487.226,
+"end": 3503.354
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supported samples: .EXE and .DLL, .JAR, .PDF, Office files (.RTF, .DOC, .DOCX, .XLS, .XLSX, .PPT, .PPTX), .ZIP, quarantine containers, URLs, HTML documents, and Flash.",
+"spoken": "Supported samples: .EXE and .DLL, .jar, .PDF, Office files (.RTF, .DOC, .doc X, .XLS, .X.L.S.X., .PPT, .P.P.T.X.), .zip, quarantine containers, U.R.L.s, HTML documents, and Flash.",
+"start": 3503.804,
+"end": 3522.258
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Retrospection",
+"spoken": "Retrospection.",
+"start": 3523.708,
+"end": 3524.966
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tracks behavior regardless of disposition.",
+"spoken": "Tracks behavior regardless of disposition.",
+"start": 3525.416,
+"end": 3528.36
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Even clean files are tracked. If one turns malicious, every connector that saw it is told to quarantine it.",
+"spoken": "Even clean files are tracked. If one turns malicious, every connector that saw it is told to quarantine it.",
+"start": 3528.81,
+"end": 3535.936
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 7-50 shows the network file trajectory of confirmed malware in the FMC.",
+"spoken": "Figure 7-50 shows the network file trajectory of confirmed malware in the FMC.",
+"start": 3536.386,
+"end": 3542.914
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "8. Security Intelligence, Security Updates, and Keeping Firepower Software Up to Date",
+"spoken": "8. Security Intelligence, Security Updates, and Keeping Firepower Software Up to Date.",
+"start": 3544.964,
+"end": 3550.958
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Security Intelligence",
+"spoken": "Security Intelligence.",
+"start": 3552.758,
+"end": 3554.465
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Runs before resource-intensive evaluation, which improves performance.",
+"spoken": "Runs before resource-intensive evaluation, which improves performance.",
+"start": 3554.915,
+"end": 3559.544
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco's feeds keep up with malware, spam, botnet, and phishing sites that change faster than custom configurations.",
+"spoken": "Cisco's feeds keep up with malware, spam, botnet, and phishing sites that change faster than custom configurations.",
+"start": 3559.994,
+"end": 3568.037
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Allowlisted or monitored traffic still goes through the rest of access control.",
+"spoken": "Allowlisted or monitored traffic still goes through the rest of access control.",
+"start": 3568.487,
+"end": 3573.65
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Update Best Practices",
+"spoken": "Update Best Practices.",
+"start": 3575.1,
+"end": 3576.849
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lower the update interval for more agile blocklisting.",
+"spoken": "Lower the update interval for more agile blocklisting.",
+"start": 3577.299,
+"end": 3580.648
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use custom feeds for your own blocklist; feeds are the best way to implement it. Security Intelligence lists are okay, but you must deploy policy to update them.",
+"spoken": "Use custom feeds for your own blocklist; feeds are the best way to implement it. Security Intelligence lists are okay, but you must deploy policy to update them.",
+"start": 3581.098,
+"end": 3592.17
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Software Update Types",
+"spoken": "Software Update Types.",
+"start": 3593.62,
+"end": 3595.199
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Keeping software up to date is not exciting, but it is important.",
+"spoken": "Keeping software up to date is not exciting, but it is important.",
+"start": 3595.649,
+"end": 3600.001
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The four types are SRUs, VDB updates, geolocation updates, and Firepower software patches and updates.",
+"spoken": "The four types are S.R.U.s, VDB updates, geolocation updates, and Firepower software patches and updates.",
+"start": 3600.451,
+"end": 3608.984
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each SRU contains a complete rule set.",
+"spoken": "Each SRU contains a complete rule set.",
+"start": 3609.434,
+"end": 3612.336
+}
+]
+}
