@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#1f5fbf">
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CCNP Security SCOR Study</title>
 <meta name="description" content="Flashcards and practice tests for the CCNP and CCIE Security Core SCOR 350-701 exam, chapter by chapter.">
@@ -9,15 +11,27 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231f5fbf%22/%3E%3Cpath d=%22M16 6l8 3v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V9z%22 fill=%22white%22/%3E%3C/svg%3E">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <header class="top">
   <a class="brand" href="#/">SCOR 350-701 <span>Study</span></a>
-  <nav class="crumbs" id="crumbs"></nav>
-  <a class="navlink icon" href="#/search" aria-label="Search flashcards" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
-  <a class="navlink" href="#/progress">Progress</a>
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a class="navlink" data-nav="home" href="#/">Home</a>
+    <a class="navlink" data-nav="study" href="#/study">Study</a>
+    <a class="navlink" data-nav="exam" href="#/exam">Mock exam</a>
+    <a class="navlink" data-nav="progress" href="#/progress">Progress</a>
+  </nav>
+  <a class="navlink icon" data-nav="search" href="#/search" aria-label="Search flashcards" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
   <button class="theme" id="theme" type="button" aria-label="Switch light or dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
 </header>
-<main id="app" tabindex="-1"><p class="muted">Loading…</p></main>
+<main id="main" tabindex="-1"><nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav><div id="app" tabindex="-1"><p class="muted">Loading…</p></div></main>
+<nav class="mobile-nav" aria-label="Main navigation">
+  <a data-nav="home" href="#/"><span aria-hidden="true">⌂</span>Home</a>
+  <a data-nav="study" href="#/study"><span aria-hidden="true">▤</span>Study</a>
+  <a data-nav="exam" href="#/exam"><span aria-hidden="true">◷</span>Exam</a>
+  <a data-nav="progress" href="#/progress"><span aria-hidden="true">▥</span>Progress</a>
+</nav>
+<div id="timer-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 <footer class="foot">Personal study notes for the CCNP and CCIE Security Core SCOR 350-701 Official Cert Guide, 2nd edition.</footer>
-<script src="assets/app.js"></script>
+<script type="module" src="assets/main.js"></script>
 </body>
 </html>
