@@ -320,7 +320,7 @@
             <a class="tile-link" href="#/ch/${n}/test/${i + 1}"><strong>${esc(t.title || "Practice Test " + (i + 1))}</strong></a>
             <span class="muted small">${t.questions.length} questions${k ? ` · ${plural(k, "attempt")}` : ""}</span>
             <div class="row">${bestBadge(n, i + 1)}${res ? `<span class="badge warn">In progress</span>` : ""}</div>
-            ${last ? `<a class="small" href="#/ch/${n}/test/${i + 1}/last">Last: ${last.pct}% · view results</a>` : ""}
+            ${last ? `<a class="small last-link" href="#/ch/${n}/test/${i + 1}/last">Last: ${last.pct}% · view results</a>` : ""}
           </div>`;
         }).join("")}
       </div>` : `<p class="muted">The practice tests for this chapter are not ready yet.</p>`}

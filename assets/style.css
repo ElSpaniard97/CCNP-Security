@@ -264,8 +264,12 @@ thead th { color: var(--muted); font-weight: 600; font-size: .82rem; }
 .resume-list { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; border-color: var(--warn); }
 .resume-list p { margin: 0; }
 .badge.warn { background: var(--warn-soft); color: var(--warn); }
+/* The whole tile opens the test; the "view results" link sits above that. */
+.test-tile { position: relative; cursor: pointer; }
 .test-tile .tile-link { color: var(--text); text-decoration: none; }
-.test-tile .tile-link:hover { color: var(--accent); }
+.test-tile .tile-link::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.test-tile:hover .tile-link { color: var(--accent); }
+.test-tile .last-link { position: relative; z-index: 1; }
 .search {
   width: 100%; flex: 1; min-width: 0; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border);
   background: var(--surface); color: var(--text); font: inherit; margin: 6px 0 14px;
