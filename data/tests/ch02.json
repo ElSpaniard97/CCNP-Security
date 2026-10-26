@@ -24,7 +24,11 @@
        "why": "Steganalysis is detecting hidden data inside other content; the term for cracking encryption algorithms is cryptanalysis."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Cryptanalysis"
+     ]
     },
     {
      "q": "An engineer wants a symmetric cipher that encrypts plaintext one bit at a time against a key stream and never needs padding. Which cipher type fits?",
@@ -46,7 +50,13 @@
        "why": "An asymmetric cipher uses a public and private key pair; stream and block ciphers are both symmetric."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Stream cipher",
+      "Cipher",
+      "Symmetric algorithm (symmetric cipher)"
+     ]
     },
     {
      "q": "Which port and protocol does IKE (ISAKMP) use for IPsec key negotiation?",
@@ -68,7 +78,13 @@
        "why": "UDP 123 is NTP, which keeps clocks correct so certificate validity dates are not misread."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "IKE (Internet Key Exchange)",
+      "UDP 500, IKE (ISAKMP)",
+      "IPsec (IP Security)"
+     ]
     },
     {
      "q": "How is a digital signature created?",
@@ -90,7 +106,13 @@
        "why": "Correct. The sender hashes the data and encrypts that hash with its own private key, then attaches the result to the data."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digest (message digest, hash)",
+      "Private key",
+      "Key"
+     ]
     },
     {
      "q": "What is the digest length of SHA-1?",
@@ -112,7 +134,13 @@
        "why": "512 bits is the size of Whirlpool and SHA-512, not SHA-1."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "SHA-1 (Secure Hash Algorithm 1)",
+      "Digest (message digest, hash)",
+      "SHA-1"
+     ]
     },
     {
      "q": "On a root certificate, which entity appears in the Subject field?",
@@ -134,7 +162,13 @@
        "why": "An LDAP server may host the CRL, but it is not the subject of the root certificate."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "CA (certificate authority)",
+      "Root certificate",
+      "Public key"
+     ]
     },
     {
      "q": "A firewall must check whether a single peer certificate has been revoked without downloading and processing the CA's entire revocation list. Which method should it use?",
@@ -156,7 +190,13 @@
        "why": "Correct. OCSP asks for the status of one certificate instead of downloading the whole CRL."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "OCSP (Online Certificate Status Protocol)",
+      "CA (certificate authority)",
+      "CRL (certificate revocation list)"
+     ]
     },
     {
      "q": "Which PKCS standard defines the certificate request a client sends to a CA, including the requester's public key?",
@@ -178,7 +218,13 @@
        "why": "PKCS #1 is the RSA cryptography standard."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "PKCS (Public Key Cryptography Standards)",
+      "PKCS #10",
+      "CA (certificate authority)"
+     ]
     },
     {
      "q": "Which CRYSTALS algorithm is a key-encapsulation mechanism (KEM)?",
@@ -200,7 +246,12 @@
        "why": "ECDH is the elliptic curve Diffie-Hellman key exchange used in NGE; it is a classical algorithm, not part of CRYSTALS."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Kyber",
+      "CRYSTALS (Cryptographic Suite for Algebraic Lattices)"
+     ]
     },
     {
      "q": "Which Cisco IOS command verifies the integrity of a downloaded software image?",
@@ -222,7 +273,11 @@
        "why": "Correct. The IOS verify md5 command checks a downloaded image's hash to confirm its integrity."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digest (message digest, hash)"
+     ]
     },
     {
      "q": "A site-to-site IPsec VPN must provide encryption of the traffic. Which IPsec method must be used?",
@@ -244,7 +299,12 @@
        "why": "NAT-T lets IPsec pass through NAT using UDP 4500; it does not itself provide encryption."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "ESP (Encapsulating Security Payload)",
+      "IPsec (IP Security)"
+     ]
     },
     {
      "q": "Which RFC defines TLS 1.3?",
@@ -266,7 +326,12 @@
        "why": "RFC 4301 describes the IPsec security architecture, not TLS 1.3."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "TLS (Transport Layer Security)",
+      "TLS 1.3"
+     ]
     },
     {
      "q": "An administrator downloads a root CA certificate and then phones the CA's administrators to compare the certificate's hash. What is this practice called?",
@@ -288,7 +353,13 @@
        "why": "Correct. Checking the certificate's hash (thumbprint) through another channel, such as a phone call, is out-of-band verification."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Out-of-band verification",
+      "Digest (message digest, hash)",
+      "CA (certificate authority)"
+     ]
     },
     {
      "q": "Which cipher method rearranges the letters of a message rather than replacing them?",
@@ -310,7 +381,12 @@
        "why": "A one-time pad combines each message bit with a pad bit of a single-use key the same length as the message."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Transposition cipher",
+      "Cipher"
+     ]
     },
     {
      "q": "Diffie-Hellman is an asymmetric algorithm. What kind of keys does a DH exchange produce?",
@@ -332,7 +408,13 @@
        "why": "A message digest is the output of a hash function such as SHA-2, not of DH."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "3DES (Triple Digital Encryption Standard)",
+      "AES (Advanced Encryption Standard)",
+      "Cipher"
+     ]
     },
     {
      "q": "Suite B is approved by the U.S. government to protect classified information up to which levels?",
@@ -354,7 +436,11 @@
        "why": "Suite B reaches beyond unclassified data; it is approved for secret and top-secret information."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Suite B"
+     ]
     },
     {
      "q": "What makes an HMAC different from a plain hash?",
@@ -376,7 +462,13 @@
        "why": "Encrypting the payload provides confidentiality; HMAC only provides integrity and authentication of the message."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digest (message digest, hash)",
+      "Key",
+      "HMAC (Hashed Message Authentication Code)"
+     ]
     },
     {
      "q": "A company wants certificates for internal servers that only managed company devices will access and does not want to pay a fee. What is the trade-off of using an internal CA?",
@@ -398,7 +490,11 @@
        "why": "An internal CA can publish CRLs and revoke certificates just like a commercial CA."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "CA (certificate authority)"
+     ]
     },
     {
      "q": "Which series of directory service standards is the basis of Microsoft Active Directory?",
@@ -420,7 +516,11 @@
        "why": "Correct. X.500 is the series of directory service standards and is the basis of Microsoft Active Directory."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "X.500"
+     ]
     },
     {
      "q": "A router is being decommissioned, and its private key may have been copied. What should the PKI administrator do with its identity certificate?",
@@ -442,7 +542,13 @@
        "why": "PKCS #12 is a format for storing public and private keys; exporting it would spread the key, not invalidate it."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "CRL (certificate revocation list)",
+      "PKI (public key infrastructure)",
+      "Identity certificate"
+     ]
     }
    ]
   },
@@ -469,7 +575,11 @@
        "why": "A key's lifetime is handled by key management, which ends with destroying the key; keyspace is the set of possible values."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Key"
+     ]
     },
     {
      "q": "Which statement correctly describes a one-time pad?",
@@ -491,7 +601,12 @@
        "why": "Public keys are published for asymmetric cryptography such as PGP; a one-time pad is a secret shared only with the receiver."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Key",
+      "One-time pad (OTP)"
+     ]
     },
     {
      "q": "An IPsec VPN must encrypt a large volume of user traffic with low CPU impact. Which type of algorithm is best suited to the bulk data encryption?",
@@ -513,7 +628,13 @@
        "why": "Correct. Symmetric algorithms use the same key to encrypt and decrypt, are fast, and use little CPU, so they handle bulk data."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Symmetric algorithm (symmetric cipher)",
+      "AES (Advanced Encryption Standard)",
+      "IPsec (IP Security)"
+     ]
     },
     {
      "q": "ESP is identified by which value in the IP header?",
@@ -535,7 +656,11 @@
        "why": "ESP is not carried over TCP and has no port; it is IP protocol 50."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "ESP (Encapsulating Security Payload)"
+     ]
     },
     {
      "q": "An MD5 hash is 128 bits long. How many hexadecimal digits are used to display it?",
@@ -557,7 +682,13 @@
        "why": "128 hex digits is how a 512-bit SHA-512 hash is displayed."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digest (message digest, hash)",
+      "MD5 (Message Digest 5)",
+      "MD5"
+     ]
     },
     {
      "q": "In next-generation encryption (NGE), which algorithm replaces RSA digital signatures?",
@@ -579,7 +710,13 @@
        "why": "SHA-384 is an NGE hashing algorithm, not a digital signature algorithm."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "ECDSA",
+      "NGE (next-generation encryption)",
+      "RSA (Rivest, Shamir, Adleman)"
+     ]
     },
     {
      "q": "Which post-quantum algorithm is a digital signature scheme secure against existential forgery under adaptive chosen-message attacks (EUF-CMA)?",
@@ -601,7 +738,13 @@
        "why": "ECDSA is a classical elliptic curve signature used in NGE; it relies on math that quantum computers threaten."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Dilithium",
+      "Digital signature",
+      "CRYSTALS (Cryptographic Suite for Algebraic Lattices)"
+     ]
     },
     {
      "q": "An administrator needs to move a device's certificate together with both its public and private keys to another server, protected by a password. Which format is designed for this?",
@@ -623,7 +766,13 @@
        "why": "Correct. PKCS #12 stores both public and private keys, protected by a symmetric password-based key."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "PKCS (Public Key Cryptography Standards)",
+      "PKCS #12",
+      "Private key"
+     ]
     },
     {
      "q": "In a hierarchical PKI, what does a client need in order to verify another client's certificate chain?",
@@ -645,7 +794,13 @@
        "why": "Correct. To verify the chain, a client needs every certificate from the root CA down to the CA that issued the client's certificate."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "CA (certificate authority)",
+      "PKI (public key infrastructure)",
+      "Hierarchical PKI"
+     ]
     },
     {
      "q": "A laptop rejects a valid server certificate because its system clock is set to the wrong year. Which protocol should be used to prevent this?",
@@ -667,7 +822,9 @@
        "why": "LDAP is used for directory lookups and can deliver CRLs, but it does not keep clocks accurate."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": []
     },
     {
      "q": "Why is a collision attack a serious threat to PKI?",
@@ -689,7 +846,13 @@
        "why": "Replaying packets is a replay attack, which IPsec anti-replay protects against."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Digital signature",
+      "PKI (public key infrastructure)",
+      "Collision attack"
+     ]
     },
     {
      "q": "Ironman receives a packet with a digital signature from Thor. Which key does Ironman use to decrypt the signature?",
@@ -711,7 +874,13 @@
        "why": "A PSK is a shared secret used for authentication; digital signatures rely on key pairs instead."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Public key",
+      "Key",
+      "Digital signature"
+     ]
     },
     {
      "q": "Which set of methods can be used to access a CRL?",
@@ -733,7 +902,13 @@
        "why": "PGP and S/MIME encrypt email and SMTP carries it; none of them is used to retrieve CRLs."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "SCEP (Simple Certificate Enrollment Protocol)",
+      "LDAP (Lightweight Directory Access Protocol)",
+      "CRL (certificate revocation list)"
+     ]
     },
     {
      "q": "Which two hash algorithms were removed in TLS 1.3?",
@@ -755,7 +930,13 @@
        "why": "Correct. TLS 1.3 removes MD5 and SHA-224, along with weak and less-used named elliptic curves."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "MD5 (Message Digest 5)",
+      "MD5",
+      "TLS (Transport Layer Security)"
+     ]
     },
     {
      "q": "An analyst runs md5sum against three files with different names, and two of them show the same checksum. What does this indicate?",
@@ -777,7 +958,9 @@
        "why": "md5sum calculates a hash; it says nothing about encryption keys."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": []
     },
     {
      "q": "Which statement about SCEP is accurate?",
@@ -799,7 +982,12 @@
        "why": "X.500 is the series of directory service standards; SCEP is an enrollment protocol."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Enrollment",
+      "SCEP (Simple Certificate Enrollment Protocol)"
+     ]
     },
     {
      "q": "Which IPsec protection prevents an attacker from capturing valid packets and sending them again later?",
@@ -821,7 +1009,12 @@
        "why": "NAT-T lets IPsec work through NAT devices using UDP 4500; it is not replay protection."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Anti-replay",
+      "IPsec (IP Security)"
+     ]
     },
     {
      "q": "After VPN users authenticate with certificates, the firewall reads the OU=sales field and assigns access rights stored in Active Directory. What is the main benefit of this design?",
@@ -843,7 +1036,11 @@
        "why": "Correct. Using a certificate field such as OU=sales with Active Directory or another LDAP database lets you define access rights in one place and reuse them."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "LDAP (Lightweight Directory Access Protocol)"
+     ]
     },
     {
      "q": "Which group of algorithms is believed to be safe against quantum computing attacks?",
@@ -865,7 +1062,12 @@
        "why": "These rely on discrete logarithm problems, which quantum computers threaten."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "SHA-512",
+      "Post-quantum safe (believed)"
+     ]
     },
     {
      "q": "Which cipher works like a substitution cipher but uses multiple alphabets and switches between them on a trigger character in the message?",
@@ -887,7 +1089,13 @@
        "why": "A block cipher encrypts fixed-size blocks of bits, adding padding as needed."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Polyalphabetic cipher",
+      "Cipher",
+      "Substitution cipher"
+     ]
     }
    ]
   },
@@ -914,7 +1122,12 @@
        "why": "Anti-replay is an IPsec protection against replayed packets, not proof of origin."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Nonrepudiation",
+      "Digital signature"
+     ]
     },
     {
      "q": "In which attack does an attacker create a message that has a specific, chosen hash value?",
@@ -936,7 +1149,12 @@
        "why": "Correct. In a pre-image attack the attacker creates a message that produces a specific hash value."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Pre-image attack",
+      "Digest (message digest, hash)"
+     ]
     },
     {
      "q": "Remote users connect to an IPsec VPN from behind home routers that perform NAT. Which port must be allowed through the firewall for IPsec NAT Traversal?",
@@ -958,7 +1176,12 @@
        "why": "IP protocol 51 is AH, which has no port and cannot be carried through NAT by NAT-T."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "UDP 4500, NAT-T (NAT Traversal)",
+      "IPsec (IP Security)"
+     ]
     },
     {
      "q": "What does a block cipher do when there is not enough plaintext to fill a block?",
@@ -980,7 +1203,12 @@
        "why": "Block ciphers are symmetric and do not use public keys; leftover space is filled with padding."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Plaintext (clear text)",
+      "Block cipher"
+     ]
     },
     {
      "q": "An organization needs a fast, flexible hash for high-speed processing of large amounts of data with strong security, as an alternative to SHA-2 and MD5. Which algorithm fits?",
@@ -1002,7 +1230,13 @@
        "why": "Correct. BLAKE2 is a fast, flexible hash for high-speed processing of large data with strong security, an alternative to SHA-2 and MD5."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "BLAKE2",
+      "Digest (message digest, hash)",
+      "MD5 (Message Digest 5)"
+     ]
     },
     {
      "q": "In IPsec, what is a pre-shared key (PSK) used for?",
@@ -1024,7 +1258,12 @@
        "why": "Certificates are signed by a CA using its private key, not with a PSK."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "PSK (pre-shared key)",
+      "IPsec (IP Security)"
+     ]
     },
     {
      "q": "Which item does a CA NOT put in the identity certificate it issues to a device?",
@@ -1046,7 +1285,13 @@
        "why": "The CA assigns and tracks a serial number for each certificate it issues."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Private key",
+      "Key",
+      "CA (certificate authority)"
+     ]
     },
     {
      "q": "Which PKCS standard is the CA's response to a PKCS #10 request, usually containing the identity certificate?",
@@ -1068,7 +1313,13 @@
        "why": "PKCS #12 stores both public and private keys protected by a password-based key."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "PKCS (Public Key Cryptography Standards)",
+      "PKCS #7",
+      "CA (certificate authority)"
+     ]
     },
     {
      "q": "Which NIST publication gives guidance for selecting, configuring, and using TLS?",
@@ -1090,7 +1341,12 @@
        "why": "X.509v3 is the standard format for digital certificates, not guidance on configuring TLS."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "NIST SP 800-52 Revision 2",
+      "TLS (Transport Layer Security)"
+     ]
     },
     {
      "q": "Which asymmetric encryption system is based on the Diffie-Hellman exchange?",
@@ -1112,7 +1368,12 @@
        "why": "Blowfish is a symmetric block cipher, not an asymmetric system."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "ElGamal",
+      "DH (Diffie-Hellman)"
+     ]
     },
     {
      "q": "After two companies merge, each with its own CA, the engineers want clients of either CA to trust certificates signed by the other without building a new hierarchy. Which PKI topology should be used?",
@@ -1134,7 +1395,13 @@
        "why": "Out-of-band verification checks a single certificate's hash by phone or another channel; it is not a topology."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "PKI (public key infrastructure)",
+      "CA (certificate authority)",
+      "Cross-certification"
+     ]
     },
     {
      "q": "A security engineer wants to test the company's web server for known cryptographic weaknesses from a command-line tool. Which tool is described for this purpose?",
@@ -1156,7 +1423,11 @@
        "why": "Correct. testssl.sh tests a web server for known cryptographic weaknesses."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "testssl.sh"
+     ]
     },
     {
      "q": "Classical public key algorithms are threatened by quantum computers because they rely on which mathematical problems?",
@@ -1178,7 +1449,12 @@
        "why": "Multivariate polynomial-based math is one of the post-quantum construct families, not a classical basis."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Asymmetric algorithm (public key algorithm)",
+      "Public key"
+     ]
     },
     {
      "q": "A malware analyst wants to tell other teams about a malicious file without risking anyone getting infected. What should the analyst share?",
@@ -1200,7 +1476,11 @@
        "why": "Base64 is an encoding, not compression or protection; the shared content would still be the malware."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digest (message digest, hash)"
+     ]
     },
     {
      "q": "What is the minimum symmetric key length considered fairly safe?",
@@ -1222,7 +1502,11 @@
        "why": "Correct. Symmetric keys are typically 112 to 256 bits, with 128 bits the minimum to be fairly safe."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Symmetric key length"
+     ]
     },
     {
      "q": "During a typical HTTPS session, how does the web server usually authenticate the user of the browser?",
@@ -1244,7 +1528,9 @@
        "why": "OCSP reports a certificate's revocation status; it does not authenticate the user."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": []
     },
     {
      "q": "Which kind of certificate identifies a client, such as a web server or router, and contains that host's public key?",
@@ -1266,7 +1552,12 @@
        "why": "A subordinate CA certificate identifies an intermediate CA that issues identity certificates to clients."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Identity certificate",
+      "Public key"
+     ]
     },
     {
      "q": "A router needs a certificate from a new CA. Which step must happen first?",
@@ -1288,7 +1579,13 @@
        "why": "Revocation checking is used when authenticating peers; it is not the first step in obtaining a certificate."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "CA (certificate authority)",
+      "Root certificate",
+      "Authenticating the CA"
+     ]
     },
     {
      "q": "HTTPS combines HTTP with TLS/SSL. Which port does it use by default?",
@@ -1310,7 +1607,12 @@
        "why": "UDP 500 is IKE (ISAKMP) for IPsec key negotiation."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "TLS (Transport Layer Security)",
+      "SSL (Secure Sockets Layer)"
+     ]
     },
     {
      "q": "Which hash algorithm uses a sponge construction and is the recommended SHA version?",
@@ -1332,7 +1634,12 @@
        "why": "Correct. SHA-3 uses a sponge construction, supports sequential, parallel, and tree modes, and is the recommended SHA version."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "SHA-3",
+      "Digest (message digest, hash)"
+     ]
     }
    ]
   },
@@ -1359,7 +1666,11 @@
        "why": "Correct. A cipher is an algorithm, a set of rules for how to perform encryption or decryption."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Cryptography (cryptology)"
+     ]
     },
     {
      "q": "Why are asymmetric algorithms used only for infrequent tasks such as authenticating a VPN peer and generating keying material?",
@@ -1381,7 +1692,11 @@
        "why": "Using the same key on both sides describes symmetric algorithms; asymmetric algorithms use a public and private key pair."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Asymmetric algorithm (public key algorithm)"
+     ]
     },
     {
      "q": "Why are hash collisions possible even with a strong hash function?",
@@ -1403,7 +1718,11 @@
        "why": "Cryptographic hash functions are one-way; they cannot be reversed to recover the input."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digest (message digest, hash)"
+     ]
     },
     {
      "q": "Which asymmetric algorithm was developed by the U.S. National Security Agency?",
@@ -1425,7 +1744,13 @@
        "why": "AES is a symmetric block cipher, not an asymmetric algorithm."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "DSA (Digital Signature Algorithm)",
+      "Asymmetric algorithm (public key algorithm)",
+      "Digital signature"
+     ]
     },
     {
      "q": "Which hash algorithm produces a 512-bit digest and is described as resistant to various attacks?",
@@ -1447,7 +1772,13 @@
        "why": "HMAC-SHA-1 is a keyed hash built on 160-bit SHA-1, not a 512-bit algorithm."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Whirlpool",
+      "Whirlpool",
+      "Digest (message digest, hash)"
+     ]
     },
     {
      "q": "A firewall rule must permit IPsec AH traffic. Which value should the rule match?",
@@ -1469,7 +1800,12 @@
        "why": "Correct. AH is IP protocol 51 and has no port."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "AH (Authentication Header)",
+      "IPsec (IP Security)"
+     ]
     },
     {
      "q": "What is a certificate's thumbprint (fingerprint)?",
@@ -1491,7 +1827,12 @@
        "why": "The public key field holds the subject's key; the thumbprint is calculated over the whole certificate."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Digest (message digest, hash)",
+      "Thumbprint (fingerprint)"
+     ]
     },
     {
      "q": "Thor wants to send Ironman an encrypted email using PGP so that only Ironman can read it. Which key does Thor use to encrypt the message?",
@@ -1513,7 +1854,13 @@
        "why": "The CA's public key is used to verify certificates the CA signed, not to encrypt email for a person."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Public key",
+      "Key",
+      "PGP (Pretty Good Privacy)"
+     ]
     },
     {
      "q": "Which port does LDAP, a common protocol for directory lookups and CRL retrieval, use?",
@@ -1535,7 +1882,12 @@
        "why": "TCP 49 is TACACS+, an AAA protocol, not LDAP."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "LDAP (Lightweight Directory Access Protocol)",
+      "CRL (certificate revocation list)"
+     ]
     },
     {
      "q": "Which hash algorithm is required for classified information of higher importance under NGE guidance?",
@@ -1557,7 +1909,12 @@
        "why": "Correct. SHA-384 is required for classified information of higher importance."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "NGE (next-generation encryption)",
+      "Digest (message digest, hash)"
+     ]
     },
     {
      "q": "Which elliptic curves does next-generation encryption use?",
@@ -1579,7 +1936,11 @@
        "why": "224 and 2048 are a hash size and a common RSA key length, not the NGE curves."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "NGE (next-generation encryption)"
+     ]
     },
     {
      "q": "Which certificate revocation checking method is rarely used in PKI because it is proprietary?",
@@ -1601,7 +1962,11 @@
        "why": "LDAP is a transport that can deliver CRLs; it is not a separate proprietary revocation method."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "PKI (public key infrastructure)"
+     ]
     },
     {
      "q": "A company with tens of thousands of clients runs a PKI with only a single root CA. Which problem is most likely?",
@@ -1623,7 +1988,12 @@
        "why": "Correct. A single root CA can be overloaded by many clients and has no fault tolerance; publishing CRLs elsewhere only offloads some work."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "CA (certificate authority)",
+      "PKI (public key infrastructure)"
+     ]
     },
     {
      "q": "Which PKCS standard covers Diffie-Hellman key exchange?",
@@ -1645,7 +2015,13 @@
        "why": "PKCS #10 is the certificate request sent to a CA."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "PKCS (Public Key Cryptography Standards)",
+      "PKCS #3",
+      "DH (Diffie-Hellman)"
+     ]
     },
     {
      "q": "Both CRYSTALS algorithms, Kyber and Dilithium, rely on which type of mathematical problem?",
@@ -1667,7 +2043,11 @@
        "why": "Code-based math is another post-quantum family, used by algorithms such as Classic McEliece, not CRYSTALS."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "CRYSTALS (Cryptographic Suite for Algebraic Lattices)"
+     ]
     },
     {
      "q": "When IPsec peers are configured to authenticate each other with digital signatures, which configuration term is used?",
@@ -1689,7 +2069,13 @@
        "why": "Correct. rsa-signatures is the configuration term used when IPsec peers authenticate with digital signatures."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "rsa-signatures",
+      "IPsec (IP Security)",
+      "Digital signature"
+     ]
     },
     {
      "q": "What is the role of IKE in IPsec?",
@@ -1711,7 +2097,13 @@
        "why": "That describes AH, the IPsec method without encryption."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "IPsec (IP Security)",
+      "IKE (Internet Key Exchange)",
+      "Key management"
+     ]
     },
     {
      "q": "Which certificate field states what the public key may be used for?",
@@ -1733,7 +2125,12 @@
        "why": "The issuer field names the CA that created and issued the certificate."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Key",
+      "Public key"
+     ]
     },
     {
      "q": "A company wants to offer encrypted access to a customer portal. Why is SSL/TLS a better fit than IPsec for this?",
@@ -1755,7 +2152,13 @@
        "why": "IPsec is used for both remote-access and site-to-site VPNs."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "PSK (pre-shared key)",
+      "IPsec (IP Security)",
+      "TLS (Transport Layer Security)"
+     ]
     },
     {
      "q": "Which change did TLS 1.3 make to cipher suites?",
@@ -1777,7 +2180,13 @@
        "why": "Correct. TLS 1.3 separates key agreement and authentication algorithms from the cipher suites."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Cipher",
+      "Key",
+      "TLS (Transport Layer Security)"
+     ]
     }
    ]
   },
@@ -1804,7 +2213,12 @@
        "why": "These are CA and PKI certificate operations; key management is about the keys themselves."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Key",
+      "Key management"
+     ]
     },
     {
      "q": "Why is MD5 no longer considered secure?",
@@ -1826,7 +2240,13 @@
        "why": "MD5 accepts input of any length; its output is 16 bytes, not its input limit."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Pre-image attack",
+      "Collision",
+      "MD5 (Message Digest 5)"
+     ]
     },
     {
      "q": "A sender hashes a packet and attaches the hash. In transit, one bit of the packet is changed. What happens at the receiver?",
@@ -1848,7 +2268,11 @@
        "why": "A failed integrity check does not trigger a CA key request; the packet is simply seen as altered."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digest (message digest, hash)"
+     ]
     },
     {
      "q": "At which OSI layer does IPsec protect packets?",
@@ -1870,7 +2294,11 @@
        "why": "Correct. IPsec is a suite of protocols and algorithms that protects IP packets at Layer 3."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "IPsec (IP Security)"
+     ]
     },
     {
      "q": "What is a subordinate (intermediate) CA?",
@@ -1892,7 +2320,13 @@
        "why": "Browsers ship with root certificates of mainstream CAs; that does not define a subordinate CA."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "CA (certificate authority)",
+      "Identity certificate",
+      "Subordinate (intermediate) CA"
+     ]
     },
     {
      "q": "Which of the following is NOT one of the goals of cryptography listed in the chapter?",
@@ -1914,7 +2348,11 @@
        "why": "Nonrepudiation, preventing a sender from denying sending data, is one of the goals of cryptography."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Cryptography (cryptology)"
+     ]
     },
     {
      "q": "Which PKCS standard is the RSA cryptography standard?",
@@ -1936,7 +2374,13 @@
        "why": "Correct. RSA is also called PKCS #1, the RSA cryptography standard."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "PKCS (Public Key Cryptography Standards)",
+      "PKCS #1",
+      "RSA (Rivest, Shamir, Adleman)"
+     ]
     },
     {
      "q": "A user visiting an internal site gets a browser pop-up saying the certificate is not trusted. What is the recommended guidance for users?",
@@ -1958,7 +2402,11 @@
        "why": "HTTP on TCP 80 is unencrypted, which removes protection instead of solving the trust problem."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "CA (certificate authority)"
+     ]
     },
     {
      "q": "A university wants laptops to authenticate to the wireless network at the network edge using digital certificates. Which technology provides this?",
@@ -1980,7 +2428,12 @@
        "why": "S/MIME uses key pairs to encrypt email, not to authenticate devices to a wireless network."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "802.1X",
+      "Digital certificate"
+     ]
     },
     {
      "q": "According to NIST SP 800-52 Rev. 2, what must the CA that issues TLS server certificates do?",
@@ -2002,7 +2455,13 @@
        "why": "Cross-certification is an optional PKI topology, not a requirement of SP 800-52 Rev. 2."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "OCSP (Online Certificate Status Protocol)",
+      "TLS (Transport Layer Security)",
+      "CA (certificate authority)"
+     ]
     },
     {
      "q": "Which of the following is NOT one of the mathematical construct families used for post-quantum algorithms?",
@@ -2024,7 +2483,11 @@
        "why": "Correct. Integer factorization is what classical algorithms such as RSA rely on, and quantum computers threaten it."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "RSA (Rivest, Shamir, Adleman)"
+     ]
     },
     {
      "q": "The NIST post-quantum standardization competition has three tracks. Which set lists them?",
@@ -2046,7 +2509,11 @@
        "why": "This is the CIA triad of security goals, not the NIST competition tracks."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digital signature"
+     ]
     },
     {
      "q": "An analyst needs a single web tool to Base64-decode a string, XOR some data, compute hashes, and parse an X.509 certificate. Which tool fits?",
@@ -2068,7 +2535,11 @@
        "why": "keybase.io is a public PGP key server, used to publish and find public keys."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "AES (Advanced Encryption Standard)"
+     ]
     },
     {
      "q": "How many hexadecimal digits are used to display a SHA-512 hash?",
@@ -2090,7 +2561,12 @@
        "why": "Correct. SHA-512 is 512 bits, shown as 128 hex digits."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Digest (message digest, hash)",
+      "SHA-512"
+     ]
     },
     {
      "q": "What is the widely accepted standard for digital certificates?",
@@ -2112,7 +2588,12 @@
        "why": "RFC 8446 defines TLS 1.3, not the digital certificate format."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "X.509 Version 3",
+      "Digital certificate"
+     ]
     },
     {
      "q": "In the X.500 naming used by certificates, what does CN=Thor represent?",
@@ -2134,7 +2615,9 @@
        "why": "The country is C in the subject field, not CN."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Fundamentals of PKI",
+     "cards": []
     },
     {
      "q": "Which statement about a private key is true?",
@@ -2156,7 +2639,13 @@
        "why": "Sharing the same key on both peers describes symmetric encryption, not a private key."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "Key pair",
+      "Key",
+      "Private key"
+     ]
     },
     {
      "q": "Two VPN peers exchange their symmetric encryption keys in plaintext across the internet. What is the result if an eavesdropper captures them?",
@@ -2178,7 +2667,13 @@
        "why": "The CA is not involved in symmetric keys exchanged between peers and would not detect the capture."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "Plaintext (clear text)",
+      "DH (Diffie-Hellman)",
+      "Key management"
+     ]
     },
     {
      "q": "In a PKI that uses RSA digital signatures between two VPN peers, why does each peer need its own key pair?",
@@ -2200,7 +2695,13 @@
        "why": "Correct. Each party has its own key pair because both sides authenticate each other, usually in both directions in an IPsec VPN."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Fundamentals of PKI",
+     "cards": [
+      "PKI (public key infrastructure)",
+      "RSA (Rivest, Shamir, Adleman)",
+      "Digital signature"
+     ]
     },
     {
      "q": "Which AES mode of operation is part of next-generation encryption (NGE)?",
@@ -2222,7 +2723,13 @@
        "why": "Cipher feedback mode is not the mode named for NGE; NGE uses AES-GCM."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to Cryptography",
+     "cards": [
+      "AES-GCM (Galois/Counter Mode)",
+      "AES (Advanced Encryption Standard)",
+      "NGE (next-generation encryption)"
+     ]
     }
    ]
   }

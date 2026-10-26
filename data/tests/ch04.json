@@ -24,7 +24,11 @@
        "why": "TCP 3868 is the port commonly used by Diameter, the RADIUS successor, not TACACS+."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "TACACS+ (Terminal Access Controller Access-Control System Plus)"
+     ]
     },
     {
      "q": "A network engineer needs to control exactly which IOS commands each router administrator can run, checking every command against the AAA server. Which AAA protocol is the best fit?",
@@ -46,7 +50,11 @@
        "why": "Kerberos is ticket-based authentication using symmetric keys; it does not provide per-command authorization on network devices."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "TACACS+ (Terminal Access Controller Access-Control System Plus)"
+     ]
     },
     {
      "q": "In biometric authentication, what is a Type II error?",
@@ -68,7 +76,11 @@
        "why": "Correct. A Type II error is a false acceptance, measured by the false acceptance rate (FAR)."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Type II error (false acceptance)"
+     ]
     },
     {
      "q": "Which login method is an example of multifactor authentication (MFA)?",
@@ -90,7 +102,12 @@
        "why": "The username is only identification (claiming an identity); the password is the single authentication factor."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "OTP (one-time password)",
+      "Multifactor authentication (MFA)"
+     ]
     },
     {
      "q": "Which standard uses XML assertions to exchange authentication and authorization data between an identity provider and a service provider?",
@@ -112,7 +129,13 @@
        "why": "XACML is an XML language for expressing ABAC access control policies, not for exchanging assertions between an IdP and SP."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "SAML (Security Assertion Markup Language)",
+      "IdP (identity provider)",
+      "SP (service provider)"
+     ]
     },
     {
      "q": "What is the size of a Cisco TrustSec Security Group Tag (SGT)?",
@@ -134,7 +157,12 @@
        "why": "32 bits is the size of an IPv4 address; the SGT is only 16 bits."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "5. Cisco TrustSec",
+     "cards": [
+      "SGT (Security Group Tag)",
+      "Cisco TrustSec"
+     ]
     },
     {
      "q": "In an 802.1X deployment, which protocol carries EAP between the supplicant and the authenticator?",
@@ -156,7 +184,13 @@
        "why": "SXP shares IP-to-SGT mappings in TrustSec; it does not carry EAP."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. 802.1X",
+     "cards": [
+      "EAPoL (EAP over LAN)",
+      "EAPoL",
+      "EAP (Extensible Authentication Protocol)"
+     ]
     },
     {
      "q": "Which command must be entered first before any other AAA configuration on a Cisco IOS router?",
@@ -178,7 +212,11 @@
        "why": "Correct. aaa new-model enables AAA and is always the first AAA command."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Configuring TACACS+ Device Administration",
+     "cards": [
+      "aaa new-model"
+     ]
     },
     {
      "q": "Which UDP port does a switch listen on to receive RADIUS CoA-Request and Disconnect-Request messages from Cisco ISE?",
@@ -200,7 +238,12 @@
        "why": "UDP 1645 is the legacy RADIUS authentication port, not the CoA port."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)",
+      "Cisco ISE (Identity Services Engine)"
+     ]
     },
     {
      "q": "A government agency requires that access be decided by system policy using classification labels such as secret and top secret, not by the owner of each file. Which access control model meets this requirement?",
@@ -222,7 +265,12 @@
        "why": "Correct. MAC sets access through system policy and security labels and is used in military and government environments."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": [
+      "MAC (mandatory access control)",
+      "Security labels"
+     ]
     },
     {
      "q": "Which pair of Diameter messages acts as a keepalive between two Diameter peers?",
@@ -244,7 +292,9 @@
        "why": "AA-Request and AA-Answer carry the user's credentials and the authentication result."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. AAA Protocols",
+     "cards": []
     },
     {
      "q": "In a distributed Cisco ISE deployment, which node persona makes the policy decisions and is the only persona that network devices and endpoints communicate with?",
@@ -266,7 +316,12 @@
        "why": "The IPN is an older ISE node whose role CoA has made unnecessary; it is not the decision-making persona."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "9. ISE Design",
+     "cards": [
+      "PSN (Policy Service Node)",
+      "Cisco ISE (Identity Services Engine)"
+     ]
     },
     {
      "q": "A developer plans to place a user's password inside the payload of a JWT because the token is signed. Why is this a bad idea?",
@@ -288,7 +343,11 @@
        "why": "JWTs are stateless; the server does not store session data for them."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "JWT (JSON Web Token)"
+     ]
     },
     {
      "q": "A switch port connects a network printer that has no 802.1X supplicant. Which method lets the switch authenticate the printer using its hardware address as the identity?",
@@ -310,7 +369,13 @@
        "why": "Correct. MAB uses the endpoint's MAC address as its identity for devices with no supplicant, though MACs are easy to spoof."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "MAB (MAC Authentication Bypass)",
+      "MAC (mandatory access control)",
+      "Authentication"
+     ]
     },
     {
      "q": "Which RFC defines RADIUS authentication and authorization?",
@@ -332,7 +397,12 @@
        "why": "RFC 7155 defines the Diameter Network Access Server Application."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RFC 2865",
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "An access port connects an IP phone with a PC plugged into the phone. The engineer wants exactly one authenticated device in the voice domain and one in the data domain. Which host mode should be configured?",
@@ -354,7 +424,12 @@
        "why": "Open Authentication lets traffic flow before authentication; it is not a host mode that limits devices per domain."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "Authentication",
+      "MAC (mandatory access control)"
+     ]
     },
     {
      "q": "Which technologies does the current version of Cisco pxGrid use to share context between platforms?",
@@ -376,7 +451,12 @@
        "why": "SXP shares IP-to-SGT mappings in TrustSec; it is not the pxGrid transport."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Cisco ISE",
+     "cards": [
+      "WebSocket",
+      "pxGrid (Platform Exchange Grid)"
+     ]
     },
     {
      "q": "During a TACACS+ authentication exchange, which packet does the access server send first?",
@@ -398,7 +478,11 @@
        "why": "Correct. The access server begins authentication with START, then the server answers with REPLY."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "TACACS+ (Terminal Access Controller Access-Control System Plus)"
+     ]
     },
     {
      "q": "Which Cisco ISE posture agent installs nothing permanent on the endpoint, checks only limited conditions, and is typically used for guests?",
@@ -420,7 +504,11 @@
        "why": "Duo Security Checkup checks the posture of a user's phone; it is not an ISE posture agent."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": [
+      "Cisco ISE (Identity Services Engine)"
+     ]
     },
     {
      "q": "A security manager discovers that the administrators who manage the servers also review the audit logs for those servers. Which principle is being violated?",
@@ -442,7 +530,11 @@
        "why": "Implicit deny means anything not explicitly allowed is denied; it does not address who reviews logs."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Separation of duties"
+     ]
     }
    ]
   },
@@ -469,7 +561,11 @@
        "why": "TCP 49 is the TACACS+ port, which TACACS+ uses for all three AAA functions."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "Which part of a RADIUS ACCESS-REQUEST packet is encrypted?",
@@ -491,7 +587,11 @@
        "why": "VSAs (attribute 26) carry vendor extensions and are not the part RADIUS encrypts."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "When comparing biometric systems, what does the crossover error rate (CER) represent?",
@@ -513,7 +613,11 @@
        "why": "Correct. The CER (or EER) is where FRR equals FAR, and a lower CER means a more accurate system."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "CER (crossover error rate) / EER (equal error rate)"
+     ]
     },
     {
      "q": "A company's login requires a password and then a separate PIN. How is this method classified?",
@@ -535,7 +639,13 @@
        "why": "Passwordless authentication replaces the password with SMS codes, magic links, or biometrics; this method still uses a password."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "Multilayer authentication",
+      "Authentication",
+      "Multifactor authentication (MFA)"
+     ]
     },
     {
      "q": "A mobile app needs to post photos to a user's cloud storage account on the user's behalf without ever learning the user's password. Which framework is designed for this?",
@@ -557,7 +667,12 @@
        "why": "WS-Federation is Microsoft's federation standard used with Windows Identity Foundation, not an app delegation framework."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "OAuth 2.0",
+      "Access token"
+     ]
     },
     {
      "q": "Where is the Security Group Tag carried when Cisco TrustSec tags traffic inline?",
@@ -579,7 +694,13 @@
        "why": "Correct. The SGT is embedded in the CMD field of the Layer 2 frame."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Cisco TrustSec",
+     "cards": [
+      "CMD (Cisco Metadata)",
+      "SGT (Security Group Tag)",
+      "Cisco TrustSec"
+     ]
     },
     {
      "q": "Which EAP method is certificate-based?",
@@ -601,7 +722,12 @@
        "why": "PAP sends a username and password and is not certificate-based."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. 802.1X",
+     "cards": [
+      "EAP-TLS",
+      "EAP (Extensible Authentication Protocol)"
+     ]
     },
     {
      "q": "What is the effect of the global command dot1x system-auth-control on a Cisco switch?",
@@ -623,7 +749,12 @@
        "why": "Endpoint IP tracking for dACLs is done by ip device tracking."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "802.1X",
+      "dot1x system-auth-control"
+     ]
     },
     {
      "q": "ISE sends a Disconnect-Request to a switch to end a session. Which responses can the switch send back?",
@@ -645,7 +776,9 @@
        "why": "ACCOUNTING-RESPONSE answers an ACCOUNTING-REQUEST in the accounting exchange."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": []
     },
     {
      "q": "Derek is placed in the Engineer group and automatically receives the permissions assigned to that group, and he cannot be given permissions outside it. Which access control model is in use?",
@@ -667,7 +800,11 @@
        "why": "Correct. In RBAC permissions are assigned to roles and users inherit them, so Derek gets the Engineer role's permissions only."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "RBAC (role-based access control)"
+     ]
     },
     {
      "q": "Which transport protocols can Diameter use?",
@@ -689,7 +826,11 @@
        "why": "DTLS is one of the Diameter security options, but the transport is TCP or SCTP."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "Which Cisco ISE node persona collects logs and alarms from the deployment?",
@@ -711,7 +852,12 @@
        "why": "The SAN is the backup administration node, not the log collector."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "9. ISE Design",
+     "cards": [
+      "MNT (Monitoring and Troubleshooting node)",
+      "Cisco ISE (Identity Services Engine)"
+     ]
     },
     {
      "q": "What is the key difference between a memory card and a smartcard?",
@@ -733,7 +879,13 @@
        "why": "Correct. A memory card stores information such as a hashed PIN but cannot process it, while a smartcard can hold a private key, generate an OTP, or answer a challenge."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Memory card",
+      "Smartcard",
+      "OTP (one-time password)"
+     ]
     },
     {
      "q": "In what order does Flex-Auth try authentication methods on a port?",
@@ -755,7 +907,13 @@
        "why": "MAB comes before WebAuth in Flex-Auth."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "MAB (MAC Authentication Bypass)",
+      "WebAuth",
+      "802.1X"
+     ]
     },
     {
      "q": "Which RFC defines the Diameter base protocol?",
@@ -777,7 +935,11 @@
        "why": "RFC 2866 defines RADIUS accounting."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RFC 6733"
+     ]
     },
     {
      "q": "During the early phases of a TrustSec deployment, an engineer wants a port to support an unlimited number of MAC addresses, each authenticated separately. Which host mode is the best practice?",
@@ -799,7 +961,11 @@
        "why": "Port Security is not an 802.1X host mode and is not compatible with 802.1X."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "MAC (mandatory access control)"
+     ]
     },
     {
      "q": "Which Duo component acts as an on-premises SAML 2.0 identity provider to protect cloud applications such as Office 365, Google Apps, and AWS?",
@@ -821,7 +987,13 @@
        "why": "Correct. Duo Access Gateway is an on-premises SAML 2.0 IdP that protects cloud apps and talks to them over TCP 443."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Duo Access Gateway",
+      "SAML (Security Assertion Markup Language)",
+      "IdP (identity provider)"
+     ]
     },
     {
      "q": "What is the correct order of the four 802.1X phases?",
@@ -843,7 +1015,13 @@
        "why": "Initiation is the first phase, not the third."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. 802.1X",
+     "cards": [
+      "Authentication",
+      "Authorization",
+      "Accounting"
+     ]
     },
     {
      "q": "Which ISE posture agent provides automatic remediation and passive reassessment?",
@@ -865,7 +1043,9 @@
        "why": "A supplicant handles 802.1X authentication; supplicant-only mode is not one of the posture agent options in the chapter."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": []
     },
     {
      "q": "A firewall policy allows only the traffic listed in its rules and blocks everything else without a specific rule for it. Which principle does this describe?",
@@ -887,7 +1067,11 @@
        "why": "Need to know limits access to information required for a task; it is not a rule-matching default."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Cisco ISE",
+     "cards": [
+      "Implicit deny"
+     ]
     }
    ]
   },
@@ -914,7 +1098,11 @@
        "why": "UDP 3799 is the CoA port and 3868 is commonly used by Diameter, not legacy RADIUS."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "An organization wants device administrators to authenticate against one AAA server while command authorization is handled by a different server. Which protocol characteristic makes this possible with TACACS+?",
@@ -936,7 +1124,13 @@
        "why": "Proxy, relay, redirect, and translation agents are Diameter features, not TACACS+."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "TACACS+ (Terminal Access Controller Access-Control System Plus)",
+      "Authentication",
+      "Authorization"
+     ]
     },
     {
      "q": "A fingerprint reader repeatedly refuses to let a legitimate, enrolled employee log in. What type of error is this?",
@@ -958,7 +1152,11 @@
        "why": "Correct. Rejecting a valid user is a Type I error, or false rejection, measured by the false rejection rate."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Type I error (false rejection)"
+     ]
     },
     {
      "q": "Why do out-of-wallet question sets often include a red herring question that has no correct answer?",
@@ -980,7 +1178,9 @@
        "why": "A cognitive password uses facts or opinions only the user knows, such as a favorite color; it is a different technique."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": []
     },
     {
      "q": "Which statement correctly describes OpenID Connect (OIDC)?",
@@ -1002,7 +1202,13 @@
        "why": "That describes WS-Federation."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Authentication",
+      "OAuth 2.0",
+      "OIDC (OpenID Connect)"
+     ]
     },
     {
      "q": "In Cisco TrustSec, where are SGTs applied and where are SGACLs enforced?",
@@ -1024,7 +1230,13 @@
        "why": "The supplicant does not tag traffic; network devices apply SGTs at ingress."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "5. Cisco TrustSec",
+     "cards": [
+      "Cisco TrustSec",
+      "DGT (destination group tag)",
+      "SGT (Security Group Tag)"
+     ]
     },
     {
      "q": "An access switch in a TrustSec network does not support SGT tagging in hardware. Which protocol can it use to share IP-to-SGT mappings with an upstream device that can enforce SGACLs?",
@@ -1046,7 +1258,12 @@
        "why": "Correct. SXP shares IP-to-SGT mappings with devices that cannot tag in hardware."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Cisco TrustSec",
+     "cards": [
+      "SXP (SGT Exchange Protocol)",
+      "SGT (Security Group Tag)"
+     ]
     },
     {
      "q": "What does the command radius-server dead-criteria time 5 tries 3 do?",
@@ -1068,7 +1285,12 @@
        "why": "EAP-Identity-Request spacing is set per port with dot1x timeout tx-period."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)",
+      "radius-server dead-criteria time 5 tries 3"
+     ]
     },
     {
      "q": "Which global switch command enables Change of Authorization so that Cisco ISE can modify active sessions?",
@@ -1090,7 +1312,13 @@
        "why": "This keeps one session ID across all AAA messages for a session."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": [
+      "aaa server radius dynamic-author",
+      "Cisco ISE (Identity Services Engine)",
+      "CoA (Change of Authorization)"
+     ]
     },
     {
      "q": "John receives read permission on the Income Tax folder through the Accounting group and is separately granted write permission by the folder's owner. Under discretionary access control, what is his effective access?",
@@ -1112,7 +1340,12 @@
        "why": "There is no conflict here; implicit deny applies only to access that is not explicitly allowed."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "DAC (discretionary access control)",
+      "DAC (Dynamic Authorization Client)"
+     ]
     },
     {
      "q": "In Diameter network access, which messages carry the user's credentials and the authentication result?",
@@ -1134,7 +1367,9 @@
        "why": "Correct. The AA-Request carries the user's credentials and the AA-Answer returns the result."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. AAA Protocols",
+     "cards": []
     },
     {
      "q": "Which Cisco ISE persona provides the primary administration interface?",
@@ -1156,7 +1391,13 @@
        "why": "pxGrid shares context with other platforms; it is not the administration persona."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "9. ISE Design",
+     "cards": [
+      "PAN (Policy Administration Node)",
+      "Cisco ISE (Identity Services Engine)",
+      "SAN (Secondary Administration Node)"
+     ]
     },
     {
      "q": "Which of the following is a behavioral biometric rather than a physical one?",
@@ -1178,7 +1419,9 @@
        "why": "Blood or vascular patterns are physical characteristics."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": []
     },
     {
      "q": "Why does the WEBAUTH-REDIRECT ACL in the chapter begin with deny udp any any eq 53?",
@@ -1200,7 +1443,12 @@
        "why": "TFTP uses UDP 69 and is allowed in the LOW_IMPACT ACL; port 53 is DNS."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. 802.1X",
+     "cards": [
+      "ACL (access control list)",
+      "WEBAUTH-REDIRECT"
+     ]
     },
     {
      "q": "Which RFC defines RADIUS accounting?",
@@ -1222,7 +1470,12 @@
        "why": "Correct. RFC 2866 defines RADIUS accounting."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RFC 2866",
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "Thin clients on a network need to PXE boot before they can run an 802.1X supplicant. Which port setting lets all traffic flow before authentication completes?",
@@ -1244,7 +1497,11 @@
        "why": "This enables periodic reauthentication, not open access before authentication."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "no access-session closed"
+     ]
     },
     {
      "q": "A company using Duo wants to allow access only from endpoints that meet a Trusted Endpoints posture policy. Which Duo edition adds this capability?",
@@ -1266,7 +1523,11 @@
        "why": "Duo Security Checkup checks the posture of the user's phone; it is not a Duo edition."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": [
+      "Duo Beyond"
+     ]
     },
     {
      "q": "What is the correct order of messages in a Diameter network access flow?",
@@ -1288,7 +1549,11 @@
        "why": "Correct. The access server sends CER with Auth-Application-Id 1, the server sends CEA, then AAR carries the credentials and AAA returns the result."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "CER (crossover error rate) / EER (equal error rate)"
+     ]
     },
     {
      "q": "In Threat-Centric NAC, how is CoA triggered for vulnerability events compared with threat events?",
@@ -1310,7 +1575,12 @@
        "why": "Vulnerability events, which carry CVSS scores, trigger CoA automatically."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": [
+      "CoA (Change of Authorization)",
+      "TC-NAC (Threat-Centric NAC)"
+     ]
     },
     {
      "q": "A database administrator creates a view so that users can see only the rows of a table that relate to their own region. Which type of access control is this?",
@@ -1332,7 +1602,11 @@
        "why": "Rule-based control uses criteria independent of the user, such as time or location, rather than the data content."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Cisco TrustSec",
+     "cards": [
+      "Content-dependent access control"
+     ]
     }
    ]
   },
@@ -1359,7 +1633,13 @@
        "why": "Attribute 92 is NAS-Filter-Rule, another filter attribute used with CoA."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "7. Configuring TACACS+ Device Administration",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)",
+      "VSA (vendor-specific attribute)",
+      "RADIUS attribute 26"
+     ]
     },
     {
      "q": "A wireless user authenticates with RADIUS and the server must place the user in a specific VLAN. How does RADIUS deliver that VLAN assignment?",
@@ -1381,7 +1661,13 @@
        "why": "CONTINUE is a TACACS+ authentication packet sent by the access server, not a RADIUS message."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "Authorization",
+      "RADIUS (Remote Authentication Dial-In User Service)",
+      "ACL (access control list)"
+     ]
     },
     {
      "q": "What does a RADIUS server indicate when it sends an ACCESS-CHALLENGE?",
@@ -1403,7 +1689,11 @@
        "why": "Correct. ACCESS-CHALLENGE asks for more information, and the client replies with a new ACCESS-REQUEST."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "What are the three parts of a JSON Web Token, in order?",
@@ -1425,7 +1715,11 @@
        "why": "Assertions, protocols, and bindings are SAML concepts, not JWT parts."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "JWT (JSON Web Token)"
+     ]
     },
     {
      "q": "A consumer website wants to let visitors sign in with their existing Google or Facebook accounts using JSON-based tokens over REST. Which standard is most commonly used for this?",
@@ -1447,7 +1741,13 @@
        "why": "Kerberos is ticket-based authentication inside a domain, not consumer web social login."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "OIDC (OpenID Connect)",
+      "IdP (identity provider)",
+      "Social IdP"
+     ]
     },
     {
      "q": "A security architect wants to divide the network into small isolated zones based on identity and context to shrink the attack surface. Which zero trust feature is this?",
@@ -1469,7 +1769,11 @@
        "why": "Policy-based control enforces security and compliance requirements, not network zoning specifically."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Zero trust"
+     ]
     },
     {
      "q": "Which IEEE standard provides the Layer 2 link encryption used by Cisco TrustSec?",
@@ -1491,7 +1795,12 @@
        "why": "Correct. 802.1AE is MACsec, the Layer 2 link encryption TrustSec uses."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Cisco TrustSec",
+     "cards": [
+      "MACsec (802.1AE)",
+      "Cisco TrustSec"
+     ]
     },
     {
      "q": "What does the switch command aaa accounting update newinfo periodic 1440 do?",
@@ -1513,7 +1822,12 @@
        "why": "Dead server detection is set with radius-server dead-criteria."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "Accounting",
+      "aaa accounting update newinfo periodic 1440"
+     ]
     },
     {
      "q": "Which global switch command is required for downloadable ACLs to work because it tracks endpoint IP addresses?",
@@ -1535,7 +1849,12 @@
        "why": "This enables 802.1X globally but does not track endpoint IP addresses."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. 802.1X",
+     "cards": [
+      "ip device tracking",
+      "dACL (downloadable ACL)"
+     ]
     },
     {
      "q": "Which access control model evaluates Boolean rules over attributes of the subject, object, operation, and environment, and is commonly expressed with XACML?",
@@ -1557,7 +1876,12 @@
        "why": "Correct. ABAC uses Boolean rules over subject, object, operation, and environment attributes, and XACML is the standard used to express ABAC policies."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Cisco ISE",
+     "cards": [
+      "ABAC (attribute-based access control)",
+      "XACML (eXtensible Access Control Markup Language)"
+     ]
     },
     {
      "q": "In the Diameter network access flow, which value does the access server send in the CER to identify the Diameter NAS application?",
@@ -1579,7 +1903,13 @@
        "why": "43 is the RADIUS CoA-Request packet code, not a Diameter application ID."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "Auth-Application-Id = 1",
+      "CER (crossover error rate) / EER (equal error rate)",
+      "NAS (network access server)"
+     ]
     },
     {
      "q": "An organization wants a simple Cisco ISE deployment with two nodes in an active-standby pair, with data replicated from the primary to the secondary. Which deployment model is this?",
@@ -1601,7 +1931,11 @@
        "why": "Multitenancy means one service instance serves many customers, as in SaaS; it is not an ISE deployment model."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "9. ISE Design",
+     "cards": [
+      "Cisco ISE (Identity Services Engine)"
+     ]
     },
     {
      "q": "An analyst holds a Top Secret clearance but is allowed to open only the reports required for her current assignment. Which principle is being applied?",
@@ -1623,7 +1957,11 @@
        "why": "Multilayer authentication uses two of the same factor type; it is about proving identity, not limiting access."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Need to know"
+     ]
     },
     {
      "q": "Which statement about C3PL on Cisco switches is true?",
@@ -1645,7 +1983,11 @@
        "why": "A C3PL benefit is that the configuration exists in memory only once."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "C3PL (Cisco Common Classification Policy Language)"
+     ]
     },
     {
      "q": "Which RFC defines the Diameter Network Access Server Application?",
@@ -1667,7 +2009,12 @@
        "why": "Correct. RFC 7155 defines the Diameter Network Access Server Application."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RFC 7155",
+      "NAS (network access server)"
+     ]
     },
     {
      "q": "What is the default 802.1X host mode on a Cisco switch port?",
@@ -1689,7 +2036,11 @@
        "why": "Open Authentication lets traffic flow before authentication and is enabled with no access-session closed; it is not the default host mode."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "MAC (mandatory access control)"
+     ]
     },
     {
      "q": "A small business wants to try Cisco Duo MFA at no cost. What is the user limit of the Duo free tier?",
@@ -1711,7 +2062,13 @@
        "why": "100 users is far above the free tier limit of 10 users."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Multifactor authentication (MFA)",
+      "Duo free tier",
+      "Cisco Duo"
+     ]
     },
     {
      "q": "In the VPN posture flow, what happens immediately after AnyConnect checks the client against the posture rules?",
@@ -1733,7 +2090,11 @@
        "why": "Correct. After AnyConnect checks patches, antivirus, services, applications, and registry entries, the results go to ISE, which then sends a CoA if compliant."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "6. Posture Assessment and Change of Authorization",
+     "cards": [
+      "CoA (Change of Authorization)"
+     ]
     },
     {
      "q": "Why will a downloadable ACL applied to a session not appear when an engineer later saves the switch configuration?",
@@ -1755,7 +2116,12 @@
        "why": "VLAN ACLs filter traffic entering a VLAN and are configured separately; dACLs are not converted into them."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "dACL (downloadable ACL)",
+      "ACL (access control list)"
+     ]
     },
     {
      "q": "A company wants contractors to reach the internal network only between 8 a.m. and 6 p.m., regardless of who the contractor is. Which access control model uses criteria like this?",
@@ -1777,7 +2143,11 @@
        "why": "Object capability grants access through an unforgeable reference plus an operational message."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. 802.1X",
+     "cards": [
+      "Rule-based access control"
+     ]
     }
    ]
   },
@@ -1804,7 +2174,11 @@
        "why": "Correct. CoA-Request uses RADIUS packet code 43 and Disconnect-Request uses code 40."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "In RADIUS terminology, which device is the RADIUS client?",
@@ -1826,7 +2200,12 @@
        "why": "Active Directory can be an identity source behind the RADIUS server, but it is not the RADIUS client."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "NAS (network access server)",
+      "RADIUS (Remote Authentication Dial-In User Service)"
+     ]
     },
     {
      "q": "According to NIST SP 800-63B as summarized in the chapter, which control helps stop online password guessing?",
@@ -1848,7 +2227,12 @@
        "why": "Clear-text passwords make attacks easier and are not a NIST recommendation."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "SP (service provider)",
+      "NIST SP 800-63B"
+     ]
     },
     {
      "q": "After entering a password, a user receives a text message on a registered cell phone with a code to complete the login. Which concept does the text message illustrate?",
@@ -1870,7 +2254,12 @@
        "why": "A memory card stores a hashed PIN on a magnetic strip, like an ATM card; no card is used here."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. AAA Protocols",
+     "cards": [
+      "Out-of-band authentication",
+      "Authentication"
+     ]
     },
     {
      "q": "Two separate companies want their employees to use their own corporate credentials to access each other's partner portals, with each company trusting the other's identities. Which arrangement provides this?",
@@ -1892,7 +2281,12 @@
        "why": "DAC is an authorization model where object owners decide access; it does not create cross-organization identity trust."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Federated Identity Management (FIM)",
+      "Federated identity"
+     ]
     },
     {
      "q": "What is Google BeyondCorp?",
@@ -1914,7 +2308,11 @@
        "why": "Correct. BeyondCorp is Google's zero-trust model that moves access control from the network perimeter to individual devices and users."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Google BeyondCorp"
+     ]
     },
     {
      "q": "A stateful firewall allows return traffic only when it belongs to a session that an inside host started. Which type of access control is this?",
@@ -1936,7 +2334,11 @@
        "why": "DAC lets the object owner decide access; it does not track sessions."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Context-dependent access control"
+     ]
     },
     {
      "q": "An engineer configures ip radius source-interface GigabitEthernet1/8 on a switch. What requirement must be met in Cisco ISE?",
@@ -1958,7 +2360,13 @@
        "why": "access-session port-control auto turns on authentication for access ports; it is not tied to the RADIUS source interface."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "Object",
+      "ip radius source-interface GigabitEthernet1/8",
+      "Cisco ISE (Identity Services Engine)"
+     ]
     },
     {
      "q": "What does the command radius-server deadtime 15 do?",
@@ -1980,7 +2388,12 @@
        "why": "Correct. radius-server deadtime 15 makes the switch wait 15 minutes before retrying a server marked dead."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Configuring TACACS+ Device Administration",
+     "cards": [
+      "RADIUS (Remote Authentication Dial-In User Service)",
+      "radius-server deadtime 15"
+     ]
     },
     {
      "q": "The ISE cluster becomes unreachable. A switch running a C3PL control policy should still give authenticating endpoints limited access instead of locking them out. Which configuration element provides this?",
@@ -2002,7 +2415,13 @@
        "why": "This sets the interval between EAP-Identity-Requests; it does not provide access when RADIUS is down."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "Service template",
+      "C3PL (Cisco Common Classification Policy Language)",
+      "ACL (access control list)"
+     ]
     },
     {
      "q": "How does a Diameter message indicate that it is a REQUEST rather than an ANSWER?",
@@ -2024,7 +2443,9 @@
        "why": "Attribute 26 is the RADIUS vendor-specific attribute and does not mark a Diameter request."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. AAA Protocols",
+     "cards": []
     },
     {
      "q": "Which policy matching method is most common in Cisco ISE?",
@@ -2046,7 +2467,11 @@
        "why": "Correct. First-match, where the first rule that matches wins, is the most common, with a default catch-all at the bottom."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Cisco ISE",
+     "cards": [
+      "Cisco ISE (Identity Services Engine)"
+     ]
     },
     {
      "q": "How does a capability table differ from an access control list?",
@@ -2068,7 +2493,13 @@
        "why": "Network ACLs are the ones that match on the 5-tuple, and ACLs can protect files too."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. 802.1X",
+     "cards": [
+      "ACL (access control list)",
+      "Capability table",
+      "Subject"
+     ]
     },
     {
      "q": "In an access control matrix (ACM), what are the rows and columns, and which model is it associated with?",
@@ -2090,7 +2521,13 @@
        "why": "ABAC uses Boolean rules over attributes, not a subject-by-object matrix."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Introduction to AAA",
+     "cards": [
+      "DAC (discretionary access control)",
+      "DAC (Dynamic Authorization Client)",
+      "Subject"
+     ]
     },
     {
      "q": "What is the standards status of TACACS+ described in the chapter?",
@@ -2112,7 +2549,12 @@
        "why": "Correct. TACACS+ has an IETF draft, but it is still Cisco proprietary despite years of efforts to make it an RFC."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Configuring TACACS+ Device Administration",
+     "cards": [
+      "draft-ietf-opsawg-tacacs-13",
+      "TACACS+ (Terminal Access Controller Access-Control System Plus)"
+     ]
     },
     {
      "q": "An engineer plans to enable Port Security alongside 802.1X on the same access ports. What should the engineer know?",
@@ -2134,7 +2576,11 @@
        "why": "MDA is an 802.1X host mode with one data and one voice MAC; it is not Port Security."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Configuring RADIUS and 802.1X on a Switch",
+     "cards": [
+      "802.1X"
+     ]
     },
     {
      "q": "Which authentication method is recommended for pxGrid clients connecting to Cisco ISE?",
@@ -2156,7 +2602,12 @@
        "why": "SGTs classify traffic for segmentation; they do not authenticate pxGrid clients."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. Cisco ISE",
+     "cards": [
+      "Cisco ISE (Identity Services Engine)",
+      "pxGrid (Platform Exchange Grid)"
+     ]
     },
     {
      "q": "What is the correct order of the Cisco TrustSec three-step authentication process?",
@@ -2178,7 +2629,13 @@
        "why": "Correct. TrustSec authenticates with 802.1X, authorizes with the SGT, and then negotiates the security association and link encryption."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Cisco TrustSec",
+     "cards": [
+      "SGT (Security Group Tag)",
+      "Authorization",
+      "802.1X"
+     ]
     },
     {
      "q": "How does replication work between Cisco ISE nodes?",
@@ -2200,7 +2657,11 @@
        "why": "pxGrid shares context with other platforms; it is not how ISE nodes replicate configuration."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "9. ISE Design",
+     "cards": [
+      "Cisco ISE (Identity Services Engine)"
+     ]
     },
     {
      "q": "While testing TACACS+ on router R1, the engineer runs debug tacacs and sees that ISE does not answer. What does the router do?",
@@ -2222,7 +2683,12 @@
        "why": "15 minutes is the radius-server deadtime on the switch, not the TACACS+ fallback behavior on R1."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Configuring TACACS+ Device Administration",
+     "cards": [
+      "TACACS+ (Terminal Access Controller Access-Control System Plus)",
+      "debug tacacs"
+     ]
     }
    ]
   }

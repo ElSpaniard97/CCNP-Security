@@ -24,7 +24,12 @@
        "why": "Wrong. Flows are separated by their key fields such as the five-tuple, not by interface and timer; the active timeout only controls when long flows are exported."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Configuring NetFlow in Cisco IOS and Cisco IOS-XE",
+     "cards": [
+      "Five-tuple",
+      "NetFlow"
+     ]
     },
     {
      "q": "An engineer is building a Flexible NetFlow record and wants the IPv4 destination address to be a key field, so that each new destination creates a new flow. Which command should be used in flow record configuration mode?",
@@ -46,7 +51,13 @@
        "why": "Wrong. The collect command defines non-key fields, which are recorded as extra information and never create a new flow."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. NetFlow",
+     "cards": [
+      "match ipv4 destination address",
+      "Flow record (NetFlow PDU)",
+      "Flexible NetFlow"
+     ]
     },
     {
      "q": "Which port is the default for IPFIX export?",
@@ -68,7 +79,12 @@
        "why": "Wrong. UDP 4740 is used for IPFIX over TLS or DTLS, not plain IPFIX."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "IPFIX (IP Flow Information Export)",
+      "SCTP (Stream Control Transmission Protocol)"
+     ]
     },
     {
      "q": "Which Cisco Secure Network Analytics component is the main management application, providing dashboards and flow and event correlation?",
@@ -90,7 +106,12 @@
        "why": "Correct. The Management Console (formerly SMC) is the main management application with dashboards and correlation of flows and events."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+     "cards": [
+      "Management Console (SMC, Stealthwatch Management Console)",
+      "Cisco Secure Network Analytics"
+     ]
     },
     {
      "q": "A company's legacy access switches cannot produce line-rate, unsampled NetFlow. The security team still wants flow visibility for those users in Secure Network Analytics. What should they deploy?",
@@ -112,7 +133,13 @@
        "why": "Correct. A FlowSensor generates NetFlow from mirrored traffic when legacy devices cannot, and it works with a FlowCollector."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "SPAN (Switched Port Analyzer)",
+      "TAP (Test Access Port)",
+      "FlowSensor"
+     ]
     },
     {
      "q": "Which NetFlow version introduced support for IPv6, MPLS, and BGP next hop?",
@@ -134,7 +161,11 @@
        "why": "Wrong. Version 7 is obsolete and is known for introducing a source router field."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "Which RFC documents NetFlow version 9?",
@@ -156,7 +187,12 @@
        "why": "Wrong. RFC 5103 is listed with the IPFIX RFCs, not as the NetFlow version 9 document."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. NetFlow",
+     "cards": [
+      "RFC 3954",
+      "NetFlow"
+     ]
     },
     {
      "q": "In the IPFIX architecture, which entity collects IPFIX streams, transforms them, and re-exports them to one or more collectors?",
@@ -178,7 +214,13 @@
        "why": "Wrong. A collecting process only receives records from one or more exporting processes."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "Mediator",
+      "IPFIX (IP Flow Information Export)",
+      "ImP (intermediate process)"
+     ]
     },
     {
      "q": "Which list orders the network segment types correctly from the inside out?",
@@ -200,7 +242,11 @@
        "why": "Wrong. The semi-trusted DMZ comes before the guest network in the inside-out order."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "10. Introduction to Network Segmentation",
+     "cards": [
+      "Semi-trusted network (perimeter network or DMZ)"
+     ]
     },
     {
      "q": "An engineer needs to turn on SGT policy enforcement for Layer 2 interfaces in specific VLANs on a switch. Which command should be used?",
@@ -222,7 +268,12 @@
        "why": "Wrong. The command without vlan-list turns on enforcement for Layer 3 interfaces."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "cts role-based enforcement",
+      "SGT (Security Group Tag, also Scalable Group Tag)"
+     ]
     },
     {
      "q": "Which transport and port does SXP use between peers?",
@@ -244,7 +295,11 @@
        "why": "Wrong. UDP 1812 is RADIUS authentication, which ISE uses with network devices, not SXP."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "SXP (Scalable Group Tag Exchange Protocol)"
+     ]
     },
     {
      "q": "Which statement about SXP connections is true?",
@@ -266,7 +321,12 @@
        "why": "Wrong. SXP uses TCP between two devices."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "SXP (Scalable Group Tag Exchange Protocol)",
+      "end"
+     ]
     },
     {
      "q": "In Cisco ACI, how do endpoints within the same EPG communicate by default?",
@@ -288,7 +348,13 @@
        "why": "Correct. By default all endpoints in an EPG can communicate, which is why uSeg EPGs are used to split them for granular policy."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "11. Micro-segmentation with Cisco ACI",
+     "cards": [
+      "EPG (endpoint group)",
+      "Cisco ACI (Application Centric Infrastructure)",
+      "uSeg EPG (micro-segment EPG)"
+     ]
     },
     {
      "q": "A security team needs to detect malware communications hidden in encrypted traffic without decrypting any packets. Which Cisco solution is designed for this?",
@@ -310,7 +376,11 @@
        "why": "Correct. ETA uses passive monitoring, data element extraction, behavioral modeling, and machine learning to find malware in encrypted traffic without decryption."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "6. Cisco Cognitive Intelligence and Encrypted Traffic Analytics (ETA)",
+     "cards": [
+      "Cisco ETA (Encrypted Traffic Analytics)"
+     ]
     },
     {
      "q": "Which statement about the Flexible NetFlow immediate cache is true?",
@@ -332,7 +402,13 @@
        "why": "Correct. The immediate cache creates a flow per packet, produces a lot of export data, and is useful for real-time monitoring and DDoS detection."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. NetFlow",
+     "cards": [
+      "Flow",
+      "Flexible NetFlow",
+      "Immediate cache"
+     ]
     },
     {
      "q": "In Cisco Secure Cloud Analytics dynamic entity modeling, which statement about observations is true?",
@@ -354,7 +430,13 @@
        "why": "Wrong. That is a host group."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. NetFlow",
+     "cards": [
+      "Observation",
+      "Entity",
+      "Monitor > Dashboard (Secure Cloud Analytics)"
+     ]
     },
     {
      "q": "In the NIST incident handling process, which phase comes directly after detection and analysis?",
@@ -376,7 +458,9 @@
        "why": "Wrong. Post-incident activity (postmortem and lessons learned) is the last phase, after containment, eradication, and recovery."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. NetFlow",
+     "cards": []
     },
     {
      "q": "A remote employee runs Cisco Secure Client with the Network Visibility Module (NVM) while working from a hotel, off the trusted network. What does NVM do with the flow data it collects there?",
@@ -398,7 +482,13 @@
        "why": "Wrong. NVM sends its flows to Secure Network Analytics on the trusted network; a FlowReplicator is an appliance the organization deploys."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "Trusted network",
+      "NVM (Cisco Secure Client Network Visibility Module)",
+      "Cisco Secure Client"
+     ]
     },
     {
      "q": "According to the book, what is the correct order of steps to configure Flexible NetFlow in Cisco IOS and IOS-XE?",
@@ -420,7 +510,13 @@
        "why": "Wrong. The record must exist before the monitor that references it."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "9. Configuring NetFlow in NX-OS",
+     "cards": [
+      "Flow record (NetFlow PDU)",
+      "Flow exporter",
+      "Flow monitor"
+     ]
     },
     {
      "q": "What does the N times R problem describe in network segmentation?",
@@ -442,7 +538,13 @@
        "why": "Wrong. Using ISE as a speaker simplifies SGT propagation, but that is not what the N times R problem describes."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "10. Introduction to Network Segmentation",
+     "cards": [
+      "Network segmentation",
+      "N times R problem",
+      "N plus R relationship"
+     ]
     }
    ]
   },
@@ -469,7 +571,12 @@
        "why": "Wrong. The destination IP address is one of the five-tuple fields."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. NetFlow",
+     "cards": [
+      "Five-tuple",
+      "NetFlow"
+     ]
     },
     {
      "q": "Which concept uses Cisco TrustSec segmentation and user access control so that even a successful attack is contained to one segment?",
@@ -491,7 +598,11 @@
        "why": "Wrong. Threat hunting is actively searching for advanced threats based on a hypothesis, not a containment control."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. NetFlow",
+     "cards": [
+      "Network as an enforcer"
+     ]
     },
     {
      "q": "A compromised host in the call center pulls sensitive data from a data center server and sends it out to the attacker's command-and-control server. What type of attack is this?",
@@ -513,7 +624,11 @@
        "why": "Wrong. A zero-day exploit targets an unknown vulnerability; it describes how a host may be compromised, not this data relay pattern."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. NetFlow",
+     "cards": [
+      "Stepping-stone attack"
+     ]
     },
     {
      "q": "Which transport does IPFIX prefer?",
@@ -535,7 +650,12 @@
        "why": "Wrong. UDP is supported and is what traditional NetFlow uses, but it is not the preferred IPFIX transport."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "SCTP (Stream Control Transmission Protocol)",
+      "IPFIX (IP Flow Information Export)"
+     ]
     },
     {
      "q": "How does an IPFIX collector determine which template describes the records in a data set?",
@@ -557,7 +677,12 @@
        "why": "Wrong. IPFIX is a push protocol; the exporter sends messages without any interaction from the receiver."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "Template",
+      "IPFIX (IP Flow Information Export)"
+     ]
     },
     {
      "q": "Which technology does Cisco AVC use to identify applications with deep packet inspection of Layer 3 to Layer 7 data?",
@@ -579,7 +704,13 @@
        "why": "Wrong. CBWFQ is a QoS feature that provides guaranteed bandwidth after traffic is classified."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "NBAR2 (Network-Based Application Recognition version 2)",
+      "Cisco AVC (Application Visibility and Control)",
+      "DPI (deep packet inspection)"
+     ]
     },
     {
      "q": "Users complain of poor VoIP and TelePresence call quality. NetFlow shows other users streaming YouTube, Netflix, and Hulu at the same time. What fix does the book suggest?",
@@ -601,7 +732,11 @@
        "why": "Correct. The book's troubleshooting example fixes the problem with ACLs or QoS that gives voice and video priority."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "What is another name for the Cisco Secure Network Analytics FlowReplicator?",
@@ -623,7 +758,13 @@
        "why": "Wrong. SMC is the former name of the Management Console, the main management application."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Introduction to Network Visibility",
+     "cards": [
+      "FlowReplicator (UDP Director)",
+      "Cisco Secure Network Analytics",
+      "NetFlow"
+     ]
     },
     {
      "q": "Which statement about deploying Cisco Secure Cloud Analytics on premises is true?",
@@ -645,7 +786,13 @@
        "why": "Wrong. The book says the two modes are not mutually exclusive."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+     "cards": [
+      "Monitor > Dashboard (Secure Cloud Analytics)",
+      "IPFIX (IP Flow Information Export)",
+      "SPAN (Switched Port Analyzer)"
+     ]
     },
     {
      "q": "Which source does Cisco Secure Cloud Analytics use to collect traffic flows from Microsoft Azure?",
@@ -667,7 +814,13 @@
        "why": "Wrong. VPC Flow Logs are the flow source for Amazon AWS and Google Cloud Platform, not Azure."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+     "cards": [
+      "Flow",
+      "Monitor > Dashboard (Secure Cloud Analytics)",
+      "Cisco Secure Cloud Analytics"
+     ]
     },
     {
      "q": "In Secure Network Analytics, an alarm shows that a host received more than an acceptable number of scans or other attacks. Which index does this alarm represent?",
@@ -689,7 +842,11 @@
        "why": "Correct. The Target Index shows that a host received more than an acceptable number of scans or other attacks."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+     "cards": [
+      "Target Index"
+     ]
     },
     {
      "q": "Why has micro-segmentation become popular in virtual and container environments?",
@@ -711,7 +868,11 @@
        "why": "Correct. Micro-segmentation segments down to individual workloads, including traffic that stays inside one physical server."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "10. Introduction to Network Segmentation",
+     "cards": [
+      "Micro-segmentation"
+     ]
     },
     {
      "q": "Which attributes are network-based attributes for a Cisco ACI uSeg EPG?",
@@ -733,7 +894,13 @@
        "why": "Wrong. These are VM-based attributes."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "11. Micro-segmentation with Cisco ACI",
+     "cards": [
+      "Cisco ACI (Application Centric Infrastructure)",
+      "uSeg EPG (micro-segment EPG)",
+      "EPG (endpoint group)"
+     ]
     },
     {
      "q": "Which three personas can a Cisco ISE node run?",
@@ -755,7 +922,9 @@
        "why": "Correct. Each ISE node can run the Administration, Policy Service, or Monitoring persona, or all of them on a single node."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": []
     },
     {
      "q": "What is the default SGT value of TrustSec_Devices, the tag for the network devices themselves?",
@@ -777,7 +946,13 @@
        "why": "Wrong. In ISE's default groups, 255 is Quarantined_Systems, not TrustSec_Devices."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "SGT (Security Group Tag, also Scalable Group Tag)",
+      "TrustSec_Devices",
+      "SGT 2"
+     ]
     },
     {
      "q": "An organization is rolling out TrustSec classification and wants to use the classification precedence. Which approach does the book recommend?",
@@ -799,7 +974,11 @@
        "why": "Correct. Coarse static classification first and 802.1X later lets the more specific dynamic SGTs override it as the rollout progresses."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "Static classification"
+     ]
     },
     {
      "q": "A network uses asymmetric routing, so the two directions of some flows cross different routers. What does the book recommend for NetFlow collection?",
@@ -821,7 +1000,11 @@
        "why": "Wrong. Separate collectors would each see only part of the asymmetric traffic."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. NetFlow Collection Considerations and Best Practices",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "On a Cisco NX-OS switch, which command must be entered before any NetFlow commands are available?",
@@ -843,7 +1026,13 @@
        "why": "Wrong. This sets NetFlow version 9 under a flow exporter."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "9. Configuring NetFlow in NX-OS",
+     "cards": [
+      "feature netflow",
+      "NetFlow",
+      "enable"
+     ]
     },
     {
      "q": "Which NetFlow versions were never released to the public?",
@@ -865,7 +1054,11 @@
        "why": "Wrong. Both are released, template-based implementations in current use."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "What is the main benefit of starting a TrustSec deployment in monitor mode?",
@@ -887,7 +1080,11 @@
        "why": "Wrong. That describes enforcement mode; policies are enforced only when cts role-based enforcement is applied."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "Monitor mode"
+     ]
     }
    ]
   },
@@ -914,7 +1111,12 @@
        "why": "Correct. The attack continuum is before, during, and after, and NetFlow helps detect attacks in all three phases."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. NetFlow",
+     "cards": [
+      "Attack continuum",
+      "NetFlow"
+     ]
     },
     {
      "q": "For what purpose was NetFlow originally developed?",
@@ -936,7 +1138,11 @@
        "why": "Correct. NetFlow was originally for billing and accounting and later grew into bandwidth, capacity planning, and security uses."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "In a Flexible NetFlow record, what happens when the value of a non-key field changes between packets of an existing flow?",
@@ -958,7 +1164,13 @@
        "why": "Correct. Non-key fields such as counters are extra information; only a change in a key field creates a new flow."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Configuring NetFlow in Cisco IOS and Cisco IOS-XE",
+     "cards": [
+      "Flow",
+      "Flexible NetFlow",
+      "Non-key field"
+     ]
     },
     {
      "q": "Which statement describes the Flexible NetFlow permanent cache?",
@@ -980,7 +1192,13 @@
        "why": "Correct. The permanent cache tracks flows without expiring them, has a configurable size, and uses update counters instead of delta counters."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. NetFlow",
+     "cards": [
+      "Flow",
+      "Flexible NetFlow",
+      "Permanent cache"
+     ]
     },
     {
      "q": "What does the interface command ip flow monitor NY-ASR-FLOW-MON-1 input do?",
@@ -1002,7 +1220,13 @@
        "why": "Wrong. Export is handled by the flow exporter assigned to the monitor."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "9. Configuring NetFlow in NX-OS",
+     "cards": [
+      "Flow monitor",
+      "Flow",
+      "ip flow monitor NY-ASR-FLOW-MON-1 input"
+     ]
     },
     {
      "q": "An engineer wants a Flexible NetFlow record to identify applications using NBAR. Which command adds this to the flow record?",
@@ -1024,7 +1248,13 @@
        "why": "Wrong. This adds a non-key byte counter to the record."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. NetFlow",
+     "cards": [
+      "match application name",
+      "Flow record (NetFlow PDU)",
+      "Flexible NetFlow"
+     ]
     },
     {
      "q": "IPFIX is described as a push protocol. What does that mean?",
@@ -1046,7 +1276,12 @@
        "why": "Wrong. A mediator collects and re-exports streams, but push refers to how exporters send without receiver interaction."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "IPFIX (IP Flow Information Export)",
+      "Push protocol"
+     ]
     },
     {
      "q": "In IPFIX, which template type is used for records that describe things other than flows, such as the exporting process itself?",
@@ -1068,7 +1303,13 @@
        "why": "Wrong. A regular template describes flow data records, not information about the exporting process."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "Option template",
+      "Template",
+      "IPFIX (IP Flow Information Export)"
+     ]
     },
     {
      "q": "What does PR-SCTP provide for IPFIX?",
@@ -1090,7 +1331,13 @@
        "why": "Wrong. IPFIX over TLS or DTLS uses UDP 4740; PR-SCTP is about reliability, not encryption."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "PR-SCTP (Partial Reliability SCTP)",
+      "IPFIX (IP Flow Information Export)",
+      "SCTP (Stream Control Transmission Protocol)"
+     ]
     },
     {
      "q": "AVC on a Cisco WLC can classify client traffic from APs in which mode?",
@@ -1112,7 +1359,13 @@
        "why": "Wrong. A sniffer mode AP captures frames for analysis and does not serve client traffic."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "Enhanced local mode",
+      "Local mode",
+      "FlexConnect central switching and OEAP (OfficeExtend Access Point)"
+     ]
     },
     {
      "q": "CAPWAP, the IETF standard tunnel between a WLC and its APs, is based on which earlier protocol?",
@@ -1134,7 +1387,12 @@
        "why": "Wrong. VXLAN carries the source SGT across an SDA fabric; it is not CAPWAP's predecessor."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "LWAPP (Lightweight Access Point Protocol)",
+      "CAPWAP (Control And Provisioning of Wireless Access Points)"
+     ]
     },
     {
      "q": "Which data center layer provides the security infrastructure and virtual switching that extends network control into the hypervisor?",
@@ -1156,7 +1414,9 @@
        "why": "Wrong. The foundation is the primary building block that provides compute and transport between servers, storage, and users."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": []
     },
     {
      "q": "An engineer needs NetFlow visibility into VM-to-VM traffic inside the data center. Which platform does the book name for this?",
@@ -1178,7 +1438,11 @@
        "why": "Wrong. The Nexus 7000 and 9000 are named for traffic entering and leaving the data center."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "Cisco Secure Network Analytics was formerly known by which name?",
@@ -1200,7 +1464,11 @@
        "why": "Wrong. AnyConnect Secure Mobility Client is now Cisco Secure Client."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Introduction to Network Visibility",
+     "cards": [
+      "Cisco Secure Network Analytics"
+     ]
     },
     {
      "q": "An administrator plans to reboot the Secure Network Analytics FlowCollector during maintenance. What should they know about alarms?",
@@ -1222,7 +1490,11 @@
        "why": "Wrong. It is the reverse: rebooting deletes alarm history and replacing keeps it."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+     "cards": [
+      "FlowCollector"
+     ]
     },
     {
      "q": "A threat hunter starts with a critical system and builds a hypothesis about what an attacker could do to it and which indicators to collect. Which threat hunting method is this?",
@@ -1244,7 +1516,11 @@
        "why": "Wrong. This method starts from feeds, reports, malware analysis, and vulnerability assessment."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+     "cards": [
+      "Threat hunting"
+     ]
     },
     {
      "q": "In a distributed NetFlow collection design, where are the FlowCollectors placed?",
@@ -1266,7 +1542,12 @@
        "why": "Wrong. The book advises not collecting NetFlow over WAN links."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. NetFlow Collection Considerations and Best Practices",
+     "cards": [
+      "FlowCollector",
+      "NetFlow"
+     ]
     },
     {
      "q": "As a general rule, how many flows per second does 1 Gbps of traffic generate?",
@@ -1288,7 +1569,11 @@
        "why": "Wrong. This is ten times higher than the book's rule of thumb."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "7. NetFlow Collection Considerations and Best Practices",
+     "cards": [
+      "Flows per second"
+     ]
     },
     {
      "q": "A company wants visitors to reach the Internet without any access to the internal network for authorized users. Which segment type fits?",
@@ -1310,7 +1595,12 @@
        "why": "Correct. A guest network lets visitors reach the Internet with no access to the trusted network."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "10. Introduction to Network Segmentation",
+     "cards": [
+      "Guest network",
+      "Trusted network"
+     ]
     },
     {
      "q": "An access switch from another vendor does not support TrustSec inline tagging, but it authenticates users with ISE using RADIUS authentication and accounting. How can the enforcement point still learn the users' SGTs?",
@@ -1332,7 +1622,13 @@
        "why": "Wrong. VXLAN carries SGTs inline across an SDA fabric, which requires TrustSec-capable fabric devices."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "SXP (Scalable Group Tag Exchange Protocol)",
+      "Inline tagging",
+      "SGT (Security Group Tag, also Scalable Group Tag)"
+     ]
     }
    ]
   },
@@ -1359,7 +1655,11 @@
        "why": "Wrong. That is site-to-site VPN traffic, not data center east-to-west traffic."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "East-to-west traffic"
+     ]
     },
     {
      "q": "Before an anomaly detection system can alert on DDoS attacks, what must be done first?",
@@ -1381,7 +1681,9 @@
        "why": "Correct. Anomaly detection tracks divergence from normal, so normal must be learned first over a representative period."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. NetFlow",
+     "cards": []
     },
     {
      "q": "Which is a limitation of syslog as a visibility source compared to NetFlow?",
@@ -1403,7 +1705,11 @@
        "why": "Correct. The book lists these two limits of syslog, which is why NetFlow and other telemetry are combined with it."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "An analyst correlating NetFlow needs to find which MAC address was assigned a given IP address at a certain time. Which log source is the best fit?",
@@ -1425,7 +1731,11 @@
        "why": "Wrong. NAT gateway logs show NAT and PAT translations, not IP-to-MAC assignments."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "Which obsolete NetFlow version introduced a source router field?",
@@ -1447,7 +1757,11 @@
        "why": "Wrong. Version 8 is obsolete and no longer supported, but did not introduce the source router field."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "Which of the following does NOT support templates?",
@@ -1469,7 +1783,13 @@
        "why": "Wrong. Version 9 is template-based."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow",
+      "IPFIX (IP Flow Information Export)",
+      "Flexible NetFlow"
+     ]
     },
     {
      "q": "What timestamp resolution does IPFIX support?",
@@ -1491,7 +1811,12 @@
        "why": "Wrong. IPFIX resolution is much finer, down to nanoseconds."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. NetFlow",
+     "cards": [
+      "IPFIX (IP Flow Information Export)",
+      "IPFIX timestamps"
+     ]
     },
     {
      "q": "How many information element categories does IPFIX define?",
@@ -1513,7 +1838,12 @@
        "why": "Wrong. Five is the number of fields in the five-tuple."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "IPFIX (IP Flow Information Export)",
+      "Information element (IE)"
+     ]
     },
     {
      "q": "A team needs a free, scalable flow analyzer that generates IPFIX records from high-volume traffic. Which open-source tool from Table 5-3 fits best?",
@@ -1535,7 +1865,12 @@
        "why": "Wrong. Softflowd is a lightweight flow analyzer for Linux, BSD, and macOS, not the one positioned for high volume."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. NetFlow",
+     "cards": [
+      "YAF (Yet Another Flowmeter)",
+      "IPFIX (IP Flow Information Export)"
+     ]
     },
     {
      "q": "How many packets of a client flow does AVC examine to classify the application?",
@@ -1557,7 +1892,9 @@
        "why": "Wrong. AVC uses the first 10 to 20 packets, not just one."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": []
     },
     {
      "q": "An organization needs very high-speed logging of NAT translations and firewall session creation and teardown on its Internet edge ASR 1000 routers. Which feature should it use?",
@@ -1579,7 +1916,12 @@
        "why": "Correct. NEL on the ASR 1000 uses NetFlow version 9 templates to log NAT and firewall sessions at very high speed."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "NEL (NetFlow Event Logging)",
+      "NetFlow"
+     ]
     },
     {
      "q": "How many flow exporters can be assigned to a single Flexible NetFlow flow monitor?",
@@ -1601,7 +1943,13 @@
        "why": "Wrong. The limit is 8 exporters per monitor, one destination each."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Configuring NetFlow in Cisco IOS and Cisco IOS-XE",
+     "cards": [
+      "Flexible NetFlow",
+      "Flow exporter",
+      "Flow monitor"
+     ]
     },
     {
      "q": "Which flow exporter command configures Flexible NetFlow to use the IPFIX export format?",
@@ -1623,7 +1971,13 @@
        "why": "Wrong. This is the NX-OS exporter command for NetFlow version 9."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "8. Configuring NetFlow in Cisco IOS and Cisco IOS-XE",
+     "cards": [
+      "export-protocol ipfix",
+      "IPFIX (IP Flow Information Export)",
+      "Flexible NetFlow"
+     ]
     },
     {
      "q": "On NX-OS, what does a sampler configured with mode 1 out-of 1000 do?",
@@ -1645,7 +1999,9 @@
        "why": "Wrong. Cache size is a monitor setting, such as cache entries 200000."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": []
     },
     {
      "q": "When configuring NetFlow on Cisco NX-OS, which item is defined second, right after the flow record?",
@@ -1667,7 +2023,13 @@
        "why": "Wrong. The monitor comes second in the IOS order, but on NX-OS it comes after the exporter."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "9. Configuring NetFlow in NX-OS",
+     "cards": [
+      "Flow exporter",
+      "Flow",
+      "Flow record (NetFlow PDU)"
+     ]
     },
     {
      "q": "How is internal access to an enclave network protected?",
@@ -1689,7 +2051,11 @@
        "why": "Wrong. The ISP is part of the untrusted network, outside your security controls."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "10. Introduction to Network Segmentation",
+     "cards": [
+      "Enclave network"
+     ]
     },
     {
      "q": "A Cisco ACI web EPG contains both production and development servers. The team wants separate policy for each, and the VMs are named prod-xxxx and dev-xxx. What should they do?",
@@ -1711,7 +2077,13 @@
        "why": "Wrong. MAC filters are network attributes per uSeg EPG; the VM naming pattern makes VM Name the natural attribute here."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "11. Micro-segmentation with Cisco ACI",
+     "cards": [
+      "uSeg EPG (micro-segment EPG)",
+      "Cisco ACI (Application Centric Infrastructure)",
+      "EPG (endpoint group)"
+     ]
     },
     {
      "q": "In Cisco TrustSec, what is an SGACL?",
@@ -1733,7 +2105,11 @@
        "why": "Correct. SGACLs sit at the intersections of the policy matrix and are called contracts in Cisco DNA Center."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "SGACL (Scalable Group Access Control List)"
+     ]
     },
     {
      "q": "During a TrustSec monitor mode rollout, an engineer wants a syslog message whenever a policy entry matches, without blocking traffic. What should be used?",
@@ -1755,7 +2131,12 @@
        "why": "Wrong. A sampler reduces NetFlow load; it does not log TrustSec policy matches."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "log keyword on a permit statement",
+      "Monitor mode"
+     ]
     },
     {
      "q": "Which ISE capability can share SGTs and group membership with Cisco Secure Firewall, Cisco Secure Web Appliance, Secure Network Analytics, and third parties?",
@@ -1777,7 +2158,9 @@
        "why": "Correct. pxGrid sends SGTs and group membership to Cisco and third-party products in the partner ecosystem."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": []
     }
    ]
   },
@@ -1804,7 +2187,11 @@
        "why": "Correct. Threat hunting is an active search built on a hypothesis, aimed at threats that existing products missed."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+     "cards": [
+      "Threat hunting"
+     ]
     },
     {
      "q": "Why does the book compare NetFlow to a phone bill?",
@@ -1826,7 +2213,11 @@
        "why": "Wrong. NetFlow was originally used for billing, but the analogy is about recording who communicated, not charging users."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. NetFlow",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "According to the book, how should NetFlow and packet captures be used together during an investigation?",
@@ -1848,7 +2239,12 @@
        "why": "Correct. Hundreds of sniffers are costly and produce terabytes of data, so NetFlow guides where targeted captures are worth doing."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. NetFlow",
+     "cards": [
+      "Packet captures (sniffers)",
+      "NetFlow"
+     ]
     },
     {
      "q": "What is the title of NIST SP 800-61 Revision 2, which the book references for incident handling?",
@@ -1870,7 +2266,11 @@
        "why": "Wrong. That is NIST SP 800-94, about IDS and IPS."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "6. Cisco Cognitive Intelligence and Encrypted Traffic Analytics (ETA)",
+     "cards": [
+      "NIST SP 800-61 Revision 2"
+     ]
     },
     {
      "q": "Which statement describes the Flexible NetFlow normal cache?",
@@ -1892,7 +2292,13 @@
        "why": "Wrong. That is the immediate cache."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Configuring NetFlow in Cisco IOS and Cisco IOS-XE",
+     "cards": [
+      "Flexible NetFlow",
+      "Normal cache",
+      "NetFlow"
+     ]
     },
     {
      "q": "A capacity planning team does not need full NetFlow detail and wants to greatly reduce router CPU overhead. What should they configure?",
@@ -1914,7 +2320,13 @@
        "why": "Wrong. More exporters add export work rather than reducing it."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. NetFlow Collection Considerations and Best Practices",
+     "cards": [
+      "Random-sampled NetFlow",
+      "Flow sampler",
+      "NetFlow"
+     ]
     },
     {
      "q": "Which Cisco ASA feature monitors traffic, including from any type of remote-access VPN termination, using NetFlow?",
@@ -1936,7 +2348,12 @@
        "why": "Wrong. NEL is the ASR 1000 feature for NAT and firewall session logging."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "NSEL (NetFlow Secure Event Logging)",
+      "NetFlow"
+     ]
     },
     {
      "q": "In IPFIX, what does the metering process do?",
@@ -1958,7 +2375,13 @@
        "why": "Wrong. That is the exporting process."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "Flow record (NetFlow PDU)",
+      "Observation",
+      "Flow"
+     ]
     },
     {
      "q": "Which of the following is a function of the intermediate process (ImP) in an IPFIX mediator?",
@@ -1980,7 +2403,13 @@
        "why": "Wrong. That is the metering process on the exporter."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "NetFlow",
+      "IPFIX (IP Flow Information Export)",
+      "ImP (intermediate process)"
+     ]
     },
     {
      "q": "Which is an SCTP feature that benefits IPFIX?",
@@ -2002,7 +2431,12 @@
        "why": "Wrong. DPI is done by technologies such as NBAR2, not by a transport protocol."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "SCTP (Stream Control Transmission Protocol)",
+      "IPFIX (IP Flow Information Export)"
+     ]
     },
     {
      "q": "What does RFC 6526 cover?",
@@ -2024,7 +2458,13 @@
        "why": "Wrong. That is NIST SP 800-61 Revision 2, not an RFC."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "SCTP (Stream Control Transmission Protocol)",
+      "IPFIX (IP Flow Information Export)",
+      "Template"
+     ]
     },
     {
      "q": "Which QoS feature applies a drop policy to avoid congestion after NBAR classifies traffic?",
@@ -2046,7 +2486,11 @@
        "why": "Wrong. CBWFQ provides guaranteed bandwidth, not a congestion-avoidance drop policy."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. IP Flow Information Export (IPFIX)",
+     "cards": [
+      "WRED (weighted random early detection)"
+     ]
     },
     {
      "q": "A security team wants flow information collected directly from laptops, whether users are on or off premises, and sent to Secure Network Analytics. What should they deploy?",
@@ -2068,7 +2512,13 @@
        "why": "Correct. NVM collects flow data from the endpoint on or off premises and sends it to Secure Network Analytics."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. NetFlow Deployment Scenarios",
+     "cards": [
+      "NVM (Cisco Secure Client Network Visibility Module)",
+      "Cisco Secure Client",
+      "Network visibility"
+     ]
     },
     {
      "q": "What is the Amazon AWS equivalent of NetFlow that Cisco Secure Cloud Analytics uses?",
@@ -2090,7 +2540,13 @@
        "why": "Wrong. NSG flow logs are how Microsoft Azure collects traffic flows."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Cisco Secure Network Analytics and Cisco Secure Cloud Analytics",
+     "cards": [
+      "VPC Flow Logs",
+      "Flow",
+      "Monitor > Dashboard (Secure Cloud Analytics)"
+     ]
     },
     {
      "q": "Which statement about Cisco Cognitive Intelligence is true?",
@@ -2112,7 +2568,11 @@
        "why": "Wrong. That is enhanced local mode on wireless APs."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "6. Cisco Cognitive Intelligence and Encrypted Traffic Analytics (ETA)",
+     "cards": [
+      "Cisco Cognitive Intelligence"
+     ]
     },
     {
      "q": "An analyst wants to run a suspicious file in a sandbox and combine the results with threat intelligence. Which Cisco product is built for this?",
@@ -2134,7 +2594,11 @@
        "why": "Wrong. AVC provides application classification, monitoring, and traffic control."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "6. Cisco Cognitive Intelligence and Encrypted Traffic Analytics (ETA)",
+     "cards": [
+      "Cisco Secure Malware Analytics"
+     ]
     },
     {
      "q": "The Users dashboard (Monitor > Users) in Secure Network Analytics shows no user names. What integration is required for this dashboard?",
@@ -2156,7 +2620,11 @@
        "why": "Wrong. Meraki integrates with Secure Cloud Analytics; it is not what feeds the Users dashboard."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": [
+      "Monitor > Users"
+     ]
     },
     {
      "q": "A planner proposes sending all branch NetFlow across the WAN to a single headquarters collector. What does the book advise?",
@@ -2178,7 +2646,11 @@
        "why": "Correct. The book's bandwidth recommendation is to avoid collecting NetFlow over WAN links."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. NetFlow Collection Considerations and Best Practices",
+     "cards": [
+      "NetFlow"
+     ]
     },
     {
      "q": "How does Flexible NetFlow differ from traditional NetFlow in its use of caches?",
@@ -2200,7 +2672,12 @@
        "why": "Wrong. Flexible NetFlow supports multiple caches and can export NetFlow version 9 or IPFIX."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "8. Configuring NetFlow in Cisco IOS and Cisco IOS-XE",
+     "cards": [
+      "Flexible NetFlow",
+      "NetFlow"
+     ]
     },
     {
      "q": "An administrator installs a new Cisco ISE node for a distributed deployment. Which statement about the setup is correct?",
@@ -2222,7 +2699,9 @@
        "why": "Correct. A new node starts standalone with all default persona services, and secondaries are registered to the configured primary."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "12. Segmentation with Cisco ISE",
+     "cards": []
     }
    ]
   }

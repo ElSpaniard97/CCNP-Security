@@ -24,7 +24,13 @@
        "why": "Untagged frames are expected on a trunk for the native VLAN. VLAN hopping is an attacker tagging frames with arbitrary VLANs after gaining a trunk."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "VLAN (virtual LAN)",
+      "Native VLAN",
+      "802.1Q (dot1q)"
+     ]
     },
     {
      "q": "Four switches all use the default STP bridge priority. Which switch becomes the root bridge?",
@@ -46,7 +52,13 @@
        "why": "The bridge ID is priority plus base MAC address and the lowest bridge ID wins, so with equal priorities the lowest MAC address decides."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "STP (Spanning Tree Protocol, 802.1D)",
+      "Root bridge",
+      "Bridge ID"
+     ]
     },
     {
      "q": "A user unplugs a PC and connects a small unmanaged switch that starts sending BPDUs on an access port. Which feature shuts the port down so the user cannot change the STP topology?",
@@ -68,7 +80,13 @@
        "why": "PortFast makes a host port skip listening and learning and go straight to forwarding. It does not shut down a port that receives BPDUs."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "BPDU (bridge protocol data unit)",
+      "BPDU Guard",
+      "STP (Spanning Tree Protocol, 802.1D)"
+     ]
     },
     {
      "q": "What is the default port security violation mode on a Cisco switch port?",
@@ -90,7 +108,13 @@
        "why": "Sticky is not a violation mode. It is a port security option that writes dynamically learned MACs into the running configuration."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "Port security",
+      "Port security",
+      "Err-disabled"
+     ]
     },
     {
      "q": "Dynamic ARP Inspection validates ARP packets on untrusted ports against which source of information?",
@@ -112,7 +136,13 @@
        "why": "DAI checks IP-to-MAC bindings against the DHCP snooping binding database, which exists only when DHCP snooping is enabled on the switch and VLANs."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "DHCP snooping binding database",
+      "DHCP snooping",
+      "ARP (Address Resolution Protocol)"
+     ]
     },
     {
      "q": "According to Network Foundation Protection, OSPF and EIGRP routing updates exchanged between routers belong to which plane?",
@@ -134,7 +164,12 @@
        "why": "The management plane is traffic between an administrator and the device, such as SSH, not routing protocol exchanges."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "5. Understanding the Control Plane",
+     "cards": [
+      "Control plane",
+      "NFP (Network Foundation Protection)"
+     ]
     },
     {
      "q": "Which syslog severity level number corresponds to Warnings?",
@@ -156,7 +191,11 @@
        "why": "Level 5 is Notifications, for normal but significant conditions."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "8. Implementing Logging Features",
+     "cards": [
+      "Severity level"
+     ]
     },
     {
      "q": "Which transport protocol and port does NTP use?",
@@ -178,7 +217,11 @@
        "why": "NTP runs over UDP, not TCP. Port 123 is correct only with UDP."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Understanding and Securing the Management Plane",
+     "cards": [
+      "NTP (Network Time Protocol)"
+     ]
     },
     {
      "q": "An engineer types crypto key generate rsa on a new router that still has its factory hostname and no other changes, and the command fails. What must be configured first?",
@@ -200,7 +243,11 @@
        "why": "The RSA key pair is named from the hostname and domain name, so key generation fails until a non-default hostname and ip domain-name are set."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "crypto key generate rsa"
+     ]
     },
     {
      "q": "Which statement correctly describes NETCONF?",
@@ -222,7 +269,13 @@
        "why": "Unsolicited traps over UDP describe SNMP. NETCONF uses a secure SSH session."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "SSH (Secure Shell)",
+      "YANG",
+      "NETCONF (Network Configuration Protocol)"
+     ]
     },
     {
      "q": "An IPv6 address that begins with FE80 and is created automatically on an interface when none is configured is which type of address?",
@@ -244,7 +297,12 @@
        "why": "Global unicast addresses are routable and start in the 2000 to 3FFF range, not FE80."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "Link-local address",
+      "IPv6 address"
+     ]
     },
     {
      "q": "How does modified EUI-64 build a 64-bit interface ID from a 48-bit MAC address?",
@@ -266,7 +324,12 @@
        "why": "FF02::1:FF plus the last 24 bits describes the solicited-node multicast address, not how an interface ID is built."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "Interface ID (host ID)",
+      "Modified EUI-64"
+     ]
     },
     {
      "q": "In a CoPP classification ACL, what does a permit statement mean?",
@@ -288,7 +351,11 @@
        "why": "Permit only places traffic in the class. What happens next depends on the policy action, which may police or drop it."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "CoPP (Control Plane Policing)"
+     ]
     },
     {
      "q": "Which pair of routing protocols in the chapter uses a globally configured key chain for MD5 authentication?",
@@ -310,7 +377,12 @@
        "why": "Neither uses a key chain in the book's basic examples: OSPF uses message-digest-key and BGP uses the neighbor password command."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "MD5 authentication",
+      "Key chain"
+     ]
     },
     {
      "q": "A help desk team must be able to run only ping, show commands, and access-list configuration on a router. Which feature creates a named subset of commands that many users can share for this?",
@@ -332,7 +404,11 @@
        "why": "A parser view is a named subset of commands; users placed in the view can use only those commands, and many users can share one view."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Parser view (view)"
+     ]
     },
     {
      "q": "What does privilege level 15 represent on a Cisco IOS device?",
@@ -354,7 +430,12 @@
        "why": "User mode is privilege level 1, not level 15."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "IOS (classic IOS)",
+      "Privilege level"
+     ]
     },
     {
      "q": "With default 802.1D timers, about how long does a newly connected switch port take to begin forwarding?",
@@ -376,7 +457,11 @@
        "why": "2 seconds is the STP hello timer, the interval between BPDUs."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "STP (Spanning Tree Protocol, 802.1D)"
+     ]
     },
     {
      "q": "Hosts on an access VLAN are receiving a false default gateway from a device that pretends to be a legitimate IPv6 router. Which switch feature blocks or rejects these rogue router advertisements?",
@@ -398,7 +483,13 @@
        "why": "DAI validates IPv4 ARP packets. IPv6 has no ARP, and rogue router advertisements are handled by RA Guard."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "IPv6 RA Guard",
+      "RA",
+      "VLAN (virtual LAN)"
+     ]
     },
     {
      "q": "What is the maximum number of methods an AAA method list can contain?",
@@ -420,7 +511,12 @@
        "why": "A method list is an ordered list of up to four AAA methods, tried from left to right."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "AAA method list",
+      "Method list"
+     ]
     },
     {
      "q": "An organization uses Cisco ISE for AAA of network administrators and wants per-command control over what each administrator can run. Which protocol is most likely used between the routers and ISE?",
@@ -442,7 +538,9 @@
        "why": "RADIUS is commonly used for network access, but it gives less granular control over administrator commands than TACACS+."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "7. Securing Management Traffic",
+     "cards": []
     }
    ]
   },
@@ -469,7 +567,13 @@
        "why": "This sets an unused VLAN as a trunk's native VLAN. It does not disable DTP."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "switchport nonegotiate",
+      "DTP (Dynamic Trunking Protocol)",
+      "Access port"
+     ]
     },
     {
      "q": "In a router-on-a-stick design, which command on sub-interface Gi0/1.10 makes the router process frames tagged with VLAN 10?",
@@ -491,7 +595,13 @@
        "why": "encapsulation dot1q 10 tells the sub-interface to handle frames tagged with VLAN ID 10; the sub-interface number itself can be any value."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "encapsulation dot1q 10",
+      "802.1Q (dot1q)",
+      "VLAN (virtual LAN)"
+     ]
     },
     {
      "q": "Which statement about PortFast is correct?",
@@ -513,7 +623,11 @@
        "why": "The PortFast warning says it works only in non-trunking mode, and it is meant for host ports, not trunks between switches."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "PortFast"
+     ]
     },
     {
      "q": "A switch port connects to a partner's switch that your team does not manage. You want to make sure that switch can never become the root of your STP topology. Which command do you apply on that port?",
@@ -535,7 +649,13 @@
        "why": "Root Guard (spanning-tree guard root) stops the port from becoming a root port toward a new remote root switch, protecting the existing topology."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "spanning-tree guard root",
+      "STP (Spanning Tree Protocol, 802.1D)",
+      "Root Guard"
+     ]
     },
     {
      "q": "An attacker sends thousands of frames with bogus source MAC addresses, and the switch begins flooding all frames to every port in the VLAN. Which feature is the primary mitigation?",
@@ -557,7 +677,13 @@
        "why": "Control Plane Policing protects a router's CPU from traffic destined to the device. It does not protect a switch's CAM table."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "6. Understanding and Securing the Data Plane",
+     "cards": [
+      "Port security",
+      "Port security",
+      "SeND (Secure Neighbor Discovery)"
+     ]
     },
     {
      "q": "After enabling DHCP snooping, which interface should be configured with ip dhcp snooping trust?",
@@ -579,7 +705,13 @@
        "why": "The management interface has nothing to do with DHCP snooping trust; only the path to the DHCP server needs trusting."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "ip dhcp snooping trust",
+      "ip dhcp snooping",
+      "DHCP snooping"
+     ]
     },
     {
      "q": "Which command disables CDP on all interfaces of a device at once?",
@@ -601,7 +733,13 @@
        "why": "This is not the IOS command. CDP is disabled globally with no cdp run."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "no cdp run",
+      "CDP (Cisco Discovery Protocol)",
+      "disable"
+     ]
     },
     {
      "q": "Which type of traffic belongs to the data plane?",
@@ -623,7 +761,12 @@
        "why": "Routing protocol packets are control plane traffic that the device generates or receives itself."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "3. Network Foundation Protection",
+     "cards": [
+      "Transit traffic",
+      "Data plane"
+     ]
     },
     {
      "q": "What does the service password-encryption command do?",
@@ -645,7 +788,11 @@
        "why": "Minimum length is enforced by security passwords min-length, not service password-encryption."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "service password-encryption"
+     ]
     },
     {
      "q": "With Login Password Retry Lockout configured, a local AAA user exceeds the allowed number of failed login attempts. What happens?",
@@ -667,7 +814,11 @@
        "why": "Lockout prevents login entirely; it doesn't place the user at a lower privilege level."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Login Password Retry Lockout"
+     ]
     },
     {
      "q": "What does SNMPv3 add compared with SNMP versions 1 and 2c?",
@@ -689,7 +840,11 @@
        "why": "Atomic commit-or-rollback transactions are a NETCONF feature. SNMP has no built-in transactions."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "SNMP (Simple Network Management Protocol)"
+     ]
     },
     {
      "q": "Which logging destination stores messages in router memory, rotates them first in first out, and loses them on reboot?",
@@ -711,7 +866,11 @@
        "why": "The logging buffer keeps messages in router memory up to the configured size, rotated FIFO, and they are lost on reboot."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Logging buffer"
+     ]
     },
     {
      "q": "An attacker spoofs the source IP address of your NTP server to send false time to your routers. What prevents this?",
@@ -733,7 +892,13 @@
        "why": "Stratum relates to distance from the reference clock. A spoofed server can still send false time unless authentication is used."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "9. Configuring NTP",
+     "cards": [
+      "NTP (Network Time Protocol)",
+      "SeND (Secure Neighbor Discovery)",
+      "ntp authenticate"
+     ]
     },
     {
      "q": "After Cisco Resilient Configuration is enabled with secure boot-image and secure boot-config, how can it be disabled?",
@@ -755,7 +920,13 @@
        "why": "Remote sessions can't disable it, even at level 15, which is the point of protecting the bootset from remote attackers."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Cisco Resilient Configuration",
+      "secure boot-config",
+      "secure boot-image"
+     ]
     },
     {
      "q": "How many bits long is an IPv6 address?",
@@ -777,7 +948,11 @@
        "why": "An IPv6 address is 128 bits (16 bytes), written as eight groups of four hex characters."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "IPv6 address"
+     ]
     },
     {
      "q": "Which IPv6 multicast group is joined by routers that have IPv6 routing enabled?",
@@ -799,7 +974,11 @@
        "why": "FF02::1 is all-nodes multicast, joined by every IPv6 device."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "All-routers multicast"
+     ]
     },
     {
      "q": "Control Plane Protection (CPPr) divides control plane traffic into sub-interfaces. Which one handles network operations traffic such as keepalives and packets with expiring TTL?",
@@ -821,7 +1000,13 @@
        "why": "CPPr has only host, transit, and CEF exception sub-interfaces. The punt path is the path from forwarding hardware to the route processor."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "5. Understanding the Control Plane",
+     "cards": [
+      "CEF (Cisco Express Forwarding)",
+      "Sub-interface",
+      "CPPr (Control Plane Protection)"
+     ]
     },
     {
      "q": "Which single command enables MD5 authentication with BGP neighbor 192.168.10.2 in the book's example?",
@@ -843,7 +1028,12 @@
        "why": "This defines the BGP peer and its AS. It is part of the base setup and adds no authentication."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "neighbor 192.168.10.2 password LAB-SECURITY",
+      "MD5 authentication"
+     ]
     },
     {
      "q": "Why should IPv6 Routing Header type 0 (RH0) packets be dropped?",
@@ -865,7 +1055,11 @@
        "why": "Rogue router advertisements are ND messages that RA Guard blocks. They are not RH0 extension headers."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "RH0 (Routing Header type 0)"
+     ]
     },
     {
      "q": "What distinguishes a brute-force password attack from a dictionary attack?",
@@ -887,7 +1081,12 @@
        "why": "A brute-force attack tries every possible combination of characters up to a length, whereas a dictionary attack works through a list of words."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Dictionary attack",
+      "Brute-force attack"
+     ]
     }
    ]
   },
@@ -914,7 +1113,12 @@
        "why": "Native VLAN frames are sent untagged, so the native VLAN is not a field in the tag."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "VLAN (virtual LAN)",
+      "802.1Q (dot1q)"
+     ]
     },
     {
      "q": "By default, which VLANs does show interface trunk list as allowed on an 802.1Q trunk?",
@@ -936,7 +1140,12 @@
        "why": "A trunk carries many VLANs; the native VLAN is just the one sent untagged."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "show interface trunk",
+      "802.1Q (dot1q)"
+     ]
     },
     {
      "q": "Show spanning-tree vlan 10 reports a bridge priority of 32778 even though the default priority was never changed. Why?",
@@ -958,7 +1167,11 @@
        "why": "Root Guard blocks a port from becoming a root port toward a new root. It does not alter the bridge priority value."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "VLAN (virtual LAN)"
+     ]
     },
     {
      "q": "A switch running Cisco's default spanning tree mode has five VLANs configured. How many STP instances run?",
@@ -980,7 +1193,13 @@
        "why": "PVST+ is Cisco's default and runs a separate STP instance for each VLAN, so five VLANs mean five instances."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "VLAN (virtual LAN)",
+      "STP (Spanning Tree Protocol, 802.1D)",
+      "PVST+ (Per-VLAN Spanning Tree Plus)"
+     ]
     },
     {
      "q": "An engineer wants a port that exceeds its MAC limit to stay up, drop frames from the extra MACs, and generate a syslog message. Which violation mode should be configured?",
@@ -1002,7 +1221,11 @@
        "why": "Sticky is not a violation mode; it writes learned MAC addresses into the running configuration."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "SeND (Secure Neighbor Discovery)"
+     ]
     },
     {
      "q": "What does switchport port-security mac-address sticky do?",
@@ -1024,7 +1247,13 @@
        "why": "MAC-to-IP lease bindings are kept in the DHCP snooping binding database, not by port security sticky."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "switchport port-security mac-address sticky",
+      "switchport port-security",
+      "copy run start"
+     ]
     },
     {
      "q": "What is the default rate limit that Dynamic ARP Inspection applies to an untrusted interface?",
@@ -1046,7 +1275,13 @@
        "why": "Only trusted ports have no limit. Untrusted ports are rate-limited by default."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "ARP (Address Resolution Protocol)",
+      "DAI (Dynamic ARP Inspection)",
+      "show ip arp inspection interfaces"
+     ]
     },
     {
      "q": "Which IEEE standard defines LLDP?",
@@ -1068,7 +1303,12 @@
        "why": "LLDP is defined by IEEE 802.1AB, the vendor-neutral discovery standard."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "LLDP (Link Layer Discovery Protocol, 802.1AB)",
+      "IEEE 802.1AB"
+     ]
     },
     {
      "q": "In the chapter's table of security measures per plane, which of the following is listed for the data plane?",
@@ -1090,7 +1330,13 @@
        "why": "Authenticated NTP is listed under the management plane."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Network Foundation Protection",
+     "cards": [
+      "IOS (classic IOS)",
+      "Data plane",
+      "STP (Spanning Tree Protocol, 802.1D)"
+     ]
     },
     {
      "q": "Why should the enable secret be different from every other password on the device?",
@@ -1112,7 +1358,12 @@
        "why": "The enable secret is hashed. Type 7 is the weak scrambling from service password-encryption."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Enable secret",
+      "who"
+     ]
     },
     {
      "q": "Which command must be entered before configuring any AAA method lists on a Cisco router?",
@@ -1134,7 +1385,13 @@
        "why": "test aaa verifies connectivity with a remote ISE server after AAA is configured."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "aaa new-model",
+      "AAA method list",
+      "Method list"
+     ]
     },
     {
      "q": "With aaa authentication login default local enable configured, what happens when a user logs in on the console?",
@@ -1156,7 +1413,13 @@
        "why": "Methods are tried left to right, so the local database comes first and the enable secret is the fallback. The default list covers the console unless a custom list is applied."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Enable secret",
+      "aaa authentication login default local enable",
+      "Local database"
+     ]
     },
     {
      "q": "Which protocol uses YANG models over HTTPS and supports role-based access control?",
@@ -1178,7 +1441,13 @@
        "why": "NETCONF also uses YANG, but it runs over SSH, not HTTPS."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "RESTCONF (RESTful Network Configuration Protocol)",
+      "HTTPS",
+      "YANG"
+     ]
     },
     {
      "q": "Which description best fits YANG as used by NETCONF, RESTCONF, and gNMI?",
@@ -1200,7 +1469,13 @@
        "why": "YANG is a data modeling language with a standard syntax; models are modules of statements describing structure, data types, and constraints."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "RESTCONF (RESTful Network Configuration Protocol)",
+      "gNMI (gRPC Network Management Interface)",
+      "NETCONF (Network Configuration Protocol)"
+     ]
     },
     {
      "q": "An administrator configures logging buffered 7. Which messages are stored in the buffer?",
@@ -1222,7 +1497,11 @@
        "why": "A logging level includes that level and all more severe ones, not just the single level."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "logging buffered 7"
+     ]
     },
     {
      "q": "An engineer shortens an IPv6 address that has two separate runs of all-zero groups. Why can the double colon be used only once?",
@@ -1244,7 +1523,12 @@
        "why": "The :: replaces one or more consecutive zero groups and may be used only once per address; twice, the number of groups each replaces would be unclear."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "Double colon (::)",
+      "IPv6 address"
+     ]
     },
     {
      "q": "How is a solicited-node multicast address formed?",
@@ -1266,7 +1550,13 @@
        "why": "That is how a link-local unicast address is formed, not a solicited-node multicast."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "Interface ID (host ID)",
+      "Solicited-node multicast",
+      "Anycast address"
+     ]
     },
     {
      "q": "In show ip cef output, what does an entry with receive as its next hop indicate?",
@@ -1288,7 +1578,13 @@
        "why": "Unicast RPF drops packets whose source isn't reachable via the incoming interface; it is not what receive means in CEF."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "show ip cef",
+      "Receive adjacency",
+      "Control plane"
+     ]
     },
     {
      "q": "Which pair of interface commands enables OSPF MD5 authentication with key 1 and key string LAB?",
@@ -1310,7 +1606,12 @@
        "why": "ip ospf authentication-key sets a plaintext OSPF password, and area 0 authentication without message-digest is not MD5."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "ip ospf authentication message-digest and ip ospf message-digest-key 1 md5 LAB",
+      "MD5 authentication"
+     ]
     },
     {
      "q": "An attacker rapidly spoofs huge numbers of IPv6 destinations and overwhelms a router's temporary neighbor cache entries. Which feature defends against this?",
@@ -1332,7 +1633,12 @@
        "why": "SeND adds secure ND options and CPS/CPA messages against ND spoofing and redirection, but the starvation defense named in the chapter is Destination Guard."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "IPv6 Destination Guard",
+      "Neighbor cache resource starvation"
+     ]
     }
    ]
   },
@@ -1359,7 +1665,12 @@
        "why": "These global commands create and activate VLAN 10, but they don't assign any port to it."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "VLAN (virtual LAN)",
+      "Access port"
+     ]
     },
     {
      "q": "An engineer is deploying a brand-new switch. Following the chapter's best practice, what should be done with ports that are not yet needed?",
@@ -1381,7 +1692,12 @@
        "why": "The native VLAN should be a dedicated unused VLAN on trunks, never used on enabled access ports or for user traffic."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "VLAN (virtual LAN)",
+      "Parking-lot VLAN"
+     ]
     },
     {
      "q": "A switch logs that the same source MAC address keeps being relearned on two different ports. What is the most likely cause?",
@@ -1403,7 +1719,13 @@
        "why": "Protect mode quietly drops frames from MACs over the limit. It does not cause a MAC to move between ports."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "Layer 2 loop",
+      "STP (Spanning Tree Protocol, 802.1D)",
+      "MAC address flapping"
+     ]
     },
     {
      "q": "An engineer wants ports that BPDU Guard has err-disabled to come back automatically after 30 seconds with no violation. Which pair of commands does this?",
@@ -1425,7 +1747,13 @@
        "why": "These are verification commands showing recovery causes, timers, and port status. They change nothing."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "errdisable recovery cause bpduguard",
+      "errdisable recovery interval 30",
+      "BPDU (bridge protocol data unit)"
+     ]
     },
     {
      "q": "An unauthorized device on a user VLAN is answering DHCP requests and handing out a false default gateway. Which feature stops it?",
@@ -1447,7 +1775,12 @@
        "why": "DHCP snooping acts like a firewall between untrusted hosts and trusted DHCP servers, so a rogue server on an untrusted port can't hand out leases."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "DHCP snooping",
+      "VLAN (virtual LAN)"
+     ]
     },
     {
      "q": "Host C sends gratuitous ARP replies binding the IP addresses of Hosts A and B to its own MAC and becomes a man-in-the-middle. Which feature intercepts and discards ARP packets with invalid IP-to-MAC bindings?",
@@ -1469,7 +1802,13 @@
        "why": "Root Guard protects the STP root election on ports to unmanaged switches. It does not inspect ARP."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "ARP (Address Resolution Protocol)",
+      "DAI (Dynamic ARP Inspection)",
+      "SeND (Secure Neighbor Discovery)"
+     ]
     },
     {
      "q": "Which switch feature prevents hosts from spoofing Layer 3 IP information?",
@@ -1491,7 +1830,11 @@
        "why": "DAI prevents spoofing of Layer 2 information through ARP, validating IP-to-MAC bindings rather than IP source spoofing."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "6. Understanding and Securing the Data Plane",
+     "cards": [
+      "IP Source Guard"
+     ]
     },
     {
      "q": "Which Layer 2 security feature limits the amount of broadcast or multicast traffic flowing through a switch?",
@@ -1513,7 +1856,11 @@
        "why": "BPDU Guard err-disables an access port that receives a BPDU; it doesn't rate-limit broadcasts."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "Storm Control"
+     ]
     },
     {
      "q": "How does a control plane failure affect the data plane?",
@@ -1535,7 +1882,13 @@
        "why": "The book stresses interdependence; a control plane failure does stop data plane forwarding."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "3. Network Foundation Protection",
+     "cards": [
+      "SeND (Secure Neighbor Discovery)",
+      "Data plane",
+      "Control plane"
+     ]
     },
     {
      "q": "What distinguishes out-of-band management from in-band management?",
@@ -1557,7 +1910,12 @@
        "why": "OOB management uses a completely separate network, or at least a separate management VLAN that user traffic never touches."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "4. Understanding and Securing the Management Plane",
+     "cards": [
+      "VLAN (virtual LAN)",
+      "In-band management"
+     ]
     },
     {
      "q": "An engineer is generating RSA keys for SSH version 2 and is prompted for the modulus size with a default of 512. What is the minimum size needed for SSH version 2?",
@@ -1579,7 +1937,11 @@
        "why": "360 is the smallest modulus the command accepts, far below what SSH version 2 requires."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "SSH (Secure Shell)"
+     ]
     },
     {
      "q": "Which command enables HTTPS management on a Cisco router and generates its keys automatically?",
@@ -1601,7 +1963,12 @@
        "why": "This generates the RSA key pair used by SSH. HTTPS is enabled with ip http secure-server, which creates its own keys."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "4. Understanding and Securing the Management Plane",
+     "cards": [
+      "ip http secure-server",
+      "HTTPS"
+     ]
     },
     {
      "q": "How does access control in SNMP versions 1 and 2c compare with the access control used by NETCONF?",
@@ -1623,7 +1990,13 @@
        "why": "This reverses them: NACM is the NETCONF Access Control Model, and community strings belong to SNMP."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "SNMP (Simple Network Management Protocol)",
+      "NETCONF (Network Configuration Protocol)",
+      "NACM (NETCONF Access Control Model)"
+     ]
     },
     {
      "q": "A NETCONF configuration push contains ten changes and the seventh one fails. Because NETCONF supports atomic transactions, what happens?",
@@ -1645,7 +2018,12 @@
        "why": "An atomic transaction is either fully committed or entirely rolled back on error, avoiding partial or inconsistent updates."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "NETCONF (Network Configuration Protocol)",
+      "Atomic transaction"
+     ]
     },
     {
      "q": "Which statement describes gNMI?",
@@ -1667,7 +2045,12 @@
        "why": "RESTCONF runs over HTTPS, and community strings are SNMP; neither describes gNMI."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "YANG",
+      "gNMI (gRPC Network Management Interface)"
+     ]
     },
     {
      "q": "An administrator connected by SSH wants log messages to appear in the current session. Which command is required?",
@@ -1689,7 +2072,12 @@
        "why": "This stores messages up to debugging level in the router's memory buffer; it doesn't display them on the vty session."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "terminal monitor",
+      "SSH (Secure Shell)"
+     ]
     },
     {
      "q": "What is the IPv6 loopback address?",
@@ -1711,7 +2099,11 @@
        "why": "127 is the IPv4 loopback range; IPv6 does not use a 127 prefix for loopback."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "Loopback address"
+     ]
     },
     {
      "q": "A router has IPv6 addresses on two interfaces and can ping from both, but hosts on one segment can't reach the other through it. Which command lets the router forward other devices' IPv6 packets?",
@@ -1733,7 +2125,12 @@
        "why": "Without ipv6 unicast-routing a router only sends and receives its own IPv6 packets; this command enables forwarding."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "ipv6 unicast-routing",
+      "SeND (Secure Neighbor Discovery)"
+     ]
     },
     {
      "q": "Why does a packet arriving with a TTL of 1 add load to a router's CPU?",
@@ -1755,7 +2152,9 @@
        "why": "ACL logging is CPU-processed only for packets matching an ACE with log, unrelated to TTL."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": []
     },
     {
      "q": "Which CPPr feature polices and drops packets sent to closed or nonlistening TCP or UDP ports?",
@@ -1777,7 +2176,11 @@
        "why": "CPPr's port-filtering feature polices and drops packets destined to closed or nonlistening TCP or UDP ports."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "CPPr (Control Plane Protection)"
+     ]
     }
    ]
   },
@@ -1804,7 +2207,13 @@
        "why": "Router-on-a-stick trunks one physical router interface to the switch and maps each VLAN tag to its own sub-interface with an IP address."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "VLAN (virtual LAN)",
+      "Router-on-a-stick",
+      "Sub-interface"
+     ]
     },
     {
      "q": "Which statement describes an STP root port?",
@@ -1826,7 +2235,13 @@
        "why": "That describes a designated port, chosen per segment."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": [
+      "Root bridge",
+      "STP (Spanning Tree Protocol, 802.1D)",
+      "Root port"
+     ]
     },
     {
      "q": "SW2 receives BPDUs from SW1 on ports 23 and 24 with equal path cost to the root. How does SW2 decide which port to block?",
@@ -1848,7 +2263,9 @@
        "why": "With equal cost, SW2 uses the sender's port priority and picks the lower value; lower-numbered ports have lower priorities by default, so port 24 blocks."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "1. Securing Layer 2 Technologies",
+     "cards": []
     },
     {
      "q": "After an engineer enters spanning-tree mode rapid-pvst, what change appears in show spanning-tree output?",
@@ -1870,7 +2287,13 @@
        "why": "rapid-pvst switches from 802.1D to 802.1w, and the output then says protocol rstp instead of ieee."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "spanning-tree mode rapid-pvst",
+      "STP (Spanning Tree Protocol, 802.1D)",
+      "RSTP (Rapid Spanning Tree, 802.1w)"
+     ]
     },
     {
      "q": "A user's access port connects an IP phone with a built-in switch, a PC, and a couple of virtual machines, and port security keeps triggering. What should the engineer change?",
@@ -1892,7 +2315,13 @@
        "why": "This sets a trunk's native VLAN and has no effect on port security limits on an access port."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "switchport port-security",
+      "Port security",
+      "Port security"
+     ]
     },
     {
      "q": "What is the purpose of ip dhcp snooping database tftp://10.1.1.1/directory/file?",
@@ -1914,7 +2343,13 @@
        "why": "Syslog messages go to syslog servers over UDP 514; this command saves the binding database to a TFTP URL."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "ip dhcp snooping database tftp://10.1.1.1/directory/file",
+      "ip dhcp snooping",
+      "DHCP snooping"
+     ]
     },
     {
      "q": "An engineer enters ip dhcp snooping globally, but show ip dhcp snooping shows no VLANs being snooped. What else is needed?",
@@ -1936,7 +2371,13 @@
        "why": "DHCP snooping is enabled per VLAN and is inactive on all VLANs by default, so at least one VLAN or range must be specified."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "ip dhcp snooping vlan 10",
+      "VLAN (virtual LAN)",
+      "ip dhcp snooping"
+     ]
     },
     {
      "q": "Which discovery protocol extension was designed for media endpoint devices such as voice equipment?",
@@ -1958,7 +2399,12 @@
        "why": "PVST+ is Cisco's per-VLAN spanning tree, not a discovery protocol."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "2. Common Layer 2 Threats and How to Mitigate Them",
+     "cards": [
+      "LLDP-MED",
+      "LLDP (Link Layer Discovery Protocol, 802.1AB)"
+     ]
     },
     {
      "q": "What does the command privilege exec level 8 configure terminal do?",
@@ -1980,7 +2426,12 @@
        "why": "Parser views are created with parser view <name> from the root view, not with the privilege command."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Privilege level",
+      "privilege exec level 8 configure terminal"
+     ]
     },
     {
      "q": "In the command enable secret level 8 0 NewPa5s123&, what does the 0 mean?",
@@ -2002,7 +2453,12 @@
        "why": "Type 7 is the weak scrambling from service password-encryption; the secret keyword hashes the password instead."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "enable secret level 8 0 NewPa5s123&",
+      "Enable secret"
+     ]
     },
     {
      "q": "A router uses command authorization with group tacacs+ local. The TACACS+ (ISE) server becomes unreachable while an administrator is working. What does the router do before each command?",
@@ -2024,7 +2480,12 @@
        "why": "Rejection would happen only with no fallback method; local is listed as the second method."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "7. Securing Management Traffic",
+     "cards": [
+      "Privilege level",
+      "Local database"
+     ]
     },
     {
      "q": "BGP MD5 authentication originally placed its digest in TCP option Kind 19. Which RFC created that option?",
@@ -2046,7 +2507,13 @@
        "why": "RFC 4253, section 5.1, covers SSH version 1.99 backward compatibility."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "RFC 2385",
+      "TCP option Kind 19 (MD5 Signature Option)",
+      "MD5 authentication"
+     ]
     },
     {
      "q": "Which Duo capability checks the posture of a device before granting access?",
@@ -2068,7 +2535,9 @@
        "why": "SAML configurations connect Duo to applications, but posture checking is the Trusted Endpoints policy."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "7. Securing Management Traffic",
+     "cards": []
     },
     {
      "q": "In show ntp association output, which symbol marks the server the router is actually synchronized to (sys.peer)?",
@@ -2090,7 +2559,11 @@
        "why": "The x marks a falseticker, a server whose time is considered wrong."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "9. Configuring NTP",
+     "cards": [
+      "show ntp association"
+     ]
     },
     {
      "q": "A router logs %LINK-3-UPDOWN after an interface goes down. What severity is this message?",
@@ -2112,7 +2585,9 @@
        "why": "The number after the facility is the severity, and level 3 is Error (error conditions)."
       }
      ],
-     "answer": 3
+     "answer": 3,
+     "section": "8. Implementing Logging Features",
+     "cards": []
     },
     {
      "q": "How does Unicast RPF decide to drop a packet?",
@@ -2134,7 +2609,11 @@
        "why": "TTL expiry triggers an ICMP Time Exceeded reply; it isn't the Unicast RPF check."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "Unicast RPF (Unicast Reverse Path Forwarding)"
+     ]
     },
     {
      "q": "Which statement correctly compares IPv6 with IPv4?",
@@ -2156,7 +2635,12 @@
        "why": "IPsec is fully supported in IPv6 and was supposed to be mandatory, but IPv6 doesn't actually require it."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "ARP (Address Resolution Protocol)",
+      "NDP (Neighbor Discovery Protocol, ND)"
+     ]
     },
     {
      "q": "A team must carry IPv6 across an IPv4-only section of the network. Following the chapter's best practice, which tunnel approach should they use?",
@@ -2178,7 +2662,9 @@
        "why": "Automatic tunnels should be avoided, and tunnels should not cross the perimeter."
       }
      ],
-     "answer": 1
+     "answer": 1,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": []
     },
     {
      "q": "Secure Neighbor Discovery (SeND) adds new ND options and which two new messages?",
@@ -2200,7 +2686,12 @@
        "why": "These are gNMI messages from the book's Protocol Buffers example, unrelated to ND."
       }
      ],
-     "answer": 2
+     "answer": 2,
+     "section": "11. Securing the Data Plane in IPv6",
+     "cards": [
+      "NDP (Neighbor Discovery Protocol, ND)",
+      "SeND (Secure Neighbor Discovery)"
+     ]
     },
     {
      "q": "Which authentication algorithms does BGP support, according to the chapter?",
@@ -2222,7 +2713,11 @@
        "why": "Plaintext and MD5 are the options for RIPv2 and OSPF, not the BGP algorithm list."
       }
      ],
-     "answer": 0
+     "answer": 0,
+     "section": "12. Securing Routing Protocols and the Control Plane",
+     "cards": [
+      "HMAC-MD5 and HMAC-SHA1-12"
+     ]
     }
    ]
   }
