@@ -190,6 +190,8 @@ h2 { font-size: 1.15rem; margin: 28px 0 12px; }
 /* Header link */
 .navlink { color: var(--text); text-decoration: none; font-weight: 600; font-size: .92rem; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); }
 .navlink:hover { border-color: var(--accent); }
+.navlink.icon { display: grid; place-items: center; width: 36px; height: 34px; padding: 0; }
+.navlink.icon svg { width: 17px; height: 17px; }
 
 /* Results */
 .score-head { display: flex; gap: 18px; align-items: center; margin: 10px 0 14px; }
@@ -253,6 +255,58 @@ thead th { color: var(--muted); font-weight: 600; font-size: .82rem; }
 .cell.none { background: var(--surface-2); color: var(--muted); font-weight: 400; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 10px 0 2px; }
 .legend .cell { min-width: 0; margin-left: 6px; }
+
+/* Study tools, resume, search */
+.tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 4px 0 8px; }
+.tool { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--text); }
+.tool:hover, .kpi-link:hover { border-color: var(--accent); }
+.kpi-link { text-decoration: none; color: var(--text); }
+.resume-list { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; border-color: var(--warn); }
+.resume-list p { margin: 0; }
+.badge.warn { background: var(--warn-soft); color: var(--warn); }
+.test-tile .tile-link { color: var(--text); text-decoration: none; }
+.test-tile .tile-link:hover { color: var(--accent); }
+.search {
+  width: 100%; flex: 1; min-width: 0; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); font: inherit; margin: 6px 0 14px;
+}
+.sync .search { margin: 0; }
+.search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+mark { background: var(--warn-soft); color: inherit; border-radius: 3px; padding: 0 2px; }
+.hit-card p { margin: 6px 0; }
+.hit-card ul { margin: 4px 0 0; padding-left: 20px; }
+.tag a { color: inherit; }
+.sync ol { padding-left: 20px; }
+.check { display: inline-flex; gap: 8px; align-items: center; font-size: .95rem; cursor: pointer; }
+tr.sel td { background: var(--accent-soft); }
+
+/* Exam */
+.choice.picked { border-color: var(--accent); background: var(--accent-soft); }
+.choice.picked .letter { background: var(--accent); color: var(--surface); }
+.clock { font-variant-numeric: tabular-nums; color: var(--text); }
+.clock.low { color: var(--bad); }
+.btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.qmap { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 6px; margin: 12px 0; }
+.qcell { height: 34px; border-radius: 7px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; font-size: .85rem; }
+.qcell.answered { background: var(--surface-2); color: var(--muted); }
+.qcell.flagged { border-color: var(--warn); color: var(--warn); font-weight: 700; background: var(--warn-soft); }
+.qcell.current { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Spaced repetition */
+.grades { justify-content: center; }
+.grade { flex: 1; max-width: 200px; flex-direction: column; gap: 0; min-height: 52px; }
+.grade.bad { border-color: var(--bad); }
+.grade.good { border-color: var(--good); }
+
+/* Attempt history bars */
+.attempts { display: flex; gap: 6px; align-items: flex-end; overflow-x: auto; padding: 12px; }
+.att { flex: 0 0 38px; height: 120px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 3px; }
+.att-bar { width: 22px; border-radius: 4px 4px 0 0; background: var(--accent); }
+.att-bar.good { background: var(--good); }
+.att-bar.warn { background: var(--warn); }
+.att-bar.bad { background: var(--bad); }
+.att-p { font-size: .78rem; font-weight: 700; }
+.att-d { font-size: .68rem; color: var(--muted); white-space: nowrap; }
 
 @media (max-width: 560px) {
   .scores .ch-name { display: none; }
