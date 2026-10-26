@@ -23,7 +23,14 @@ Preferences are saved in `scor.reader` and stay on each device, since a phone an
 
 ## Adding a chapter
 
-The narration MP3 is made from the chapter's Google Doc with Kokoro (voice `am_michael`). The doc's lines are exported as `STYLE|nest|text`, one per line. Then:
+Export the chapter's Google Doc lines as `STYLE|nest|text`, one per line. For a new narration, `tools/reader/narrate.py` writes the audio and the exact line timing in one pass, using Kokoro with voice `am_michael`, the same pauses, and `prep.py` pronunciation fixes:
+
+```
+python3 tools/reader/narrate.py chNN_doc.txt "CCNP SCOR study notes." chNN.wav tools/reader/chNN_timing.json
+ffmpeg -i chNN.wav -af "highpass=f=60,loudnorm=I=-16:TP=-1.5:LRA=11" -ar 44100 -ac 1 -b:a 128k -id3v2_version 3 CCNP_SCOR_Chapter_N_Audio_HQ.mp3
+```
+
+Then continue from step 2 below. For an existing MP3, such as chapters 1 and 2, start at step 1:
 
 1. `python3 tools/reader/timing.py chNN_doc.txt tools/reader/chNN_timing.json`
    - Re-synthesizes every line with the same voice and pauses, which gives exact line times.

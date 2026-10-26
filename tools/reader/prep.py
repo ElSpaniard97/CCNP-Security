@@ -1,5 +1,23 @@
 import re
 FIX = [  # (regex, spoken)
+ # --- Chapters 3 and 4: SDN, programmability, AAA (most-specific first) ---
+ (r"https?://\S+","the link in the notes"), (r"www\.\S+","the link in the notes"),
+ (r"\bTACACS\+","tack-acks plus"), (r"\bTACACS\b","tack-acks"), (r"\bRADIUS\b","radius"), (r"\bDiameter\b","diameter"),
+ (r"\bEAPoL\b","E-pole"), (r"\bEAP-TLS\b","eep T.L.S."), (r"\bEAP\b","eep"), (r"\bMACsec\b","mac-sec"), (r"\bMACs\b","macs"), (r"\bMAC\b","mac"),
+ (r"\bMAB\b","mab"), (r"\bISE\b","ice"), (r"\bpxGrid\b","P.X. grid"), (r"\bSAML\b","sam-ul"), (r"\bOIDC\b","O.I.D.C."),
+ (r"\bJWTs\b","jots"), (r"\bJWT\b","jot"), (r"\bNETCONF\b","net-conf"), (r"\bRESTCONF\b","rest-conf"), (r"\bYANG\b","yang"),
+ (r"\bgNMI\b","G.N.M.I."), (r"\bOpenAPI\b","Open A.P.I."), (r"\bOpenDNS\b","Open D.N.S."), (r"\bSD-WAN\b","S.D. wan"),
+ (r"\bVXLAN\b","V.X. lan"), (r"\bVLANs\b","V-lans"), (r"\bVLAN\b","V-lan"), (r"\bWLAN\b","W-lan"), (r"\bLAN\b","lan"), (r"\bWAN\b","wan"),
+ (r"\bAPICs\b","A-picks"), (r"\bAPIC\b","A-pick"), (r"\bACI\b","A.C.I."), (r"\bOVSDB\b","O.V.S. D.B."), (r"\bOPNFV\b","O.P.N.F.V."),
+ (r"\bNFVI\b","N.F.V.I."), (r"\bNFV\b","N.F.V."), (r"\bVNFs?\b","V.N.F."), (r"\bMANO\b","mano"), (r"\bESXi\b","E.S.X.I."),
+ (r"\bC3PL\b","C 3 P L"), (r"\bdACLs\b","D-A.C.L.s"), (r"\bdACL\b","D-A.C.L."), (r"\bSGACLs\b","S.G. A.C.L.s"), (r"\bSGACL\b","S.G. A.C.L."),
+ (r"\bIP-to-SGT\b","I.P. to S.G.T."), (r"\bSGTs\b","S.G.T.s"), (r"\bSGT\b","S.G.T."), (r"\bPSNs\b","P.S.N.s"), (r"\bS-MNT\b","secondary M.N.T."),
+ (r"\bCSR-1000v\b","C.S.R. 1000 V"), (r"\bIOS-XE\b","I.O.S. X.E."), (r"\bIOS\b","I.O.S."), (r"\bERSPAN\b","E.R. span"),
+ (r"\bCHAP\b","chap"), (r"\bPAP\b","pap"), (r"\bAVPs\b","A.V.P.s"), (r"\b802\.1AE\b","802 dot 1 A.E."), (r"\bABAC\b","A-back"),
+ (r"\bRBAC\b","R-back"), (r"\bVoIP\b","voice over I.P."), (r"\bDCOM\b","D-com"), (r"\bRRRRIRRR\b","R R R R I R R R"), (r"\bSWIM\b","swim"),
+ (r"\bVERIS\b","veris"), (r"\bACCESS-ACCEPT\b","access accept"), (r"\bACCESS-REQUEST\b","access request"), (r"\bREPLY\b","reply"),
+ (r"\bCONTINUE\b","continue"), (r"\bSTART\b","start"), (r"\bENABLED\b","enabled"), (r"\bGET\b","get"), (r"\bPUT\b","put"),
+ (r"\bPOST\b","post"), (r"\bPATCH\b","patch"), (r"\bDELETE\b","delete"), (r"\bR1\b","R 1"), (r"\bNGFWs\b","N.G.F.W.s"),
  # --- Chapter 2 crypto terms (most-specific first) ---
  (r"\b3DES\b","triple D.E.S."), (r"\bHMAC-MD5\b","H-mac M.D. 5"), (r"\bHMAC-SHA-1\b","H-mac SHA 1"),
  (r"\bHMAC\b","H-mac"), (r"\bSHA-?512\b","SHA 512"), (r"\bSHA-?384\b","SHA 384"), (r"\bSHA-?256\b","SHA 256"),
