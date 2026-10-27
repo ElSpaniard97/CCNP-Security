@@ -1,0 +1,949 @@
+{
+"total": 776.897,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 11: Endpoint Protection and Detection",
+"spoken": "Chapter 11: Endpoint Protection and Detection.",
+"start": 1.6,
+"end": 4.885
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Introduction to Endpoint Protection and Detection",
+"spoken": "1. Introduction to Endpoint Protection and Detection.",
+"start": 7.285,
+"end": 10.613
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Where This Fits in the Book",
+"spoken": "Where This Fits in the Book.",
+"start": 12.413,
+"end": 13.97
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Security should not only detect threats but also limit the impact of an attack, across the full attack continuum.",
+"spoken": "Security should not only detect threats but also limit the impact of an attack, across the full attack continuum.",
+"start": 14.42,
+"end": 22.036
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Chapter 4 covered Cisco ISE, 802.1X, NAC, endpoint posture assessment, Cisco Secure Client, and MFA.",
+"spoken": "Chapter 4 covered Cisco ice, 802 dot 1 X, NAC, endpoint posture assessment, Cisco Secure Client, and MFA.",
+"start": 22.486,
+"end": 32.086
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Chapter 7 covered the Cisco Secure Firewall Malware Defense architecture and the Malware Analytics Cloud.",
+"spoken": "Chapter 7 covered the Cisco Secure Firewall Malware Defense architecture and the Malware Analytics Cloud.",
+"start": 32.536,
+"end": 39.726
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Malware Defense gives malware detection, blocking, continuous analysis, and retrospective views through file reputation, file sandboxing, and file retrospection.",
+"spoken": "Cisco Secure Malware Defense gives malware detection, blocking, continuous analysis, and retrospective views through file reputation, file sandboxing, and file retrospection.",
+"start": 40.176,
+"end": 52.613
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "This chapter focuses on the client connector part of the architecture: Secure Endpoint connector types, their policies, installation, and the cloud console.",
+"spoken": "This chapter focuses on the client connector part of the architecture: Secure Endpoint connector types, their policies, installation, and the cloud console.",
+"start": 53.063,
+"end": 63.772
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says FireAMP was renamed Cisco Secure Endpoint after Cisco bought SourceFire. Not in the book: it was first renamed AMP for Endpoints, and became Secure Endpoint later.",
+"spoken": "The book says fire amp was renamed Cisco Secure Endpoint after Cisco bought source fire. Not in the book: it was first renamed amp for Endpoints, and became Secure Endpoint later.",
+"start": 64.222,
+"end": 76.724
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "EDR Solutions",
+"spoken": "EDR Solutions.",
+"start": 78.174,
+"end": 79.816
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Typically an agent on the endpoint does ongoing monitoring and detection.",
+"spoken": "Typically an agent on the endpoint does ongoing monitoring and detection.",
+"start": 80.266,
+"end": 85.13
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Not all EDR solutions work the same. Some do more analysis on the agent, others on the back end in a management console.",
+"spoken": "Not all EDR solutions work the same. Some do more analysis on the agent, others on the back end in a management console.",
+"start": 85.58,
+"end": 94.199
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Modern EDR solutions take in threat intelligence from the cloud.",
+"spoken": "Modern EDR solutions take in threat intelligence from the cloud.",
+"start": 94.649,
+"end": 99.172
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Minimum capabilities of a good EDR:",
+"spoken": "Minimum capabilities of a good EDR:",
+"start": 99.622,
+"end": 102.438
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Filtering: removes false positives to reduce alert fatigue.",
+"spoken": "Filtering: removes false positives to reduce alert fatigue.",
+"start": 102.888,
+"end": 106.856
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Threat blocking: must contain threats, not just detect them.",
+"spoken": "Threat blocking: must contain threats, not just detect them.",
+"start": 107.306,
+"end": 111.124
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "DFIR help: supports forensics, incident response, and threat hunting to prevent data loss and breaches.",
+"spoken": "D.F.I.R. help: supports forensics, incident response, and threat hunting to prevent data loss and breaches.",
+"start": 111.574,
+"end": 119.382
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. Cisco Secure Endpoint",
+"spoken": "2. Cisco Secure Endpoint.",
+"start": 121.432,
+"end": 123.502
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cloud-Based Architecture",
+"spoken": "Cloud-Based Architecture.",
+"start": 125.302,
+"end": 127.094
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Gives endpoint visibility into files plus cloud-based malware detection, and the cloud keeps updating itself.",
+"spoken": "Gives endpoint visibility into files plus cloud-based malware detection, and the cloud keeps updating itself.",
+"start": 127.544,
+"end": 134.84
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Known malware is detected fast because cloud resources do the work instead of endpoint resources, so the connector stays lightweight.",
+"spoken": "Known malware is detected fast because cloud resources do the work instead of endpoint resources, so the connector stays lightweight.",
+"start": 135.29,
+"end": 144.079
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cloud storage and processing give detailed reporting and strong management.",
+"spoken": "Cloud storage and processing give detailed reporting and strong management.",
+"start": 144.529,
+"end": 149.564
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Runs on Windows, Mac, Linux, and Android endpoints.",
+"spoken": "Runs on Windows, Mac, Linux, and Android endpoints.",
+"start": 150.014,
+"end": 153.64
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Unlike traditional antivirus with a local signature database, the connector sends a hash to the cloud and the cloud decides.",
+"spoken": "Unlike traditional antivirus with a local signature database, the connector sends a hash to the cloud and the cloud decides.",
+"start": 154.09,
+"end": 162.752
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 11-1: the endpoint sends SHA-256, Spero, and Ethos data to Talos and the Malware Analytics Cloud, which returns Clean, Malware, or Unknown.",
+"spoken": "Figure 11 1: the endpoint sends SHA 256, Spero, and Ethos data to Talos and the Malware Analytics Cloud, which returns Clean, Malware, or Unknown.",
+"start": 163.202,
+"end": 176.343
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The connector can also act on its own, for example blocking malicious network connections using custom IP blacklists or dynamic lists of malicious IPs.",
+"spoken": "The connector can also act on its own, for example blocking malicious network connections using custom IP blacklists or dynamic lists of malicious I.P.s.",
+"start": 176.793,
+"end": 188.526
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Connectors must reach the cloud, so they may need to pass through firewalls and web proxies.",
+"spoken": "Connectors must reach the cloud, so they may need to pass through firewalls and web proxies.",
+"start": 188.976,
+"end": 194.566
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book often calls the Secure Endpoint management console the \"Malware Analytics Cloud console\" and elsewhere the \"Cisco Secure Endpoint console\". Not in the book: Cisco Secure Malware Analytics (formerly Threat Grid) is the separate sandboxing product, so treat both names here as the Secure Endpoint console.",
+"spoken": "The book often calls the Secure Endpoint management console the \"Malware Analytics Cloud console\" and elsewhere the \"Cisco Secure Endpoint console\". Not in the book: Cisco Secure Malware Analytics (formerly Threat Grid) is the separate sandboxing product, so treat both names here as the Secure Endpoint console.",
+"start": 195.016,
+"end": 216.093
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Web content filtering and redirect is not a Secure Endpoint feature (quiz question 1).",
+"spoken": "Web content filtering and redirect is not a Secure Endpoint feature (quiz question 1).",
+"start": 216.543,
+"end": 222.282
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Outbreak Control and Custom Detections",
+"spoken": "Outbreak Control and Custom Detections.",
+"start": 223.732,
+"end": 226.505
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Start with Outbreak Control, because its objects are key parts of endpoint policies.",
+"spoken": "Start with Outbreak Control, because its objects are key parts of endpoint policies.",
+"start": 226.955,
+"end": 232.459
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "When you define a custom detection, endpoints quarantine matching files when they see them, and retrospection handles files seen before the detection existed.",
+"spoken": "When you define a custom detection, endpoints quarantine matching files when they see them, and retrospection handles files seen before the detection existed.",
+"start": 232.909,
+"end": 242.914
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Simple custom detection steps:",
+"spoken": "Simple custom detection steps:",
+"start": 243.364,
+"end": 245.412
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Go to Outbreak Control > Custom Detections > Simple to see the existing list.",
+"spoken": "1. Go to Outbreak Control > Custom Detections > Simple to see the existing list.",
+"start": 245.862,
+"end": 251.26
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Type a name in the Update Name box and click Save. The detection is added and opens for editing on the right side.",
+"spoken": "2. Type a name in the Update Name box and click Save. The detection is added and opens for editing on the right side.",
+"start": 251.71,
+"end": 259.667
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Paste a SHA-256 hash and add a note, then click Save. Or upload a file, add a note, and click Upload; the hash appears at the bottom right.",
+"spoken": "3. Paste a SHA 256 hash and add a note, then click Save. Or upload a file, add a note, and click Upload; the hash appears at the bottom right.",
+"start": 260.117,
+"end": 271.552
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. Click Save, or the hash isn't stored.",
+"spoken": "4. Click Save, or the hash isn't stored.",
+"start": 272.002,
+"end": 274.903
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "More simple detection options:",
+"spoken": "More simple detection options:",
+"start": 275.353,
+"end": 277.508
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Upload a file of up to 20MB and the system pulls out its SHA-256.",
+"spoken": "Upload a file of up to 20 megabytes and the system pulls out its SHA 256.",
+"start": 277.958,
+"end": 284.678
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Upload many hashes at once in a text file with one SHA-256 per line.",
+"spoken": "Upload many hashes at once in a text file with one SHA 256 per line.",
+"start": 285.128,
+"end": 291.613
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The book describes these options right after the sentence introducing advanced detections, but they belong to simple detections, which use only SHA-256 hashes.",
+"spoken": "The book describes these options right after the sentence introducing advanced detections, but they belong to simple detections, which use only SHA 256 hashes.",
+"start": 292.063,
+"end": 304.159
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Advanced custom detection steps:",
+"spoken": "Advanced custom detection steps:",
+"start": 304.609,
+"end": 306.806
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Go to Outbreak Control > Custom Detections > Advanced.",
+"spoken": "1. Go to Outbreak Control > Custom Detections > Advanced.",
+"start": 307.256,
+"end": 310.947
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Type a name in the Name box and click Save.",
+"spoken": "2. Type a name in the Name box and click Save.",
+"start": 311.397,
+"end": 314.298
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Click Edit to show the object's contents on the right side.",
+"spoken": "3. Click Edit to show the object's contents on the right side.",
+"start": 314.748,
+"end": 318.588
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. Add signatures. The signature type can be auto-detected or picked from the drop-down list (Figure 11-6).",
+"spoken": "4. Add signatures. The signature type can be auto-detected or picked from the drop-down list (Figure 11 6).",
+"start": 319.038,
+"end": 326.91
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. Click Build Database From Signature Set. A success message confirms the signature set was created.",
+"spoken": "5. Click Build Database From Signature Set. A success message confirms the signature set was created.",
+"start": 327.36,
+"end": 334.422
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Advanced signature types include file body-based signatures, MD5 signatures, and logical signatures (quiz question 4).",
+"spoken": "Advanced signature types include file body-based signatures, M.D. 5 signatures, and logical signatures (quiz question 4).",
+"start": 334.872,
+"end": 344.621
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Every simple and advanced custom detection has a View Changes link to its audit log.",
+"spoken": "Every simple and advanced custom detection has a View Changes link to its audit log.",
+"start": 345.071,
+"end": 350.81
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Android Custom Detections",
+"spoken": "Android Custom Detections.",
+"start": 352.26,
+"end": 354.244
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Built by uploading the app's .apk file or picking it from the console's inventory list.",
+"spoken": "Built by uploading the app's A.P.K. file or picking it from the console's inventory list.",
+"start": 354.694,
+"end": 361.03
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Outbreak control use: stops malware spreading through mobile devices. The user is notified and prompted to uninstall the malicious app.",
+"spoken": "Outbreak control use: stops malware spreading through mobile devices. The user is notified and prompted to uninstall the malicious app.",
+"start": 361.48,
+"end": 371.144
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Application control use: stops apps you don't want installed. The user is notified and prompted to uninstall, just like with a malicious app.",
+"spoken": "Application control use: stops apps you don't want installed. The user is notified and prompted to uninstall, just like with a malicious app.",
+"start": 371.594,
+"end": 381.514
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IP Blacklists and Whitelists",
+"spoken": "IP Blacklists and Whitelists.",
+"start": 382.964,
+"end": 385.118
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies set what the connector does when DFC finds a suspicious connection, and which address sources DFC uses.",
+"spoken": "Policies set what the connector does when DFC finds a suspicious connection, and which address sources DFC uses.",
+"start": 385.568,
+"end": 393.568
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Creating a list:",
+"spoken": "Creating a list:",
+"start": 394.018,
+"end": 395.341
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Go to Outbreak Control > Network > IP Block & Allow Lists and click Create IP List.",
+"spoken": "1. Go to Outbreak Control > Network > IP Block and Allow Lists and click Create IP List.",
+"start": 395.791,
+"end": 402.276
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Name the list and choose IP Allow List (whitelist) or IP Block List (blacklist).",
+"spoken": "2. Name the list and choose IP Allow List (whitelist) or IP Block List (blacklist).",
+"start": 402.726,
+"end": 408.828
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Type IPv4 addresses one per line, each line a single IP or CIDR, or upload a file of IPs. You can also specify port numbers to block or allow.",
+"spoken": "3. Type I.P. version 4 addresses one per line, each line a single IP or cider, or upload a file of I.P.s. You can also specify port numbers to block or allow.",
+"start": 409.278,
+"end": 423.102
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. Click Create IP List.",
+"spoken": "4. Click Create IP List.",
+"start": 423.552,
+"end": 425.621
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Changing a list: the book first says you edit it by downloading the file and uploading it back, then gives the fuller steps: click Download, delete the list, create a new list with the same name, and upload the modified file.",
+"spoken": "Changing a list: the book first says you edit it by downloading the file and uploading it back, then gives the fuller steps: click Download, delete the list, create a new list with the same name, and upload the modified file.",
+"start": 426.071,
+"end": 440.62
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "View Changes shows the IP list audit trail.",
+"spoken": "View Changes shows the IP list audit trail.",
+"start": 441.07,
+"end": 444.377
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Application Control",
+"spoken": "Application Control.",
+"start": 445.827,
+"end": 447.491
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applications can be detected, blocked, and whitelisted, by SHA-256 hash, not by name.",
+"spoken": "Applications can be detected, blocked, and whitelisted, by SHA 256 hash, not by name.",
+"start": 447.941,
+"end": 455.898
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Steps:",
+"spoken": "Steps:",
+"start": 456.348,
+"end": 457.095
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. Go to Outbreak Control > Application Control > Blocked Applications and click Create.",
+"spoken": "1. Go to Outbreak Control > Application Control > Blocked Applications and click Create.",
+"start": 457.545,
+"end": 463.433
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. Name the list and click Save. You can't add apps before saving.",
+"spoken": "2. Name the list and click Save. You can't add apps before saving.",
+"start": 463.883,
+"end": 468.192
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Click Edit, then add a SHA-256 hash, upload one application at a time (20MB limit) for the console to hash, or upload an existing list.",
+"spoken": "3. Click Edit, then add a SHA 256 hash, upload one application at a time (20 megabytes limit) for the console to hash, or upload an existing list.",
+"start": 468.642,
+"end": 481.314
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Exclusion Sets",
+"spoken": "Exclusion Sets.",
+"start": 482.764,
+"end": 484.172
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Create one before building policies.",
+"spoken": "Create one before building policies.",
+"start": 484.622,
+"end": 487.033
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses: resolve conflicts with other security products, and fix performance by excluding directories with large, frequently written files like databases.",
+"spoken": "Uses: resolve conflicts with other security products, and fix performance by excluding directories with large, frequently written files like databases.",
+"start": 487.483,
+"end": 498.15
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If another antivirus product runs on the computer, exclude its install location.",
+"spoken": "If another antivirus product runs on the computer, exclude its install location.",
+"start": 498.6,
+"end": 504.36
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Files in an excluded location are not checked by application blocking, simple custom detections, or advanced custom detections.",
+"spoken": "Files in an excluded location are not checked by application blocking, simple custom detections, or advanced custom detections.",
+"start": 504.81,
+"end": 514.068
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Exclusion types:",
+"spoken": "Exclusion types:",
+"start": 514.518,
+"end": 515.948
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Threat: by threat name.",
+"spoken": "Threat: by threat name.",
+"start": 516.398,
+"end": 517.848
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Extension: by file extension.",
+"spoken": "Extension: by file extension.",
+"start": 518.298,
+"end": 520.581
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Wildcard: wildcards in filenames, extensions, or paths.",
+"spoken": "Wildcard: wildcards in filenames, extensions, or paths.",
+"start": 521.031,
+"end": 525.234
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Path: files in a given path. Windows paths can use CSIDL names.",
+"spoken": "Path: files in a given path. Windows paths can use C.S.I.D.L. names.",
+"start": 525.684,
+"end": 531.422
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco-maintained exclusions:",
+"spoken": "Cisco-maintained exclusions:",
+"start": 531.872,
+"end": 533.856
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "May be updated over time, and new ones may be added for new application versions.",
+"spoken": "May be updated over time, and new ones may be added for new application versions.",
+"start": 534.306,
+"end": 539.512
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "When one is updated, every policy using it updates too, and the change is pushed to connectors.",
+"spoken": "When one is updated, every policy using it updates too, and the change is pushed to connectors.",
+"start": 539.962,
+"end": 546.255
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Each row shows the operating system, set name, number of exclusions, number of groups using it, and number of computers using it.",
+"spoken": "Each row shows the operating system, set name, number of exclusions, number of groups using it, and number of computers using it.",
+"start": 546.705,
+"end": 555.302
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Search exclusion sets by name, path, extension, threat name, or SHA-256, and filter by operating system with the tabs.",
+"spoken": "Search exclusion sets by name, path, extension, threat name, or SHA 256, and filter by operating system with the tabs.",
+"start": 555.752,
+"end": 565.715
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "New set: Management > Exclusions, click New Exclusion Set, choose Windows, Mac, or Linux. The book's example uses macOS.",
+"spoken": "New set: Management > Exclusions, click New Exclusion Set, choose Windows, Mac, or Linux. The book's example uses mac O.S.",
+"start": 566.165,
+"end": 575.573
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Click a set to expand its details.",
+"spoken": "Click a set to expand its details.",
+"start": 576.023,
+"end": 578.199
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Connectors and Distribution",
+"spoken": "Connectors and Distribution.",
+"start": 579.649,
+"end": 581.569
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Installers can be saved on a network share, pushed with management software, or the download URL can be emailed so users install it themselves, which helps remote workers.",
+"spoken": "Installers can be saved on a network share, pushed with management software, or the download URL can be emailed so users install it themselves, which helps remote workers.",
+"start": 582.019,
+"end": 594.222
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book names the AMP Enabler's payload the \"Cisco Secure Client AMP connector\" and shows the \"Cisco Secure Client Secure Mobility Client\" (Figure 11-18). These mix old and new names; Secure Mobility Client was the old AnyConnect name (not in the book).",
+"spoken": "The book names the amp Enabler's payload the \"Cisco Secure Client amp connector\" and shows the \"Cisco Secure Client Secure Mobility Client\" (Figure 11 18). These mix old and new names; Secure Mobility Client was the old AnyConnect name (not in the book).",
+"start": 594.672,
+"end": 612.997
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Policies and Groups",
+"spoken": "Policies and Groups.",
+"start": 614.447,
+"end": 615.834
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You can configure a different policy for each platform.",
+"spoken": "You can configure a different policy for each platform.",
+"start": 616.284,
+"end": 619.74
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A policy reaches endpoints through groups.",
+"spoken": "A policy reaches endpoints through groups.",
+"start": 620.19,
+"end": 622.707
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Engines",
+"spoken": "Engines.",
+"start": 624.157,
+"end": 625.202
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "TETRA: don't enable it if another antivirus is installed. Enabling it turns the lightweight connector into a thicker client that uses more disk for signatures and more bandwidth for signature updates. Enabling it also shows a subsection for choosing file scanning options.",
+"spoken": "tetra: don't enable it if another antivirus is installed. Enabling it turns the lightweight connector into a thicker client that uses more disk for signatures and more bandwidth for signature updates. Enabling it also shows a subsection for choosing file scanning options.",
+"start": 625.652,
+"end": 644.17
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Spero and Ethos: defined in Vocabulary.",
+"spoken": "Spero and Ethos: defined in Vocabulary.",
+"start": 644.62,
+"end": 647.99
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Reporting",
+"spoken": "Reporting.",
+"start": 649.44,
+"end": 650.4
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Main dashboard: filter by platform, date range, and other attributes.",
+"spoken": "Main dashboard: filter by platform, date range, and other attributes.",
+"start": 650.85,
+"end": 655.65
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inbox:",
+"spoken": "Inbox:",
+"start": 656.1,
+"end": 656.996
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Filter by selecting groups in the heat map, a day with compromises in the bar chart, a SHA-256 from the Significant Compromise Artifacts list, or an entry in the Compromise Event Types list.",
+"spoken": "Filter by selecting groups in the heat map, a day with compromises in the bar chart, a SHA 256 from the Significant Compromise Artifacts list, or an entry in the Compromise Event Types list.",
+"start": 657.446,
+"end": 671.953
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Filters can be saved and set as your default view.",
+"spoken": "Filters can be saved and set as your default view.",
+"start": 672.403,
+"end": 675.752
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Tabs: requires attention, in progress, and resolved.",
+"spoken": "Tabs: requires attention, in progress, and resolved.",
+"start": 676.202,
+"end": 679.594
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Sort by date or severity.",
+"spoken": "Sort by date or severity.",
+"start": 680.044,
+"end": 682.007
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "A computer marked resolved no longer shows in the Dashboard or Inbox data.",
+"spoken": "A computer marked resolved no longer shows in the Dashboard or Inbox data.",
+"start": 682.457,
+"end": 687.556
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Overview dashboard: click a section heading to jump to the related console page to investigate and fix.",
+"spoken": "Overview dashboard: click a section heading to jump to the related console page to investigate and fix.",
+"start": 688.006,
+"end": 695.152
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "iOS Clarity: once Meraki SM or another MDM is linked, shows an activity summary, the most recently seen apps on managed iOS devices, and devices that haven't reported in more than seven days.",
+"spoken": "eye O.S. Clarity: once Meraki S.M. or another MDM is linked, shows an activity summary, the most recently seen apps on managed eye O.S. devices, and devices that haven't reported in more than seven days.",
+"start": 695.602,
+"end": 711.944
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Mobile Device Management",
+"spoken": "Mobile Device Management.",
+"start": 713.394,
+"end": 715.1
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Keeps devices on a supported set of applications, functions, and corporate policies.",
+"spoken": "Keeps devices on a supported set of applications, functions, and corporate policies.",
+"start": 715.55,
+"end": 721.161
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Automated update and patch provisioning keeps devices consistent and patches security vulnerabilities effectively. This is the book's main point on endpoint patching strategy.",
+"spoken": "Automated update and patch provisioning keeps devices consistent and patches security vulnerabilities effectively. This is the book's main point on endpoint patching strategy.",
+"start": 721.611,
+"end": 733.643
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Monitors location, status, activity, and jailbreak detection.",
+"spoken": "Monitors location, status, activity, and jailbreak detection.",
+"start": 734.093,
+"end": 738.488
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "This MDM tip is the chapter's key topic on the value of endpoint device management and asset inventory.",
+"spoken": "This MDM tip is the chapter's key topic on the value of endpoint device management and asset inventory.",
+"start": 738.938,
+"end": 747.194
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. Cisco Threat Response",
+"spoken": "3. Cisco Threat Response.",
+"start": 749.244,
+"end": 751.42
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "An ongoing Cisco effort toward one console for managing most of its security products.",
+"spoken": "An ongoing Cisco effort toward one console for managing most of its security products.",
+"start": 752.22,
+"end": 758.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrates with:",
+"spoken": "Integrates with:",
+"start": 758.942,
+"end": 760.2
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cisco Secure Malware Defense (formerly Advanced Malware Protection).",
+"spoken": "Cisco Secure Malware Defense (formerly Advanced Malware Protection).",
+"start": 760.65,
+"end": 765.194
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cisco Secure Endpoint.",
+"spoken": "Cisco Secure Endpoint.",
+"start": 765.644,
+"end": 767.415
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cisco Secure Malware Analytics.",
+"spoken": "Cisco Secure Malware Analytics.",
+"start": 767.865,
+"end": 770.126
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cisco Umbrella.",
+"spoken": "Cisco Umbrella.",
+"start": 770.576,
+"end": 771.984
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cisco Secure Email.",
+"spoken": "Cisco Secure Email.",
+"start": 772.434,
+"end": 774.077
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cisco Secure Firewalls.",
+"spoken": "Cisco Secure Firewalls.",
+"start": 774.527,
+"end": 776.447
+}
+]
+}
