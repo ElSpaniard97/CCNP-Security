@@ -280,7 +280,8 @@ import { icon } from "./visuals.js";
     async function run() {
       const id=++runId;
       const term = input.value.trim();
-      window.history.replaceState(null, "", term ? `#/search/${encodeURIComponent(term)}` : "#/search");
+      // Only rewrite the address while it still points at search; a newer page may already be loading.
+      if (location.hash.startsWith("#/search")) window.history.replaceState(null, "", term ? `#/search/${encodeURIComponent(term)}` : "#/search");
       if (term.length < 2) { out.innerHTML = `<p class="muted small">Type at least two characters. Searches every term, definition, and detail.</p>`; return; }
       const needle = term.toLowerCase();
       const terms=index.filter(([,front])=>front.toLowerCase().includes(needle));
