@@ -293,7 +293,15 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
   }
 
   // ---------- router ----------
-  async function route() {
+  // Views render after awaiting data, so routes run one at a time and only the latest of any
+  // queued ones renders. Otherwise a slow page could finish after a faster one and replace it.
+  let routing = Promise.resolve(), queued = 0;
+  function route() {
+    queued++;
+    routing = routing.then(() => --queued ? undefined : renderRoute());
+    return routing;
+  }
+  async function renderRoute() {
     leaveView();
     app.className="";
     const parts = location.hash.replace(/^#\/?/, "").split("/").map(decodeURIComponent);

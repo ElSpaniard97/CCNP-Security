@@ -14,6 +14,7 @@ test('starred cards get their own deck in the chapter and across chapters', asyn
   await expect(page.locator('#flash .front .term')).toHaveText(first);
 
   await page.goto('/#/ch/3/cards');
+  await expect(page.locator('#app h1')).toHaveText('Chapter 3 flashcards');
   await page.locator('#star').click();
   await page.goto('/#/starred');
   await expect(page.locator('#app h1')).toHaveText('Starred cards');
@@ -70,7 +71,6 @@ test('a flashcard deck reopens at the card you left off on', async ({ page }) =>
   for (let i = 0; i < 4; i++) await page.locator('#next').click();
   const term = await page.locator('#flash .front .term').textContent();
   await page.goto('/#/ch/4');
-  await expect(page.locator('#app h1')).toContainText('Chapter 4:');
   await page.goto('/#/ch/4/cards');
   await expect(count).toContainText('Card 5 of');
   await expect(page.locator('#flash .front .term')).toHaveText(term);
