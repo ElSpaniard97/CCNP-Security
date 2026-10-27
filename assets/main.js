@@ -98,8 +98,8 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
       <p class="eyebrow">${icon('target')} ${fresh ? "Welcome · start here" : "Continue studying"}</p>
       <h2>${fresh ? "Start with Chapter 1" : esc(selected?.text || "Keep studying")}</h2>
       ${fresh ? `<p class="muted">Take a practice test to find your gaps.<br>Missed questions build your personal drill bank.<br>Spaced repetition helps you remember the flashcards.</p>` : `<p class="muted">${c ? esc(chapterDetails[c.n]?.[1] || c.title) : "A little focused practice today builds lasting confidence."}</p>`}
-      <div class="row">${selected ? `<a class="btn primary" data-recommendation="primary" href="${selected.href}">${fresh ? "Start Chapter 1 · Test 1" : "Continue Studying"} ${icon('arrow')}</a>` : ""}${c ? `<a class="btn view-chapter" href="#/ch/${c.n}">View Chapter</a>` : ""}</div>
-      ${choices.length>1 ? `<div class="row secondary-actions">${choices.slice(1).map(x=>`<a href="${x.href}">${esc(x.text)}</a>`).join("")}</div>` : ""}
+      <div class="row">${selected ? `<a class="btn primary" data-recommendation="primary" href="${esc(selected.href)}">${fresh ? "Start Chapter 1 · Test 1" : "Continue Studying"} ${icon('arrow')}</a>` : ""}${c ? `<a class="btn view-chapter" href="#/ch/${c.n}">View Chapter</a>` : ""}</div>
+      ${choices.length>1 ? `<div class="row secondary-actions">${choices.slice(1).map(x=>`<a href="${esc(x.href)}">${esc(x.text)}</a>`).join("")}</div>` : ""}
     </div><div class="continue-visual" aria-label="${passed} of ${total} ${c ? 'chapter' : 'practice'} tests passed"><div class="study-ring" style="--p:${percent}"><span><strong>${percent}%</strong><small>Tests passed</small></span></div><p>${passed} of ${total} passed${c ? `<br>Chapter ${c.n}` : ''}</p></div></section>`;
   }
   function studyView() {

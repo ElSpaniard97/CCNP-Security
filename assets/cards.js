@@ -90,12 +90,12 @@ import { icon } from "./visuals.js";
             ${review && review.starred ? "" : `<button class="chip star-chip" type="button" data-deck="Starred" aria-pressed="${filter === "Starred"}">${icon("star")}Starred (${starredCount})</button>`}
           </div>
           ${total ? `
-          <div class="row small muted"><span>Card ${pos + 1} of ${total} · ${learning.size} still learning</span><span class="spacer"></span>${starButton(card.ch, card.front, "star")}</div>
+          <div class="row small muted"><form class="goto" id="goto-form" novalidate><label for="goto">Card</label> <input id="goto" type="number" inputmode="numeric" min="1" max="${total}" value="${pos + 1}" aria-describedby="goto-of"> <span id="goto-of">of ${total}</span><button class="btn small-btn" type="submit">Go</button><span aria-hidden="true">·</span><span>${learning.size} still learning</span></form><span class="spacer"></span>${starButton(card.ch, card.front, "star")}</div>
           <div class="progress"><div style="width:${((pos + 1) / total) * 100}%"></div></div>
           ${resumed ? `<p class="small muted resume-note">Picked up where you left off. <button class="text-btn" type="button" id="from-start">Start from card 1</button></p>` : ""}
           <div class="flash${flipped ? " flipped" : ""}" id="flash" role="button" tabindex="0" aria-label="Showing question. Show answer">${cardHTML(card, reverse, multi && card.ch)}</div>
           <button class="btn" id="flip" type="button">Show answer</button>
-          <p class="hint">Tap the card or press Space to flip. Use the arrow keys to move, and press S to star a card. Cards marked still learning come up in spaced repetition. Starred cards stay in their own deck until you unstar them.</p>
+          <p class="hint">Tap the card or press Space to flip. Use the arrow keys to move, and press S to star a card, or G to type a card number. Cards marked still learning come up in spaced repetition. Starred cards stay in their own deck until you unstar them.</p>
           <div class="row">
             <button class="btn" type="button" id="prev" ${pos === 0 ? "disabled" : ""}>← Back</button>
             <button class="btn" type="button" id="learn">${learning.has(order[pos]) ? "Unmark" : "Still learning"}</button>
@@ -113,6 +113,16 @@ import { icon } from "./visuals.js";
       setFlashState(flipped);
       document.getElementById("flip").onclick = flip;
       flash.onclick = flip;
+      const gotoInput = document.getElementById("goto");
+      document.getElementById("goto-form").onsubmit = e => {
+        e.preventDefault();
+        const k = Math.round(+gotoInput.value);
+        if (!(k >= 1 && k <= total)) { gotoInput.setCustomValidity(`Enter a number from 1 to ${total}.`); gotoInput.reportValidity(); return; }
+        pos = k - 1; flipped = false; resumed = false; render();
+        document.getElementById("flash").focus();
+      };
+      gotoInput.oninput = () => gotoInput.setCustomValidity("");
+      gotoInput.onfocus = () => gotoInput.select();
       const fromStart = document.getElementById("from-start");
       if (fromStart) fromStart.onclick = () => { build(false, true); render(); document.getElementById("flash").focus(); };
       const star = document.getElementById("star");
@@ -131,7 +141,8 @@ import { icon } from "./visuals.js";
         if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); }
         else if (e.key === "ArrowRight") go(1);
         else if (e.key === "ArrowLeft") go(-1);
-        else if (e.key.toLowerCase() === "s" && !e.metaKey && !e.ctrlKey && !e.altKey) star.click();
+        else if (e.key.toLowerCase() === "s") star.click();
+        else if (e.key.toLowerCase() === "g") { e.preventDefault(); gotoInput.focus(); }
       });
     }
 
@@ -263,7 +274,8 @@ import { icon } from "./visuals.js";
       <input class="search" id="q" type="search" placeholder="Try RADIUS, 443, or show crypto" value="${esc(q || "")}" aria-label="Search every flashcard" autocomplete="off">
       <div id="results"></div>`;
     const input = document.getElementById("q"), out = document.getElementById("results");
-    const mark = (s, re) => rich(s).replace(re, m => `<mark>${m}</mark>`);
+    // Mark matches in the raw text, then escape it, so a search for "amp" or "class" can't land inside markup.
+    const mark = (s, re) => rich(s.replace(re, m => `\u0001${m}\u0002`)).replace(/\u0001/g, "<mark>").replace(/\u0002/g, "</mark>");
     let runId=0;
     async function run() {
       const id=++runId;

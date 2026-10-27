@@ -12,9 +12,25 @@
     store.keys().filter(k => !LOCAL_ONLY.has(k)).forEach(k => { data[k] = store.get(k, null); });
     return data;
   }
+  // Progress keys the site writes. A backup file or synced copy can hold anything, so restore keeps only
+  // these, and history entries are reduced to their numeric fields before the pages render them.
+  const PROGRESS_KEY = /^(history|bank|srs|starred|best\.\d+\.\d+|last\.(\d+\.\d+|exam)|resume\.(test\.\d+\.\d+|exam|bank)|reader\.pos\.\d+|cards\.place\.(ch\d+|starred)\.[A-Za-z ]+)$/;
+  const num = v => (Number.isFinite(+v) ? +v : 0);
+  function clean(k, v) {
+    if (k !== "history") return v;
+    return (Array.isArray(v) ? v : []).filter(h => h && typeof h === "object").map(h => {
+      const out = {};
+      for (const f of ["at", "ch", "t", "right", "total", "ms"]) if (h[f] !== undefined) out[f] = num(h[f]);
+      if (h.exam) out.exam = true;
+      if (h.retry) out.retry = true;
+      if (Array.isArray(h.missed)) out.missed = h.missed.map(num);
+      if (h.secs && typeof h.secs === "object") out.secs = Object.fromEntries(Object.entries(h.secs).map(([sec, rt]) => [sec, [num(rt && rt[0]), num(rt && rt[1])]]));
+      return out;
+    });
+  }
   function restore(data) {
     store.keys().filter(k => !LOCAL_ONLY.has(k)).forEach(k => store.del(k));
-    Object.entries(data).forEach(([k, v]) => { if (!LOCAL_ONLY.has(k)) store.set(k, v); });
+    Object.entries(data || {}).forEach(([k, v]) => { if (!LOCAL_ONLY.has(k) && PROGRESS_KEY.test(k)) store.set(k, clean(k, v)); });
   }
   // Combine two progress snapshots so nothing done on either device is lost.
   function merge(a, b) {

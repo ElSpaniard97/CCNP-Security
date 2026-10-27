@@ -212,3 +212,7 @@ input.search { background:var(--surface);font-size:14px; }
 .nowrap { white-space:nowrap; }
 .text-btn { padding:0; border:0; background:none; color:var(--accent); font:inherit; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
 .resume-note { margin:4px 0 10px; }
+.goto { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:0; }
+.goto input { width:4.6em; min-height:var(--tap, 44px); padding:4px 6px; border:1px solid var(--border); border-radius:7px; background:var(--surface); color:var(--text); font:inherit; text-align:center; }
+.goto input:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+.goto .btn.small-btn { min-height:var(--tap, 44px); padding:4px 12px; }
