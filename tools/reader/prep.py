@@ -11,6 +11,17 @@ def ipv6(addr):
         elif g: words.append(" ".join(g.upper()) if re.search(r"[A-Fa-f]", g) else g)
     return " ".join(words) + (f" slash {plen}" if plen else "")
 FIX = [  # (regex, spoken)
+ # --- Chapters 9 and 10: cloud and content security ---
+ (r"\b(?:[a-z0-9-]+\.)+(?:com|org|io|cx|net|gov)/\S*","the link in the notes"),
+ (r"\b(?:[a-z0-9-]+\.)+(?:com|org|io|cx|net|gov)\b", lambda m: m.group(0).replace(".", " dot ")),
+ (r"ATT&CK","attack"), (r"/usr/local/bin","slash user slash local slash bin"), (r"\$PATH","dollar path"), (r"\bC\.UTF-8\b","C dot U.T.F. 8"),
+ (r"\bLANG=C\b","lang equals C"), (r"\b([MPT])(\d)\b", r"\1 \2"), (r"\bC3\b","C 3"), (r"\bF5\b","F 5"), (r"\b110MB\b","110 megabytes"),
+ (r"\bENV\b","env"), (r"\bRUN\b","run"), (r"\bFROM\b","from"), (r"\bCMD\b","command"), (r"\bPATH\b","path"), (r"\bLANG\b","lang"),
+ (r"\bCASE\b","case"), (r"\bMAIL\b","mail"), (r"\bAsyncOS\b","async O.S."), (r"\bCoreDNS\b","core D.N.S."), (r"\bFedRAMP\b","fed ramp"),
+ (r"\bFreeBSD\b","free B.S.D."), (r"\bOpenSSL\b","open S.S.L."), (r"\bDAST\b","dast"), (r"\bSAST\b","sast"), (r"\bDKIM\b","D-kim"),
+ (r"\bDMARC\b","D-mark"), (r"\bHELO/EHLO\b","helo and E-helo"), (r"\bS/MIME\b","S mime"), (r"\bMIME\b","mime"), (r"\bWPAD\b","W-pad"),
+ (r"\bPAC\b","pac"), (r"\bSOCKS\b","socks"), (r"\bWHOIS\b","who is"), (r"\bEU-U\.S\b","E.U. U.S."), (r"\bBIG-IP\b","big I.P."),
+ (r"\bGPOs\b","G.P.O.s"), (r"\bCSPs\b","C.S.P.s"), (r"\bCDNs\b","C.D.N.s"), (r"\bSpring-M[VC][CV]\b","Spring M.V.C."), (r"\bSIEM\b","sim"),
  # --- Chapters 7 and 8: firewalls and VPNs ---
  (r"\bFirePOWER\b","Fire Power"), (r"\bFlexVPN\b","flex V.P.N."), (r"\bGETVPN\b","get V.P.N."), (r"\bEzVPN\b","easy V.P.N."),
  (r"\bmGRE\b","multipoint G.R.E."), (r"\bISAKMP\b","ice-a-camp"), (r"\bSKEYID\b","S key I.D."), (r"\bIDi\b","I.D. I"), (r"\bIDr\b","I.D. R"),

@@ -1,0 +1,1621 @@
+{
+"total": 1271.93,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 10: Content Security",
+"spoken": "Chapter 10: Content Security.",
+"start": 1.6,
+"end": 4.096
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Content Security Fundamentals",
+"spoken": "1. Content Security Fundamentals.",
+"start": 6.496,
+"end": 8.949
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why Email and Web",
+"spoken": "Why Email and Web.",
+"start": 10.749,
+"end": 12.328
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Chapter 1 social engineering over email includes phishing, spear phishing, and whaling.",
+"spoken": "Chapter 1 social engineering over email includes phishing, spear phishing, and whaling.",
+"start": 12.778,
+"end": 18.644
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attackers also lure users to malicious links, impersonate websites, and attack web applications.",
+"spoken": "Attackers also lure users to malicious links, impersonate websites, and attack web applications.",
+"start": 19.094,
+"end": 25.772
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The web and email products give strong protection, complete control, and operational visibility into threats.",
+"spoken": "The web and email products give strong protection, complete control, and operational visibility into threats.",
+"start": 26.222,
+"end": 33.71
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "They integrate with Cisco Secure Endpoint and Cisco Secure Malware Analytics.",
+"spoken": "They integrate with Cisco Secure Endpoint and Cisco Secure Malware Analytics.",
+"start": 34.16,
+"end": 39.344
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SMA Benefits",
+"spoken": "SMA Benefits.",
+"start": 40.794,
+"end": 42.372
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Simplifies administration and planning.",
+"spoken": "Simplifies administration and planning.",
+"start": 42.822,
+"end": 45.297
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Improves compliance monitoring.",
+"spoken": "Improves compliance monitoring.",
+"start": 45.747,
+"end": 47.923
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enables consistent policy enforcement and enhances threat protection.",
+"spoken": "Enables consistent policy enforcement and enhances threat protection.",
+"start": 48.373,
+"end": 53.066
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "AsyncOS",
+"spoken": "async O.S.",
+"start": 54.516,
+"end": 55.86
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Based on a FreeBSD kernel.",
+"spoken": "Based on a free B.S.D. kernel.",
+"start": 56.31,
+"end": 58.828
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco enhanced it to fix limits of traditional Linux and UNIX, mainly scalability for thousands of connections per minute.",
+"spoken": "Cisco enhanced it to fix limits of traditional Linux and UNIX, mainly scalability for thousands of connections per minute.",
+"start": 59.278,
+"end": 67.448
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses a high-performance file system.",
+"spoken": "Uses a high-performance file system.",
+"start": 67.898,
+"end": 70.48
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "No user UNIX shell. Configure it with the web admin portal (GUI) or a fully scriptable CLI.",
+"spoken": "No user UNIX shell. Configure it with the web admin portal (gooey) or a fully scriptable CLI.",
+"start": 70.93,
+"end": 78.098
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. Cisco Secure Web Appliance",
+"spoken": "2. Cisco Secure Web Appliance.",
+"start": 80.148,
+"end": 82.644
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Purpose",
+"spoken": "Purpose.",
+"start": 84.444,
+"end": 85.297
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Main use: protect users from malicious websites and malware infection.",
+"spoken": "Main use: protect users from malicious websites and malware infection.",
+"start": 85.747,
+"end": 90.547
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can allow work sites and deny others, such as gaming and social media.",
+"spoken": "Can allow work sites and deny others, such as gaming and social media.",
+"start": 90.997,
+"end": 95.562
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Feature Engine Details",
+"spoken": "Feature Engine Details.",
+"start": 97.012,
+"end": 98.868
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Web reputation is very different from the legacy URL blacklisting and whitelisting of traditional proxies. The granular score gives a better risk assessment.",
+"spoken": "Web reputation is very different from the legacy URL blacklisting and whitelisting of traditional proxies. The granular score gives a better risk assessment.",
+"start": 99.318,
+"end": 110.582
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AVC can allow social media sites like Twitter and Facebook while blocking their micro-applications.",
+"spoken": "AVC can allow social media sites like Twitter and Facebook while blocking their micro-applications.",
+"start": 111.032,
+"end": 117.795
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DLP: redirects outbound traffic to a third-party DLP system for deep content inspection, for regulatory compliance and exfiltration protection.",
+"spoken": "DLP: redirects outbound traffic to a third-party DLP system for deep content inspection, for regulatory compliance and exfiltration protection.",
+"start": 118.245,
+"end": 129.274
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Inspects web content by title, metadata, and size.",
+"spoken": "Inspects web content by title, metadata, and size.",
+"start": 129.724,
+"end": 133.543
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Can stop users storing files in cloud services such as Box, Dropbox, iCloud, and Google Drive.",
+"spoken": "Can stop users storing files in cloud services such as Box, Dropbox, iCloud, and Google Drive.",
+"start": 133.993,
+"end": 141.417
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sandboxing and retrospection are covered more in Chapter 11.",
+"spoken": "Sandboxing and retrospection are covered more in Chapter 11.",
+"start": 141.867,
+"end": 146.176
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Placement and Platforms",
+"spoken": "Placement and Platforms.",
+"start": 147.626,
+"end": 149.226
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Usually inside the Internet edge firewall or in a DMZ, to centralize proxying and reduce the number of appliances.",
+"spoken": "Usually inside the Internet edge firewall or in a DMZ, to centralize proxying and reduce the number of appliances.",
+"start": 149.676,
+"end": 158.594
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Physical appliance or virtual machine.",
+"spoken": "Physical appliance or virtual machine.",
+"start": 159.044,
+"end": 161.71
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Interfaces",
+"spoken": "Interfaces.",
+"start": 163.16,
+"end": 164.312
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "M1: usually management. Can also carry data, called a one-armed configuration.",
+"spoken": "M 1: usually management. Can also carry data, called a one-armed configuration.",
+"start": 164.762,
+"end": 171.034
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "P1 and P2: data interfaces for proxy traffic. If both are on, they must be in different subnets.",
+"spoken": "P 1 and P 2: data interfaces for proxy traffic. If both are on, they must be in different subnets.",
+"start": 171.484,
+"end": 178.887
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "M1 plus P1: M1 can take proxy requests and P1 sends traffic to the Internet.",
+"spoken": "M 1 plus P 1: M 1 can take proxy requests and P 1 sends traffic to the Internet.",
+"start": 179.337,
+"end": 186.228
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multiple proxy interfaces need static routes to send traffic out the right interface.",
+"spoken": "Multiple proxy interfaces need static routes to send traffic out the right interface.",
+"start": 186.678,
+"end": 192.288
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "T1 and T2: Layer 4 traffic monitoring that listens to all TCP ports. No IP address, because they are promiscuous monitoring ports.",
+"spoken": "T 1 and T 2: Layer 4 traffic monitoring that listens to all TCP ports. No IP address, because they are promiscuous monitoring ports.",
+"start": 192.738,
+"end": 203.981
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "T1 alone handles duplex.",
+"spoken": "T 1 alone handles duplex.",
+"start": 204.431,
+"end": 206.543
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "T1 and T2 together work in simplex. Example: T1 gets all outgoing traffic to the Internet and T2 gets all incoming traffic.",
+"spoken": "T 1 and T 2 together work in simplex. Example: T 1 gets all outgoing traffic to the Internet and T 2 gets all incoming traffic.",
+"start": 206.993,
+"end": 217.382
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Explicit Forward Mode",
+"spoken": "Explicit Forward Mode.",
+"start": 218.832,
+"end": 220.646
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-1: the client browser sends traffic to the appliance, which reaches cisco.com but blocks malicious.h4cker.org.",
+"spoken": "Figure 10-1: the client browser sends traffic to the appliance, which reaches cisco dot com but blocks malicious dot h4cker dot org.",
+"start": 221.096,
+"end": 231.805
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The client does not do a DNS lookup before requesting the URL. The appliance does the DNS resolution.",
+"spoken": "The client does not do a DNS lookup before requesting the URL. The appliance does the DNS resolution.",
+"start": 232.255,
+"end": 240.106
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "No other network devices need configuring, but every client does. That can be a problem in large environments.",
+"spoken": "No other network devices need configuring, but every client does. That can be a problem in large environments.",
+"start": 240.556,
+"end": 248.257
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Ways to configure clients: DHCP, DNS, PAC files, or Microsoft GPOs. GPOs can also lock the settings.",
+"spoken": "Ways to configure clients: DHCP, DNS, pac files, or Microsoft G.P.O.s. G.P.O.s can also lock the settings.",
+"start": 248.707,
+"end": 258.798
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "WPAD provisioning:",
+"spoken": "W-pad provisioning:",
+"start": 259.248,
+"end": 260.933
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "DHCP option 252 with the URL as a string, for example https://secretcorp.org/wpad.dat.",
+"spoken": "DHCP option 252 with the URL as a string, for example the link in the notes link in the notes",
+"start": 261.383,
+"end": 269.81
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Or DNS, by creating an A host record for wpad.secretcorp.org.",
+"spoken": "Or DNS, by creating an A host record for wpad dot secretcorp dot org.",
+"start": 270.26,
+"end": 276.361
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-2 shows proxy configuration on a macOS device.",
+"spoken": "Figure 10-2 shows proxy configuration on a mac O.S. device.",
+"start": 276.811,
+"end": 281.974
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SOCKS Proxy",
+"spoken": "socks Proxy.",
+"start": 283.424,
+"end": 284.725
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Requires a SOCKS policy.",
+"spoken": "Requires a socks policy.",
+"start": 285.175,
+"end": 287.01
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports only direct forward connections. Does not forward to upstream proxies.",
+"spoken": "Supports only direct forward connections. Does not forward to upstream proxies.",
+"start": 287.46,
+"end": 292.793
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "No scanning services, so no AVC, DLP, or malware detection.",
+"spoken": "No scanning services, so no AVC, DLP, or malware detection.",
+"start": 293.243,
+"end": 298.342
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cannot decrypt SSL, because it tunnels traffic from client to server.",
+"spoken": "Cannot decrypt SSL, because it tunnels traffic from client to server.",
+"start": 298.792,
+"end": 303.634
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Transparent Mode",
+"spoken": "Transparent Mode.",
+"start": 305.084,
+"end": 306.514
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Redirection by PBR on many routers, or WCCP on Cisco ASA, routers, or switches.",
+"spoken": "Redirection by PBR on many routers, or WCCP on Cisco ASA, routers, or switches.",
+"start": 306.964,
+"end": 314.665
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-3 steps:",
+"spoken": "Figure 10-3 steps:",
+"start": 315.115,
+"end": 317.014
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. The client starts a connection to h4cker.org.",
+"spoken": "1. The client starts a connection to h4cker dot org.",
+"start": 317.464,
+"end": 321.453
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. The Cisco ASA redirects the request to the appliance with WCCP.",
+"spoken": "2. The Cisco ASA redirects the request to the appliance with WCCP.",
+"start": 321.903,
+"end": 327.62
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. The appliance checks the request and replies to the client if it breaks policy or the security engine flags it.",
+"spoken": "3. The appliance checks the request and replies to the client if it breaks policy or the security engine flags it.",
+"start": 328.07,
+"end": 336.07
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. The appliance opens a new connection to h4cker.org.",
+"spoken": "4. The appliance opens a new connection to h4cker dot org.",
+"start": 336.52,
+"end": 341.235
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. The server replies to the appliance, which checks for malicious or inappropriate content and blocks it if needed.",
+"spoken": "5. The server replies to the appliance, which checks for malicious or inappropriate content and blocks it if needed.",
+"start": 341.685,
+"end": 349.77
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "6. Acceptable content goes to the client.",
+"spoken": "6. Acceptable content goes to the client.",
+"start": 350.22,
+"end": 353.1
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The client resolves the domain itself with DNS and sends the request to the web server, not to the proxy.",
+"spoken": "The client resolves the domain itself with DNS and sends the request to the web server, not to the proxy.",
+"start": 353.55,
+"end": 360.676
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You can force all traffic to the proxy without end-user interaction.",
+"spoken": "You can force all traffic to the proxy without end-user interaction.",
+"start": 361.126,
+"end": 365.862
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Load balancing is built in, with no hardware load balancers or PAC files needed.",
+"spoken": "Load balancing is built in, with no hardware load balancers or pac files needed.",
+"start": 366.312,
+"end": 371.986
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Many organizations phase it in using ACLs with PBR or WCCP.",
+"spoken": "Many organizations phase it in using A.C.L.s with PBR or WCCP.",
+"start": 372.436,
+"end": 379.071
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "WCCP requires review of routing and firewall policies. On a Cisco ASA, the appliance and the clients must be in the same security zone.",
+"spoken": "WCCP requires review of routing and firewall policies. On a Cisco ASA, the appliance and the clients must be in the same security zone.",
+"start": 379.521,
+"end": 390.572
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "WCCP on a Cisco ASA",
+"spoken": "WCCP on a Cisco ASA.",
+"start": 392.022,
+"end": 394.304
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Step 1: ACLs match HTTP and HTTPS from 10.1.1.0/24 and 10.1.2.0/24.",
+"spoken": "Step 1: A.C.L.s match HTTP and HTTPS from 10.1.1.0 slash 24 and 10.1.2.0 slash 24.",
+"start": 394.754,
+"end": 407.234
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Step 2: optionally match FTP so the appliance can inspect it.",
+"spoken": "Step 2: optionally match FTP so the appliance can inspect it.",
+"start": 407.684,
+"end": 411.908
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Step 3: an ACL names the appliance at 10.1.2.3, and redirect lists tie traffic ACLs to service groups.",
+"spoken": "Step 3: an ACL names the appliance at 10.1.2.3, and redirect lists tie traffic A.C.L.s to service groups.",
+"start": 412.358,
+"end": 422.534
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "WCCP can redirect HTTP (TCP 80), non-HTTP TCP, and UDP.",
+"spoken": "WCCP can redirect HTTP (TCP 80), non-HTTP TCP, and UDP.",
+"start": 422.984,
+"end": 430.814
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Uses include proxy web cache handling, FTP caching, FTP proxy handling, and audio and video applications.",
+"spoken": "Uses include proxy web cache handling, FTP caching, FTP proxy handling, and audio and video applications.",
+"start": 431.264,
+"end": 439.946
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The device uses the service information to check that all group members provide or use the same service.",
+"spoken": "The device uses the service information to check that all group members provide or use the same service.",
+"start": 440.396,
+"end": 447.735
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Step 4: turn on redirection on the source interface, here inside.",
+"spoken": "Step 4: turn on redirection on the source interface, here inside.",
+"start": 448.185,
+"end": 452.558
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "WCCP on Cisco Secure Firewall",
+"spoken": "WCCP on Cisco Secure Firewall.",
+"start": 454.008,
+"end": 457.059
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Done through FMC FlexConfig (Figure 10-4).",
+"spoken": "Done through FMC FlexConfig (Figure 10-4).",
+"start": 457.509,
+"end": 461.434
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Firewall uses ASA commands for some features but not all. There is no separate set of its own commands.",
+"spoken": "Cisco Secure Firewall uses ASA commands for some features but not all. There is no separate set of its own commands.",
+"start": 461.884,
+"end": 470.396
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco recommends FlexConfig only for advanced users with a strong ASA background, at your own risk. It can cause unintended results with other features.",
+"spoken": "Cisco recommends FlexConfig only for advanced users with a strong ASA background, at your own risk. It can cause unintended results with other features.",
+"start": 470.846,
+"end": 482.025
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "WCCP on a Cisco Switch",
+"spoken": "WCCP on a Cisco Switch.",
+"start": 483.475,
+"end": 485.907
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-5: the client and the appliance connect through the switch, which redirects with WCCP toward h4cker.org.",
+"spoken": "Figure 10-5: the client and the appliance connect through the switch, which redirects with WCCP toward h4cker dot org.",
+"start": 486.357,
+"end": 496.597
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Steps: match web traffic, match FTP, define the appliance address, create WCCP lists, turn on redirection on interface VLAN 88.",
+"spoken": "Steps: match web traffic, match FTP, define the appliance address, create WCCP lists, turn on redirection on interface V-lan 88.",
+"start": 497.047,
+"end": 508.418
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Appliance Side and PBR",
+"spoken": "Appliance Side and PBR.",
+"start": 509.868,
+"end": 511.937
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-6 shows the WCCP service screen on the appliance.",
+"spoken": "Figure 10-6 shows the WCCP service screen on the appliance.",
+"start": 512.387,
+"end": 517.998
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PBR done in software, without hardware acceleration, can hurt router performance. Check the router documentation.",
+"spoken": "PBR done in software, without hardware acceleration, can hurt router performance. Check the router documentation.",
+"start": 518.448,
+"end": 526.682
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The PBR example matches two source subnets, receives web traffic on VLAN 88, and sends it to the appliance. The book's text writes the second subnet as \"10.1.1.2.0/24\"; the config shows it is 10.1.2.0/24.",
+"spoken": "The PBR example matches two source subnets, receives web traffic on V-lan 88, and sends it to the appliance. The book's text writes the second subnet as \"10.1.1.2.0 slash 24\"; the config shows it is 10.1.2.0 slash 24.",
+"start": 527.132,
+"end": 546.546
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Security Services",
+"spoken": "Security Services.",
+"start": 547.996,
+"end": 549.574
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Antimalware and web reputation are set per policy group.",
+"spoken": "Antimalware and web reputation are set per policy group.",
+"start": 550.024,
+"end": 554.163
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In access policies, AsyncOS for Web can pick a mix of antimalware scanning and reputation scoring to decide what to block.",
+"spoken": "In access policies, async O.S. for Web can pick a mix of antimalware scanning and reputation scoring to decide what to block.",
+"start": 554.613,
+"end": 564.0
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-7 shows the Security Services options. The book's caption wrongly calls it \"Configuring WCCP\".",
+"spoken": "Figure 10-7 shows the Security Services options. The book's caption wrongly calls it \"Configuring WCCP\".",
+"start": 564.45,
+"end": 573.495
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Web Proxy IP Spoofing",
+"spoken": "Web Proxy IP Spoofing.",
+"start": 574.945,
+"end": 576.822
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "By default the appliance replaces the request's source IP with its own.",
+"spoken": "By default the appliance replaces the request's source IP with its own.",
+"start": 577.272,
+"end": 581.923
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supported in transparent and explicit modes.",
+"spoken": "Supported in transparent and explicit modes.",
+"start": 582.373,
+"end": 585.082
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In transparent mode, spoof only redirected connections, or all connections (redirected and explicit).",
+"spoken": "In transparent mode, spoof only redirected connections, or all connections (redirected and explicit).",
+"start": 585.532,
+"end": 592.466
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With explicit proxy and spoofing, make sure HTTP replies route back to the appliance.",
+"spoken": "With explicit proxy and spoofing, make sure HTTP replies route back to the appliance.",
+"start": 592.916,
+"end": 599.209
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With a WCCP router, you need two WCCP services, one on source ports and one on destination ports, to track the HTTP transactions.",
+"spoken": "With a WCCP router, you need two WCCP services, one on source ports and one on destination ports, to track the HTTP transactions.",
+"start": 599.659,
+"end": 611.35
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Policy Processing",
+"spoken": "Policy Processing.",
+"start": 612.8,
+"end": 614.357
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The appliance finds which policy a transaction belongs to and applies its actions.",
+"spoken": "The appliance finds which policy a transaction belongs to and applies its actions.",
+"start": 614.807,
+"end": 620.119
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies are evaluated top down, like ACLs. Put the most used policies at the top for performance.",
+"spoken": "Policies are evaluated top down, like A.C.L.s. Put the most used policies at the top for performance.",
+"start": 620.569,
+"end": 628.313
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Identification and Authentication",
+"spoken": "Identification and Authentication.",
+"start": 629.763,
+"end": 632.302
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can use LDAP or AD servers.",
+"spoken": "Can use L-dap or AD servers.",
+"start": 632.752,
+"end": 635.098
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "LDAP supports only basic authentication. AD supports NTLM, Kerberos, and basic.",
+"spoken": "L-dap supports only basic authentication. AD supports NTLM, Kerberos, and basic.",
+"start": 635.548,
+"end": 642.695
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traditional: username and password, then policies by username.",
+"spoken": "Traditional: username and password, then policies by username.",
+"start": 643.145,
+"end": 647.646
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Transparent identification also helps devices that can't show a login prompt, like printers or IP phones.",
+"spoken": "Transparent identification also helps devices that can't show a login prompt, like printers or IP phones.",
+"start": 648.096,
+"end": 656.118
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NTLMSSP is typically for Windows AD, but can work with Mac with extra client configuration.",
+"spoken": "NTLMSSP is typically for Windows AD, but can work with Mac with extra client configuration.",
+"start": 656.568,
+"end": 663.864
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication surrogate options:",
+"spoken": "Authentication surrogate options:",
+"start": 664.314,
+"end": 666.596
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IP Address: identity is used until the surrogate times out.",
+"spoken": "IP Address: identity is used until the surrogate times out.",
+"start": 667.046,
+"end": 671.548
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Persistent Cookie: identity is used until the surrogate times out.",
+"spoken": "Persistent Cookie: identity is used until the surrogate times out.",
+"start": 671.998,
+"end": 676.52
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Session Cookie: identity is used until the browser closes or the session times out.",
+"spoken": "Session Cookie: identity is used until the browser closes or the session times out.",
+"start": 676.97,
+"end": 682.56
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Access Policies and URL Filtering",
+"spoken": "Access Policies and URL Filtering.",
+"start": 684.01,
+"end": 686.975
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "After submitting a new policy, you can customize how it differs from the global policy.",
+"spoken": "After submitting a new policy, you can customize how it differs from the global policy.",
+"start": 687.425,
+"end": 693.121
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protocols and user agents control access and can block specific client applications, such as social media or instant messaging clients.",
+"spoken": "Protocols and user agents control access and can block specific client applications, such as social media or instant messaging clients.",
+"start": 693.571,
+"end": 703.214
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "URL filtering decides how a request is handled based on its URL category.",
+"spoken": "URL filtering decides how a request is handled based on its URL category.",
+"start": 703.664,
+"end": 709.616
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Actions for custom categories: block, redirect, allow, monitor, warn, or quota-based or time-based filters.",
+"spoken": "Actions for custom categories: block, redirect, allow, monitor, warn, or quota-based or time-based filters.",
+"start": 710.066,
+"end": 717.831
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Other Customizations",
+"spoken": "Other Customizations.",
+"start": 719.281,
+"end": 720.881
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AVC enforces acceptable use by application type or individual application, and controls behaviors such as file transfers.",
+"spoken": "AVC enforces acceptable use by application type or individual application, and controls behaviors such as file transfers.",
+"start": 721.331,
+"end": 731.187
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Block downloads by file size, file type, and MIME type.",
+"spoken": "Block downloads by file size, file type, and mime type.",
+"start": 731.637,
+"end": 735.584
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Access policies can apply antimalware and URL reputation.",
+"spoken": "Access policies can apply antimalware and URL reputation.",
+"start": 736.034,
+"end": 740.706
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HTTPS decryption steps:",
+"spoken": "HTTPS decryption steps:",
+"start": 741.156,
+"end": 743.481
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Turn on the HTTPS proxy.",
+"spoken": "Turn on the HTTPS proxy.",
+"start": 743.931,
+"end": 746.342
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Create or upload a root certificate to sign traffic. A certificate created on the appliance must be installed on all clients.",
+"spoken": "Create or upload a root certificate to sign traffic. A certificate created on the appliance must be installed on all clients.",
+"start": 746.792,
+"end": 755.41
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Add a decryption policy or edit the global one.",
+"spoken": "Add a decryption policy or edit the global one.",
+"start": 755.86,
+"end": 759.252
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "External DLP: configure a data security policy, then enable external DLP policies that redirect outbound traffic to the external servers.",
+"spoken": "External DLP: configure a data security policy, then enable external DLP policies that redirect outbound traffic to the external servers.",
+"start": 759.702,
+"end": 770.924
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Reports",
+"spoken": "Reports.",
+"start": 772.374,
+"end": 773.334
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Detailed reporting of web transactions, malware threats, URL categories, and other proxy transactions.",
+"spoken": "Detailed reporting of web transactions, malware threats, URL categories, and other proxy transactions.",
+"start": 773.784,
+"end": 781.165
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Web Sites report (Figure 10-8): top domains requested, top domains blocked, and more.",
+"spoken": "Web Sites report (Figure 10-8): top domains requested, top domains blocked, and more.",
+"start": 781.615,
+"end": 788.399
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Users report (Figure 10-9): blocked transactions for top users, and top users by bandwidth.",
+"spoken": "Users report (Figure 10-9): blocked transactions for top users, and top users by bandwidth.",
+"start": 788.849,
+"end": 796.316
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malware Threats report (Figure 10-10): top malware threat files monitored or blocked, trend of detections, top files by file type, and malware by category.",
+"spoken": "Malware Threats report (Figure 10-10): top malware threat files monitored or blocked, trend of detections, top files by file type, and malware by category.",
+"start": 796.766,
+"end": 808.392
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "URL Categories report (Figure 10-11): top categories by total transactions, plus blocked and warned transactions by category.",
+"spoken": "URL Categories report (Figure 10-11): top categories by total transactions, plus blocked and warned transactions by category.",
+"start": 808.842,
+"end": 819.125
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. Cisco Secure Email",
+"spoken": "3. Cisco Secure Email.",
+"start": 821.175,
+"end": 823.202
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Role and Platforms",
+"spoken": "Role and Platforms.",
+"start": 825.002,
+"end": 826.431
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Physical appliance, virtual appliance, or cloud service (Chapter 9).",
+"spoken": "Physical appliance, virtual appliance, or cloud service (Chapter 9).",
+"start": 826.881,
+"end": 831.638
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Acts as the email gateway: controls all email connections, accepts messages, and relays them to the right servers.",
+"spoken": "Acts as the email gateway: controls all email connections, accepts messages, and relays them to the right servers.",
+"start": 832.088,
+"end": 840.344
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "MX Records",
+"spoken": "MX Records.",
+"start": 841.794,
+"end": 843.138
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The set of MX records for a domain decides how SMTP routes mail.",
+"spoken": "The set of MX records for a domain decides how SMTP routes mail.",
+"start": 843.588,
+"end": 848.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 10-11: h4cker.org has five MX records with preference 5, 10, 20, 30, and 40, all pointing to Google servers (gmr-smtp-in.l.google.com and alt1 to alt4), with a TTL of 3600.",
+"spoken": "Example 10-11: h4cker dot org has five MX records with preference 5, 10, 20, 30, and 40, all pointing to Google servers (gmr-smtp-in dot l dot google dot com and alt1 to alt4), with a TTL of 3600.",
+"start": 849.052,
+"end": 870.214
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Deployment",
+"spoken": "Deployment.",
+"start": 871.664,
+"end": 872.688
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "One interface to filter mail to and from your servers, or two interfaces: one for the Internet and one for internal servers.",
+"spoken": "One interface to filter mail to and from your servers, or two interfaces: one for the Internet and one for internal servers.",
+"start": 873.138,
+"end": 881.757
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Acts as an MTA and is the destination of the public MX records. The MX records point to its public IP.",
+"spoken": "Acts as an MTA and is the destination of the public MX records. The MX records point to its public IP.",
+"start": 882.207,
+"end": 890.506
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Must be reachable from the Internet and be the first hop in the email infrastructure.",
+"spoken": "Must be reachable from the Internet and be the first hop in the email infrastructure.",
+"start": 890.956,
+"end": 895.969
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-12 steps:",
+"spoken": "Figure 10-12 steps:",
+"start": 896.419,
+"end": 898.382
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. The sender emails omar@secretcorp.org. The client hands it to the sending email server.",
+"spoken": "1. The sender emails omar@secretcorp dot org. The client hands it to the sending email server.",
+"start": 898.832,
+"end": 905.808
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. The sending server looks up the secretcorp.org MX record, gets mail.secretcorp.org (the Cisco Secure Email), and queries DNS for its IP.",
+"spoken": "2. The sending server looks up the secretcorp dot org MX record, gets mail dot secretcorp dot org (the Cisco Secure Email), and queries DNS for its IP.",
+"start": 906.258,
+"end": 918.268
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. The sending server opens an SMTP connection to the Cisco Secure Email.",
+"spoken": "3. The sending server opens an SMTP connection to the Cisco Secure Email.",
+"start": 918.718,
+"end": 924.734
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. The Cisco Secure Email inspects the mail and sends it to the internal mail server if it meets policy and isn't malicious or spam.",
+"spoken": "4. The Cisco Secure Email inspects the mail and sends it to the internal mail server if it meets policy and isn't malicious or spam.",
+"start": 925.184,
+"end": 934.763
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. The recipient's client gets the mail from the internal server with IMAP or POP.",
+"spoken": "5. The recipient's client gets the mail from the internal server with eye-map or pop.",
+"start": 935.213,
+"end": 940.845
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Listeners",
+"spoken": "Listeners.",
+"start": 942.295,
+"end": 943.255
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-13: the public listener is on interface 1 facing external email servers; the private listener is on interface 2 facing SecretCorp's email server.",
+"spoken": "Figure 10-13: the public listener is on interface 1 facing external email servers; the private listener is on interface 2 facing SecretCorp's email server.",
+"start": 943.705,
+"end": 956.121
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SenderBase and Antivirus",
+"spoken": "SenderBase and Antivirus.",
+"start": 957.571,
+"end": 959.491
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mail from known or highly reputable senders is delivered with no content scanning.",
+"spoken": "Mail from known or highly reputable senders is delivered with no content scanning.",
+"start": 959.941,
+"end": 965.552
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mail from unknown or less reputable senders gets antispam and antivirus scanning.",
+"spoken": "Mail from unknown or less reputable senders gets antispam and antivirus scanning.",
+"start": 966.002,
+"end": 971.868
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Antivirus partners include McAfee and Sophos.",
+"spoken": "Antivirus partners include McAfee and Sophos.",
+"start": 972.318,
+"end": 975.646
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Outbreak Filters",
+"spoken": "Outbreak Filters.",
+"start": 977.096,
+"end": 978.526
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can hold messages, or release them back through antivirus and AMP for more scans.",
+"spoken": "Can hold messages, or release them back through antivirus and AMP for more scans.",
+"start": 978.976,
+"end": 984.821
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Add the \"human\" element after signature, heuristic, and hash-based scanning, so they catch more outbreaks than traditional tools.",
+"spoken": "Add the \"human\" element after signature, heuristic, and hash-based scanning, so they catch more outbreaks than traditional tools.",
+"start": 985.271,
+"end": 993.634
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "RAT",
+"spoken": "RAT.",
+"start": 995.084,
+"end": 995.788
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "At minimum, it states the listener address and whether to accept or reject it.",
+"spoken": "At minimum, it states the listener address and whether to accept or reject it.",
+"start": 996.238,
+"end": 1001.08
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example: accept mail for secretcorp.com or secretcorp.org.",
+"spoken": "Example: accept mail for secretcorp dot com or secretcorp dot org.",
+"start": 1001.53,
+"end": 1006.736
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DLP and Mail Policies",
+"spoken": "DLP and Mail Policies.",
+"start": 1008.186,
+"end": 1010.234
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DLP protects sensitive, proprietary information and intellectual property.",
+"spoken": "DLP protects sensitive, proprietary information and intellectual property.",
+"start": 1010.684,
+"end": 1016.081
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Create DLP policies to scan outgoing messages for data users may not send.",
+"spoken": "Create DLP policies to scan outgoing messages for data users may not send.",
+"start": 1016.531,
+"end": 1022.59
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Content a mail policy can target:",
+"spoken": "Content a mail policy can target:",
+"start": 1023.04,
+"end": 1025.45
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Marketing messages.",
+"spoken": "Marketing messages.",
+"start": 1025.9,
+"end": 1027.287
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Spam.",
+"spoken": "Spam.",
+"start": 1027.737,
+"end": 1028.569
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Graymail.",
+"spoken": "Graymail.",
+"start": 1029.019,
+"end": 1030.0
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Malware.",
+"spoken": "Malware.",
+"start": 1030.45,
+"end": 1031.346
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Phishing, spear phishing, whaling, and other targeted email attacks.",
+"spoken": "Phishing, spear phishing, whaling, and other targeted email attacks.",
+"start": 1031.796,
+"end": 1036.042
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Confidential data.",
+"spoken": "Confidential data.",
+"start": 1036.492,
+"end": 1037.964
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "PII.",
+"spoken": "PII.",
+"start": 1038.414,
+"end": 1039.139
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SPF",
+"spoken": "SPF.",
+"start": 1040.589,
+"end": 1041.72
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Email uses SPF to verify the HELO/EHLO and MAIL FROM identity (FQDN).",
+"spoken": "Cisco Secure Email uses SPF to verify the helo and E-helo and mail from identity (F.Q.D.N.).",
+"start": 1042.17,
+"end": 1050.362
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "When on, it adds headers to the message with more intelligence on the sender.",
+"spoken": "When on, it adds headers to the message with more intelligence on the sender.",
+"start": 1050.812,
+"end": 1055.654
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Effectiveness depends on participation, and records must be kept up to date.",
+"spoken": "Effectiveness depends on participation, and records must be kept up to date.",
+"start": 1056.104,
+"end": 1061.139
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Many organizations use it because major email providers don't accept mail without SPF records.",
+"spoken": "Many organizations use it because major email providers don't accept mail without SPF records.",
+"start": 1061.589,
+"end": 1068.97
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rejecting all mail without SPF blocks more spam but may drop legitimate mail from misconfigured senders.",
+"spoken": "Rejecting all mail without SPF blocks more spam but may drop legitimate mail from misconfigured senders.",
+"start": 1069.42,
+"end": 1076.716
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "4. Cisco Content Security Management Appliance (SMA)",
+"spoken": "4. Cisco Content Security Management Appliance (SMA).",
+"start": 1078.766,
+"end": 1082.542
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Centralized Management",
+"spoken": "Centralized Management.",
+"start": 1084.342,
+"end": 1085.964
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 10-14: one SMA does configuration and monitoring for two Cisco Secure Email and three Cisco Secure Web Appliance devices.",
+"spoken": "Figure 10-14: one SMA does configuration and monitoring for two Cisco Secure Email and three Cisco Secure Web Appliance devices.",
+"start": 1086.414,
+"end": 1097.187
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Gives consistent acceptable-use enforcement and shows which users violate acceptable-use policies.",
+"spoken": "Gives consistent acceptable-use enforcement and shows which users violate acceptable-use policies.",
+"start": 1097.637,
+"end": 1104.357
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Aggregates email data by sender, recipient, subject, and other parameters, with spam and virus verdicts and policy violations.",
+"spoken": "Aggregates email data by sender, recipient, subject, and other parameters, with spam and virus verdicts and policy violations.",
+"start": 1104.807,
+"end": 1114.044
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Dashboards",
+"spoken": "Dashboards.",
+"start": 1115.494,
+"end": 1116.561
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mail Flow Summary (Figure 10-15): attempted incoming messages and those categorized as security threats.",
+"spoken": "Mail Flow Summary (Figure 10-15): attempted incoming messages and those categorized as security threats.",
+"start": 1117.011,
+"end": 1125.246
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Outgoing email statistics (Figure 10-16): outgoing messages processed, those categorized as clean, and other statistics.",
+"spoken": "Outgoing email statistics (Figure 10-16): outgoing messages processed, those categorized as clean, and other statistics.",
+"start": 1125.696,
+"end": 1135.104
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AMP summary (Figure 10-17): dispositions of incoming files in email: clean, unknown, unscannable, low risk, and malicious. Malicious splits into malware, custom detection, and custom threshold.",
+"spoken": "AMP summary (Figure 10-17): dispositions of incoming files in email: clean, unknown, unscannable, low risk, and malicious. Malicious splits into malware, custom detection, and custom threshold.",
+"start": 1135.554,
+"end": 1151.383
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AMP Reputation (Figure 10-18): statistics summarized from all managed Cisco Secure Email appliances, physical or virtual.",
+"spoken": "AMP Reputation (Figure 10-18): statistics summarized from all managed Cisco Secure Email appliances, physical or virtual.",
+"start": 1151.833,
+"end": 1162.777
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AMP File Analysis (Figure 10-19): time and verdict, or interim verdict, for each file sent for analysis.",
+"spoken": "AMP File Analysis (Figure 10-19): time and verdict, or interim verdict, for each file sent for analysis.",
+"start": 1163.227,
+"end": 1172.123
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "File Retrospection (Figure 10-20): files whose verdict changed after the message arrived. AMP targets zero-day and targeted threats, so verdicts change as more data comes in.",
+"spoken": "File Retrospection (Figure 10-20): files whose verdict changed after the message arrived. AMP targets zero-day and targeted threats, so verdicts change as more data comes in.",
+"start": 1172.573,
+"end": 1186.589
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DLP Incident Summary (Figure 10-21): DLP violations in outgoing mail. Every violating message is an incident.",
+"spoken": "DLP Incident Summary (Figure 10-21): DLP violations in outgoing mail. Every violating message is an incident.",
+"start": 1187.039,
+"end": 1197.023
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "File Analysis Details",
+"spoken": "File Analysis Details.",
+"start": 1198.473,
+"end": 1200.329
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrates with Cisco Secure Malware Analytics in the cloud and on-premises appliances.",
+"spoken": "Integrates with Cisco Secure Malware Analytics in the cloud and on-premises appliances.",
+"start": 1200.779,
+"end": 1206.859
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Files whitelisted on the Malware Analytics appliance show as clean.",
+"spoken": "Files whitelisted on the Malware Analytics appliance show as clean.",
+"start": 1207.309,
+"end": 1211.682
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Drill down for detailed results, including threat characteristics.",
+"spoken": "Drill down for detailed results, including threat characteristics.",
+"start": 1212.132,
+"end": 1216.378
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Search for more information about a SHA value, or follow the link to the server that analyzed the file.",
+"spoken": "Search for more information about a SHA value, or follow the link to the server that analyzed the file.",
+"start": 1216.828,
+"end": 1223.974
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "For a file pulled from a compressed or archived file, only the extracted file's SHA is in the report.",
+"spoken": "For a file pulled from a compressed or archived file, only the extracted file's SHA is in the report.",
+"start": 1224.424,
+"end": 1231.827
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The File Analysis view shows:",
+"spoken": "The File Analysis view shows:",
+"start": 1232.277,
+"end": 1234.197
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The number of incoming and outgoing files uploaded for analysis.",
+"spoken": "The number of incoming and outgoing files uploaded for analysis.",
+"start": 1234.647,
+"end": 1239.042
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Incoming and outgoing files with completed analysis requests.",
+"spoken": "Incoming and outgoing files with completed analysis requests.",
+"start": 1239.492,
+"end": 1244.014
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Incoming and outgoing files with pending analysis requests.",
+"spoken": "Incoming and outgoing files with pending analysis requests.",
+"start": 1244.464,
+"end": 1248.774
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DLP Incident Summary",
+"spoken": "DLP Incident Summary.",
+"start": 1250.224,
+"end": 1252.058
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shows what sensitive data users send, how severe the incidents are, how many are delivered or dropped, and who sends them.",
+"spoken": "Shows what sensitive data users send, how severe the incidents are, how many are delivered or dropped, and who sends them.",
+"start": 1252.508,
+"end": 1260.487
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Two sections:",
+"spoken": "Two sections:",
+"start": 1260.937,
+"end": 1261.982
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "DLP Incident Trend: graphs of top incidents by severity and policy matches.",
+"spoken": "DLP Incident Trend: graphs of top incidents by severity and policy matches.",
+"start": 1262.432,
+"end": 1268.299
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "DLP Incident Details: the listing.",
+"spoken": "DLP Incident Details: the listing.",
+"start": 1268.749,
+"end": 1271.48
+}
+]
+}
