@@ -27,6 +27,8 @@ const paths = {
   forward:'<path d="M20 13a8 8 0 1 1-3-6.2M20 3v5h-5"/><text x="12" y="17" font-size="7" text-anchor="middle" fill="currentColor" stroke="none" font-family="system-ui">10</text>',
   grammar:'<path d="M3 21 9 5l6 16M5 16h8"/><path d="M16 9h5m-5 5h5m-5 5h5"/>',
   mic:'<rect x="8" y="2" width="8" height="13" rx="4"/><path d="M4 11a8 8 0 0 0 16 0M12 19v4"/>',
+  star:'<path d="m12 2.5 2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 17.4l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/>',
+  panel:'<rect x="3" y="4" width="18" height="18" rx="3"/><path d="M9 4v18m6-11-2.5 2 2.5 2"/>',
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/>',
 };
 export const icon = (name, extra='') => `<svg class="ui-icon ${extra}" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths[name] || paths.book}</svg>`;

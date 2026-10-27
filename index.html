@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CCNP Security SCOR Study</title>
 <meta name="description" content="Flashcards and practice tests for the CCNP and CCIE Security Core SCOR 350-701 exam, chapter by chapter.">
-<script>try{var t=JSON.parse(localStorage.getItem("scor.theme"));document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
+<script>try{var t=JSON.parse(localStorage.getItem("scor.theme"));document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");if(JSON.parse(localStorage.getItem("scor.sidebar")))document.documentElement.classList.add("nav-collapsed")}catch(e){}</script>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="stylesheet" href="assets/design.css">
 <link rel="stylesheet" href="assets/reader.css">
@@ -18,19 +18,21 @@
 <aside class="sidebar" aria-label="Study platform">
   <a class="sidebar-brand" href="#/" aria-label="CCNP Security SCOR 350-701 dashboard"><span class="brand-shield" data-icon="shield"></span><span><strong>CCNP Security</strong><b>SCOR 350-701</b><small>Study Platform</small></span></a>
   <nav class="side-nav" aria-label="Main navigation">
-    <a data-nav="home" href="#/"><span data-icon="home"></span>Dashboard</a>
-    <a data-nav="chapters" href="#/chapters"><span data-icon="book"></span>Chapters</a>
-    <a data-nav="study" href="#/study"><span data-icon="cards"></span>Flashcards</a>
-    <a data-nav="read" href="#/read"><span data-icon="headphones"></span>Listen and Read</a>
-    <a data-nav="practice" href="#/practice"><span data-icon="test"></span>Practice Tests</a>
-    <a data-nav="exam" href="#/exam"><span data-icon="target"></span>Mock Exam</a>
-    <a data-nav="srs" href="#/srs"><span data-icon="repeat"></span>Spaced Repetition</a>
-    <a data-nav="bank" href="#/bank"><span data-icon="alert"></span>Missed Questions</a>
-    <a data-nav="search" href="#/search"><span data-icon="search"></span>Search</a>
-    <a data-nav="progress" href="#/progress"><span data-icon="chart"></span>Progress</a>
-    <a data-nav="settings" href="#/settings"><span data-icon="settings"></span>Settings</a>
+    <a data-nav="home" href="#/"><span data-icon="home"></span><span class="nav-label">Dashboard</span></a>
+    <a data-nav="chapters" href="#/chapters"><span data-icon="book"></span><span class="nav-label">Chapters</span></a>
+    <a data-nav="study" href="#/study"><span data-icon="cards"></span><span class="nav-label">Flashcards</span></a>
+    <a data-nav="starred" href="#/starred"><span data-icon="star"></span><span class="nav-label">Starred Cards</span></a>
+    <a data-nav="read" href="#/read"><span data-icon="headphones"></span><span class="nav-label">Listen and Read</span></a>
+    <a data-nav="practice" href="#/practice"><span data-icon="test"></span><span class="nav-label">Practice Tests</span></a>
+    <a data-nav="exam" href="#/exam"><span data-icon="target"></span><span class="nav-label">Mock Exam</span></a>
+    <a data-nav="srs" href="#/srs"><span data-icon="repeat"></span><span class="nav-label">Spaced Repetition</span></a>
+    <a data-nav="bank" href="#/bank"><span data-icon="alert"></span><span class="nav-label">Missed Questions</span></a>
+    <a data-nav="search" href="#/search"><span data-icon="search"></span><span class="nav-label">Search</span></a>
+    <a data-nav="progress" href="#/progress"><span data-icon="chart"></span><span class="nav-label">Progress</span></a>
+    <a data-nav="settings" href="#/settings"><span data-icon="settings"></span><span class="nav-label">Settings</span></a>
   </nav>
   <div class="sidebar-note"><p>“Consistent study builds confidence.<br>Confidence passes certifications.”</p><span></span><small>YOUR NEXT CHAPTER AWAITS</small></div>
+  <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-expanded="true"><span data-icon="panel"></span><span class="nav-label">Collapse sidebar</span></button>
 </aside>
 <header class="top">
   <a class="brand" href="#/"><span data-icon="shield"></span>SCOR <span>Study</span></a>

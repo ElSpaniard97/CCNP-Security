@@ -1,7 +1,7 @@
 import { store, LOCAL_ONLY, snapshot, restore, merge } from "./store.js";
 import { syncConnect, syncNow, syncSoon } from "./sync.js";
 import { esc, cap, rich, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, dayKey, testTitle } from "./ui.js";
-import { srsKey, srsSet, srsMiss, srsDue } from "./srs.js";
+import { srsKey, srsSet, srsMiss, srsDue, isStarred, toggleStar, starredList } from "./srs.js";
 import { domainFor, selectExam } from "./blueprint.js";
 
   const app = document.getElementById("app");
@@ -148,4 +148,4 @@ function chapterView(...args) { return navigation.chapterView(...args); }
 function route(...args) { return navigation.route(...args); }
 function setStudyData(c, b) { chapters = c; blueprint = b; }
 
-export { leaveView, app, crumbs, DECKS, DECK_LABEL, LETTERS, PASS, DAY, SRS_DAYS, SRS_NEW, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, testCache, keyHandler, leaveFns, setCrumbs, onKey, onLeave, getJSON, loadCards, loadAllCards, getTests, question, findCard, attempts, addAttempt, fullAttempts, examAttempts, bests, latestByTest, streak, bestBadge, getResume, clearResume, unfinished, resumeHref, bankRecord, bankActive, studyCards, cardChips, meter, resumeBanner, setExamActive, store, LOCAL_ONLY, snapshot, restore, merge, syncConnect, syncNow, syncSoon, esc, cap, rich, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, dayKey, testTitle, srsKey, srsSet, srsMiss, srsDue, domainFor, selectExam, setNavigation, home, chapterView, route, setStudyData };
+export { leaveView, app, crumbs, DECKS, DECK_LABEL, LETTERS, PASS, DAY, SRS_DAYS, SRS_NEW, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, testCache, keyHandler, leaveFns, setCrumbs, onKey, onLeave, getJSON, loadCards, loadAllCards, getTests, question, findCard, attempts, addAttempt, fullAttempts, examAttempts, bests, latestByTest, streak, bestBadge, getResume, clearResume, unfinished, resumeHref, bankRecord, bankActive, studyCards, cardChips, meter, resumeBanner, setExamActive, store, LOCAL_ONLY, snapshot, restore, merge, syncConnect, syncNow, syncSoon, esc, cap, rich, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, dayKey, testTitle, srsKey, srsSet, srsMiss, srsDue, isStarred, toggleStar, starredList, domainFor, selectExam, setNavigation, home, chapterView, route, setStudyData };

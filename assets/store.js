@@ -4,7 +4,7 @@
     del(k) { try { localStorage.removeItem("scor." + k); } catch (e) { /* storage unavailable */ } },
     keys() { try { return Object.keys(localStorage).filter(k => k.startsWith("scor.")).map(k => k.slice(5)); } catch (e) { return []; } }
   };
-  const LOCAL_ONLY = new Set(["theme", "sync", "review", "cards.reverse", "reader"]); // never exported or synced
+  const LOCAL_ONLY = new Set(["theme", "sync", "review", "cards.reverse", "reader", "sidebar"]); // never exported or synced
 
 
   function snapshot() {
@@ -29,7 +29,7 @@
         out[k] = [...seen.values()].sort((p, q) => p.at - q.at).slice(-1000);
       } else if (k.startsWith("best.")) out[k] = Math.max(x, y);
       else if (k.startsWith("last.") || k.startsWith("resume.")) out[k] = newer(x, y);
-      else if (k === "bank" || k === "srs") {
+      else if (k === "bank" || k === "srs" || k === "starred") {
         out[k] = Object.assign({}, y);
         Object.entries(x).forEach(([e, v]) => { out[k][e] = newer(v, y[e]); });
       }

@@ -1,4 +1,5 @@
-import { onLeave, getJSON, loadAllCards, chap, app, DECKS, DECK_LABEL, SRS_DAYS, SRS_NEW, chapters, flashcards, setCrumbs, onKey, question, findCard, studyCards, home, store, syncSoon, esc, cap, rich, shuffle, plural, srsKey, srsSet, srsMiss, srsDue } from "./runtime.js";
+import { onLeave, getJSON, loadAllCards, chap, app, DECKS, DECK_LABEL, SRS_DAYS, SRS_NEW, chapters, flashcards, setCrumbs, onKey, question, findCard, studyCards, home, store, syncSoon, esc, cap, rich, shuffle, plural, srsKey, srsSet, srsMiss, srsDue, isStarred, toggleStar } from "./runtime.js";
+import { icon } from "./visuals.js";
 
 
   function setFlashState(flipped) {
@@ -20,23 +21,39 @@ import { onLeave, getJSON, loadAllCards, chap, app, DECKS, DECK_LABEL, SRS_DAYS,
     </div>`;
   }
 
+  const starButton = (ch, front, id) => {
+    const on = isStarred(ch, front);
+    return `<button class="btn star-btn" type="button" ${id ? `id="${id}"` : `data-ch="${ch}" data-front="${esc(front)}"`} aria-pressed="${on}" aria-label="Star ${esc(front.replace(/\*\*/g, ""))}">${icon("star")}<span>${on ? "Starred" : "Star"}</span></button>`;
+  };
+  function wireStar(btn, ch, front) {
+    btn.onclick = e => {
+      e.stopPropagation();
+      const on = toggleStar(ch, front);
+      btn.setAttribute("aria-pressed", on);
+      btn.querySelector("span").textContent = on ? "Starred" : "Star";
+      syncSoon();
+    };
+  }
+
   // A deck from one chapter, or (review) a custom list of [chapter, front] pairs.
+  // review.starred marks the deck of every starred card.
   function cardsView(n, deck, review) {
     const c = chap(n);
     if (!review && !c) return home();
-    setCrumbs(review ? [{ label: "Home", href: "#/" }, { label: "Review deck" }]
+    const heading = review ? review.title || "Review deck" : `Chapter ${n} flashcards`;
+    setCrumbs(review ? [{ label: "Home", href: "#/" }, { label: heading }]
       : [{ label: "Home", href: "#/" }, { label: `Chapter ${n}`, href: `#/ch/${n}` }, { label: "Flashcards" }]);
-    document.title = review ? "Review deck" : `Flashcards: Chapter ${n}`;
+    document.title = review ? heading : `Flashcards: Chapter ${n}`;
     const all = review
       ? review.cards.map(([ch, f]) => { const x = findCard(ch, f); return x && Object.assign({ ch }, x); }).filter(Boolean)
       : (flashcards[n] || []).map(x => Object.assign({ ch: n }, x));
     const multi = new Set(all.map(x => x.ch)).size > 1;
-    let filter = DECKS.includes(deck) ? deck : "All";
+    let filter = DECKS.includes(deck) || deck === "Starred" && !(review && review.starred) ? deck : "All";
     let reverse = store.get("cards.reverse", false);
     let order = [], pos = 0, flipped = false, learning = new Set();
 
     function build(keepShuffled) {
-      const pool = all.map((card, i) => i).filter(i => filter === "All" || all[i].deck === filter);
+      const pool = all.map((card, i) => i).filter(i => filter === "All" || (filter === "Starred" ? isStarred(all[i].ch, all[i].front) : all[i].deck === filter));
       order = keepShuffled ? shuffle(pool) : pool;
       pos = 0; flipped = false; learning = new Set();
     }
@@ -45,20 +62,22 @@ import { onLeave, getJSON, loadAllCards, chap, app, DECKS, DECK_LABEL, SRS_DAYS,
     function render() {
       const total = order.length;
       const card = total ? all[order[pos]] : null;
+      const starredCount = all.filter(x => isStarred(x.ch, x.front)).length;
       app.innerHTML = `
         <div class="flash-wrap">
-          <h1>${review ? "Review deck" : `Chapter ${n} flashcards`}</h1>
+          <h1>${esc(heading)}</h1>
           ${review ? `<p class="muted small">${esc(review.label)}</p>` : ""}
           <div class="chips" role="group" aria-label="Deck">
             ${["All", ...DECKS].filter(d => d === "All" || all.some(x => x.deck === d)).map(d =>
               `<button class="chip" type="button" data-deck="${esc(d)}" aria-pressed="${d === filter}">${esc(d === "All" ? "All" : DECK_LABEL[d])}</button>`).join("")}
+            ${review && review.starred ? "" : `<button class="chip star-chip" type="button" data-deck="Starred" aria-pressed="${filter === "Starred"}">${icon("star")}Starred (${starredCount})</button>`}
           </div>
           ${total ? `
-          <div class="row small muted"><span>Card ${pos + 1} of ${total}</span><span class="spacer"></span><span>${learning.size} marked still learning</span></div>
+          <div class="row small muted"><span>Card ${pos + 1} of ${total} · ${learning.size} still learning</span><span class="spacer"></span>${starButton(card.ch, card.front, "star")}</div>
           <div class="progress"><div style="width:${((pos + 1) / total) * 100}%"></div></div>
           <div class="flash${flipped ? " flipped" : ""}" id="flash" role="button" tabindex="0" aria-label="Showing question. Show answer">${cardHTML(card, reverse, multi && card.ch)}</div>
           <button class="btn" id="flip" type="button">Show answer</button>
-          <p class="hint">Tap the card or press Space to flip. Use the arrow keys to move. Cards marked still learning come up in spaced repetition.</p>
+          <p class="hint">Tap the card or press Space to flip. Use the arrow keys to move, and press S to star a card. Cards marked still learning come up in spaced repetition. Starred cards stay in their own deck until you unstar them.</p>
           <div class="row">
             <button class="btn" type="button" id="prev" ${pos === 0 ? "disabled" : ""}>← Back</button>
             <button class="btn" type="button" id="learn">${learning.has(order[pos]) ? "Unmark" : "Still learning"}</button>
@@ -66,7 +85,8 @@ import { onLeave, getJSON, loadAllCards, chap, app, DECKS, DECK_LABEL, SRS_DAYS,
           </div><div class="row preferences" aria-label="Deck preferences">
             <button class="btn" type="button" id="shuffle">Shuffle</button>
             <button class="btn" type="button" id="reverse" aria-pressed="${reverse}">${reverse ? "Show term first" : "Show definition first"}</button>
-          </div>` : `<p class="muted">No cards in this deck.</p>`}
+          </div>` : review && review.starred ? `<p class="muted">You haven't starred any cards yet. Select Star on a flashcard or a search result to keep it in this deck.</p><div class="row"><a class="btn primary" href="#/study">Choose a flashcard deck</a></div>`
+            : filter === "Starred" ? `<p class="muted">No starred cards in this deck yet. Select Star on a card to add it here.</p>` : `<p class="muted">No cards in this deck.</p>`}
         </div>`;
       app.querySelectorAll(".chip").forEach(b => b.onclick = () => { filter = b.dataset.deck; build(false); render(); });
       if (!total) return;
@@ -75,6 +95,8 @@ import { onLeave, getJSON, loadAllCards, chap, app, DECKS, DECK_LABEL, SRS_DAYS,
       setFlashState(flipped);
       document.getElementById("flip").onclick = flip;
       flash.onclick = flip;
+      const star = document.getElementById("star");
+      star.onclick = () => { toggleStar(card.ch, card.front); syncSoon(); render(); };
       document.getElementById("prev").onclick = () => go(-1);
       document.getElementById("next").onclick = () => go(1);
       document.getElementById("learn").onclick = () => {
@@ -89,6 +111,7 @@ import { onLeave, getJSON, loadAllCards, chap, app, DECKS, DECK_LABEL, SRS_DAYS,
         if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); }
         else if (e.key === "ArrowRight") go(1);
         else if (e.key === "ArrowLeft") go(-1);
+        else if (e.key.toLowerCase() === "s" && !e.metaKey && !e.ctrlKey && !e.altKey) star.click();
       });
     }
 
@@ -243,11 +266,12 @@ import { onLeave, getJSON, loadAllCards, chap, app, DECKS, DECK_LABEL, SRS_DAYS,
       out.innerHTML = `<p class="muted small">${plural(hits.length, "card")}${hits.length > 100 ? ", showing the first 100" : ""}.</p>
         ${hits.length ? `<div class="row" style="margin-bottom:12px"><button class="btn small-btn" type="button" id="deck">Study these as a deck</button></div>` : ""}
         <div class="review">${hits.slice(0, 100).map(h => `<div class="card hit-card">
-          <div class="tag"><a href="#/ch/${h.ch}">Ch ${h.ch}</a> · ${esc(DECK_LABEL[h.card.deck] || h.card.deck)} · ${esc(h.card.topic)}</div>
+          <div class="hit-head"><div class="tag"><a href="#/ch/${h.ch}">Ch ${h.ch}</a> · ${esc(DECK_LABEL[h.card.deck] || h.card.deck)} · ${esc(h.card.topic)}</div>${starButton(h.ch, h.card.front)}</div>
           <p><b>${mark(h.card.front, re)}</b></p>
           <p class="small">${mark(cap(h.card.back), re)}</p>
           ${h.card.more && h.card.more.length ? `<ul class="small muted">${h.card.more.map(m => `<li>${mark(m.trim(), re)}</li>`).join("")}</ul>` : ""}
         </div>`).join("")}</div>`;
+      out.querySelectorAll(".star-btn").forEach(b => wireStar(b, +b.dataset.ch, b.dataset.front));
       const deck = document.getElementById("deck");
       if (deck) deck.onclick = () => studyCards(hits.slice(0, 100).map(h => [h.ch, h.card.front]), `Search results for "${term}".`);
     }
