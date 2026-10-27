@@ -1,6 +1,6 @@
 import { icon, chapterDetails } from "./visuals.js";
 import { dashboardHTML, chapterGrid } from "./dashboard.js";
-import { leaveView, app, DECKS, DECK_LABEL, PASS, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, leaveFns, setCrumbs, onKey, getJSON, loadCards, loadAllCards, getTests, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, getResume, clearResume, unfinished, resumeHref, bankActive, store, syncNow, esc, shuffle, plural, pctOf, srsDue, selectExam, setNavigation, setStudyData } from "./runtime.js";
+import { leaveView, app, DECKS, DECK_LABEL, PASS, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, leaveFns, setCrumbs, onKey, getJSON, loadCards, loadAllCards, getTests, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, getResume, clearResume, unfinished, resumeHref, bankActive, store, syncNow, esc, shuffle, plural, pctOf, srsDue, starredList, selectExam, setNavigation, setStudyData } from "./runtime.js";
 import { registerOffline, offlineHTML, wireOffline } from "./offline.js";
 import { dashboard, trendChart, wireTrend, syncHTML, wireSync, backupHTML, wireBackup } from "./progress.js";
 import { packItems, hydrate, newItem, runQuiz, resumePrompt, testView, recordResult, resultsView, attemptStrip, lastView } from "./quiz.js";
@@ -24,6 +24,23 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
     const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     store.set("theme", next);
+  });
+
+  // ---------- collapsible sidebar ----------
+  // The inline script in index.html applies the saved state before the first paint.
+  const sideToggle = document.getElementById("sidebar-toggle");
+  function setSidebar(collapsed) {
+    document.documentElement.classList.toggle("nav-collapsed", collapsed);
+    sideToggle.setAttribute("aria-expanded", String(!collapsed));
+    sideToggle.querySelector(".nav-label").textContent = collapsed ? "Expand sidebar" : "Collapse sidebar";
+    document.querySelectorAll(".side-nav a").forEach(a => { if (collapsed) a.title = a.textContent.trim(); else a.removeAttribute("title"); });
+    sideToggle.title = collapsed ? "Expand sidebar ([)" : "Collapse sidebar ([)";
+  }
+  setSidebar(document.documentElement.classList.contains("nav-collapsed"));
+  sideToggle.onclick = () => { const next = !document.documentElement.classList.contains("nav-collapsed"); setSidebar(next); store.set("sidebar", next); };
+  document.addEventListener("keydown", e => {
+    if (e.key !== "[" || e.metaKey || e.ctrlKey || e.altKey || e.target.closest("input, textarea, select, [contenteditable]")) return;
+    if (sideToggle.getBoundingClientRect().width) sideToggle.click();
   });
 
   // ---------- views ----------
@@ -89,9 +106,10 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
     setCrumbs([{label:"Home",href:"#/"},{label:"Study"}]); document.title="Study";
     app.innerHTML=`<h1>Study</h1><p class="muted">Review what needs attention, or choose a flashcard deck.</p>
       <div class="tools"><a class="card tool" href="#/srs"><b>Spaced repetition</b><span>${srsDue().length} cards due</span></a>
+      <a class="card tool" href="#/starred"><b>Starred cards</b><span>${plural(starredList().length, "card")} starred</span></a>
       <a class="card tool" href="#/bank"><b>Missed questions</b><span>${bankActive().length} to clear</span></a>
       <a class="card tool" href="#/read"><b>Listen and read</b><span>Narrated notes with word highlighting</span></a></div>
-      <h2>Flashcards by chapter</h2><div class="grid">${chapters.map(c=>`<a class="card tool" href="#/ch/${c.n}/cards"><b>${c.n}. ${esc(c.title)}</b><span>${c.cards} cards · ${srsDue(c.n).length} due</span></a>`).join("")}</div>${offlineHTML()}`;
+      <h2>Flashcards by chapter</h2><div class="grid">${chapters.map(c=>`<a class="card tool" href="#/ch/${c.n}/cards"><b>${c.n}. ${esc(c.title)}</b><span>${c.cards} cards · ${srsDue(c.n).length} due${starredList(c.n).length ? ` · ${starredList(c.n).length} starred` : ""}</span></a>`).join("")}</div>${offlineHTML()}`;
     wireOffline();
   }
 
@@ -155,6 +173,7 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
       <div class="row">
         <a class="btn primary" href="#/ch/${n}/cards">All ${c.cards} cards</a>
         ${deckCounts.map(([d, k]) => `<a class="btn" href="#/ch/${n}/cards/${encodeURIComponent(d)}">${esc(DECK_LABEL[d])} (${k})</a>`).join("")}
+        <a class="btn" href="#/ch/${n}/cards/Starred">${icon("star")}Starred (${starredList(n).filter(([, f]) => flashcards[n].some(x => x.front === f)).length})</a>
       </div>
       <h2>Review</h2>
       <div class="row">
@@ -265,8 +284,8 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
   }
 
   function updateNav(parts) {
-    const route=parts[0], exact=route==="ch" ? (parts[2]==="cards" ? "study" : parts[2]==="read" ? "read" : "practice") : ["srs","bank","review"].includes(route) ? (route==="review" ? "study" : route) : ["study","exam","progress","search","chapters","practice","settings","read"].includes(route) ? route : "home";
-    const mobile=["srs","bank","review","study","read"].includes(exact) ? "study" : ["chapters","practice","settings"].includes(exact) ? (exact==="settings" ? "progress" : "home") : exact;
+    const route=parts[0], exact=route==="ch" ? (parts[2]==="cards" ? "study" : parts[2]==="read" ? "read" : "practice") : ["srs","bank","review","starred"].includes(route) ? (route==="review" ? "study" : route) : ["study","exam","progress","search","chapters","practice","settings","read"].includes(route) ? route : "home";
+    const mobile=["srs","bank","review","starred","study","read"].includes(exact) ? "study" : ["chapters","practice","settings"].includes(exact) ? (exact==="settings" ? "progress" : "home") : exact;
     document.body.dataset.page=exact;
     document.querySelectorAll("[data-nav]").forEach(a=>{
       if(a.dataset.nav===(a.closest(".mobile-nav") ? mobile : exact)) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
@@ -287,6 +306,11 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
         else if (parts[2] === "test" && parts[3]) await testView(n, parseInt(parts[3], 10));
         else await chapterView(n);
       } else if (parts[0] === "review") { const r = store.get("review", null); if(r && r.cards) { await Promise.all([...new Set(r.cards.map(x=>x[0]))].map(loadCards)); cardsView(null,null,r); } else home(); }
+      else if (parts[0] === "starred") {
+        const cards = starredList();
+        await Promise.all([...new Set(cards.map(x => x[0]))].map(loadCards));
+        cardsView(null, null, { cards, title: "Starred cards", label: "The cards you starred, from every chapter. Unstar a card to take it out of this deck.", starred: true });
+      }
       else if (parts[0] === "chapters" || parts[0] === "practice") directoryView(parts[0] === "practice");
       else if (parts[0] === "settings") settingsView();
       else if (parts[0] === "read") await readerListView();
