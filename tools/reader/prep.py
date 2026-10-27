@@ -11,6 +11,10 @@ def ipv6(addr):
         elif g: words.append(" ".join(g.upper()) if re.search(r"[A-Fa-f]", g) else g)
     return " ".join(words) + (f" slash {plen}" if plen else "")
 FIX = [  # (regex, spoken)
+ # --- Chapter 11: endpoint protection ---
+ (r"\bFireAMP\b","fire amp"), (r"\bSourceFire\b","source fire"), (r"\bAMP\b","amp"), (r"\bCIDR\b","cider"), (r"\bTETRA\b","tetra"),
+ (r"\bCSIDL\b","C.S.I.D.L."), (r"\bDFIR\b","D.F.I.R."), (r"\.apk\b","A.P.K."), (r"\b(\d+)MB\b",r"\1 megabytes"),
+ (r"\bFigure (\d+)-(\d+)",r"Figure \1 \2"), (r"\bMeraki SM\b","Meraki S.M."),
  # --- Chapters 9 and 10: cloud and content security ---
  (r"\b(?:[a-z0-9-]+\.)+(?:com|org|io|cx|net|gov)/\S*","the link in the notes"),
  (r"\b(?:[a-z0-9-]+\.)+(?:com|org|io|cx|net|gov)\b", lambda m: m.group(0).replace(".", " dot ")),

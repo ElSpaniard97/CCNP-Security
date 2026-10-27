@@ -5,7 +5,7 @@ const word = (page, text) => page.locator('#page .w', { hasText: new RegExp(`^${
 test('listen and read lists narrated chapters and links from the chapter page', async ({ page }) => {
   await page.goto('/#/read');
   await expect(page.locator('#app h1')).toHaveText('Listen and read');
-  await expect(page.locator('.reader-list .test-tile')).toHaveCount(10);
+  await expect(page.locator('.reader-list .test-tile')).toHaveCount(11);
   await page.goto('/#/ch/2');
   await page.getByRole('link', { name: /Read along with the narration/ }).click();
   await expect(page).toHaveURL(/#\/ch\/2\/read$/);
@@ -61,7 +61,7 @@ test('text, grammar and reading preferences apply and persist', async ({ page })
 
 test('reader fits a phone screen and keeps the player in view', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) {
+  for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) {
     await page.goto(`/#/ch/${n}/read`);
     await expect(page.locator('.reader-title')).toContainText(`Chapter ${n}:`);
     await expect(page.locator('#page .w').first()).toBeVisible();
