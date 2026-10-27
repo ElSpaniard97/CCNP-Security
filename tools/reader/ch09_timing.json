@@ -1,0 +1,4389 @@
+{
+"total": 4064.049,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 9: Securing the Cloud",
+"spoken": "Chapter 9: Securing the Cloud.",
+"start": 1.6,
+"end": 4.01
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "Vocabulary",
+"spoken": "Vocabulary.",
+"start": 6.41,
+"end": 7.584
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cloud Basics",
+"spoken": "Cloud Basics.",
+"start": 9.384,
+"end": 10.642
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST SP 800-145: \"The NIST Definition of Cloud Computing.\" The standard set of definitions for cloud computing. It also compares cloud services and deployment strategies.",
+"spoken": "NIST S.P. 800-145: \"The NIST Definition of Cloud Computing.\" The standard set of definitions for cloud computing. It also compares cloud services and deployment strategies.",
+"start": 11.092,
+"end": 25.663
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Public cloud: open for public use.",
+"spoken": "Public cloud: open for public use.",
+"start": 26.113,
+"end": 28.673
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Private cloud: used only by the client organization, either on-premises (on-prem) or in a dedicated area at a cloud provider.",
+"spoken": "Private cloud: used only by the client organization, either on-premises (on-prem) or in a dedicated area at a cloud provider.",
+"start": 29.123,
+"end": 38.68
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Community cloud: shared between several organizations.",
+"spoken": "Community cloud: shared between several organizations.",
+"start": 39.13,
+"end": 42.885
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hybrid cloud: made of two or more clouds, which can include on-prem services.",
+"spoken": "Hybrid cloud: made of two or more clouds, which can include on-prem services.",
+"start": 43.335,
+"end": 48.626
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IaaS (Infrastructure as a Service): you rent infrastructure and buy virtual power to run your software as needed. Like running a virtual server on a virtual disk. Similar to a utility company model, because you pay for what you use.",
+"spoken": "I.A.A.S. (Infrastructure as a Service): you rent infrastructure and buy virtual power to run your software as needed. Like running a virtual server on a virtual disk. Similar to a utility company model, because you pay for what you use.",
+"start": 49.076,
+"end": 66.228
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PaaS (Platform as a Service): provides everything except applications. Covers all phases of the system development life cycle (SDLC) and can use APIs, website portals, or gateway software. Tends to be proprietary, which causes problems if the customer moves away from the provider's platform.",
+"spoken": "PAZ (Platform as a Service): provides everything except applications. Covers all phases of the system development life cycle (SDLC) and can use A.P.I.s, website portals, or gateway software. Tends to be proprietary, which causes problems if the customer moves away from the provider's platform.",
+"start": 66.678,
+"end": 88.48
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SaaS (Software as a Service): a complete packaged solution. The software is rented to the user, usually through a front end or web portal. The user can use it from anywhere, and the company pays a per-use fee.",
+"spoken": "SASS (Software as a Service): a complete packaged solution. The software is rented to the user, usually through a front end or web portal. The user can use it from anywhere, and the company pays a per-use fee.",
+"start": 88.93,
+"end": 103.629
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CSP (cloud service provider): a provider such as Azure, AWS, or GCP (Google Cloud Platform).",
+"spoken": "CSP (cloud service provider): a provider such as Azure, AWS, or GCP (Google Cloud Platform).",
+"start": 104.079,
+"end": 111.631
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shared responsibility model: describes which security duties belong to the customer and which belong to the CSP. It depends on the service model. Amazon publishes one for AWS.",
+"spoken": "Shared responsibility model: describes which security duties belong to the customer and which belong to the CSP. It depends on the service model. Amazon publishes one for AWS.",
+"start": 112.081,
+"end": 125.457
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SLA (service level agreement): the contracted level of guaranteed service between the cloud provider and the customer.",
+"spoken": "SLA (service level agreement): the contracted level of guaranteed service between the cloud provider and the customer.",
+"start": 125.907,
+"end": 133.694
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DR/BCP (disaster recovery and business continuity plan): how the provider responds to fire, storms, natural disasters, or power loss, and what continued service it guarantees.",
+"spoken": "D.R. and B.C.P. (disaster recovery and business continuity plan): how the provider responds to fire, storms, natural disasters, or power loss, and what continued service it guarantees.",
+"start": 134.144,
+"end": 148.394
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Development Methodologies",
+"spoken": "Development Methodologies.",
+"start": 149.844,
+"end": 151.615
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Waterfall: development and project management method with at least five to seven phases in strict linear order. A phase can't start until the previous one is complete.",
+"spoken": "Waterfall: development and project management method with at least five to seven phases in strict linear order. A phase can't start until the previous one is complete.",
+"start": 152.065,
+"end": 163.457
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Agile: development and project management process that breaks a project into stages, with constant collaboration with stakeholders and continuous improvement and iteration at every stage.",
+"spoken": "Agile: development and project management process that breaks a project into stages, with constant collaboration with stakeholders and continuous improvement and iteration at every stage.",
+"start": 163.907,
+"end": 176.622
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Backlog: the committed list of work in Agile.",
+"spoken": "Backlog: the committed list of work in Agile.",
+"start": 177.072,
+"end": 179.76
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User stories: what Agile teams turn an idea into, along with a feature specification.",
+"spoken": "User stories: what Agile teams turn an idea into, along with a feature specification.",
+"start": 180.21,
+"end": 186.247
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Scrum: a framework related to Agile. Teams learn through experience, self-organize, and reflect on wins and losses to improve. It defines a set of meetings, tools, and roles.",
+"spoken": "Scrum: a framework related to Agile. Teams learn through experience, self-organize, and reflect on wins and losses to improve. It defines a set of meetings, tools, and roles.",
+"start": 186.697,
+"end": 199.326
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sprint: a short, time-boxed period in which a Scrum team completes a predefined amount of work. A key concept of Scrum and Agile.",
+"spoken": "Sprint: a short, time-boxed period in which a Scrum team completes a predefined amount of work. A key concept of Scrum and Agile.",
+"start": 199.776,
+"end": 208.694
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lean: management philosophy that eliminates waste of time and resources across the business. Agile is an implementation of Lean.",
+"spoken": "Lean: management philosophy that eliminates waste of time and resources across the business. Agile is an implementation of Lean.",
+"start": 209.144,
+"end": 218.317
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Kanban: scheduling system for lean development and just-in-time (JIT) manufacturing, developed by Taiichi Ohno of Toyota. Agile uses it.",
+"spoken": "Kanban: scheduling system for lean development and just-in-time (JIT) manufacturing, developed by Taiichi Ohno of Toyota. Agile uses it.",
+"start": 218.767,
+"end": 229.178
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Extreme Programming (EP): development method that improves quality and adapts to the changing needs of the customer, with iterative, frequent small releases. More commonly called XP; that abbreviation is not in the book.",
+"spoken": "Extreme Programming (EP): development method that improves quality and adapts to the changing needs of the customer, with iterative, frequent small releases. More commonly called XP; that abbreviation is not in the book.",
+"start": 229.628,
+"end": 245.009
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SDLC: stands for system development life cycle, and is also often used for secure development life cycle.",
+"spoken": "SDLC: stands for system development life cycle, and is also often used for secure development life cycle.",
+"start": 245.459,
+"end": 253.651
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DevOps: the convergence of many technical, project management, and management movements, built on Lean, Theory of Constraints, resilience engineering, learning organizations, safety culture, human factors, and more.",
+"spoken": "DevOps: the convergence of many technical, project management, and management movements, built on Lean, Theory of Constraints, resilience engineering, learning organizations, safety culture, human factors, and more.",
+"start": 254.101,
+"end": 268.928
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "CI/CD and Serverless",
+"spoken": "C.I. C.D. and Serverless.",
+"start": 270.378,
+"end": 272.426
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CI (Continuous Integration): programmers merge code changes into a central repository multiple times a day.",
+"spoken": "CI (Continuous Integration): programmers merge code changes into a central repository multiple times a day.",
+"start": 272.876,
+"end": 281.238
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CD (Continuous Delivery): sits on top of CI and automates the entire software release process.",
+"spoken": "CD (Continuous Delivery): sits on top of CI and automates the entire software release process.",
+"start": 281.688,
+"end": 289.006
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CI/CD pipeline: each code change triggers an automated build-and-test sequence that gives feedback to the programmer. The goal is full automation, with each run logged and visible to the whole team.",
+"spoken": "C.I. C.D. pipeline: each code change triggers an automated build-and-test sequence that gives feedback to the programmer. The goal is full automation, with each run logged and visible to the whole team.",
+"start": 289.456,
+"end": 304.09
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Smoke tests: quick sanity checks from the user's point of view, run first in a multistage test phase.",
+"spoken": "Smoke tests: quick sanity checks from the user's point of view, run first in a multistage test phase.",
+"start": 304.54,
+"end": 311.324
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Staging (beta) environment: deployment environment used internally by the product team before production.",
+"spoken": "Staging (beta) environment: deployment environment used internally by the product team before production.",
+"start": 311.774,
+"end": 319.348
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Serverless computing (FaaS, function as a service): developers build and run applications without managing the server infrastructure. The cloud provider handles servers, virtual machines, networking, and scaling. Servers still exist; developers are just abstracted away from them.",
+"spoken": "Serverless computing (FaaS, function as a service): developers build and run applications without managing the server infrastructure. The cloud provider handles servers, virtual machines, networking, and scaling. Servers still exist; developers are just abstracted away from them.",
+"start": 319.798,
+"end": 339.19
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Function: a small, self-contained piece of code that performs a specific task. Usually event-driven.",
+"spoken": "Function: a small, self-contained piece of code that performs a specific task. Usually event-driven.",
+"start": 339.64,
+"end": 346.317
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AWS Lambda: one of the most popular serverless architectures. You run code without provisioning servers and pay only for the compute time you use. The book's figure captions spell it \"Lamda.\"",
+"spoken": "AWS Lambda: one of the most popular serverless architectures. You run code without provisioning servers and pay only for the compute time you use. The book's figure captions spell it \"Lamda.\"",
+"start": 346.767,
+"end": 360.015
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Containers and Orchestration",
+"spoken": "Containers and Orchestration.",
+"start": 361.465,
+"end": 363.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Container image: bundles a program and its dependencies into a single artifact under a root file system.",
+"spoken": "Container image: bundles a program and its dependencies into a single artifact under a root file system.",
+"start": 363.942,
+"end": 371.238
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Container image layer: each layer adds, removes, or modifies files from the layer before it. Each parent reference is a pointer.",
+"spoken": "Container image layer: each layer adds, removes, or modifies files from the layer before it. Each parent reference is a pointer.",
+"start": 371.688,
+"end": 380.733
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Docker: one of the most popular container runtime engines. Packages an executable and pushes it to a remote registry for others to pull.",
+"spoken": "Docker: one of the most popular container runtime engines. Packages an executable and pushes it to a remote registry for others to pull.",
+"start": 381.183,
+"end": 390.868
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Container registry: stores images. Offered by AWS, Google Cloud Platform, and Microsoft Azure, or run privately with open-source or commercial systems.",
+"spoken": "Container registry: stores images. Offered by AWS, Google Cloud Platform, and Microsoft Azure, or run privately with open-source or commercial systems.",
+"start": 391.318,
+"end": 403.222
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Docker Hub: Docker's public image repository.",
+"spoken": "Docker Hub: Docker's public image repository.",
+"start": 403.672,
+"end": 407.299
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dockerfile: a file that automates the creation of a Docker container image.",
+"spoken": "Dockerfile: a file that automates the creation of a Docker container image.",
+"start": 407.749,
+"end": 413.018
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OCI (Open Container Initiative) image format: the standardized form of the Docker image format, the most popular image format.",
+"spoken": "OCI (Open Container Initiative) image format: the standardized form of the Docker image format, the most popular image format.",
+"start": 413.468,
+"end": 422.919
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Container orchestration: managing, deploying, and orchestrating containers.",
+"spoken": "Container orchestration: managing, deploying, and orchestrating containers.",
+"start": 423.369,
+"end": 428.404
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Kubernetes (k8s): one of the most popular container orchestration frameworks, originally developed by Google. Automates the distribution, scheduling, and orchestration of containers across a cluster.",
+"spoken": "Kubernetes (k8s): one of the most popular container orchestration frameworks, originally developed by Google. Automates the distribution, scheduling, and orchestration of containers across a cluster.",
+"start": 428.854,
+"end": 443.083
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Nomad: container management and orchestration platform. The book says \"HashCorp\"; the company is HashiCorp.",
+"spoken": "Nomad: container management and orchestration platform. The book says \"HashCorp\"; the company is HashiCorp.",
+"start": 443.533,
+"end": 451.064
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Apache Mesos: a distributed Linux kernel with native support for launching containers with Docker and AppC images.",
+"spoken": "Apache Mesos: a distributed Linux kernel with native support for launching containers with Docker and AppC images.",
+"start": 451.514,
+"end": 459.898
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Docker Swarm: container cluster management and orchestration integrated with the Docker Engine.",
+"spoken": "Docker Swarm: container cluster management and orchestration integrated with the Docker Engine.",
+"start": 460.348,
+"end": 466.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Master: Kubernetes component that coordinates all cluster activity: scheduling, scaling, and deploying applications.",
+"spoken": "Master: Kubernetes component that coordinates all cluster activity: scheduling, scaling, and deploying applications.",
+"start": 466.942,
+"end": 475.454
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Node: a VM or physical server that acts as a worker machine in a Kubernetes cluster.",
+"spoken": "Node: a VM or physical server that acts as a worker machine in a Kubernetes cluster.",
+"start": 475.904,
+"end": 481.898
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Pod: a group of one or more containers with shared storage and networking, plus a specification for how to run them. Each pod has an IP address and should be able to reach all other pods.",
+"spoken": "Pod: a group of one or more containers with shared storage and networking, plus a specification for how to run them. Each pod has an IP address and should be able to reach all other pods.",
+"start": 482.348,
+"end": 495.084
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubectl: the official Kubernetes client. The book misspells it \"kubctl\" once.",
+"spoken": "kubectl: the official Kubernetes client. The book misspells it \"kubctl\" once.",
+"start": 495.534,
+"end": 500.633
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubeadm: Kubernetes component that bootstraps a minimum viable cluster and manages nodes in a multi-node cluster.",
+"spoken": "kubeadm: Kubernetes component that bootstraps a minimum viable cluster and manages nodes in a multi-node cluster.",
+"start": 501.083,
+"end": 509.254
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "minikube: a lightweight Kubernetes implementation for learning.",
+"spoken": "minikube: a lightweight Kubernetes implementation for learning.",
+"start": 509.704,
+"end": 513.672
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GKE (Google Kubernetes Engine): GCP's hosted Kubernetes as a Service. Azure and AWS offer similar services.",
+"spoken": "GKE (Google Kubernetes Engine): GCP's hosted Kubernetes as a Service. Azure and AWS offer similar services.",
+"start": 514.122,
+"end": 524.191
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Micro-segmentation: network segmentation at the VM level or between containers, regardless of VLAN or subnet. Must be application aware.",
+"spoken": "Micro-segmentation: network segmentation at the VM level or between containers, regardless of V-lan or subnet. Must be application aware.",
+"start": 524.641,
+"end": 535.542
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Contiv: open-source project for micro-segmentation policy-based services in container environments. Covered in Chapter 3.",
+"spoken": "Contiv: open-source project for micro-segmentation policy-based services in container environments. Covered in Chapter 3.",
+"start": 535.992,
+"end": 545.272
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DevSecOps and Software Testing",
+"spoken": "DevSecOps and Software Testing.",
+"start": 546.722,
+"end": 549.026
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DevSecOps: moving security to the start of the development life cycle and building security practices into the CI/CD pipeline.",
+"spoken": "DevSecOps: moving security to the start of the development life cycle and building security practices into the C.I. C.D. pipeline.",
+"start": 549.476,
+"end": 559.204
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shifting security to the left: moving security earlier into design, coding, and testing.",
+"spoken": "Shifting security to the left: moving security earlier into design, coding, and testing.",
+"start": 559.654,
+"end": 565.756
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure by default: make it easy for developers to write secure code and hard to make dangerous mistakes, with secure defaults in templates and frameworks.",
+"spoken": "Secure by default: make it easy for developers to write secure code and hard to make dangerous mistakes, with secure defaults in templates and frameworks.",
+"start": 566.206,
+"end": 576.872
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OWASP Proactive Controls: OWASP's collection of secure development practices every developer should follow.",
+"spoken": "oh-wasp Proactive Controls: oh-wasp's collection of secure development practices every developer should follow.",
+"start": 577.322,
+"end": 584.746
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SAST (static application security testing): a software assurance method.",
+"spoken": "sast (static application security testing): a software assurance method.",
+"start": 585.196,
+"end": 590.018
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DAST (dynamic application security testing): a software assurance method.",
+"spoken": "dast (dynamic application security testing): a software assurance method.",
+"start": 590.468,
+"end": 595.481
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Fuzzing (fuzz testing): sends random data to the unit being tested to find input validation issues, program failures, buffer overflows, and other flaws. Works on applications, operating systems, infrastructure devices, IoT devices, and more.",
+"spoken": "Fuzzing (fuzz testing): sends random data to the unit being tested to find input validation issues, program failures, buffer overflows, and other flaws. Works on applications, operating systems, infrastructure devices, I.O.T. devices, and more.",
+"start": 595.931,
+"end": 614.384
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Fuzzer: a tool that performs fuzzing.",
+"spoken": "Fuzzer: a tool that performs fuzzing.",
+"start": 614.834,
+"end": 617.202
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco Umbrella",
+"spoken": "Cisco Umbrella.",
+"start": 618.652,
+"end": 620.06
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Umbrella: cloud-delivered solution that blocks malicious destinations using DNS. Evolved from the OpenDNS acquisition.",
+"spoken": "Cisco Umbrella: cloud-delivered solution that blocks malicious destinations using DNS. Evolved from the Open D.N.S. acquisition.",
+"start": 620.51,
+"end": 630.665
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OpenDNS: a suite of consumer products for a faster, safer, more reliable Internet.",
+"spoken": "Open D.N.S.: a suite of consumer products for a faster, safer, more reliable Internet.",
+"start": 631.115,
+"end": 637.771
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Anycast: all Umbrella data centers announce the same IP address, and requests go to the fastest, lowest-latency data center. Gives the recursive DNS service reliability and scale.",
+"spoken": "Anycast: all Umbrella data centers announce the same IP address, and requests go to the fastest, lowest-latency data center. Gives the recursive DNS service reliability and scale.",
+"start": 638.221,
+"end": 651.917
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Fast flux: DNS technique botnets use to hide phishing and malware sites behind an ever-changing network of compromised hosts acting as proxies.",
+"spoken": "Fast flux: DNS technique botnets use to hide phishing and malware sites behind an ever-changing network of compromised hosts acting as proxies.",
+"start": 652.367,
+"end": 662.778
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SIG (secure Internet gateway): Umbrella's cloud-based proxy, which inspects only requests for risky domains.",
+"spoken": "SIG (secure Internet gateway): Umbrella's cloud-based proxy, which inspects only requests for risky domains.",
+"start": 663.228,
+"end": 671.206
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Risky domain: a domain that hosts both malicious and safe content, usually because users can upload and share content. Examples: facebook.com, reddit.com, pastebin.com.",
+"spoken": "Risky domain: a domain that hosts both malicious and safe content, usually because users can upload and share content. Examples: facebook dot com, reddit dot com, pastebin dot com.",
+"start": 671.656,
+"end": 685.992
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Umbrella Investigate: gives access to Umbrella's global intelligence to enrich security data and events and help with incident response. Through a web console or an API.",
+"spoken": "Cisco Umbrella Investigate: gives access to Umbrella's global intelligence to enrich security data and events and help with incident response. Through a web console or an API.",
+"start": 686.442,
+"end": 699.904
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Email Security",
+"spoken": "Email Security.",
+"start": 701.354,
+"end": 702.932
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Email Threat Defense: Cisco's cloud-based email security solution. Protects against ransomware, business email compromise (BEC), phishing, spear phishing, whaling, and other email attacks. The book uses this name for what its own figures and review questions call Cisco Cloud Email Security (CES). Not in the book: Cisco now sells Secure Email Threat Defense as a separate API-based Microsoft 365 product, and the gateway formerly called CES is Secure Email Cloud Gateway.",
+"spoken": "Cisco Secure Email Threat Defense: Cisco's cloud-based email security solution. Protects against ransomware, business email compromise (BEC), phishing, spear phishing, whaling, and other email attacks. The book uses this name for what its own figures and review questions call Cisco Cloud Email Security (CES). Not in the book: Cisco now sells Secure Email Threat Defense as a separate API-based Microsoft 365 product, and the gateway formerly called CES is Secure Email Cloud Gateway.",
+"start": 703.382,
+"end": 741.158
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AsyncOS: the operating system of Cisco Secure Email, Cisco Secure Web Appliance, and the cloud email security solution.",
+"spoken": "async O.S.: the operating system of Cisco Secure Email, Cisco Secure Web Appliance, and the cloud email security solution.",
+"start": 741.608,
+"end": 751.058
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CASE (Cisco Context Adaptive Scanning Engine): antispam engine.",
+"spoken": "case (Cisco Context Adaptive Scanning Engine): antispam engine.",
+"start": 751.508,
+"end": 756.031
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FED (Forged Email Detection): detects spear phishing by checking parts of the SMTP message for manipulation, including the \"Envelope-From,\" \"Reply To,\" and \"From\" headers.",
+"spoken": "FED (Forged Email Detection): detects spear phishing by checking parts of the SMTP message for manipulation, including the \"Envelope-From,\" \"Reply To,\" and \"From\" headers.",
+"start": 756.481,
+"end": 769.089
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SPF (Sender Policy Framework): used for sender authentication.",
+"spoken": "SPF (Sender Policy Framework): used for sender authentication.",
+"start": 769.539,
+"end": 774.424
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DKIM (DomainKeys Identified Mail): used for domain authentication.",
+"spoken": "D-kim (DomainKeys Identified Mail): used for domain authentication.",
+"start": 774.874,
+"end": 780.144
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DMARC (Domain-based Message Authentication, Reporting, and Conformance): used for domain authentication.",
+"spoken": "D-mark (Domain-based Message Authentication, Reporting, and Conformance): used for domain authentication.",
+"start": 780.594,
+"end": 788.124
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "S/MIME (Secure/Multipurpose Internet Mail Extensions): standards-based method to send and receive secure, verified email. Uses a public and private key pair to encrypt or sign messages.",
+"spoken": "S mime (Secure or Multipurpose Internet Mail Extensions): standards-based method to send and receive secure, verified email. Uses a public and private key pair to encrypt or sign messages.",
+"start": 788.574,
+"end": 803.593
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco Cloud Security Products",
+"spoken": "Cisco Cloud Security Products.",
+"start": 805.043,
+"end": 807.304
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attack Surface Management: industry term for proactively identifying and managing an organization's vulnerabilities and attack vectors in its digital ecosystem.",
+"spoken": "Attack Surface Management: industry term for proactively identifying and managing an organization's vulnerabilities and attack vectors in its digital ecosystem.",
+"start": 807.754,
+"end": 819.104
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Attack Surface Management (formerly Cisco Secure Cloud Insights): cloud-native platform that bridges gaps between separate security tools and gives visibility into risk across the whole cyber asset ecosystem.",
+"spoken": "Cisco Attack Surface Management (formerly Cisco Secure Cloud Insights): cloud-native platform that bridges gaps between separate security tools and gives visibility into risk across the whole cyber asset ecosystem.",
+"start": 819.554,
+"end": 835.106
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Analytics (formerly Stealthwatch): on-prem analytics that uses NetFlow and context from the Cisco network. Covered in Chapter 5.",
+"spoken": "Cisco Secure Analytics (formerly Stealthwatch): on-prem analytics that uses NetFlow and context from the Cisco network. Covered in Chapter 5.",
+"start": 835.556,
+"end": 846.137
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Cloud Analytics: SaaS that identifies internal and external threats across on-prem, public cloud, and hybrid cloud environments.",
+"spoken": "Cisco Secure Cloud Analytics: SASS that identifies internal and external threats across on-prem, public cloud, and hybrid cloud environments.",
+"start": 846.587,
+"end": 857.083
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Cloud Sensor: virtual or physical appliance needed for Secure Cloud Analytics to monitor on-prem networks.",
+"spoken": "Cisco Secure Cloud Sensor: virtual or physical appliance needed for Secure Cloud Analytics to monitor on-prem networks.",
+"start": 857.533,
+"end": 866.258
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "North/south traffic: traffic across the perimeter.",
+"spoken": "North or south traffic: traffic across the perimeter.",
+"start": 866.708,
+"end": 870.164
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "East/west traffic: lateral movement inside the network.",
+"spoken": "East or west traffic: lateral movement inside the network.",
+"start": 870.614,
+"end": 874.625
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AppDynamics (AppD): Cisco-acquired company. Gives end-to-end application visibility and performance insight, and builds a dynamic topology map of all applications.",
+"spoken": "AppDynamics (AppD): Cisco-acquired company. Gives end-to-end application visibility and performance insight, and builds a dynamic topology map of all applications.",
+"start": 875.075,
+"end": 887.384
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Workload Optimization Manager: Cisco agentless server application on a VM. Maps relationships between applications and infrastructure, anticipates performance and efficiency risks, and recommends actions.",
+"spoken": "Workload Optimization Manager: Cisco agentless server application on a VM. Maps relationships between applications and infrastructure, anticipates performance and efficiency risks, and recommends actions.",
+"start": 887.834,
+"end": 902.746
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Workload (formerly Tetration): uses rich traffic flow telemetry for data center use cases, with advanced analytics. Supports on-prem and public cloud workloads.",
+"spoken": "Cisco Secure Workload (formerly Tetration): uses rich traffic flow telemetry for data center use cases, with advanced analytics. Supports on-prem and public cloud workloads.",
+"start": 903.196,
+"end": 916.167
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Connector: makes an outgoing connection from the orchestrator's network to the Secure Workload cluster, used as a reverse tunnel to reach the orchestrator API server.",
+"spoken": "Secure Connector: makes an outgoing connection from the orchestrator's network to the Secure Workload cluster, used as a reverse tunnel to reach the orchestrator API server.",
+"start": 916.617,
+"end": 928.244
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ADM (Application Dependency Mapping): Secure Workload function that gives insight into complex applications in a data center or in the cloud.",
+"spoken": "ADM (Application Dependency Mapping): Secure Workload function that gives insight into complex applications in a data center or in the cloud.",
+"start": 928.694,
+"end": 938.699
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Connectors: Secure Workload integrations for flow ingestion, inventory enrichment, and alert notifications.",
+"spoken": "Connectors: Secure Workload integrations for flow ingestion, inventory enrichment, and alert notifications.",
+"start": 939.149,
+"end": 946.872
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flow Observation: per-minute aggregation of each unique flow in Secure Workload.",
+"spoken": "Flow Observation: per-minute aggregation of each unique flow in Secure Workload.",
+"start": 947.322,
+"end": 952.89
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Consumer and Provider: the two sides of a flow. The Consumer starts the flow and the Provider responds, like client and server.",
+"spoken": "Consumer and Provider: the two sides of a flow. The Consumer starts the flow and the Provider responds, like client and server.",
+"start": 953.34,
+"end": 962.129
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "XDR (eXtended Detection and Response): aggregates telemetry from many security tools into central storage, analyzes the normalized data to detect malicious activity, and speeds response and remediation.",
+"spoken": "XDR (eXtended Detection and Response): aggregates telemetry from many security tools into central storage, analyzes the normalized data to detect malicious activity, and speeds response and remediation.",
+"start": 962.579,
+"end": 978.664
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SIEM (Security Information and Event Management) and SOAR (Security Orchestration, Automation, and Response): earlier attempts to integrate disconnected security tools and reduce alerts. The book says they fall short.",
+"spoken": "sim (Security Information and Event Management) and soar (Security Orchestration, Automation, and Response): earlier attempts to integrate disconnected security tools and reduce alerts. The book says they fall short.",
+"start": 979.114,
+"end": 994.304
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Talos: Cisco's threat intelligence organization, used by Umbrella, email security, and XDR.",
+"spoken": "Cisco Talos: Cisco's threat intelligence organization, used by Umbrella, email security, and XDR.",
+"start": 994.754,
+"end": 1003.031
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "Ports and Protocols",
+"spoken": "Ports and Protocols.",
+"start": 1005.081,
+"end": 1006.702
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The chapter names no port numbers. These are the protocols it relies on.",
+"spoken": "The chapter names no port numbers. These are the protocols it relies on.",
+"start": 1007.502,
+"end": 1012.281
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DNS: what Umbrella uses to block malicious destinations. UDP and TCP 53 is not in the book but worth knowing.",
+"spoken": "DNS: what Umbrella uses to block malicious destinations. UDP and TCP 53 is not in the book but worth knowing.",
+"start": 1012.731,
+"end": 1022.544
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "BGP: Umbrella data centers peer with more than 500 top ISPs and content delivery networks to exchange routes. TCP 179 is not in the book but worth knowing.",
+"spoken": "BGP: Umbrella data centers peer with more than 500 top I.S.P.s and content delivery networks to exchange routes. TCP 179 is not in the book but worth knowing.",
+"start": 1022.994,
+"end": 1038.013
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SMTP: the message FED examines. TCP 25 is not in the book but worth knowing.",
+"spoken": "SMTP: the message FED examines. TCP 25 is not in the book but worth knowing.",
+"start": 1038.463,
+"end": 1045.93
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HTTP and HTTPS: an HTTP request can trigger a serverless function, and the Dockerfile downloads Python over HTTPS. TCP 80 and 443 are not in the book but worth knowing.",
+"spoken": "HTTP and HTTPS: an HTTP request can trigger a serverless function, and the Dockerfile downloads Python over HTTPS. TCP 80 and 443 are not in the book but worth knowing.",
+"start": 1046.38,
+"end": 1063.19
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NetFlow: telemetry for Secure Analytics and Secure Cloud Analytics. UDP 2055 is a common NetFlow export port; not in the book but worth knowing.",
+"spoken": "NetFlow: telemetry for Secure Analytics and Secure Cloud Analytics. UDP 2055 is a common NetFlow export port; not in the book but worth knowing.",
+"start": 1063.64,
+"end": 1076.163
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MX records: DNS records that direct email. Moving them to Cisco is how Office 365 mail gets inspected.",
+"spoken": "MX records: DNS records that direct email. Moving them to Cisco is how Office 365 mail gets inspected.",
+"start": 1076.613,
+"end": 1085.978
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "REST API: Secure Workload exposes one for all features. Umbrella Investigate and Attack Surface Management also have APIs.",
+"spoken": "rest API: Secure Workload exposes one for all features. Umbrella Investigate and Attack Surface Management also have A.P.I.s.",
+"start": 1086.428,
+"end": 1097.18
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "Commands and Tools",
+"spoken": "Commands and Tools.",
+"start": 1099.23,
+"end": 1100.745
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Docker",
+"spoken": "Docker.",
+"start": 1102.545,
+"end": 1103.441
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "docker images: lists local images. In Example 9-3 it shows mypython, tag latest, image ID 4790dbb6b084, created 2 minutes ago, 110MB.",
+"spoken": "docker images: lists local images. In Example 9-3 it shows mypython, tag latest, image ID 4790dbb6b084, created 2 minutes ago, 110 megabytes.",
+"start": 1103.891,
+"end": 1121.256
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "docker ps: lists running containers.",
+"spoken": "docker ps: lists running containers.",
+"start": 1121.706,
+"end": 1124.608
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "docker search python: searches Docker Hub for images matching a keyword.",
+"spoken": "docker search python: searches Docker Hub for images matching a keyword.",
+"start": 1125.058,
+"end": 1130.05
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "docker build -t mypython: builds an image named mypython from the Dockerfile in the current folder. The build in Example 9-2 has 13 steps and ends with \"Successfully tagged mypython:latest.\" Not in the book: the command also needs a build context, usually a trailing period for the current folder.",
+"spoken": "docker build -t mypython: builds an image named mypython from the Dockerfile in the current folder. The build in Example 9-2 has 13 steps and ends with \"Successfully tagged mypython:latest.\" Not in the book: the command also needs a build context, usually a trailing period for the current folder.",
+"start": 1130.5,
+"end": 1152.26
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "docker run mypython: runs a new container from the image.",
+"spoken": "docker run mypython: runs a new container from the image.",
+"start": 1152.71,
+"end": 1156.763
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Dockerfile (Example 9-1, the official Python image)",
+"spoken": "Dockerfile (Example 9-1, the official Python image).",
+"start": 1158.213,
+"end": 1162.586
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FROM alpine:3.10: base image.",
+"spoken": "from alpine:3.10: base image.",
+"start": 1163.036,
+"end": 1166.215
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ENV PATH /usr/local/bin:$PATH: prefers local Python over the distribution's Python.",
+"spoken": "env path slash user slash local slash bin:dollar path: prefers local Python over the distribution's Python.",
+"start": 1166.665,
+"end": 1174.494
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ENV LANG C.UTF-8: setting LANG=C breaks Python 3.",
+"spoken": "env lang C dot U.T.F. 8: setting lang equals C breaks Python 3.",
+"start": 1174.944,
+"end": 1180.704
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RUN apk add --no-cache ca-certificates: installs CA certificates so HTTPS works.",
+"spoken": "run apk add --no-cache ca-certificates: installs C.A. certificates so HTTPS works.",
+"start": 1181.154,
+"end": 1188.194
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ENV GPG_KEY and ENV PYTHON_VERSION 3.8.0: the signing key and Python version.",
+"spoken": "env GPG_KEY and env PYTHON_VERSION 3.8.0: the signing key and Python version.",
+"start": 1188.644,
+"end": 1196.239
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RUN set -ex with apk add --no-cache --virtual .fetch-deps gnupg tar xz, then wget of the Python tarball and its .asc signature from python.org, then gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys: downloads and verifies the source.",
+"spoken": "run set -ex with apk add --no-cache --virtual .fetch-deps gnupg tar xz, then wget of the Python tarball and its .asc signature from python dot org, then gpg --batch --keyserver ha dot pool dot sks-keyservers dot net --recv-keys: downloads and verifies the source.",
+"start": 1196.689,
+"end": 1217.105
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CMD [\"python3\"]: the default command.",
+"spoken": "command [\"python3\"]: the default command.",
+"start": 1217.555,
+"end": 1220.499
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Full file: github.com/The-Art-of-Hacking/h4cker/blob/master/SCOR/Dockerfile_example.",
+"spoken": "Full file: the link in the notes",
+"start": 1220.949,
+"end": 1222.869
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Kubernetes",
+"spoken": "Kubernetes.",
+"start": 1224.319,
+"end": 1225.45
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "minikube start: starts minikube. Example 9-4 shows minikube v1.3.0 on Ubuntu 18.04, Kubernetes v1.15.0 on Docker 18.09.5, and ends with \"kubectl is now configured to use minikube.\"",
+"spoken": "minikube start: starts minikube. Example 9-4 shows minikube v1.3.0 on Ubuntu 18.04, Kubernetes v1.15.0 on Docker 18.09.5, and ends with \"kubectl is now configured to use minikube.\"",
+"start": 1225.9,
+"end": 1246.38
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubectl version: shows client version v1.15.2 and server version v1.15.0.",
+"spoken": "kubectl version: shows client version v1.15.2 and server version v1.15.0.",
+"start": 1246.83,
+"end": 1255.299
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubectl get nodes: lists nodes. In minikube, one node named minikube, Ready, role master. In GKE, three nodes with no role, version v1.14.8-gke.17.",
+"spoken": "kubectl get nodes: lists nodes. In minikube, one node named minikube, Ready, role master. In GKE, three nodes with no role, version v1.14.8-gke.17.",
+"start": 1255.749,
+"end": 1269.36
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubectl create deployment omar-k8s-example --image=omar-k8s-example-image:v1: deploys a new app. The book has stray typos here (\"--image=g\" and \"omar-k8s.example\" in the output).",
+"spoken": "kubectl create deployment omar-k8s-example --image=omar-k8s-example-image:v1: deploys a new app. The book has stray typos here (\"--image=g\" and \"omar-k8s.example\" in the output).",
+"start": 1269.81,
+"end": 1285.788
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubectl get deployments: lists deployments with desired, current, up-to-date, and available counts.",
+"spoken": "kubectl get deployments: lists deployments with desired, current, up-to-date, and available counts.",
+"start": 1286.238,
+"end": 1292.745
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubectl get deployments --namespace=kube-system kube-dns: shows the cluster DNS server (2 of 2 ready).",
+"spoken": "kubectl get deployments --namespace=kube-system kube-dns: shows the cluster DNS server (2 of 2 ready).",
+"start": 1293.195,
+"end": 1301.302
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubectl get deployments --namespace=kube-system kubernetes-dashboard: shows the Kubernetes GUI.",
+"spoken": "kubectl get deployments --namespace=kube-system kubernetes-dashboard: shows the Kubernetes gooey.",
+"start": 1301.752,
+"end": 1308.962
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Google Cloud Shell: GCP's interactive shell, used in Examples 9-8 to 9-10, in project omar-cyber-range with cluster omar-k8s-cluster-1.",
+"spoken": "Google Cloud Shell: GCP's interactive shell, used in Examples 9-8 to 9-10, in project omar-cyber-range with cluster omar-k8s-cluster-1.",
+"start": 1309.412,
+"end": 1322.298
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DevSecOps and Fuzzing Tools",
+"spoken": "DevSecOps and Fuzzing Tools.",
+"start": 1323.748,
+"end": 1325.774
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Findsecbugs: finds bugs in Java applications. Works with Jenkins and SonarQube and supports Spring-MVC (the book writes \"Spring-MCV\"), Apache Struts, Tapestry, and others. find-sec-bugs.github.io.",
+"spoken": "Findsecbugs: finds bugs in Java applications. Works with Jenkins and SonarQube and supports Spring M.V.C. (the book writes \"Spring M.V.C.\"), Apache Struts, Tapestry, and others. find-sec-bugs dot github dot io.",
+"start": 1326.224,
+"end": 1343.654
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SonarQube: finds vulnerabilities in code, with CI and DevOps support. sonarqube.org.",
+"spoken": "SonarQube: finds vulnerabilities in code, with CI and DevOps support. sonarqube dot org.",
+"start": 1344.104,
+"end": 1351.592
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Jenkins: continuous integration system.",
+"spoken": "Jenkins: continuous integration system.",
+"start": 1352.042,
+"end": 1354.879
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GitLab and GitHub: version control repositories where each change is integrated and tested.",
+"spoken": "GitLab and GitHub: version control repositories where each change is integrated and tested.",
+"start": 1355.329,
+"end": 1362.049
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Webex Teams and Slack: send pipeline failure and deployment notifications.",
+"spoken": "Cisco Webex Teams and Slack: send pipeline failure and deployment notifications.",
+"start": 1362.499,
+"end": 1368.131
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mutiny Fuzzing Framework: open-source fuzzer by Cisco. Replays packet captures (pcaps) through a mutational fuzzer. github.com/Cisco-Talos/mutiny-fuzzer. The book's fuzzer list misspells it \"Munity.\"",
+"spoken": "Mutiny Fuzzing Framework: open-source fuzzer by Cisco. Replays packet captures (pcaps) through a mutational fuzzer. the link in the notes The book's fuzzer list misspells it \"Munity.\"",
+"start": 1368.581,
+"end": 1381.146
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Radamsa: generates test cases for fuzzers. Mutiny uses it for mutations. gitlab.com/akihe/radamsa.",
+"spoken": "Radamsa: generates test cases for fuzzers. Mutiny uses it for mutations. the link in the notes",
+"start": 1381.596,
+"end": 1388.658
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "American Fuzzy Lop (AFL): uses compile-time instrumentation and genetic algorithms to improve fuzzing coverage. lcamtuf.coredump.cx/afl.",
+"spoken": "American Fuzzy Lop (AFL): uses compile-time instrumentation and genetic algorithms to improve fuzzing coverage. the link in the notes",
+"start": 1389.108,
+"end": 1398.857
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Peach: one of the most popular fuzzers. Free Peach Fuzzer Community Edition and a commercial version. peach.tech.",
+"spoken": "Peach: one of the most popular fuzzers. Free Peach Fuzzer Community Edition and a commercial version. peach.tech.",
+"start": 1399.307,
+"end": 1406.731
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Synopsys Defensics: commercial fuzzer.",
+"spoken": "Synopsys Defensics: commercial fuzzer.",
+"start": 1407.181,
+"end": 1410.082
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "h4cker.org/github: the author's fuzzing examples.",
+"spoken": "the link in the notes the author's fuzzing examples.",
+"start": 1410.532,
+"end": 1413.37
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "WebSploit (websploit.org): Omar Santos's Kali Linux VM with intentionally vulnerable Docker containers for practice.",
+"spoken": "WebSploit (websploit dot org): Omar Santos's Kali Linux VM with intentionally vulnerable Docker containers for practice.",
+"start": 1413.82,
+"end": 1422.929
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Katacoda (katacoda.com): interactive Docker and Kubernetes scenarios. Not in the book: Katacoda shut down in 2022, so these links are outdated.",
+"spoken": "Katacoda (katacoda dot com): interactive Docker and Kubernetes scenarios. Not in the book: Katacoda shut down in 2022, so these links are outdated.",
+"start": 1423.379,
+"end": 1435.539
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco Product Navigation",
+"spoken": "Cisco Product Navigation.",
+"start": 1436.989,
+"end": 1438.93
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Umbrella Overview dashboard: total DNS requests, proxy requests, total blocks, and security blocks.",
+"spoken": "Umbrella Overview dashboard: total DNS requests, proxy requests, total blocks, and security blocks.",
+"start": 1439.38,
+"end": 1446.89
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Umbrella Security Overview report: high-level view of blocked requests and deployment activity.",
+"spoken": "Umbrella Security Overview report: high-level view of blocked requests and deployment activity.",
+"start": 1447.34,
+"end": 1453.868
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Scheduled Umbrella reports: emailed at intervals as an HTML table with a .csv attachment and a link to the live report.",
+"spoken": "Scheduled Umbrella reports: emailed at intervals as an HTML table with a .csv attachment and a link to the live report.",
+"start": 1454.318,
+"end": 1463.96
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "investigate.umbrella.com: Umbrella Investigate, if your license allows. The book's example queries binarycousins.com.",
+"spoken": "investigate dot umbrella dot com: Umbrella Investigate, if your license allows. The book's example queries binarycousins dot com.",
+"start": 1464.41,
+"end": 1474.629
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "use.opendns.com: instructions to point a system at OpenDNS or Umbrella.",
+"spoken": "use dot opendns dot com: instructions to point a system at Open D.N.S. or Umbrella.",
+"start": 1475.079,
+"end": 1482.183
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Umbrella deployment options: forward DNS from existing DNS servers to the Umbrella cloud, run Umbrella virtual appliances, use the Windows or macOS roaming client, or use the Cisco Security Connector for iOS.",
+"spoken": "Umbrella deployment options: forward DNS from existing DNS servers to the Umbrella cloud, run Umbrella virtual appliances, use the Windows or mac O.S. roaming client, or use the Cisco Security Connector for eye O.S.",
+"start": 1482.633,
+"end": 1500.212
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attack Surface Management API Client or CLI: uploads data beyond the managed integrations.",
+"spoken": "Attack Surface Management API Client or CLI: uploads data beyond the managed integrations.",
+"start": 1500.662,
+"end": 1508.107
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Workload Flow Search page: filter flow data. Explore Observations explores flows visually; click an observation for latency, packets, and bytes over the flow's life.",
+"spoken": "Secure Workload Flow Search page: filter flow data. Explore Observations explores flows visually; click an observation for latency, packets, and bytes over the flow's life.",
+"start": 1508.557,
+"end": 1520.93
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Workload Security Dashboard, Vulnerability Dashboard, and Forensics Analysis dashboard.",
+"spoken": "Secure Workload Security Dashboard, Vulnerability Dashboard, and Forensics Analysis dashboard.",
+"start": 1521.38,
+"end": 1527.972
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco XDR Control Center dashboard: click Edit Dashboards to add elements from other products.",
+"spoken": "Cisco XDR Control Center dashboard: click Edit Dashboards to add elements from other products.",
+"start": 1528.422,
+"end": 1535.164
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco XDR Incidents dashboard: where you manage incidents.",
+"spoken": "Cisco XDR Incidents dashboard: where you manage incidents.",
+"start": 1535.614,
+"end": 1539.944
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco XDR Investigate dashboard: searches all data, for example whether IP 10.6.6.6 appeared in your environment.",
+"spoken": "Cisco XDR Investigate dashboard: searches all data, for example whether IP 10.6.6.6 appeared in your environment.",
+"start": 1540.394,
+"end": 1551.061
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco XDR Devices dashboard, Inventory section: the asset inventory.",
+"spoken": "Cisco XDR Devices dashboard, Inventory section: the asset inventory.",
+"start": 1551.511,
+"end": 1557.207
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco XDR Automate Exchange: import prebuilt workflows. The first example workflow pulls Talos blogs and checks their IOCs against your environment.",
+"spoken": "Cisco XDR Automate Exchange: import prebuilt workflows. The first example workflow pulls Talos blogs and checks their IOCs against your environment.",
+"start": 1557.657,
+"end": 1569.262
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Workload Optimization Manager Cloud Executive Dashboard and Cloud dashboard.",
+"spoken": "Workload Optimization Manager Cloud Executive Dashboard and Cloud dashboard.",
+"start": 1569.712,
+"end": 1575.366
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Resources",
+"spoken": "Resources.",
+"start": 1576.816,
+"end": 1577.882
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "agilemanifesto.org: The Manifesto for Agile Software Development.",
+"spoken": "agilemanifesto dot org: The Manifesto for Agile Software Development.",
+"start": 1578.332,
+"end": 1583.644
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "scrum.org: Scrum resources, certification, and training.",
+"spoken": "scrum dot org: Scrum resources, certification, and training.",
+"start": 1584.094,
+"end": 1588.361
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "youtube.com/watch?v=Z9QbYZh1YXY and github.com/lorabv/awesome-agile: Agile overview video and resource list.",
+"spoken": "the link in the notes and the link in the notes Agile overview video and resource list.",
+"start": 1588.811,
+"end": 1594.08
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubernetes.io and kubernetes.io/docs/tutorials: Kubernetes download, docs, and free tutorials.",
+"spoken": "kubernetes dot io and the link in the notes Kubernetes download, docs, and free tutorials.",
+"start": 1594.53,
+"end": 1601.272
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "nomadproject.io, mesos.apache.org, docs.docker.com/engine/swarm: Nomad, Mesos, and Docker Swarm.",
+"spoken": "nomadproject dot io, mesos dot apache dot org, the link in the notes Nomad, Mesos, and Docker Swarm.",
+"start": 1601.722,
+"end": 1609.487
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "hub.docker.com and docs.docker.com: Docker Hub and Docker documentation.",
+"spoken": "hub dot docker dot com and docs dot docker dot com: Docker Hub and Docker documentation.",
+"start": 1609.937,
+"end": 1616.401
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "contiv.io and contiv.io/documents/tutorials/index.html: Contiv download, docs, and tutorials.",
+"spoken": "contiv dot io and the link in the notes Contiv download, docs, and tutorials.",
+"start": 1616.851,
+"end": 1622.334
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "devsecops.github.io and github.com/opendevsecops: DevSecOps tools and tutorials.",
+"spoken": "devsecops dot github dot io and the link in the notes DevSecOps tools and tutorials.",
+"start": 1622.784,
+"end": 1629.397
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "owasp.org/index.php/OWASP_Proactive_Controls: OWASP Proactive Controls.",
+"spoken": "the link in the notes oh-wasp Proactive Controls.",
+"start": 1629.847,
+"end": 1633.068
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "aws.amazon.com/compliance/shared-responsibility-model: the AWS Shared Responsibility Model.",
+"spoken": "the link in the notes the AWS Shared Responsibility Model.",
+"start": 1633.518,
+"end": 1637.764
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "opendns.com/home-internet-security: protecting a home with OpenDNS.",
+"spoken": "the link in the notes protecting a home with Open D.N.S.",
+"start": 1638.214,
+"end": 1642.182
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "cisco.com/c/en/us/td/docs/security/ces/user_guide/sma_user_guide_11-4/b_SMA_Admin_Guide_11_4.html: the cloud email security administrator guide.",
+"spoken": "the link in the notes the cloud email security administrator guide.",
+"start": 1642.632,
+"end": 1647.069
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "cisco.com/c/m/en_us/products/security/secure-workload-compatibility-matrix.html: Secure Workload compatibility matrix.",
+"spoken": "the link in the notes Secure Workload compatibility matrix.",
+"start": 1647.519,
+"end": 1651.53
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "Numbers and Documents to Know",
+"spoken": "Numbers and Documents to Know.",
+"start": 1653.58,
+"end": 1655.606
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST SP 800-145: The NIST Definition of Cloud Computing.",
+"spoken": "NIST S.P. 800-145: The NIST Definition of Cloud Computing.",
+"start": 1656.406,
+"end": 1663.041
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NIST SP 500-292: NIST Cloud Computing Reference Architecture.",
+"spoken": "NIST S.P. 500-292: NIST Cloud Computing Reference Architecture.",
+"start": 1663.491,
+"end": 1670.446
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5 NIST essential characteristics, 4 deployment models, 3 service models.",
+"spoken": "5 NIST essential characteristics, 4 deployment models, 3 service models.",
+"start": 1670.896,
+"end": 1676.528
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Waterfall: at least five to seven phases.",
+"spoken": "Waterfall: at least five to seven phases.",
+"start": 1676.978,
+"end": 1679.858
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Agile Manifesto: written by 17 people in 2001, with 4 main values.",
+"spoken": "Agile Manifesto: written by 17 people in 2001, with 4 main values.",
+"start": 1680.308,
+"end": 1686.9
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lean: derived from the Toyota Production System of the 1980s, according to the book.",
+"spoken": "Lean: derived from the Toyota Production System of the 1980s, according to the book.",
+"start": 1687.35,
+"end": 1694.027
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OWASP Top 10 Proactive Controls: 10 practices.",
+"spoken": "oh-wasp Top 10 Proactive Controls: 10 practices.",
+"start": 1694.477,
+"end": 1698.466
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Kubernetes 1.12: when Kubernetes moved from kube-dns to CoreDNS (the book writes core-dns).",
+"spoken": "Kubernetes 1.12: when Kubernetes moved from kube-dns to core D.N.S. (the book writes core-dns).",
+"start": 1698.916,
+"end": 1707.578
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Umbrella scale: dozens of data centers, more than 100 billion DNS requests a day from millions of users, peered with more than 500 top ISPs and CDNs.",
+"spoken": "Umbrella scale: dozens of data centers, more than 100 billion DNS requests a day from millions of users, peered with more than 500 top I.S.P.s and C.D.N.s.",
+"start": 1708.028,
+"end": 1721.702
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "208.67.222.222 and 208.67.220.220: the Umbrella and OpenDNS anycast resolver addresses.",
+"spoken": "208.67.222.222 and 208.67.220.220: the Umbrella and Open D.N.S. anycast resolver addresses.",
+"start": 1722.152,
+"end": 1737.192
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Investigate co-occurrences: cover the previous 7 days.",
+"spoken": "Investigate co-occurrences: cover the previous 7 days.",
+"start": 1737.642,
+"end": 1741.61
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Investigate anomaly (DGA) score: from minus 100 (suspicious) to 0 (benign).",
+"spoken": "Investigate anomaly (DGA) score: from minus 100 (suspicious) to 0 (benign).",
+"start": 1742.06,
+"end": 1748.674
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CASE: spam capture rate above 99 percent, false positive rate below one in one million.",
+"spoken": "case: spam capture rate above 99 percent, false positive rate below one in one million.",
+"start": 1749.124,
+"end": 1755.694
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Office 365 MX example: without Cisco, MX 10 customer1.office365.com and MX 20 customer2.office365.com. With Cisco, MX 10 esa1.cisco-ces.com and MX 20 esa2.cisco-ces.com.",
+"spoken": "Office 365 MX example: without Cisco, MX 10 customer1 dot office365 dot com and MX 20 customer2 dot office365 dot com. With Cisco, MX 10 esa1 dot cisco-ces dot com and MX 20 esa2 dot cisco-ces dot com.",
+"start": 1756.144,
+"end": 1779.91
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SHA256: the hash used for the AMP file reputation query.",
+"spoken": "SHA 256: the hash used for the AMP file reputation query.",
+"start": 1780.36,
+"end": 1786.077
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attack Surface Management: more than a dozen managed integrations out of the box.",
+"spoken": "Attack Surface Management: more than a dozen managed integrations out of the box.",
+"start": 1786.527,
+"end": 1791.818
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Workload Forensics Score: 100 means no forensic events; 0 means an event needs immediate action. Scope score is the average of its workloads; the hourly score is the minimum within the hour.",
+"spoken": "Secure Workload Forensics Score: 100 means no forensic events; 0 means an event needs immediate action. Scope score is the average of its workloads; the hourly score is the minimum within the hour.",
+"start": 1792.268,
+"end": 1807.244
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Workload Security Score: 0 to 100; 100 is best and 0 is worst.",
+"spoken": "Secure Workload Security Score: 0 to 100; 100 is best and 0 is worst.",
+"start": 1807.694,
+"end": 1814.371
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CVSS versions 2 and 3: supported by the Secure Workload Vulnerability Dashboard. This comes from the chapter quiz, which the answer key treats as true.",
+"spoken": "C.V.S.S. versions 2 and 3: supported by the Secure Workload Vulnerability Dashboard. This comes from the chapter quiz, which the answer key treats as true.",
+"start": 1814.821,
+"end": 1826.32
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco XDR: more than 70 prebuilt workflows and hundreds of prebuilt code blocks.",
+"spoken": "Cisco XDR: more than 70 prebuilt workflows and hundreds of prebuilt code blocks.",
+"start": 1826.77,
+"end": 1832.935
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Regulatory frameworks named: ISO/IEC 27002, EU-U.S. Privacy Shield Framework, ITIL, FedRAMP, and COBIT. Not in the book: Privacy Shield was struck down in 2020 and replaced by the EU-U.S. Data Privacy Framework in 2023.",
+"spoken": "Regulatory frameworks named: I.S.O. I.E.C. 27002, E.U. U.S. Privacy Shield Framework, eye-till, fed ramp, and co-bit. Not in the book: Privacy Shield was struck down in 2020 and replaced by the E.U. U.S. Data Privacy Framework in 2023.",
+"start": 1833.385,
+"end": 1854.484
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "MITRE ATT&CK: the framework Secure Cloud Analytics aligns its detections to.",
+"spoken": "my-ter attack: the framework Secure Cloud Analytics aligns its detections to.",
+"start": 1854.934,
+"end": 1860.395
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. What Is Cloud and What Are the Cloud Service Models?",
+"spoken": "1. What Is Cloud and What Are the Cloud Service Models?",
+"start": 1862.445,
+"end": 1865.816
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Advantages",
+"spoken": "Advantages.",
+"start": 1867.616,
+"end": 1868.832
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Distributed storage, scalability, resource pooling, access from any location, and automated management.",
+"spoken": "Distributed storage, scalability, resource pooling, access from any location, and automated management.",
+"start": 1869.282,
+"end": 1876.492
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NIST Essential Characteristics",
+"spoken": "NIST Essential Characteristics.",
+"start": 1877.942,
+"end": 1880.097
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "On-demand self-service.",
+"spoken": "On-demand self-service.",
+"start": 1880.547,
+"end": 1882.275
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Broad network access.",
+"spoken": "Broad network access.",
+"start": 1882.725,
+"end": 1884.282
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Resource pooling.",
+"spoken": "Resource pooling.",
+"start": 1884.732,
+"end": 1886.034
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rapid elasticity.",
+"spoken": "Rapid elasticity.",
+"start": 1886.484,
+"end": 1887.977
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Measured service.",
+"spoken": "Measured service.",
+"start": 1888.427,
+"end": 1889.643
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps",
+"spoken": "2. DevOps, Continuous Integration (CI), Continuous Delivery (CD), and DevSecOps.",
+"start": 1891.693,
+"end": 1898.072
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Waterfall Phases (Figure 9-1)",
+"spoken": "Waterfall Phases (Figure 9-1).",
+"start": 1899.872,
+"end": 1902.773
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Requirements: all requirements are gathered at the start, so every other phase can be planned without more customer involvement until the product is complete.",
+"spoken": "Requirements: all requirements are gathered at the start, so every other phase can be planned without more customer involvement until the product is complete.",
+"start": 1903.223,
+"end": 1912.93
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Design: split into a logical design subphase, where solutions are brainstormed, and a physical design subphase, where ideas become concrete specifications.",
+"spoken": "Design: split into a logical design subphase, where solutions are brainstormed, and a physical design subphase, where ideas become concrete specifications.",
+"start": 1913.38,
+"end": 1924.729
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Implementation: developers turn the requirements and specifications into code.",
+"spoken": "Implementation: developers turn the requirements and specifications into code.",
+"start": 1925.179,
+"end": 1930.406
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Verification: the customer checks that the product meets the original requirements. A completed product is released.",
+"spoken": "Verification: the customer checks that the product meets the original requirements. A completed product is released.",
+"start": 1930.856,
+"end": 1938.408
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Maintenance: bugs, missing features, and other errors found in production are fixed by the sustaining team until the customer is satisfied.",
+"spoken": "Maintenance: bugs, missing features, and other errors found in production are fixed by the sustaining team until the customer is satisfied.",
+"start": 1938.858,
+"end": 1947.839
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Waterfall Pros and Cons",
+"spoken": "Waterfall Pros and Cons.",
+"start": 1949.289,
+"end": 1951.166
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Pro: requirements are agreed at the start, so planning, scheduling, and estimates of cost, resources, and deadlines are simple.",
+"spoken": "Pro: requirements are agreed at the start, so planning, scheduling, and estimates of cost, resources, and deadlines are simple.",
+"start": 1951.616,
+"end": 1960.064
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Pro: progress is easy to measure by milestones, and the customer isn't constantly adding requirements.",
+"spoken": "Pro: progress is easy to measure by milestones, and the customer isn't constantly adding requirements.",
+"start": 1960.514,
+"end": 1967.234
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Con: customers find it hard to state every need at the start.",
+"spoken": "Con: customers find it hard to state every need at the start.",
+"start": 1967.684,
+"end": 1971.524
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Con: going back after the verification phase is very costly.",
+"spoken": "Con: going back after the verification phase is very costly.",
+"start": 1971.974,
+"end": 1976.369
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Con: the linear plan is rigid and can't adapt to unexpected events.",
+"spoken": "Con: the linear plan is rigid and can't adapt to unexpected events.",
+"start": 1976.819,
+"end": 1981.47
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Agile Process",
+"spoken": "Agile Process.",
+"start": 1982.92,
+"end": 1984.328
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Starts with customers describing how the product will be used and what problem it solves.",
+"spoken": "Starts with customers describing how the product will be used and what problem it solves.",
+"start": 1984.778,
+"end": 1990.218
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Teams cycle through planning, executing, and evaluating, and the deliverable can change to fit the customer.",
+"spoken": "Teams cycle through planning, executing, and evaluating, and the deliverable can change to fit the customer.",
+"start": 1990.668,
+"end": 1997.622
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flow: a business objective, concept, idea, or hypothesis goes into the backlog, becomes user stories and a feature specification, is coded, and is checked in to version control, where each change is integrated and tested.",
+"spoken": "Flow: a business objective, concept, idea, or hypothesis goes into the backlog, becomes user stories and a feature specification, is coded, and is checked in to version control, where each change is integrated and tested.",
+"start": 1998.072,
+"end": 2013.752
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Value is created only when services run in production, so deployments must not cause outages, impairments, or security or compliance failures.",
+"spoken": "Value is created only when services run in production, so deployments must not cause outages, impairments, or security or compliance failures.",
+"start": 2014.202,
+"end": 2024.57
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "General steps (Figure 9-3): plan, design, develop, test, deploy, review, and launch.",
+"spoken": "General steps (Figure 9-3): plan, design, develop, test, deploy, review, and launch.",
+"start": 2025.02,
+"end": 2031.527
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Agile's Four Values (Figure 9-2)",
+"spoken": "Agile's Four Values (Figure 9-2).",
+"start": 2032.977,
+"end": 2036.113
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Individuals and interactions over processes and tools.",
+"spoken": "Individuals and interactions over processes and tools.",
+"start": 2036.563,
+"end": 2040.446
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Working software over comprehensive documentation.",
+"spoken": "Working software over comprehensive documentation.",
+"start": 2040.896,
+"end": 2044.501
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Customer collaboration over contract negotiation.",
+"spoken": "Customer collaboration over contract negotiation.",
+"start": 2044.951,
+"end": 2048.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Responding to change over following a plan.",
+"spoken": "Responding to change over following a plan.",
+"start": 2048.942,
+"end": 2051.652
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Scrum Framework (Figure 9-4)",
+"spoken": "Scrum Framework (Figure 9-4).",
+"start": 2053.102,
+"end": 2055.683
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Flow: project vision, release planning, sprint planning, the sprint with a daily Scrum, sprint review, sprint retrospective, and deployment.",
+"spoken": "Flow: project vision, release planning, sprint planning, the sprint with a daily Scrum, sprint review, sprint retrospective, and deployment.",
+"start": 2056.133,
+"end": 2064.965
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Scrum principles can be applied to all kinds of teamwork, not just software.",
+"spoken": "Scrum principles can be applied to all kinds of teamwork, not just software.",
+"start": 2065.415,
+"end": 2070.322
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Extreme Programming",
+"spoken": "Extreme Programming.",
+"start": 2071.772,
+"end": 2073.393
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Originally developed by Ken Beck for the Chrysler Comprehensive Compensation System (C3) payroll software. Not in the book: his name is usually given as Kent Beck.",
+"spoken": "Originally developed by Ken Beck for the Chrysler Comprehensive Compensation System (C 3) payroll software. Not in the book: his name is usually given as Kent Beck.",
+"start": 2073.843,
+"end": 2085.811
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lets team members and customers review progress throughout the SDLC.",
+"spoken": "Lets team members and customers review progress throughout the SDLC.",
+"start": 2086.261,
+"end": 2091.018
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "How the Methods Relate (Figure 9-5)",
+"spoken": "How the Methods Relate (Figure 9-5).",
+"start": 2092.468,
+"end": 2095.519
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lean is at the business level.",
+"spoken": "Lean is at the business level.",
+"start": 2095.969,
+"end": 2097.953
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Agile is at the IT level.",
+"spoken": "Agile is at the I.T. level.",
+"start": 2098.403,
+"end": 2100.856
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Scrum and Kanban are at the software project and team management level.",
+"spoken": "Scrum and Kanban are at the software project and team management level.",
+"start": 2101.306,
+"end": 2105.957
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Extreme Programming is at the software engineering practices level.",
+"spoken": "Extreme Programming is at the software engineering practices level.",
+"start": 2106.407,
+"end": 2110.674
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DevOps Value Stream",
+"spoken": "DevOps Value Stream.",
+"start": 2112.124,
+"end": 2113.788
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Product management.",
+"spoken": "Product management.",
+"start": 2114.238,
+"end": 2115.688
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Software or hardware development.",
+"spoken": "Software or hardware development.",
+"start": 2116.138,
+"end": 2118.314
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Quality assurance (QA).",
+"spoken": "Quality assurance (QA).",
+"start": 2118.764,
+"end": 2120.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IT operations.",
+"spoken": "I.T. operations.",
+"start": 2120.942,
+"end": 2122.67
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Infosec and cybersecurity practices.",
+"spoken": "Infosec and cybersecurity practices.",
+"start": 2123.12,
+"end": 2125.851
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Embracing DevOps (Figure 9-6)",
+"spoken": "Embracing DevOps (Figure 9-6).",
+"start": 2127.301,
+"end": 2130.416
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Culture: Agile and Lean, business driven.",
+"spoken": "Culture: Agile and Lean, business driven.",
+"start": 2130.866,
+"end": 2133.404
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Automation: improve speed and frequency, reduce effort.",
+"spoken": "Automation: improve speed and frequency, reduce effort.",
+"start": 2133.854,
+"end": 2137.673
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Measurement: everything is analyzed and visualized.",
+"spoken": "Measurement: everything is analyzed and visualized.",
+"start": 2138.123,
+"end": 2141.515
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sharing: shared fate and goals.",
+"spoken": "Sharing: shared fate and goals.",
+"start": 2141.965,
+"end": 2143.928
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "The Three Ways of DevOps",
+"spoken": "The Three Ways of DevOps.",
+"start": 2145.378,
+"end": 2147.298
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "First way, systems and flow: make work visible, reduce batch sizes and work intervals, and build in quality to prevent defects.",
+"spoken": "First way, systems and flow: make work visible, reduce batch sizes and work intervals, and build in quality to prevent defects.",
+"start": 2147.748,
+"end": 2156.772
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Second way, feedback loop: see problems as they occur for faster detection and recovery, and prevent them from happening again.",
+"spoken": "Second way, feedback loop: see problems as they occur for faster detection and recovery, and prevent them from happening again.",
+"start": 2157.222,
+"end": 2165.542
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Third way, continuous experimentation and learning: disciplined experimentation and risk taking, a defined time to fix issues, and shared code repositories. The book captions both Figure 9-8 and Figure 9-9 \"DevOps Feedback Loop.\"",
+"spoken": "Third way, continuous experimentation and learning: disciplined experimentation and risk taking, a defined time to fix issues, and shared code repositories. The book captions both Figure 9-8 and Figure 9-9 \"DevOps Feedback Loop.\"",
+"start": 2165.992,
+"end": 2184.04
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "CI/CD Pipeline Stages (Figure 9-10)",
+"spoken": "C.I. C.D. Pipeline Stages (Figure 9-10).",
+"start": 2185.49,
+"end": 2189.692
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Source: a git push to the repository triggers the pipeline. Pipelines can also start from schedules, users, or other pipelines.",
+"spoken": "Source: a git push to the repository triggers the pipeline. Pipelines can also start from schedules, users, or other pipelines.",
+"start": 2190.142,
+"end": 2199.23
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Build: compiles languages such as Java, C/C++, and Go. Ruby, Python, and JavaScript skip compiling but can still be packaged with docker build. Cloud-native software is usually deployed in containers as microservices.",
+"spoken": "Build: compiles languages such as Java, C or C++, and Go. Ruby, Python, and JavaScript skip compiling but can still be packaged with docker build. Cloud-native software is usually deployed in containers as microservices.",
+"start": 2199.68,
+"end": 2217.686
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Test: unit and integration tests act as a safety net against reproducible bugs, including security vulnerabilities, which are usually bugs. Tests are best written while the code is written, by a developer or QA engineer. The stage can take seconds to hours; large tests run in parallel, and feedback should come fast.",
+"spoken": "Test: unit and integration tests act as a safety net against reproducible bugs, including security vulnerabilities, which are usually bugs. Tests are best written while the code is written, by a developer or QA engineer. The stage can take seconds to hours; large tests run in parallel, and feedback should come fast.",
+"start": 2218.136,
+"end": 2240.706
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Deploy: to staging, QA, and then production.",
+"spoken": "Deploy: to staging, QA, and then production.",
+"start": 2241.156,
+"end": 2244.079
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A failure at any stage typically triggers a notification.",
+"spoken": "A failure at any stage typically triggers a notification.",
+"start": 2244.529,
+"end": 2248.22
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CD can include cloud infrastructure provisioning, which used to be manual.",
+"spoken": "CD can include cloud infrastructure provisioning, which used to be manual.",
+"start": 2248.67,
+"end": 2253.704
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Agile organizations usually deploy work in progress manually to staging, and automatically deploy approved changes from the master branch to production.",
+"spoken": "Agile organizations usually deploy work in progress manually to staging, and automatically deploy approved changes from the master branch to production.",
+"start": 2254.154,
+"end": 2264.352
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Serverless",
+"spoken": "Serverless.",
+"start": 2265.802,
+"end": 2266.74
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hosted in cloud providers like AWS, Azure, or Google Cloud Platform.",
+"spoken": "Hosted in cloud providers like AWS, Azure, or Google Cloud Platform.",
+"start": 2267.19,
+"end": 2272.801
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Functions are triggered by events such as an HTTP request, a database update, or a timer.",
+"spoken": "Functions are triggered by events such as an HTTP request, a database update, or a timer.",
+"start": 2273.251,
+"end": 2280.142
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "When an event occurs, the provider creates the resources, runs the function, and releases the resources. You pay only for execution time.",
+"spoken": "When an event occurs, the provider creates the resources, runs the function, and releases the resources. You pay only for execution time.",
+"start": 2280.592,
+"end": 2289.893
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Benefits:",
+"spoken": "Benefits:",
+"start": 2290.343,
+"end": 2291.346
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Reduced operational overhead: write code, not manage servers, for faster development.",
+"spoken": "Reduced operational overhead: write code, not manage servers, for faster development.",
+"start": 2291.796,
+"end": 2297.748
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Automatic scaling: the provider scales resources to the workload.",
+"spoken": "Automatic scaling: the provider scales resources to the workload.",
+"start": 2298.198,
+"end": 2302.507
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Cost efficiency: pay only for execution time; good for sporadic or unpredictable workloads.",
+"spoken": "Cost efficiency: pay only for execution time; good for sporadic or unpredictable workloads.",
+"start": 2302.957,
+"end": 2309.848
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "High availability: the provider handles redundancy, fault tolerance, and load balancing.",
+"spoken": "High availability: the provider handles redundancy, fault tolerance, and load balancing.",
+"start": 2310.298,
+"end": 2316.143
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Improved developer productivity: integrations, libraries, and tools simplify development.",
+"spoken": "Improved developer productivity: integrations, libraries, and tools simplify development.",
+"start": 2316.593,
+"end": 2322.95
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traditional model, by contrast: developers provision, scale, load balance, and maintain servers.",
+"spoken": "Traditional model, by contrast: developers provision, scale, load balance, and maintain servers.",
+"start": 2323.4,
+"end": 2329.864
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Evolution of Computing (Figure 9-12)",
+"spoken": "Evolution of Computing (Figure 9-12).",
+"start": 2331.314,
+"end": 2334.813
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Physical (bare-metal) servers, then virtual machines on a hypervisor, then containers and Kubernetes, then serverless.",
+"spoken": "Physical (bare-metal) servers, then virtual machines on a hypervisor, then containers and Kubernetes, then serverless.",
+"start": 2335.263,
+"end": 2343.284
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Moving toward serverless increases compute flexibility, reduces costs, abstracts infrastructure, and increases the attack surface.",
+"spoken": "Moving toward serverless increases compute flexibility, reduces costs, abstracts infrastructure, and increases the attack surface.",
+"start": 2343.734,
+"end": 2352.908
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Containers and Docker",
+"spoken": "Containers and Docker.",
+"start": 2354.358,
+"end": 2355.958
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Applications are built from a language runtime, libraries such as libc and OpenSSL, and source code.",
+"spoken": "Applications are built from a language runtime, libraries such as libc and open S.S.L., and source code.",
+"start": 2356.408,
+"end": 2364.13
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Problem containers solve: a shared library on the dev system may be missing in production, and developers may forget asset files in a package, even on the same operating system version.",
+"spoken": "Problem containers solve: a shared library on the dev system may be missing in production, and developers may forget asset files in a package, even on the same operating system version.",
+"start": 2364.58,
+"end": 2377.316
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The overlay system is used both when building and when running the image. Implementations include aufs, overlay, and overlay2.",
+"spoken": "The overlay system is used both when building and when running the image. Implementations include aufs, overlay, and overlay2.",
+"start": 2377.766,
+"end": 2387.004
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Docker images also carry metadata a runtime uses to start the application. Kubernetes supports Docker and OCI images.",
+"spoken": "Docker images also carry metadata a runtime uses to start the application. Kubernetes supports Docker and OCI images.",
+"start": 2387.454,
+"end": 2397.054
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Image-builder services integrate with continuous delivery systems.",
+"spoken": "Image-builder services integrate with continuous delivery systems.",
+"start": 2397.504,
+"end": 2401.962
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 9-13: Image A is a base operating system (Ubuntu, Debian). Image B is forked from A and adds Python 3. Image C builds on B and adds OpenSSL and nginx (the book writes \"ngnix\") for a TLS web server.",
+"spoken": "Figure 9-13: Image A is a base operating system (Ubuntu, Debian). Image B is forked from A and adds Python 3. Image C builds on B and adds open S.S.L. and nginx (the book writes \"ngnix\") for a TLS web server.",
+"start": 2402.412,
+"end": 2420.759
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Real environments have a much larger directed acyclic graph of layers.",
+"spoken": "Real environments have a much larger directed acyclic graph of layers.",
+"start": 2421.209,
+"end": 2426.094
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The SCOR exam does not cover Docker in detail.",
+"spoken": "The score exam does not cover Docker in detail.",
+"start": 2426.544,
+"end": 2429.851
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Kubernetes Architecture (Figure 9-18)",
+"spoken": "Kubernetes Architecture (Figure 9-18).",
+"start": 2431.301,
+"end": 2434.949
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Master: API server, scheduler, controller manager, and etcd, reached by CLI, API, and UI.",
+"spoken": "Master: API server, scheduler, controller manager, and etcd, reached by CLI, API, and UI.",
+"start": 2435.399,
+"end": 2443.079
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Nodes: run Docker, the kubelet, kube-proxy, and pods of containers.",
+"spoken": "Nodes: run Docker, the kubelet, kube-proxy, and pods of containers.",
+"start": 2443.529,
+"end": 2448.329
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The proxy routes traffic to load-balanced services and must run on every node.",
+"spoken": "The proxy routes traffic to load-balanced services and must run on every node.",
+"start": 2448.779,
+"end": 2453.856
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Kubernetes DNS server gives naming and discovery for services and runs as a replicated service, so you may see one or more.",
+"spoken": "The Kubernetes DNS server gives naming and discovery for services and runs as a replicated service, so you may see one or more.",
+"start": 2454.306,
+"end": 2463.544
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Kubernetes GUI (dashboard) runs as a single replica but is still managed by a deployment for reliability and upgrades.",
+"spoken": "The Kubernetes gooey (dashboard) runs as a single replica but is still managed by a deployment for reliability and upgrades.",
+"start": 2463.994,
+"end": 2472.954
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "kubeadm only performs bootstrapping. The book says \"it does provision machines,\" which looks like a typo: kubeadm does not provision machines (not in the book).",
+"spoken": "kubeadm only performs bootstrapping. The book says \"it does provision machines,\" which looks like a typo: kubeadm does not provision machines (not in the book).",
+"start": 2473.404,
+"end": 2483.9
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Standalone Docker vs Kubernetes (Table 9-2)",
+"spoken": "Standalone Docker vs Kubernetes (Table 9-2).",
+"start": 2485.35,
+"end": 2489.531
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Docker: no native container-to-container networking unless on the same VM. Kubernetes: all containers talk to each other without NAT.",
+"spoken": "Docker: no native container-to-container networking unless on the same VM. Kubernetes: all containers talk to each other without nat.",
+"start": 2489.981,
+"end": 2499.496
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Docker: proxies or port forwarding needed. Kubernetes: all nodes talk to all containers, and back, without NAT.",
+"spoken": "Docker: proxies or port forwarding needed. Kubernetes: all nodes talk to all containers, and back, without nat.",
+"start": 2499.946,
+"end": 2507.796
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Docker: built-in segmentation. Kubernetes: the IP a container sees for itself is the IP others see.",
+"spoken": "Docker: built-in segmentation. Kubernetes: the IP a container sees for itself is the IP others see.",
+"start": 2508.246,
+"end": 2516.076
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Micro-Segmentation and Contiv",
+"spoken": "Micro-Segmentation and Contiv.",
+"start": 2517.526,
+"end": 2519.787
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Segmentation starts and ends with the application.",
+"spoken": "Segmentation starts and ends with the application.",
+"start": 2520.237,
+"end": 2523.458
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Most environments use zero trust: users can't talk to applications, and applications can't talk to each other, unless a policy allows it.",
+"spoken": "Most environments use zero trust: users can't talk to applications, and applications can't talk to each other, unless a policy allows it.",
+"start": 2523.908,
+"end": 2533.743
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Contiv gives a policy framework, a higher level of networking abstraction, and built-in service discovery and service routing to scale out services.",
+"spoken": "Contiv gives a policy framework, a higher level of networking abstraction, and built-in service discovery and service routing to scale out services.",
+"start": 2534.193,
+"end": 2544.156
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Contiv assigns an IP address to each container, removing host-based port NAT.",
+"spoken": "Contiv assigns an IP address to each container, removing host-based port nat.",
+"start": 2544.606,
+"end": 2550.024
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Works on Layer 2, Layer 3, and overlay networks, and with Kubernetes and Docker Swarm. Kubernetes provides compute, and Contiv provides networking.",
+"spoken": "Works on Layer 2, Layer 3, and overlay networks, and with Kubernetes and Docker Swarm. Kubernetes provides compute, and Contiv provides networking.",
+"start": 2550.474,
+"end": 2561.312
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DevSecOps Drivers",
+"spoken": "DevSecOps Drivers.",
+"start": 2562.762,
+"end": 2564.468
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Business environment, culture, law compliance, and the external market shape how an SDLC and DevSecOps program are implemented.",
+"spoken": "Business environment, culture, law compliance, and the external market shape how an SDLC and DevSecOps program are implemented.",
+"start": 2564.918,
+"end": 2574.39
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "OWASP Top 10 Proactive Controls",
+"spoken": "oh-wasp Top 10 Proactive Controls.",
+"start": 2575.84,
+"end": 2578.528
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Define Security Requirements.",
+"spoken": "1. Define Security Requirements.",
+"start": 2578.978,
+"end": 2581.304
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Leverage Security Frameworks and Libraries.",
+"spoken": "2. Leverage Security Frameworks and Libraries.",
+"start": 2581.754,
+"end": 2584.804
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Secure Database Access.",
+"spoken": "3. Secure Database Access.",
+"start": 2585.254,
+"end": 2587.473
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. Encode and Escape Data.",
+"spoken": "4. Encode and Escape Data.",
+"start": 2587.923,
+"end": 2590.099
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5. Validate All Inputs.",
+"spoken": "5. Validate All Inputs.",
+"start": 2590.549,
+"end": 2592.576
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "6. Implement Digital Identity.",
+"spoken": "6. Implement Digital Identity.",
+"start": 2593.026,
+"end": 2595.351
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "7. Enforce Access Controls.",
+"spoken": "7. Enforce Access Controls.",
+"start": 2595.801,
+"end": 2598.041
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "8. Protect Data Everywhere.",
+"spoken": "8. Protect Data Everywhere.",
+"start": 2598.491,
+"end": 2600.56
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "9. Implement Security Logging and Monitoring.",
+"spoken": "9. Implement Security Logging and Monitoring.",
+"start": 2601.01,
+"end": 2604.04
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "10. Handle All Errors and Exceptions.",
+"spoken": "10. Handle All Errors and Exceptions.",
+"start": 2604.49,
+"end": 2607.156
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Additional Best Practices",
+"spoken": "Additional Best Practices.",
+"start": 2608.606,
+"end": 2610.462
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Put security functions and tools into automated testing in CI/CD pipelines.",
+"spoken": "Put security functions and tools into automated testing in C.I. C.D. pipelines.",
+"start": 2610.912,
+"end": 2617.419
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Parameterize queries to prevent SQL injection.",
+"spoken": "Parameterize queries to prevent sequel injection.",
+"start": 2617.869,
+"end": 2621.282
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Encode data before passing it to an interpreter, to protect against cross-site scripting (XSS) and other injection.",
+"spoken": "Encode data before passing it to an interpreter, to protect against cross-site scripting (cross-site scripting) and other injection.",
+"start": 2621.732,
+"end": 2630.287
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Validate all inputs, treat all data as untrusted, and use whitelisting.",
+"spoken": "Validate all inputs, treat all data as untrusted, and use whitelisting.",
+"start": 2630.737,
+"end": 2635.836
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Implement proper identity, authentication, and access controls.",
+"spoken": "Implement proper identity, authentication, and access controls.",
+"start": 2636.286,
+"end": 2640.638
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use software assurance: fuzzing, SAST, and DAST.",
+"spoken": "Use software assurance: fuzzing, sast, and dast.",
+"start": 2641.088,
+"end": 2644.522
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Questions to Ask About the Pipeline (Figure 9-22)",
+"spoken": "Questions to Ask About the Pipeline (Figure 9-22).",
+"start": 2645.972,
+"end": 2650.111
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What happens before and when a change is checked in?",
+"spoken": "What happens before and when a change is checked in?",
+"start": 2650.561,
+"end": 2653.676
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Where are the repositories, and who has access?",
+"spoken": "Where are the repositories, and who has access?",
+"start": 2654.126,
+"end": 2657.07
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "How do changes move from check-in to build, CI and unit testing, functional and integration testing, staging, and production?",
+"spoken": "How do changes move from check-in to build, CI and unit testing, functional and integration testing, staging, and production?",
+"start": 2657.52,
+"end": 2666.416
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What tests are run, and where are results logged?",
+"spoken": "What tests are run, and where are results logged?",
+"start": 2666.866,
+"end": 2669.767
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What tools are used, and how do they work?",
+"spoken": "What tools are used, and how do they work?",
+"start": 2670.217,
+"end": 2672.777
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What manual checks or reviews happen, and when?",
+"spoken": "What manual checks or reviews happen, and when?",
+"start": 2673.227,
+"end": 2676.086
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "How can all of this be used for security and compliance?",
+"spoken": "How can all of this be used for security and compliance?",
+"start": 2676.536,
+"end": 2680.013
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. Customer vs Provider Security Responsibility",
+"spoken": "3. Customer vs Provider Security Responsibility.",
+"start": 2682.063,
+"end": 2686.031
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Responsibility Stack",
+"spoken": "Responsibility Stack.",
+"start": 2687.831,
+"end": 2689.495
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The layers from top to bottom: people, data, applications, runtime, middleware, operating system, virtual network, hypervisor, servers, storage, physical network.",
+"spoken": "The layers from top to bottom: people, data, applications, runtime, middleware, operating system, virtual network, hypervisor, servers, storage, physical network.",
+"start": 2689.945,
+"end": 2701.38
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SaaS (Figure 9-23): the customer is responsible for people and data. The CSP handles applications and everything below.",
+"spoken": "SASS (Figure 9-23): the customer is responsible for people and data. The CSP handles applications and everything below.",
+"start": 2701.83,
+"end": 2711.835
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PaaS (Figure 9-24): the customer is responsible for people, data, and applications. The CSP handles runtime and everything below. So the customer patches applications and protects data, but not the operating system or virtual network.",
+"spoken": "PAZ (Figure 9-24): the customer is responsible for people, data, and applications. The CSP handles runtime and everything below. So the customer patches applications and protects data, but not the operating system or virtual network.",
+"start": 2712.285,
+"end": 2730.824
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IaaS (Figure 9-25): the customer is responsible for people, data, applications, runtime, middleware, operating system, and virtual network. The CSP handles the hypervisor, servers, storage, and physical network.",
+"spoken": "I.A.A.S. (Figure 9-25): the customer is responsible for people, data, applications, runtime, middleware, operating system, and virtual network. The CSP handles the hypervisor, servers, storage, and physical network.",
+"start": 2731.274,
+"end": 2748.554
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Patch Management in the Cloud",
+"spoken": "Patch Management in the Cloud.",
+"start": 2750.004,
+"end": 2751.945
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shared in IaaS and PaaS, but not in SaaS.",
+"spoken": "Shared in I.A.A.S. and PAZ, but not in SASS.",
+"start": 2752.395,
+"end": 2755.915
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In SaaS, the CSP patches all software and hardware vulnerabilities.",
+"spoken": "In SASS, the CSP patches all software and hardware vulnerabilities.",
+"start": 2756.365,
+"end": 2761.08
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In IaaS, the CSP patches only hypervisors, physical compute and storage servers, and the physical network. You patch applications, operating systems (VMs), and virtual networks you deploy.",
+"spoken": "In I.A.A.S., the CSP patches only hypervisors, physical compute and storage servers, and the physical network. You patch applications, operating systems (VMs), and virtual networks you deploy.",
+"start": 2761.53,
+"end": 2776.015
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Security Assessment in the Cloud",
+"spoken": "Security Assessment in the Cloud.",
+"start": 2777.465,
+"end": 2779.62
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Before penetration testing, learn what you can and can't do. Most CSPs publish guidelines.",
+"spoken": "Before penetration testing, learn what you can and can't do. Most C.S.P.s publish guidelines.",
+"start": 2780.07,
+"end": 2787.046
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Your data still lives in a physical location somewhere.",
+"spoken": "Your data still lives in a physical location somewhere.",
+"start": 2787.496,
+"end": 2790.909
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The provider should agree in writing to the security level your customers need.",
+"spoken": "The provider should agree in writing to the security level your customers need.",
+"start": 2791.359,
+"end": 2795.818
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Questions to Ask a Cloud Provider",
+"spoken": "Questions to Ask a Cloud Provider.",
+"start": 2797.268,
+"end": 2799.508
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Who has access? Insider attacks are a huge risk. Learn who has access and how they were screened. Also plan for an employee leaving without handing over the password, or the service being canceled over an unpaid bill.",
+"spoken": "Who has access? Insider attacks are a huge risk. Learn who has access and how they were screened. Also plan for an employee leaving without handing over the password, or the service being canceled over an unpaid bill.",
+"start": 2799.958,
+"end": 2815.126
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What are the provider's regulatory requirements? The provider must meet your requirements and be willing to undergo certification, accreditation, and review. Applies to organizations in the United States, Canada, and the European Union.",
+"spoken": "What are the provider's regulatory requirements? The provider must meet your requirements and be willing to undergo certification, accreditation, and review. Applies to organizations in the United States, Canada, and the European Union.",
+"start": 2815.576,
+"end": 2831.49
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Do you have the right to audit? Get the audit terms in writing. Few regulations were written with cloud in mind, auditors may not know the cloud, and the split of compliance duties must be set before signing.",
+"spoken": "Do you have the right to audit? Get the audit terms in writing. Few regulations were written with cloud in mind, auditors may not know the cloud, and the split of compliance duties must be set before signing.",
+"start": 2831.94,
+"end": 2845.146
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What training does the provider give its employees? People are always the weakest link.",
+"spoken": "What training does the provider give its employees? People are always the weakest link.",
+"start": 2845.596,
+"end": 2850.972
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What data classification system does the provider use? Which standard, and whether it classifies data at all.",
+"spoken": "What data classification system does the provider use? Which standard, and whether it classifies data at all.",
+"start": 2851.422,
+"end": 2858.739
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "How is your data separated from other users' data? A dedicated server holds only your data. A shared server limits disk, processing, and bandwidth, and data could become commingled.",
+"spoken": "How is your data separated from other users' data? A dedicated server holds only your data. A shared server limits disk, processing, and bandwidth, and data could become commingled.",
+"start": 2859.189,
+"end": 2871.669
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Is encryption used? At rest and in transit, and which algorithm, such as DES versus AES. Who controls the keys?",
+"spoken": "Is encryption used? At rest and in transit, and which algorithm, such as D.E.S. versus A.E.S. Who controls the keys?",
+"start": 2872.119,
+"end": 2881.058
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What are the SLA terms? What level of service is guaranteed.",
+"spoken": "What are the SLA terms? What level of service is guaranteed.",
+"start": 2881.508,
+"end": 2885.582
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What is the provider's long-term viability? Its age and track record, and whether and in what format your data comes back if it goes out of business.",
+"spoken": "What is the provider's long-term viability? Its age and track record, and whether and in what format your data comes back if it goes out of business.",
+"start": 2886.032,
+"end": 2895.654
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Will it assume liability for a breach? What support you get in an incident. Cloud services are attractive targets even when sold as \"unhackable.\"",
+"spoken": "Will it assume liability for a breach? What support you get in an incident. Cloud services are attractive targets even when sold as \"unhackable.\"",
+"start": 2896.104,
+"end": 2906.088
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What is the DR/BCP? How the provider responds to disasters.",
+"spoken": "What is the D.R. and B.C.P.? How the provider responds to disasters.",
+"start": 2906.538,
+"end": 2911.679
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Also ask what happens to your information after the contract ends.",
+"spoken": "Also ask what happens to your information after the contract ends.",
+"start": 2912.129,
+"end": 2916.46
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Insufficient due diligence is one of the biggest issues in moving to the cloud. Settle encryption, compliance, and incident response before signing.",
+"spoken": "Insufficient due diligence is one of the biggest issues in moving to the cloud. Settle encryption, compliance, and incident response before signing.",
+"start": 2916.91,
+"end": 2926.894
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "4. Cisco Umbrella",
+"spoken": "4. Cisco Umbrella.",
+"start": 2928.944,
+"end": 2930.736
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "What It Does",
+"spoken": "What It Does.",
+"start": 2932.536,
+"end": 2933.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Works on any device, including IoT, on any network, at any time.",
+"spoken": "Works on any device, including I.O.T., on any network, at any time.",
+"start": 2934.052,
+"end": 2939.087
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Sees attacks before the application connection happens, which lowers the load on firewalls, reduces alerts, and improves security operations and incident response.",
+"spoken": "Sees attacks before the application connection happens, which lowers the load on firewalls, reduces alerts, and improves security operations and incident response.",
+"start": 2939.537,
+"end": 2950.78
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Detections From DNS Request Patterns",
+"spoken": "Detections From DNS Request Patterns.",
+"start": 2952.23,
+"end": 2954.747
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Compromised systems.",
+"spoken": "Compromised systems.",
+"start": 2955.197,
+"end": 2956.754
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Command-and-control callbacks.",
+"spoken": "Command-and-control callbacks.",
+"start": 2957.204,
+"end": 2959.146
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malware and phishing attempts.",
+"spoken": "Malware and phishing attempts.",
+"start": 2959.596,
+"end": 2961.388
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Algorithm-generated domains.",
+"spoken": "Algorithm-generated domains.",
+"start": 2961.838,
+"end": 2964.014
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Domain co-occurrences.",
+"spoken": "Domain co-occurrences.",
+"start": 2964.464,
+"end": 2966.17
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Newly registered domains.",
+"spoken": "Newly registered domains.",
+"start": 2966.62,
+"end": 2968.327
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malicious traffic and payloads that never reach the target.",
+"spoken": "Malicious traffic and payloads that never reach the target.",
+"start": 2968.777,
+"end": 2972.318
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Architecture",
+"spoken": "Architecture.",
+"start": 2973.768,
+"end": 2974.963
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Peering with ISPs and CDNs routes requests efficiently with no added latency over regional DNS providers.",
+"spoken": "Peering with I.S.P.s and C.D.N.s routes requests efficiently with no added latency over regional DNS providers.",
+"start": 2975.413,
+"end": 2985.397
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Its scale gives a diverse data set across geographies and protocols. The analytics learn where threats come from, who launches them, where they go, and how wide the attack is, even before the first victim.",
+"spoken": "Its scale gives a diverse data set across geographies and protocols. The analytics learn where threats come from, who launches them, where they go, and how wide the attack is, even before the first victim.",
+"start": 2985.847,
+"end": 2999.586
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Findings From Authoritative DNS Logs",
+"spoken": "Findings From Authoritative DNS Logs.",
+"start": 3001.036,
+"end": 3003.66
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Newly staged infrastructures.",
+"spoken": "Newly staged infrastructures.",
+"start": 3004.11,
+"end": 3006.2
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malicious domains, IP addresses, and ASNs.",
+"spoken": "Malicious domains, IP addresses, and A.S.N.s.",
+"start": 3006.65,
+"end": 3010.064
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DNS hijacking.",
+"spoken": "DNS hijacking.",
+"start": 3010.514,
+"end": 3012.071
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Fast flux domains.",
+"spoken": "Fast flux domains.",
+"start": 3012.521,
+"end": 3014.036
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Related domains.",
+"spoken": "Related domains.",
+"start": 3014.486,
+"end": 3015.808
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Statistical Models",
+"spoken": "Statistical Models.",
+"start": 3017.258,
+"end": 3018.837
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Machine learning and advanced algorithms find and automatically block malicious domains.",
+"spoken": "Machine learning and advanced algorithms find and automatically block malicious domains.",
+"start": 3019.287,
+"end": 3025.303
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Co-occurrence model: finds domains queried right before or after a given domain, linking domains in the same attack even on separate networks.",
+"spoken": "Co-occurrence model: finds domains queried right before or after a given domain, linking domains in the same attack even on separate networks.",
+"start": 3025.753,
+"end": 3035.716
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traffic spike model: spots traffic spikes that match patterns of other attacks, such as exploit kits, so you can block before the full attack.",
+"spoken": "Traffic spike model: spots traffic spikes that match patterns of other attacks, such as exploit kits, so you can block before the full attack.",
+"start": 3036.166,
+"end": 3045.787
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Predictive IP space monitoring model: starts with domains from the spike model and scores the attacker's setup steps (hosting provider, name server, IP address) to predict malicious domains and block them in advance. The book calls the starting model \"spike rank model\" here but \"traffic spike model\" just before.",
+"spoken": "Predictive IP space monitoring model: starts with domains from the spike model and scores the attacker's setup steps (hosting provider, name server, IP address) to predict malicious domains and block them in advance. The book calls the starting model \"spike rank model\" here but \"traffic spike model\" just before.",
+"start": 3046.237,
+"end": 3067.4
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Internet Gateway Flow",
+"spoken": "Secure Internet Gateway Flow.",
+"start": 3068.85,
+"end": 3071.004
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Umbrella identifies the customer and the policy to apply.",
+"spoken": "1. Umbrella identifies the customer and the policy to apply.",
+"start": 3071.454,
+"end": 3075.892
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. It classifies the request as safe (whitelisted), malicious (blacklisted), or risky.",
+"spoken": "2. It classifies the request as safe (whitelisted), malicious (blacklisted), or risky.",
+"start": 3076.342,
+"end": 3082.038
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Safe requests route as usual, malicious requests go to a block page, and risky requests go to the cloud proxy.",
+"spoken": "3. Safe requests route as usual, malicious requests go to a block page, and risky requests go to the cloud proxy.",
+"start": 3082.488,
+"end": 3090.893
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. The proxy's URL inspection engine classifies the URL using Cisco Talos, the Cisco web reputation system, and third-party feeds.",
+"spoken": "4. The proxy's URL inspection engine classifies the URL using Cisco Talos, the Cisco web reputation system, and third-party feeds.",
+"start": 3091.343,
+"end": 3102.586
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5. If still unknown and a file is present, the file's reputation is checked and it is inspected by antivirus engines and Cisco Secure Malware Defense, blocking known-bad files before download.",
+"spoken": "5. If still unknown and a file is present, the file's reputation is checked and it is inspected by antivirus engines and Cisco Secure Malware Defense, blocking known-bad files before download.",
+"start": 3103.036,
+"end": 3117.436
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traditional web proxies inspect all requests, adding latency and complexity.",
+"spoken": "Traditional web proxies inspect all requests, adding latency and complexity.",
+"start": 3117.886,
+"end": 3123.112
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Investigate Features",
+"spoken": "Investigate Features.",
+"start": 3124.562,
+"end": 3126.077
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Gives the most complete view of attacker infrastructure: malicious domains, IP addresses, file hashes, and predicted emergent threats.",
+"spoken": "Gives the most complete view of attacker infrastructure: malicious domains, IP addresses, file hashes, and predicted emergent threats.",
+"start": 3126.527,
+"end": 3135.85
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrates Cisco AMP Threat Grid malware intelligence. Not in the book: Threat Grid is now Cisco Secure Malware Analytics.",
+"spoken": "Integrates Cisco AMP Threat Grid malware intelligence. Not in the book: Threat Grid is now Cisco Secure Malware Analytics.",
+"start": 3136.3,
+"end": 3145.366
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Passive DNS Database: historical DNS data.",
+"spoken": "Passive DNS Database: historical DNS data.",
+"start": 3145.816,
+"end": 3149.699
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "WHOIS Record Data: domain ownership, and other malicious domains with the same contact information.",
+"spoken": "who is Record Data: domain ownership, and other malicious domains with the same contact information.",
+"start": 3150.149,
+"end": 3156.741
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malware File Analysis: behavior indicators and network connections of samples, from Threat Grid.",
+"spoken": "Malware File Analysis: behavior indicators and network connections of samples, from Threat Grid.",
+"start": 3157.191,
+"end": 3163.996
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASN Attribution: IP-to-ASN mappings.",
+"spoken": "ASN Attribution: IP-to-ASN mappings.",
+"start": 3164.446,
+"end": 3167.924
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IP Geolocation: the country of an IP address.",
+"spoken": "IP Geolocation: the country of an IP address.",
+"start": 3168.374,
+"end": 3172.363
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Domain and IP Reputation Scores: risk scoring across domain attributes.",
+"spoken": "Domain and IP Reputation Scores: risk scoring across domain attributes.",
+"start": 3172.813,
+"end": 3178.445
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Domain Co-Occurrences: domains looked up around the same time. The score measures client requests for the related domains. Shown whether suspicious or not.",
+"spoken": "Domain Co-Occurrences: domains looked up around the same time. The score measures client requests for the related domains. Shown whether suspicious or not.",
+"start": 3178.895,
+"end": 3189.476
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Anomaly Detection: detects fast flux and algorithm-generated domains, scored on how likely an algorithm, not a human, made the name.",
+"spoken": "Anomaly Detection: detects fast flux and algorithm-generated domains, scored on how likely an algorithm, not a human, made the name.",
+"start": 3189.926,
+"end": 3199.654
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DNS Request Patterns and Geo Distribution: suspicious spikes in global requests to a domain.",
+"spoken": "DNS Request Patterns and Geo Distribution: suspicious spikes in global requests to a domain.",
+"start": 3200.104,
+"end": 3207.294
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "5. Cisco Secure Email Threat Defense",
+"spoken": "5. Cisco Secure Email Threat Defense.",
+"start": 3209.344,
+"end": 3212.224
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Layers of Protection",
+"spoken": "Layers of Protection.",
+"start": 3214.024,
+"end": 3215.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Continuously monitors for malicious files or URLs that evaded detection.",
+"spoken": "Continuously monitors for malicious files or U.R.L.s that evaded detection.",
+"start": 3216.052,
+"end": 3222.175
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Geolocation-based filtering: controls email by sender location, against spear phishing.",
+"spoken": "Geolocation-based filtering: controls email by sender location, against spear phishing.",
+"start": 3222.625,
+"end": 3229.068
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "CASE: the high spam capture and low false positive rates.",
+"spoken": "case: the high spam capture and low false positive rates.",
+"start": 3229.518,
+"end": 3233.358
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Advanced outbreak filters: inspect URLs in real time and block sites that turn from benign to malicious.",
+"spoken": "Advanced outbreak filters: inspect U.R.L.s in real time and block sites that turn from benign to malicious.",
+"start": 3233.808,
+"end": 3242.234
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Email Malware Defense: real-time analysis of potentially malicious links.",
+"spoken": "Cisco Secure Email Malware Defense: real-time analysis of potentially malicious links.",
+"start": 3242.684,
+"end": 3249.234
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Talos and Threat Grid intelligence: find unknown threats and sudden file behavior changes.",
+"spoken": "Talos and Threat Grid intelligence: find unknown threats and sudden file behavior changes.",
+"start": 3249.684,
+"end": 3256.084
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Remediation and visibility: triggers dynamic reputation analysis, shows the malware's origin, affected systems, and activity, and acts on inbound and outbound email.",
+"spoken": "Remediation and visibility: triggers dynamic reputation analysis, shows the malware's origin, affected systems, and activity, and acts on inbound and outbound email.",
+"start": 3256.534,
+"end": 3269.312
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Chapter 10 covers Cisco Secure Email in more detail.",
+"spoken": "Chapter 10 covers Cisco Secure Email in more detail.",
+"start": 3269.762,
+"end": 3273.474
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Email Encryption",
+"spoken": "Email Encryption.",
+"start": 3274.924,
+"end": 3276.375
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Key services manage recipient registration, authentication, and per-message and per-recipient keys.",
+"spoken": "Key services manage recipient registration, authentication, and per-message and per-recipient keys.",
+"start": 3276.825,
+"end": 3283.78
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Gives compliance and security officers control and visibility over how sensitive data is delivered.",
+"spoken": "Gives compliance and security officers control and visibility over how sensitive data is delivered.",
+"start": 3284.23,
+"end": 3291.12
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A customizable reporting dashboard shows encrypted traffic, the delivery method, and the top senders and receivers.",
+"spoken": "A customizable reporting dashboard shows encrypted traffic, the delivery method, and the top senders and receivers.",
+"start": 3291.57,
+"end": 3299.4
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Office 365 Integration",
+"spoken": "Office 365 Integration.",
+"start": 3300.85,
+"end": 3303.794
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Without Cisco, MX records point straight at Office 365 (Figure 9-29).",
+"spoken": "Without Cisco, MX records point straight at Office 365 (Figure 9-29).",
+"start": 3304.244,
+"end": 3311.604
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With Cisco, MX records point to Cisco Secure Email appliances in the cisco-ces.com domain, which relay all email to Office 365 for inspection (Figure 9-30).",
+"spoken": "With Cisco, MX records point to Cisco Secure Email appliances in the cisco-ces dot com domain, which relay all email to Office 365 for inspection (Figure 9-30).",
+"start": 3312.054,
+"end": 3327.115
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The cloud service gives a \"public\" listener to protect all incoming and outgoing mail.",
+"spoken": "The cloud service gives a \"public\" listener to protect all incoming and outgoing mail.",
+"start": 3327.565,
+"end": 3333.112
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Advanced Protection Flow (Figure 9-31)",
+"spoken": "Advanced Protection Flow (Figure 9-31).",
+"start": 3334.562,
+"end": 3338.338
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. An email with an attachment arrives.",
+"spoken": "1. An email with an attachment arrives.",
+"start": 3338.788,
+"end": 3341.433
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. The service sends a file reputation query (SHA256) to the AMP cloud.",
+"spoken": "2. The service sends a file reputation query (SHA 256) to the AMP cloud.",
+"start": 3341.883,
+"end": 3349.051
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. The AMP verdict is unknown.",
+"spoken": "3. The AMP verdict is unknown.",
+"start": 3349.501,
+"end": 3352.018
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. The file is submitted to the Threat Grid cloud, and the email goes on to Exchange Online in Microsoft Azure.",
+"spoken": "4. The file is submitted to the Threat Grid cloud, and the email goes on to Exchange Online in Microsoft Azure.",
+"start": 3352.468,
+"end": 3360.554
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5. Threat Grid sandboxes the file and returns a risk verdict: high or low risk, clean or malicious.",
+"spoken": "5. Threat Grid sandboxes the file and returns a risk verdict: high or low risk, clean or malicious.",
+"start": 3361.004,
+"end": 3368.556
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "6. AMP pokes CES with an updated verdict. A high-risk email is dropped or quarantined; otherwise it is processed further.",
+"spoken": "6. AMP pokes CES with an updated verdict. A high-risk email is dropped or quarantined; otherwise it is processed further.",
+"start": 3369.006,
+"end": 3378.584
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "6. Cisco Attack Surface Management",
+"spoken": "6. Cisco Attack Surface Management.",
+"start": 3380.634,
+"end": 3383.322
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Attack Surface Management Activities",
+"spoken": "Attack Surface Management Activities.",
+"start": 3385.122,
+"end": 3387.576
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inventory and Asset Discovery: catalog all hardware, software, cloud services, and data repositories.",
+"spoken": "Inventory and Asset Discovery: catalog all hardware, software, cloud services, and data repositories.",
+"start": 3388.026,
+"end": 3395.876
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Vulnerability Scanning and Assessment: find known vulnerabilities, misconfigurations, and weaknesses.",
+"spoken": "Vulnerability Scanning and Assessment: find known vulnerabilities, misconfigurations, and weaknesses.",
+"start": 3396.326,
+"end": 3403.26
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Risk Analysis and Prioritization: weigh impact and likelihood, and prioritize by criticality and business impact.",
+"spoken": "Risk Analysis and Prioritization: weigh impact and likelihood, and prioritize by criticality and business impact.",
+"start": 3403.71,
+"end": 3411.902
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Threat Intelligence Integration: use threat data on attack vectors, emerging threats, and indicators of compromise.",
+"spoken": "Threat Intelligence Integration: use threat data on attack vectors, emerging threats, and indicators of compromise.",
+"start": 3412.352,
+"end": 3420.245
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Patch and Remediation Management: patch and update to shrink the attack surface.",
+"spoken": "Patch and Remediation Management: patch and update to shrink the attack surface.",
+"start": 3420.695,
+"end": 3425.815
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Continuous Monitoring and Threat Hunting: detect threats and anomalies, and hunt for hidden vulnerabilities or ongoing attacks.",
+"spoken": "Continuous Monitoring and Threat Hunting: detect threats and anomalies, and hunt for hidden vulnerabilities or ongoing attacks.",
+"start": 3426.265,
+"end": 3434.585
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Incident Response and Recovery: plans to respond to and recover from incidents.",
+"spoken": "Incident Response and Recovery: plans to respond to and recover from incidents.",
+"start": 3435.035,
+"end": 3440.582
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Using the Cisco Platform",
+"spoken": "Using the Cisco Platform.",
+"start": 3442.032,
+"end": 3443.973
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "First step: integrate your data with prebuilt integrations for end-to-end visibility, context, and automation.",
+"spoken": "First step: integrate your data with prebuilt integrations for end-to-end visibility, context, and automation.",
+"start": 3444.423,
+"end": 3452.06
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The platform documents importing data, the data model, and data mapping.",
+"spoken": "The platform documents importing data, the data model, and data mapping.",
+"start": 3452.51,
+"end": 3457.374
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "It works better with more volume and diversity of data.",
+"spoken": "It works better with more volume and diversity of data.",
+"start": 3457.824,
+"end": 3461.323
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "New integrations are added regularly, each with its own authentication. AWS uses IAM Role and Assume Role Trust policies; others use an API key or token, Auth, or Basic Auth.",
+"spoken": "New integrations are added regularly, each with its own authentication. AWS uses IAM Role and Assume Role Trust policies; others use an API key or token, Auth, or Basic Auth.",
+"start": 3461.773,
+"end": 3476.685
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Custom uploads cover on-prem systems and security and compliance artifacts.",
+"spoken": "Custom uploads cover on-prem systems and security and compliance artifacts.",
+"start": 3477.135,
+"end": 3482.532
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "7. Cisco Secure Cloud Analytics",
+"spoken": "7. Cisco Secure Cloud Analytics.",
+"start": 3484.582,
+"end": 3487.228
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threats Secure Analytics Defends Against",
+"spoken": "Threats Secure Analytics Defends Against.",
+"start": 3489.028,
+"end": 3491.502
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network reconnaissance.",
+"spoken": "Network reconnaissance.",
+"start": 3491.952,
+"end": 3493.488
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Malware spreading across the network to steal data or create back doors.",
+"spoken": "Malware spreading across the network to steal data or create back doors.",
+"start": 3493.938,
+"end": 3498.568
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Communication between attackers or command-and-control servers and compromised internal hosts.",
+"spoken": "Communication between attackers or command-and-control servers and compromised internal hosts.",
+"start": 3499.018,
+"end": 3505.524
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data exfiltration.",
+"spoken": "Data exfiltration.",
+"start": 3505.974,
+"end": 3507.596
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Secure Cloud Analytics Features",
+"spoken": "Secure Cloud Analytics Features.",
+"start": 3509.046,
+"end": 3511.243
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Simple to use, buy, and maintain. Needs little configuration or device categorization, and analysis is fully automated.",
+"spoken": "Simple to use, buy, and maintain. Needs little configuration or device categorization, and analysis is fully automated.",
+"start": 3511.693,
+"end": 3520.653
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrates with the SecureX platform and XDR. Not in the book: Cisco retired SecureX in 2024 in favor of Cisco XDR.",
+"spoken": "Integrates with the SecureX platform and XDR. Not in the book: Cisco retired SecureX in 2024 in favor of Cisco XDR.",
+"start": 3521.103,
+"end": 3532.239
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Automatic or manual response to suspicious traffic through SecureX.",
+"spoken": "Automatic or manual response to suspicious traffic through SecureX.",
+"start": 3532.689,
+"end": 3537.382
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Real-time analysis of flows and telemetry such as NetFlow records.",
+"spoken": "Real-time analysis of flows and telemetry such as NetFlow records.",
+"start": 3537.832,
+"end": 3542.824
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Monitors north/south and east/west traffic.",
+"spoken": "Monitors north or south and east or west traffic.",
+"start": 3543.274,
+"end": 3546.752
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "High-fidelity, contextual detections aligned with MITRE ATT&CK, which cut detection and response time.",
+"spoken": "High-fidelity, contextual detections aligned with my-ter attack, which cut detection and response time.",
+"start": 3547.202,
+"end": 3554.476
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Entity behavior modeling over time: builds a baseline of normal traffic and flags deviations, not just session anomalies.",
+"spoken": "Entity behavior modeling over time: builds a baseline of normal traffic and flags deviations, not just session anomalies.",
+"start": 3554.926,
+"end": 3563.822
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Aggregates and normalizes large amounts of NetFlow data.",
+"spoken": "Aggregates and normalizes large amounts of NetFlow data.",
+"start": 3564.272,
+"end": 3568.432
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "8. AppDynamics Cloud Monitoring",
+"spoken": "8. AppDynamics Cloud Monitoring.",
+"start": 3570.482,
+"end": 3573.0
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Supported Platforms",
+"spoken": "Supported Platforms.",
+"start": 3574.8,
+"end": 3576.336
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AWS, Microsoft Azure, Pivotal Cloud Foundry, Cloud Foundry Foundation, Rackspace, Kubernetes, OpenShift, HP Cloud, Citrix, OpenStack, IBM, Docker, and AWS Lambda.",
+"spoken": "AWS, Microsoft Azure, Pivotal Cloud Foundry, Cloud Foundry Foundation, Rackspace, Kubernetes, OpenShift, HP Cloud, Citrix, OpenStack, IBM, Docker, and AWS Lambda.",
+"start": 3576.786,
+"end": 3590.588
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The note says the Workload Optimization Manager and AppDynamics support AWS, Google Cloud Platform, and Microsoft Azure.",
+"spoken": "The note says the Workload Optimization Manager and AppDynamics support AWS, Google Cloud Platform, and Microsoft Azure.",
+"start": 3591.038,
+"end": 3600.382
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Workload Optimization Manager",
+"spoken": "Workload Optimization Manager.",
+"start": 3601.832,
+"end": 3604.094
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You assign Virtual Management services on your network as its targets, and it discovers the devices each target manages.",
+"spoken": "You assign Virtual Management services on your network as its targets, and it discovers the devices each target manages.",
+"start": 3604.544,
+"end": 3612.65
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Gives a global topology of local, remote, private, and public cloud environments, mapping each infrastructure layer to application demand.",
+"spoken": "Gives a global topology of local, remote, private, and public cloud environments, mapping each infrastructure layer to application demand.",
+"start": 3613.1,
+"end": 3622.914
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Gives real-time actions for continuous placement, resizing, and capacity decisions that can be automated.",
+"spoken": "Gives real-time actions for continuous placement, resizing, and capacity decisions that can be automated.",
+"start": 3623.364,
+"end": 3630.745
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Models what-if scenarios to forecast capacity.",
+"spoken": "Models what-if scenarios to forecast capacity.",
+"start": 3631.195,
+"end": 3634.203
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tracks compute, storage, and database use (CPU, memory, latency, and DTU, Database Transaction Unit) across regions and availability zones.",
+"spoken": "Tracks compute, storage, and database use (CPU, memory, latency, and DTU, Database Transaction Unit) across regions and availability zones.",
+"start": 3634.653,
+"end": 3645.832
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 9-34 lists the cloud applications, all hosted in AWS in the example.",
+"spoken": "Figure 9-34 lists the cloud applications, all hosted in AWS in the example.",
+"start": 3646.282,
+"end": 3653.62
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "9. Cisco Secure Workload",
+"spoken": "9. Cisco Secure Workload.",
+"start": 3655.67,
+"end": 3657.825
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Platform",
+"spoken": "Platform.",
+"start": 3659.625,
+"end": 3660.606
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses both hardware and software agents as telemetry sources.",
+"spoken": "Uses both hardware and software agents as telemetry sources.",
+"start": 3661.056,
+"end": 3665.387
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A scalable point-and-click web UI searches with visual queries and shows charts and tables. Administration and cluster monitoring use the same UI.",
+"spoken": "A scalable point-and-click web UI searches with visual queries and shows charts and tables. Administration and cluster monitoring use the same UI.",
+"start": 3665.837,
+"end": 3676.781
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Software Agents",
+"spoken": "Software Agents.",
+"start": 3678.231,
+"end": 3679.511
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Run in the host operating system, such as Linux or Windows.",
+"spoken": "Run in the host operating system, such as Linux or Windows.",
+"start": 3679.961,
+"end": 3684.078
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Collect network flow data, plus interfaces and active processes.",
+"spoken": "Collect network flow data, plus interfaces and active processes.",
+"start": 3684.528,
+"end": 3688.987
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Export data to collectors in the Secure Workload cluster.",
+"spoken": "Export data to collectors in the Secure Workload cluster.",
+"start": 3689.437,
+"end": 3693.277
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can set firewall rules on the host.",
+"spoken": "Can set firewall rules on the host.",
+"start": 3693.727,
+"end": 3695.988
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Workload can also get telemetry from Cisco network infrastructure devices.",
+"spoken": "Secure Workload can also get telemetry from Cisco network infrastructure devices.",
+"start": 3696.438,
+"end": 3702.092
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Orchestrator Integration",
+"spoken": "Orchestrator Integration.",
+"start": 3703.542,
+"end": 3705.376
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Imports user annotations from external orchestrators such as vCenter, Kubernetes, and F5 BIG-IP, through outgoing connections to their API servers.",
+"spoken": "Imports user annotations from external orchestrators such as vCenter, Kubernetes, and F 5 big I.P., through outgoing connections to their API servers.",
+"start": 3705.826,
+"end": 3717.816
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Secure Connector is used when the cluster can't connect directly to the orchestrator.",
+"spoken": "Secure Connector is used when the cluster can't connect directly to the orchestrator.",
+"start": 3718.266,
+"end": 3723.599
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Application Dependency Mapping",
+"spoken": "Application Dependency Mapping.",
+"start": 3725.049,
+"end": 3727.332
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Builds tight security policies from network flows, processes, and side information like load balancer configs and route tags.",
+"spoken": "Builds tight security policies from network flows, processes, and side information like load balancer configs and route tags.",
+"start": 3727.782,
+"end": 3736.678
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies export in several formats for different enforcement engines.",
+"spoken": "Policies export in several formats for different enforcement engines.",
+"start": 3737.128,
+"end": 3741.501
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Verifies policies against live traffic in near real time.",
+"spoken": "Verifies policies against live traffic in near real time.",
+"start": 3741.951,
+"end": 3745.898
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Forensics",
+"spoken": "Forensics.",
+"start": 3747.348,
+"end": 3748.414
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Captures real-time forensic events and applies user-defined rules for monitoring and alerting.",
+"spoken": "Captures real-time forensic events and applies user-defined rules for monitoring and alerting.",
+"start": 3748.864,
+"end": 3755.392
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Define rules for events of interest, define trigger actions, search for events, and visualize event-generating processes and their full lineage.",
+"spoken": "Define rules for events of interest, define trigger actions, search for events, and visualize event-generating processes and their full lineage.",
+"start": 3755.842,
+"end": 3765.634
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each forensic event has fields; some are shared across types and some are type-specific.",
+"spoken": "Each forensic event has fields; some are shared across types and some are type-specific.",
+"start": 3766.084,
+"end": 3771.759
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Forensic Event Types",
+"spoken": "Forensic Event Types.",
+"start": 3773.209,
+"end": 3774.873
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Privilege Escalation: commands run with elevated privileges, such as sudo.",
+"spoken": "Privilege Escalation: commands run with elevated privileges, such as sudo.",
+"start": 3775.323,
+"end": 3780.678
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User Logon: user logins.",
+"spoken": "User Logon: user logins.",
+"start": 3781.128,
+"end": 3783.41
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User Logon Failed: failed logins.",
+"spoken": "User Logon Failed: failed logins.",
+"start": 3783.86,
+"end": 3786.612
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shellcode: suspicious shell executions that look like malicious code.",
+"spoken": "Shellcode: suspicious shell executions that look like malicious code.",
+"start": 3787.062,
+"end": 3791.286
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "File Access: access to highly sensitive files, such as password files.",
+"spoken": "File Access: access to highly sensitive files, such as password files.",
+"start": 3791.736,
+"end": 3796.728
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User Account: users added or removed.",
+"spoken": "User Account: users added or removed.",
+"start": 3797.178,
+"end": 3800.144
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Unseen Command: new commands the sensor hasn't seen. Tune with the command anomaly score.",
+"spoken": "Unseen Command: new commands the sensor hasn't seen. Tune with the command anomaly score.",
+"start": 3800.594,
+"end": 3806.972
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Unseen Library: newly loaded libraries.",
+"spoken": "Unseen Library: newly loaded libraries.",
+"start": 3807.422,
+"end": 3810.708
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Raw Socket Creation: processes creating raw sockets, often tied to port knocking.",
+"spoken": "Raw Socket Creation: processes creating raw sockets, often tied to port knocking.",
+"start": 3811.158,
+"end": 3817.046
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Binary Changed: known binaries with a changed hash or modification time.",
+"spoken": "Binary Changed: known binaries with a changed hash or modification time.",
+"start": 3817.496,
+"end": 3822.701
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Library Changed: known libraries with a changed hash or modification time.",
+"spoken": "Library Changed: known libraries with a changed hash or modification time.",
+"start": 3823.151,
+"end": 3828.527
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Side Channel: attempts to exploit side-channel flaws, such as Meltdown.",
+"spoken": "Side Channel: attempts to exploit side-channel flaws, such as Meltdown.",
+"start": 3828.977,
+"end": 3833.862
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Follow User Logon: processes started after a user logs on.",
+"spoken": "Follow User Logon: processes started after a user logs on.",
+"start": 3834.312,
+"end": 3838.942
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Follow Process: processes matching user-defined rules, such as binary path or command string.",
+"spoken": "Follow Process: processes matching user-defined rules, such as binary path or command string.",
+"start": 3839.392,
+"end": 3846.09
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network Anomaly: anomalies in the workload's traffic.",
+"spoken": "Network Anomaly: anomalies in the workload's traffic.",
+"start": 3846.54,
+"end": 3850.188
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Security and Vulnerability Dashboards",
+"spoken": "Security and Vulnerability Dashboards.",
+"start": 3851.638,
+"end": 3854.39
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Security Dashboard combines many signals into actionable security scores per category.",
+"spoken": "The Security Dashboard combines many signals into actionable security scores per category.",
+"start": 3854.84,
+"end": 3860.92
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Security Score considers vulnerable software packages, process hash consistency, open ports on interfaces, forensic and network anomaly events, and policy compliance.",
+"spoken": "The Security Score considers vulnerable software packages, process hash consistency, open ports on interfaces, forensic and network anomaly events, and policy compliance.",
+"start": 3861.37,
+"end": 3873.914
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Vulnerability Dashboard focuses on critical vulnerabilities and workloads. You pick the scope and a CVSS (Common Vulnerability Scoring System) score.",
+"spoken": "The Vulnerability Dashboard focuses on critical vulnerabilities and workloads. You pick the scope and a C.V.S.S. (Common Vulnerability Scoring System) score.",
+"start": 3874.364,
+"end": 3885.692
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "It shows vulnerabilities by exploit complexity, network exploitability, and whether local access is needed, with filters for remotely exploitable, low-complexity vulnerabilities.",
+"spoken": "It shows vulnerabilities by exploit complexity, network exploitability, and whether local access is needed, with filters for remotely exploitable, low-complexity vulnerabilities.",
+"start": 3886.142,
+"end": 3898.793
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Flow Search",
+"spoken": "Flow Search.",
+"start": 3900.243,
+"end": 3901.352
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each observation tracks packets, bytes, and other metrics in each direction within the minute.",
+"spoken": "Each observation tracks packets, bytes, and other metrics in each direction within the minute.",
+"start": 3901.802,
+"end": 3907.392
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "10. Cisco XDR",
+"spoken": "10. Cisco XDR.",
+"start": 3909.442,
+"end": 3911.362
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why XDR",
+"spoken": "Why XDR.",
+"start": 3913.162,
+"end": 3914.548
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Standalone tools give limited visibility; combined data becomes actionable insight. Respond to what truly counts.",
+"spoken": "Standalone tools give limited visibility; combined data becomes actionable insight. Respond to what truly counts.",
+"start": 3914.998,
+"end": 3923.276
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Analysts at any level can focus on threat detection, prioritized risk-based incident response, and productivity.",
+"spoken": "Analysts at any level can focus on threat detection, prioritized risk-based incident response, and productivity.",
+"start": 3923.726,
+"end": 3932.046
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Data to protect spans networks, endpoints, email, and applications. Most organizations use a multivendor stack.",
+"spoken": "Data to protect spans networks, endpoints, email, and applications. Most organizations use a multivendor stack.",
+"start": 3932.496,
+"end": 3940.602
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Alert overload leaves analysts no time to prioritize, and a lingering threat in the wrong place can hurt the brand or cause big losses.",
+"spoken": "Alert overload leaves analysts no time to prioritize, and a lingering threat in the wrong place can hurt the brand or cause big losses.",
+"start": 3941.052,
+"end": 3950.567
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Risk-centric XDR uses global threat intelligence and local context to quickly quantify, verify, and prioritize threats by the likelihood of substantial risk, and shows the whole attack sequence, root cause, and full impact.",
+"spoken": "Risk-centric XDR uses global threat intelligence and local context to quickly quantify, verify, and prioritize threats by the likelihood of substantial risk, and shows the whole attack sequence, root cause, and full impact.",
+"start": 3951.017,
+"end": 3967.294
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco XDR Features",
+"spoken": "Cisco XDR Features.",
+"start": 3968.744,
+"end": 3970.792
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Delivers prioritized, actionable telemetry where it's needed.",
+"spoken": "Delivers prioritized, actionable telemetry where it's needed.",
+"start": 3971.242,
+"end": 3975.296
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Unified threat detection regardless of source or vendor.",
+"spoken": "Unified threat detection regardless of source or vendor.",
+"start": 3975.746,
+"end": 3979.607
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Quick, precise response.",
+"spoken": "Quick, precise response.",
+"start": 3980.057,
+"end": 3981.721
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A single view for investigations.",
+"spoken": "A single view for investigations.",
+"start": 3982.171,
+"end": 3984.56
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Better productivity and overall security posture.",
+"spoken": "Better productivity and overall security posture.",
+"start": 3985.01,
+"end": 3988.509
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Turns raw telemetry into meaningful security events with advanced analytics, correlation, and detection logic.",
+"spoken": "Turns raw telemetry into meaningful security events with advanced analytics, correlation, and detection logic.",
+"start": 3988.959,
+"end": 3996.831
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Incidents",
+"spoken": "Incidents.",
+"start": 3998.281,
+"end": 3999.305
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Risk-based prioritization: assesses severity and impact so the most urgent, high-risk detections go to the top of the list.",
+"spoken": "Risk-based prioritization: assesses severity and impact so the most urgent, high-risk detections go to the top of the list.",
+"start": 3999.755,
+"end": 4008.352
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Investigate",
+"spoken": "Investigate.",
+"start": 4009.802,
+"end": 4010.912
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Collects results from all integrated technologies.",
+"spoken": "Collects results from all integrated technologies.",
+"start": 4011.362,
+"end": 4014.54
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Shows findings as a node graph of relationships, with a full list of results below it.",
+"spoken": "Shows findings as a node graph of relationships, with a full list of results below it.",
+"start": 4014.99,
+"end": 4020.622
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The Devices Inventory merges data from many sources to reduce the attack surface, and it is surfaced during investigations for more insight on the endpoint.",
+"spoken": "The Devices Inventory merges data from many sources to reduce the attack surface, and it is surfaced during investigations for more insight on the endpoint.",
+"start": 4021.072,
+"end": 4031.27
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Threat Intelligence and Automation",
+"spoken": "Threat Intelligence and Automation.",
+"start": 4032.72,
+"end": 4034.746
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Uses integrated intelligence from sources such as Talos.",
+"spoken": "Uses integrated intelligence from sources such as Talos.",
+"start": 4035.196,
+"end": 4039.164
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You can store your own intelligence by setting dispositions on observables.",
+"spoken": "You can store your own intelligence by setting dispositions on observables.",
+"start": 4039.614,
+"end": 4044.158
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A cloud-native automation engine runs around the clock, all year.",
+"spoken": "A cloud-native automation engine runs around the clock, all year.",
+"start": 4044.608,
+"end": 4049.11
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Prebuilt workflows import from the Exchange and are set up with a wizard. Code blocks help build custom workflows.",
+"spoken": "Prebuilt workflows import from the Exchange and are set up with a wizard. Code blocks help build custom workflows.",
+"start": 4049.56,
+"end": 4057.24
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Automates SOC and incident response tasks, with many third-party integrations.",
+"spoken": "Automates SOC and incident response tasks, with many third-party integrations.",
+"start": 4057.69,
+"end": 4063.599
+}
+]
+}
