@@ -1,0 +1,3373 @@
+{
+"total": 3165.472,
+"lines": [
+{
+"kind": "H2",
+"nest": -1,
+"text": "Chapter 8: Virtual Private Networks (VPNs)",
+"spoken": "Chapter 8: Virtual Private Networks (V.P.N.s).",
+"start": 1.6,
+"end": 5.482
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "1. Virtual Private Network (VPN) Fundamentals",
+"spoken": "1. Virtual Private Network (VPN) Fundamentals.",
+"start": 7.882,
+"end": 11.68
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "VPN Protocols",
+"spoken": "VPN Protocols.",
+"start": 13.48,
+"end": 15.186
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Protocols used over the years: PPTP, L2F, L2TP, GRE, MPLS VPN, IPsec, and SSL.",
+"spoken": "Protocols used over the years: PPTP, L 2 F, L 2 T.P., GRE, MPLS VPN, I.P. sec, and SSL.",
+"start": 15.636,
+"end": 25.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "L2F, L2TP, GRE, and MPLS VPNs don't provide integrity, authentication, or encryption. The quiz answer also counts PPTP among protocols with no encryption; the text does not discuss PPTP's security (PPTP has weak encryption of its own, which is not in the book).",
+"spoken": "L 2 F, L 2 T.P., GRE, and MPLS V.P.N.s don't provide integrity, authentication, or encryption. The quiz answer also counts PPTP among protocols with no encryption; the text does not discuss PPTP's security (PPTP has weak encryption of its own, which is not in the book).",
+"start": 25.942,
+"end": 48.684
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 8-1: a site-to-site IPsec tunnel over the Internet between New York, NY, and Raleigh, NC.",
+"spoken": "Figure 8-1: a site-to-site I.P. sec tunnel over the Internet between New York, New York, and Raleigh, NC.",
+"start": 49.134,
+"end": 57.667
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 8-3: a telecommuter at home uses an IPsec VPN, and a remote user at a hotel uses an SSL VPN, both into headquarters in New York.",
+"spoken": "Figure 8-3: a telecommuter at home uses an I.P. sec VPN, and a remote user at a hotel uses an SSL VPN, both into headquarters in New York.",
+"start": 58.117,
+"end": 71.109
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco Site-to-Site Technologies (Figure 8-2)",
+"spoken": "Cisco Site-to-Site Technologies (Figure 8-2).",
+"start": 72.559,
+"end": 76.42
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Static crypto maps.",
+"spoken": "Static crypto maps.",
+"start": 76.87,
+"end": 78.47
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic crypto maps.",
+"spoken": "Dynamic crypto maps.",
+"start": 78.92,
+"end": 80.648
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Legacy EzVPN based on crypto maps.",
+"spoken": "Legacy easy V.P.N. based on crypto maps.",
+"start": 81.098,
+"end": 84.725
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GRE interfaces with crypto maps on the WAN interface.",
+"spoken": "GRE interfaces with crypto maps on the wan interface.",
+"start": 85.175,
+"end": 89.42
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GRE interfaces with tunnel protection.",
+"spoken": "GRE interfaces with tunnel protection.",
+"start": 89.87,
+"end": 92.686
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPsec VTI, static and dynamic.",
+"spoken": "I.P. sec VTI, static and dynamic.",
+"start": 93.136,
+"end": 96.507
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DMVPN.",
+"spoken": "DMVPN.",
+"start": 96.957,
+"end": 98.322
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enhanced EzVPN based on IPsec VTI.",
+"spoken": "Enhanced easy V.P.N. based on I.P. sec VTI.",
+"start": 98.772,
+"end": 103.146
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GETVPN.",
+"spoken": "get V.P.N.",
+"start": 103.596,
+"end": 104.854
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FlexVPN.",
+"spoken": "flex V.P.N.",
+"start": 105.304,
+"end": 106.627
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IKEv1 Phase 1",
+"spoken": "IKEv1 Phase 1.",
+"start": 108.077,
+"end": 109.762
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Attributes exchanged: encryption, hashing, Diffie-Hellman group, authentication method, and vendor-specific attributes.",
+"spoken": "Attributes exchanged: encryption, hashing, Diffie Hellman group, authentication method, and vendor-specific attributes.",
+"start": 110.212,
+"end": 118.404
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Main mode protects identity when pre-shared keys are used. The book says aggressive mode protects identity only with digital certificates.",
+"spoken": "Main mode protects identity when pre-shared keys are used. The book says aggressive mode protects identity only with digital certificates.",
+"start": 118.854,
+"end": 128.454
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco IKEv1 defaults with pre-shared keys: main mode for site-to-site, aggressive mode for remote access.",
+"spoken": "Cisco IKEv1 defaults with pre-shared keys: main mode for site-to-site, aggressive mode for remote access.",
+"start": 128.904,
+"end": 136.926
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Main mode steps (Figure 8-4, R1 initiator, R2 responder):",
+"spoken": "Main mode steps (Figure 8-4, R 1 initiator, R 2 responder):",
+"start": 137.376,
+"end": 142.88
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. R1 sends its two configured ISAKMP proposals (the figure shows DES, MD5, DH1 and AES, SHA, DH2, all pre-shared).",
+"spoken": "1. R 1 sends its two configured ice-a-camp proposals (the figure shows D.E.S., M.D. 5, D.H. 1 and A.E.S., SHA, D.H. 2, all pre-shared).",
+"start": 143.33,
+"end": 155.703
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. R2 finds a match (AES, SHA, DH2, pre-shared) and sends back the accepted proposal.",
+"spoken": "2. R 2 finds a match (A.E.S., SHA, D.H. 2, pre-shared) and sends back the accepted proposal.",
+"start": 156.153,
+"end": 163.385
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. R1 starts Diffie-Hellman: sends the KE payload and a nonce.",
+"spoken": "3. R 1 starts Diffie Hellman: sends the KE payload and a nonce.",
+"start": 163.835,
+"end": 168.891
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "4. R2 sends its KE and nonce and uses the Diffie-Hellman group to generate the SKEYID.",
+"spoken": "4. R 2 sends its KE and nonce and uses the Diffie Hellman group to generate the S key I.D.",
+"start": 169.341,
+"end": 176.786
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "5. R1 sends its identity, encrypted with keying from the SKEYID.",
+"spoken": "5. R 1 sends its identity, encrypted with keying from the S key I.D.",
+"start": 177.236,
+"end": 182.634
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "6. R2 validates R1 and sends its own identity, also encrypted.",
+"spoken": "6. R 2 validates R 1 and sends its own identity, also encrypted.",
+"start": 183.084,
+"end": 188.673
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IKEv1 Phase 2",
+"spoken": "IKEv1 Phase 2.",
+"start": 190.123,
+"end": 191.787
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The ISAKMP SA protects the IPsec SA negotiation; all payloads except the ISAKMP header are encrypted.",
+"spoken": "The ice-a-camp SA protects the I.P. sec SA negotiation; all payloads except the ice-a-camp header are encrypted.",
+"start": 192.237,
+"end": 201.41
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Quick mode reuses one ISAKMP SA to negotiate many Phase 2 SAs.",
+"spoken": "Quick mode reuses one ice-a-camp SA to negotiate many Phase 2 S.A.s.",
+"start": 201.86,
+"end": 207.855
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Quick mode also negotiates the Phase 2 identities.",
+"spoken": "Quick mode also negotiates the Phase 2 identities.",
+"start": 208.305,
+"end": 211.74
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Steps (Figure 8-5, shown with ASA-1 and ASA-2, although the text says \"two routers\"):",
+"spoken": "Steps (Figure 8-5, shown with ASA-1 and ASA-2, although the text says \"two routers\"):",
+"start": 212.19,
+"end": 219.358
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. ASA-1 sends identities, the IPsec SA proposal (ESP, AES-256, SHA), a nonce, and an optional KE payload if PFS is used.",
+"spoken": "1. ASA-1 sends identities, the I.P. sec SA proposal (E.S.P., A.E.S.-256, SHA), a nonce, and an optional KE payload if PFS is used.",
+"start": 219.808,
+"end": 233.845
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. ASA-2 sends back the accepted proposal, its identities, nonce, and optional KE.",
+"spoken": "2. ASA-2 sends back the accepted proposal, its identities, nonce, and optional KE.",
+"start": 234.295,
+"end": 241.335
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. ASA-1 sends a confirmation, and data encryption starts.",
+"spoken": "3. ASA-1 sends a confirmation, and data encryption starts.",
+"start": 241.785,
+"end": 246.585
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Transport Mode and Tunnel Mode (Figure 8-6)",
+"spoken": "Transport Mode and Tunnel Mode (Figure 8-6).",
+"start": 248.035,
+"end": 251.768
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Transport mode: original IP header, ESP header, data, ESP trailer, ESP auth. The data and trailer are encrypted; ESP header through trailer is authenticated.",
+"spoken": "Transport mode: original IP header, E.S.P. header, data, E.S.P. trailer, E.S.P. auth. The data and trailer are encrypted; E.S.P. header through trailer is authenticated.",
+"start": 252.218,
+"end": 265.573
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tunnel mode: new IP header, ESP header, original IP header, data, ESP trailer, ESP auth. The original header is encrypted too.",
+"spoken": "Tunnel mode: new IP header, E.S.P. header, original IP header, data, E.S.P. trailer, E.S.P. auth. The original header is encrypted too.",
+"start": 266.023,
+"end": 276.946
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "NAT Traversal",
+"spoken": "nat Traversal.",
+"start": 278.396,
+"end": 279.697
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AH and ESP have no Layer 4 ports, so a PAT device usually drops them.",
+"spoken": "A.H. and E.S.P. have no Layer 4 ports, so a pat device usually drops them.",
+"start": 280.147,
+"end": 286.163
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book prints the NAT-T and pass-through explanation twice, once in IKEv1 Phase 2 and again in its own section.",
+"spoken": "The book prints the nat-T and pass-through explanation twice, once in IKEv1 Phase 2 and again in its own section.",
+"start": 286.613,
+"end": 294.208
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "IKEv2",
+"spoken": "IKEv2.",
+"start": 295.658,
+"end": 296.81
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Built-in DPD, NAT-T, and Initial Contact improve interoperability between vendors.",
+"spoken": "Built-in DPD, nat-T, and Initial Contact improve interoperability between vendors.",
+"start": 297.26,
+"end": 303.809
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Both versions use two phases.",
+"spoken": "Both versions use two phases.",
+"start": 304.259,
+"end": 306.264
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Differences from IKEv1:",
+"spoken": "Differences from IKEv1:",
+"start": 306.714,
+"end": 308.656
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IKEv1 Phase 1 has two exchanges (main or aggressive); IKEv2 IKE_SA has one message pair.",
+"spoken": "IKEv1 Phase 1 has two exchanges (main or aggressive); IKEv2 IKE_SA has one message pair.",
+"start": 309.106,
+"end": 317.127
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IKEv2 CHILD_SA uses two message pairs; IKEv1 Phase 2 uses at least three. Fewer packets and less bandwidth.",
+"spoken": "IKEv2 CHILD_SA uses two message pairs; IKEv1 Phase 2 uses at least three. Fewer packets and less bandwidth.",
+"start": 317.577,
+"end": 326.665
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IKEv2 supports next-generation encryption and anti-DoS.",
+"spoken": "IKEv2 supports next-generation encryption and anti-D.O.S.",
+"start": 327.115,
+"end": 331.851
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IKEv1 doesn't allow EAP. EAP lets IKEv2 do remote-access VPN.",
+"spoken": "IKEv1 doesn't allow eep. eep lets IKEv2 do remote-access VPN.",
+"start": 332.301,
+"end": 337.762
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IKEv1 and IKEv2 are incompatible. An IKEv1 device can't build a tunnel with an IKEv2 device.",
+"spoken": "IKEv1 and IKEv2 are incompatible. An IKEv1 device can't build a tunnel with an IKEv2 device.",
+"start": 338.212,
+"end": 346.255
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DoS risk: key material is exchanged in the first two messages (SA_INIT), so spoofed SA_INIT floods make the gateway spend resources. The stateless cookie fixes this. The book says this attack hits an \"IKEv1-enabled device\", but SA_INIT is an IKEv2 message, so it means an IKEv2 gateway.",
+"spoken": "D.O.S. risk: key material is exchanged in the first two messages (SA_INIT), so spoofed SA_INIT floods make the gateway spend resources. The stateless cookie fixes this. The book says this attack hits an \"IKEv1-enabled device\", but SA_INIT is an IKEv2 message, so it means an IKEv2 gateway.",
+"start": 346.705,
+"end": 368.572
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lifetime: IKEv1 negotiates it in MM1 and MM2, and the responder's lifetime must be equal to or less than the initiator's, which caused vendor mismatches. IKEv2 lifetime is local and not negotiated; each peer rekeys or deletes when its own lifetime expires, and each peer can say who initiates the rekey.",
+"spoken": "Lifetime: IKEv1 negotiates it in M.M. 1 and M.M. 2, and the responder's lifetime must be equal to or less than the initiator's, which caused vendor mismatches. IKEv2 lifetime is local and not negotiated; each peer rekeys or deletes when its own lifetime expires, and each peer can say who initiates the rekey.",
+"start": 369.022,
+"end": 392.979
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication: PSK, digital signatures, and EAP. IKEv2 uses a standard mechanism; IKEv1 needed non-standard extensions.",
+"spoken": "Authentication: P.S.K., digital signatures, and eep. IKEv2 uses a standard mechanism; IKEv1 needed non-standard extensions.",
+"start": 393.429,
+"end": 403.605
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SSL VPNs",
+"spoken": "SSL V.P.N.s.",
+"start": 405.055,
+"end": 407.06
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Users browse to the VPN device in Chrome, Internet Explorer, or Firefox instead of running a client. Works from almost anywhere, even an airport kiosk.",
+"spoken": "Users browse to the VPN device in Chrome, Internet Explorer, or Firefox instead of running a client. Works from almost anywhere, even an airport kiosk.",
+"start": 407.51,
+"end": 419.009
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "HTTP is the most successful application on SSL. All popular browsers support HTTPS.",
+"spoken": "HTTP is the most successful application on SSL. All popular browsers support HTTPS.",
+"start": 419.459,
+"end": 427.544
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Appeal for remote access:",
+"spoken": "Appeal for remote access:",
+"start": 427.994,
+"end": 429.85
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Secure communication: TLS gives confidentiality, integrity, and authentication.",
+"spoken": "Secure communication: TLS gives confidentiality, integrity, and authentication.",
+"start": 430.3,
+"end": 436.444
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Ubiquity: any PC, nothing preinstalled.",
+"spoken": "Ubiquity: any P.C., nothing preinstalled.",
+"start": 436.894,
+"end": 440.009
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Low management cost: no client to deploy or maintain.",
+"spoken": "Low management cost: no client to deploy or maintain.",
+"start": 440.459,
+"end": 444.235
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Works with firewalls and NAT: unlike IPsec on IP 50 or 51, which often needs special firewall or NAT configuration.",
+"spoken": "Works with firewalls and nat: unlike I.P. sec on IP 50 or 51, which often needs special firewall or nat configuration.",
+"start": 444.685,
+"end": 454.925
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Some of these benefits go away as SSL VPN adds support for any application.",
+"spoken": "Some of these benefits go away as SSL VPN adds support for any application.",
+"start": 455.375,
+"end": 461.476
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Today's SSL VPN uses TLS plus reverse proxy, tunneling, and terminal services.",
+"spoken": "Today's SSL VPN uses TLS plus reverse proxy, tunneling, and terminal services.",
+"start": 461.926,
+"end": 468.689
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example of plain reverse proxy: Apache's mod_proxy module.",
+"spoken": "Example of plain reverse proxy: Apache's mod_proxy module.",
+"start": 469.139,
+"end": 473.832
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SSL VPN offers more than a reverse proxy:",
+"spoken": "SSL VPN offers more than a reverse proxy:",
+"start": 474.282,
+"end": 477.973
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Webifies complex web and non-web apps, such as Windows or UNIX file systems.",
+"spoken": "Webifies complex web and non-web apps, such as Windows or UNIX file systems.",
+"start": 478.423,
+"end": 484.14
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Supports many business apps; for apps that can't be webified, provides network-layer access like IPsec.",
+"spoken": "Supports many business apps; for apps that can't be webified, provides network-layer access like I.P. sec.",
+"start": 484.59,
+"end": 492.057
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "A full remote-access package: user authentication, access privilege management, logging and accounting, endpoint security, and user experience.",
+"spoken": "A full remote-access package: user authentication, access privilege management, logging and accounting, endpoint security, and user experience.",
+"start": 492.507,
+"end": 503.046
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says client-based SSL VPN lets you connect \"by just pointing your web browser to the Cisco ASA without the need of additional software\". That describes clientless SSL VPN; client-based SSL VPN installs Cisco Secure Client (as the client-based section later explains).",
+"spoken": "The book says client-based SSL VPN lets you connect \"by just pointing your web browser to the Cisco ASA without the need of additional software\". That describes clientless SSL VPN; client-based SSL VPN installs Cisco Secure Client (as the client-based section later explains).",
+"start": 503.496,
+"end": 525.405
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco Secure Client Mobility",
+"spoken": "Cisco Secure Client Mobility.",
+"start": 526.855,
+"end": 529.159
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mobile devices in some environments outnumber PCs. Organizations have spent millions on remote-access VPN.",
+"spoken": "Mobile devices in some environments outnumber P.C.s. Organizations have spent millions on remote-access VPN.",
+"start": 529.609,
+"end": 538.846
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Full mobility solution: Cisco Secure Client, Cisco ASA, Cisco ISE, Cisco Secure Malware Analytics, Cisco Umbrella, and Cisco content security appliances.",
+"spoken": "Full mobility solution: Cisco Secure Client, Cisco ASA, Cisco ice, Cisco Secure Malware Analytics, Cisco Umbrella, and Cisco content security appliances.",
+"start": 539.296,
+"end": 551.819
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book says Secure Malware Analytics was formerly Cisco AMP. Secure Malware Analytics was formerly Threat Grid; AMP for Endpoints became Cisco Secure Endpoint (not in the book).",
+"spoken": "The book says Secure Malware Analytics was formerly Cisco AMP. Secure Malware Analytics was formerly Threat Grid; AMP for Endpoints became Cisco Secure Endpoint (not in the book).",
+"start": 552.269,
+"end": 565.517
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "2. Deploying and Configuring Site-to-Site VPNs in Cisco Routers",
+"spoken": "2. Deploying and Configuring Site-to-Site V.P.N.s in Cisco Routers.",
+"start": 567.567,
+"end": 573.156
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Traditional Crypto Maps",
+"spoken": "Traditional Crypto Maps.",
+"start": 574.956,
+"end": 576.684
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Evolution: from static crypto maps to DMVPN, GETVPN, and FlexVPN.",
+"spoken": "Evolution: from static crypto maps to DMVPN, get V.P.N., and flex V.P.N.",
+"start": 577.134,
+"end": 583.812
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Scenario: SecretCorp, R1 in London (outside 10.1.2.1, LAN 10.1.1.0/24) and R2 in Raleigh (outside 10.2.2.1, LAN 192.168.1.0/24). Goal: 10.1.1.0/24 talks to 192.168.1.0/24. Uses IKEv1 and crypto maps.",
+"spoken": "Scenario: SecretCorp, R 1 in London (outside 10.1.2.1, lan 10.1.1.0 slash 24) and R 2 in Raleigh (outside 10.2.2.1, lan 192.168.1.0 slash 24). Goal: 10.1.1.0 slash 24 talks to 192.168.1.0 slash 24. Uses IKEv1 and crypto maps.",
+"start": 584.262,
+"end": 618.773
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The configurations on both routers mirror each other.",
+"spoken": "The configurations on both routers mirror each other.",
+"start": 619.223,
+"end": 622.722
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Tunnel Interfaces",
+"spoken": "Tunnel Interfaces.",
+"start": 624.172,
+"end": 625.622
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The most common use with IPsec is GRE over IPsec.",
+"spoken": "The most common use with I.P. sec is GRE over I.P. sec.",
+"start": 626.072,
+"end": 631.32
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "GRE over IPsec",
+"spoken": "GRE over I.P. sec.",
+"start": 632.77,
+"end": 635.053
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "GRE adds its own header between the payload and the delivery header. Supports IPv4 and IPv6; the outer header matches the endpoint address type.",
+"spoken": "GRE adds its own header between the payload and the delivery header. Supports I.P. version 4 and I.P. version 6; the outer header matches the endpoint address type.",
+"start": 635.503,
+"end": 648.175
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Encapsulation order (Figure 8-10): the original packet (192.168.1.1 to 192.168.2.2) gets a GRE header and new IP header, then ESP adds its header, trailer, and auth. The figure is captioned \"Site-to-site IPsec VPN Configuration Topology\", the same as Figure 8-9, which is a labeling error.",
+"spoken": "Encapsulation order (Figure 8-10): the original packet (192.168.1.1 to 192.168.2.2) gets a GRE header and new IP header, then E.S.P. adds its header, trailer, and auth. The figure is captioned \"Site-to-site I.P. sec VPN Configuration Topology\", the same as Figure 8-9, which is a labeling error.",
+"start": 648.625,
+"end": 676.145
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In tunnel mode, the GRE packet gets another IP header with tunnel source and destination, IPsec protects it, and an outer IP header routes it.",
+"spoken": "In tunnel mode, the GRE packet gets another IP header with tunnel source and destination, I.P. sec protects it, and an outer IP header routes it.",
+"start": 676.595,
+"end": 687.987
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "In transport mode, the GRE packet is protected by IPsec, and the GRE outer header routes it.",
+"spoken": "In transport mode, the GRE packet is protected by I.P. sec, and the GRE outer header routes it.",
+"start": 688.437,
+"end": 696.288
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multicast problem: with many peers, SAs from many sources can conflict, and one SA has many destinations. A system is needed to pick SPIs per multicast group and share the group's IPsec information with all legitimate members.",
+"spoken": "Multicast problem: with many peers, S.A.s from many sources can conflict, and one SA has many destinations. A system is needed to pick S.P.I.s per multicast group and share the group's I.P. sec information with all legitimate members.",
+"start": 696.738,
+"end": 714.402
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Main use case: carry routing protocols (multicast, such as OSPF) over the VPN. Related standards: Multicast Group Security Architecture, GDOI, and GETVPN.",
+"spoken": "Main use case: carry routing protocols (multicast, such as OSPF) over the VPN. Related standards: Multicast Group Security Architecture, GDOI, and get V.P.N.",
+"start": 714.852,
+"end": 727.545
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "More About Tunnel Interfaces",
+"spoken": "More About Tunnel Interfaces.",
+"start": 728.995,
+"end": 731.107
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Crypto maps with long ACLs got complex and error-prone.",
+"spoken": "Crypto maps with long A.C.L.s got complex and error-prone.",
+"start": 731.557,
+"end": 736.101
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Logical tunnel interfaces do the same job, take attributes from the IPsec profile, and let routing pick the tunnel as the next hop. Simpler and more flexible, with fewer ACL errors.",
+"spoken": "Logical tunnel interfaces do the same job, take attributes from the I.P. sec profile, and let routing pick the tunnel as the next hop. Simpler and more flexible, with fewer ACL errors.",
+"start": 736.551,
+"end": 750.61
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tunnel protection uses one TCAM entry and supports more SAs than crypto maps.",
+"spoken": "Tunnel protection uses one T-cam entry and supports more S.A.s than crypto maps.",
+"start": 751.06,
+"end": 757.417
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VTI and GRE over IPsec interfaces existed in IKEv1 and were extended in FlexVPN.",
+"spoken": "VTI and GRE over I.P. sec interfaces existed in IKEv1 and were extended in flex V.P.N.",
+"start": 757.867,
+"end": 766.976
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The tunnel mode command simplified IPsec and GRE configuration. The difference is the encapsulation order.",
+"spoken": "The tunnel mode command simplified I.P. sec and GRE configuration. The difference is the encapsulation order.",
+"start": 767.426,
+"end": 776.258
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Static virtual interfaces work on routers that are initiators and responders.",
+"spoken": "Static virtual interfaces work on routers that are initiators and responders.",
+"start": 776.708,
+"end": 782.084
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Dynamic interfaces are responder only. In IKEv2, negotiation clones the virtual template into a virtual-access interface. It stays up as long as the tunnel and is deleted with the IKE and IPsec SAs.",
+"spoken": "Dynamic interfaces are responder only. In IKEv2, negotiation clones the virtual template into a virtual-access interface. It stays up as long as the tunnel and is deleted with the I.K.E. and I.P. sec S.A.s.",
+"start": 782.534,
+"end": 799.281
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Typical pairings: a single site-to-site tunnel is sVTI to sVTI; hub-and-spoke is sVTI to dVTI with the dVTI on the hub.",
+"spoken": "Typical pairings: a single site-to-site tunnel is static V.T.I. to static V.T.I.; hub-and-spoke is static V.T.I. to dynamic V.T.I. with the dynamic V.T.I. on the hub.",
+"start": 799.731,
+"end": 812.979
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Multipoint GRE",
+"spoken": "Multipoint GRE.",
+"start": 814.429,
+"end": 816.05
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DMVPN uses one mGRE interface on each hub and each spoke for all static and dynamic tunnels.",
+"spoken": "DMVPN uses one multipoint G.R.E. interface on each hub and each spoke for all static and dynamic tunnels.",
+"start": 816.5,
+"end": 825.61
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DMVPN",
+"spoken": "DMVPN.",
+"start": 827.06,
+"end": 828.425
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Legacy hub-and-spoke needs a block of hub configuration per spoke: crypto map, crypto ACL, and GRE tunnel interface.",
+"spoken": "Legacy hub-and-spoke needs a block of hub configuration per spoke: crypto map, crypto ACL, and GRE tunnel interface.",
+"start": 828.875,
+"end": 838.283
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DMVPN hub: one mGRE interface, one IPsec profile, and no crypto ACLs. Hub config stays the same size as spokes are added.",
+"spoken": "DMVPN hub: one multipoint G.R.E. interface, one I.P. sec profile, and no crypto A.C.L.s. Hub config stays the same size as spokes are added.",
+"start": 838.733,
+"end": 851.618
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "No spoke-to-spoke configuration is needed for direct tunnels.",
+"spoken": "No spoke-to-spoke configuration is needed for direct tunnels.",
+"start": 852.068,
+"end": 856.292
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each spoke registers its real address with the hub when it boots and queries the hub for other spokes' addresses.",
+"spoken": "Each spoke registers its real address with the hub when it boots and queries the hub for other spokes' addresses.",
+"start": 856.742,
+"end": 863.761
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 8-11: R1 is the hub; R2, R3, and R4 are spokes with permanent tunnels to the hub. A spoke asks R1 for the target spoke's address, then builds a dynamic tunnel straight to it.",
+"spoken": "Figure 8-11: R 1 is the hub; R 2, R 3, and R 4 are spokes with permanent tunnels to the hub. A spoke asks R 1 for the target spoke's address, then builds a dynamic tunnel straight to it.",
+"start": 864.211,
+"end": 879.464
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "DMVPN routers can sit behind NAT. DMVPN supports NAT-T, sometimes called NAT-Transparency-aware DMVPN.",
+"spoken": "DMVPN routers can sit behind nat. DMVPN supports nat-T, sometimes called nat-Transparency-aware DMVPN.",
+"start": 879.914,
+"end": 889.472
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "GETVPN",
+"spoken": "get V.P.N.",
+"start": 890.922,
+"end": 892.18
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Encrypts native (non-tunneled) multicast and unicast, with no tunnels to configure.",
+"spoken": "Encrypts native (non-tunneled) multicast and unicast, with no tunnels to configure.",
+"start": 892.63,
+"end": 898.22
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Keeps full-mesh connectivity, the natural routing path, and QoS on MPLS networks.",
+"spoken": "Keeps full-mesh connectivity, the natural routing path, and QoS on MPLS networks.",
+"start": 898.67,
+"end": 904.792
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Building blocks: GDOI, key servers, cooperative key servers, group members, IP tunnel header preservation, group SA, rekey mechanism, TBAR, G-IKEv2, and IP-D3P, plus existing IKE, IPsec, and multicast.",
+"spoken": "Building blocks: GDOI, key servers, cooperative key servers, group members, IP tunnel header preservation, group SA, rekey mechanism, TBAR, G-IKEv2, and IP-D3P, plus existing I.K.E., I.P. sec, and multicast.",
+"start": 905.242,
+"end": 922.629
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 8-12: group members are CE routers connected to PE routers in an MPLS core, with a key server.",
+"spoken": "Figure 8-12: group members are CE routers connected to PE routers in an MPLS core, with a key server.",
+"start": 923.079,
+"end": 931.74
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Registration:",
+"spoken": "Registration:",
+"start": 932.19,
+"end": 933.406
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The group member sends the group ID to the key server.",
+"spoken": "The group member sends the group ID to the key server.",
+"start": 933.856,
+"end": 936.928
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The key server checks that the group ID is valid and sends the SA policy.",
+"spoken": "The key server checks that the group ID is valid and sends the SA policy.",
+"start": 937.378,
+"end": 942.434
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "After the member confirms it can handle the policy, the key server sends the keys.",
+"spoken": "After the member confirms it can handle the policy, the key server sends the keys.",
+"start": 942.884,
+"end": 948.218
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Members can register any time and get the current policy and keys.",
+"spoken": "Members can register any time and get the current policy and keys.",
+"start": 948.668,
+"end": 953.062
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Keys are refreshed before the IPsec SAs expire, so no traffic is lost.",
+"spoken": "Keys are refreshed before the I.P. sec S.A.s expire, so no traffic is lost.",
+"start": 953.512,
+"end": 959.635
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rekeys are sent when SAs are about to expire or the policy changes. They may be retransmitted in case of packet loss.",
+"spoken": "Rekeys are sent when S.A.s are about to expire or the policy changes. They may be retransmitted in case of packet loss.",
+"start": 960.085,
+"end": 969.365
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Minimum key server configuration: IKE policy, RSA key for rekeying, IPsec Phase 2 policies, and a traffic classification ACL.",
+"spoken": "Minimum key server configuration: I.K.E. policy, R.S.A. key for rekeying, I.P. sec Phase 2 policies, and a traffic classification ACL.",
+"start": 969.815,
+"end": 981.42
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Minimum group member configuration: IKE policy, GDOI crypto map, and the crypto map applied to an interface.",
+"spoken": "Minimum group member configuration: I.K.E. policy, GDOI crypto map, and the crypto map applied to an interface.",
+"start": 981.87,
+"end": 990.382
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "FlexVPN",
+"spoken": "flex V.P.N.",
+"start": 991.832,
+"end": 993.155
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Benefits:",
+"spoken": "Benefits:",
+"start": 993.605,
+"end": 994.608
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Standards-based; works with non-Cisco IKEv2.",
+"spoken": "Standards-based; works with non-Cisco IKEv2.",
+"start": 995.058,
+"end": 998.45
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Topologies: point-to-point, remote access, hub-and-spoke, dynamic mesh, with per-user or per-peer policies.",
+"spoken": "Topologies: point-to-point, remote access, hub-and-spoke, dynamic mesh, with per-user or per-peer policies.",
+"start": 998.9,
+"end": 1006.537
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "One CLI with unified configuration and show commands across topologies.",
+"spoken": "One CLI with unified configuration and show commands across topologies.",
+"start": 1006.987,
+"end": 1012.598
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Dynamic overlay routing.",
+"spoken": "Dynamic overlay routing.",
+"start": 1013.048,
+"end": 1014.861
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Integrates with IOS AAA.",
+"spoken": "Integrates with I.O.S. triple A.",
+"start": 1015.311,
+"end": 1018.042
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Detects GRE or native IPsec encapsulation automatically.",
+"spoken": "Detects GRE or native I.P. sec encapsulation automatically.",
+"start": 1018.492,
+"end": 1023.782
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Detects IPv4 or IPv6 overlay and underlay automatically.",
+"spoken": "Detects I.P. version 4 or I.P. version 6 overlay and underlay automatically.",
+"start": 1024.232,
+"end": 1030.931
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IKEv2 features it gets: configuration exchange, IKEv2 redirect for server load balancing, cookie challenge for DoS mitigation, NAT-T, and IKEv2 fragmentation.",
+"spoken": "IKEv2 features it gets: configuration exchange, IKEv2 redirect for server load balancing, cookie challenge for D.O.S. mitigation, nat-T, and IKEv2 fragmentation.",
+"start": 1031.381,
+"end": 1045.013
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco-specific features: IKEv2 call admission control, session deletion on certificate expiry, and revocation, across all topologies.",
+"spoken": "Cisco-specific features: IKEv2 call admission control, session deletion on certificate expiry, and revocation, across all topologies.",
+"start": 1045.463,
+"end": 1055.874
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configuration generation (Figure 8-14), in the IKE_AUTH exchange: peer authentication; user and group authorization and attribute merging; CFG_REQUEST processing; per-session interface creation; incoming IPsec SA proposal processing; CFG_REPLY generation; IKE_AUTH reply.",
+"spoken": "Configuration generation (Figure 8-14), in the IKE_AUTH exchange: peer authentication; user and group authorization and attribute merging; CFG_REQUEST processing; per-session interface creation; incoming I.P. sec SA proposal processing; CFG_REPLY generation; IKE_AUTH reply.",
+"start": 1056.324,
+"end": 1079.812
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "FlexVPN with EAP",
+"spoken": "flex V.P.N. with eep.",
+"start": 1081.262,
+"end": 1083.203
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "EAP is only a remote authentication method, using an external EAP server. The FlexVPN server doesn't do local EAP; it is a pass-through authenticator.",
+"spoken": "eep is only a remote authentication method, using an external eep server. The flex V.P.N. server doesn't do local eep; it is a pass-through authenticator.",
+"start": 1083.653,
+"end": 1094.981
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The IKEv2 clients are called EAP supplicants or peers.",
+"spoken": "The IKEv2 clients are called eep supplicants or peers.",
+"start": 1095.431,
+"end": 1099.164
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 8-15 steps:",
+"spoken": "Figure 8-15 steps:",
+"start": 1099.614,
+"end": 1101.705
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "1. The FlexVPN server authenticates to the client with digital certificates.",
+"spoken": "1. The flex V.P.N. server authenticates to the client with digital certificates.",
+"start": 1102.155,
+"end": 1108.47
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "2. The client authenticates with EAP. The RADIUS server sends EAP-Request, the client answers with EAP-Response, and the server ends with EAP-Success or EAP-Failure.",
+"spoken": "2. The client authenticates with eep. The radius server sends eep-Request, the client answers with eep-Response, and the server ends with eep-Success or eep-Failure.",
+"start": 1108.92,
+"end": 1120.482
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "3. Mutual authentication between client and server.",
+"spoken": "3. Mutual authentication between client and server.",
+"start": 1120.932,
+"end": 1124.538
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Client to server: EAP rides in the IKEv2 EAP payload inside IKE_AUTH. Server to RADIUS: EAP rides in the RADIUS EAP-Message attribute.",
+"spoken": "Client to server: eep rides in the IKEv2 eep payload inside IKE_AUTH. Server to radius: eep rides in the radius eep-Message attribute.",
+"start": 1124.988,
+"end": 1135.932
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "EAP is set in the IKEv2 profile, and the local method must be certificate-based.",
+"spoken": "eep is set in the IKEv2 profile, and the local method must be certificate-based.",
+"start": 1136.382,
+"end": 1141.736
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "FlexVPN Site-to-Site Example (Figure 8-16)",
+"spoken": "flex V.P.N. Site-to-Site Example (Figure 8-16).",
+"start": 1143.186,
+"end": 1148.008
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "R1 is the FlexVPN server at headquarters (10.1.1.1); R2 is the client at the branch (10.2.2.2); RADIUS is 10.1.2.3.",
+"spoken": "R 1 is the flex V.P.N. server at headquarters (10.1.1.1); R 2 is the client at the branch (10.2.2.2); radius is 10.1.2.3.",
+"start": 1148.458,
+"end": 1162.367
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "R1 pulls per-peer pre-shared keys from RADIUS. Each branch has a unique FQDN identity, so the name mangler gives a unique AAA username per branch.",
+"spoken": "R 1 pulls per-peer pre-shared keys from radius. Each branch has a unique F.Q.D.N. identity, so the name mangler gives a unique triple A username per branch.",
+"start": 1162.817,
+"end": 1174.828
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "R2 uses a local keyring with a symmetric pre-shared key for the hub.",
+"spoken": "R 2 uses a local keyring with a symmetric pre-shared key for the hub.",
+"start": 1175.278,
+"end": 1180.035
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Debug and Show Commands",
+"spoken": "Debug and Show Commands.",
+"start": 1181.485,
+"end": 1183.192
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Troubleshooting tools (Figure 8-17): show commands, syslog messages, and event-trace monitoring.",
+"spoken": "Troubleshooting tools (Figure 8-17): show commands, syslog messages, and event-trace monitoring.",
+"start": 1183.642,
+"end": 1191.108
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "What to troubleshoot (Figure 8-18):",
+"spoken": "What to troubleshoot (Figure 8-18):",
+"start": 1191.558,
+"end": 1194.438
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IP connectivity: routing troubleshooting for static and dynamic routing.",
+"spoken": "IP connectivity: routing troubleshooting for static and dynamic routing.",
+"start": 1194.888,
+"end": 1199.966
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Tunnel establishment: IKEv1 and IKEv2 show and debug commands.",
+"spoken": "Tunnel establishment: IKEv1 and IKEv2 show and debug commands.",
+"start": 1200.416,
+"end": 1205.386
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Authentication: PSK, PKI, and EAP.",
+"spoken": "Authentication: P.S.K., P.K.I., and eep.",
+"start": 1205.836,
+"end": 1209.143
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Authorization: AAA and RADIUS show and debug commands.",
+"spoken": "Authorization: triple A and radius show and debug commands.",
+"start": 1209.593,
+"end": 1213.774
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Data encapsulation: GRE show and debug commands.",
+"spoken": "Data encapsulation: GRE show and debug commands.",
+"start": 1214.224,
+"end": 1218.299
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Data encryption: IPsec show and debug commands.",
+"spoken": "Data encryption: I.P. sec show and debug commands.",
+"start": 1218.749,
+"end": 1222.866
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Knowing how the protocols work always helps when troubleshooting.",
+"spoken": "Knowing how the protocols work always helps when troubleshooting.",
+"start": 1223.316,
+"end": 1227.114
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The show output examples use 3DES and DH group 2, which the book elsewhere says to avoid.",
+"spoken": "The show output examples use triple D.E.S. and D.H. group 2, which the book elsewhere says to avoid.",
+"start": 1227.564,
+"end": 1235.052
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 8-17 flow: IKEv2 negotiation from 10.1.1.1 to 10.2.2.2, the EAP request, then an authentication request to RADIUS for user omar, then the SAs come up.",
+"spoken": "Example 8-17 flow: IKEv2 negotiation from 10.1.1.1 to 10.2.2.2, the eep request, then an authentication request to radius for user omar, then the S.A.s come up.",
+"start": 1235.502,
+"end": 1252.824
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 8-17 payloads: the first IKE_AUTH request carries VID, IDi, CERTREQ, CFG, and SA; the response carries VID, IDr, CERT, CERT, AUTH, and EAP; later exchanges carry only EAP.",
+"spoken": "Example 8-17 payloads: the first IKE_AUTH request carries VID, I.D. I, cert req, CFG, and SA; the response carries VID, I.D. R, cert, cert, auth, and eep; later exchanges carry only eep.",
+"start": 1253.274,
+"end": 1271.77
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 8-17 is not fully consistent: the client sends User1 as its EAP identity but RADIUS shows User-Name \"omar\"; the method list is TEST; and the reply comes from 172.16.1.3, not 10.1.2.3.",
+"spoken": "Example 8-17 is not fully consistent: the client sends User1 as its eep identity but radius shows User-Name \"omar\"; the method list is test; and the reply comes from 172.16.1.3, not 10.1.2.3.",
+"start": 1272.22,
+"end": 1291.847
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Detailed debugs can load busy systems; event-trace avoids that.",
+"spoken": "Detailed debugs can load busy systems; event-trace avoids that.",
+"start": 1292.297,
+"end": 1296.841
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "3. Configuring Site-to-Site VPNs in Cisco ASA Firewalls",
+"spoken": "3. Configuring Site-to-Site V.P.N.s in Cisco ASA Firewalls.",
+"start": 1298.891,
+"end": 1304.459
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Steps",
+"spoken": "Steps.",
+"start": 1306.259,
+"end": 1307.027
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configure through ASDM or the CLI. Very similar to IOS.",
+"spoken": "Configure through ASDM or the CLI. Very similar to I.O.S.",
+"start": 1307.477,
+"end": 1312.32
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Enable ISAKMP.",
+"spoken": "1. Enable ice-a-camp.",
+"start": 1312.77,
+"end": 1314.54
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Create the ISAKMP policy.",
+"spoken": "2. Create the ice-a-camp policy.",
+"start": 1314.99,
+"end": 1317.444
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Set the tunnel type.",
+"spoken": "3. Set the tunnel type.",
+"start": 1317.894,
+"end": 1319.686
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. Define the IPsec policy.",
+"spoken": "4. Define the I.P. sec policy.",
+"start": 1320.136,
+"end": 1322.994
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5. Configure the crypto map.",
+"spoken": "5. Configure the crypto map.",
+"start": 1323.444,
+"end": 1325.556
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "6. Configure traffic filtering (optional).",
+"spoken": "6. Configure traffic filtering (optional).",
+"start": 1326.006,
+"end": 1328.801
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "7. Bypass NAT (optional).",
+"spoken": "7. Bypass nat (optional).",
+"start": 1329.251,
+"end": 1331.278
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "8. Enable PFS (optional).",
+"spoken": "8. Enable PFS (optional).",
+"start": 1331.728,
+"end": 1334.224
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The chapter focuses on IKEv2. For IKEv1, usually swap the ikev2 keyword for ikev1.",
+"spoken": "The chapter focuses on IKEv2. For IKEv1, usually swap the ikev2 keyword for ikev1.",
+"start": 1334.674,
+"end": 1342.14
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Step 1: Enable ISAKMP",
+"spoken": "Step 1: Enable ice-a-camp.",
+"start": 1343.59,
+"end": 1345.745
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enable IKE on the interface that terminates tunnels, usually the outside, Internet-facing interface.",
+"spoken": "Enable I.K.E. on the interface that terminates tunnels, usually the outside, Internet-facing interface.",
+"start": 1346.195,
+"end": 1353.939
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Without it, the ASA won't answer tunnel requests, even with a complete tunnel configuration.",
+"spoken": "Without it, the ASA won't answer tunnel requests, even with a complete tunnel configuration.",
+"start": 1354.389,
+"end": 1360.597
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Step 2: ISAKMP Policy Attributes",
+"spoken": "Step 2: ice-a-camp Policy Attributes.",
+"start": 1362.047,
+"end": 1364.863
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Priority: if no match, the ASA moves to the next number until all policies are checked.",
+"spoken": "Priority: if no match, the ASA moves to the next number until all policies are checked.",
+"start": 1365.313,
+"end": 1371.222
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "D-H Group: picked from a drop-down list.",
+"spoken": "D.H. Group: picked from a drop-down list.",
+"start": 1371.672,
+"end": 1374.68
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrity Hash: the choices are SHA-1 or MD5.",
+"spoken": "Integrity Hash: the choices are SHA 1 or M.D. 5.",
+"start": 1375.13,
+"end": 1379.824
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "PRF Hash: IKEv2 only.",
+"spoken": "PRF Hash: IKEv2 only.",
+"start": 1380.274,
+"end": 1382.834
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Authentication: IKEv1 only. Pre-shared keys for a few peers; RSA signatures for many peers.",
+"spoken": "Authentication: IKEv1 only. Pre-shared keys for a few peers; R.S.A. signatures for many peers.",
+"start": 1383.284,
+"end": 1390.942
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lifetime: when a new set of ISAKMP keys is renegotiated. Choose Unlimited if the peer doesn't propose a lifetime.",
+"spoken": "Lifetime: when a new set of ice-a-camp keys is renegotiated. Choose Unlimited if the peer doesn't propose a lifetime.",
+"start": 1391.392,
+"end": 1399.904
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Any attribute not configured gets its default value.",
+"spoken": "Any attribute not configured gets its default value.",
+"start": 1400.354,
+"end": 1404.024
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Step 3: Tunnel Groups",
+"spoken": "Step 3: Tunnel Groups.",
+"start": 1405.474,
+"end": 1407.116
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The remote-access connection profile terminates all remote-access tunnel types: IPsec, L2TP over IPsec, and SSL VPN.",
+"spoken": "The remote-access connection profile terminates all remote-access tunnel types: I.P. sec, L 2 T.P. over I.P. sec, and SSL VPN.",
+"start": 1407.566,
+"end": 1419.108
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASDM shows DefaultL2LGroup; the CLI shows it only if a default attribute is changed.",
+"spoken": "ASDM shows Default L 2 L Group; the CLI shows it only if a default attribute is changed.",
+"start": 1419.558,
+"end": 1426.619
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use a long alphanumeric pre-shared key with special characters, to resist brute force.",
+"spoken": "Use a long alphanumeric pre-shared key with special characters, to resist brute force.",
+"start": 1427.069,
+"end": 1432.744
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The pre-shared key goes under the tunnel group's ipsec-attributes.",
+"spoken": "The pre-shared key goes under the tunnel group's ipsec-attributes.",
+"start": 1433.194,
+"end": 1437.14
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Step 4: IPsec Policy Attributes",
+"spoken": "Step 4: I.P. sec Policy Attributes.",
+"start": 1438.59,
+"end": 1442.046
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrity Hash: IKEv2 only. MD5, SHA-1, SHA-256, SHA-384, SHA-512, or None.",
+"spoken": "Integrity Hash: IKEv2 only. M.D. 5, SHA 1, SHA 256, SHA 384, SHA 512, or None.",
+"start": 1442.496,
+"end": 1453.27
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ESP Authentication: IKEv1 only. See the Next-Generation Cryptography paper.",
+"spoken": "E.S.P. Authentication: IKEv1 only. See the Next-Generation Cryptography paper.",
+"start": 1453.72,
+"end": 1460.461
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Mode: IKEv1 only. Transport or tunnel. Site-to-site always uses tunnel mode.",
+"spoken": "Mode: IKEv1 only. Transport or tunnel. Site-to-site always uses tunnel mode.",
+"start": 1460.911,
+"end": 1467.14
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The quiz confirms crypto ipsec ikev2 ipsec-proposal is the ASA command that creates the proposal.",
+"spoken": "The quiz confirms crypto ipsec ikev2 ipsec-proposal is the ASA command that creates the proposal.",
+"start": 1467.59,
+"end": 1475.249
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Step 5: Crypto Map",
+"spoken": "Step 5: Crypto Map.",
+"start": 1476.699,
+"end": 1478.512
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Complete when it has at least one transform set, at least one peer, and an encryption ACL.",
+"spoken": "Complete when it has at least one transform set, at least one peer, and an encryption ACL.",
+"start": 1478.962,
+"end": 1485.192
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Each priority number is one tunnel to one peer. Add more peers with the same map name and a new priority.",
+"spoken": "Each priority number is one tunnel to one peer. Add more peers with the same map name and a new priority.",
+"start": 1485.642,
+"end": 1492.895
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASDM attributes:",
+"spoken": "ASDM attributes:",
+"start": 1493.345,
+"end": 1494.902
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Interface: only one crypto map per interface. More tunnels use the same map with different priorities.",
+"spoken": "Interface: only one crypto map per interface. More tunnels use the same map with different priorities.",
+"start": 1495.352,
+"end": 1502.627
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Policy Type: static peers can initiate and respond. Dynamic peers (dynamic IP) must initiate; the hub can't.",
+"spoken": "Policy Type: static peers can initiate and respond. Dynamic peers (dynamic IP) must initiate; the hub can't.",
+"start": 1503.077,
+"end": 1511.418
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IPsec Proposals: as initiator, the ASA sends all of them; as responder, it picks one that matches.",
+"spoken": "I.P. sec Proposals: as initiator, the ASA sends all of them; as responder, it picks one that matches.",
+"start": 1511.868,
+"end": 1520.103
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Connection Type: Bidirectional lets either side initiate.",
+"spoken": "Connection Type: Bidirectional lets either side initiate.",
+"start": 1520.553,
+"end": 1524.393
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "IP Address of Peer: usually the remote public IP.",
+"spoken": "IP Address of Peer: usually the remote public IP.",
+"start": 1524.843,
+"end": 1529.003
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Enable PFS: with a Diffie-Hellman group.",
+"spoken": "Enable PFS: with a Diffie Hellman group.",
+"start": 1529.453,
+"end": 1532.525
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The packet is routed by destination; when leaving the tunnel interface, the encryption engine checks it against the crypto ACL and encrypts matches.",
+"spoken": "The packet is routed by destination; when leaving the tunnel interface, the encryption engine checks it against the crypto ACL and encrypts matches.",
+"start": 1532.975,
+"end": 1542.81
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Avoid port-based crypto ACLs; many vendors don't support them.",
+"spoken": "Avoid port-based crypto A.C.L.s; many vendors don't support them.",
+"start": 1543.26,
+"end": 1548.145
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Inbound check: a cleartext packet that matches the crypto ACL is dropped with a syslog.",
+"spoken": "Inbound check: a cleartext packet that matches the crypto ACL is dropped with a syslog.",
+"start": 1548.595,
+"end": 1554.867
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Host-based ACEs are not recommended because they multiply the SAs and use resources.",
+"spoken": "Host-based A.C.E.s are not recommended because they multiply the S.A.s and use resources.",
+"start": 1555.317,
+"end": 1562.762
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Example 8-25 protects 192.168.10.0/24 to 10.10.10.0/24, peer 209.165.201.1.",
+"spoken": "Example 8-25 protects 192.168.10.0 slash 24 to 10.10.10.0 slash 24, peer 209.165.201.1.",
+"start": 1563.212,
+"end": 1582.86
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "By default, the remote network can't reach the ASA's inside interface; management-access fixes that.",
+"spoken": "By default, the remote network can't reach the ASA's inside interface; management-access fixes that.",
+"start": 1583.31,
+"end": 1590.542
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Step 6: Traffic Filtering",
+"spoken": "Step 6: Traffic Filtering.",
+"start": 1591.992,
+"end": 1594.062
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "By default, decrypted VPN traffic bypasses the outside interface ACL, even if the ACL denies it.",
+"spoken": "By default, decrypted VPN traffic bypasses the outside interface ACL, even if the ACL denies it.",
+"start": 1594.512,
+"end": 1602.661
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "To filter: add an inbound ACE on the outside ACL, then disable sysopt connection permit-vpn.",
+"spoken": "To filter: add an inbound ACE on the outside ACL, then disable sysopt connection permit-vpn.",
+"start": 1603.111,
+"end": 1611.004
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The sysopt setting is global and on by default, covering site-to-site, IPsec remote access, and SSL VPN. You can still filter with authorization ACLs in group and user policies.",
+"spoken": "The sysopt setting is global and on by default, covering site-to-site, I.P. sec remote access, and SSL VPN. You can still filter with authorization A.C.L.s in group and user policies.",
+"start": 1611.454,
+"end": 1626.324
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Step 7: Bypass NAT",
+"spoken": "Step 7: Bypass nat.",
+"start": 1627.774,
+"end": 1629.651
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Identify the VPN traffic and add a NAT exemption rule. NAT is covered in Chapter 7.",
+"spoken": "Identify the VPN traffic and add a nat exemption rule. nat is covered in Chapter 7.",
+"start": 1630.101,
+"end": 1636.736
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Without exemption, the crypto ACL must match the post-NAT (global) addresses.",
+"spoken": "Without exemption, the crypto ACL must match the post-nat (global) addresses.",
+"start": 1637.186,
+"end": 1642.562
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Step 8: PFS",
+"spoken": "Step 8: PFS.",
+"start": 1644.012,
+"end": 1645.59
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Without PFS, the ASA uses Phase 1 keys in Phase 2. With PFS, it makes a new set of keys for Phase 2.",
+"spoken": "Without PFS, the ASA uses Phase 1 keys in Phase 2. With PFS, it makes a new set of keys for Phase 2.",
+"start": 1646.04,
+"end": 1654.851
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Additional Site-to-Site Features",
+"spoken": "Additional Site-to-Site Features.",
+"start": 1656.301,
+"end": 1658.434
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "OSPF updates over IPsec: IPsec can't carry multicast, so the ASA lets you define OSPF neighbors statically and send unicast.",
+"spoken": "OSPF updates over I.P. sec: I.P. sec can't carry multicast, so the ASA lets you define OSPF neighbors statically and send unicast.",
+"start": 1658.884,
+"end": 1669.508
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NAT-T: globally enabled by default on the ASA. Negotiated when both peers support it and a NAT or PAT device is between them. The book first says \"or\", then \"if both conditions are met\", so \"and\" is the intended meaning.",
+"spoken": "nat-T: globally enabled by default on the ASA. Negotiated when both peers support it and a nat or pat device is between them. The book first says \"or\", then \"if both conditions are met\", so \"and\" is the intended meaning.",
+"start": 1669.958,
+"end": 1686.022
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Tunnel default gateway: for remote-access or site-to-site traffic. Useful if you don't want internal routes on the ASA.",
+"spoken": "Tunnel default gateway: for remote-access or site-to-site traffic. Useful if you don't want internal routes on the ASA.",
+"start": 1686.472,
+"end": 1695.07
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Management access: allows SNMP polling, ASDM, Telnet, SSH, ping, HTTPS, syslog, and NTP to the inside interface over the tunnel. Needed even if the inside IP is in the crypto ACL.",
+"spoken": "Management access: allows SNMP polling, ASDM, Telnet, SSH, ping, HTTPS, syslog, and N.T.P. to the inside interface over the tunnel. Needed even if the inside IP is in the crypto ACL.",
+"start": 1695.52,
+"end": 1712.65
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Fragmentation: IPsec adds headers, so packets at or above the MTU must be fragmented.",
+"spoken": "Fragmentation: I.P. sec adds headers, so packets at or above the MTU must be fragmented.",
+"start": 1713.1,
+"end": 1720.268
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "Fragmenting after encryption makes the far VPN peer reassemble before decrypting, which costs CPU.",
+"spoken": "Fragmenting after encryption makes the far VPN peer reassemble before decrypting, which costs CPU.",
+"start": 1720.718,
+"end": 1728.014
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "The ASA by default fragments before encryption, so the far end only decrypts and the destination host reassembles.",
+"spoken": "The ASA by default fragments before encryption, so the far end only decrypts and the destination host reassembles.",
+"start": 1728.464,
+"end": 1736.656
+},
+{
+"kind": "B",
+"nest": 1,
+"text": "With the DF bit set, the ASA keeps it, and large packets are dropped.",
+"spoken": "With the DF bit set, the ASA keeps it, and large packets are dropped.",
+"start": 1737.106,
+"end": 1741.864
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "4. Configuring Remote-Access VPNs in the Cisco ASA",
+"spoken": "4. Configuring Remote-Access V.P.N.s in the Cisco ASA.",
+"start": 1743.914,
+"end": 1749.034
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Background",
+"spoken": "Background.",
+"start": 1750.834,
+"end": 1751.9
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Remote access used to be dial-up modems with modem pools and toll charges. Broadband (DSL, cable) moved users to remote-access VPN.",
+"spoken": "Remote access used to be dial-up modems with modem pools and toll charges. Broadband (DSL, cable) moved users to remote-access VPN.",
+"start": 1752.35,
+"end": 1763.294
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Common remote-access protocols: PPTP, L2TP, L2F, IPsec, L2TP over IPsec, and SSL VPN.",
+"spoken": "Common remote-access protocols: PPTP, L 2 T.P., L 2 F, I.P. sec, L 2 T.P. over I.P. sec, and SSL VPN.",
+"start": 1763.744,
+"end": 1775.392
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The ASA supports native IPsec and L2TP over IPsec. L2TP over IPsec uses the built-in Windows and Android clients.",
+"spoken": "The ASA supports native I.P. sec and L 2 T.P. over I.P. sec. L 2 T.P. over I.P. sec uses the built-in Windows and Android clients.",
+"start": 1775.842,
+"end": 1788.898
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "IPsec clients: Cisco Secure Client (SSL VPN or IKEv2), and built-in clients on macOS and Apple iOS (iPhone, iPad, iPod).",
+"spoken": "I.P. sec clients: Cisco Secure Client (SSL VPN or IKEv2), and built-in clients on mac O.S. and Apple eye O.S. (iPhone, iPad, iPod).",
+"start": 1789.348,
+"end": 1802.063
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Android connects with L2TP over IPsec and the native Android client.",
+"spoken": "Android connects with L 2 T.P. over I.P. sec and the native Android client.",
+"start": 1802.513,
+"end": 1809.041
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The ASA IKEv2 toolkit is shared by Cisco Secure Client, ASA, and IOS. It adds extensions for fragmentation and client redirection and uses the same authentication methods as IPsec and SSL VPN.",
+"spoken": "The ASA IKEv2 toolkit is shared by Cisco Secure Client, ASA, and I.O.S. It adds extensions for fragmentation and client redirection and uses the same authentication methods as I.P. sec and SSL VPN.",
+"start": 1809.491,
+"end": 1826.451
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SecretCorp Example (Figure 8-19)",
+"spoken": "SecretCorp Example (Figure 8-19).",
+"start": 1827.901,
+"end": 1831.144
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "NY-ASA outside 209.165.200.225. Clients at 209.165.201.10 and 209.165.201.20. Pool 192.168.88.0/24.",
+"spoken": "New York A.S.A. outside 209.165.200.225. Clients at 209.165.201.10 and 209.165.201.20. Pool 192.168.88.0 slash 24.",
+"start": 1831.594,
+"end": 1855.508
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Steps: 1. Enable ISAKMP (IKEv1). 2. Create the IKEv1 policy. 3. Tunnel and group policies. 4. IPsec policy. 5. User authentication. 6. Assign an IP address. 7. Crypto map. 8. Traffic filtering (optional). 9. Bypass NAT (optional). 10. Split tunneling (optional). 11. DNS and WINS (optional).",
+"spoken": "Steps: 1. Enable ice-a-camp (IKEv1). 2. Create the IKEv1 policy. 3. Tunnel and group policies. 4. I.P. sec policy. 5. User authentication. 6. Assign an IP address. 7. Crypto map. 8. Traffic filtering (optional). 9. Bypass nat (optional). 10. Split tunneling (optional). 11. DNS and wins (optional).",
+"start": 1855.958,
+"end": 1881.132
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The step list says IKEv1, but the examples that follow configure IKEv2.",
+"spoken": "The step list says IKEv1, but the examples that follow configure IKEv2.",
+"start": 1881.582,
+"end": 1887.086
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The proposal in Example 8-29 uses SHA-1 and MD5, weaker than the SHA-512 the book recommends.",
+"spoken": "The proposal in Example 8-29 uses SHA 1 and M.D. 5, weaker than the SHA 512 the book recommends.",
+"start": 1887.536,
+"end": 1898.224
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The final step is the NAT exemption for the client pool.",
+"spoken": "The final step is the nat exemption for the client pool.",
+"start": 1898.674,
+"end": 1902.258
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The quiz confirms the tunnel-group general-attributes snippet (address-pool, default-group-policy, authentication-server-group) is ASA remote-access VPN.",
+"spoken": "The quiz confirms the tunnel-group general-attributes snippet (address-pool, default-group-policy, authentication-server-group) is ASA remote-access VPN.",
+"start": 1902.708,
+"end": 1914.078
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "5. Configuring Clientless Remote-Access SSL VPNs in the Cisco ASA",
+"spoken": "5. Configuring Clientless Remote-Access SSL V.P.N.s in the Cisco ASA.",
+"start": 1916.128,
+"end": 1922.72
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "SSL VPN Modes",
+"spoken": "SSL VPN Modes.",
+"start": 1924.52,
+"end": 1926.44
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Clientless, thin client, and full tunnel.",
+"spoken": "Clientless, thin client, and full tunnel.",
+"start": 1926.89,
+"end": 1929.6
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Full tunnel is popular with security professionals. The client can be pushed automatically after authentication.",
+"spoken": "Full tunnel is popular with security professionals. The client can be pushed automatically after authentication.",
+"start": 1930.05,
+"end": 1937.196
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Design Considerations",
+"spoken": "Design Considerations.",
+"start": 1938.646,
+"end": 1940.31
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Analyze the environment and choose features and modes.",
+"spoken": "Analyze the environment and choose features and modes.",
+"start": 1940.76,
+"end": 1944.366
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Public shared computers (hotel guest PCs, Internet kiosks): use clientless SSL VPN.",
+"spoken": "Public shared computers (hotel guest P.C.s, Internet kiosks): use clientless SSL VPN.",
+"start": 1944.816,
+"end": 1952.346
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Size the deployment by concurrent users; use clustering or load balancing if one ASA isn't enough.",
+"spoken": "Size the deployment by concurrent users; use clustering or load balancing if one ASA isn't enough.",
+"start": 1952.796,
+"end": 1960.028
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The ASA can load-balance clientless sessions; the setup is identical to IPsec remote-access load balancing.",
+"spoken": "The ASA can load-balance clientless sessions; the setup is identical to I.P. sec remote-access load balancing.",
+"start": 1960.478,
+"end": 1969.054
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SSL VPN needs the right licenses.",
+"spoken": "SSL VPN needs the right licenses.",
+"start": 1969.504,
+"end": 1972.854
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Infrastructure Requirements",
+"spoken": "Infrastructure Requirements.",
+"start": 1974.304,
+"end": 1976.138
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "ASA placement: if behind an existing firewall, allow the SSL VPN ports through.",
+"spoken": "ASA placement: if behind an existing firewall, allow the SSL VPN ports through.",
+"start": 1976.588,
+"end": 1983.266
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User account: local database or an external server: RADIUS, RADIUS OTP, RSA SecurID, Active Directory or Kerberos, generic LDAP, or Duo with SAML.",
+"spoken": "User account: local database or an external server: radius, radius OTP, R.S.A. secure I.D., Active Directory or Kerberos, generic L-dap, or Duo with sam-ul.",
+"start": 1983.716,
+"end": 1997.582
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Administrative privileges: required on the workstation for port forwarding with host mapping.",
+"spoken": "Administrative privileges: required on the workstation for port forwarding with host mapping.",
+"start": 1998.032,
+"end": 2003.942
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Pre-SSL VPN Steps",
+"spoken": "Pre-SSL VPN Steps.",
+"start": 2005.392,
+"end": 2007.376
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enroll digital certificates (recommended), set up tunnel and group policies, and set up user authentication.",
+"spoken": "Enroll digital certificates (recommended), set up tunnel and group policies, and set up user authentication.",
+"start": 2007.826,
+"end": 2015.271
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The ASA can self-sign, but an external CA is highly recommended.",
+"spoken": "The ASA can self-sign, but an external C.A. is highly recommended.",
+"start": 2015.721,
+"end": 2020.606
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enrollment order: get the CA (root) certificate in Base64 first; generate the RSA key pair (or reuse one); request the identity certificate; import it after approval; activate it on the interface.",
+"spoken": "Enrollment order: get the C.A. (root) certificate in Base64 first; generate the R.S.A. key pair (or reuse one); request the identity certificate; import it after approval; activate it on the interface.",
+"start": 2021.056,
+"end": 2036.459
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Policy Inheritance Example (Figure 8-20)",
+"spoken": "Policy Inheritance Example (Figure 8-20).",
+"start": 2037.909,
+"end": 2041.6
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Default group policy: WINS 192.168.10.123, simultaneous logins 3.",
+"spoken": "Default group policy: wins 192.168.10.123, simultaneous logins 3.",
+"start": 2042.05,
+"end": 2051.628
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User group policy: domain name secretcorp.org.",
+"spoken": "User group policy: domain name secretcorp.org.",
+"start": 2052.078,
+"end": 2055.662
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User policy for derek: traffic ACL 101, IP address 192.168.88.1.",
+"spoken": "User policy for derek: traffic ACL 101, IP address 192.168.88.1.",
+"start": 2056.112,
+"end": 2066.395
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Derek ends up with all five attributes.",
+"spoken": "Derek ends up with all five attributes.",
+"start": 2066.845,
+"end": 2069.469
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policies are bound to a tunnel group, and a user inherits everything mapped to that tunnel.",
+"spoken": "Policies are bound to a tunnel group, and a user inherits everything mapped to that tunnel.",
+"start": 2069.919,
+"end": 2075.466
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Clientless Group Policies",
+"spoken": "Clientless Group Policies.",
+"start": 2076.916,
+"end": 2078.75
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Changes to DfltGrpPolicy propagate to every user group policy that inherits that attribute.",
+"spoken": "Changes to DfltGrpPolicy propagate to every user group policy that inherits that attribute.",
+"start": 2079.2,
+"end": 2087.179
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "By default, group policies allow both IPsec and SSL VPN; you can restrict one to clientless only, or the reverse.",
+"spoken": "By default, group policies allow both I.P. sec and SSL VPN; you can restrict one to clientless only, or the reverse.",
+"start": 2087.629,
+"end": 2097.314
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "User, group, and default policies apply to clientless, Cisco Secure Client, and IPsec tunnels.",
+"spoken": "User, group, and default policies apply to clientless, Cisco Secure Client, and I.P. sec tunnels.",
+"start": 2097.764,
+"end": 2104.911
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Connection Profile and Group URL",
+"spoken": "Connection Profile and Group URL.",
+"start": 2106.361,
+"end": 2108.942
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A group URL per profile lets you hand out the URL so users don't pick a profile.",
+"spoken": "A group URL per profile lets you hand out the URL so users don't pick a profile.",
+"start": 2109.392,
+"end": 2115.643
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "User Authentication",
+"spoken": "User Authentication.",
+"start": 2117.093,
+"end": 2118.821
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supported: RADIUS, NT domain, Kerberos, SDI, LDAP, digital certificates, smart cards, SAML, and local databases.",
+"spoken": "Supported: radius, NT domain, Kerberos, SDI, L-dap, digital certificates, smart cards, sam-ul, and local databases.",
+"start": 2119.271,
+"end": 2128.679
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Local database for small organizations or a few users; RADIUS or Kerberos for medium to large deployments.",
+"spoken": "Local database for small organizations or a few users; radius or Kerberos for medium to large deployments.",
+"start": 2129.129,
+"end": 2137.257
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SAML 2.0 example: Duo SSO with SAML-enabled ServiceNow, GitHub, Microsoft ADFS, or Dropbox. Users sign in once for all of them and clientless VPN.",
+"spoken": "sam-ul 2.0 example: Duo SSO with sam-ul-enabled ServiceNow, GitHub, Microsoft ADFS, or Dropbox. Users sign in once for all of them and clientless VPN.",
+"start": 2137.707,
+"end": 2151.446
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Client-based SSL VPN with Cisco Secure Client also supports SAML.",
+"spoken": "Client-based SSL VPN with Cisco Secure Client also supports sam-ul.",
+"start": 2151.896,
+"end": 2157.485
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AAA server groups must be defined before authentication servers.",
+"spoken": "triple A server groups must be defined before authentication servers.",
+"start": 2157.935,
+"end": 2162.287
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Passwords go to RADIUS encrypted. The ASA hashes the password using the shared secret.",
+"spoken": "Passwords go to radius encrypted. The ASA hashes the password using the shared secret.",
+"start": 2162.737,
+"end": 2168.838
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You can change the RADIUS ports if your server doesn't use the defaults.",
+"spoken": "You can change the radius ports if your server doesn't use the defaults.",
+"start": 2169.288,
+"end": 2173.854
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Policy from the server: send the group policy name as a RADIUS or LDAP attribute so a user always gets the same policy regardless of tunnel group.",
+"spoken": "Policy from the server: send the group policy name as a radius or L-dap attribute so a user always gets the same policy regardless of tunnel group.",
+"start": 2174.304,
+"end": 2185.077
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Double authentication example: primary Active Directory and secondary RADIUS. Both must succeed.",
+"spoken": "Double authentication example: primary Active Directory and secondary radius. Both must succeed.",
+"start": 2185.527,
+"end": 2192.503
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Enabling Clientless SSL VPN",
+"spoken": "Enabling Clientless SSL VPN.",
+"start": 2193.953,
+"end": 2196.641
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Subtasks: enable on an interface, portal customization, bookmarks, WebType ACLs, application access, client-server plug-ins.",
+"spoken": "Subtasks: enable on an interface, portal customization, bookmarks, WebType A.C.L.s, application access, client-server plug-ins.",
+"start": 2197.091,
+"end": 2207.011
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Clientless users have no client and often use shared workstations, hotels, or Internet cafes.",
+"spoken": "Clientless users have no client and often use shared workstations, hotels, or Internet cafes.",
+"start": 2207.461,
+"end": 2214.373
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If SSL VPN isn't enabled on the interface, the ASA accepts no connections even if SSL VPN is enabled globally.",
+"spoken": "If SSL VPN isn't enabled on the interface, the ASA accepts no connections even if SSL VPN is enabled globally.",
+"start": 2214.823,
+"end": 2224.743
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enabling the interface isn't enough; other steps are still needed to pass traffic.",
+"spoken": "Enabling the interface isn't enough; other steps are still needed to pass traffic.",
+"start": 2225.193,
+"end": 2230.313
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Portal Customization",
+"spoken": "Portal Customization.",
+"start": 2231.763,
+"end": 2233.342
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Customize the default logon page and per-group pages. Example: a contractor portal that lists only the contractors' applications, mapped to their group policy.",
+"spoken": "Customize the default logon page and per-group pages. Example: a contractor portal that lists only the contractors' applications, mapped to their group policy.",
+"start": 2233.792,
+"end": 2245.077
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "XML customization: export the template, edit it, and import it as a new object. Outside the exam's scope.",
+"spoken": "XML customization: export the template, edit it, and import it as a new object. Outside the exam's scope.",
+"start": 2245.527,
+"end": 2253.612
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "WebType ACLs",
+"spoken": "WebType A.C.L.s.",
+"start": 2255.062,
+"end": 2256.812
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Control access to web, Telnet, SSH, Citrix, FTP, file and email servers, and all traffic types.",
+"spoken": "Control access to web, Telnet, SSH, Citrix, FTP, file and email servers, and all traffic types.",
+"start": 2257.262,
+"end": 2264.878
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Apply only to clientless traffic, processed in order until a match.",
+"spoken": "Apply only to clientless traffic, processed in order until a match.",
+"start": 2265.328,
+"end": 2270.042
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "If an ACL is defined and nothing matches, packets are dropped. If no WebType ACL exists, everything is allowed.",
+"spoken": "If an ACL is defined and nothing matches, packets are dropped. If no WebType ACL exists, everything is allowed.",
+"start": 2270.492,
+"end": 2279.196
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can be downloaded from a RADIUS server such as ISE through VSAs, for central control.",
+"spoken": "Can be downloaded from a radius server such as ice through V.S.A.s, for central control.",
+"start": 2279.646,
+"end": 2286.324
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "URL protocols you can filter: CIFS, Citrix, FTP, HTTP and HTTPS, IMAP4, POP3, and SMTP, NFS, smart tunnel, SSH, Telnet, VNC, and RDP.",
+"spoken": "URL protocols you can filter: CIFS, Citrix, FTP, HTTP and HTTPS, eye-map 4, pop 3, and SMTP, NFS, smart tunnel, SSH, Telnet, VNC, and RDP.",
+"start": 2286.774,
+"end": 2301.899
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Web ACLs don't block traffic outside the tunnel. A new browser tab to another site never reaches the ASA.",
+"spoken": "Web A.C.L.s don't block traffic outside the tunnel. A new browser tab to another site never reaches the ASA.",
+"start": 2302.349,
+"end": 2310.925
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Application Access",
+"spoken": "Application Access.",
+"start": 2312.375,
+"end": 2313.975
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Only TCP applications, such as SSH, Outlook, and Remote Desktop.",
+"spoken": "Only TCP applications, such as SSH, Outlook, and Remote Desktop.",
+"start": 2314.425,
+"end": 2319.844
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Port forwarding examples: Telnet, SSH, Terminal Services, SMTP.",
+"spoken": "Port forwarding examples: Telnet, SSH, Terminal Services, SMTP.",
+"start": 2320.294,
+"end": 2325.648
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Port forwarding may not work from kiosks or web cafes, because installing JRE needs admin rights.",
+"spoken": "Port forwarding may not work from kiosks or web cafes, because installing JRE needs admin rights.",
+"start": 2326.098,
+"end": 2333.373
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Port forwarding needs the admin to know the addresses and ports, and users need rights to edit the HOSTS file.",
+"spoken": "Port forwarding needs the admin to know the addresses and ports, and users need rights to edit the hosts file.",
+"start": 2333.823,
+"end": 2340.97
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Smart tunnels define which applications are forwarded; port forwarding defines which TCP ports.",
+"spoken": "Smart tunnels define which applications are forwarded; port forwarding defines which TCP ports.",
+"start": 2341.42,
+"end": 2348.118
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Smart tunnels need no preconfigured server addresses or ports, perform better, and are simpler because users don't set apps to a loopback address and local port.",
+"spoken": "Smart tunnels need no preconfigured server addresses or ports, perform better, and are simpler because users don't set apps to a loopback address and local port.",
+"start": 2348.568,
+"end": 2359.171
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Smart tunnels need a browser with ActiveX, Java, or JavaScript, and support 32-bit and 64-bit systems.",
+"spoken": "Smart tunnels need a browser with ActiveX, Java, or JavaScript, and support 32-bit and 64-bit systems.",
+"start": 2359.621,
+"end": 2368.261
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "6. Configuring Client-Based Remote-Access SSL VPNs in the Cisco ASA",
+"spoken": "6. Configuring Client-Based Remote-Access SSL V.P.N.s in the Cisco ASA.",
+"start": 2370.311,
+"end": 2376.946
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why Full Tunnel",
+"spoken": "Why Full Tunnel.",
+"start": 2378.746,
+"end": 2380.09
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Clientless doesn't give full network access. Full tunnel gives access like IPsec, using SSL.",
+"spoken": "Clientless doesn't give full network access. Full tunnel gives access like I.P. sec, using SSL.",
+"start": 2380.54,
+"end": 2388.22
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Reasons to migrate from IPsec: Cisco Secure Client is easy to deploy and maintain, has a smaller package, needs no reboot to install, and is easy to configure.",
+"spoken": "Reasons to migrate from I.P. sec: Cisco Secure Client is easy to deploy and maintain, has a smaller package, needs no reboot to install, and is easy to configure.",
+"start": 2388.67,
+"end": 2401.107
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The client can be pushed after authentication and kept installed to cut connection time.",
+"spoken": "The client can be pushed after authentication and kept installed to cut connection time.",
+"start": 2401.557,
+"end": 2407.146
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Tunnel and Group Policies",
+"spoken": "Tunnel and Group Policies.",
+"start": 2408.596,
+"end": 2410.367
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Same inheritance model as clientless. The group policy uses the svc keyword to allow only Cisco Secure Client.",
+"spoken": "Same inheritance model as clientless. The group policy uses the svc keyword to allow only Cisco Secure Client.",
+"start": 2410.817,
+"end": 2419.585
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The book calls the policy \"Cisco AnyConnectGroupPolicy\" in the text but AnyConnectGroupPolicy in the example.",
+"spoken": "The book calls the policy \"Cisco AnyConnectGroupPolicy\" in the text but AnyConnectGroupPolicy in the example.",
+"start": 2420.035,
+"end": 2427.779
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RADIUS server example: group secretcorp-radius-group at 192.168.1.123 on the inside, added to SecretCorpAnyConnect.",
+"spoken": "radius server example: group secretcorp-radius-group at 192.168.1.123 on the inside, added to SecretCorpAnyConnect.",
+"start": 2428.229,
+"end": 2440.645
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Deploying Cisco Secure Client",
+"spoken": "Deploying Cisco Secure Client.",
+"start": 2442.095,
+"end": 2444.228
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Web-enabled mode: the user sees the standard SSL VPN logon page and enters credentials.",
+"spoken": "Web-enabled mode: the user sees the standard SSL VPN logon page and enters credentials.",
+"start": 2444.678,
+"end": 2451.846
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Standalone mode: if not preconfigured, the user enters the ASA address or FQDN, the tunnel group, the username, and the password.",
+"spoken": "Standalone mode: if not preconfigured, the user enters the ASA address or F.Q.D.N., the tunnel group, the username, and the password.",
+"start": 2452.296,
+"end": 2462.344
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The quiz answer lists web-enabled and standalone as the deployment modes.",
+"spoken": "The quiz answer lists web-enabled and standalone as the deployment modes.",
+"start": 2462.794,
+"end": 2467.466
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configuration is two steps: load the client package, then define client attributes (such as the address via ASDM).",
+"spoken": "Configuration is two steps: load the client package, then define client attributes (such as the address via ASDM).",
+"start": 2467.916,
+"end": 2476.364
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Required: enable Cisco Secure Client connections and define an address pool.",
+"spoken": "Required: enable Cisco Secure Client connections and define an address pool.",
+"start": 2476.814,
+"end": 2482.212
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Optional: split tunneling, DNS and WINS, keeping the client installed, DTLS, traffic filters, and a tunnel group.",
+"spoken": "Optional: split tunneling, DNS and wins, keeping the client installed, DTLS, traffic filters, and a tunnel group.",
+"start": 2482.662,
+"end": 2490.918
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Address assignment methods: local pool, DHCP server, or RADIUS server. Local pools are popular for flexibility; link the pool to a group policy.",
+"spoken": "Address assignment methods: local pool, DHCP server, or radius server. Local pools are popular for flexibility; link the pool to a group policy.",
+"start": 2491.368,
+"end": 2502.824
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Split Tunneling",
+"spoken": "Split Tunneling.",
+"start": 2504.274,
+"end": 2505.468
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Default: the client encrypts traffic to all destinations.",
+"spoken": "Default: the client encrypts traffic to all destinations.",
+"start": 2505.918,
+"end": 2509.694
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 8-21 without split tunneling: traffic to cisco.com goes encrypted to the ASA, which decrypts it and sends it to the Internet in clear text; replies come back the same way.",
+"spoken": "Figure 8-21 without split tunneling: traffic to cisco.com goes encrypted to the ASA, which decrypts it and sends it to the Internet in clear text; replies come back the same way.",
+"start": 2510.144,
+"end": 2523.734
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Problems: Internet traffic crosses the Internet twice (encrypted and clear), and the ASA carries and inspects extra traffic.",
+"spoken": "Problems: Internet traffic crosses the Internet twice (encrypted and clear), and the ASA carries and inspects extra traffic.",
+"start": 2524.184,
+"end": 2533.08
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With split tunneling, the ASA tells the client the secured subnets, and only that traffic is encrypted.",
+"spoken": "With split tunneling, the ASA tells the client the secured subnets, and only that traffic is encrypted.",
+"start": 2533.53,
+"end": 2540.591
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Risk: an attacker who controls the remote computer could send traffic over the tunnel. A personal firewall on the client is highly recommended.",
+"spoken": "Risk: an attacker who controls the remote computer could send traffic over the tunnel. A personal firewall on the client is highly recommended.",
+"start": 2541.041,
+"end": 2550.705
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Can be set in the user policy, user group policy, or default group policy.",
+"spoken": "Can be set in the user policy, user group policy, or default group policy.",
+"start": 2551.155,
+"end": 2556.446
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Split DNS works on Windows and macOS.",
+"spoken": "Split DNS works on Windows and mac O.S.",
+"start": 2556.896,
+"end": 2559.989
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "DTLS",
+"spoken": "DTLS.",
+"start": 2561.439,
+"end": 2562.698
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Lets UDP apps avoid TCP delays and still resist tampering and forgery.",
+"spoken": "Lets UDP apps avoid TCP delays and still resist tampering and forgery.",
+"start": 2563.148,
+"end": 2568.929
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Client supports SSL and DTLS. DTLS is on by default on the ASA; if UDP is blocked, the client falls back to TLS over TCP.",
+"spoken": "Cisco Secure Client supports SSL and DTLS. DTLS is on by default on the ASA; if UDP is blocked, the client falls back to TLS over TCP.",
+"start": 2569.379,
+"end": 2582.776
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "7. Configuring Remote-Access VPNs in Cisco Secure Firewall",
+"spoken": "7. Configuring Remote-Access V.P.N.s in Cisco Secure Firewall.",
+"start": 2584.826,
+"end": 2590.522
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Overview",
+"spoken": "Overview.",
+"start": 2592.322,
+"end": 2593.325
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports SSL and IPsec-IKEv2 remote access.",
+"spoken": "Supports SSL and I.P. sec-IKEv2 remote access.",
+"start": 2593.775,
+"end": 2598.191
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cisco Secure Client is the only supported client.",
+"spoken": "Cisco Secure Client is the only supported client.",
+"start": 2598.641,
+"end": 2602.268
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Windows, Mac, and Linux clients deploy from the secure gateway on connection; iOS and Android apps come from the app stores.",
+"spoken": "Windows, Mac, and Linux clients deploy from the secure gateway on connection; eye O.S. and Android apps come from the app stores.",
+"start": 2602.718,
+"end": 2611.72
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Remote-Access VPN Features",
+"spoken": "Remote-Access VPN Features.",
+"start": 2613.17,
+"end": 2615.346
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "SSL and IPsec-IKEv2 with Cisco Secure Client.",
+"spoken": "SSL and I.P. sec-IKEv2 with Cisco Secure Client.",
+"start": 2615.796,
+"end": 2620.362
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FMC supports all combinations, such as IPv6 over an IPv4 tunnel.",
+"spoken": "FMC supports all combinations, such as I.P. version 6 over an I.P. version 4 tunnel.",
+"start": 2620.812,
+"end": 2628.385
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Configuration on both FMC and FDM.",
+"spoken": "Configuration on both FMC and FDM.",
+"start": 2628.835,
+"end": 2632.248
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Multiple interfaces and multiple AAA servers.",
+"spoken": "Multiple interfaces and multiple triple A servers.",
+"start": 2632.698,
+"end": 2636.346
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FMC and FTD high availability.",
+"spoken": "FMC and FTD high availability.",
+"start": 2636.796,
+"end": 2639.826
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Rapid Threat Containment.",
+"spoken": "Rapid Threat Containment.",
+"start": 2640.276,
+"end": 2641.897
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "AAA server authentication with self-signed or CA-signed identity certificates.",
+"spoken": "triple A server authentication with self-signed or C.A.-signed identity certificates.",
+"start": 2642.347,
+"end": 2648.704
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Username and password authentication through RADIUS, LDAP, or AD.",
+"spoken": "Username and password authentication through radius, L-dap, or AD.",
+"start": 2649.154,
+"end": 2653.784
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "RADIUS group and user authorization attributes, and RADIUS accounting.",
+"spoken": "radius group and user authorization attributes, and radius accounting.",
+"start": 2654.234,
+"end": 2659.29
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Double authentication with a secondary AAA server.",
+"spoken": "Double authentication with a secondary triple A server.",
+"start": 2659.74,
+"end": 2663.452
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Access Control policy integration with VPN Identity.",
+"spoken": "Access Control policy integration with VPN Identity.",
+"start": 2663.902,
+"end": 2668.168
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VPN tunnel address assignment.",
+"spoken": "VPN tunnel address assignment.",
+"start": 2668.618,
+"end": 2671.05
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Split tunneling and split DNS.",
+"spoken": "Split tunneling and split DNS.",
+"start": 2671.5,
+"end": 2673.612
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Client Firewall ACLs.",
+"spoken": "Client Firewall A.C.L.s.",
+"start": 2674.062,
+"end": 2676.281
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Session timeouts for maximum connect time and idle time.",
+"spoken": "Session timeouts for maximum connect time and idle time.",
+"start": 2676.731,
+"end": 2680.4
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "FMC VPN dashboard widget showing users by duration, client application, and more.",
+"spoken": "FMC VPN dashboard widget showing users by duration, client application, and more.",
+"start": 2680.85,
+"end": 2687.634
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Remote-access VPN events with username and OS platform.",
+"spoken": "Remote-access VPN events with username and O.S. platform.",
+"start": 2688.084,
+"end": 2692.692
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Remote Access VPN Policy Wizard Steps",
+"spoken": "Remote Access VPN Policy Wizard Steps.",
+"start": 2694.142,
+"end": 2697.257
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Start the wizard. All steps must be done; canceling early doesn't save the policy.",
+"spoken": "1. Start the wizard. All steps must be done; canceling early doesn't save the policy.",
+"start": 2697.707,
+"end": 2703.403
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Enter a name and description, choose SSL, IPsec-IKEv2, or both, and pick the target devices that will be the VPN gateways (Figure 8-22).",
+"spoken": "2. Enter a name and description, choose SSL, I.P. sec-IKEv2, or both, and pick the target devices that will be the VPN gateways (Figure 8-22).",
+"start": 2703.853,
+"end": 2716.44
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Configure the connection profile and group policy. The example profile is secretcorp-RA-VPN-policy-1 (Figure 8-23).",
+"spoken": "3. Configure the connection profile and group policy. The example profile is secret corp R.A. V.P.N. policy-1 (Figure 8-23).",
+"start": 2716.89,
+"end": 2728.26
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. Choose the AAA method (AAA, certificates, or both) and AAA servers. Add a new server with the plus sign (Figure 8-24).",
+"spoken": "4. Choose the triple A method (triple A, certificates, or both) and triple A servers. Add a new server with the plus sign (Figure 8-24).",
+"start": 2728.71,
+"end": 2739.377
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5. Pick authentication, authorization, and accounting servers. The example uses RADIUS-1 for all three (Figure 8-25).",
+"spoken": "5. Pick authentication, authorization, and accounting servers. The example uses radius-1 for all three (Figure 8-25).",
+"start": 2739.827,
+"end": 2750.003
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "6. Group policy: user authorization profile, IP addresses, client settings, VLAN mapping, and session settings. Assigned by the RADIUS server or taken from the connection profile. Figure 8-26 shows client address assignment.",
+"spoken": "6. Group policy: user authorization profile, IP addresses, client settings, V-lan mapping, and session settings. Assigned by the radius server or taken from the connection profile. Figure 8-26 shows client address assignment.",
+"start": 2750.453,
+"end": 2768.032
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "7. Add an address pool (Figure 8-27).",
+"spoken": "7. Add an address pool (Figure 8-27).",
+"start": 2768.482,
+"end": 2772.151
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "8. Create IPv4 pool Pool-1, 10.10.10.1 to 10.10.10.100 with a /24 mask, and move it to Selected IPv4 Pools (Figures 8-28 and 8-29).",
+"spoken": "8. Create I.P. version 4 pool Pool-1, 10.10.10.1 to 10.10.10.100 with a or 24 mask, and move it to Selected I.P. version 4 Pools (Figures 8-28 and 8-29).",
+"start": 2772.601,
+"end": 2793.23
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "9. Select or upload the client image (Figures 8-30 to 8-32). Users then browse to the device interface to download the client. A macOS image is used in the example. Many panels still say AnyConnect during the rename.",
+"spoken": "9. Select or upload the client image (Figures 8-30 to 8-32). Users then browse to the device interface to download the client. A mac O.S. image is used in the example. Many panels still say AnyConnect during the rename.",
+"start": 2793.68,
+"end": 2811.792
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "10. Select the network interface for incoming VPN connections and the identity certificate; enroll a new certificate from the wizard (Figures 8-33 and 8-34).",
+"spoken": "10. Select the network interface for incoming VPN connections and the identity certificate; enroll a new certificate from the wizard (Figures 8-33 and 8-34).",
+"start": 2812.242,
+"end": 2825.213
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "11. Review the summary. Then set DNS, access control for VPN users, and NAT exemption if needed, and deploy.",
+"spoken": "11. Review the summary. Then set DNS, access control for VPN users, and nat exemption if needed, and deploy.",
+"start": 2825.663,
+"end": 2834.41
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Connecting and Client Behavior",
+"spoken": "Connecting and Client Behavior.",
+"start": 2835.86,
+"end": 2837.95
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The policy can include a client image and a client profile, or you can distribute the client another way.",
+"spoken": "The policy can include a client image and a client profile, or you can distribute the client another way.",
+"start": 2838.4,
+"end": 2845.355
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With no client installed, users enter https://address of the interface, unless the device redirects http to https.",
+"spoken": "With no client installed, users enter the link in the notes of the interface, unless the device redirects http to https.",
+"start": 2845.805,
+"end": 2855.277
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "After login, the gateway downloads the client that matches the OS. It installs, configures itself, connects, and then stays or uninstalls when the connection ends, depending on configuration.",
+"spoken": "After login, the gateway downloads the client that matches the O.S. It installs, configures itself, connects, and then stays or uninstalls when the connection ends, depending on configuration.",
+"start": 2855.727,
+"end": 2869.658
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "With a client already installed, the gateway checks the version and upgrades it if needed.",
+"spoken": "With a client already installed, the gateway checks the version and upgrades it if needed.",
+"start": 2870.108,
+"end": 2875.654
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "The client connects with TLS and optionally DTLS, which fixes latency and bandwidth problems and helps real-time applications.",
+"spoken": "The client connects with TLS and optionally DTLS, which fixes latency and bandwidth problems and helps real-time applications.",
+"start": 2876.104,
+"end": 2885.576
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Troubleshooting",
+"spoken": "Troubleshooting.",
+"start": 2887.026,
+"end": 2888.114
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Many VPN clients make logs large, so use conditional debugs to target one user, group, or address.",
+"spoken": "Many VPN clients make logs large, so use conditional debugs to target one user, group, or address.",
+"start": 2888.564,
+"end": 2896.202
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "8. Configuring Site-to-Site VPNs in Cisco Secure Firewall",
+"spoken": "8. Configuring Site-to-Site V.P.N.s in Cisco Secure Firewall.",
+"start": 2898.252,
+"end": 2903.649
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Overview",
+"spoken": "Overview.",
+"start": 2905.449,
+"end": 2906.452
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Supports IKEv1 and IKEv2, certificates and automatic or pre-shared keys, and IPv4 and IPv6.",
+"spoken": "Supports IKEv1 and IKEv2, certificates and automatic or pre-shared keys, and I.P. version 4 and I.P. version 6.",
+"start": 2906.902,
+"end": 2916.331
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Steps",
+"spoken": "Steps.",
+"start": 2917.781,
+"end": 2918.549
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "1. Create a new topology (Figure 8-35).",
+"spoken": "1. Create a new topology (Figure 8-35).",
+"start": 2918.999,
+"end": 2922.967
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "2. Click the Firepower Device link (Figure 8-36).",
+"spoken": "2. Click the Firepower Device link (Figure 8-36).",
+"start": 2923.417,
+"end": 2927.833
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "3. Enter a unique name and pick the topology: point-to-point, hub and spoke, or full mesh.",
+"spoken": "3. Enter a unique name and pick the topology: point-to-point, hub and spoke, or full mesh.",
+"start": 2928.283,
+"end": 2934.598
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "4. Add node pairs with the plus sign (Figure 8-37).",
+"spoken": "4. Add node pairs with the plus sign (Figure 8-37).",
+"start": 2935.048,
+"end": 2939.677
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "5. Select the devices, interfaces, IP addresses, and protected networks at each endpoint.",
+"spoken": "5. Select the devices, interfaces, IP addresses, and protected networks at each endpoint.",
+"start": 2940.127,
+"end": 2946.975
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Restrictions",
+"spoken": "Restrictions.",
+"start": 2948.425,
+"end": 2949.492
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Cross-domain connections need an extranet peer for the endpoint outside the current domain.",
+"spoken": "Cross-domain connections need an extranet peer for the endpoint outside the current domain.",
+"start": 2949.942,
+"end": 2955.894
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "A VPN topology can't be moved between domains.",
+"spoken": "A VPN topology can't be moved between domains.",
+"start": 2956.344,
+"end": 2960.184
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Network objects with a \"range\" option aren't supported in VPN.",
+"spoken": "Network objects with a \"range\" option aren't supported in VPN.",
+"start": 2960.634,
+"end": 2965.114
+},
+{
+"kind": "H2",
+"nest": -1,
+"text": "9. Cisco SD-WAN",
+"spoken": "9. Cisco S.D. wan.",
+"start": 2967.164,
+"end": 2969.34
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Why SD-WAN",
+"spoken": "Why S.D. wan.",
+"start": 2971.14,
+"end": 2972.718
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Legacy VPN architectures are too restrictive for work-from-anywhere and hybrid work.",
+"spoken": "Legacy VPN architectures are too restrictive for work-from-anywhere and hybrid work.",
+"start": 2973.168,
+"end": 2979.099
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hybrid work shrinks office space and moves workspaces to cloud services.",
+"spoken": "Hybrid work shrinks office space and moves workspaces to cloud services.",
+"start": 2979.549,
+"end": 2984.52
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Enterprises want unified networking and security with scale, agility, and security.",
+"spoken": "Enterprises want unified networking and security with scale, agility, and security.",
+"start": 2984.97,
+"end": 2991.306
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Legacy Remote-Access Design",
+"spoken": "Legacy Remote-Access Design.",
+"start": 2992.756,
+"end": 2994.846
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Traffic went through the data center over MPLS or VPN.",
+"spoken": "Traffic went through the data center over MPLS or VPN.",
+"start": 2995.296,
+"end": 2999.584
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Users ran IPsec or SSL VPN agents to connect to VPN concentrators at headquarters, often a pair.",
+"spoken": "Users ran I.P. sec or SSL VPN agents to connect to VPN concentrators at headquarters, often a pair.",
+"start": 3000.034,
+"end": 3008.952
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Concentrators were added as remote users grew (hub and spoke).",
+"spoken": "Concentrators were added as remote users grew (hub and spoke).",
+"start": 3009.402,
+"end": 3013.583
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "All security was enforced in the central stack.",
+"spoken": "All security was enforced in the central stack.",
+"start": 3014.033,
+"end": 3017.297
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Problems: poor application experience from backhauling through the data center, cost, and security limits.",
+"spoken": "Problems: poor application experience from backhauling through the data center, cost, and security limits.",
+"start": 3017.747,
+"end": 3024.787
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Evolution",
+"spoken": "Evolution.",
+"start": 3026.237,
+"end": 3027.325
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "From secure site-to-site SD-WAN to SASE, multi-cloud interconnects, the middle mile, and multiregion fabrics.",
+"spoken": "From secure site-to-site S.D. wan to sassy, multi-cloud interconnects, the middle mile, and multiregion fabrics.",
+"start": 3027.775,
+"end": 3036.095
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Use cases: site-to-site, site-to-cloud, and cloud-to-cloud.",
+"spoken": "Use cases: site-to-site, site-to-cloud, and cloud-to-cloud.",
+"start": 3036.545,
+"end": 3040.556
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco SD-WAN Remote Access",
+"spoken": "Cisco S.D. wan Remote Access.",
+"start": 3042.006,
+"end": 3044.715
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Figure 8-38: the SD-WAN fabric connects private cloud, public cloud (SaaS and IaaS), Cisco Umbrella, and the Internet.",
+"spoken": "Figure 8-38: the S.D. wan fabric connects private cloud, public cloud (SASS and I.A.A.S.), Cisco Umbrella, and the Internet.",
+"start": 3045.165,
+"end": 3055.832
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Goal: less reliance on long-haul VPN to central firewalls; users connect to the nearest SD-WAN edge router, improving the last mile.",
+"spoken": "Goal: less reliance on long-haul VPN to central firewalls; users connect to the nearest S.D. wan edge router, improving the last mile.",
+"start": 3056.282,
+"end": 3066.799
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Repurposes existing edge routers to terminate software and hardware clients with IKEv2. No dedicated concentrators or separate consoles.",
+"spoken": "Repurposes existing edge routers to terminate software and hardware clients with IKEv2. No dedicated concentrators or separate consoles.",
+"start": 3067.249,
+"end": 3077.638
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "One unified architecture for SD-WAN and remote access.",
+"spoken": "One unified architecture for S.D. wan and remote access.",
+"start": 3078.088,
+"end": 3082.568
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Integrates with RADIUS, Cisco ISE, and SASE.",
+"spoken": "Integrates with radius, Cisco ice, and sassy.",
+"start": 3083.018,
+"end": 3086.346
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Clients: Cisco Secure Client and third-party native OS VPN clients.",
+"spoken": "Clients: Cisco Secure Client and third-party native O.S. VPN clients.",
+"start": 3086.796,
+"end": 3092.535
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Hardware clients: Cisco IOS XE with IKEv2-based FlexVPN.",
+"spoken": "Hardware clients: Cisco I.O.S. XE with IKEv2-based flex V.P.N.",
+"start": 3092.985,
+"end": 3099.065
+},
+{
+"kind": "H3",
+"nest": -1,
+"text": "Cisco vManage",
+"spoken": "Cisco vManage.",
+"start": 3100.515,
+"end": 3101.923
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "One console for configuration, monitoring, automation, and visibility across the fabric, with vAnalytics.",
+"spoken": "One console for configuration, monitoring, automation, and visibility across the fabric, with vAnalytics.",
+"start": 3102.373,
+"end": 3110.138
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Main dashboard (Figure 8-39): device summary, control status, site health, transport interface distribution, WAN Edge inventory, and health statistics.",
+"spoken": "Main dashboard (Figure 8-39): device summary, control status, site health, transport interface distribution, wan Edge inventory, and health statistics.",
+"start": 3110.588,
+"end": 3122.364
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "VPN dashboard (Figure 8-40): device and site health, top applications, and other metrics.",
+"spoken": "VPN dashboard (Figure 8-40): device and site health, top applications, and other metrics.",
+"start": 3122.814,
+"end": 3129.961
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Device configuration (Figure 8-41): overlay devices managed by vManage must be configured through vManage.",
+"spoken": "Device configuration (Figure 8-41): overlay devices managed by vManage must be configured through vManage.",
+"start": 3130.411,
+"end": 3139.499
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Complete device configuration uses feature templates. Each feature has a template form.",
+"spoken": "Complete device configuration uses feature templates. Each feature has a template form.",
+"start": 3139.949,
+"end": 3146.136
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Templates are device-type specific because configurations differ by device and router type.",
+"spoken": "Templates are device-type specific because configurations differ by device and router type.",
+"start": 3146.586,
+"end": 3153.071
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "Some features are required for a device to work, so templates for them must exist.",
+"spoken": "Some features are required for a device to work, so templates for them must exist.",
+"start": 3153.521,
+"end": 3158.79
+},
+{
+"kind": "B",
+"nest": 0,
+"text": "You can make several templates for the same device type to configure the same feature differently.",
+"spoken": "You can make several templates for the same device type to configure the same feature differently.",
+"start": 3159.24,
+"end": 3165.022
+}
+]
+}

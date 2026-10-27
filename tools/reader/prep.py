@@ -11,6 +11,20 @@ def ipv6(addr):
         elif g: words.append(" ".join(g.upper()) if re.search(r"[A-Fa-f]", g) else g)
     return " ".join(words) + (f" slash {plen}" if plen else "")
 FIX = [  # (regex, spoken)
+ # --- Chapters 7 and 8: firewalls and VPNs ---
+ (r"\bFirePOWER\b","Fire Power"), (r"\bFlexVPN\b","flex V.P.N."), (r"\bGETVPN\b","get V.P.N."), (r"\bEzVPN\b","easy V.P.N."),
+ (r"\bmGRE\b","multipoint G.R.E."), (r"\bISAKMP\b","ice-a-camp"), (r"\bSKEYID\b","S key I.D."), (r"\bIDi\b","I.D. I"), (r"\bIDr\b","I.D. R"),
+ (r"\bCBAC\b","see-back"), (r"\bNGIPS\b","N.G. I.P.S."), (r"\bClamAV\b","clam A.V."), (r"\bOpenAppID\b","Open App I.D."), (r"\bSecurID\b","secure I.D."),
+ (r"\bSunRPC\b","Sun R.P.C."), (r"\bDCE/RPC\b","D.C.E. R.P.C."), (r"\bCI/CD\b","C.I. C.D."), (r"\bWINS\b","wins"), (r"\bHOSTS\b","hosts"),
+ (r"\bTEST\b","test"), (r"\bAUTH\b","auth"), (r"\bSASE\b","sassy"), (r"\bSOAR\b","soar"), (r"\bWAFs\b","waffs"), (r"\bWAF\b","waff"),
+ (r"\bSCADA\b","scada"), (r"\bDNP3\b","D.N.P. 3"), (r"\bISA3000\b","I.S.A. 3000"), (r"\b5506([HW])-X\b",r"55 oh 6 \1 X"),
+ (r"\bSAs\b","S.A.s"), (r"\bSPIs\b","S.P.I.s"), (r"\bVSAs\b","V.S.A.s"), (r"\bsVTI\b","static V.T.I."), (r"\bdVTI\b","dynamic V.T.I."),
+ (r"\biOS\b","eye O.S."), (r"\bmacOS\b","mac O.S."), (r"\buCPE\b","U.C.P.E."), (r"\bvFTD\b","virtual F.T.D."), (r"\bFTDs\b","F.T.D.s"),
+ (r"\bDMZs\b","D.M.Z.s"), (r"\bACEs\b","A.C.E.s"), (r"\bSRUs\b","S.R.U.s"), (r"\bL2TP\b","L 2 T.P."), (r"\bL2F\b","L 2 F"),
+ (r"\bPOP3\b","pop 3"), (r"\bPOP\b","pop"), (r"\bIMAP4\b","eye-map 4"), (r"\bIMAP\b","eye-map"), (r"\bDH(\d)\b",r"D.H. \1"), (r"\bD-H\b","D.H."),
+ (r"\bMM(\d)\b",r"M.M. \1"), (r"\bTCAM\b","T-cam"), (r"\bNY-ASA\b","New York A.S.A."), (r"\bNY\b","New York"),
+ (r"\bsecretcorp-RA-VPN-policy\b","secret corp R.A. V.P.N. policy"), (r"\bDefaultL2LGroup\b","Default L 2 L Group"), (r"\bCERTREQ\b","cert req"),
+ (r"\bDOCX\b","doc X"), (r"\bPPTX\b","P.P.T.X."), (r"\bXLSX\b","X.L.S.X."), (r"\bJAR\b","jar"), (r"\bZIP\b","zip"),
  # --- Chapters 5 and 6: visibility, segmentation, infrastructure security ---
  (r"\b[0-9A-Fa-f]{0,4}(?::[0-9A-Fa-f]{0,4}){2,}(?:/\d+)?", lambda m: ipv6(m.group(0))),
  (r"\bGigabitEthernet(\d+)/(\d+)", r"gigabit ethernet \1 slash \2"), (r"\bGigabit(\d+)/(\d+)", r"gigabit \1 slash \2"),
