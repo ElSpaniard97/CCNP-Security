@@ -47,6 +47,8 @@ test('sidebar collapses to icons, keeps its state and expands again', async ({ p
   const sidebar = page.locator('.sidebar');
   const toggle = page.locator('#sidebar-toggle');
   expect((await sidebar.boundingBox()).width).toBeGreaterThan(200);
+  // The button sits at the top of the page, in view without scrolling.
+  expect((await toggle.boundingBox()).y).toBeLessThan(60);
   await toggle.click();
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await expect.poll(async () => (await sidebar.boundingBox()).width).toBeLessThan(80);
@@ -60,4 +62,34 @@ test('sidebar collapses to icons, keeps its state and expands again', async ({ p
   await page.keyboard.press('[');
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
   await expect.poll(async () => (await sidebar.boundingBox()).width).toBeGreaterThan(200);
+});
+
+test('a flashcard deck reopens at the card you left off on', async ({ page }) => {
+  const count = page.locator('.flash-wrap .row.small');
+  await page.goto('/#/ch/4/cards');
+  for (let i = 0; i < 4; i++) await page.locator('#next').click();
+  const term = await page.locator('#flash .front .term').textContent();
+  await page.goto('/#/ch/4');
+  await expect(page.locator('#app h1')).toContainText('Chapter 4:');
+  await page.goto('/#/ch/4/cards');
+  await expect(count).toContainText('Card 5 of');
+  await expect(page.locator('#flash .front .term')).toHaveText(term);
+  await expect(page.locator('.resume-note')).toBeVisible();
+  // Each deck filter keeps its own place, and a shuffled order comes back as it was.
+  await page.locator('[data-deck="Ports and Protocols"]').click();
+  await expect(count).toContainText('Card 1 of');
+  await page.locator('#shuffle').click();
+  await page.locator('#next').click();
+  const shuffled = await page.locator('#flash .front .term').textContent();
+  await page.reload();
+  await expect(count).toContainText('Card 5 of');
+  await page.locator('[data-deck="Ports and Protocols"]').click();
+  await expect(count).toContainText('Card 2 of');
+  await expect(page.locator('#flash .front .term')).toHaveText(shuffled);
+  await page.locator('[data-deck="All"]').click();
+  await page.locator('#from-start').click();
+  await expect(count).toContainText('Card 1 of');
+  await page.reload();
+  await expect(count).toContainText('Card 1 of');
+  await expect(page.locator('.resume-note')).toHaveCount(0);
 });

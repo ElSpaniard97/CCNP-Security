@@ -50,12 +50,28 @@ import { icon } from "./visuals.js";
     const multi = new Set(all.map(x => x.ch)).size > 1;
     let filter = DECKS.includes(deck) || deck === "Starred" && !(review && review.starred) ? deck : "All";
     let reverse = store.get("cards.reverse", false);
-    let order = [], pos = 0, flipped = false, learning = new Set();
+    let order = [], pos = 0, flipped = false, learning = new Set(), shuffled = false, resumed = false, subset = false;
 
-    function build(keepShuffled) {
+    // The place in each deck is saved by card, so it survives a starred deck growing or shrinking.
+    const placeKey = review ? (review.starred ? "starred" : null) : `ch${n}`;
+    const saveKey = () => placeKey && `cards.place.${placeKey}.${filter}`;
+    const id = i => `${all[i].ch}|${all[i].front}`;
+    function savePlace() {
+      if (!saveKey() || subset) return;
+      if (!pos && !shuffled) return store.del(saveKey());
+      store.set(saveKey(), { card: id(order[pos]), order: shuffled ? order.map(id) : null, at: Date.now() });
+    }
+
+    function build(keepShuffled, fromStart) {
       const pool = all.map((card, i) => i).filter(i => filter === "All" || (filter === "Starred" ? isStarred(all[i].ch, all[i].front) : all[i].deck === filter));
-      order = keepShuffled ? shuffle(pool) : pool;
-      pos = 0; flipped = false; learning = new Set();
+      const saved = !keepShuffled && !fromStart && saveKey() && store.get(saveKey(), null);
+      const byId = new Map(pool.map(i => [id(i), i]));
+      const savedOrder = saved && saved.order && saved.order.map(x => byId.get(x)).filter(x => x !== undefined);
+      shuffled = keepShuffled || !!(savedOrder && savedOrder.length === pool.length);
+      order = keepShuffled ? shuffle(pool) : shuffled ? savedOrder : pool;
+      pos = saved ? Math.max(0, order.indexOf(byId.get(saved.card))) : 0;
+      resumed = pos > 0; subset = false;
+      flipped = false; learning = new Set();
     }
     build(false);
 
@@ -63,6 +79,7 @@ import { icon } from "./visuals.js";
       const total = order.length;
       const card = total ? all[order[pos]] : null;
       const starredCount = all.filter(x => isStarred(x.ch, x.front)).length;
+      if (total) savePlace();
       app.innerHTML = `
         <div class="flash-wrap">
           <h1>${esc(heading)}</h1>
@@ -75,6 +92,7 @@ import { icon } from "./visuals.js";
           ${total ? `
           <div class="row small muted"><span>Card ${pos + 1} of ${total} · ${learning.size} still learning</span><span class="spacer"></span>${starButton(card.ch, card.front, "star")}</div>
           <div class="progress"><div style="width:${((pos + 1) / total) * 100}%"></div></div>
+          ${resumed ? `<p class="small muted resume-note">Picked up where you left off. <button class="text-btn" type="button" id="from-start">Start from card 1</button></p>` : ""}
           <div class="flash${flipped ? " flipped" : ""}" id="flash" role="button" tabindex="0" aria-label="Showing question. Show answer">${cardHTML(card, reverse, multi && card.ch)}</div>
           <button class="btn" id="flip" type="button">Show answer</button>
           <p class="hint">Tap the card or press Space to flip. Use the arrow keys to move, and press S to star a card. Cards marked still learning come up in spaced repetition. Starred cards stay in their own deck until you unstar them.</p>
@@ -95,6 +113,8 @@ import { icon } from "./visuals.js";
       setFlashState(flipped);
       document.getElementById("flip").onclick = flip;
       flash.onclick = flip;
+      const fromStart = document.getElementById("from-start");
+      if (fromStart) fromStart.onclick = () => { build(false, true); render(); document.getElementById("flash").focus(); };
       const star = document.getElementById("star");
       star.onclick = () => { toggleStar(card.ch, card.front); syncSoon(); render(); };
       document.getElementById("prev").onclick = () => go(-1);
@@ -118,10 +138,11 @@ import { icon } from "./visuals.js";
     function go(d) {
       if (d > 0 && pos === order.length - 1) return finish();
       pos = Math.max(0, Math.min(order.length - 1, pos + d));
-      flipped = false; render();
+      flipped = false; resumed = false; render();
     }
 
     function finish() {
+      if (saveKey()) store.del(saveKey());
       const missed = [...learning];
       app.innerHTML = `
         <div class="flash-wrap">
@@ -134,7 +155,7 @@ import { icon } from "./visuals.js";
           </div>
         </div>`;
       const again = document.getElementById("again");
-      if (again) again.onclick = () => { order = shuffle(missed); pos = 0; flipped = false; learning = new Set(); render(); };
+      if (again) again.onclick = () => { order = shuffle(missed); pos = 0; flipped = false; learning = new Set(); subset = true; render(); };
       document.getElementById("restart").onclick = () => { build(false); render(); };
       onKey(null);
     }

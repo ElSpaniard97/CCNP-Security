@@ -32,7 +32,7 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
   function setSidebar(collapsed) {
     document.documentElement.classList.toggle("nav-collapsed", collapsed);
     sideToggle.setAttribute("aria-expanded", String(!collapsed));
-    sideToggle.querySelector(".nav-label").textContent = collapsed ? "Expand sidebar" : "Collapse sidebar";
+    sideToggle.setAttribute("aria-label", collapsed ? "Expand sidebar" : "Collapse sidebar");
     document.querySelectorAll(".side-nav a").forEach(a => { if (collapsed) a.title = a.textContent.trim(); else a.removeAttribute("title"); });
     sideToggle.title = collapsed ? "Expand sidebar ([)" : "Collapse sidebar ([)";
   }

@@ -15,7 +15,7 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
-<aside class="sidebar" aria-label="Study platform">
+<aside class="sidebar" id="sidebar" aria-label="Study platform">
   <a class="sidebar-brand" href="#/" aria-label="CCNP Security SCOR 350-701 dashboard"><span class="brand-shield" data-icon="shield"></span><span><strong>CCNP Security</strong><b>SCOR 350-701</b><small>Study Platform</small></span></a>
   <nav class="side-nav" aria-label="Main navigation">
     <a data-nav="home" href="#/"><span data-icon="home"></span><span class="nav-label">Dashboard</span></a>
@@ -32,9 +32,9 @@
     <a data-nav="settings" href="#/settings"><span data-icon="settings"></span><span class="nav-label">Settings</span></a>
   </nav>
   <div class="sidebar-note"><p>“Consistent study builds confidence.<br>Confidence passes certifications.”</p><span></span><small>YOUR NEXT CHAPTER AWAITS</small></div>
-  <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-expanded="true"><span data-icon="panel"></span><span class="nav-label">Collapse sidebar</span></button>
 </aside>
 <header class="top">
+  <button class="theme sidebar-toggle" id="sidebar-toggle" type="button" aria-expanded="true" aria-controls="sidebar" aria-label="Collapse sidebar"><span data-icon="panel"></span></button>
   <a class="brand" href="#/"><span data-icon="shield"></span>SCOR <span>Study</span></a>
   <span class="workspace-label">YOUR SECURITY JOURNEY</span>
   <form class="header-search" role="search" aria-label="Search study content"><span data-icon="search"></span><input id="header-search" type="search" placeholder="Search topics, commands, or keywords…" aria-label="Search topics, commands, or keywords" autocomplete="off"><button type="submit" aria-label="Search flashcards"><span data-icon="arrow"></span></button><kbd aria-hidden="true">⌘ K</kbd></form>
