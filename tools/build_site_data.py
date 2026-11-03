@@ -7,6 +7,52 @@ import sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
+STEP_TYPES = {'cli', 'choice', 'order', 'form'}
+
+def lab_files():
+    return sorted(p for p in (ROOT / 'data/labs').glob('*.json') if p.name != 'index.json')
+
+def lab_index():
+    """Check every lab file and list them in their suggested order."""
+    labs, problems = [], []
+    for path in lab_files():
+        lab = json.loads(path.read_text())
+        where = path.name
+        for key in ('id', 'n', 'title', 'domain', 'level', 'minutes', 'blurb', 'scenario', 'steps', 'summary'):
+            if key not in lab:
+                problems.append(f'{where}: missing {key}')
+        if lab.get('id') != path.stem:
+            problems.append(f'{where}: id must match the file name')
+        for i, step in enumerate(lab.get('steps', []), 1):
+            kind = step.get('type')
+            if kind not in STEP_TYPES:
+                problems.append(f'{where} step {i}: unknown type {kind!r}')
+            if not step.get('title') or not step.get('task'):
+                problems.append(f'{where} step {i}: needs a title and a task')
+            if kind == 'cli' and (not step.get('commands') or step.get('device') not in lab.get('devices', {})):
+                problems.append(f'{where} step {i}: a cli step needs commands and a device listed in devices')
+            if kind == 'choice' and not any(o.get('correct') for o in step.get('options', [])):
+                problems.append(f'{where} step {i}: no correct option')
+            if kind == 'order' and len(step.get('items', [])) < 3:
+                problems.append(f'{where} step {i}: an order step needs at least 3 items')
+            if kind == 'form' and not step.get('fields'):
+                problems.append(f'{where} step {i}: a form step needs fields')
+            for f in step.get('fields', []):
+                if f.get('kind') == 'select' and not set(map(str, [f['answer']] if isinstance(f['answer'], str) else f['answer'])) & set(f.get('options', [])):
+                    problems.append(f"{where} step {i}: answer for {f['label']!r} isn't one of its options")
+        labs.append(lab)
+    ids = {lab['id'] for lab in labs}
+    numbers = [lab['n'] for lab in labs]
+    if len(set(numbers)) != len(numbers):
+        problems.append('two labs share a number')
+    for lab in labs:
+        if lab.get('next') and lab['next'] not in ids:
+            problems.append(f"{lab['id']}: next lab {lab['next']!r} doesn't exist")
+    if problems:
+        sys.exit('Lab problems:\n' + '\n'.join(problems))
+    keys = ('id', 'n', 'title', 'domain', 'chapter', 'level', 'minutes')
+    return [dict({k: lab.get(k) for k in keys}, summary=lab['blurb'], steps=len(lab['steps'])) for lab in sorted(labs, key=lambda l: l['n'])]
+
 def generated():
     cards = json.loads((ROOT / 'data/flashcards.json').read_text())
     output = {}
@@ -14,13 +60,14 @@ def generated():
         output[f'data/flashcards/ch{int(chapter):02}.json'] = json.dumps(deck, ensure_ascii=False, separators=(',', ':')) + '\n'
     reader = [json.loads(p.read_text()) for p in sorted((ROOT / 'data/reader').glob('ch*.json'))]
     output['data/reader/index.json'] = json.dumps([{'n': r['n'], 'title': r['title'], 'duration': r['duration']} for r in reader], separators=(',', ':')) + '\n'
+    output['data/labs/index.json'] = json.dumps(lab_index(), ensure_ascii=False, separators=(',', ':')) + '\n'
     output['data/search-index.json'] = json.dumps([[int(n), c['front']] for n, deck in cards.items() for c in deck], ensure_ascii=False, separators=(',', ':')) + '\n'
     return output
 
 def main():
     output = generated()
     shell = ['index.html', 'manifest.webmanifest', 'data/chapters.json', 'data/blueprint.json'] + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'assets').rglob('*') if p.is_file())
-    data = ['data/search-index.json'] + sorted(output.keys() - {'data/search-index.json'}) + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'data/tests').glob('ch*.json')) + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'data/reader').glob('ch*.json'))
+    data = ['data/search-index.json'] + sorted(output.keys() - {'data/search-index.json'}) + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'data/tests').glob('ch*.json')) + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'data/reader').glob('ch*.json')) + [str(p.relative_to(ROOT)) for p in lab_files()]
     digest = hashlib.sha256()
     for name in shell + data + ['sw.js']:
         digest.update(name.encode())

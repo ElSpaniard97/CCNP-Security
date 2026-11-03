@@ -1,4 +1,4 @@
-import { chap, app, PASS, chapters, flashcards, setCrumbs, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, unfinished, bankActive, studyCards, meter, resumeBanner, route, store, snapshot, restore, syncConnect, syncNow, esc, plural, pctOf, level, secName, fmtDate, fmtDur, fmtAgo, testTitle, srsDue } from "./runtime.js";
+import { chap, app, PASS, chapters, flashcards, setCrumbs, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, unfinished, bankActive, studyCards, meter, resumeBanner, route, store, snapshot, restore, syncConnect, syncNow, esc, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, testTitle, srsDue, getJSON } from "./runtime.js";
 import { attemptStrip } from "./quiz.js";
 
 
@@ -14,12 +14,15 @@ import { attemptStrip } from "./quiz.js";
     const answered = h.reduce((a, x) => a + x.total, 0);
     const time = h.reduce((a, x) => a + (x.ms || 0), 0);
     const exams = examAttempts();
+    const labRows = Object.entries(store.get("labs", {})).filter(([, v]) => v && v.runs && v.runs.length);
+    const labTitles = labRows.length ? Object.fromEntries((await getJSON("data/labs/index.json").catch(() => [])).map(l => [l.id, l.title])) : {};
 
     if (!taken && !exams.length) {
       app.innerHTML = `<h1>Progress dashboard</h1>
         <p class="muted">Finish a practice test and your scores, trends, and weakest areas show up here.</p>
         ${resumeBanner(unfinished())}
         <div class="row"><a class="btn primary" href="#/ch/1/test/1">Start Chapter 1, Test 1</a></div>
+        ${labRows.length ? `<p><a href="#/labs">${plural(labRows.length, "lab")} completed. See your lab scores on the Labs page.</a></p>` : ""}
         ${syncHTML()}${backupHTML()}`;
       wireSync(); wireBackup();
       return;
@@ -59,6 +62,7 @@ import { attemptStrip } from "./quiz.js";
         <div class="card kpi"><div class="kpi-num">${time ? fmtDur(time) : "–"}</div><div class="muted small">time in tests</div></div>
         <a class="card kpi kpi-link" href="#/bank"><div class="kpi-num">${bankActive().length}</div><div class="muted small">missed questions to clear</div></a>
         <a class="card kpi kpi-link" href="#/srs"><div class="kpi-num">${srsDue().length}</div><div class="muted small">flashcards due</div></a>
+        <a class="card kpi kpi-link" href="#/labs"><div class="kpi-num">${labRows.length}</div><div class="muted small">labs completed</div></a>
       </div>
 
       <h2>Score trend</h2>
@@ -66,6 +70,8 @@ import { attemptStrip } from "./quiz.js";
 
       ${exams.length ? `<h2>Mock exams</h2>${attemptStrip(exams)}<div class="row" style="margin-top:8px"><a class="btn small-btn" href="#/exam/last">Last exam results</a><a class="btn small-btn" href="#/exam">New exam</a></div>` : ""}
 
+      ${labRows.length ? `<h2>Labs</h2><div class="card table-wrap"><table class="recent"><thead><tr><th scope="col">Lab</th><th scope="col">Runs</th><th scope="col">Best</th><th scope="col">Latest</th><th scope="col">Average time</th></tr></thead>
+        <tbody>${labRows.map(([id, runs]) => `<tr><td><a href="#/labs/${esc(id)}">${esc(labTitles[id] || id)}</a></td><td>${runs.length}</td><td>${Math.max(...runs.map(r => r.score))}</td><td>${runs[runs.length - 1].score}</td><td>${fmtClock(runs.reduce((t, r) => t + r.ms, 0) / runs.length)}</td></tr>`).join("")}</tbody></table></div>` : ""}
       <h2>Areas to study</h2>
       ${weak.length ? `<div class="areas">
         ${weak.map((x, k) => `<div class="card area">

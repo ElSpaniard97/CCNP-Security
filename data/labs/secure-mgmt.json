@@ -1,0 +1,117 @@
+{
+  "id": "secure-mgmt",
+  "n": 1,
+  "title": "Lock down device management",
+  "domain": "Network Security",
+  "chapter": 6,
+  "level": "Beginner",
+  "minutes": 12,
+  "blurb": "SSH only, local admin accounts, a management ACL and login protection on a router.",
+  "scenario": "R1 is a new edge router. Today anyone can reach it with Telnet, and it still has no local accounts. Lock down management so that only the network team, from the management subnet **10.10.99.0/24**, can log in, and only over **SSH version 2**.",
+  "topology": "Mgmt PC 10.10.99.25 ── [10.10.99.0/24] ── R1 ── Internet\n                                     domain: scor.lab",
+  "objectives": [
+    "Generate RSA keys and turn on SSH version 2",
+    "Create a privilege 15 local admin and an enable secret",
+    "Allow logins only from the management subnet",
+    "Restrict the VTY lines to SSH with local login and an idle timeout",
+    "Slow down password guessing and turn off the HTTP server"
+  ],
+  "devices": { "R1": { "host": "R1", "start": "priv" } },
+  "steps": [
+    {
+      "title": "Turn on SSH version 2",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "SSH needs an RSA key pair, and IOS names the key after the **hostname** and **domain name**, so the domain must be set first. Keys of 2048 bits or more are the current minimum, and **SSH version 2** fixes the weaknesses of version 1.",
+      "task": "Enter global configuration mode. Set the domain name to **scor.lab**, generate a **2048**-bit RSA key, and set SSH to **version 2**.",
+      "hint": "Start with `configure terminal`. The commands are `ip domain name`, `crypto key generate rsa modulus 2048` and `ip ssh version 2`.",
+      "commands": [
+        { "cmd": "configure terminal", "mode": "priv", "enter": "config", "note": "You're in global configuration mode." },
+        { "cmd": "ip domain name scor.lab", "alt": ["ip domain-name scor.lab"], "note": "The domain name is set. Older IOS versions spell it `ip domain-name`." },
+        { "cmd": "crypto key generate rsa modulus 2048", "alt": ["crypto key generate rsa general-keys modulus 2048"], "output": "The name for the keys will be: R1.scor.lab\n% The key modulus size is 2048 bits\n% Generating 2048 bit RSA keys, keys will be non-exportable...\n[OK] (elapsed time was 2 seconds)\n%SSH-5-ENABLED: SSH 1.99 has been enabled", "note": "The key pair R1.scor.lab exists, and SSH turned on automatically as 1.99, which allows both versions." },
+        { "cmd": "ip ssh version 2", "note": "Only SSH version 2 is accepted now." }
+      ],
+      "why": "SSH 1.99 means \"versions 1 and 2\". Setting version 2 explicitly refuses the older, weaker protocol."
+    },
+    {
+      "title": "Create the admin account",
+      "type": "cli",
+      "device": "R1",
+      "learn": "Use `secret` instead of `password`. A `secret` is stored as a strong hash (type 9 scrypt or type 8 PBKDF2 with `algorithm-type`; type 5 MD5 by default on older code). A `password` is plain text, or reversible type 7 with `service password-encryption`.",
+      "task": "Create a local user **admin** at **privilege 15** with the secret **Sc0rLab!**, and set the enable secret to **En4bleLab!**.",
+      "hint": "`username admin privilege 15 secret Sc0rLab!` and `enable secret En4bleLab!`",
+      "commands": [
+        { "cmd": "username admin privilege 15 secret Sc0rLab!", "alt": ["username admin privilege 15 algorithm-type scrypt secret Sc0rLab!", "username admin privilege 15 algorithm-type sha256 secret Sc0rLab!"], "note": "The admin user lands directly in privileged EXEC mode at login." },
+        { "cmd": "enable secret En4bleLab!", "alt": ["enable algorithm-type scrypt secret En4bleLab!", "enable algorithm-type sha256 secret En4bleLab!"], "note": "The enable secret is stored hashed." }
+      ]
+    },
+    {
+      "title": "Build the management ACL",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "A **standard ACL** matches only the source address, which is all you need to decide who may open a session to the router.",
+      "task": "Create a named standard ACL called **MGMT** that permits **10.10.99.0/24**.",
+      "hint": "`ip access-list standard MGMT`, then `permit 10.10.99.0 0.0.0.255`. ACLs use a wildcard mask, not a subnet mask.",
+      "commands": [
+        { "cmd": "ip access-list standard MGMT", "enter": "config-std-nacl" },
+        { "cmd": "permit 10.10.99.0 0.0.0.255", "mode": "config-std-nacl", "note": "Every ACL ends with an implicit deny, so other sources are refused." }
+      ]
+    },
+    {
+      "title": "Restrict the VTY lines",
+      "type": "cli",
+      "device": "R1",
+      "learn": "The VTY lines are the virtual terminals that SSH and Telnet sessions land on. `access-class` applies an ACL to sessions arriving on the lines, `transport input` picks the protocols that are allowed, and `login local` checks the local user database.",
+      "task": "Configure **line vty 0 4**: allow only **SSH**, authenticate against the **local** database, apply ACL **MGMT** inbound, and disconnect idle sessions after **10 minutes**.",
+      "hint": "Enter `line vty 0 4`, then `transport input ssh`, `login local`, `access-class MGMT in` and `exec-timeout 10 0`.",
+      "commands": [
+        { "cmd": "line vty 0 4", "enter": "config-line" },
+        { "cmd": "transport input ssh", "mode": "config-line", "note": "Telnet is now refused on these lines." },
+        { "cmd": "login local", "mode": "config-line", "note": "Logins are checked against the local usernames." },
+        { "cmd": "access-class MGMT in", "mode": "config-line", "note": "Only 10.10.99.0/24 can open a session." },
+        { "cmd": "exec-timeout 10 0", "mode": "config-line", "note": "Idle sessions close after 10 minutes and 0 seconds." }
+      ]
+    },
+    {
+      "title": "Slow down password guessing",
+      "type": "cli",
+      "device": "R1",
+      "learn": "`login block-for` makes the router refuse all logins for a while after too many failures in a short window (quiet mode). The built-in **HTTP server** is a management interface you aren't using, so turn it off to shrink the attack surface.",
+      "task": "Block logins for **120 seconds** after **3** failed attempts within **60 seconds**, and turn off the **HTTP server**.",
+      "hint": "`login block-for 120 attempts 3 within 60` and `no ip http server`. Both are global commands, so they work even from the line prompt.",
+      "commands": [
+        { "cmd": "login block-for 120 attempts 3 within 60", "note": "Three failures in 60 seconds now trigger 120 seconds of quiet mode." },
+        { "cmd": "no ip http server", "note": "The plain HTTP server is off." }
+      ]
+    },
+    {
+      "title": "Check your work",
+      "type": "choice",
+      "learn": "Think through how the pieces combine before testing them from a real client.",
+      "task": "Answer the question about the finished configuration.",
+      "question": "A technician at **10.10.50.20** opens SSH to R1 with the correct admin password. What happens?",
+      "hint": "Which of the line settings looks at the source address?",
+      "options": [
+        { "text": "The session is refused because the source isn't permitted by ACL MGMT.", "correct": true },
+        { "text": "The login works, because the username and password are correct.", "why": "`access-class MGMT in` is checked before the login prompt. 10.10.50.20 isn't in 10.10.99.0/24." },
+        { "text": "The router falls back to Telnet for that address.", "why": "`transport input ssh` allows only SSH, and there's no fallback to another protocol." },
+        { "text": "R1 enters quiet mode for 120 seconds.", "why": "Quiet mode follows failed logins. This session never reaches a login prompt." }
+      ]
+    },
+    {
+      "title": "Verify SSH",
+      "type": "cli",
+      "device": "R1",
+      "learn": "Verification commands run in privileged EXEC mode. From configuration mode, put **do** in front of them, or type `end` first.",
+      "task": "Display the SSH status to confirm that version 2 is running.",
+      "hint": "`do show ip ssh` from configuration mode, or `end` and then `show ip ssh`.",
+      "commands": [
+        { "cmd": "show ip ssh", "mode": "priv", "output": "SSH Enabled - version 2.0\nAuthentication methods:publickey,keyboard-interactive,password\nAuthentication timeout: 120 secs; Authentication retries: 3\nMinimum expected Diffie Hellman key size : 2048 bits\nIOS Keys in SECSH format(ssh-rsa, base64 encoded): R1.scor.lab", "note": "SSH version 2.0 is enabled with the R1.scor.lab key." }
+      ]
+    }
+  ],
+  "summary": "SSH version 2 with a 2048-bit RSA key, a privilege 15 local admin with a hashed secret, VTY lines limited to SSH from 10.10.99.0/24 with local login and a 10-minute timeout, login quiet mode after repeated failures, and the HTTP server turned off.",
+  "next": "aaa-tacacs"
+}

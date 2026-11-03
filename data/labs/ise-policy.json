@@ -1,0 +1,246 @@
+{
+  "id": "ise-policy",
+  "n": 4,
+  "title": "Build an ISE policy set for wired access",
+  "domain": "Secure Network Access, Visibility, and Enforcement",
+  "chapter": 4,
+  "level": "Intermediate",
+  "minutes": 15,
+  "blurb": "Add the switch to ISE, then write the authentication and authorization rules that decide who gets on.",
+  "scenario": "SW1 (management address **10.10.0.2**) now sends 802.1X and MAB requests to ISE. Build the ISE side: add SW1 as a network device, create a policy set for wired traffic, and write rules so that employees get full access with the **Employees** security group, known printers get a printer profile, and everything else is denied.",
+  "topology": "SW1 10.10.0.2 ── RADIUS ── ISE ── Active Directory (scor.lab)",
+  "objectives": [
+    "Add SW1 as a network access device",
+    "Create a policy set that matches wired 802.1X and MAB",
+    "Choose the identity sources for 802.1X and MAB",
+    "Write authorization rules and predict which one matches"
+  ],
+  "steps": [
+    {
+      "title": "Add the switch as a network device",
+      "type": "form",
+      "learn": "ISE answers RADIUS only from devices it knows. Each network access device (NAD) has a name, an IP address and the **same shared secret** that the switch uses.",
+      "task": "Add SW1: name **SW1**, IP address **10.10.0.2**, device type **All Device Types**, RADIUS authentication turned on, shared secret **R4diusKey**.",
+      "screen": "ISE › Administration › Network Resources › Network Devices › Add",
+      "button": "Submit",
+      "hint": "The shared secret is the key you set on the switch with `radius server ISE`.",
+      "fields": [
+        {
+          "label": "Name",
+          "kind": "text",
+          "answer": "SW1"
+        },
+        {
+          "label": "IP Address",
+          "kind": "text",
+          "answer": [
+            "10.10.0.2",
+            "10.10.0.2/32"
+          ]
+        },
+        {
+          "label": "Device Type",
+          "kind": "select",
+          "options": [
+            "All Device Types",
+            "Wireless Controller",
+            "Firewall"
+          ],
+          "answer": "All Device Types"
+        },
+        {
+          "label": "RADIUS Authentication Settings",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Shared Secret",
+          "kind": "text",
+          "answer": "R4diusKey"
+        }
+      ]
+    },
+    {
+      "title": "Create the policy set",
+      "type": "form",
+      "learn": "A **policy set** is the top-level match. ISE checks policy sets top-down, and the first set whose condition matches handles the request. Inside it, the **allowed protocols** list decides which EAP methods ISE will accept.",
+      "task": "Create the policy set **Wired-Access**. Match the built-in conditions for wired 802.1X **or** wired MAB, and allow **Default Network Access**.",
+      "screen": "ISE › Policy › Policy Sets › +",
+      "button": "Save",
+      "hint": "The library has compound conditions named Wired_802.1X and Wired_MAB. Combine them with OR.",
+      "fields": [
+        {
+          "label": "Policy Set Name",
+          "kind": "text",
+          "answer": "Wired-Access"
+        },
+        {
+          "label": "Condition 1",
+          "kind": "select",
+          "options": [
+            "Wired_802.1X",
+            "Wireless_802.1X",
+            "Wired_MAB",
+            "Wireless_MAB"
+          ],
+          "answer": "Wired_802.1X"
+        },
+        {
+          "label": "Combine with",
+          "kind": "select",
+          "options": [
+            "AND",
+            "OR"
+          ],
+          "answer": "OR"
+        },
+        {
+          "label": "Condition 2",
+          "kind": "select",
+          "options": [
+            "Wired_802.1X",
+            "Wireless_802.1X",
+            "Wired_MAB",
+            "Wireless_MAB"
+          ],
+          "answer": "Wired_MAB"
+        },
+        {
+          "label": "Allowed Protocols",
+          "kind": "select",
+          "options": [
+            "Default Network Access",
+            "Default Device Admin"
+          ],
+          "answer": "Default Network Access"
+        }
+      ]
+    },
+    {
+      "title": "Choose the identity sources",
+      "type": "form",
+      "learn": "The **authentication policy** decides where identities are checked. 802.1X users are checked against **Active Directory**. MAB requests carry only a MAC address, so they're checked against **Internal Endpoints**. For MAB, \"If User not found\" is usually set to **CONTINUE**, so unknown devices still reach the authorization rules, for example to get a guest or remediation result instead of a hard failure.",
+      "task": "Set the Dot1X rule to use the **scor_AD** join point. Set the MAB rule to use **Internal Endpoints**, with **CONTINUE** when the user isn't found.",
+      "screen": "ISE › Policy Sets › Wired-Access › Authentication Policy",
+      "button": "Save",
+      "fields": [
+        {
+          "label": "Dot1X rule › Use",
+          "kind": "select",
+          "options": [
+            "scor_AD",
+            "Internal Users",
+            "Internal Endpoints",
+            "Guest Users"
+          ],
+          "answer": "scor_AD"
+        },
+        {
+          "label": "MAB rule › Use",
+          "kind": "select",
+          "options": [
+            "scor_AD",
+            "Internal Users",
+            "Internal Endpoints",
+            "Guest Users"
+          ],
+          "answer": "Internal Endpoints"
+        },
+        {
+          "label": "MAB rule › If User not found",
+          "kind": "select",
+          "options": [
+            "REJECT",
+            "DROP",
+            "CONTINUE"
+          ],
+          "answer": "CONTINUE"
+        }
+      ]
+    },
+    {
+      "title": "Write the employee rule",
+      "type": "form",
+      "learn": "**Authorization rules** are also checked top-down, and the first match wins. A result combines an **authorization profile** (access type, VLAN, dACL) and, with TrustSec, a **security group** (SGT).",
+      "task": "Create the rule **Employees**: condition AD group **scor.lab/Users/Employees**, profile **PermitAccess**, security group **Employees**.",
+      "screen": "ISE › Policy Sets › Wired-Access › Authorization Policy › Insert new row above",
+      "button": "Save",
+      "fields": [
+        {
+          "label": "Rule Name",
+          "kind": "text",
+          "answer": "Employees"
+        },
+        {
+          "label": "Condition",
+          "kind": "select",
+          "options": [
+            "scor_AD·ExternalGroups EQUALS scor.lab/Users/Employees",
+            "IdentityGroup·Name EQUALS Endpoint Identity Groups:Profiled:Printers",
+            "Network Access·Protocol EQUALS RADIUS"
+          ],
+          "answer": "scor_AD·ExternalGroups EQUALS scor.lab/Users/Employees"
+        },
+        {
+          "label": "Profiles",
+          "kind": "select",
+          "options": [
+            "PermitAccess",
+            "DenyAccess",
+            "Cisco_Printer_Profile"
+          ],
+          "answer": "PermitAccess"
+        },
+        {
+          "label": "Security Groups",
+          "kind": "select",
+          "options": [
+            "Employees",
+            "Contractors",
+            "Printers",
+            "Quarantined_Systems"
+          ],
+          "answer": "Employees"
+        }
+      ]
+    },
+    {
+      "title": "Order the rules",
+      "type": "order",
+      "learn": "Specific rules go above general ones, and the Default rule is always last.",
+      "task": "Put the authorization rules in the order ISE should check them.",
+      "question": "Order the rules from top to bottom.",
+      "items": [
+        "Employees: AD group Employees → PermitAccess, SGT Employees",
+        "Printers: endpoint identity group Printers → Cisco_Printer_Profile, SGT Printers",
+        "Default → DenyAccess"
+      ]
+    },
+    {
+      "title": "Predict the result",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "A contractor's laptop authenticates with valid AD credentials. The account is in the **Contractors** group, not **Employees**. Which result does ISE return?",
+      "options": [
+        {
+          "text": "DenyAccess, from the Default rule.",
+          "correct": true
+        },
+        {
+          "text": "PermitAccess, because authentication succeeded.",
+          "why": "Authentication proves who the user is. Authorization still needs a rule to match, and only Default does."
+        },
+        {
+          "text": "The printer profile, because it's the next rule down.",
+          "why": "The Printers rule matches an endpoint identity group, which this laptop isn't in."
+        },
+        {
+          "text": "ISE rejects the authentication.",
+          "why": "The credentials are valid, so authentication passes. It's the authorization result that denies access."
+        }
+      ]
+    }
+  ],
+  "summary": "SW1 added as a network device, the Wired-Access policy set for wired 802.1X and MAB, AD for 802.1X and Internal Endpoints for MAB, and authorization rules for employees, printers and a deny default.",
+  "next": "ipsec-ikev2"
+}
