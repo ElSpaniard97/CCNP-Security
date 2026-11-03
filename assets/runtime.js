@@ -43,9 +43,13 @@ import { domainFor, selectExam } from "./blueprint.js";
     if (!r.ok) throw new Error(path + " " + r.status);
     return r.json();
   }
-  async function loadCards(n) {
-    if (!flashcards[n]) flashcards[n] = await getJSON(`data/flashcards/ch${String(n).padStart(2,"0")}.json`);
-    return flashcards[n];
+  // Requests in flight are shared, so two pages asking for the same chapter fetch it once.
+  // A failed request is forgotten so the next call tries again.
+  const cardLoads = {};
+  function loadCards(n) {
+    if (flashcards[n]) return Promise.resolve(flashcards[n]);
+    return cardLoads[n] || (cardLoads[n] = getJSON(`data/flashcards/ch${String(n).padStart(2,"0")}.json`)
+      .then(d => (flashcards[n] = d), e => { delete cardLoads[n]; throw e; }));
   }
   const loadAllCards = () => Promise.all(chapters.map(c=>loadCards(c.n)));
   async function getTests(n) {
@@ -139,6 +143,13 @@ import { domainFor, selectExam } from "./blueprint.js";
     if (!active) document.getElementById("timer-announcement").textContent="";
   }
 
+// The list of narrated chapters; shared by the chapter page and the reader.
+let readerList = null;
+function readerIndex() {
+  if (!readerList) readerList = getJSON("data/reader/index.json").catch(() => []);
+  return readerList;
+}
+
 // Router callbacks are installed before data loading; views need no imports from main.
 const navigation = {};
 function leaveView() { onKey(null); leaveFns.forEach(f=>f()); leaveFns=[]; }
@@ -148,4 +159,4 @@ function chapterView(...args) { return navigation.chapterView(...args); }
 function route(...args) { return navigation.route(...args); }
 function setStudyData(c, b) { chapters = c; blueprint = b; }
 
-export { leaveView, app, crumbs, DECKS, DECK_LABEL, LETTERS, PASS, DAY, SRS_DAYS, SRS_NEW, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, testCache, keyHandler, leaveFns, setCrumbs, onKey, onLeave, getJSON, loadCards, loadAllCards, getTests, question, findCard, attempts, addAttempt, fullAttempts, examAttempts, bests, latestByTest, streak, bestBadge, getResume, clearResume, unfinished, resumeHref, bankRecord, bankActive, studyCards, cardChips, meter, resumeBanner, setExamActive, store, LOCAL_ONLY, snapshot, restore, merge, syncConnect, syncNow, syncSoon, esc, cap, rich, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, dayKey, testTitle, srsKey, srsSet, srsMiss, srsDue, isStarred, toggleStar, starredList, domainFor, selectExam, setNavigation, home, chapterView, route, setStudyData };
+export { leaveView, app, crumbs, DECKS, DECK_LABEL, LETTERS, PASS, DAY, SRS_DAYS, SRS_NEW, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, testCache, keyHandler, leaveFns, setCrumbs, onKey, onLeave, getJSON, loadCards, loadAllCards, getTests, question, findCard, attempts, addAttempt, fullAttempts, examAttempts, bests, latestByTest, streak, bestBadge, getResume, clearResume, unfinished, resumeHref, bankRecord, bankActive, studyCards, cardChips, meter, resumeBanner, setExamActive, store, LOCAL_ONLY, snapshot, restore, merge, syncConnect, syncNow, syncSoon, esc, cap, rich, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, dayKey, testTitle, srsKey, srsSet, srsMiss, srsDue, isStarred, toggleStar, starredList, domainFor, selectExam, setNavigation, home, chapterView, route, setStudyData, readerIndex };

@@ -51,7 +51,16 @@
 .reader-page.spaced { letter-spacing: .12em; word-spacing: .3em; line-height: 2.3; }
 .reader-page h2 { font-size: 1.3em; margin: 1.4em 0 .4em; letter-spacing: inherit; }
 .reader-page h3 { font-size: 1.1em; margin: 1.1em 0 .3em; }
-.reader-page h2:first-child { margin-top: 0; }
+.reader-page .rl-chunk:first-child > h2:first-child { margin-top: 0; }
+/* Off-screen blocks of a long chapter skip layout and paint until they scroll near; the size
+   estimate is replaced by the real height once a block has been drawn.
+   The padding leaves room for the line highlight and practice outline, which a block would otherwise
+   clip at its edges; the negative margins take it back so the text sits exactly where it did.
+   Between blocks the margins collapse to -1.2em, cancelling both blocks' .6em padding. */
+.rl-chunk { content-visibility: auto; contain-intrinsic-block-size: auto calc(var(--lines) * 2.6em); padding: .6em; margin: -1.2em -.6em 0; }
+.rl-chunk:first-child { margin-top: -.6em; }
+.rl-chunk:last-child { margin-bottom: -.6em; }
+.rl-chunk > :last-child { margin-bottom: 0; }
 .reader-page p { margin: .35em 0; }
 .reader-page .bullet { position: relative; padding-left: 1.1em; }
 .reader-page .bullet::before { content: "•"; position: absolute; left: 0; }

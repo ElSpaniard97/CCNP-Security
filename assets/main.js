@@ -1,11 +1,14 @@
 import { icon, chapterDetails } from "./visuals.js";
 import { dashboardHTML, chapterGrid } from "./dashboard.js";
-import { leaveView, app, DECKS, DECK_LABEL, PASS, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, leaveFns, setCrumbs, onKey, getJSON, loadCards, loadAllCards, getTests, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, getResume, clearResume, unfinished, resumeHref, bankActive, store, syncNow, esc, shuffle, plural, pctOf, srsDue, starredList, selectExam, setNavigation, setStudyData } from "./runtime.js";
+import { leaveView, app, DECKS, DECK_LABEL, PASS, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, leaveFns, setCrumbs, onKey, getJSON, loadCards, loadAllCards, getTests, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, getResume, clearResume, unfinished, resumeHref, bankActive, store, syncNow, esc, shuffle, plural, pctOf, srsDue, starredList, selectExam, setNavigation, setStudyData, readerIndex } from "./runtime.js";
 import { registerOffline, offlineHTML, wireOffline } from "./offline.js";
-import { dashboard, trendChart, wireTrend, syncHTML, wireSync, backupHTML, wireBackup } from "./progress.js";
-import { packItems, hydrate, newItem, runQuiz, resumePrompt, testView, recordResult, resultsView, attemptStrip, lastView } from "./quiz.js";
-import { setFlashState, cardHTML, cardsView, srsView, searchView } from "./cards.js";
-import { readerView, readerListView, readerIndex } from "./reader.js";
+// Feature modules load on first use, so a page only downloads the code it needs.
+// Each loader returns the same promise every time, so a module is fetched once.
+const once = load => { let p; return () => p || (p = load()); };
+const quizMod = once(() => import("./quiz.js"));
+const progressMod = once(() => import("./progress.js"));
+const cardsMod = once(() => import("./cards.js"));
+const readerMod = once(() => import("./reader.js"));
 
   // ---------- theme ----------
   const themeBtn = document.getElementById("theme");
@@ -138,7 +141,8 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
     app.innerHTML=`<div class="page-heading"><p class="eyebrow">YOUR SCOR STUDY LIBRARY</p><h1>${title}</h1><p class="muted">${practice ? 'Five practice tests per chapter. Choose a chapter to test your knowledge.' : 'Explore every chapter, review the flashcards, and build your confidence.'}</p></div>${chapterGrid(chapterStatus,statusLine)}`;
     wireChapterFilters();
   }
-  function settingsView() {
+  async function settingsView() {
+    const { syncHTML, wireSync, backupHTML, wireBackup } = await progressMod();
     setCrumbs([{label:"Dashboard",href:"#/"},{label:"Settings"}]);document.title="Settings";
     app.innerHTML=`<h1>Settings</h1><p class="muted">Manage your progress, backups, and offline study.</p>${syncHTML()}${backupHTML()}${offlineHTML()}`;
     wireSync();wireBackup();wireOffline();
@@ -184,6 +188,7 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
 
   // ---------- mock exam ----------
   async function examView() {
+    const { hydrate, newItem, resumePrompt, attemptStrip } = await quizMod();
     setCrumbs([{ label: "Home", href: "#/" }, { label: "Mock exam" }]);
     document.title = "Mock exam";
     const saved = getResume("exam");
@@ -221,7 +226,8 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
       } catch(e) { go.disabled=false; go.textContent="Try starting again"; const msg=document.createElement("p"); msg.setAttribute("role","alert"); msg.textContent=e.message; go.after(msg); }
     };
   }
-  function startExam(items, saved) {
+  async function startExam(items, saved) {
+    const { runQuiz, recordResult, resultsView } = await quizMod();
     runQuiz({
       key: "exam", kind: "exam", items, multi: true, title: "Mock exam",
       pos: saved.pos || 0, elapsed: saved.elapsed || 0, limit: saved.limit || 0,
@@ -235,6 +241,7 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
 
   // ---------- missed-question bank ----------
   async function bankView(n) {
+    const { hydrate, newItem, resumePrompt } = await quizMod();
     setCrumbs(n ? [{ label: "Home", href: "#/" }, { label: `Chapter ${n}`, href: `#/ch/${n}` }, { label: "Missed questions" }] : [{ label: "Home", href: "#/" }, { label: "Missed questions" }]);
     document.title = "Missed questions";
     const saved = getResume("bank");
@@ -271,7 +278,8 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
       drill(items, {});
     };
   }
-  function drill(items, saved) {
+  async function drill(items, saved) {
+    const { runQuiz, recordResult, resultsView } = await quizMod();
     runQuiz({
       key: "bank", kind: "bank", items, multi: new Set(items.map(x => x.ch)).size > 1, title: "Missed questions drill",
       pos: saved.pos || 0, elapsed: saved.elapsed || 0,
@@ -308,26 +316,26 @@ import { readerView, readerListView, readerIndex } from "./reader.js";
     try {
       if (parts[0] === "ch" && parts[1]) {
         const n = parseInt(parts[1], 10);
-        if (parts[2] === "read") await readerView(n);
-        else if (parts[2] === "cards") { await loadCards(n); cardsView(n, parts[3]); }
-        else if (parts[2] === "test" && parts[3] && parts[4] === "last") await lastView(n, parseInt(parts[3], 10));
-        else if (parts[2] === "test" && parts[3]) await testView(n, parseInt(parts[3], 10));
+        if (parts[2] === "read") await (await readerMod()).readerView(n);
+        else if (parts[2] === "cards") { const [{ cardsView }] = await Promise.all([cardsMod(), loadCards(n)]); cardsView(n, parts[3]); }
+        else if (parts[2] === "test" && parts[3] && parts[4] === "last") await (await quizMod()).lastView(n, parseInt(parts[3], 10));
+        else if (parts[2] === "test" && parts[3]) await (await quizMod()).testView(n, parseInt(parts[3], 10));
         else await chapterView(n);
-      } else if (parts[0] === "review") { const r = store.get("review", null); if(r && r.cards) { await Promise.all([...new Set(r.cards.map(x=>x[0]))].map(loadCards)); cardsView(null,null,r); } else home(); }
+      } else if (parts[0] === "review") { const r = store.get("review", null); if(r && r.cards) { const [{ cardsView }] = await Promise.all([cardsMod(), ...[...new Set(r.cards.map(x=>x[0]))].map(loadCards)]); cardsView(null,null,r); } else home(); }
       else if (parts[0] === "starred") {
         const cards = starredList();
-        await Promise.all([...new Set(cards.map(x => x[0]))].map(loadCards));
+        const [{ cardsView }] = await Promise.all([cardsMod(), ...[...new Set(cards.map(x => x[0]))].map(loadCards)]);
         cardsView(null, null, { cards, title: "Starred cards", label: "The cards you starred, from every chapter. Unstar a card to take it out of this deck.", starred: true });
       }
       else if (parts[0] === "chapters" || parts[0] === "practice") directoryView(parts[0] === "practice");
-      else if (parts[0] === "settings") settingsView();
-      else if (parts[0] === "read") await readerListView();
+      else if (parts[0] === "settings") await settingsView();
+      else if (parts[0] === "read") await (await readerMod()).readerListView();
       else if (parts[0] === "study") studyView();
-      else if (parts[0] === "srs") { if(parts[1]) await loadCards(parseInt(parts[1],10)); else await loadAllCards(); srsView(parts[1] ? parseInt(parts[1], 10) : undefined); }
+      else if (parts[0] === "srs") { const [{ srsView }] = await Promise.all([cardsMod(), parts[1] ? loadCards(parseInt(parts[1],10)) : loadAllCards()]); srsView(parts[1] ? parseInt(parts[1], 10) : undefined); }
       else if (parts[0] === "bank") await bankView(parts[1] ? parseInt(parts[1], 10) : undefined);
-      else if (parts[0] === "exam") parts[1] === "last" ? await lastView("exam") : await examView();
-      else if (parts[0] === "search") await searchView(parts.slice(1).join("/"));
-      else if (parts[0] === "progress") await dashboard();
+      else if (parts[0] === "exam") parts[1] === "last" ? await (await quizMod()).lastView("exam") : await examView();
+      else if (parts[0] === "search") await (await cardsMod()).searchView(parts.slice(1).join("/"));
+      else if (parts[0] === "progress") await (await progressMod()).dashboard();
       else home();
     } catch (e) {
       app.innerHTML = `<p>Something went wrong loading this page. <a href="#/">Go home</a></p>`;
