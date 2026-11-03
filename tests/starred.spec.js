@@ -121,3 +121,9 @@ test('typing a card number jumps to that card', async ({ page }) => {
   await page.reload();
   await expectCard(page, 5);
 });
+
+test('lab console styles do not leak onto flashcard terms', async ({ page }) => {
+  await page.goto('/#/ch/2/cards');
+  const bg = await page.locator('#flash .front .term').evaluate(el => getComputedStyle(el).backgroundColor);
+  expect(bg).not.toBe('rgb(11, 18, 32)');
+});
