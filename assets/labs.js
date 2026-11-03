@@ -4,8 +4,8 @@
 import { app, setCrumbs, onLeave, getJSON, store, syncSoon, esc, rich, shuffle, plural, fmtClock, fmtDur, fmtAgo, untilChoice } from "./runtime.js";
 import { icon } from "./visuals.js";
 
-// Lab text supports **bold** and `code`.
-const rt = s => rich(s).replace(/`([^`]+)`/g, "<code>$1</code>");
+// Lab text supports **bold**, `code` and line breaks.
+const rt = s => rich(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\n/g, "<br>");
 const WRONG = 4, WRONG_CAP = 12, HINT = 5, REVEAL = 15, HINT_AFTER = 2, REVEAL_AFTER = 4;
 const MAX_RUNS = 20;
 

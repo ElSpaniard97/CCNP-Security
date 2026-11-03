@@ -1,0 +1,74 @@
+{
+  "id": "ad-ransomware",
+  "n": 32,
+  "title": "Attack and defend: ransomware",
+  "domain": "Attack and Defend",
+  "chapter": 11,
+  "level": "Intermediate",
+  "minutes": 14,
+  "blurb": "Follow a ransomware intrusion through the kill chain, find where each control could have stopped it, and plan the recovery.",
+  "scenario": "A file server's shares are suddenly full of files ending in **.locked**, and there's a ransom note in every folder. Walk back through how the attack unfolded, decide where Cisco controls would have broken the chain, and recover safely.",
+  "topology": "User laptop ── SW ── file server\n   Secure Endpoint, Umbrella, FTD, Secure Network Analytics",
+  "objectives": [
+    "Order the stages of a typical ransomware intrusion",
+    "Match a control to each stage",
+    "Contain and recover in the right order"
+  ],
+  "steps": [
+    {
+      "title": "The kill chain",
+      "type": "order",
+      "learn": "Modern ransomware is rarely a single click. Operators get in, spread, steal data for **double extortion**, and only encrypt at the end. That leaves several chances to stop them.",
+      "task": "Put the stages in order.",
+      "question": "Order from first to last.",
+      "items": [
+        "Initial access: a phishing attachment runs a loader on a laptop",
+        "Command and control: the loader beacons out to the operator's server",
+        "Credential theft and lateral movement to the file server",
+        "Data exfiltration to cloud storage",
+        "Encryption of the shares and the ransom note"
+      ]
+    },
+    {
+      "title": "Break the chain",
+      "type": "form",
+      "learn": "Each stage leaves different traces, so each is caught by a different tool.",
+      "task": "Match each stage to the Cisco control best placed to stop or detect it.",
+      "screen": "Controls by stage",
+      "button": "Check",
+      "fields": [
+        { "label": "Loader runs on the laptop", "kind": "select", "options": ["Secure Endpoint (file reputation, behavioral protection)", "Umbrella (blocks the CnC domain at DNS)", "Secure Network Analytics (unusual internal connections and data hoarding)", "FTD (blocks SMB between user and server segments)"], "answer": "Secure Endpoint (file reputation, behavioral protection)" },
+        { "label": "Beacons to the operator's domain", "kind": "select", "options": ["Secure Endpoint (file reputation, behavioral protection)", "Umbrella (blocks the CnC domain at DNS)", "Secure Network Analytics (unusual internal connections and data hoarding)", "FTD (blocks SMB between user and server segments)"], "answer": "Umbrella (blocks the CnC domain at DNS)" },
+        { "label": "Lateral movement from the laptop to servers", "kind": "select", "options": ["Secure Endpoint (file reputation, behavioral protection)", "Umbrella (blocks the CnC domain at DNS)", "Secure Network Analytics (unusual internal connections and data hoarding)", "FTD (blocks SMB between user and server segments)"], "answer": "FTD (blocks SMB between user and server segments)" },
+        { "label": "Staging and uploading gigabytes of data", "kind": "select", "options": ["Secure Endpoint (file reputation, behavioral protection)", "Umbrella (blocks the CnC domain at DNS)", "Secure Network Analytics (unusual internal connections and data hoarding)", "FTD (blocks SMB between user and server segments)"], "answer": "Secure Network Analytics (unusual internal connections and data hoarding)" }
+      ]
+    },
+    {
+      "title": "Respond in the right order",
+      "type": "order",
+      "learn": "Contain first, so the attack stops spreading. Preserve evidence before you wipe anything. Restore only from backups you know are clean.",
+      "task": "Put the response steps in order.",
+      "question": "Order from first to last.",
+      "items": [
+        "Isolate affected hosts (Secure Endpoint isolation, switch port shutdown)",
+        "Disable or reset the compromised accounts",
+        "Preserve evidence: memory, logs and a sample of the encrypted files",
+        "Rebuild or clean the systems and restore from offline, tested backups",
+        "Review the root cause and close the gaps"
+      ]
+    },
+    {
+      "title": "Backups",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "Why must at least one backup copy be offline or immutable?",
+      "options": [
+        { "text": "Operators look for backups and encrypt or delete them first. A copy they can't reach or change is what makes recovery possible without paying.", "correct": true },
+        { "text": "Offline backups restore faster.", "why": "They're often slower. Their value is that the attacker can't reach them." },
+        { "text": "It's needed only for compliance.", "why": "It's the main technical defense against losing everything." }
+      ]
+    }
+  ],
+  "summary": "The ransomware kill chain from phishing to encryption, Secure Endpoint, Umbrella, FTD segmentation and Secure Network Analytics placed at each stage, a contain-first response, and offline or immutable backups.",
+  "next": "ad-recon-scan"
+}

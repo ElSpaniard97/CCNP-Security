@@ -1,0 +1,105 @@
+{
+  "id": "ad-recon-scan",
+  "n": 33,
+  "title": "Attack and defend: reconnaissance and port scans",
+  "domain": "Attack and Defend",
+  "chapter": 1,
+  "level": "Beginner",
+  "minutes": 12,
+  "blurb": "Recognize a port scan in flow data and IPS events, then shrink what the scan can find on an edge router.",
+  "scenario": "Secure Network Analytics flags one outside address touching hundreds of ports on your public range in a few seconds. Reconnaissance usually comes before an attack, so read the signs, tune detection on the FTD, and reduce what the edge exposes.",
+  "topology": "Internet ── R-EDGE ── FTD ── DMZ servers\n   Secure Network Analytics collects NetFlow from R-EDGE",
+  "objectives": [
+    "Tell scan types apart from their flow records",
+    "Turn on FTD portscan detection",
+    "Turn off services the edge router doesn't need",
+    "Filter management access at the edge"
+  ],
+  "devices": {
+    "R-EDGE": { "host": "R-EDGE", "start": "config" }
+  },
+  "steps": [
+    {
+      "title": "Read the flows",
+      "type": "form",
+      "learn": "Scans leave clear patterns in flow data. A **horizontal scan** hits one port on many hosts, looking for a single service. A **vertical scan** hits many ports on one host, mapping everything it runs. A **SYN (half-open) scan** sends SYNs and never completes the handshake, so flows show a SYN with an RST or no reply and almost no bytes.",
+      "task": "Match each flow pattern to the scan type it shows.",
+      "screen": "Secure Network Analytics: flow search",
+      "button": "Check",
+      "fields": [
+        { "label": "198.51.100.7 → 203.0.113.1-254, TCP 3389, 1 packet each", "kind": "select", "options": ["Horizontal scan", "Vertical scan", "Normal traffic"], "answer": "Horizontal scan" },
+        { "label": "198.51.100.7 → 203.0.113.20, TCP 1-1024, 1 packet each", "kind": "select", "options": ["Horizontal scan", "Vertical scan", "Normal traffic"], "answer": "Vertical scan" },
+        { "label": "203.0.113.50 → 203.0.113.20, TCP 443, 48 KB, full handshake", "kind": "select", "options": ["Horizontal scan", "Vertical scan", "Normal traffic"], "answer": "Normal traffic" }
+      ]
+    },
+    {
+      "title": "Detect scans on the FTD",
+      "type": "form",
+      "learn": "On FTD, **Threat Detection** in the network analysis policy watches for portscans. You pick which **protocols** to watch, which **scan types** to detect, and a **sensitivity**. Higher sensitivity catches slower scans but raises more false alarms. With the IPS rules for portscan events enabled, the events show up in FMC.",
+      "task": "Turn on portscan detection for **TCP** and **UDP**, detect **all scan types**, use **medium** sensitivity, and set the action to **generate events**.",
+      "screen": "FMC: Policies › Access Control › Threat Detection",
+      "button": "Save",
+      "fields": [
+        { "label": "Portscan mode", "kind": "select", "options": ["Disabled", "Detection", "Prevention"], "answer": "Detection" },
+        { "label": "Protocols", "kind": "select", "options": ["TCP only", "TCP and UDP", "ICMP only"], "answer": "TCP and UDP" },
+        { "label": "Scan types", "kind": "select", "options": ["Portscan only", "Portsweep only", "All (portscan, portsweep, decoy, distributed)"], "answer": "All (portscan, portsweep, decoy, distributed)" },
+        { "label": "Sensitivity", "kind": "select", "options": ["Low", "Medium", "High"], "answer": "Medium" }
+      ]
+    },
+    {
+      "title": "Shrink the attack surface",
+      "type": "cli",
+      "device": "R-EDGE",
+      "ordered": true,
+      "learn": "Every service a device runs is something a scan can find. Turn off what you don't use: the **HTTP server**, **CDP** on the Internet-facing interface (it reveals the model and IOS version), and **ICMP unreachables** and **redirects** on that interface, which help scanners map the network.",
+      "task": "Turn off the HTTP and HTTPS servers. On **GigabitEthernet0/0** (outside), turn off CDP, ICMP unreachables and ICMP redirects.",
+      "hint": "`no ip http server`, `no ip http secure-server`, `interface g0/0`, `no cdp enable`, `no ip unreachables`, `no ip redirects`.",
+      "commands": [
+        { "cmd": "no ip http server" },
+        { "cmd": "no ip http secure-server" },
+        { "cmd": "interface GigabitEthernet0/0", "enter": "config-if" },
+        { "cmd": "no cdp enable", "mode": "config-if", "note": "CDP stays on for internal interfaces, where it's useful." },
+        { "cmd": "no ip unreachables", "mode": "config-if" },
+        { "cmd": "no ip redirects", "mode": "config-if" }
+      ]
+    },
+    {
+      "title": "Hide management from the Internet",
+      "type": "cli",
+      "device": "R-EDGE",
+      "ordered": true,
+      "learn": "Even with SSH only, the management port should answer just your admins. An **access-class** on the VTY lines drops everyone else, so a scan sees nothing listening.",
+      "task": "Create standard ACL **VTY-ADMINS** permitting **10.10.99.0/24**, and apply it inbound on **VTY lines 0 4**.",
+      "hint": "`ip access-list standard VTY-ADMINS`, `permit 10.10.99.0 0.0.0.255`, `line vty 0 4`, `access-class VTY-ADMINS in`.",
+      "commands": [
+        { "cmd": "ip access-list standard VTY-ADMINS", "enter": "config-std-nacl" },
+        { "cmd": "permit 10.10.99.0 0.0.0.255", "mode": "config-std-nacl" },
+        { "cmd": "line vty 0 4", "enter": "config-line" },
+        { "cmd": "access-class VTY-ADMINS in", "mode": "config-line" }
+      ]
+    },
+    {
+      "title": "Check what's left",
+      "type": "cli",
+      "device": "R-EDGE",
+      "task": "Show which TCP ports the router is still listening on.",
+      "hint": "`do show control-plane host open-ports`",
+      "commands": [
+        { "cmd": "show control-plane host open-ports", "mode": "priv", "output": "Active internet connections (servers and established)\nProt        Local Address      Foreign Address     Service    State\n tcp                 *:22                  *:0     SSH-Server   LISTEN", "note": "Only SSH remains, and the VTY ACL limits who can reach it." }
+      ]
+    },
+    {
+      "title": "Why it matters",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "Why is detecting a scan useful even though a scan alone does no damage?",
+      "options": [
+        { "text": "Reconnaissance is an early kill-chain stage. Spotting it gives warning of a likely attack and names a source to watch or block.", "correct": true },
+        { "text": "Scans crash routers, so they must be blocked.", "why": "Ordinary scans don't crash anything. Their value to an attacker is information." },
+        { "text": "It isn't useful. Scans are too common to matter.", "why": "Most are background noise, but a targeted scan followed by exploit attempts is a strong signal." }
+      ]
+    }
+  ],
+  "summary": "Horizontal, vertical and SYN scans in flow data, FTD portscan detection, turning off unused edge services (HTTP, CDP, unreachables, redirects), a VTY access-class, and checking open ports.",
+  "next": "ad-syn-flood"
+}

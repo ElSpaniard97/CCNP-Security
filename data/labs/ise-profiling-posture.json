@@ -83,5 +83,5 @@
     }
   ],
   "summary": "Profiling probes and the data each provides, the posture flow with CoA, mandatory antivirus and encryption requirements with remediation, and authorization rules by posture status.",
-  "next": null
+  "next": "ad-arp-spoofing"
 }

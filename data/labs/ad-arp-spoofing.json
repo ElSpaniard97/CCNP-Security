@@ -1,0 +1,86 @@
+{
+  "id": "ad-arp-spoofing",
+  "n": 25,
+  "title": "Attack and defend: ARP spoofing",
+  "domain": "Attack and Defend",
+  "chapter": 6,
+  "level": "Beginner",
+  "minutes": 12,
+  "blurb": "See how a man-in-the-middle poisons ARP caches, spot it in the logs, and stop it with Dynamic ARP Inspection.",
+  "scenario": "On a guest VLAN (**VLAN 30**) at the branch, users report slow browsing and certificate warnings. An attacker on the same VLAN is **poisoning ARP caches** to put their laptop between the users and the gateway **10.30.0.1**. Learn how the attack works, find it, and shut it down on switch SW2. The real gateway is upstream on **GigabitEthernet1/0/1**.",
+  "topology": "Users ── SW2 ── Gi1/0/1 ── gateway 10.30.0.1\n          │\n   attacker laptop (Gi1/0/14)",
+  "objectives": [
+    "Understand why ARP can be spoofed",
+    "Recognize the signs of ARP poisoning",
+    "Turn on DHCP snooping and DAI on the VLAN",
+    "Map the attack to MITRE ATT&CK"
+  ],
+  "devices": { "SW2": { "host": "SW2", "start": "config" } },
+  "steps": [
+    {
+      "title": "How the attack works",
+      "type": "order",
+      "learn": "**ARP has no authentication.** Any host can send a reply saying \"10.30.0.1 is at my MAC\", and other hosts update their caches, even if they never asked. That's ARP spoofing (or poisoning), a classic **on-path** (man-in-the-middle) attack.",
+      "task": "Put the stages of the attack in order.",
+      "question": "Order from first to last.",
+      "items": [
+        "The attacker joins the same VLAN as the victims",
+        "The attacker sends unsolicited ARP replies mapping the gateway's IP to the attacker's MAC",
+        "Victims update their ARP caches and send gateway-bound traffic to the attacker",
+        "The attacker forwards the traffic on, so the victims notice little, while capturing or altering it"
+      ]
+    },
+    {
+      "title": "Spot the poisoning",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "Which observation best points to ARP spoofing on VLAN 30?\n\n`arp -a` on a victim:\n`10.30.0.1   00-0c-29-aa-bb-cc`\n`10.30.0.57  00-0c-29-aa-bb-cc`",
+      "options": [
+        { "text": "Two different IPs, including the gateway, map to the same MAC address, and that MAC belongs to a regular user port.", "correct": true },
+        { "text": "The gateway's MAC starts with 00-0c-29.", "why": "A vendor prefix alone proves nothing. The giveaway is two IPs sharing one MAC." },
+        { "text": "The cache has more than one entry.", "why": "Caches normally hold many entries." }
+      ]
+    },
+    {
+      "title": "Turn on the defense",
+      "type": "cli",
+      "device": "SW2",
+      "ordered": true,
+      "learn": "**DAI** drops ARP packets on untrusted ports whose IP-to-MAC pair doesn't match the **DHCP snooping** binding table. The attacker's reply claiming 10.30.0.1 doesn't match any lease on their port, so it's dropped. The uplink to the real gateway must be trusted for both features.",
+      "task": "Turn on DHCP snooping globally and for **VLAN 30**, turn on ARP inspection for **VLAN 30**, and trust both on uplink **GigabitEthernet1/0/1**.",
+      "hint": "`ip dhcp snooping`, `ip dhcp snooping vlan 30`, `ip arp inspection vlan 30`, then `interface GigabitEthernet1/0/1`, `ip dhcp snooping trust` and `ip arp inspection trust`.",
+      "commands": [
+        { "cmd": "ip dhcp snooping" },
+        { "cmd": "ip dhcp snooping vlan 30" },
+        { "cmd": "ip arp inspection vlan 30" },
+        { "cmd": "interface GigabitEthernet1/0/1", "enter": "config-if" },
+        { "cmd": "ip dhcp snooping trust", "mode": "config-if" },
+        { "cmd": "ip arp inspection trust", "mode": "config-if", "output": "%SW_DAI-4-DHCP_SNOOPING_DENY: 1 Invalid ARPs (Res) on Gi1/0/14, vlan 30.([000c.29aa.bbcc/10.30.0.1/...])", "note": "The very next spoofed reply from Gi1/0/14 was dropped and logged." }
+      ]
+    },
+    {
+      "title": "Read the log",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "SW2 logs `%SW_DAI-4-DHCP_SNOOPING_DENY: 1 Invalid ARPs (Res) on Gi1/0/14, vlan 30`. What should you do next?",
+      "options": [
+        { "text": "Find who is connected to Gi1/0/14 and follow your incident process. The port is the source of the forged replies.", "correct": true },
+        { "text": "Trust Gi1/0/14 so the errors stop.", "why": "That would let the attack through again." },
+        { "text": "Turn DAI off, because it's dropping traffic.", "why": "It's dropping exactly the traffic it should." }
+      ]
+    },
+    {
+      "title": "Name it in ATT&CK",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "Which MITRE ATT&CK technique describes this attack?",
+      "options": [
+        { "text": "Adversary-in-the-Middle: ARP Cache Poisoning (T1557.002)", "correct": true },
+        { "text": "Phishing (T1566)", "why": "Phishing is delivered by message. This attack happens on the local network." },
+        { "text": "Brute Force (T1110)", "why": "No passwords are being guessed." }
+      ]
+    }
+  ],
+  "summary": "Why ARP can be forged, how two IPs on one MAC give the attack away, DHCP snooping and DAI dropping the forged replies, and the matching ATT&CK technique.",
+  "next": "ad-brute-force"
+}
