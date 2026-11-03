@@ -232,7 +232,7 @@ function runLab(meta, lab, saved) {
     function cliStep() {
       const dev = device(s.device), need = s.commands;
       const left = () => need.map((c, k) => k).filter(k => !r.done.includes(k));
-      work.innerHTML = `<div class="term" role="group" aria-label="${esc(s.device)} console"><div class="term-title">${icon("terminal")}${esc(s.device)}</div>
+      work.innerHTML = `<div class="lab-term" role="group" aria-label="${esc(s.device)} console"><div class="term-title">${icon("terminal")}${esc(s.device)}</div>
         <div class="term-out" id="term-out" aria-live="polite"></div>
         <form class="term-line" id="term-form" autocomplete="off"><label for="term-in" id="term-prompt">${esc(prompt(dev))}</label><input id="term-in" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="send" aria-describedby="term-prompt"></form></div>
         <div class="row term-keys" aria-label="Insert a command">${["enable", "configure terminal", "exit", "end", "show running-config"].map(k => `<button class="chip" type="button" data-insert="${k}">${k}</button>`).join("")}</div>
