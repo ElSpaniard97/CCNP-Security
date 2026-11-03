@@ -12,7 +12,7 @@ const PASS = 80;
   const fmtClock = ms => { const s = Math.max(0, Math.ceil(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
   const fmtAgo = ts => { const m = Math.round((Date.now() - ts) / 60000); return m < 1 ? "just now" : m < 60 ? `${m} min ago` : m < 1440 ? `${Math.round(m / 60)} h ago` : fmtDate(ts); };
   const dayKey = ts => { const d = new Date(ts); return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`; };
-  const testTitle = (n, t) => `Ch ${n} · Test ${t}`;
+  const testTitle = (n, t) => `Ch ${+n} · Test ${+t}`;
 
 
 export { esc, cap, rich, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, dayKey, testTitle };

@@ -96,7 +96,7 @@ import { domainFor, selectExam } from "./blueprint.js";
     return store.keys().filter(k => k.startsWith("resume.")).map(k => [k.slice(7), getResume(k.slice(7))]).filter(x => x[1])
       .sort((a, b) => b[1].at - a[1].at);
   }
-  const resumeHref = key => key === "exam" ? "#/exam" : key === "bank" ? "#/bank" : `#/ch/${key.split(".")[1]}/test/${key.split(".")[2]}`;
+  const resumeHref = key => key === "exam" ? "#/exam" : key === "bank" ? "#/bank" : `#/ch/${parseInt(key.split(".")[1], 10)}/test/${parseInt(key.split(".")[2], 10)}`;
 
   // ---------- missed-question bank ----------
   // bank["ch.t.i"] = { s: right answers in a row, at }. s reaching BANK_CLEAR clears it (kept so sync knows).
