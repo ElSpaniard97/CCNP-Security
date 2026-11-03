@@ -1,0 +1,168 @@
+{
+  "id": "umbrella-dns",
+  "n": 12,
+  "title": "DNS-layer security with Umbrella",
+  "domain": "Content Security",
+  "chapter": 10,
+  "level": "Beginner",
+  "minutes": 12,
+  "blurb": "Register a network in Cisco Umbrella, block threat categories at the DNS layer, and send the office's DNS to Umbrella.",
+  "scenario": "The HQ office reaches the Internet from public address **203.0.113.1**. Protect every device in the office, including ones without an agent, by using **Cisco Umbrella** as the DNS resolver. Block malware, phishing and command-and-control domains, and inspect risky domains with the Intelligent Proxy.",
+  "topology": "Office clients ── internal DNS ── forwarders → Umbrella 208.67.222.222 / 208.67.220.220\n                         egress public IP 203.0.113.1",
+  "objectives": [
+    "Register the office network as an identity",
+    "Write a DNS policy with security categories",
+    "Point the internal DNS forwarders at Umbrella",
+    "Understand how blocking and the Intelligent Proxy work"
+  ],
+  "steps": [
+    {
+      "title": "Add the network identity",
+      "type": "form",
+      "learn": "Umbrella identifies an office by the **public IP** its DNS queries come from. Register that IP as a **Network** identity, and policies can apply to it.",
+      "task": "Add network **HQ** with IP **203.0.113.1** and prefix **/32**.",
+      "screen": "Umbrella › Deployments › Core Identities › Networks › Add",
+      "button": "Save",
+      "fields": [
+        {
+          "label": "Network Name",
+          "kind": "text",
+          "answer": "HQ"
+        },
+        {
+          "label": "IPv4 Address",
+          "kind": "text",
+          "answer": "203.0.113.1"
+        },
+        {
+          "label": "Prefix",
+          "kind": "select",
+          "options": [
+            "/32",
+            "/29",
+            "/24"
+          ],
+          "answer": "/32"
+        }
+      ]
+    },
+    {
+      "title": "Create the DNS policy",
+      "type": "form",
+      "learn": "A **DNS policy** applies security and content settings to the identities it covers. Policies are checked top-down, and the first one that includes the identity applies.",
+      "task": "Create DNS policy **HQ-Policy** for identity **HQ**. Block the security categories **Malware**, **Phishing Attacks** and **Command and Control Callbacks**, and turn on the **Intelligent Proxy**.",
+      "screen": "Umbrella › Policies › DNS Policies › Add",
+      "button": "Save",
+      "fields": [
+        {
+          "label": "Policy Name",
+          "kind": "text",
+          "answer": "HQ-Policy"
+        },
+        {
+          "label": "Identities",
+          "kind": "select",
+          "options": [
+            "All Identities",
+            "HQ",
+            "Roaming Computers"
+          ],
+          "answer": "HQ"
+        },
+        {
+          "label": "Block: Malware",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Block: Phishing Attacks",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Block: Command and Control Callbacks",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Enable Intelligent Proxy",
+          "kind": "check",
+          "answer": true
+        }
+      ]
+    },
+    {
+      "title": "Send DNS to Umbrella",
+      "type": "form",
+      "learn": "Keep the internal DNS servers for local names, and set their **forwarders** to Umbrella's anycast resolvers. Then block outbound DNS (UDP and TCP 53) from everything except those servers, so devices can't bypass Umbrella.",
+      "task": "Set the forwarders on the internal DNS server to Umbrella's resolvers, and choose the firewall rule that stops bypass.",
+      "screen": "Internal DNS server › Forwarders",
+      "button": "Apply",
+      "fields": [
+        {
+          "label": "Forwarder 1",
+          "kind": "text",
+          "answer": "208.67.222.222"
+        },
+        {
+          "label": "Forwarder 2",
+          "kind": "text",
+          "answer": "208.67.220.220"
+        },
+        {
+          "label": "Firewall rule for outbound port 53",
+          "kind": "select",
+          "options": [
+            "Allow from all hosts",
+            "Allow only from the internal DNS servers, block the rest",
+            "Block from all hosts"
+          ],
+          "answer": "Allow only from the internal DNS servers, block the rest"
+        }
+      ]
+    },
+    {
+      "title": "What the user sees",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "A user clicks a link to a phishing domain. What does Umbrella do?",
+      "options": [
+        {
+          "text": "Answers the DNS query with the address of an Umbrella block page, so the browser never connects to the phishing site.",
+          "correct": true
+        },
+        {
+          "text": "Lets the connection through and scans the page for malware.",
+          "why": "For a domain in a blocked category, Umbrella stops it at the DNS answer, before any connection is made."
+        },
+        {
+          "text": "Returns no answer, so the browser shows a timeout.",
+          "why": "Umbrella returns a block page address, so the user sees why the site was blocked."
+        }
+      ]
+    },
+    {
+      "title": "Grey domains",
+      "type": "choice",
+      "learn": "Most domains are clearly safe or clearly malicious. A few, such as file-sharing sites, host both good and bad content.",
+      "task": "Answer the question.",
+      "question": "What does the Intelligent Proxy do for a risky domain that isn't outright malicious?",
+      "options": [
+        {
+          "text": "Answers DNS with the proxy's address, then inspects the full URL and blocks only the bad files or pages on that domain.",
+          "correct": true
+        },
+        {
+          "text": "Blocks the whole domain.",
+          "why": "That would block legitimate content too. The proxy checks the URL instead."
+        },
+        {
+          "text": "Proxies every domain the office visits.",
+          "why": "Only risky (grey) domains are sent to the proxy. Safe domains resolve normally."
+        }
+      ]
+    }
+  ],
+  "summary": "The HQ network identity, a DNS policy blocking malware, phishing and CnC with the Intelligent Proxy turned on, and internal DNS forwarding to Umbrella with port 53 locked down so it can't be bypassed.",
+  "next": null
+}

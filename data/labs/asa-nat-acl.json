@@ -1,0 +1,223 @@
+{
+  "id": "asa-nat-acl",
+  "n": 9,
+  "title": "ASA interfaces, NAT and access rules",
+  "domain": "Network Security",
+  "chapter": 7,
+  "level": "Intermediate",
+  "minutes": 20,
+  "blurb": "Bring up inside, outside and DMZ interfaces, add PAT and static NAT, and publish a web server.",
+  "scenario": "A new Cisco Secure Firewall ASA protects the branch. Inside users on **10.1.1.0/24** need Internet access, and the web server **172.16.1.10** in the DMZ must be reachable from the Internet at **203.0.113.20** on HTTP. The outside interface uses **203.0.113.10/24**.",
+  "topology": "Inside 10.1.1.0/24 ── Gi0/1 [ASA] Gi0/0 ── Internet 203.0.113.0/24\n                             │ Gi0/2\n                        DMZ 172.16.1.0/24 (web 172.16.1.10)",
+  "objectives": [
+    "Name the interfaces and set security levels",
+    "Understand the default traffic flow between levels",
+    "Configure dynamic PAT for inside users",
+    "Publish the web server with static NAT and an access rule"
+  ],
+  "devices": {
+    "ASA": {
+      "host": "ciscoasa",
+      "start": "config",
+      "showAnywhere": true
+    }
+  },
+  "steps": [
+    {
+      "title": "Interfaces and security levels",
+      "type": "cli",
+      "device": "ASA",
+      "ordered": true,
+      "learn": "Each ASA interface needs a **nameif** (used in all later commands), a **security level** from 0 (least trusted) to 100 (most trusted) and an address. `nameif inside` sets level 100 automatically, and other names default to 0, but set them explicitly.",
+      "task": "Configure **GigabitEthernet0/0** as **outside**, level **0**, **203.0.113.10/24**; **GigabitEthernet0/1** as **inside**, level **100**, **10.1.1.1/24**; **GigabitEthernet0/2** as **dmz**, level **50**, **172.16.1.1/24**.",
+      "hint": "For each interface: `interface GigabitEthernet0/0`, `nameif outside`, `security-level 0`, `ip address 203.0.113.10 255.255.255.0`. Then the same pattern for Gi0/1 and Gi0/2.",
+      "commands": [
+        {
+          "cmd": "interface GigabitEthernet0/0",
+          "enter": "config-if"
+        },
+        {
+          "cmd": "nameif outside",
+          "mode": "config-if",
+          "output": "INFO: Security level for \"outside\" set to 0 by default."
+        },
+        {
+          "cmd": "security-level 0",
+          "mode": "config-if"
+        },
+        {
+          "cmd": "ip address 203.0.113.10 255.255.255.0",
+          "mode": "config-if"
+        },
+        {
+          "cmd": "interface GigabitEthernet0/1",
+          "enter": "config-if"
+        },
+        {
+          "cmd": "nameif inside",
+          "mode": "config-if",
+          "output": "INFO: Security level for \"inside\" set to 100 by default."
+        },
+        {
+          "cmd": "security-level 100",
+          "mode": "config-if"
+        },
+        {
+          "cmd": "ip address 10.1.1.1 255.255.255.0",
+          "mode": "config-if"
+        },
+        {
+          "cmd": "interface GigabitEthernet0/2",
+          "enter": "config-if"
+        },
+        {
+          "cmd": "nameif dmz",
+          "mode": "config-if"
+        },
+        {
+          "cmd": "security-level 50",
+          "mode": "config-if"
+        },
+        {
+          "cmd": "ip address 172.16.1.1 255.255.255.0",
+          "mode": "config-if"
+        }
+      ]
+    },
+    {
+      "title": "Default traffic flow",
+      "type": "choice",
+      "learn": "With no access rules applied, the ASA allows traffic from a **higher** security level to a **lower** one, and the stateful table lets the replies back in. New connections from lower to higher are denied.",
+      "task": "Pick every flow the ASA allows before any access list is applied.",
+      "question": "Which new connections are allowed by default?",
+      "options": [
+        {
+          "text": "Inside (100) to outside (0)",
+          "correct": true
+        },
+        {
+          "text": "Inside (100) to DMZ (50)",
+          "correct": true
+        },
+        {
+          "text": "DMZ (50) to outside (0)",
+          "correct": true
+        },
+        {
+          "text": "Outside (0) to the DMZ web server",
+          "why": "Lower to higher needs an explicit permit in an access list."
+        },
+        {
+          "text": "DMZ (50) to inside (100)",
+          "why": "Lower to higher is denied by default. That keeps a compromised DMZ server from reaching the LAN."
+        }
+      ]
+    },
+    {
+      "title": "PAT for inside users",
+      "type": "cli",
+      "device": "ASA",
+      "ordered": true,
+      "learn": "Since ASA 8.3, NAT is defined on **network objects**. `nat (inside,outside) dynamic interface` translates every inside host to the outside interface address, using unique ports (PAT).",
+      "task": "Create network object **INSIDE-NET** for subnet **10.1.1.0/24**, and give it dynamic PAT to the **outside interface**.",
+      "hint": "`object network INSIDE-NET`, `subnet 10.1.1.0 255.255.255.0`, `nat (inside,outside) dynamic interface`.",
+      "commands": [
+        {
+          "cmd": "object network INSIDE-NET",
+          "enter": "config-network-object"
+        },
+        {
+          "cmd": "subnet 10.1.1.0 255.255.255.0",
+          "mode": "config-network-object"
+        },
+        {
+          "cmd": "nat (inside,outside) dynamic interface",
+          "mode": "config-network-object",
+          "note": "Inside users share 203.0.113.10 on the Internet."
+        }
+      ]
+    },
+    {
+      "title": "Static NAT for the web server",
+      "type": "cli",
+      "device": "ASA",
+      "ordered": true,
+      "task": "Create network object **WEB-SRV** for host **172.16.1.10** with static NAT from **dmz** to **outside** as **203.0.113.20**.",
+      "hint": "`object network WEB-SRV`, `host 172.16.1.10`, `nat (dmz,outside) static 203.0.113.20`.",
+      "commands": [
+        {
+          "cmd": "object network WEB-SRV",
+          "enter": "config-network-object"
+        },
+        {
+          "cmd": "host 172.16.1.10",
+          "mode": "config-network-object"
+        },
+        {
+          "cmd": "nat (dmz,outside) static 203.0.113.20",
+          "mode": "config-network-object"
+        }
+      ]
+    },
+    {
+      "title": "Which address goes in the ACL?",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "On ASA 8.3 and later, which address must the outside access rule permit for the web server?",
+      "options": [
+        {
+          "text": "The real address, 172.16.1.10 (or the WEB-SRV object).",
+          "correct": true
+        },
+        {
+          "text": "The mapped public address, 203.0.113.20.",
+          "why": "That was true before 8.3. Now, untranslation happens before the ACL check, so ACLs use real addresses."
+        },
+        {
+          "text": "Either one works.",
+          "why": "Only the real address matches, because the ACL sees the packet after NAT is undone."
+        }
+      ]
+    },
+    {
+      "title": "Permit HTTP from the Internet",
+      "type": "cli",
+      "device": "ASA",
+      "ordered": true,
+      "task": "Create extended ACL **OUTSIDE-IN** permitting TCP from **any** to object **WEB-SRV** on **www**, and apply it **in** on interface **outside**.",
+      "hint": "`access-list OUTSIDE-IN extended permit tcp any object WEB-SRV eq www`, then `access-group OUTSIDE-IN in interface outside`.",
+      "commands": [
+        {
+          "cmd": "access-list OUTSIDE-IN extended permit tcp any object WEB-SRV eq www",
+          "alt": [
+            "access-list OUTSIDE-IN extended permit tcp any host 172.16.1.10 eq www",
+            "access-list OUTSIDE-IN extended permit tcp any object WEB-SRV eq 80",
+            "access-list OUTSIDE-IN extended permit tcp any host 172.16.1.10 eq 80",
+            "access-list OUTSIDE-IN extended permit tcp any4 object WEB-SRV eq www"
+          ]
+        },
+        {
+          "cmd": "access-group OUTSIDE-IN in interface outside",
+          "note": "Once an ACL is applied inbound on an interface, it replaces the security-level default for traffic entering there."
+        }
+      ]
+    },
+    {
+      "title": "Verify NAT",
+      "type": "cli",
+      "device": "ASA",
+      "task": "Show the NAT rules and their hit counts.",
+      "hint": "`show nat`. On an ASA, show commands work from any configuration mode, so there's no need for `do` or `end`.",
+      "commands": [
+        {
+          "cmd": "show nat",
+          "mode": "priv",
+          "output": "Auto NAT Policies (Section 2)\n1 (dmz) to (outside) source static WEB-SRV 203.0.113.20\n    translate_hits = 0, untranslate_hits = 214\n2 (inside) to (outside) source dynamic INSIDE-NET interface\n    translate_hits = 5831, untranslate_hits = 1209",
+          "note": "Object NAT lives in section 2. Static rules are placed before dynamic ones."
+        }
+      ]
+    }
+  ],
+  "summary": "Named interfaces with security levels, dynamic PAT for the inside subnet, static NAT for the DMZ web server, and an inbound outside ACL that permits HTTP to the server's real address.",
+  "next": "fmc-access-policy"
+}

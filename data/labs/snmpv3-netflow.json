@@ -1,0 +1,110 @@
+{
+  "id": "snmpv3-netflow",
+  "n": 8,
+  "title": "Secure monitoring: SNMPv3 and NetFlow",
+  "domain": "Secure Network Access, Visibility, and Enforcement",
+  "chapter": 5,
+  "level": "Intermediate",
+  "minutes": 18,
+  "blurb": "Replace community strings with authenticated, encrypted SNMPv3 and export flows to Secure Network Analytics.",
+  "scenario": "R1 is still polled with SNMPv2c and the community string **public**, and the security team can't see who is talking to whom. Move monitoring to **SNMPv3 with authentication and privacy** for the NMS at **10.10.99.20**, and export Flexible NetFlow from the LAN interface **GigabitEthernet0/1** to the Secure Network Analytics (Stealthwatch) Flow Collector at **10.10.99.30**, UDP **2055**.",
+  "topology": "LAN ── Gi0/1 R1 ── Internet\n          │\n   NMS 10.10.99.20 (SNMPv3)   Flow Collector 10.10.99.30 (NetFlow v9)",
+  "objectives": [
+    "Choose the right SNMPv3 security level",
+    "Create the SNMPv3 group, user and trap host",
+    "Build a flow record, exporter and monitor",
+    "Apply the monitor and see what the collector does with flows"
+  ],
+  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "steps": [
+    {
+      "title": "Pick the security level",
+      "type": "form",
+      "learn": "SNMPv3 replaces community strings with users, and it has three security levels. **noAuthNoPriv** is a username only. **authNoPriv** adds a hash to prove the sender (SHA). **authPriv** also encrypts the payload (AES).",
+      "task": "Match each SNMPv3 level to what it protects.",
+      "screen": "SNMPv3 security levels",
+      "button": "Check",
+      "fields": [
+        { "label": "noAuthNoPriv (noauth)", "kind": "select", "options": ["Username only, nothing protected", "Authenticated, readable on the wire", "Authenticated and encrypted"], "answer": "Username only, nothing protected" },
+        { "label": "authNoPriv (auth)", "kind": "select", "options": ["Username only, nothing protected", "Authenticated, readable on the wire", "Authenticated and encrypted"], "answer": "Authenticated, readable on the wire" },
+        { "label": "authPriv (priv)", "kind": "select", "options": ["Username only, nothing protected", "Authenticated, readable on the wire", "Authenticated and encrypted"], "answer": "Authenticated and encrypted" }
+      ]
+    },
+    {
+      "title": "Configure SNMPv3",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "The **group** sets the security level. The **user** belongs to the group and holds the auth and priv keys. The **host** command sends traps to the NMS as that user. Remove the old community with `no snmp-server community public`.",
+      "task": "Remove community **public**. Create group **NMS-GROUP** at v3 **priv**. Create user **nmsuser** in it with **sha** auth key **AuthPass123** and **aes 128** priv key **PrivPass123**. Send v3 **priv** traps to **10.10.99.20** as nmsuser.",
+      "hint": "`no snmp-server community public`, `snmp-server group NMS-GROUP v3 priv`, `snmp-server user nmsuser NMS-GROUP v3 auth sha AuthPass123 priv aes 128 PrivPass123`, `snmp-server host 10.10.99.20 version 3 priv nmsuser`.",
+      "commands": [
+        { "cmd": "no snmp-server community public", "note": "The plain-text v2c community is gone." },
+        { "cmd": "snmp-server group NMS-GROUP v3 priv" },
+        { "cmd": "snmp-server user nmsuser NMS-GROUP v3 auth sha AuthPass123 priv aes 128 PrivPass123", "note": "SNMPv3 users don't appear in the running configuration. Their keys are stored separately." },
+        { "cmd": "snmp-server host 10.10.99.20 version 3 priv nmsuser" }
+      ]
+    },
+    {
+      "title": "Build the flow record and exporter",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "Flexible NetFlow has three parts. The **record** says which fields make a flow unique (`match`) and what to count (`collect`). The **exporter** says where to send flows. The **monitor** ties them together.",
+      "task": "Create record **FR-SCOR** matching IPv4 source and destination address, protocol, and transport source and destination port, and collecting byte and packet counters. Create exporter **FE-SNA** sending to **10.10.99.30** over UDP **2055** with NetFlow v9.",
+      "hint": "`flow record FR-SCOR` then `match ipv4 source address`, `match ipv4 destination address`, `match ipv4 protocol`, `match transport source-port`, `match transport destination-port`, `collect counter bytes`, `collect counter packets`. Then `flow exporter FE-SNA`, `destination 10.10.99.30`, `transport udp 2055`, `export-protocol netflow-v9`.",
+      "commands": [
+        { "cmd": "flow record FR-SCOR", "enter": "config-flow-record" },
+        { "cmd": "match ipv4 source address", "mode": "config-flow-record" },
+        { "cmd": "match ipv4 destination address", "mode": "config-flow-record" },
+        { "cmd": "match ipv4 protocol", "mode": "config-flow-record" },
+        { "cmd": "match transport source-port", "mode": "config-flow-record" },
+        { "cmd": "match transport destination-port", "mode": "config-flow-record" },
+        { "cmd": "collect counter bytes", "mode": "config-flow-record" },
+        { "cmd": "collect counter packets", "mode": "config-flow-record" },
+        { "cmd": "flow exporter FE-SNA", "enter": "config-flow-exporter" },
+        { "cmd": "destination 10.10.99.30", "mode": "config-flow-exporter" },
+        { "cmd": "transport udp 2055", "mode": "config-flow-exporter" },
+        { "cmd": "export-protocol netflow-v9", "mode": "config-flow-exporter" }
+      ]
+    },
+    {
+      "title": "Monitor the LAN interface",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "task": "Create monitor **FM-SCOR** using record **FR-SCOR** and exporter **FE-SNA**, and apply it **inbound** on **GigabitEthernet0/1**.",
+      "hint": "`flow monitor FM-SCOR`, `record FR-SCOR`, `exporter FE-SNA`, then `interface GigabitEthernet0/1` and `ip flow monitor FM-SCOR input`.",
+      "commands": [
+        { "cmd": "flow monitor FM-SCOR", "enter": "config-flow-monitor" },
+        { "cmd": "record FR-SCOR", "mode": "config-flow-monitor" },
+        { "cmd": "exporter FE-SNA", "mode": "config-flow-monitor" },
+        { "cmd": "interface GigabitEthernet0/1", "enter": "config-if" },
+        { "cmd": "ip flow monitor FM-SCOR input", "mode": "config-if", "note": "Flows entering from the LAN are now exported." }
+      ]
+    },
+    {
+      "title": "What the collector sees",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "How does Secure Network Analytics use these flows to find threats?",
+      "options": [
+        { "text": "It baselines normal behavior for each host and raises alarms on anomalies, such as a workstation suddenly sending gigabytes to an unknown address or scanning many hosts.", "correct": true },
+        { "text": "It reads the payload of every packet to match malware signatures.", "why": "NetFlow carries metadata (who, when, how much), not payloads. Signature matching is the job of an IPS such as Snort." },
+        { "text": "It blocks the traffic on R1 directly.", "why": "Flow analysis is detection and visibility. Blocking takes integration, for example ISE Rapid Threat Containment." }
+      ]
+    },
+    {
+      "title": "Verify the export",
+      "type": "cli",
+      "device": "R1",
+      "task": "Display the statistics for exporter **FE-SNA**.",
+      "hint": "`do show flow exporter FE-SNA statistics`",
+      "commands": [
+        { "cmd": "show flow exporter FE-SNA statistics", "mode": "priv", "output": "Flow Exporter FE-SNA:\n  Packet send statistics (last cleared 00:12:41 ago):\n    Successfully sent:         1284                  (1712346 bytes)\n\n  Client send statistics:\n    Client: Flow Monitor FM-SCOR\n      Records added:           9873\n        - sent:                9873\n      Bytes added:             1693204\n        - sent:                1693204", "note": "Records are reaching the collector." }
+      ]
+    }
+  ],
+  "summary": "SNMPv3 at authPriv with a group, user and trap host replacing the v2c community, and Flexible NetFlow with a record, an exporter to the Secure Network Analytics collector, and a monitor on the LAN interface.",
+  "next": "asa-nat-acl"
+}

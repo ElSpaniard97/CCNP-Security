@@ -1,0 +1,104 @@
+{
+  "id": "fmc-access-policy",
+  "n": 10,
+  "title": "FTD access control with FMC",
+  "domain": "Network Security",
+  "chapter": 7,
+  "level": "Intermediate",
+  "minutes": 16,
+  "blurb": "Build an access control policy in the Firewall Management Center with intrusion and malware inspection.",
+  "scenario": "The branch is moving from the ASA to **Cisco Secure Firewall Threat Defense (FTD)**, managed by the **Firewall Management Center (FMC)**. Build the access control policy: inside users may browse the web, with intrusion prevention and malware blocking applied. Block known-bad destinations, and deny everything else.",
+  "topology": "Inside zone ── [FTD] ── Outside zone\n                 ↑ managed by FMC",
+  "objectives": [
+    "Know the order FTD applies its policies in",
+    "Create the access control policy and its default action",
+    "Write an allow rule with intrusion and file policies",
+    "Choose between Trust and Allow, and remember to deploy"
+  ],
+  "steps": [
+    {
+      "title": "The order of inspection",
+      "type": "order",
+      "learn": "FTD applies its policies in a fixed order. Cheap, early decisions (prefilter and Security Intelligence) spare the deeper engines from work they don't need to do.",
+      "task": "Put the policies in the order a new connection meets them.",
+      "question": "Order from first to last.",
+      "hint": "Fastpath and blocklists come first, then decryption, then working out the user, then rules, and deep inspection last.",
+      "items": [
+        "Prefilter policy (fastpath or block by simple header fields)",
+        "Security Intelligence (IP, URL and DNS blocklists)",
+        "SSL/TLS decryption policy",
+        "Identity policy (which user is this?)",
+        "Access control rules",
+        "File, malware and intrusion inspection"
+      ]
+    },
+    {
+      "title": "Create the policy",
+      "type": "form",
+      "learn": "The **default action** handles traffic that matches no rule. **Block all traffic** gives a default deny. The alternative, an intrusion-prevention default, lets unmatched traffic through with inspection.",
+      "task": "Create policy **Branch-ACP** with the default action **Block all traffic**.",
+      "screen": "FMC › Policies › Access Control › New Policy",
+      "button": "Save",
+      "fields": [
+        { "label": "Name", "kind": "text", "answer": "Branch-ACP" },
+        { "label": "Base Policy", "kind": "select", "options": ["None", "Default Access Control"], "answer": "None" },
+        { "label": "Default Action", "kind": "select", "options": ["Block all traffic", "Intrusion Prevention", "Network Discovery Only"], "answer": "Block all traffic" }
+      ]
+    },
+    {
+      "title": "Turn on Security Intelligence",
+      "type": "form",
+      "learn": "**Security Intelligence** drops traffic to and from addresses, URLs and domains that Talos rates as malicious, before any rule is checked.",
+      "task": "On the Security Intelligence tab, **block** the Talos **Malware**, **Phishing** and **Command and Control** feeds for both networks and URLs.",
+      "screen": "FMC › Branch-ACP › Security Intelligence",
+      "button": "Save",
+      "fields": [
+        { "label": "Block: Malware", "kind": "check", "answer": true },
+        { "label": "Block: Phishing", "kind": "check", "answer": true },
+        { "label": "Block: Command and Control (CnC)", "kind": "check", "answer": true },
+        { "label": "Apply to", "kind": "select", "options": ["Networks only", "URLs only", "Networks and URLs"], "answer": "Networks and URLs" }
+      ]
+    },
+    {
+      "title": "Allow web browsing with inspection",
+      "type": "form",
+      "learn": "An **Allow** rule passes matching traffic on to deep inspection. Attach an **intrusion policy** (Snort rules) and a **file policy** (Secure Malware Analytics and AMP file reputation) to inspect it. Log at the end of the connection to get the full byte counts.",
+      "task": "Add rule **Allow-Web**: action **Allow**, from zone **Inside** to zone **Outside**, applications **HTTP and HTTPS**, intrusion policy **Balanced Security and Connectivity**, file policy **Block-Malware**, logging **at end of connection**.",
+      "screen": "FMC › Branch-ACP › Rules › Add Rule",
+      "button": "Apply",
+      "fields": [
+        { "label": "Name", "kind": "text", "answer": "Allow-Web" },
+        { "label": "Action", "kind": "select", "options": ["Allow", "Trust", "Block", "Block with reset", "Monitor"], "answer": "Allow" },
+        { "label": "Source Zone", "kind": "select", "options": ["Inside", "Outside", "DMZ"], "answer": "Inside" },
+        { "label": "Destination Zone", "kind": "select", "options": ["Inside", "Outside", "DMZ"], "answer": "Outside" },
+        { "label": "Applications", "kind": "select", "options": ["HTTP and HTTPS", "Any", "SSH"], "answer": "HTTP and HTTPS" },
+        { "label": "Intrusion Policy", "kind": "select", "options": ["None", "Connectivity Over Security", "Balanced Security and Connectivity", "Security Over Connectivity"], "answer": "Balanced Security and Connectivity" },
+        { "label": "File Policy", "kind": "select", "options": ["None", "Block-Malware"], "answer": "Block-Malware" },
+        { "label": "Logging", "kind": "select", "options": ["No logging", "At beginning of connection", "At end of connection"], "answer": "At end of connection" }
+      ]
+    },
+    {
+      "title": "Trust or Allow?",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "A colleague suggests changing Allow-Web to **Trust** \"to make it faster\". What would change?",
+      "options": [
+        { "text": "Trusted traffic skips the intrusion and file inspection, so the IPS and malware blocking would stop protecting web browsing.", "correct": true },
+        { "text": "Nothing. Trust and Allow are the same action.", "why": "Trust passes traffic without deep inspection. Allow passes it on to the intrusion and file policies." },
+        { "text": "Trust blocks unknown applications.", "why": "Trust only passes traffic. It never blocks." }
+      ]
+    },
+    {
+      "title": "Make it live",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "You saved the policy in FMC. Is it protecting traffic yet?",
+      "options": [
+        { "text": "No. Changes take effect only after you deploy them to the FTD device (Deploy › Deployment).", "correct": true },
+        { "text": "Yes. FMC pushes every saved change immediately.", "why": "FMC stages changes until you deploy, so you can review them and deploy everything together." }
+      ]
+    }
+  ],
+  "summary": "A Branch-ACP access control policy with a default block, Security Intelligence feeds blocking malware, phishing and CnC, and an Allow-Web rule with intrusion and file inspection and end-of-connection logging, ready to deploy from FMC.",
+  "next": "anyconnect-ra"
+}
