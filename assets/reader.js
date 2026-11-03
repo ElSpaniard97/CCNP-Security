@@ -1,6 +1,6 @@
 // Read-along chapter reader modeled on Immersive Reader: narration with word highlighting,
 // text and grammar preferences, line focus, dictionary, translation and reading practice.
-import { app, chap, setCrumbs, onKey, onLeave, getJSON, loadCards, flashcards, store, esc, fmtClock } from "./runtime.js";
+import { app, chap, setCrumbs, onKey, onLeave, getJSON, loadCards, flashcards, store, esc, fmtClock, readerIndex } from "./runtime.js";
 import { icon } from "./visuals.js";
 
 const DEFAULTS = { size: 26, spacing: true, font: "sans", page: "site", syll: false, pos: { n: false, v: false, a: false, r: false }, labels: false,
@@ -15,11 +15,6 @@ const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const getPrefs = () => { const p = store.get("reader", {}); return { ...DEFAULTS, ...p, pos: { ...DEFAULTS.pos, ...(p.pos || {}) } }; };
 const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-let index = null;
-async function readerIndex() {
-  if (!index) index = await getJSON("data/reader/index.json").catch(() => []);
-  return index;
-}
 
 async function readerListView() {
   setCrumbs([{ label: "Home", href: "#/" }, { label: "Listen and read" }]);
@@ -49,7 +44,7 @@ async function readerView(n) {
 
   // Flat word list: times drive highlighting, elements receive the classes.
   const words = [], lineOf = [];
-  const body = data.lines.map((ln, li) => {
+  const lineHTML = data.lines.map((ln, li) => {
     const colon = ln.k === "B" ? ln.w.findIndex((w, i) => i < 9 && /:$/.test(w.w)) : -1;
     const html = ln.w.map((w, wi) => {
       const i = words.length; words.push(w); lineOf.push(li);
@@ -57,7 +52,16 @@ async function readerView(n) {
     }).join(" ");
     const tag = ln.k === "H2" ? "h2" : ln.k === "H3" ? "h3" : "p";
     return `<${tag} class="rl${ln.k === "B" ? ` bullet nest-${Math.min(ln.n, 3)}` : ""}" data-l="${li}">${html}</${tag}>`;
-  }).join("");
+  });
+  // Group lines into blocks the browser can skip drawing while they are off screen (content-visibility
+  // in reader.css). Blocks start at a heading where possible so the spacing between them is unchanged.
+  const chunks = [];
+  data.lines.forEach((ln, li) => {
+    const last = chunks[chunks.length - 1];
+    if (!last || (last.length >= 25 && ln.k[0] === "H") || last.length >= 60) chunks.push([lineHTML[li]]);
+    else last.push(lineHTML[li]);
+  });
+  const body = chunks.map(c => `<div class="rl-chunk" style="--lines:${c.length}">${c.join("")}</div>`).join("");
   const times = words.map(w => w.t);
 
   app.className = "reader-app";
@@ -200,11 +204,30 @@ async function readerView(n) {
     cur = i;
     if (i < 0) return;
     els[i].classList.add("on"); lineEls[lineOf[i]].classList.add("line-on");
-    if (scroll && prefs.follow && Date.now() - userScrolled > 4000) {
-      const r = els[i].getBoundingClientRect(), top = innerHeight * 0.3, bottom = innerHeight * 0.62;
-      if (r.top < top || r.bottom > bottom) scrollBy({ top: r.top - innerHeight * 0.4, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-    }
+    if (scroll && prefs.follow && Date.now() - userScrolled > 4000) bringIntoView(i);
     placeFocus();
+  }
+  // Scroll the word into the reading band. Blocks of the chapter that have not been drawn yet only
+  // have an estimated height, so after a long jump the word can drift off its mark a few frames later,
+  // once the blocks around it are drawn. So a long jump scrolls instantly and keeps checking until the
+  // word has held still for a moment, unless the reader scrolls or the narration moves on first.
+  function bringIntoView(i) {
+    const inBand = () => { const r = els[i].getBoundingClientRect(); return r.top >= innerHeight * 0.3 && r.bottom <= innerHeight * 0.62 ? 0 : r; };
+    const r = inBand();
+    if (!r) return;
+    const far = r.bottom < -innerHeight || r.top > innerHeight * 2;
+    scrollBy({ top: r.top - innerHeight * 0.4, behavior: far || matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    if (!far) return;
+    const since = userScrolled;
+    let frames = 0, still = 0;
+    const check = () => {
+      if (cur !== i || !els[i].isConnected || userScrolled !== since || ++frames > 90) return;
+      const off = inBand();
+      if (off) { scrollBy({ top: off.top - innerHeight * 0.4 }); still = 0; } else still++;
+      placeFocus();
+      if (still < 15) requestAnimationFrame(check);
+    };
+    requestAnimationFrame(check);
   }
   function placeFocus() {
     const on = prefs.focus > 0;
@@ -253,7 +276,7 @@ async function readerView(n) {
   if (resumeAt > 5) {
     audio.currentTime = resumeAt; seek.value = resumeAt; now.textContent = fmtClock(resumeAt * 1000);
     highlight(wordAt(resumeAt), false);
-    requestAnimationFrame(() => els[Math.max(cur, 0)].scrollIntoView({ block: "center" }));
+    requestAnimationFrame(() => { if (cur >= 0) { bringIntoView(cur); placeFocus(); } });
   }
   const onScroll = () => placeFocus();
   const onUser = () => { userScrolled = Date.now(); };

@@ -266,7 +266,10 @@ import { icon } from "./visuals.js";
 
   // ---------- search ----------
   async function searchView(q) {
-    const index = await getJSON("data/search-index.json");
+    // Draw the search box right away and fetch the term list and every chapter's cards behind it,
+    // so the first search usually finds the data already loaded.
+    const indexP = getJSON("data/search-index.json").catch(() => null);
+    loadAllCards().catch(() => {});
     setCrumbs([{ label: "Home", href: "#/" }, { label: "Search" }]);
     document.title = "Search flashcards";
     app.innerHTML = `
@@ -284,8 +287,9 @@ import { icon } from "./visuals.js";
       if (location.hash.startsWith("#/search")) window.history.replaceState(null, "", term ? `#/search/${encodeURIComponent(term)}` : "#/search");
       if (term.length < 2) { out.innerHTML = `<p class="muted small">Type at least two characters. Searches every term, definition, and detail.</p>`; return; }
       const needle = term.toLowerCase();
-      const terms=index.filter(([,front])=>front.toLowerCase().includes(needle));
-      out.innerHTML=`<p class="muted" role="status">${terms.length} matching terms. Searching definitions…</p>`;
+      const index = await indexP;
+      if(id!==runId || !input.isConnected) return;
+      out.innerHTML=index ? `<p class="muted" role="status">${index.filter(([,front])=>front.toLowerCase().includes(needle)).length} matching terms. Searching definitions…</p>` : `<p class="muted" role="status">Searching…</p>`;
       try { await loadAllCards(); } catch { if(id===runId) out.innerHTML='<p role="alert">Search data could not load. Reconnect or download all study data for offline search.</p>'; return; }
       if(id!==runId || !input.isConnected) return;
       const re = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
