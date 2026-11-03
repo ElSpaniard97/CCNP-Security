@@ -1,0 +1,114 @@
+{
+  "id": "aaa-tacacs",
+  "n": 2,
+  "title": "Device administration with TACACS+",
+  "domain": "Secure Network Access, Visibility, and Enforcement",
+  "chapter": 4,
+  "level": "Intermediate",
+  "minutes": 15,
+  "blurb": "Send router logins, EXEC authorization and command accounting to Cisco ISE over TACACS+.",
+  "scenario": "The team wants one place to manage who can log in to network devices and to record every command they run. Cisco ISE at **10.10.99.10** has the Device Admin service turned on, and R1 is already added to it with the shared key **T4cacsKey**. Point R1 at ISE with TACACS+, and keep the local admin account as a fallback in case ISE can't be reached.",
+  "topology": "Admin PC ── R1 ──────── ISE 10.10.99.10 (TACACS+, TCP 49)\n            local user: admin (fallback)",
+  "objectives": [
+    "Turn on AAA and define ISE as a TACACS+ server",
+    "Group the server and build a login method list with local fallback",
+    "Authorize EXEC sessions and account for privilege 15 commands",
+    "Apply the method lists to the VTY lines"
+  ],
+  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "steps": [
+    {
+      "title": "Compare TACACS+ and RADIUS",
+      "type": "choice",
+      "learn": "Both protocols carry AAA traffic to a server such as ISE. **TACACS+** is the usual choice for **device administration**, and **RADIUS** for **network access** (802.1X, VPN, wireless).",
+      "task": "Pick the statements that are true of TACACS+.",
+      "question": "Which statements are true of TACACS+?",
+      "options": [
+        { "text": "It uses TCP port 49.", "correct": true },
+        { "text": "It encrypts the entire body of each packet.", "correct": true },
+        { "text": "It handles authentication, authorization and accounting separately, so commands can be authorized one by one.", "correct": true },
+        { "text": "It uses UDP ports 1812 and 1813.", "why": "Those are the RADIUS authentication and accounting ports." },
+        { "text": "It encrypts only the password field.", "why": "That's RADIUS. TACACS+ encrypts the whole payload." }
+      ]
+    },
+    {
+      "title": "Turn on AAA and add the server",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "`aaa new-model` switches the device to the AAA framework. From then on, logins follow method lists instead of the old `login` and `password` line commands. Each TACACS+ server is defined once by name, with its address and shared key.",
+      "task": "Turn on the AAA model, then define a TACACS+ server named **ISE** at **10.10.99.10** with the key **T4cacsKey**.",
+      "hint": "`aaa new-model`, then `tacacs server ISE`, and inside it `address ipv4 10.10.99.10` and `key T4cacsKey`.",
+      "commands": [
+        { "cmd": "aaa new-model", "note": "AAA is on. Before you change the VTY lines, make sure a local account exists so you can't lock yourself out." },
+        { "cmd": "tacacs server ISE", "enter": "config-server-tacacs" },
+        { "cmd": "address ipv4 10.10.99.10", "mode": "config-server-tacacs" },
+        { "cmd": "key T4cacsKey", "mode": "config-server-tacacs", "alt": ["key 0 T4cacsKey"], "note": "The key must match what ISE has for R1, character for character." }
+      ]
+    },
+    {
+      "title": "Create a server group",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "Method lists point at **server groups**, not at single servers. A group can list several servers that are tried in order, and you can give it its own source interface.",
+      "task": "Create a TACACS+ server group named **ISE-GROUP** that contains the server **ISE**.",
+      "hint": "`aaa group server tacacs+ ISE-GROUP`, then `server name ISE`.",
+      "commands": [
+        { "cmd": "aaa group server tacacs+ ISE-GROUP", "enter": "config-sg-tacacs+" },
+        { "cmd": "server name ISE", "mode": "config-sg-tacacs+" }
+      ]
+    },
+    {
+      "title": "Build the method lists",
+      "type": "cli",
+      "device": "R1",
+      "learn": "A method list is tried left to right. The next method is used only when one is **unreachable**, not when it **rejects** the user. So with `group ISE-GROUP local`, the local account works only while ISE is down.\n\n`if-authenticated` lets an authenticated user into EXEC mode even when no authorization server answers. Command accounting at level 15 records every privileged command.",
+      "task": "Create a login authentication list **VTY-AUTH** that uses **ISE-GROUP** and then **local**. Create an EXEC authorization list **VTY-AUTH** with the same methods plus **if-authenticated**. Account for **level 15 commands** with **start-stop** records to **ISE-GROUP** on the **default** list.",
+      "hint": "`aaa authentication login VTY-AUTH group ISE-GROUP local`, `aaa authorization exec VTY-AUTH group ISE-GROUP local if-authenticated`, `aaa accounting commands 15 default start-stop group ISE-GROUP`.",
+      "commands": [
+        { "cmd": "aaa authentication login VTY-AUTH group ISE-GROUP local", "note": "Logins try ISE first and use local accounts only when ISE can't be reached." },
+        { "cmd": "aaa authorization exec VTY-AUTH group ISE-GROUP local if-authenticated", "note": "ISE decides whether the user gets an EXEC shell and at what privilege level." },
+        { "cmd": "aaa accounting commands 15 default start-stop group ISE-GROUP", "note": "Every privilege 15 command is logged to ISE." }
+      ]
+    },
+    {
+      "title": "Apply the lists to the VTY lines",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "Named method lists do nothing until a line uses them. The **default** lists apply automatically to every line that doesn't name one, which is why the accounting list needed no line command.",
+      "task": "On **line vty 0 4**, use **VTY-AUTH** for login authentication and for EXEC authorization.",
+      "hint": "`line vty 0 4`, `login authentication VTY-AUTH`, `authorization exec VTY-AUTH`.",
+      "commands": [
+        { "cmd": "line vty 0 4", "enter": "config-line" },
+        { "cmd": "login authentication VTY-AUTH", "mode": "config-line" },
+        { "cmd": "authorization exec VTY-AUTH", "mode": "config-line", "note": "SSH logins to R1 now go to ISE." }
+      ]
+    },
+    {
+      "title": "Predict the fallback",
+      "type": "choice",
+      "learn": "Getting fallback right is what keeps you from locking yourself out, or from leaving a back door open.",
+      "task": "Answer the question.",
+      "question": "ISE is up, and it **rejects** the username admin because the account was disabled in Active Directory. What does R1 do?",
+      "options": [
+        { "text": "Refuses the login. A reject from ISE is final, and the local method isn't tried.", "correct": true },
+        { "text": "Tries the local admin account next and logs the user in.", "why": "The next method is tried only when the server doesn't respond. A reject (FAIL) ends the list." },
+        { "text": "Lets the user in because of if-authenticated.", "why": "`if-authenticated` is about authorization after a successful login, not about authentication." }
+      ]
+    },
+    {
+      "title": "Verify the server",
+      "type": "cli",
+      "device": "R1",
+      "task": "Display the TACACS+ server statistics.",
+      "hint": "`do show tacacs` from configuration mode.",
+      "commands": [
+        { "cmd": "show tacacs", "mode": "priv", "output": "Tacacs+ Server - public  :\n               Server name: ISE\n            Server address: 10.10.99.10\n               Server port: 49\n              Socket opens:          4\n             Socket closes:          4\n             Socket aborts:          0\n             Socket errors:          0\n           Socket Timeouts:          0\n   Failed Connect Attempts:          0\n        Total Packets Sent:         12\n        Total Packets Recv:         12", "note": "Packets are flowing to ISE on TCP 49, with no failed connections." }
+      ]
+    }
+  ],
+  "summary": "AAA with a TACACS+ server and server group pointing at ISE, login and EXEC authorization method lists with local fallback applied to the VTY lines, and command accounting for privilege 15.",
+  "next": "dot1x-mab"
+}

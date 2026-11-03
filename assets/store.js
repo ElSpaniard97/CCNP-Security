@@ -14,9 +14,32 @@
   }
   // Progress keys the site writes. A backup file or synced copy can hold anything, so restore keeps only
   // these, and history entries are reduced to their numeric fields before the pages render them.
-  const PROGRESS_KEY = /^(history|bank|srs|starred|best\.\d+\.\d+|last\.(\d+\.\d+|exam)|resume\.(test\.\d+\.\d+|exam|bank)|reader\.pos\.\d+|cards\.place\.(ch\d+|starred)\.[A-Za-z ]+)$/;
+  const PROGRESS_KEY = /^(history|bank|srs|starred|best\.\d+\.\d+|last\.(\d+\.\d+|exam)|resume\.(test\.\d+\.\d+|exam|bank)|reader\.pos\.\d+|labs|lab\.pos\.[a-z0-9-]+|cards\.place\.(ch\d+|starred)\.[A-Za-z ]+)$/;
   const num = v => (Number.isFinite(+v) ? +v : 0);
+  const LAB_ID = /^[a-z0-9-]{1,60}$/;
+  function cleanLabs(v) {
+    const out = {};
+    Object.entries(v && typeof v === "object" ? v : {}).forEach(([id, rec]) => {
+      if (!LAB_ID.test(id) || !rec || !Array.isArray(rec.runs)) return;
+      out[id] = { runs: rec.runs.filter(r => r && typeof r === "object").slice(-20).map(r => ({ at: num(r.at), score: Math.max(0, Math.min(100, num(r.score))), ms: num(r.ms), wrong: num(r.wrong), hints: num(r.hints), reveals: num(r.reveals) })) };
+    });
+    return out;
+  }
+  // An in-progress lab is replaced by a fresh start if anything in it looks wrong.
+  function cleanLabPos(v) {
+    if (!v || typeof v !== "object") return null;
+    const steps = (Array.isArray(v.steps) ? v.steps : []).map(r => r && typeof r === "object" ? { wrong: num(r.wrong), hint: !!r.hint, reveal: !!r.reveal, done: (Array.isArray(r.done) ? r.done : []).map(num) } : null);
+    const devices = {};
+    Object.entries(v.devices && typeof v.devices === "object" ? v.devices : {}).forEach(([name, d]) => {
+      if (!/^[\w-]{1,30}$/.test(name) || !d) return;
+      devices[name] = { modes: (Array.isArray(d.modes) ? d.modes : []).map(String).filter(m => /^[\w-]{1,30}$/.test(m)), log: (Array.isArray(d.log) ? d.log : []).slice(-200).map(l => [String(l?.[0] ?? ""), ["cmd", "res", "err"].includes(l?.[1]) ? l[1] : "res"]) };
+      if (!devices[name].modes.length) devices[name].modes = ["exec", "priv"];
+    });
+    return { step: num(v.step), ms: num(v.ms), at: num(v.at), steps, devices };
+  }
   function clean(k, v) {
+    if (k === "labs") return cleanLabs(v);
+    if (k.startsWith("lab.pos.")) return cleanLabPos(v);
     if (k !== "history") return v;
     return (Array.isArray(v) ? v : []).filter(h => h && typeof h === "object").map(h => {
       const out = {};
@@ -44,7 +67,15 @@
         x.concat(y).forEach(h => seen.set(`${h.at}|${h.ch}|${h.t}`, h));
         out[k] = [...seen.values()].sort((p, q) => p.at - q.at).slice(-1000);
       } else if (k.startsWith("best.")) out[k] = Math.max(x, y);
-      else if (k.startsWith("last.") || k.startsWith("resume.")) out[k] = newer(x, y);
+      else if (k.startsWith("last.") || k.startsWith("resume.") || k.startsWith("lab.pos.")) out[k] = newer(x, y);
+      else if (k === "labs") {
+        out[k] = {};
+        for (const id of new Set(Object.keys(x).concat(Object.keys(y)))) {
+          const seen = new Map();
+          (x[id]?.runs || []).concat(y[id]?.runs || []).forEach(r => seen.set(r.at, r));
+          out[k][id] = { runs: [...seen.values()].sort((p, q) => p.at - q.at).slice(-20) };
+        }
+      }
       else if (k === "bank" || k === "srs" || k === "starred") {
         out[k] = Object.assign({}, y);
         Object.entries(x).forEach(([e, v]) => { out[k][e] = newer(v, y[e]); });

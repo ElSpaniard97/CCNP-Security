@@ -1,0 +1,131 @@
+{
+  "id": "ipsec-ikev2",
+  "n": 5,
+  "title": "Site-to-site VPN with IKEv2",
+  "domain": "Network Security",
+  "chapter": 8,
+  "level": "Advanced",
+  "minutes": 25,
+  "blurb": "Build an IKEv2 crypto map tunnel between two branch routers, from proposal to verification.",
+  "scenario": "Headquarters LAN **10.1.1.0/24** sits behind R1, whose outside interface **GigabitEthernet0/0** is **203.0.113.1**. The branch LAN **10.2.2.0/24** sits behind R2 at **198.51.100.2**. R2 is already configured. Build R1's side of an IKEv2 site-to-site tunnel with a pre-shared key **S2SVpnKey**, AES-256, SHA-256 and DH group 19.",
+  "topology": "10.1.1.0/24 ── R1 Gi0/0 203.0.113.1 ═══ Internet ═══ 198.51.100.2 R2 ── 10.2.2.0/24",
+  "objectives": [
+    "Know what IKE and ESP need from the path",
+    "Define the IKEv2 proposal, policy, keyring and profile",
+    "Define the IPsec transform set and interesting traffic",
+    "Tie everything together in a crypto map on the outside interface",
+    "Verify the security associations"
+  ],
+  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "steps": [
+    {
+      "title": "Open the path",
+      "type": "choice",
+      "learn": "IKE negotiates the tunnel, and ESP carries the encrypted data. A firewall in the path has to allow both, and with NAT in the path (NAT-T), everything moves to UDP 4500.",
+      "task": "Pick everything a firewall between R1 and R2 must allow for this VPN, assuming there's no NAT in the path.",
+      "question": "What must be allowed between 203.0.113.1 and 198.51.100.2?",
+      "options": [
+        { "text": "UDP 500 (IKE)", "correct": true },
+        { "text": "IP protocol 50 (ESP)", "correct": true },
+        { "text": "IP protocol 51 (AH)", "why": "AH isn't used here. The transform set uses ESP, and AH can't cross NAT anyway." },
+        { "text": "TCP 443", "why": "That's TLS, used by SSL VPNs such as AnyConnect, not by IPsec site-to-site." }
+      ]
+    },
+    {
+      "title": "IKEv2 proposal and policy",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "The **proposal** lists the algorithms for the IKE SA itself: encryption, integrity and the Diffie-Hellman group. Group 19 is 256-bit elliptic curve. The **policy** says which proposals to offer.",
+      "task": "Create proposal **PROP-1** with **aes-cbc-256**, integrity **sha256** and DH group **19**, and a policy **POL-1** that uses it.",
+      "hint": "`crypto ikev2 proposal PROP-1`, then `encryption aes-cbc-256`, `integrity sha256`, `group 19`. Then `crypto ikev2 policy POL-1` and `proposal PROP-1`.",
+      "commands": [
+        { "cmd": "crypto ikev2 proposal PROP-1", "enter": "config-ikev2-proposal" },
+        { "cmd": "encryption aes-cbc-256", "mode": "config-ikev2-proposal" },
+        { "cmd": "integrity sha256", "mode": "config-ikev2-proposal" },
+        { "cmd": "group 19", "mode": "config-ikev2-proposal" },
+        { "cmd": "crypto ikev2 policy POL-1", "enter": "config-ikev2-policy" },
+        { "cmd": "proposal PROP-1", "mode": "config-ikev2-policy", "note": "R1 will offer AES-256, SHA-256 and group 19 for the IKE SA." }
+      ]
+    },
+    {
+      "title": "Keyring",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "A **keyring** stores the pre-shared key for each peer. In IKEv2, each side can even use a different key in each direction.",
+      "task": "Create keyring **KR** with peer **R2** at **198.51.100.2** and pre-shared key **S2SVpnKey**.",
+      "hint": "`crypto ikev2 keyring KR`, `peer R2`, `address 198.51.100.2`, `pre-shared-key S2SVpnKey`.",
+      "commands": [
+        { "cmd": "crypto ikev2 keyring KR", "enter": "config-ikev2-keyring" },
+        { "cmd": "peer R2", "mode": "config-ikev2-keyring", "enter": "config-ikev2-keyring-peer" },
+        { "cmd": "address 198.51.100.2", "mode": "config-ikev2-keyring-peer" },
+        { "cmd": "pre-shared-key S2SVpnKey", "mode": "config-ikev2-keyring-peer", "alt": ["pre-shared-key 0 S2SVpnKey"] }
+      ]
+    },
+    {
+      "title": "IKEv2 profile",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "The **profile** decides which peer it applies to and how both sides prove who they are.",
+      "task": "Create profile **PROF-R2**: match the remote identity address **198.51.100.2 255.255.255.255**, use **pre-share** for both local and remote authentication, and use keyring **KR**.",
+      "hint": "`crypto ikev2 profile PROF-R2`, `match identity remote address 198.51.100.2 255.255.255.255`, `authentication remote pre-share`, `authentication local pre-share`, `keyring local KR`.",
+      "commands": [
+        { "cmd": "crypto ikev2 profile PROF-R2", "enter": "config-ikev2-profile" },
+        { "cmd": "match identity remote address 198.51.100.2 255.255.255.255", "mode": "config-ikev2-profile" },
+        { "cmd": "authentication remote pre-share", "mode": "config-ikev2-profile" },
+        { "cmd": "authentication local pre-share", "mode": "config-ikev2-profile" },
+        { "cmd": "keyring local KR", "mode": "config-ikev2-profile", "note": "The IKE side is complete." }
+      ]
+    },
+    {
+      "title": "Transform set and interesting traffic",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "The **transform set** chooses the algorithms for the IPsec (child) SAs that carry the data. The **crypto ACL** marks the traffic that should be encrypted. R2's ACL must be the mirror image of R1's.",
+      "task": "Create transform set **TS** with **esp-aes 256** and **esp-sha256-hmac** in **tunnel** mode. Then create extended ACL **VPN-TRAFFIC** that permits IP from **10.1.1.0/24** to **10.2.2.0/24**.",
+      "hint": "`crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac`, `mode tunnel`, then `ip access-list extended VPN-TRAFFIC` and `permit ip 10.1.1.0 0.0.0.255 10.2.2.0 0.0.0.255`.",
+      "commands": [
+        { "cmd": "crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac", "enter": "cfg-crypto-trans" },
+        { "cmd": "mode tunnel", "mode": "cfg-crypto-trans" },
+        { "cmd": "ip access-list extended VPN-TRAFFIC", "enter": "config-ext-nacl" },
+        { "cmd": "permit ip 10.1.1.0 0.0.0.255 10.2.2.0 0.0.0.255", "mode": "config-ext-nacl", "note": "Traffic from the HQ LAN to the branch LAN will be encrypted." }
+      ]
+    },
+    {
+      "title": "Crypto map",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "The **crypto map** ties it all together: the peer, the transform set, the IKEv2 profile and the ACL. It does nothing until it's applied to the interface that faces the peer.",
+      "task": "Create crypto map **CMAP** sequence **10** (ipsec-isakmp): peer **198.51.100.2**, transform set **TS**, IKEv2 profile **PROF-R2**, match address **VPN-TRAFFIC**. Apply it to **GigabitEthernet0/0**.",
+      "hint": "`crypto map CMAP 10 ipsec-isakmp`, `set peer 198.51.100.2`, `set transform-set TS`, `set ikev2-profile PROF-R2`, `match address VPN-TRAFFIC`, then `interface GigabitEthernet0/0` and `crypto map CMAP`.",
+      "commands": [
+        { "cmd": "crypto map CMAP 10 ipsec-isakmp", "enter": "config-crypto-map", "output": "% NOTE: This new crypto map will remain disabled until a peer\n        and a valid access list have been configured." },
+        { "cmd": "set peer 198.51.100.2", "mode": "config-crypto-map" },
+        { "cmd": "set transform-set TS", "mode": "config-crypto-map" },
+        { "cmd": "set ikev2-profile PROF-R2", "mode": "config-crypto-map" },
+        { "cmd": "match address VPN-TRAFFIC", "mode": "config-crypto-map" },
+        { "cmd": "interface GigabitEthernet0/0", "enter": "config-if" },
+        { "cmd": "crypto map CMAP", "mode": "config-if", "output": "%CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is ON", "note": "The crypto map is live on the outside interface." }
+      ]
+    },
+    {
+      "title": "Verify the tunnel",
+      "type": "cli",
+      "device": "R1",
+      "learn": "The first packet from 10.1.1.0/24 to 10.2.2.0/24 triggers the negotiation. A status of **READY** means the IKE SA is up. The IPsec SA counters show packets being encrypted and decrypted.",
+      "task": "Display the IKEv2 security associations, then the IPsec security associations.",
+      "hint": "`do show crypto ikev2 sa` and `do show crypto ipsec sa`.",
+      "ordered": true,
+      "commands": [
+        { "cmd": "show crypto ikev2 sa", "mode": "priv", "output": " IPv4 Crypto IKEv2  SA\n\nTunnel-id Local                 Remote                fvrf/ivrf            Status\n1         203.0.113.1/500       198.51.100.2/500      none/none            READY\n      Encr: AES-CBC, keysize: 256, PRF: SHA256, Hash: SHA256, DH Grp:19, Auth sign: PSK, Auth verify: PSK\n      Life/Active Time: 86400/37 sec", "note": "The IKE SA is READY with AES-256, SHA-256 and group 19." },
+        { "cmd": "show crypto ipsec sa", "mode": "priv", "output": "interface: GigabitEthernet0/0\n    Crypto map tag: CMAP, local addr 203.0.113.1\n   local  ident (addr/mask/prot/port): (10.1.1.0/255.255.255.0/0/0)\n   remote ident (addr/mask/prot/port): (10.2.2.0/255.255.255.0/0/0)\n   current_peer 198.51.100.2 port 500\n    #pkts encaps: 9, #pkts encrypt: 9, #pkts digest: 9\n    #pkts decaps: 9, #pkts decrypt: 9, #pkts verify: 9\n     inbound esp sas:\n      spi: 0x5D2E8A41(1563331137)\n        transform: esp-256-aes esp-sha256-hmac ,\n        in use settings ={Tunnel, }", "note": "Packets are encrypted and decrypted in both directions. The tunnel works." }
+      ]
+    }
+  ],
+  "summary": "An IKEv2 proposal, policy, keyring and profile with a pre-shared key, an AES-256/SHA-256 transform set, a crypto ACL for the two LANs, and a crypto map applied to the outside interface, verified with the IKEv2 and IPsec SA tables.",
+  "next": null
+}

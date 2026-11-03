@@ -1,0 +1,125 @@
+{
+  "id": "dot1x-mab",
+  "n": 3,
+  "title": "802.1X and MAB on a switch port",
+  "domain": "Secure Network Access, Visibility, and Enforcement",
+  "chapter": 4,
+  "level": "Intermediate",
+  "minutes": 18,
+  "blurb": "Make an access port authenticate users with 802.1X and fall back to MAB for devices that can't.",
+  "scenario": "Port **GigabitEthernet1/0/10** on access switch SW1 feeds a desk shared by employee laptops and a network printer. The laptops have an 802.1X supplicant. The printer has none. Configure the switch so that ISE at **10.10.99.10** (RADIUS key **R4diusKey**) authenticates whatever connects, and data VLAN **10** is used once access is granted.",
+  "topology": "Laptop / Printer ── Gi1/0/10 [SW1] ─── ISE 10.10.99.10\n   (supplicant)    (authenticator)    (authentication server)",
+  "objectives": [
+    "Name the three 802.1X roles and put the exchange in order",
+    "Point the switch at ISE with RADIUS",
+    "Turn on 802.1X globally",
+    "Configure the port for 802.1X first, then MAB",
+    "Check the session"
+  ],
+  "devices": { "SW1": { "host": "SW1", "start": "config" } },
+  "steps": [
+    {
+      "title": "Know the roles",
+      "type": "form",
+      "learn": "802.1X has three roles. The **supplicant** is software on the endpoint. The **authenticator** is the switch or wireless controller, which relays EAP and opens the port. The **authentication server** checks the credentials and returns the result.",
+      "task": "Match each device in the topology to its 802.1X role.",
+      "screen": "802.1X roles",
+      "button": "Check",
+      "fields": [
+        { "label": "Employee laptop", "kind": "select", "options": ["Supplicant", "Authenticator", "Authentication server"], "answer": "Supplicant" },
+        { "label": "SW1", "kind": "select", "options": ["Supplicant", "Authenticator", "Authentication server"], "answer": "Authenticator" },
+        { "label": "Cisco ISE", "kind": "select", "options": ["Supplicant", "Authenticator", "Authentication server"], "answer": "Authentication server" }
+      ]
+    },
+    {
+      "title": "Put the 802.1X exchange in order",
+      "type": "order",
+      "learn": "Between the endpoint and the switch, EAP travels as **EAPOL** frames. Between the switch and ISE, it travels inside **RADIUS** packets. The switch never sees the password, it only relays.",
+      "task": "Arrange the steps of an 802.1X login from first to last.",
+      "question": "Order the exchange, from link up to access granted.",
+      "hint": "The switch asks who you are, relays your answer to ISE, and the protected EAP method runs before ISE decides.",
+      "items": [
+        "The link comes up, and the switch sends EAP-Request/Identity",
+        "The laptop answers with EAP-Response/Identity",
+        "The switch wraps the response in a RADIUS Access-Request to ISE",
+        "ISE and the laptop negotiate an EAP method and run it (for example PEAP or EAP-TLS)",
+        "ISE sends RADIUS Access-Accept with the authorization result",
+        "The switch authorizes the port and sends EAP-Success"
+      ]
+    },
+    {
+      "title": "Point the switch at ISE",
+      "type": "cli",
+      "device": "SW1",
+      "ordered": true,
+      "learn": "802.1X needs RADIUS. Define the server with its ports and key, group it, and create the method lists. `aaa authorization network` lets ISE push the VLAN, ACL or SGT, and accounting tells ISE when sessions start and stop.",
+      "task": "Turn on AAA. Define RADIUS server **ISE** at **10.10.99.10** on auth port **1812** and acct port **1813** with key **R4diusKey**, put it in group **ISE-RADIUS**, and create the **default** dot1x authentication, network authorization and dot1x start-stop accounting lists for that group.",
+      "hint": "`aaa new-model`, `radius server ISE` with `address ipv4 10.10.99.10 auth-port 1812 acct-port 1813` and `key R4diusKey`, then `aaa group server radius ISE-RADIUS` with `server name ISE`, then `aaa authentication dot1x default group ISE-RADIUS`, `aaa authorization network default group ISE-RADIUS` and `aaa accounting dot1x default start-stop group ISE-RADIUS`.",
+      "commands": [
+        { "cmd": "aaa new-model" },
+        { "cmd": "radius server ISE", "enter": "config-radius-server" },
+        { "cmd": "address ipv4 10.10.99.10 auth-port 1812 acct-port 1813", "mode": "config-radius-server" },
+        { "cmd": "key R4diusKey", "mode": "config-radius-server", "alt": ["key 0 R4diusKey"] },
+        { "cmd": "aaa group server radius ISE-RADIUS", "enter": "config-sg-radius" },
+        { "cmd": "server name ISE", "mode": "config-sg-radius" },
+        { "cmd": "aaa authentication dot1x default group ISE-RADIUS" },
+        { "cmd": "aaa authorization network default group ISE-RADIUS" },
+        { "cmd": "aaa accounting dot1x default start-stop group ISE-RADIUS", "note": "The switch can now use ISE for 802.1X and MAB." }
+      ]
+    },
+    {
+      "title": "Turn on 802.1X globally",
+      "type": "cli",
+      "device": "SW1",
+      "learn": "Port settings have no effect until 802.1X is switched on for the whole switch.",
+      "task": "Turn on 802.1X system authentication control.",
+      "hint": "`dot1x system-auth-control`",
+      "commands": [
+        { "cmd": "dot1x system-auth-control", "note": "802.1X is on globally." }
+      ]
+    },
+    {
+      "title": "Configure the access port",
+      "type": "cli",
+      "device": "SW1",
+      "learn": "With `authentication port-control auto`, the port starts **unauthorized** and passes only EAPOL until a session is approved. `mab` uses the endpoint's MAC address as its identity when no supplicant answers. `authentication order dot1x mab` tries 802.1X first, and `authentication priority dot1x mab` lets a laptop that starts 802.1X later take over from a MAB session.",
+      "task": "On **GigabitEthernet1/0/10**: make it an access port in **VLAN 10** with PortFast, set it as an 802.1X **authenticator** with port control **auto**, turn on **MAB**, and set both the **order** and the **priority** to dot1x, then mab.",
+      "hint": "`interface GigabitEthernet1/0/10`, `switchport mode access`, `switchport access vlan 10`, `spanning-tree portfast`, `dot1x pae authenticator`, `authentication port-control auto`, `mab`, `authentication order dot1x mab`, `authentication priority dot1x mab`.",
+      "commands": [
+        { "cmd": "interface GigabitEthernet1/0/10", "enter": "config-if" },
+        { "cmd": "switchport mode access", "mode": "config-if" },
+        { "cmd": "switchport access vlan 10", "mode": "config-if" },
+        { "cmd": "spanning-tree portfast", "mode": "config-if", "note": "PortFast skips listening and learning, so the endpoint isn't held for 30 seconds before it can authenticate." },
+        { "cmd": "dot1x pae authenticator", "mode": "config-if" },
+        { "cmd": "authentication port-control auto", "mode": "config-if", "note": "The port waits for a successful authentication before passing traffic." },
+        { "cmd": "mab", "mode": "config-if" },
+        { "cmd": "authentication order dot1x mab", "mode": "config-if" },
+        { "cmd": "authentication priority dot1x mab", "mode": "config-if" }
+      ]
+    },
+    {
+      "title": "What happens to the printer?",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "The printer is plugged into Gi1/0/10. It never answers the EAP-Request/Identity. What happens?",
+      "options": [
+        { "text": "After the 802.1X timeout, the switch tries MAB and sends the printer's MAC address to ISE as its identity.", "correct": true },
+        { "text": "The port stays unauthorized for good, because dot1x is first in the order.", "why": "With `mab` and `authentication order dot1x mab`, the switch falls back to MAB once 802.1X times out." },
+        { "text": "The switch opens the port in VLAN 10 with no check.", "why": "Port control auto never opens the port without a successful authentication, unless you configure open mode." },
+        { "text": "ISE sends the printer an EAP-Request.", "why": "ISE never talks to the endpoint directly. The switch is the authenticator." }
+      ]
+    },
+    {
+      "title": "Check the session",
+      "type": "cli",
+      "device": "SW1",
+      "task": "Show the authentication session details for **Gi1/0/10**.",
+      "hint": "`do show authentication sessions interface GigabitEthernet1/0/10 details`. Short forms like `do sh auth sess int g1/0/10 det` work too.",
+      "commands": [
+        { "cmd": "show authentication sessions interface GigabitEthernet1/0/10 details", "mode": "priv", "alt": ["show authentication sessions interface GigabitEthernet1/0/10"], "output": "            Interface:  GigabitEthernet1/0/10\n          MAC Address:  0050.56a1.2b3c\n            User-Name:  jdoe\n               Status:  Authorized\n               Domain:  DATA\n       Oper host mode:  single-host\n     Session timeout:  N/A\n  Common Session ID:  0A0A000200000012A1B2C3D4\n    Acct Session ID:  0x00000009\nServer Policies:\n           Vlan Group:  Vlan: 10\nMethod status list:\n       Method           State\n       dot1x            Authc Success\n       mab              Stopped", "note": "jdoe authenticated with dot1x, so MAB was never needed, and the port is authorized in VLAN 10." }
+      ]
+    }
+  ],
+  "summary": "RADIUS to ISE with dot1x authentication, network authorization and accounting lists, 802.1X turned on globally, and an access port that authenticates with 802.1X first and falls back to MAB.",
+  "next": "ise-policy"
+}
