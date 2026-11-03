@@ -244,10 +244,15 @@ function runLab(meta, lab, saved) {
         const anyHit = hit === undefined ? todo.find(k => forms(need[k]).some(f => commandMatches(cmd, f))) : undefined;
         const want = hit !== undefined ? need[hit] : null;
         if (want) {
+          // As on IOS, a command for a parent configuration mode also works from inside a sub-mode,
+          // which drops back to that parent (for example "interface g0/2" from (config-if)#).
           const wm = want.mode || "config", inConfig = !["exec", "priv"].includes(mode);
-          const okMode = wm === mode || (doCmd && wm === "priv") || (wm === "config" && inConfig && mode !== "config") || (wm === "priv" && mode === "priv");
+          const parent = inConfig && !["exec", "priv"].includes(wm) ? dev.modes.lastIndexOf(wm) : -1;
+          // The ASA runs show commands from any configuration mode without "do".
+          const anywhere = wm === "priv" && inConfig && lab.devices?.[s.device]?.showAnywhere;
+          const okMode = wm === mode || (doCmd && wm === "priv") || anywhere || parent >= 0;
           if (!okMode) { pr.textContent = prompt(dev); return miss(`Right command, wrong mode. <b>${esc(want.cmd)}</b> is entered in ${esc(modeName(wm))}; you are in ${esc(modeName(mode))}.`); }
-          if (wm === "config" && inConfig && mode !== "config") dev.modes = dev.modes.slice(0, dev.modes.indexOf("config") + 1);
+          if (parent >= 0) dev.modes = dev.modes.slice(0, parent + 1);
           if (want.enter) dev.modes.push(want.enter);
           if (want.output) want.output.split("\n").forEach(l => log(l, "res"));
           r.done.push(hit); pr.textContent = prompt(dev); persist();

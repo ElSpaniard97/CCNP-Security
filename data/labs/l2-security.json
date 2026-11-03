@@ -1,0 +1,103 @@
+{
+  "id": "l2-security",
+  "n": 6,
+  "title": "Protect the access layer",
+  "domain": "Network Security",
+  "chapter": 6,
+  "level": "Intermediate",
+  "minutes": 15,
+  "blurb": "Stop rogue DHCP servers, ARP spoofing and MAC flooding with DHCP snooping, DAI and port security.",
+  "scenario": "Users in **VLAN 10** on switch SW1 report that they sometimes get the wrong default gateway. Someone plugged a home router into a desk port, and it's handing out addresses. Harden SW1: only the uplink **GigabitEthernet1/0/48** leads to the real DHCP server, and desk port **GigabitEthernet1/0/5** should allow at most **2** devices.",
+  "topology": "DHCP server ── Gi1/0/48 [SW1] Gi1/0/5 ── desk (PC + IP phone)\n                 (trusted)       (untrusted, VLAN 10)",
+  "objectives": [
+    "Turn on DHCP snooping for VLAN 10 and trust the uplink",
+    "Turn on Dynamic ARP Inspection, which relies on the snooping table",
+    "Limit the desk port with port security",
+    "Pick the right violation mode and verify the bindings"
+  ],
+  "devices": { "SW1": { "host": "SW1", "start": "config" } },
+  "steps": [
+    {
+      "title": "DHCP snooping",
+      "type": "cli",
+      "device": "SW1",
+      "learn": "**DHCP snooping** splits ports into **trusted** (toward real DHCP servers) and **untrusted** (everything else). Server messages such as OFFER and ACK that arrive on an untrusted port are dropped. The switch also builds a **binding table** of MAC, IP, VLAN and port from the leases it sees.",
+      "task": "Turn on DHCP snooping globally and for **VLAN 10**, then trust the uplink **GigabitEthernet1/0/48**.",
+      "hint": "`ip dhcp snooping`, `ip dhcp snooping vlan 10`, then `interface GigabitEthernet1/0/48` and `ip dhcp snooping trust`.",
+      "ordered": true,
+      "commands": [
+        { "cmd": "ip dhcp snooping" },
+        { "cmd": "ip dhcp snooping vlan 10" },
+        { "cmd": "interface GigabitEthernet1/0/48", "enter": "config-if" },
+        { "cmd": "ip dhcp snooping trust", "mode": "config-if", "note": "Only the uplink may send DHCP server messages now." }
+      ]
+    },
+    {
+      "title": "Where did the rogue OFFER go?",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "The home router on Gi1/0/5 sends a DHCPOFFER. What does SW1 do with it?",
+      "options": [
+        { "text": "Drops it, because Gi1/0/5 is untrusted and an OFFER is a server message.", "correct": true },
+        { "text": "Forwards it, because the client asked for an address.", "why": "Untrusted ports may send client messages (DISCOVER, REQUEST) but not server messages." },
+        { "text": "Shuts the port down.", "why": "Snooping drops the packet. It doesn't err-disable the port unless you add a rate limit that's exceeded." }
+      ]
+    },
+    {
+      "title": "Dynamic ARP Inspection",
+      "type": "cli",
+      "device": "SW1",
+      "learn": "**DAI** checks ARP packets on untrusted ports against the DHCP snooping binding table and drops replies that claim someone else's IP address. That stops ARP spoofing and man-in-the-middle attacks. The uplink is trusted, just as it is for snooping.",
+      "task": "Turn on ARP inspection for **VLAN 10** and trust it on **GigabitEthernet1/0/48**.",
+      "hint": "`ip arp inspection vlan 10`, then on the uplink `ip arp inspection trust`.",
+      "commands": [
+        { "cmd": "ip arp inspection vlan 10" },
+        { "cmd": "interface GigabitEthernet1/0/48", "enter": "config-if" },
+        { "cmd": "ip arp inspection trust", "mode": "config-if" }
+      ],
+      "ordered": true
+    },
+    {
+      "title": "Port security on the desk port",
+      "type": "cli",
+      "device": "SW1",
+      "ordered": true,
+      "learn": "**Port security** limits how many MAC addresses a port learns, which defeats MAC flooding and unapproved hubs. **Sticky** learning saves the first addresses it sees into the running configuration.",
+      "task": "On **GigabitEthernet1/0/5**: make it an access port, turn on port security, allow a **maximum of 2** addresses, use **sticky** learning, and set the violation mode to **restrict**.",
+      "hint": "`interface GigabitEthernet1/0/5`, `switchport mode access`, `switchport port-security`, `switchport port-security maximum 2`, `switchport port-security mac-address sticky`, `switchport port-security violation restrict`.",
+      "commands": [
+        { "cmd": "interface GigabitEthernet1/0/5", "enter": "config-if" },
+        { "cmd": "switchport mode access", "mode": "config-if", "note": "Port security needs a static access (or trunk) port, not a dynamic one." },
+        { "cmd": "switchport port-security", "mode": "config-if" },
+        { "cmd": "switchport port-security maximum 2", "mode": "config-if" },
+        { "cmd": "switchport port-security mac-address sticky", "mode": "config-if" },
+        { "cmd": "switchport port-security violation restrict", "mode": "config-if" }
+      ]
+    },
+    {
+      "title": "Match the violation modes",
+      "type": "form",
+      "learn": "All three modes drop frames from the extra MAC address. They differ in whether they log it, and whether the port stays up.",
+      "task": "Match each violation mode to what it does.",
+      "screen": "Port security violation modes",
+      "button": "Check",
+      "fields": [
+        { "label": "protect", "kind": "select", "options": ["Drops silently, no log or counter", "Drops, logs and counts, port stays up", "Err-disables the port"], "answer": "Drops silently, no log or counter" },
+        { "label": "restrict", "kind": "select", "options": ["Drops silently, no log or counter", "Drops, logs and counts, port stays up", "Err-disables the port"], "answer": "Drops, logs and counts, port stays up" },
+        { "label": "shutdown (default)", "kind": "select", "options": ["Drops silently, no log or counter", "Drops, logs and counts, port stays up", "Err-disables the port"], "answer": "Err-disables the port" }
+      ]
+    },
+    {
+      "title": "Verify the bindings",
+      "type": "cli",
+      "device": "SW1",
+      "task": "Display the DHCP snooping binding table.",
+      "hint": "`do show ip dhcp snooping binding`",
+      "commands": [
+        { "cmd": "show ip dhcp snooping binding", "mode": "priv", "output": "MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface\n------------------  ---------------  ----------  -------------  ----  --------------------\n00:50:56:A1:2B:3C   10.10.10.51      86211       dhcp-snooping   10    GigabitEthernet1/0/5\n00:1E:7A:44:10:02   10.10.10.52      86190       dhcp-snooping   10    GigabitEthernet1/0/5\nTotal number of bindings: 2", "note": "These bindings are what DAI checks ARP replies against." }
+      ]
+    }
+  ],
+  "summary": "DHCP snooping on VLAN 10 with a trusted uplink, Dynamic ARP Inspection using the snooping bindings, and port security limiting the desk port to two sticky MAC addresses in restrict mode.",
+  "next": "copp"
+}
