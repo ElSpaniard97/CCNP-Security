@@ -7,6 +7,7 @@
   "level": "Beginner",
   "minutes": 12,
   "blurb": "Take apart a phishing email, find the forged headers, and layer email, DNS and identity defenses against it.",
+  "purpose": "Phishing is the most common first step of a real attack. In this lab you learn the signs of a phishing message and see which Cisco controls stop it at each stage, from the mail gateway to DNS to the endpoint.",
   "scenario": "Several employees received an email that looks like it's from IT: \"Your mailbox is full, sign in to keep your messages.\" One user clicked. Work out how the message got through, and add layers so the next campaign fails.",
   "topology": "Attacker ── Internet ── Secure Email Gateway ── mailbox ── user ── Umbrella DNS",
   "objectives": [
@@ -22,10 +23,22 @@
       "task": "Pick every warning sign in this message.",
       "question": "From: \"IT Service Desk\" <helpdesk@scor-lab-support.com>\nSubject: URGENT: Mailbox 98% full, action required within 2 hours\nLink text: https://mail.scor.lab/quota  (actual target: https://scor-lab-support.com/owa/login.php)",
       "options": [
-        { "text": "The sender's domain is a look-alike, not scor.lab.", "correct": true },
-        { "text": "The deadline creates urgency.", "correct": true },
-        { "text": "The link text and the real link target don't match.", "correct": true },
-        { "text": "The message mentions the mailbox.", "why": "Real IT messages mention mailboxes too. That alone isn't suspicious." }
+        {
+          "text": "The sender's domain is a look-alike, not scor.lab.",
+          "correct": true
+        },
+        {
+          "text": "The deadline creates urgency.",
+          "correct": true
+        },
+        {
+          "text": "The link text and the real link target don't match.",
+          "correct": true
+        },
+        {
+          "text": "The message mentions the mailbox.",
+          "why": "Real IT messages mention mailboxes too. That alone isn't suspicious."
+        }
       ]
     },
     {
@@ -36,8 +49,25 @@
       "screen": "Message headers",
       "button": "Check",
       "fields": [
-        { "label": "Did SPF, DKIM and DMARC stop this message?", "kind": "select", "options": ["Yes", "No, it passed for the attacker's own domain"], "answer": "No, it passed for the attacker's own domain" },
-        { "label": "What would catch a look-alike domain?", "kind": "select", "options": ["DMARC on scor.lab", "Newly registered and look-alike domain detection with sender reputation", "A longer SPF record"], "answer": "Newly registered and look-alike domain detection with sender reputation" }
+        {
+          "label": "Did SPF, DKIM and DMARC stop this message?",
+          "kind": "select",
+          "options": [
+            "Yes",
+            "No, it passed for the attacker's own domain"
+          ],
+          "answer": "No, it passed for the attacker's own domain"
+        },
+        {
+          "label": "What would catch a look-alike domain?",
+          "kind": "select",
+          "options": [
+            "DMARC on scor.lab",
+            "Newly registered and look-alike domain detection with sender reputation",
+            "A longer SPF record"
+          ],
+          "answer": "Newly registered and look-alike domain detection with sender reputation"
+        }
       ]
     },
     {
@@ -48,9 +78,36 @@
       "screen": "Defense in depth",
       "button": "Check",
       "fields": [
-        { "label": "Before delivery", "kind": "select", "options": ["Secure Email: sender reputation, URL rewriting and Forged Email Detection", "Umbrella blocking the phishing domain at DNS", "MFA on the mailbox"], "answer": "Secure Email: sender reputation, URL rewriting and Forged Email Detection" },
-        { "label": "When the user clicks", "kind": "select", "options": ["Secure Email: sender reputation, URL rewriting and Forged Email Detection", "Umbrella blocking the phishing domain at DNS", "MFA on the mailbox"], "answer": "Umbrella blocking the phishing domain at DNS" },
-        { "label": "If the password is stolen anyway", "kind": "select", "options": ["Secure Email: sender reputation, URL rewriting and Forged Email Detection", "Umbrella blocking the phishing domain at DNS", "MFA on the mailbox"], "answer": "MFA on the mailbox" }
+        {
+          "label": "Before delivery",
+          "kind": "select",
+          "options": [
+            "Secure Email: sender reputation, URL rewriting and Forged Email Detection",
+            "Umbrella blocking the phishing domain at DNS",
+            "MFA on the mailbox"
+          ],
+          "answer": "Secure Email: sender reputation, URL rewriting and Forged Email Detection"
+        },
+        {
+          "label": "When the user clicks",
+          "kind": "select",
+          "options": [
+            "Secure Email: sender reputation, URL rewriting and Forged Email Detection",
+            "Umbrella blocking the phishing domain at DNS",
+            "MFA on the mailbox"
+          ],
+          "answer": "Umbrella blocking the phishing domain at DNS"
+        },
+        {
+          "label": "If the password is stolen anyway",
+          "kind": "select",
+          "options": [
+            "Secure Email: sender reputation, URL rewriting and Forged Email Detection",
+            "Umbrella blocking the phishing domain at DNS",
+            "MFA on the mailbox"
+          ],
+          "answer": "MFA on the mailbox"
+        }
       ]
     },
     {

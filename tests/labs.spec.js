@@ -45,7 +45,7 @@ test('the labs page lists every lab', async ({ page }) => {
 });
 
 for (const meta of index) {
-  test(`lab ${meta.n} can be completed with a perfect score: ${meta.title}`, async ({ page }) => {
+  test(`lab ${meta.n} can be completed by following the coach: ${meta.title}`, async ({ page }) => {
     const data = lab(meta.id);
     await page.goto(`/#/labs/${meta.id}`);
     for (const [i, step] of data.steps.entries()) {
@@ -53,39 +53,58 @@ for (const meta of index) {
       await solveStep(page, step);
     }
     await expect(page.locator('.lab-result')).toBeVisible();
-    await expect(page.locator('.lab-score strong').first()).toHaveText('100');
+    await expect(page.locator('.lab-result')).toContainText('What you learned');
     const saved = await page.evaluate(id => JSON.parse(localStorage.getItem('scor.labs'))[id].runs, meta.id);
     expect(saved).toHaveLength(1);
-    expect(saved[0].score).toBe(100);
+    expect(saved[0].ms).toBeGreaterThan(0);
+    expect(saved[0].score).toBeUndefined();
     expect(await page.evaluate(id => localStorage.getItem(`scor.lab.pos.${id}`), meta.id)).toBeNull();
   });
 }
 
-test('steps unlock in order, mistakes cost points, and hints and answers open after wrong tries', async ({ page }) => {
+test('the lab explains its purpose and coaches each command, and phases unlock in order', async ({ page }) => {
   await page.goto('/#/labs/secure-mgmt');
+  await expect(page.locator('.lab-brief')).toContainText('Purpose');
+  await expect(page.locator('.lab-brief')).toContainText("What you'll learn");
   await expect(page.locator('#step-1.locked')).toBeVisible();
+  // The coach lists every command with where to type it and what it does; the next one is highlighted.
+  const rows = page.locator('#step-0 .guide-row');
+  await expect(rows).toHaveCount(4);
+  await expect(rows.first()).toHaveClass(/current/);
+  await expect(rows.nth(1)).toContainText('at R1(config)#');
+  await expect(rows.nth(2)).toContainText('RSA key pair');
   const input = page.locator('#term-in'), say = page.locator('#feedback');
-  // A command for a later step is refused, and the step stays locked.
+  // A command for later in the phase says which one comes next, with no score to lose.
   await input.fill('ip ssh version 2'); await input.press('Enter');
-  await expect(say).toContainText('in order');
-  await input.fill('conf t'); await input.press('Enter');
+  await expect(say).toContainText('next is number 1');
+  // Tapping a command puts it in the console.
+  await rows.first().locator('button.guide-cmd').click();
+  await expect(input).toHaveValue('configure terminal');
+  await input.press('Enter');
   await expect(page.locator('#term-prompt')).toHaveText('R1(config)#');
+  await expect(rows.first()).toHaveClass(/done/);
+  await expect(rows.nth(1)).toHaveClass(/current/);
   await input.fill('ip domain name scor.lab'); await input.press('Enter');
   await input.fill('show ip ssh'); await input.press('Enter');
   await expect(page.locator('#term-out')).toContainText('no output');
   await input.fill('ip domain nme scor.lab'); await input.press('Enter');
   await expect(say).toContainText('nme should be name');
-  await expect(page.locator('#hint')).toBeEnabled();
-  await page.locator('#hint').click();
-  await expect(page.locator('.lab-hint')).toContainText('crypto key generate rsa');
   await input.fill('ip domain-name scor.lab'); await input.press('Enter');
   await expect(say).toContainText('already configured');
   await input.fill('cry key gen rsa mod 2048'); await input.press('Enter');
   await input.fill('ip ssh ver 2'); await input.press('Enter');
   await expect(page.locator('#step-1.current')).toBeVisible();
-  // Two wrong tries and one hint: 100 - 8 - 5.
-  const rec = await page.evaluate(() => JSON.parse(localStorage.getItem('scor.lab.pos.secure-mgmt')).steps[0]);
-  expect(rec).toMatchObject({ wrong: 2, hint: true, reveal: false });
+  await expect(page.locator('#step-1 .lab-phase')).toHaveText('Phase 2');
+  await expect(page.locator('.lab-score')).toHaveCount(0);
+});
+
+test('knowledge checks explain mistakes and can show the answer for free', async ({ page }) => {
+  await page.goto('/#/labs/aaa-tacacs');
+  await page.locator('#check').click();
+  await expect(page.locator('#feedback')).toContainText('Choose an answer first');
+  await page.locator('#show-me').click();
+  await page.locator('#check').click();
+  await expect(page.locator('#step-1.current')).toBeVisible();
 });
 
 test('the console coaches mode slips and typos without hiding the answer', async ({ page }) => {
@@ -121,7 +140,7 @@ test('a lab in progress resumes at the same step with its console history', asyn
   await expect(page.locator('#step-1.current')).toBeVisible();
   await page.locator('#term-in').fill('aaa new-model'); await page.locator('#term-in').press('Enter');
   await page.evaluate(() => { location.hash = '#/labs'; });
-  await expect(page.locator('[data-lab="aaa-tacacs"] .badge')).toContainText('step 2');
+  await expect(page.locator('[data-lab="aaa-tacacs"] .badge')).toContainText('phase 2');
   await page.locator('[data-lab="aaa-tacacs"] a').click();
   await page.locator('#resume').click();
   await expect(page.locator('#step-1.current')).toBeVisible();
@@ -135,12 +154,12 @@ test('lab results survive a backup round trip and merge by run', async ({ page }
   const out = await page.evaluate(async () => {
     const { merge, restore, snapshot } = await import('./assets/store.js');
     const a = { labs: { 'secure-mgmt': { runs: [{ at: 1, score: 90, ms: 600000 }] } } };
-    const b = { labs: { 'secure-mgmt': { runs: [{ at: 2, score: 100, ms: 500000 }] }, 'bad id!': { runs: [] } }, 'lab.pos.secure-mgmt': { step: 2, at: 5, steps: [], devices: { R1: { modes: ['exec', 'priv'], log: [['<b>x</b>', 'evil']] } } } };
+    const b = { labs: { 'secure-mgmt': { runs: [{ at: 2, ms: 500000 }] }, 'bad id!': { runs: [] } }, 'lab.pos.secure-mgmt': { step: 2, at: 5, steps: [], devices: { R1: { modes: ['exec', 'priv'], log: [['<b>x</b>', 'evil']] } } } };
     const merged = merge(a, b);
     restore(merged);
     return snapshot();
   });
-  expect(out.labs['secure-mgmt'].runs.map(r => r.score)).toEqual([90, 100]);
+  expect(out.labs['secure-mgmt'].runs).toEqual([{ at: 1, ms: 600000 }, { at: 2, ms: 500000 }]);
   expect(out.labs['bad id!']).toBeUndefined();
   expect(out['lab.pos.secure-mgmt'].devices.R1.log[0][1]).toBe('res');
 });
@@ -150,4 +169,7 @@ test('completed labs show on the progress dashboard', async ({ page }) => {
   await page.evaluate(() => localStorage.setItem('scor.labs', JSON.stringify({ 'secure-mgmt': { runs: [{ at: 1, score: 88, ms: 540000 }] } })));
   await page.evaluate(() => { location.hash = '#/progress'; });
   await expect(page.locator('a[href="#/labs"]', { hasText: '1 lab completed' })).toBeVisible();
+  await page.evaluate(() => { localStorage.setItem('scor.history', JSON.stringify([{ at: 1, ch: 1, t: 1, right: 15, total: 20, ms: 60000 }])); localStorage.setItem('scor.best.1.1', '75'); });
+  await page.reload();
+  await expect(page.locator('table.recent', { hasText: 'Lock down device management' })).toContainText('9:00');
 });

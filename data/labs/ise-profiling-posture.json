@@ -7,6 +7,7 @@
   "level": "Advanced",
   "minutes": 16,
   "blurb": "Let ISE work out what each device is, and check that laptops are healthy before granting full access.",
+  "purpose": "Knowing who someone is isn't enough; you also need to know what the device is and whether it's healthy. This lab sets up ISE profiling and posture checks to grant access based on device type and compliance. It covers advanced ISE features.",
   "scenario": "Printers and IP phones should be recognized automatically, and corporate laptops should get full access only if their antivirus is running and the disk is encrypted. Turn on profiling probes in ISE, and build a posture policy with remediation.",
   "topology": "Endpoints ── SW1 ── ISE (PSN: profiling, posture)\n                    Secure Client with ISE Posture module",
   "objectives": [
@@ -23,10 +24,50 @@
       "screen": "ISE › Administration › System › Deployment › PSN › Profiling Configuration",
       "button": "Save",
       "fields": [
-        { "label": "DHCP", "kind": "select", "options": ["Hostname and DHCP class identifier (option 60)", "Browser user agent", "CDP and LLDP neighbor data from the switch", "MAC address and its OUI vendor"], "answer": "Hostname and DHCP class identifier (option 60)" },
-        { "label": "HTTP", "kind": "select", "options": ["Hostname and DHCP class identifier (option 60)", "Browser user agent", "CDP and LLDP neighbor data from the switch", "MAC address and its OUI vendor"], "answer": "Browser user agent" },
-        { "label": "Device Sensor (RADIUS accounting)", "kind": "select", "options": ["Hostname and DHCP class identifier (option 60)", "Browser user agent", "CDP and LLDP neighbor data from the switch", "MAC address and its OUI vendor"], "answer": "CDP and LLDP neighbor data from the switch" },
-        { "label": "RADIUS", "kind": "select", "options": ["Hostname and DHCP class identifier (option 60)", "Browser user agent", "CDP and LLDP neighbor data from the switch", "MAC address and its OUI vendor"], "answer": "MAC address and its OUI vendor" }
+        {
+          "label": "DHCP",
+          "kind": "select",
+          "options": [
+            "Hostname and DHCP class identifier (option 60)",
+            "Browser user agent",
+            "CDP and LLDP neighbor data from the switch",
+            "MAC address and its OUI vendor"
+          ],
+          "answer": "Hostname and DHCP class identifier (option 60)"
+        },
+        {
+          "label": "HTTP",
+          "kind": "select",
+          "options": [
+            "Hostname and DHCP class identifier (option 60)",
+            "Browser user agent",
+            "CDP and LLDP neighbor data from the switch",
+            "MAC address and its OUI vendor"
+          ],
+          "answer": "Browser user agent"
+        },
+        {
+          "label": "Device Sensor (RADIUS accounting)",
+          "kind": "select",
+          "options": [
+            "Hostname and DHCP class identifier (option 60)",
+            "Browser user agent",
+            "CDP and LLDP neighbor data from the switch",
+            "MAC address and its OUI vendor"
+          ],
+          "answer": "CDP and LLDP neighbor data from the switch"
+        },
+        {
+          "label": "RADIUS",
+          "kind": "select",
+          "options": [
+            "Hostname and DHCP class identifier (option 60)",
+            "Browser user agent",
+            "CDP and LLDP neighbor data from the switch",
+            "MAC address and its OUI vendor"
+          ],
+          "answer": "MAC address and its OUI vendor"
+        }
       ]
     },
     {
@@ -51,10 +92,46 @@
       "screen": "ISE › Work Centers › Posture › Posture Policy",
       "button": "Save",
       "fields": [
-        { "label": "Any_AV_Installation_Win: requirement type", "kind": "select", "options": ["Mandatory", "Optional", "Audit"], "answer": "Mandatory" },
-        { "label": "Any_AV_Installation_Win: remediation", "kind": "select", "options": ["AV definition update", "Message text only", "Launch program"], "answer": "AV definition update" },
-        { "label": "Disk_Encryption_Win: requirement type", "kind": "select", "options": ["Mandatory", "Optional", "Audit"], "answer": "Mandatory" },
-        { "label": "Disk_Encryption_Win: remediation", "kind": "select", "options": ["AV definition update", "Message text only", "Launch program"], "answer": "Message text only" }
+        {
+          "label": "Any_AV_Installation_Win: requirement type",
+          "kind": "select",
+          "options": [
+            "Mandatory",
+            "Optional",
+            "Audit"
+          ],
+          "answer": "Mandatory"
+        },
+        {
+          "label": "Any_AV_Installation_Win: remediation",
+          "kind": "select",
+          "options": [
+            "AV definition update",
+            "Message text only",
+            "Launch program"
+          ],
+          "answer": "AV definition update"
+        },
+        {
+          "label": "Disk_Encryption_Win: requirement type",
+          "kind": "select",
+          "options": [
+            "Mandatory",
+            "Optional",
+            "Audit"
+          ],
+          "answer": "Mandatory"
+        },
+        {
+          "label": "Disk_Encryption_Win: remediation",
+          "kind": "select",
+          "options": [
+            "AV definition update",
+            "Message text only",
+            "Launch program"
+          ],
+          "answer": "Message text only"
+        }
       ]
     },
     {
@@ -65,9 +142,36 @@
       "screen": "ISE › Policy Sets › Wired-Access › Authorization Policy",
       "button": "Save",
       "fields": [
-        { "label": "PostureStatus EQUALS Compliant", "kind": "select", "options": ["PermitAccess", "Posture_Redirect", "Remediation_Only"], "answer": "PermitAccess" },
-        { "label": "PostureStatus EQUALS Unknown", "kind": "select", "options": ["PermitAccess", "Posture_Redirect", "Remediation_Only"], "answer": "Posture_Redirect" },
-        { "label": "PostureStatus EQUALS NonCompliant", "kind": "select", "options": ["PermitAccess", "Posture_Redirect", "Remediation_Only"], "answer": "Remediation_Only" }
+        {
+          "label": "PostureStatus EQUALS Compliant",
+          "kind": "select",
+          "options": [
+            "PermitAccess",
+            "Posture_Redirect",
+            "Remediation_Only"
+          ],
+          "answer": "PermitAccess"
+        },
+        {
+          "label": "PostureStatus EQUALS Unknown",
+          "kind": "select",
+          "options": [
+            "PermitAccess",
+            "Posture_Redirect",
+            "Remediation_Only"
+          ],
+          "answer": "Posture_Redirect"
+        },
+        {
+          "label": "PostureStatus EQUALS NonCompliant",
+          "kind": "select",
+          "options": [
+            "PermitAccess",
+            "Posture_Redirect",
+            "Remediation_Only"
+          ],
+          "answer": "Remediation_Only"
+        }
       ]
     },
     {
@@ -76,9 +180,18 @@
       "task": "Answer the question.",
       "question": "Without RADIUS CoA, what would happen when a laptop becomes compliant?",
       "options": [
-        { "text": "It would stay in the limited redirect session until it reauthenticated on its own, for example after a reconnect or session timeout, because the switch wouldn't know the result had changed.", "correct": true },
-        { "text": "It would get full access immediately anyway.", "why": "The switch enforces whatever ISE last told it. CoA is how ISE changes that mid-session." },
-        { "text": "ISE would drop the laptop's session.", "why": "Without CoA, ISE can't act on the session at all." }
+        {
+          "text": "It would stay in the limited redirect session until it reauthenticated on its own, for example after a reconnect or session timeout, because the switch wouldn't know the result had changed.",
+          "correct": true
+        },
+        {
+          "text": "It would get full access immediately anyway.",
+          "why": "The switch enforces whatever ISE last told it. CoA is how ISE changes that mid-session."
+        },
+        {
+          "text": "ISE would drop the laptop's session.",
+          "why": "Without CoA, ISE can't act on the session at all."
+        }
       ]
     }
   ],

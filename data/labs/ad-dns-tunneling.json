@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 12,
   "blurb": "Learn how attackers hide data in DNS queries, recognize the pattern, and block it with Umbrella.",
+  "purpose": "Attackers hide data and command traffic inside DNS because it is almost always allowed out. In this lab you learn what DNS tunneling looks like and how Umbrella and flow analytics detect and block it.",
   "scenario": "A workstation sends thousands of DNS queries an hour, all to subdomains of one unfamiliar domain. Nothing else about the host looks wrong. Work out what's going on, and make sure DNS can't be used as a covert channel.",
   "topology": "Workstation ── internal DNS ── Umbrella ── attacker's authoritative DNS server",
   "objectives": [
@@ -22,9 +23,18 @@
       "task": "Answer the question.",
       "question": "Why does DNS tunneling often get past firewalls?",
       "options": [
-        { "text": "DNS is allowed almost everywhere, and the traffic travels through legitimate resolvers to the attacker's name server, so it looks like normal lookups.", "correct": true },
-        { "text": "DNS traffic is encrypted, so firewalls can't read it.", "why": "Classic DNS is plain text. The problem is that it's trusted and rarely inspected." },
-        { "text": "DNS uses a random port each time.", "why": "DNS uses port 53. It's allowed, not hidden." }
+        {
+          "text": "DNS is allowed almost everywhere, and the traffic travels through legitimate resolvers to the attacker's name server, so it looks like normal lookups.",
+          "correct": true
+        },
+        {
+          "text": "DNS traffic is encrypted, so firewalls can't read it.",
+          "why": "Classic DNS is plain text. The problem is that it's trusted and rarely inspected."
+        },
+        {
+          "text": "DNS uses a random port each time.",
+          "why": "DNS uses port 53. It's allowed, not hidden."
+        }
       ]
     },
     {
@@ -33,10 +43,22 @@
       "task": "Pick every sign of tunneling in this query log.",
       "question": "`a9f3c1e07b2d4c88e1f0.d41b77.data-sync-cdn.net  TXT`\n`0c7e19aa53f2be6d9c04.d41b78.data-sync-cdn.net  TXT`\n`f1e2d3c4b5a69788a0b1.d41b79.data-sync-cdn.net  TXT`\n(about 3,000 per hour, from one host)",
       "options": [
-        { "text": "Long, random-looking subdomain labels (high entropy)", "correct": true },
-        { "text": "A huge volume of unique queries to a single domain", "correct": true },
-        { "text": "Mostly TXT queries, which can carry larger answers", "correct": true },
-        { "text": "The domain ends in .net", "why": "The top-level domain alone means nothing." }
+        {
+          "text": "Long, random-looking subdomain labels (high entropy)",
+          "correct": true
+        },
+        {
+          "text": "A huge volume of unique queries to a single domain",
+          "correct": true
+        },
+        {
+          "text": "Mostly TXT queries, which can carry larger answers",
+          "correct": true
+        },
+        {
+          "text": "The domain ends in .net",
+          "why": "The top-level domain alone means nothing."
+        }
       ]
     },
     {
@@ -47,9 +69,21 @@
       "screen": "Umbrella › Policies › DNS Policies › HQ-Policy › Security Settings",
       "button": "Save",
       "fields": [
-        { "label": "DNS Tunneling VPN", "kind": "check", "answer": true },
-        { "label": "Newly Seen Domains", "kind": "check", "answer": true },
-        { "label": "Command and Control Callbacks", "kind": "check", "answer": true }
+        {
+          "label": "DNS Tunneling VPN",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Newly Seen Domains",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Command and Control Callbacks",
+          "kind": "check",
+          "answer": true
+        }
       ]
     },
     {
@@ -58,9 +92,18 @@
       "task": "Pick every control that stops the host from simply bypassing Umbrella.",
       "question": "Which controls stop a host going around the protected resolver?",
       "options": [
-        { "text": "Block outbound UDP and TCP 53 from everything except the internal DNS servers.", "correct": true },
-        { "text": "Block or control DNS over HTTPS (DoH) to public resolvers, for example with the firewall's DoH application filter.", "correct": true },
-        { "text": "Allow port 53 to any address so troubleshooting is easier.", "why": "That lets any host query an outside resolver directly, around Umbrella." }
+        {
+          "text": "Block outbound UDP and TCP 53 from everything except the internal DNS servers.",
+          "correct": true
+        },
+        {
+          "text": "Block or control DNS over HTTPS (DoH) to public resolvers, for example with the firewall's DoH application filter.",
+          "correct": true
+        },
+        {
+          "text": "Allow port 53 to any address so troubleshooting is easier.",
+          "why": "That lets any host query an outside resolver directly, around Umbrella."
+        }
       ]
     }
   ],

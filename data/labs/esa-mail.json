@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 14,
   "blurb": "Tune sender reputation, mail flow policies and content scanning on the Secure Email Gateway (ESA).",
+  "purpose": "Email is still the most common way attacks start. This lab walks a message through Secure Email's pipeline and configures anti-spam, anti-virus, file reputation and sender authentication checks. It covers email security in the Content Security domain.",
   "scenario": "Phishing is the top threat at the company. The **Secure Email Gateway** (formerly ESA) sits in front of the mail server for **scor.lab**. Configure it to throttle or reject mail from poorly rated senders, scan inbound mail for spam, viruses and malicious files, and check sender authentication.",
   "topology": "Internet senders ── [Secure Email Gateway] ── Exchange (scor.lab)\n                     listener: IncomingMail (public)",
   "objectives": [
@@ -39,10 +40,50 @@
       "screen": "Secure Email › Mail Policies › HAT Overview",
       "button": "Submit",
       "fields": [
-        { "label": "BLOCKED_LIST (SBRS −10 to −3)", "kind": "select", "options": ["BLOCKED", "THROTTLED", "ACCEPTED", "TRUSTED"], "answer": "BLOCKED" },
-        { "label": "SUSPECTLIST (SBRS −3 to −1)", "kind": "select", "options": ["BLOCKED", "THROTTLED", "ACCEPTED", "TRUSTED"], "answer": "THROTTLED" },
-        { "label": "UNKNOWNLIST (no score or −1 to +10)", "kind": "select", "options": ["BLOCKED", "THROTTLED", "ACCEPTED", "TRUSTED"], "answer": "ACCEPTED" },
-        { "label": "ALLOWED_LIST (partners you name)", "kind": "select", "options": ["BLOCKED", "THROTTLED", "ACCEPTED", "TRUSTED"], "answer": "TRUSTED" }
+        {
+          "label": "BLOCKED_LIST (SBRS −10 to −3)",
+          "kind": "select",
+          "options": [
+            "BLOCKED",
+            "THROTTLED",
+            "ACCEPTED",
+            "TRUSTED"
+          ],
+          "answer": "BLOCKED"
+        },
+        {
+          "label": "SUSPECTLIST (SBRS −3 to −1)",
+          "kind": "select",
+          "options": [
+            "BLOCKED",
+            "THROTTLED",
+            "ACCEPTED",
+            "TRUSTED"
+          ],
+          "answer": "THROTTLED"
+        },
+        {
+          "label": "UNKNOWNLIST (no score or −1 to +10)",
+          "kind": "select",
+          "options": [
+            "BLOCKED",
+            "THROTTLED",
+            "ACCEPTED",
+            "TRUSTED"
+          ],
+          "answer": "ACCEPTED"
+        },
+        {
+          "label": "ALLOWED_LIST (partners you name)",
+          "kind": "select",
+          "options": [
+            "BLOCKED",
+            "THROTTLED",
+            "ACCEPTED",
+            "TRUSTED"
+          ],
+          "answer": "TRUSTED"
+        }
       ]
     },
     {
@@ -53,11 +94,36 @@
       "screen": "Secure Email › Mail Policies › Incoming Mail Policies › Default Policy",
       "button": "Submit",
       "fields": [
-        { "label": "Anti-Spam (IronPort Anti-Spam)", "kind": "check", "answer": true },
-        { "label": "Positively identified spam", "kind": "select", "options": ["Deliver", "Drop", "Spam Quarantine"], "answer": "Spam Quarantine" },
-        { "label": "Anti-Virus", "kind": "check", "answer": true },
-        { "label": "Advanced Malware Protection", "kind": "check", "answer": true },
-        { "label": "Graymail detection", "kind": "check", "answer": true }
+        {
+          "label": "Anti-Spam (IronPort Anti-Spam)",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Positively identified spam",
+          "kind": "select",
+          "options": [
+            "Deliver",
+            "Drop",
+            "Spam Quarantine"
+          ],
+          "answer": "Spam Quarantine"
+        },
+        {
+          "label": "Anti-Virus",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Advanced Malware Protection",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Graymail detection",
+          "kind": "check",
+          "answer": true
+        }
       ]
     },
     {
@@ -68,9 +134,36 @@
       "screen": "Email authentication",
       "button": "Check",
       "fields": [
-        { "label": "SPF", "kind": "select", "options": ["Lists the IPs allowed to send for the domain", "Signs messages with the domain's private key", "Sets the policy (none, quarantine, reject) for failures"], "answer": "Lists the IPs allowed to send for the domain" },
-        { "label": "DKIM", "kind": "select", "options": ["Lists the IPs allowed to send for the domain", "Signs messages with the domain's private key", "Sets the policy (none, quarantine, reject) for failures"], "answer": "Signs messages with the domain's private key" },
-        { "label": "DMARC", "kind": "select", "options": ["Lists the IPs allowed to send for the domain", "Signs messages with the domain's private key", "Sets the policy (none, quarantine, reject) for failures"], "answer": "Sets the policy (none, quarantine, reject) for failures" }
+        {
+          "label": "SPF",
+          "kind": "select",
+          "options": [
+            "Lists the IPs allowed to send for the domain",
+            "Signs messages with the domain's private key",
+            "Sets the policy (none, quarantine, reject) for failures"
+          ],
+          "answer": "Lists the IPs allowed to send for the domain"
+        },
+        {
+          "label": "DKIM",
+          "kind": "select",
+          "options": [
+            "Lists the IPs allowed to send for the domain",
+            "Signs messages with the domain's private key",
+            "Sets the policy (none, quarantine, reject) for failures"
+          ],
+          "answer": "Signs messages with the domain's private key"
+        },
+        {
+          "label": "DMARC",
+          "kind": "select",
+          "options": [
+            "Lists the IPs allowed to send for the domain",
+            "Signs messages with the domain's private key",
+            "Sets the policy (none, quarantine, reject) for failures"
+          ],
+          "answer": "Sets the policy (none, quarantine, reject) for failures"
+        }
       ]
     },
     {
@@ -79,9 +172,18 @@
       "task": "Answer the question.",
       "question": "An attachment was clean when it was delivered, but an hour later AMP rates it malicious. What can the gateway do?",
       "options": [
-        { "text": "Send a retrospective alert and, with Office 365 or Exchange integration, remediate the message in mailboxes (Mailbox Auto Remediation).", "correct": true },
-        { "text": "Nothing. Once a message is delivered, the gateway is done with it.", "why": "AMP keeps tracking file verdicts. Retrospection is one of its main features." },
-        { "text": "Recall the message from the sender's server.", "why": "The gateway acts on your own mailboxes, not the sender's." }
+        {
+          "text": "Send a retrospective alert and, with Office 365 or Exchange integration, remediate the message in mailboxes (Mailbox Auto Remediation).",
+          "correct": true
+        },
+        {
+          "text": "Nothing. Once a message is delivered, the gateway is done with it.",
+          "why": "AMP keeps tracking file verdicts. Retrospection is one of its main features."
+        },
+        {
+          "text": "Recall the message from the sender's server.",
+          "why": "The gateway acts on your own mailboxes, not the sender's."
+        }
       ]
     }
   ],

@@ -18,7 +18,7 @@ def lab_index():
     for path in lab_files():
         lab = json.loads(path.read_text())
         where = path.name
-        for key in ('id', 'n', 'title', 'domain', 'level', 'minutes', 'blurb', 'scenario', 'steps', 'summary'):
+        for key in ('id', 'n', 'title', 'domain', 'level', 'minutes', 'blurb', 'purpose', 'objectives', 'scenario', 'steps', 'summary'):
             if key not in lab:
                 problems.append(f'{where}: missing {key}')
         if lab.get('id') != path.stem:
@@ -31,6 +31,8 @@ def lab_index():
                 problems.append(f'{where} step {i}: needs a title and a task')
             if kind == 'cli' and (not step.get('commands') or step.get('device') not in lab.get('devices', {})):
                 problems.append(f'{where} step {i}: a cli step needs commands and a device listed in devices')
+            if kind == 'cli' and not all(c.get('explain') for c in step.get('commands', [])):
+                problems.append(f'{where} step {i}: every command needs an explain line for the coach')
             if kind == 'choice' and not any(o.get('correct') for o in step.get('options', [])):
                 problems.append(f'{where} step {i}: no correct option')
             if kind == 'order' and len(step.get('items', [])) < 3:

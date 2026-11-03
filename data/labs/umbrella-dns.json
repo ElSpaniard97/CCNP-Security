@@ -7,6 +7,7 @@
   "level": "Beginner",
   "minutes": 12,
   "blurb": "Register a network in Cisco Umbrella, block threat categories at the DNS layer, and send the office's DNS to Umbrella.",
+  "purpose": "Almost every connection starts with a DNS lookup, which makes DNS a cheap and early place to block threats. This lab points the network at Umbrella and builds a DNS policy. It covers DNS-layer security in the Content Security domain.",
   "scenario": "The HQ office reaches the Internet from public address **203.0.113.1**. Protect every device in the office, including ones without an agent, by using **Cisco Umbrella** as the DNS resolver. Block malware, phishing and command-and-control domains, and inspect risky domains with the Intelligent Proxy.",
   "topology": "Office clients ── internal DNS ── forwarders → Umbrella 208.67.222.222 / 208.67.220.220\n                         egress public IP 203.0.113.1",
   "objectives": [

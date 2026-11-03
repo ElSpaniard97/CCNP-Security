@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 14,
   "blurb": "Follow a ransomware intrusion through the kill chain, find where each control could have stopped it, and plan the recovery.",
+  "purpose": "Ransomware is the attack most organizations fear. In this lab you follow an intrusion through each stage, see where each Cisco control could have stopped it, and learn the right order to respond and recover.",
   "scenario": "A file server's shares are suddenly full of files ending in **.locked**, and there's a ransom note in every folder. Walk back through how the attack unfolded, decide where Cisco controls would have broken the chain, and recover safely.",
   "topology": "User laptop ── SW ── file server\n   Secure Endpoint, Umbrella, FTD, Secure Network Analytics",
   "objectives": [
@@ -37,10 +38,50 @@
       "screen": "Controls by stage",
       "button": "Check",
       "fields": [
-        { "label": "Loader runs on the laptop", "kind": "select", "options": ["Secure Endpoint (file reputation, behavioral protection)", "Umbrella (blocks the CnC domain at DNS)", "Secure Network Analytics (unusual internal connections and data hoarding)", "FTD (blocks SMB between user and server segments)"], "answer": "Secure Endpoint (file reputation, behavioral protection)" },
-        { "label": "Beacons to the operator's domain", "kind": "select", "options": ["Secure Endpoint (file reputation, behavioral protection)", "Umbrella (blocks the CnC domain at DNS)", "Secure Network Analytics (unusual internal connections and data hoarding)", "FTD (blocks SMB between user and server segments)"], "answer": "Umbrella (blocks the CnC domain at DNS)" },
-        { "label": "Lateral movement from the laptop to servers", "kind": "select", "options": ["Secure Endpoint (file reputation, behavioral protection)", "Umbrella (blocks the CnC domain at DNS)", "Secure Network Analytics (unusual internal connections and data hoarding)", "FTD (blocks SMB between user and server segments)"], "answer": "FTD (blocks SMB between user and server segments)" },
-        { "label": "Staging and uploading gigabytes of data", "kind": "select", "options": ["Secure Endpoint (file reputation, behavioral protection)", "Umbrella (blocks the CnC domain at DNS)", "Secure Network Analytics (unusual internal connections and data hoarding)", "FTD (blocks SMB between user and server segments)"], "answer": "Secure Network Analytics (unusual internal connections and data hoarding)" }
+        {
+          "label": "Loader runs on the laptop",
+          "kind": "select",
+          "options": [
+            "Secure Endpoint (file reputation, behavioral protection)",
+            "Umbrella (blocks the CnC domain at DNS)",
+            "Secure Network Analytics (unusual internal connections and data hoarding)",
+            "FTD (blocks SMB between user and server segments)"
+          ],
+          "answer": "Secure Endpoint (file reputation, behavioral protection)"
+        },
+        {
+          "label": "Beacons to the operator's domain",
+          "kind": "select",
+          "options": [
+            "Secure Endpoint (file reputation, behavioral protection)",
+            "Umbrella (blocks the CnC domain at DNS)",
+            "Secure Network Analytics (unusual internal connections and data hoarding)",
+            "FTD (blocks SMB between user and server segments)"
+          ],
+          "answer": "Umbrella (blocks the CnC domain at DNS)"
+        },
+        {
+          "label": "Lateral movement from the laptop to servers",
+          "kind": "select",
+          "options": [
+            "Secure Endpoint (file reputation, behavioral protection)",
+            "Umbrella (blocks the CnC domain at DNS)",
+            "Secure Network Analytics (unusual internal connections and data hoarding)",
+            "FTD (blocks SMB between user and server segments)"
+          ],
+          "answer": "FTD (blocks SMB between user and server segments)"
+        },
+        {
+          "label": "Staging and uploading gigabytes of data",
+          "kind": "select",
+          "options": [
+            "Secure Endpoint (file reputation, behavioral protection)",
+            "Umbrella (blocks the CnC domain at DNS)",
+            "Secure Network Analytics (unusual internal connections and data hoarding)",
+            "FTD (blocks SMB between user and server segments)"
+          ],
+          "answer": "Secure Network Analytics (unusual internal connections and data hoarding)"
+        }
       ]
     },
     {
@@ -63,9 +104,18 @@
       "task": "Answer the question.",
       "question": "Why must at least one backup copy be offline or immutable?",
       "options": [
-        { "text": "Operators look for backups and encrypt or delete them first. A copy they can't reach or change is what makes recovery possible without paying.", "correct": true },
-        { "text": "Offline backups restore faster.", "why": "They're often slower. Their value is that the attacker can't reach them." },
-        { "text": "It's needed only for compliance.", "why": "It's the main technical defense against losing everything." }
+        {
+          "text": "Operators look for backups and encrypt or delete them first. A copy they can't reach or change is what makes recovery possible without paying.",
+          "correct": true
+        },
+        {
+          "text": "Offline backups restore faster.",
+          "why": "They're often slower. Their value is that the attacker can't reach them."
+        },
+        {
+          "text": "It's needed only for compliance.",
+          "why": "It's the main technical defense against losing everything."
+        }
       ]
     }
   ],

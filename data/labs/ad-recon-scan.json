@@ -7,6 +7,7 @@
   "level": "Beginner",
   "minutes": 12,
   "blurb": "Recognize a port scan in flow data and IPS events, then shrink what the scan can find on an edge router.",
+  "purpose": "Attackers scan before they strike. In this lab you learn to recognize scans in flow data, turn on scan detection on the firewall, and shrink what the edge router shows to a scanner.",
   "scenario": "Secure Network Analytics flags one outside address touching hundreds of ports on your public range in a few seconds. Reconnaissance usually comes before an attack, so read the signs, tune detection on the FTD, and reduce what the edge exposes.",
   "topology": "Internet ── R-EDGE ── FTD ── DMZ servers\n   Secure Network Analytics collects NetFlow from R-EDGE",
   "objectives": [
@@ -16,7 +17,10 @@
     "Filter management access at the edge"
   ],
   "devices": {
-    "R-EDGE": { "host": "R-EDGE", "start": "config" }
+    "R-EDGE": {
+      "host": "R-EDGE",
+      "start": "config"
+    }
   },
   "steps": [
     {
@@ -27,9 +31,36 @@
       "screen": "Secure Network Analytics: flow search",
       "button": "Check",
       "fields": [
-        { "label": "198.51.100.7 → 203.0.113.1-254, TCP 3389, 1 packet each", "kind": "select", "options": ["Horizontal scan", "Vertical scan", "Normal traffic"], "answer": "Horizontal scan" },
-        { "label": "198.51.100.7 → 203.0.113.20, TCP 1-1024, 1 packet each", "kind": "select", "options": ["Horizontal scan", "Vertical scan", "Normal traffic"], "answer": "Vertical scan" },
-        { "label": "203.0.113.50 → 203.0.113.20, TCP 443, 48 KB, full handshake", "kind": "select", "options": ["Horizontal scan", "Vertical scan", "Normal traffic"], "answer": "Normal traffic" }
+        {
+          "label": "198.51.100.7 → 203.0.113.1-254, TCP 3389, 1 packet each",
+          "kind": "select",
+          "options": [
+            "Horizontal scan",
+            "Vertical scan",
+            "Normal traffic"
+          ],
+          "answer": "Horizontal scan"
+        },
+        {
+          "label": "198.51.100.7 → 203.0.113.20, TCP 1-1024, 1 packet each",
+          "kind": "select",
+          "options": [
+            "Horizontal scan",
+            "Vertical scan",
+            "Normal traffic"
+          ],
+          "answer": "Vertical scan"
+        },
+        {
+          "label": "203.0.113.50 → 203.0.113.20, TCP 443, 48 KB, full handshake",
+          "kind": "select",
+          "options": [
+            "Horizontal scan",
+            "Vertical scan",
+            "Normal traffic"
+          ],
+          "answer": "Normal traffic"
+        }
       ]
     },
     {
@@ -40,10 +71,46 @@
       "screen": "FMC: Policies › Access Control › Threat Detection",
       "button": "Save",
       "fields": [
-        { "label": "Portscan mode", "kind": "select", "options": ["Disabled", "Detection", "Prevention"], "answer": "Detection" },
-        { "label": "Protocols", "kind": "select", "options": ["TCP only", "TCP and UDP", "ICMP only"], "answer": "TCP and UDP" },
-        { "label": "Scan types", "kind": "select", "options": ["Portscan only", "Portsweep only", "All (portscan, portsweep, decoy, distributed)"], "answer": "All (portscan, portsweep, decoy, distributed)" },
-        { "label": "Sensitivity", "kind": "select", "options": ["Low", "Medium", "High"], "answer": "Medium" }
+        {
+          "label": "Portscan mode",
+          "kind": "select",
+          "options": [
+            "Disabled",
+            "Detection",
+            "Prevention"
+          ],
+          "answer": "Detection"
+        },
+        {
+          "label": "Protocols",
+          "kind": "select",
+          "options": [
+            "TCP only",
+            "TCP and UDP",
+            "ICMP only"
+          ],
+          "answer": "TCP and UDP"
+        },
+        {
+          "label": "Scan types",
+          "kind": "select",
+          "options": [
+            "Portscan only",
+            "Portsweep only",
+            "All (portscan, portsweep, decoy, distributed)"
+          ],
+          "answer": "All (portscan, portsweep, decoy, distributed)"
+        },
+        {
+          "label": "Sensitivity",
+          "kind": "select",
+          "options": [
+            "Low",
+            "Medium",
+            "High"
+          ],
+          "answer": "Medium"
+        }
       ]
     },
     {
@@ -55,12 +122,35 @@
       "task": "Turn off the HTTP and HTTPS servers. On **GigabitEthernet0/0** (outside), turn off CDP, ICMP unreachables and ICMP redirects.",
       "hint": "`no ip http server`, `no ip http secure-server`, `interface g0/0`, `no cdp enable`, `no ip unreachables`, `no ip redirects`.",
       "commands": [
-        { "cmd": "no ip http server" },
-        { "cmd": "no ip http secure-server" },
-        { "cmd": "interface GigabitEthernet0/0", "enter": "config-if" },
-        { "cmd": "no cdp enable", "mode": "config-if", "note": "CDP stays on for internal interfaces, where it's useful." },
-        { "cmd": "no ip unreachables", "mode": "config-if" },
-        { "cmd": "no ip redirects", "mode": "config-if" }
+        {
+          "cmd": "no ip http server",
+          "explain": "Turns off the HTTP server."
+        },
+        {
+          "cmd": "no ip http secure-server",
+          "explain": "Turns off the HTTPS server."
+        },
+        {
+          "cmd": "interface GigabitEthernet0/0",
+          "enter": "config-if",
+          "explain": "Enters the Internet-facing interface."
+        },
+        {
+          "cmd": "no cdp enable",
+          "mode": "config-if",
+          "note": "CDP stays on for internal interfaces, where it's useful.",
+          "explain": "Stops CDP here, so the model and IOS version aren't announced to the Internet."
+        },
+        {
+          "cmd": "no ip unreachables",
+          "mode": "config-if",
+          "explain": "Stops ICMP unreachable messages, which help scanners map closed ports."
+        },
+        {
+          "cmd": "no ip redirects",
+          "mode": "config-if",
+          "explain": "Stops ICMP redirects."
+        }
       ]
     },
     {
@@ -72,10 +162,26 @@
       "task": "Create standard ACL **VTY-ADMINS** permitting **10.10.99.0/24**, and apply it inbound on **VTY lines 0 4**.",
       "hint": "`ip access-list standard VTY-ADMINS`, `permit 10.10.99.0 0.0.0.255`, `line vty 0 4`, `access-class VTY-ADMINS in`.",
       "commands": [
-        { "cmd": "ip access-list standard VTY-ADMINS", "enter": "config-std-nacl" },
-        { "cmd": "permit 10.10.99.0 0.0.0.255", "mode": "config-std-nacl" },
-        { "cmd": "line vty 0 4", "enter": "config-line" },
-        { "cmd": "access-class VTY-ADMINS in", "mode": "config-line" }
+        {
+          "cmd": "ip access-list standard VTY-ADMINS",
+          "enter": "config-std-nacl",
+          "explain": "Creates the ACL of admin addresses."
+        },
+        {
+          "cmd": "permit 10.10.99.0 0.0.0.255",
+          "mode": "config-std-nacl",
+          "explain": "Allows the management subnet."
+        },
+        {
+          "cmd": "line vty 0 4",
+          "enter": "config-line",
+          "explain": "Enters the VTY lines."
+        },
+        {
+          "cmd": "access-class VTY-ADMINS in",
+          "mode": "config-line",
+          "explain": "Applies the ACL, so only admins can reach the login prompt."
+        }
       ]
     },
     {
@@ -85,7 +191,13 @@
       "task": "Show which TCP ports the router is still listening on.",
       "hint": "`do show control-plane host open-ports`",
       "commands": [
-        { "cmd": "show control-plane host open-ports", "mode": "priv", "output": "Active internet connections (servers and established)\nProt        Local Address      Foreign Address     Service    State\n tcp                 *:22                  *:0     SSH-Server   LISTEN", "note": "Only SSH remains, and the VTY ACL limits who can reach it." }
+        {
+          "cmd": "show control-plane host open-ports",
+          "mode": "priv",
+          "output": "Active internet connections (servers and established)\nProt        Local Address      Foreign Address     Service    State\n tcp                 *:22                  *:0     SSH-Server   LISTEN",
+          "note": "Only SSH remains, and the VTY ACL limits who can reach it.",
+          "explain": "Lists the ports the router still listens on."
+        }
       ]
     },
     {
@@ -94,9 +206,18 @@
       "task": "Answer the question.",
       "question": "Why is detecting a scan useful even though a scan alone does no damage?",
       "options": [
-        { "text": "Reconnaissance is an early kill-chain stage. Spotting it gives warning of a likely attack and names a source to watch or block.", "correct": true },
-        { "text": "Scans crash routers, so they must be blocked.", "why": "Ordinary scans don't crash anything. Their value to an attacker is information." },
-        { "text": "It isn't useful. Scans are too common to matter.", "why": "Most are background noise, but a targeted scan followed by exploit attempts is a strong signal." }
+        {
+          "text": "Reconnaissance is an early kill-chain stage. Spotting it gives warning of a likely attack and names a source to watch or block.",
+          "correct": true
+        },
+        {
+          "text": "Scans crash routers, so they must be blocked.",
+          "why": "Ordinary scans don't crash anything. Their value to an attacker is information."
+        },
+        {
+          "text": "It isn't useful. Scans are too common to matter.",
+          "why": "Most are background noise, but a targeted scan followed by exploit attempts is a strong signal."
+        }
       ]
     }
   ],

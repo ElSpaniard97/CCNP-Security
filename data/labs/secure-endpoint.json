@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 14,
   "blurb": "Use Cisco Secure Endpoint (AMP) policies, outbreak control and host isolation to stop a malicious file spreading.",
+  "purpose": "Some threats get past the network and land on a laptop. This lab investigates a detection in Secure Endpoint and contains it with isolation, outbreak control and retrospective analysis. It covers endpoint protection and response.",
   "scenario": "A user reports a strange file named **invoice_2024.exe** on their laptop. Cisco Secure Endpoint (formerly AMP for Endpoints) is installed everywhere. Make sure the protection policy actually blocks, stop the file from running on any other computer, and isolate the infected laptop while you investigate.",
   "topology": "Endpoints (Secure Endpoint connector) ── cloud console ── Talos file reputation",
   "objectives": [
@@ -24,10 +25,45 @@
       "screen": "Secure Endpoint › Management › Policies › Windows Protect › Modes and Engines",
       "button": "Save",
       "fields": [
-        { "label": "Files", "kind": "select", "options": ["Audit", "Quarantine"], "answer": "Quarantine" },
-        { "label": "Network", "kind": "select", "options": ["Disabled", "Audit", "Block"], "answer": "Block" },
-        { "label": "Malicious Activity Protection", "kind": "select", "options": ["Disabled", "Audit", "Quarantine"], "answer": "Quarantine" },
-        { "label": "Exploit Prevention", "kind": "select", "options": ["Disabled", "Audit", "Block"], "answer": "Block" }
+        {
+          "label": "Files",
+          "kind": "select",
+          "options": [
+            "Audit",
+            "Quarantine"
+          ],
+          "answer": "Quarantine"
+        },
+        {
+          "label": "Network",
+          "kind": "select",
+          "options": [
+            "Disabled",
+            "Audit",
+            "Block"
+          ],
+          "answer": "Block"
+        },
+        {
+          "label": "Malicious Activity Protection",
+          "kind": "select",
+          "options": [
+            "Disabled",
+            "Audit",
+            "Quarantine"
+          ],
+          "answer": "Quarantine"
+        },
+        {
+          "label": "Exploit Prevention",
+          "kind": "select",
+          "options": [
+            "Disabled",
+            "Audit",
+            "Block"
+          ],
+          "answer": "Block"
+        }
       ]
     },
     {
@@ -52,9 +88,30 @@
       "screen": "Secure Endpoint › Outbreak Control › Custom Detections › Simple",
       "button": "Save",
       "fields": [
-        { "label": "List", "kind": "select", "options": ["Blocked-Files", "Allowed-Apps"], "answer": "Blocked-Files" },
-        { "label": "Identifier type", "kind": "select", "options": ["SHA-256", "MD5", "File name"], "answer": "SHA-256" },
-        { "label": "Attached to Windows Protect policy", "kind": "check", "answer": true }
+        {
+          "label": "List",
+          "kind": "select",
+          "options": [
+            "Blocked-Files",
+            "Allowed-Apps"
+          ],
+          "answer": "Blocked-Files"
+        },
+        {
+          "label": "Identifier type",
+          "kind": "select",
+          "options": [
+            "SHA-256",
+            "MD5",
+            "File name"
+          ],
+          "answer": "SHA-256"
+        },
+        {
+          "label": "Attached to Windows Protect policy",
+          "kind": "check",
+          "answer": true
+        }
       ]
     },
     {
@@ -64,9 +121,18 @@
       "task": "Answer the question.",
       "question": "After you isolate the laptop, what can it still talk to?",
       "options": [
-        { "text": "Only the Secure Endpoint cloud and any IPs on the isolation allow list, so you can keep investigating.", "correct": true },
-        { "text": "Nothing at all, including the console.", "why": "Isolation keeps the connector's link to the cloud. Otherwise you couldn't manage or release it." },
-        { "text": "Internal servers only.", "why": "Internal traffic is blocked too. Lateral movement is exactly what isolation stops." }
+        {
+          "text": "Only the Secure Endpoint cloud and any IPs on the isolation allow list, so you can keep investigating.",
+          "correct": true
+        },
+        {
+          "text": "Nothing at all, including the console.",
+          "why": "Isolation keeps the connector's link to the cloud. Otherwise you couldn't manage or release it."
+        },
+        {
+          "text": "Internal servers only.",
+          "why": "Internal traffic is blocked too. Lateral movement is exactly what isolation stops."
+        }
       ]
     },
     {
@@ -75,8 +141,14 @@
       "task": "Answer the question.",
       "question": "Last week, ten computers ran a file that was unknown at the time. Today Talos convicts it. What does Secure Endpoint do?",
       "options": [
-        { "text": "Raises a retrospective detection on all ten computers, quarantines the file there, and shows them in the file trajectory.", "correct": true },
-        { "text": "Only blocks the file from now on, and the ten computers aren't flagged.", "why": "Continuous analysis and retrospection exist exactly to catch files that were unknown when they first ran." }
+        {
+          "text": "Raises a retrospective detection on all ten computers, quarantines the file there, and shows them in the file trajectory.",
+          "correct": true
+        },
+        {
+          "text": "Only blocks the file from now on, and the ten computers aren't flagged.",
+          "why": "Continuous analysis and retrospection exist exactly to catch files that were unknown when they first ran."
+        }
       ]
     }
   ],

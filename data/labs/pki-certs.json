@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 15,
   "blurb": "Generate keys, trust a CA and enroll R1 for a certificate with SCEP, ready for certificate-based VPNs.",
+  "purpose": "Certificates prove identity for VPNs, management access and more, and they need a trusted CA behind them. This lab enrolls a router with a CA using SCEP and checks the result. It covers PKI concepts and certificate enrollment.",
   "scenario": "Pre-shared keys don't scale to dozens of branch VPNs. The company runs a certificate authority with **SCEP** at **http://10.10.99.40:80**. Enroll R1 so it can authenticate VPN peers with certificates.",
   "topology": "R1 ── SCEP ── CA 10.10.99.40\n      RSA key pair: R1-KEY",
   "objectives": [
@@ -15,7 +16,12 @@
     "Authenticate the CA and enroll",
     "Verify the certificates"
   ],
-  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "devices": {
+    "R1": {
+      "host": "R1",
+      "start": "config"
+    }
+  },
   "steps": [
     {
       "title": "Which cryptography does what?",
@@ -25,9 +31,36 @@
       "screen": "Cryptography roles",
       "button": "Check",
       "fields": [
-        { "label": "Encrypting the data in an IPsec tunnel", "kind": "select", "options": ["Symmetric", "Asymmetric", "Hash"], "answer": "Symmetric" },
-        { "label": "The CA signing R1's certificate", "kind": "select", "options": ["Symmetric", "Asymmetric", "Hash"], "answer": "Asymmetric" },
-        { "label": "Detecting that a file was changed", "kind": "select", "options": ["Symmetric", "Asymmetric", "Hash"], "answer": "Hash" }
+        {
+          "label": "Encrypting the data in an IPsec tunnel",
+          "kind": "select",
+          "options": [
+            "Symmetric",
+            "Asymmetric",
+            "Hash"
+          ],
+          "answer": "Symmetric"
+        },
+        {
+          "label": "The CA signing R1's certificate",
+          "kind": "select",
+          "options": [
+            "Symmetric",
+            "Asymmetric",
+            "Hash"
+          ],
+          "answer": "Asymmetric"
+        },
+        {
+          "label": "Detecting that a file was changed",
+          "kind": "select",
+          "options": [
+            "Symmetric",
+            "Asymmetric",
+            "Hash"
+          ],
+          "answer": "Hash"
+        }
       ]
     },
     {
@@ -39,12 +72,36 @@
       "task": "Generate general-purpose RSA keys labeled **R1-KEY**, **2048** bits. Create trustpoint **CA-TP**: enrollment URL **http://10.10.99.40:80**, subject name **CN=R1.scor.lab**, key pair **R1-KEY**, revocation check **crl**.",
       "hint": "`crypto key generate rsa general-keys label R1-KEY modulus 2048`, then `crypto pki trustpoint CA-TP`, `enrollment url http://10.10.99.40:80`, `subject-name CN=R1.scor.lab`, `rsakeypair R1-KEY`, `revocation-check crl`.",
       "commands": [
-        { "cmd": "crypto key generate rsa general-keys label R1-KEY modulus 2048", "output": "The name for the keys will be: R1-KEY\n% The key modulus size is 2048 bits\n% Generating 2048 bit RSA keys, keys will be non-exportable...\n[OK] (elapsed time was 1 seconds)" },
-        { "cmd": "crypto pki trustpoint CA-TP", "enter": "ca-trustpoint" },
-        { "cmd": "enrollment url http://10.10.99.40:80", "mode": "ca-trustpoint" },
-        { "cmd": "subject-name CN=R1.scor.lab", "mode": "ca-trustpoint" },
-        { "cmd": "rsakeypair R1-KEY", "mode": "ca-trustpoint" },
-        { "cmd": "revocation-check crl", "mode": "ca-trustpoint" }
+        {
+          "cmd": "crypto key generate rsa general-keys label R1-KEY modulus 2048",
+          "output": "The name for the keys will be: R1-KEY\n% The key modulus size is 2048 bits\n% Generating 2048 bit RSA keys, keys will be non-exportable...\n[OK] (elapsed time was 1 seconds)",
+          "explain": "Creates a 2048-bit RSA key pair labeled R1-KEY for the certificate."
+        },
+        {
+          "cmd": "crypto pki trustpoint CA-TP",
+          "enter": "ca-trustpoint",
+          "explain": "Creates the trustpoint CA-TP, which holds the CA's settings."
+        },
+        {
+          "cmd": "enrollment url http://10.10.99.40:80",
+          "mode": "ca-trustpoint",
+          "explain": "Enrolls with the CA over SCEP at this URL."
+        },
+        {
+          "cmd": "subject-name CN=R1.scor.lab",
+          "mode": "ca-trustpoint",
+          "explain": "Sets the name in the certificate request."
+        },
+        {
+          "cmd": "rsakeypair R1-KEY",
+          "mode": "ca-trustpoint",
+          "explain": "Uses key pair R1-KEY."
+        },
+        {
+          "cmd": "revocation-check crl",
+          "mode": "ca-trustpoint",
+          "explain": "Checks the CRL to make sure peer certificates haven't been revoked."
+        }
       ]
     },
     {
@@ -56,8 +113,17 @@
       "task": "Authenticate trustpoint **CA-TP**, then enroll in it.",
       "hint": "`crypto pki authenticate CA-TP`, then `crypto pki enroll CA-TP`. Both are global configuration commands.",
       "commands": [
-        { "cmd": "crypto pki authenticate CA-TP", "output": "Certificate has the following attributes:\n       Fingerprint MD5: 3B1C9E07 6A2F44D1 8E0B5C2A 91F7D640\n      Fingerprint SHA1: 6D0E3A11 C4B92F07 5E81A3D9 0F2C77B4 19A8E5C3\n% Do you accept this certificate? [yes/no]: yes\nTrustpoint CA certificate accepted.", "note": "Always compare the fingerprint with the CA administrator before you accept it." },
-        { "cmd": "crypto pki enroll CA-TP", "output": "% Start certificate enrollment ..\n% The subject name in the certificate will include: CN=R1.scor.lab\n% Include the router serial number in the subject name? [yes/no]: no\n% Include an IP address in the subject name? [no]: no\nRequest certificate from CA? [yes/no]: yes\n% Certificate request sent to Certificate Authority\nCRYPTO_PKI:  Certificate Request Fingerprint MD5: 7F21A0C4 ...\n%PKI-6-CERTRET: Certificate received from Certificate Authority" }
+        {
+          "cmd": "crypto pki authenticate CA-TP",
+          "output": "Certificate has the following attributes:\n       Fingerprint MD5: 3B1C9E07 6A2F44D1 8E0B5C2A 91F7D640\n      Fingerprint SHA1: 6D0E3A11 C4B92F07 5E81A3D9 0F2C77B4 19A8E5C3\n% Do you accept this certificate? [yes/no]: yes\nTrustpoint CA certificate accepted.",
+          "note": "Always compare the fingerprint with the CA administrator before you accept it.",
+          "explain": "Downloads the CA certificate. Check its fingerprint before accepting it."
+        },
+        {
+          "cmd": "crypto pki enroll CA-TP",
+          "output": "% Start certificate enrollment ..\n% The subject name in the certificate will include: CN=R1.scor.lab\n% Include the router serial number in the subject name? [yes/no]: no\n% Include an IP address in the subject name? [no]: no\nRequest certificate from CA? [yes/no]: yes\n% Certificate request sent to Certificate Authority\nCRYPTO_PKI:  Certificate Request Fingerprint MD5: 7F21A0C4 ...\n%PKI-6-CERTRET: Certificate received from Certificate Authority",
+          "explain": "Sends the certificate request to the CA."
+        }
       ]
     },
     {
@@ -66,9 +132,18 @@
       "task": "Answer the question.",
       "question": "A branch router is stolen. How do the other routers stop trusting its certificate?",
       "options": [
-        { "text": "The CA revokes the certificate, and peers that check the CRL (or ask an OCSP responder) reject it.", "correct": true },
-        { "text": "Delete the CA certificate from every router.", "why": "That would break trust in every certificate the CA issued, not just the stolen one." },
-        { "text": "Nothing is needed, because certificates expire in a few minutes.", "why": "Identity certificates usually last a year or more. Revocation covers the time before expiry." }
+        {
+          "text": "The CA revokes the certificate, and peers that check the CRL (or ask an OCSP responder) reject it.",
+          "correct": true
+        },
+        {
+          "text": "Delete the CA certificate from every router.",
+          "why": "That would break trust in every certificate the CA issued, not just the stolen one."
+        },
+        {
+          "text": "Nothing is needed, because certificates expire in a few minutes.",
+          "why": "Identity certificates usually last a year or more. Revocation covers the time before expiry."
+        }
       ]
     },
     {
@@ -78,7 +153,13 @@
       "task": "Show the certificates for trustpoint **CA-TP**.",
       "hint": "`do show crypto pki certificates CA-TP`",
       "commands": [
-        { "cmd": "show crypto pki certificates CA-TP", "mode": "priv", "output": "Certificate\n  Status: Available\n  Certificate Serial Number (hex): 1A2B\n  Certificate Usage: General Purpose\n  Issuer:\n    cn=SCOR-Root-CA\n  Subject:\n    Name: R1.scor.lab\n    cn=R1.scor.lab\n  Validity Date:\n    start date: 14:02:11 UTC Nov 3 2026\n    end   date: 14:02:11 UTC Nov 3 2027\n  Associated Trustpoints: CA-TP\nCA Certificate\n  Status: Available\n  Subject:\n    cn=SCOR-Root-CA\n  Associated Trustpoints: CA-TP", "note": "R1 has its identity certificate and trusts the root CA. VPNs can now use `authentication remote rsa-sig`." }
+        {
+          "cmd": "show crypto pki certificates CA-TP",
+          "mode": "priv",
+          "output": "Certificate\n  Status: Available\n  Certificate Serial Number (hex): 1A2B\n  Certificate Usage: General Purpose\n  Issuer:\n    cn=SCOR-Root-CA\n  Subject:\n    Name: R1.scor.lab\n    cn=R1.scor.lab\n  Validity Date:\n    start date: 14:02:11 UTC Nov 3 2026\n    end   date: 14:02:11 UTC Nov 3 2027\n  Associated Trustpoints: CA-TP\nCA Certificate\n  Status: Available\n  Subject:\n    cn=SCOR-Root-CA\n  Associated Trustpoints: CA-TP",
+          "note": "R1 has its identity certificate and trusts the root CA. VPNs can now use `authentication remote rsa-sig`.",
+          "explain": "Shows the router's certificate and the CA certificate."
+        }
       ]
     }
   ],

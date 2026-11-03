@@ -1,12 +1,12 @@
 // Guided labs: each lab is a scenario worked through step by step. A step unlocks only when the one
 // before it is done. Steps are typed into a simulated device prompt, set on a mock product screen,
-// put in order, or answered as a choice. Wrong tries, hints and reveals lower the score.
-import { app, setCrumbs, onLeave, getJSON, store, syncSoon, esc, rich, shuffle, plural, fmtClock, fmtDur, fmtAgo, untilChoice } from "./runtime.js";
+// put in order, or answered as a choice. Labs coach rather than grade: every step shows what to do
+// and why, and mistakes get an explanation instead of a penalty. Only the time is recorded.
+import { app, setCrumbs, onLeave, getJSON, store, syncSoon, esc, rich, shuffle, plural, fmtClock, fmtAgo, untilChoice } from "./runtime.js";
 import { icon } from "./visuals.js";
 
 // Lab text supports **bold**, `code` and line breaks.
 const rt = s => rich(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\n/g, "<br>");
-const WRONG = 4, WRONG_CAP = 12, HINT = 5, REVEAL = 15, HINT_AFTER = 2, REVEAL_AFTER = 4;
 const MAX_RUNS = 20;
 
 let index = null;
@@ -100,7 +100,7 @@ async function labsView() {
   const domains = [...new Set(list.map(l => l.domain))];
   const done = list.filter(l => all[l.id]?.runs?.length).length;
   app.innerHTML = `<div class="page-heading"><p class="eyebrow">HANDS-ON PRACTICE</p><h1>Labs</h1>
-    <p class="muted">Guided labs that walk you through configuring SCOR technologies. Each step unlocks when the one before it is done. Wrong tries, hints and revealed answers lower your score, and your time is compared with the target and with your own average.</p>
+    <p class="muted">Coached labs that walk you through configuring SCOR technologies. Each lab explains its purpose and what you'll learn, then guides you phase by phase: what to do, the commands or settings to enter, and what each one does. Enter them to move on to the next phase.</p>
     <p class="small muted">${done} of ${list.length} labs completed. Work through them in the suggested order, or open any lab.</p></div>
     <div class="chips" role="group" aria-label="Show labs for">${["All"].concat(domains).map((d, k) => `<button class="chip" type="button" data-domain="${esc(d)}" aria-pressed="${!k}">${esc(d)}</button>`).join("")}</div>
     <div class="lab-grid">${list.map(labTile).join("")}</div>`;
@@ -110,14 +110,14 @@ async function labsView() {
   });
 }
 function labTile(l) {
-  const runs = labRuns(l.id), best = runs.length ? Math.max(...runs.map(r => r.score)) : null, pos = labPos(l.id);
+  const runs = labRuns(l.id), pos = labPos(l.id);
   return `<div class="card lab-tile" data-lab="${esc(l.id)}" data-domain="${esc(l.domain)}">
     <a class="tile-link" href="#/labs/${esc(l.id)}"><span class="lab-num">${l.n}</span><strong>${esc(l.title)}</strong></a>
     <span class="lab-domain small">${esc(l.domain)}</span>
     <span class="muted small">${esc(l.summary)}</span>
     <span class="small lab-meta">${icon("clock")}${l.minutes} min target · ${plural(l.steps, "step")} · ${esc(l.level)}${l.chapter ? ` · Ch ${l.chapter}` : ""}</span>
-    <div class="row">${pos ? `<span class="badge warn">◷ In progress · step ${pos.step + 1}</span>` : best === null ? `<span class="badge">Not started</span>`
-      : `<span class="badge ${best >= 80 ? "good" : "warn"}">Best ${best} · avg ${fmtClock(avgMs(runs))}</span>`}</div>
+    <div class="row">${pos ? `<span class="badge warn">◷ In progress · phase ${pos.step + 1}</span>` : !runs.length ? `<span class="badge">Not started</span>`
+      : `<span class="badge good">✓ Completed${runs.length > 1 ? ` ${runs.length}×` : ""} · avg ${fmtClock(avgMs(runs))}</span>`}</div>
   </div>`;
 }
 
@@ -130,8 +130,8 @@ async function labView(id) {
   let saved = labPos(id);
   if (saved && !(saved.step < lab.steps.length)) { store.del(`lab.pos.${id}`); saved = null; }
   if (saved) {
-    app.innerHTML = `<div class="quiz"><h1>${esc(lab.title)}</h1><div class="card resume-list"><p><b>You have this lab in progress.</b> Stopped at step ${saved.step + 1} of ${lab.steps.length}, ${fmtAgo(saved.at)}, with ${fmtClock(saved.ms)} on the clock.</p>
-      <div class="row"><button class="btn primary" type="button" id="resume">Resume at step ${saved.step + 1}</button><button class="btn" type="button" id="restart">Start over</button></div></div></div>`;
+    app.innerHTML = `<div class="quiz"><h1>${esc(lab.title)}</h1><div class="card resume-list"><p><b>You have this lab in progress.</b> Stopped at phase ${saved.step + 1} of ${lab.steps.length}, ${fmtAgo(saved.at)}, with ${fmtClock(saved.ms)} on the clock.</p>
+      <div class="row"><button class="btn primary" type="button" id="resume">Resume at phase ${saved.step + 1}</button><button class="btn" type="button" id="restart">Start over</button></div></div></div>`;
     const resume = await untilChoice(res => { document.getElementById("resume").onclick = () => res(true); document.getElementById("restart").onclick = () => res(false); });
     if (resume === null) return;
     if (!resume) { store.del(`lab.pos.${id}`); saved = null; }
@@ -155,18 +155,21 @@ function runLab(meta, lab, saved) {
   app.innerHTML = `<div class="lab">
     <div class="lab-head"><div><p class="eyebrow">LAB ${meta.n} · ${esc(meta.domain.toUpperCase())}</p><h1>${esc(lab.title)}</h1></div>
       <div class="lab-clock" role="timer" aria-label="Time on this lab">${icon("clock")}<span id="clock">0:00</span><small class="muted">target ${lab.minutes} min${avg ? ` · your avg ${fmtClock(avg)}` : ""}</small></div></div>
-    <details class="card lab-brief" ${st.step ? "" : "open"}><summary><b>Scenario</b></summary>
+    <section class="card lab-brief" aria-label="About this lab">
+      ${lab.purpose ? `<h2 class="lab-brief-h">Purpose</h2><p>${rt(lab.purpose)}</p>` : ""}
+      ${lab.objectives ? `<h2 class="lab-brief-h">What you'll learn</h2><ul class="lab-goals">${lab.objectives.map(o => `<li>${rt(o)}</li>`).join("")}</ul>` : ""}
+      <details ${st.step ? "" : "open"}><summary><b>Scenario${lab.topology ? " and topology" : ""}</b></summary>
       <p>${rt(lab.scenario)}</p>
-      ${lab.topology ? `<pre class="lab-topo" aria-label="Topology">${esc(lab.topology)}</pre>` : ""}
-      ${lab.objectives ? `<p><b>You will:</b></p><ul>${lab.objectives.map(o => `<li>${rt(o)}</li>`).join("")}</ul>` : ""}
-    </details>
+      ${lab.topology ? `<pre class="lab-topo" aria-label="Topology">${esc(lab.topology)}</pre>` : ""}</details>
+      <p class="small muted">The lab has ${plural(N, "phase")}. Each one explains the idea, tells you exactly what to enter, and opens the next phase when you've done it.</p>
+    </section>
     <ol class="lab-steps" id="steps"></ol>
   </div>`;
   const stepsEl = document.getElementById("steps"), clock = document.getElementById("clock");
   timer = setInterval(() => { clock.textContent = fmtClock(elapsed()); }, 500);
   clock.textContent = fmtClock(elapsed());
 
-  const stepRec = i => (st.steps[i] = st.steps[i] || { wrong: 0, hint: false, reveal: false, done: [] });
+  const stepRec = i => (st.steps[i] = st.steps[i] || { wrong: 0, done: [] });
   const device = name => {
     const d = lab.devices?.[name] || { host: name, start: "priv" };
     if (!st.devices[name]) st.devices[name] = { modes: ["exec", "priv", "config"].slice(0, ["exec", "priv", "config"].indexOf(d.start || "priv") + 1), log: [] };
@@ -176,47 +179,54 @@ function runLab(meta, lab, saved) {
   function render() {
     stepsEl.innerHTML = lab.steps.map((s, i) => `<li class="lab-step ${i < st.step ? "done" : i === st.step ? "current" : "locked"}" id="step-${i}" ${i > st.step ? 'aria-disabled="true"' : ""}>
       <div class="lab-step-head"><span class="lab-step-num" aria-hidden="true">${i < st.step ? icon("check") : i > st.step ? icon("lock") : i + 1}</span>
-        <h2>${esc(s.title)}</h2><span class="sr-only">${i < st.step ? "done" : i > st.step ? "locked" : "current step"}</span></div>
+        <h2><span class="lab-phase">Phase ${i + 1}</span>${esc(s.title)}</h2><span class="sr-only">${i < st.step ? "done" : i > st.step ? "locked" : "current step"}</span></div>
       ${i <= st.step ? `<div class="lab-step-body" id="body-${i}"></div>` : ""}
     </li>`).join("");
     for (let i = 0; i <= Math.min(st.step, N - 1); i++) (i < st.step ? doneBody : liveBody)(i);
   }
   function learnHTML(s) { return s.learn ? `<div class="lab-learn">${s.learn.split("\n\n").map(p => `<p>${rt(p)}</p>`).join("")}</div>` : ""; }
   function doneBody(i) {
-    const s = lab.steps[i], r = stepRec(i), body = document.getElementById(`body-${i}`);
-    body.innerHTML = `<details><summary class="small">Review this step${r.wrong || r.hint || r.reveal ? ` · ${[r.wrong && plural(r.wrong, "wrong try"), r.hint && "hint used", r.reveal && "answer revealed"].filter(Boolean).join(", ")}` : " · no mistakes"}</summary>
-      ${learnHTML(s)}<p><b>Task:</b> ${rt(s.task)}</p>${answerHTML(s)}${s.why ? `<p class="lab-why">${rt(s.why)}</p>` : ""}</details>`;
+    const s = lab.steps[i], body = document.getElementById(`body-${i}`);
+    body.innerHTML = `<details><summary class="small">Review this phase</summary>
+      ${learnHTML(s)}<p><b>What you did:</b> ${rt(s.task)}</p>${guideHTML(s, null)}${s.why ? `<p class="lab-why">${rt(s.why)}</p>` : ""}</details>`;
   }
-  function answerHTML(s) {
-    if (s.type === "cli") return `<p class="small muted">Tap a line to put it in the console.</p><div class="lab-answer lab-answer-cli">${s.commands.map(c => `<button type="button" class="answer-line" data-insert="${esc(c.cmd)}">${esc(c.cmd)}</button>`).join("")}</div>`;
-    if (s.type === "choice") return `<p class="lab-answer">${s.options.filter(o => o.correct).map(o => esc(o.text)).join("<br>")}</p>`;
-    if (s.type === "order") return `<ol class="lab-answer">${s.items.map(x => `<li>${esc(x)}</li>`).join("")}</ol>`;
-    if (s.type === "form") return `<dl class="lab-answer">${s.fields.map(f => `<dt>${esc(f.label)}</dt><dd>${esc(f.kind === "check" ? (f.answer ? "On" : "Off") : [].concat(f.answer)[0])}</dd>`).join("")}</dl>`;
+  // Where a command is typed, shown as the prompt the student should see.
+  const modePrompt = (s, c) => { const h = (lab.devices?.[s.device]?.host) || s.device, m = c.mode || "config"; return m === "exec" ? `${h}>` : m === "priv" ? `${h}#` : `${h}(${m})#`; };
+  // The coach's list: every command or setting for the phase, with what it does.
+  function guideHTML(s, r) {
+    if (s.type === "cli") {
+      const next = r ? s.commands.findIndex((c, k) => !r.done.includes(k)) : -1;
+      return `<div class="lab-guide"><p class="lab-guide-h">${icon("terminal")}Commands to enter${s.ordered ? ", in this order" : ""}</p><ol class="guide-list">${s.commands.map((c, k) => {
+        const done = r && r.done.includes(k), cur = k === next;
+        return `<li class="guide-row${done ? " done" : ""}${cur ? " current" : ""}">
+          <span class="guide-mark" aria-hidden="true">${done ? icon("check") : k + 1}</span>
+          <div><span class="guide-where small muted">at ${esc(modePrompt(s, c))}</span>
+          ${r && !done ? `<button type="button" class="guide-cmd" data-insert="${esc(c.cmd)}" aria-label="Put in the console: ${esc(c.cmd)}">${esc(c.cmd)}</button>` : `<code class="guide-cmd">${esc(c.cmd)}</code>`}
+          ${c.explain ? `<p class="guide-why">${rt(c.explain)}</p>` : ""}</div>${done ? `<span class="sr-only">done</span>` : ""}</li>`;
+      }).join("")}</ol></div>`;
+    }
+    if (s.type === "form") return `<div class="lab-guide"><p class="lab-guide-h">Settings to pick on ${esc(s.screen || "the screen")}</p><dl class="lab-answer">${s.fields.map(f => `<dt>${esc(f.label)}</dt><dd>${esc(f.kind === "check" ? (f.answer ? "Turn on" : "Leave off") : [].concat(f.answer)[0])}</dd>`).join("")}</dl></div>`;
+    if (!r && s.type === "choice") return `<p class="lab-answer"><b>Answer:</b> ${s.options.filter(o => o.correct).map(o => rt(o.text)).join("<br>")}</p>`;
+    if (!r && s.type === "order") return `<ol class="lab-answer">${s.items.map(x => `<li>${rt(x)}</li>`).join("")}</ol>`;
     return "";
   }
   function liveBody(i) {
     const s = lab.steps[i], r = stepRec(i), body = document.getElementById(`body-${i}`);
-    body.innerHTML = `${learnHTML(s)}<p class="lab-task"><b>Task:</b> ${rt(s.task)}</p><div class="lab-work" id="work"></div>
+    const check = s.type === "choice" || s.type === "order";
+    body.innerHTML = `${learnHTML(s)}<p class="lab-task"><b>${check ? "Check your understanding" : "What to do"}:</b> ${rt(s.task)}</p>
+      <div id="guide"></div><div class="lab-work" id="work"></div>
       <div class="lab-feedback" id="feedback" role="status" aria-live="polite"></div>
-      <div class="row lab-help"><button class="btn small-btn" type="button" id="hint">${icon("alert")}Hint</button><button class="btn small-btn" type="button" id="reveal">Show answer</button>
-      <span class="small muted" id="help-note"></span></div><div id="hint-text"></div><div id="reveal-text"></div>`;
-    const fb = document.getElementById("feedback");
+      ${check ? `<div class="row lab-help"><button class="btn small-btn" type="button" id="show-me">Show me the answer</button></div>` : ""}`;
+    const fb = document.getElementById("feedback"), guide = document.getElementById("guide");
     const say = (html, tone) => { fb.className = `lab-feedback ${tone || ""}`; fb.innerHTML = html; };
-    const helpBtns = () => {
-      const h = document.getElementById("hint"), v = document.getElementById("reveal"), note = document.getElementById("help-note");
-      h.disabled = r.hint || r.wrong < HINT_AFTER || !s.hint; v.disabled = r.reveal || r.wrong < REVEAL_AFTER;
-      note.textContent = r.reveal ? "" : r.wrong < HINT_AFTER ? `A hint opens after ${HINT_AFTER} wrong tries (−${HINT} points).` : r.wrong < REVEAL_AFTER ? `The answer opens after ${REVEAL_AFTER} wrong tries (−${REVEAL} points).` : `Showing the answer costs ${REVEAL} points.`;
-      if (r.hint && s.hint) document.getElementById("hint-text").innerHTML = `<p class="lab-hint">${icon("alert")}${rt(s.hint)}</p>`;
-      if (r.reveal) {
-        const box = document.getElementById("reveal-text");
-        box.innerHTML = `<div class="lab-hint"><b>Answer</b>${answerHTML(s)}</div>`;
-        box.querySelectorAll("[data-insert]").forEach(x => x.onclick = () => { const t = document.getElementById("term-in"); if (t) { t.value = x.dataset.insert; t.focus(); } });
-      }
+    const drawGuide = () => {
+      guide.innerHTML = guideHTML(s, r);
+      guide.querySelectorAll("[data-insert]").forEach(x => x.onclick = () => { const t = document.getElementById("term-in"); if (t) { t.value = x.dataset.insert; t.focus(); } });
     };
-    const miss = msg => { r.wrong++; say(msg, "bad"); helpBtns(); persist(); };
-    document.getElementById("hint").onclick = () => { r.hint = true; helpBtns(); persist(); };
-    document.getElementById("reveal").onclick = () => { r.reveal = true; helpBtns(); persist(); if (s.type !== "cli") fillAnswer(); };
-    const completeSoon = () => setTimeout(() => { if (!gone) complete(); }, 450);
+    // Coaching, not grading: a mistake gets an explanation and nothing is taken off.
+    const miss = msg => { r.wrong++; say(msg, "bad"); persist(); };
+    document.getElementById("show-me")?.addEventListener("click", () => { fillAnswer(); say(`Here's the answer. Read why it's right, then select <b>Check</b> to continue.`); });
+    const completeSoon = (wait = 450) => setTimeout(() => { if (!gone) complete(); }, wait);
     const complete = () => {
       st.step = i + 1; persist(); render();
       if (st.step >= N) return finish();
@@ -226,8 +236,8 @@ function runLab(meta, lab, saved) {
     };
     const work = document.getElementById("work");
     let fillAnswer = () => {};
+    drawGuide();
     if (s.type === "cli") cliStep(); else if (s.type === "choice") choiceStep(); else if (s.type === "order") orderStep(); else if (s.type === "form") formStep();
-    helpBtns();
 
     function cliStep() {
       const dev = device(s.device), need = s.commands;
@@ -236,7 +246,7 @@ function runLab(meta, lab, saved) {
         <div class="term-out" id="term-out" aria-live="polite"></div>
         <form class="term-line" id="term-form" autocomplete="off"><label for="term-in" id="term-prompt">${esc(prompt(dev))}</label><input id="term-in" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="send" aria-describedby="term-prompt"></form></div>
         <div class="row term-keys" aria-label="Insert a command">${["enable", "configure terminal", "exit", "end", "show running-config"].map(k => `<button class="chip" type="button" data-insert="${k}">${k}</button>`).join("")}</div>
-        <p class="small muted">${need.length > 1 ? `${need.length} commands to enter${s.ordered ? ", in order" : ""}.` : "One command to enter."} Short forms like <code>conf t</code> work. ↑ recalls earlier commands.</p>`;
+        <p class="small muted">Type each command from the list above, or tap it to put it in the console, then press Enter. Short forms like <code>conf t</code> work. ↑ recalls earlier commands.</p>`;
       const out = document.getElementById("term-out"), input = document.getElementById("term-in"), pr = document.getElementById("term-prompt");
       const print = (txt, cls) => { const p = document.createElement("div"); if (cls) p.className = cls; p.textContent = txt; out.append(p); out.scrollTop = out.scrollHeight; };
       dev.log.slice(-40).forEach(l => print(l[0], l[1]));
@@ -279,8 +289,8 @@ function runLab(meta, lab, saved) {
           if (parent >= 0) dev.modes = dev.modes.slice(0, parent + 1);
           if (want.enter) dev.modes.push(want.enter);
           if (want.output) want.output.split("\n").forEach(l => log(l, "res"));
-          r.done.push(hit); pr.textContent = prompt(dev); persist();
-          say(`${icon("check")} ${want.note ? rt(want.note) : "Accepted."}`, "good");
+          r.done.push(hit); pr.textContent = prompt(dev); persist(); drawGuide();
+          say(`${icon("check")} ${want.note ? rt(want.note) : "Done."}${left().length ? "" : " That completes this phase."}`, "good");
           if (!left().length) completeSoon();
           return;
         }
@@ -289,11 +299,11 @@ function runLab(meta, lab, saved) {
         const earlier = lab.steps.slice(0, i + 1).some((x, j) => x.type === "cli" && x.device === s.device && x.commands.some((c, k) => (j < i || r.done.includes(k)) && forms(c).some(f => commandMatches(cmd, f))));
         if (earlier) { say("That's already configured. Carry on with the rest of the task."); return; }
         if (/^(show|sh|ping|traceroute|debug|wr|write|copy)\b/i.test(cmd) || /^do\s/i.test(typed)) { log("(The simulated device has no output for that command in this step.)", "res"); return; }
-        if (anyHit !== undefined) return miss(`That command belongs to this step, but not yet: the commands go in order. Next is the ${ordinal(need.findIndex((c, k) => !r.done.includes(k)) + 1)} one.`);
+        if (anyHit !== undefined) return miss(`That one comes later. These commands go in order; next is number ${need.findIndex((c, k) => !r.done.includes(k)) + 1}: <code>${esc(need.find((c, k) => !r.done.includes(k)).cmd)}</code>.`);
         log("% Invalid input detected at '^' marker.", "err");
         const near = nearMiss(cmd, need.flatMap(forms));
         miss(near ? `Close. <code>${esc(near.typed)}</code> should be <code>${esc(near.want)}</code>.${isKeyword(near.want) ? "" : " Names, addresses and passwords must match the task exactly."}`
-          : `That isn't what this step needs. Check the task and the values in the scenario.`);
+          : `That isn't one of this phase's commands. The next one is <code>${esc(need.find((c, k) => !r.done.includes(k))?.cmd || "")}</code>.`);
       };
       if (need.length && !left().length) return complete();
       input.focus({ preventScroll: true });
@@ -308,7 +318,7 @@ function runLab(meta, lab, saved) {
         const picked = boxes.filter(b => b.checked).map(b => +b.value);
         if (!picked.length) return say("Choose an answer first.");
         const wrong = picked.filter(k => !s.options[k].correct), missing = s.options.filter((o, k) => o.correct && !picked.includes(k));
-        if (!wrong.length && !missing.length) { say(`${icon("check")} Correct.`, "good"); return completeSoon(); }
+        if (!wrong.length && !missing.length) { const why = s.options.filter(o => o.correct && o.why).map(o => rt(o.why)).join(" "); say(`${icon("check")} Correct.${why ? ` ${why}` : ""}`, "good"); return completeSoon(why ? 2200 : 450); }
         miss(wrong.length ? wrong.map(k => `<p><b>${rt(s.options[k].text)}:</b> ${rt(s.options[k].why || "Not this one.")}</p>`).join("") : `Some of that is right, but ${plural(missing.length, "answer")} ${missing.length > 1 ? "are" : "is"} missing.`);
       };
       fillAnswer = () => { boxes.forEach(b => b.checked = !!s.options[+b.value].correct); };
@@ -327,7 +337,7 @@ function runLab(meta, lab, saved) {
         document.getElementById("check").onclick = () => {
           const right = order.filter((k, j) => k === j).length;
           if (right === order.length) { say(`${icon("check")} Correct order.`, "good"); return completeSoon(); }
-          miss(`${right} of ${order.length} are in the right place.`);
+          miss(`${right} of ${order.length} are in the right place. Think about what has to happen first for the next step to work.`);
         };
       };
       draw();
@@ -347,32 +357,26 @@ function runLab(meta, lab, saved) {
         const bad = s.fields.map((f, k) => [f, k]).filter(([f, k]) => !ok(f, val(f, k)));
         work.querySelectorAll(".mock-field").forEach(el => el.classList.toggle("wrong", bad.some(([, k]) => k === +el.dataset.f)));
         if (!bad.length) { say(`${icon("check")} Saved. Every setting is right.`, "good"); return completeSoon(); }
-        miss(`${plural(bad.length, "setting")} ${bad.length > 1 ? "aren't" : "isn't"} right yet: ${bad.map(([f]) => esc(f.label)).join(", ")}.`);
+        miss(`${plural(bad.length, "setting")} ${bad.length > 1 ? "don't" : "doesn't"} match the list above yet: ${bad.map(([f]) => esc(f.label)).join(", ")}.`);
       };
       fillAnswer = () => s.fields.forEach((f, k) => { const el = document.getElementById(`f${k}`); if (f.kind === "check") el.checked = !!f.answer; else el.value = [].concat(f.answer)[0]; });
     }
   }
-  const ordinal = k => ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth"][k - 1] || `#${k}`;
 
   function finish() {
     clearInterval(timer);
     const ms = Math.round(elapsed());
-    const totals = st.steps.reduce((t, r) => ({ wrong: t.wrong + (r?.wrong || 0), hints: t.hints + (r?.hint ? 1 : 0), reveals: t.reveals + (r?.reveal ? 1 : 0),
-      lost: t.lost + Math.min(WRONG_CAP, (r?.wrong || 0) * WRONG) + (r?.hint ? HINT : 0) + (r?.reveal ? REVEAL : 0) }), { wrong: 0, hints: 0, reveals: 0, lost: 0 });
-    const score = Math.max(0, 100 - totals.lost);
-    const before = labRuns(lab.id), prevAvg = avgMs(before), prevBest = before.length ? Math.max(...before.map(x => x.score)) : null;
+    const before = labRuns(lab.id), prevAvg = avgMs(before);
     const all = store.get("labs", {});
-    all[lab.id] = { runs: before.concat([{ at: Date.now(), score, ms, wrong: totals.wrong, hints: totals.hints, reveals: totals.reveals }]).slice(-MAX_RUNS) };
+    all[lab.id] = { runs: before.concat([{ at: Date.now(), ms }]).slice(-MAX_RUNS) };
     store.set("labs", all); store.del(`lab.pos.${lab.id}`); syncSoon();
-    const newAvg = avgMs(all[lab.id].runs), target = lab.minutes * 60000;
+    const newAvg = avgMs(all[lab.id].runs);
     const res = document.createElement("section");
     res.className = "card lab-result"; res.setAttribute("aria-labelledby", "lab-done");
     res.innerHTML = `<h2 id="lab-done">${icon("check")}Lab complete</h2>
-      <div class="lab-score"><div><strong class="${score >= 80 ? "good" : score >= 60 ? "warn" : "bad"}">${score}</strong><small>score out of 100${prevBest !== null ? ` · best ${Math.max(prevBest, score)}` : ""}</small></div>
-      <div><strong>${fmtClock(ms)}</strong><small>your time · target ${lab.minutes}:00</small></div>
+      <div class="lab-score"><div><strong>${fmtClock(ms)}</strong><small>your time · target ${lab.minutes}:00</small></div>
       <div><strong>${fmtClock(newAvg)}</strong><small>your average over ${plural(all[lab.id].runs.length, "run")}${prevAvg ? ` (was ${fmtClock(prevAvg)})` : ""}</small></div></div>
-      <p>${ms <= target ? `You finished ${fmtDur(target - ms)} under the target time.` : `That took ${fmtDur(ms - target)} longer than the target time.`}
-        ${totals.wrong || totals.hints || totals.reveals ? `Points lost: ${[totals.wrong && `${plural(totals.wrong, "wrong try")}`, totals.hints && plural(totals.hints, "hint"), totals.reveals && plural(totals.reveals, "revealed answer")].filter(Boolean).join(", ")}.` : "No mistakes, no hints."}</p>
+      ${lab.objectives ? `<h3>What you learned</h3><ul class="lab-goals done">${lab.objectives.map(o => `<li>${icon("check")}${rt(o)}</li>`).join("")}</ul>` : ""}
       ${lab.summary ? `<p><b>What you configured:</b> ${rt(lab.summary)}</p>` : ""}
       <div class="row"><button class="btn" type="button" id="again">Do this lab again</button>${lab.next ? `<a class="btn primary" href="#/labs/${esc(lab.next)}">Next lab ${icon("arrow")}</a>` : ""}<a class="btn" href="#/labs">All labs</a></div>`;
     stepsEl.after(res);

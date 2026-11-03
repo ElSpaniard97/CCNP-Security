@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 12,
   "blurb": "Put the Duo Authentication Proxy between the ASA and Active Directory so VPN logins need a second factor.",
+  "purpose": "A stolen password is enough to log in to a VPN that only asks for a password. This lab adds Duo multi-factor authentication to remote access VPN with a RADIUS proxy. It covers MFA and how it plugs into existing AAA.",
   "scenario": "Remote access VPN users log in with only their AD password, and one of them was phished last month. Add **Duo multi-factor authentication**: the ASA sends RADIUS to a **Duo Authentication Proxy** at **10.10.99.50**, which checks the password against AD and then sends a Duo Push.",
   "topology": "Secure Client ── ASA ── RADIUS ── Duo Auth Proxy 10.10.99.50 ── AD (primary)\n                                              └── Duo cloud (push to phone)",
   "objectives": [
@@ -14,7 +15,13 @@
     "Put the Duo login flow in order",
     "Configure the proxy and the ASA AAA server group"
   ],
-  "devices": { "ASA": { "host": "ciscoasa", "start": "config", "showAnywhere": true } },
+  "devices": {
+    "ASA": {
+      "host": "ciscoasa",
+      "start": "config",
+      "showAnywhere": true
+    }
+  },
   "steps": [
     {
       "title": "Factors",
@@ -24,9 +31,36 @@
       "screen": "Authentication factors",
       "button": "Check",
       "fields": [
-        { "label": "AD password", "kind": "select", "options": ["Something you know", "Something you have", "Something you are"], "answer": "Something you know" },
-        { "label": "Duo Push to the user's phone", "kind": "select", "options": ["Something you know", "Something you have", "Something you are"], "answer": "Something you have" },
-        { "label": "Fingerprint unlock on the phone", "kind": "select", "options": ["Something you know", "Something you have", "Something you are"], "answer": "Something you are" }
+        {
+          "label": "AD password",
+          "kind": "select",
+          "options": [
+            "Something you know",
+            "Something you have",
+            "Something you are"
+          ],
+          "answer": "Something you know"
+        },
+        {
+          "label": "Duo Push to the user's phone",
+          "kind": "select",
+          "options": [
+            "Something you know",
+            "Something you have",
+            "Something you are"
+          ],
+          "answer": "Something you have"
+        },
+        {
+          "label": "Fingerprint unlock on the phone",
+          "kind": "select",
+          "options": [
+            "Something you know",
+            "Something you have",
+            "Something you are"
+          ],
+          "answer": "Something you are"
+        }
       ]
     },
     {
@@ -50,10 +84,35 @@
       "screen": "authproxy.cfg › [radius_server_auto]",
       "button": "Save and restart",
       "fields": [
-        { "label": "radius_ip_1", "kind": "text", "answer": "10.10.99.1" },
-        { "label": "radius_secret_1", "kind": "text", "answer": "DuoRadius1" },
-        { "label": "client", "kind": "select", "options": ["ad_client", "radius_client", "duo_only_client"], "answer": "ad_client" },
-        { "label": "failmode", "kind": "select", "options": ["safe", "secure"], "answer": "safe" }
+        {
+          "label": "radius_ip_1",
+          "kind": "text",
+          "answer": "10.10.99.1"
+        },
+        {
+          "label": "radius_secret_1",
+          "kind": "text",
+          "answer": "DuoRadius1"
+        },
+        {
+          "label": "client",
+          "kind": "select",
+          "options": [
+            "ad_client",
+            "radius_client",
+            "duo_only_client"
+          ],
+          "answer": "ad_client"
+        },
+        {
+          "label": "failmode",
+          "kind": "select",
+          "options": [
+            "safe",
+            "secure"
+          ],
+          "answer": "safe"
+        }
       ]
     },
     {
@@ -65,12 +124,37 @@
       "task": "Create RADIUS server group **DUO**. Add host **10.10.99.50** on the **inside** interface with key **DuoRadius1** and timeout **60**. Then set tunnel group **RA-VPN** to authenticate with server group **DUO**.",
       "hint": "`aaa-server DUO protocol radius`, `aaa-server DUO (inside) host 10.10.99.50`, `key DuoRadius1`, `timeout 60`, then `tunnel-group RA-VPN general-attributes` and `authentication-server-group DUO`.",
       "commands": [
-        { "cmd": "aaa-server DUO protocol radius", "enter": "config-aaa-server-group" },
-        { "cmd": "aaa-server DUO (inside) host 10.10.99.50", "enter": "config-aaa-server-host" },
-        { "cmd": "key DuoRadius1", "mode": "config-aaa-server-host" },
-        { "cmd": "timeout 60", "mode": "config-aaa-server-host" },
-        { "cmd": "tunnel-group RA-VPN general-attributes", "enter": "config-tunnel-general" },
-        { "cmd": "authentication-server-group DUO", "mode": "config-tunnel-general", "note": "VPN logins now need the AD password and a Duo approval." }
+        {
+          "cmd": "aaa-server DUO protocol radius",
+          "enter": "config-aaa-server-group",
+          "explain": "Creates the AAA server group DUO using RADIUS."
+        },
+        {
+          "cmd": "aaa-server DUO (inside) host 10.10.99.50",
+          "enter": "config-aaa-server-host",
+          "explain": "Adds the Duo Authentication Proxy, reached through the inside interface."
+        },
+        {
+          "cmd": "key DuoRadius1",
+          "mode": "config-aaa-server-host",
+          "explain": "Sets the RADIUS shared secret. It must match the proxy."
+        },
+        {
+          "cmd": "timeout 60",
+          "mode": "config-aaa-server-host",
+          "explain": "Waits up to 60 seconds, so the user has time to approve the push."
+        },
+        {
+          "cmd": "tunnel-group RA-VPN general-attributes",
+          "enter": "config-tunnel-general",
+          "explain": "Enters the VPN connection profile's general settings."
+        },
+        {
+          "cmd": "authentication-server-group DUO",
+          "mode": "config-tunnel-general",
+          "note": "VPN logins now need the AD password and a Duo approval.",
+          "explain": "Sends VPN logins to the DUO group, which checks the password and then the second factor."
+        }
       ]
     },
     {
@@ -79,9 +163,18 @@
       "task": "Answer the question.",
       "question": "The proxy can't reach the Duo cloud, and failmode is safe. What happens to a login with the right password?",
       "options": [
-        { "text": "It's allowed with the password alone, so an outage doesn't lock everyone out. With failmode secure, it would be denied.", "correct": true },
-        { "text": "It's denied.", "why": "That's failmode secure. Safe favors availability." },
-        { "text": "The ASA falls back to local accounts.", "why": "The proxy still answers RADIUS, so the ASA doesn't fall back." }
+        {
+          "text": "It's allowed with the password alone, so an outage doesn't lock everyone out. With failmode secure, it would be denied.",
+          "correct": true
+        },
+        {
+          "text": "It's denied.",
+          "why": "That's failmode secure. Safe favors availability."
+        },
+        {
+          "text": "The ASA falls back to local accounts.",
+          "why": "The proxy still answers RADIUS, so the ASA doesn't fall back."
+        }
       ]
     }
   ],
