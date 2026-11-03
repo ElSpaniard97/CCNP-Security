@@ -1,0 +1,90 @@
+{
+  "id": "esa-mail",
+  "n": 14,
+  "title": "Email security with Secure Email",
+  "domain": "Content Security",
+  "chapter": 10,
+  "level": "Intermediate",
+  "minutes": 14,
+  "blurb": "Tune sender reputation, mail flow policies and content scanning on the Secure Email Gateway (ESA).",
+  "scenario": "Phishing is the top threat at the company. The **Secure Email Gateway** (formerly ESA) sits in front of the mail server for **scor.lab**. Configure it to throttle or reject mail from poorly rated senders, scan inbound mail for spam, viruses and malicious files, and check sender authentication.",
+  "topology": "Internet senders ── [Secure Email Gateway] ── Exchange (scor.lab)\n                     listener: IncomingMail (public)",
+  "objectives": [
+    "Put the stages of the email pipeline in order",
+    "Map sender reputation scores to HAT actions",
+    "Turn on scanning engines in the inbound mail policy",
+    "Use SPF, DKIM and DMARC to spot spoofing"
+  ],
+  "steps": [
+    {
+      "title": "The email pipeline",
+      "type": "order",
+      "learn": "Mail is checked in stages. The cheapest checks run first, while the connection is still open, and the expensive content scanning runs last.",
+      "task": "Put the stages in the order a message passes through them.",
+      "question": "Order from connection to delivery.",
+      "items": [
+        "Sender reputation (SBRS) check on the connecting IP",
+        "Host Access Table (HAT) applies the mail flow policy",
+        "Recipient Access Table (RAT) checks the recipient domain",
+        "Anti-spam and anti-virus scanning",
+        "Advanced Malware Protection (file reputation and sandboxing)",
+        "Content and outbreak filters, then delivery"
+      ]
+    },
+    {
+      "title": "Sender groups by reputation",
+      "type": "form",
+      "learn": "**SenderBase Reputation Scores** (SBRS, from Talos) run from −10 (worst) to +10 (best). The HAT puts senders into groups by score, and each group gets a **mail flow policy**: accept, throttle or block.",
+      "task": "Give each default sender group its usual mail flow policy.",
+      "screen": "Secure Email › Mail Policies › HAT Overview",
+      "button": "Submit",
+      "fields": [
+        { "label": "BLOCKED_LIST (SBRS −10 to −3)", "kind": "select", "options": ["BLOCKED", "THROTTLED", "ACCEPTED", "TRUSTED"], "answer": "BLOCKED" },
+        { "label": "SUSPECTLIST (SBRS −3 to −1)", "kind": "select", "options": ["BLOCKED", "THROTTLED", "ACCEPTED", "TRUSTED"], "answer": "THROTTLED" },
+        { "label": "UNKNOWNLIST (no score or −1 to +10)", "kind": "select", "options": ["BLOCKED", "THROTTLED", "ACCEPTED", "TRUSTED"], "answer": "ACCEPTED" },
+        { "label": "ALLOWED_LIST (partners you name)", "kind": "select", "options": ["BLOCKED", "THROTTLED", "ACCEPTED", "TRUSTED"], "answer": "TRUSTED" }
+      ]
+    },
+    {
+      "title": "Inbound mail policy",
+      "type": "form",
+      "learn": "The **incoming mail policy** decides which engines scan each message. Quarantine positive spam, and put suspected spam aside for review instead of deleting it.",
+      "task": "In the default incoming policy: anti-spam **on** with positive spam **quarantined**, anti-virus **on**, **AMP** file reputation and analysis **on**, and **graymail** detection **on**.",
+      "screen": "Secure Email › Mail Policies › Incoming Mail Policies › Default Policy",
+      "button": "Submit",
+      "fields": [
+        { "label": "Anti-Spam (IronPort Anti-Spam)", "kind": "check", "answer": true },
+        { "label": "Positively identified spam", "kind": "select", "options": ["Deliver", "Drop", "Spam Quarantine"], "answer": "Spam Quarantine" },
+        { "label": "Anti-Virus", "kind": "check", "answer": true },
+        { "label": "Advanced Malware Protection", "kind": "check", "answer": true },
+        { "label": "Graymail detection", "kind": "check", "answer": true }
+      ]
+    },
+    {
+      "title": "Spot the spoof",
+      "type": "form",
+      "learn": "**SPF** lists the servers allowed to send for a domain. **DKIM** signs the message so changes can be detected. **DMARC** tells receivers what to do when SPF or DKIM fails to line up with the visible From domain, and where to send reports.",
+      "task": "Match each record to what it does.",
+      "screen": "Email authentication",
+      "button": "Check",
+      "fields": [
+        { "label": "SPF", "kind": "select", "options": ["Lists the IPs allowed to send for the domain", "Signs messages with the domain's private key", "Sets the policy (none, quarantine, reject) for failures"], "answer": "Lists the IPs allowed to send for the domain" },
+        { "label": "DKIM", "kind": "select", "options": ["Lists the IPs allowed to send for the domain", "Signs messages with the domain's private key", "Sets the policy (none, quarantine, reject) for failures"], "answer": "Signs messages with the domain's private key" },
+        { "label": "DMARC", "kind": "select", "options": ["Lists the IPs allowed to send for the domain", "Signs messages with the domain's private key", "Sets the policy (none, quarantine, reject) for failures"], "answer": "Sets the policy (none, quarantine, reject) for failures" }
+      ]
+    },
+    {
+      "title": "Retrospective verdicts",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "An attachment was clean when it was delivered, but an hour later AMP rates it malicious. What can the gateway do?",
+      "options": [
+        { "text": "Send a retrospective alert and, with Office 365 or Exchange integration, remediate the message in mailboxes (Mailbox Auto Remediation).", "correct": true },
+        { "text": "Nothing. Once a message is delivered, the gateway is done with it.", "why": "AMP keeps tracking file verdicts. Retrospection is one of its main features." },
+        { "text": "Recall the message from the sender's server.", "why": "The gateway acts on your own mailboxes, not the sender's." }
+      ]
+    }
+  ],
+  "summary": "The email pipeline from reputation to delivery, HAT sender groups mapped to mail flow policies, an inbound policy with anti-spam, anti-virus, AMP and graymail, and SPF, DKIM and DMARC for spoofing.",
+  "next": "wsa-proxy"
+}

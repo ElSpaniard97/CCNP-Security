@@ -1,0 +1,103 @@
+{
+  "id": "ad-syn-flood",
+  "n": 34,
+  "title": "Attack and defend: SYN floods and DDoS",
+  "domain": "Attack and Defend",
+  "chapter": 8,
+  "level": "Intermediate",
+  "minutes": 14,
+  "blurb": "See how a SYN flood exhausts a server, then cap half-open connections on the ASA and plan upstream DDoS mitigation.",
+  "scenario": "The public web server at **172.16.1.10** stops answering. The ASA shows tens of thousands of half-open connections from spoofed addresses. Work out what's happening, limit it on the ASA, and decide what to do when the flood is bigger than your Internet link.",
+  "topology": "Internet ── ISP ── ASA (outside) ── DMZ web server 172.16.1.10",
+  "objectives": [
+    "Explain how a SYN flood exhausts resources",
+    "Recognize the indicators",
+    "Set connection limits with the Modular Policy Framework",
+    "Choose the right layer for a volumetric attack"
+  ],
+  "devices": {
+    "ASA": { "host": "ciscoasa", "start": "config", "showAnywhere": true }
+  },
+  "steps": [
+    {
+      "title": "How the flood works",
+      "type": "choice",
+      "learn": "A TCP connection needs three packets: SYN, SYN-ACK, ACK. A server that gets a SYN reserves memory and waits for the ACK. In a **SYN flood**, the attacker sends huge numbers of SYNs from spoofed addresses and never sends the ACK. The server's table of **embryonic (half-open)** connections fills up, and real users can't connect.",
+      "task": "Answer the question.",
+      "question": "What resource does a SYN flood use up?",
+      "options": [
+        { "text": "The table of half-open connections waiting for the final ACK", "correct": true },
+        { "text": "The server's disk space", "why": "Nothing is written to disk. The pressure is on connection state in memory." },
+        { "text": "The server's TLS certificates", "why": "The flood never gets past the TCP handshake, so TLS isn't reached." }
+      ]
+    },
+    {
+      "title": "Spot the indicators",
+      "type": "form",
+      "learn": "Floods look different from a busy day. Watch for a jump in **embryonic connections**, many sources that each send only a SYN, and syslog messages about connection limits.",
+      "task": "Mark each observation as a flood indicator or not.",
+      "screen": "ASA syslog and connection table",
+      "button": "Check",
+      "fields": [
+        { "label": "40,000 embryonic connections to 172.16.1.10:80", "kind": "select", "options": ["Flood indicator", "Normal"], "answer": "Flood indicator" },
+        { "label": "Thousands of source IPs, each sending one SYN and nothing else", "kind": "select", "options": ["Flood indicator", "Normal"], "answer": "Flood indicator" },
+        { "label": "%ASA-6-302013 Built inbound TCP connection, followed by a teardown with 30 KB of data", "kind": "select", "options": ["Flood indicator", "Normal"], "answer": "Normal" },
+        { "label": "%ASA-4-733100 Object drop rate exceeded for SYN attack", "kind": "select", "options": ["Flood indicator", "Normal"], "answer": "Flood indicator" }
+      ]
+    },
+    {
+      "title": "Match the web traffic",
+      "type": "cli",
+      "device": "ASA",
+      "ordered": true,
+      "learn": "On the ASA, connection limits use the **Modular Policy Framework**: an ACL picks the traffic, a **class map** matches the ACL, and a **policy map** sets the action.",
+      "task": "Create ACL **WEB-SRV** permitting TCP from any to host **172.16.1.10** on **www**. Create class map **WEB-CLASS** that matches it.",
+      "hint": "`access-list WEB-SRV extended permit tcp any host 172.16.1.10 eq www`, `class-map WEB-CLASS`, `match access-list WEB-SRV`.",
+      "commands": [
+        { "cmd": "access-list WEB-SRV extended permit tcp any host 172.16.1.10 eq www" },
+        { "cmd": "class-map WEB-CLASS", "enter": "config-cmap" },
+        { "cmd": "match access-list WEB-SRV", "mode": "config-cmap" }
+      ]
+    },
+    {
+      "title": "Cap half-open connections",
+      "type": "cli",
+      "device": "ASA",
+      "ordered": true,
+      "learn": "`set connection` limits total connections (**conn-max**), half-open connections (**embryonic-conn-max**) and half-open connections per client. When the embryonic limit is reached, the ASA uses **TCP Intercept**: it answers SYNs itself with SYN cookies and only opens a connection to the server once the client completes the handshake. Spoofed SYNs never reach the server.",
+      "task": "Create policy map **OUTSIDE-POLICY**. For class **WEB-CLASS**, allow **5000** connections, **500** embryonic connections, and **25** embryonic connections per client. Apply the policy to the **outside** interface.",
+      "hint": "`policy-map OUTSIDE-POLICY`, `class WEB-CLASS`, `set connection conn-max 5000 embryonic-conn-max 500 per-client-embryonic-max 25`, then `service-policy OUTSIDE-POLICY interface outside`.",
+      "commands": [
+        { "cmd": "policy-map OUTSIDE-POLICY", "enter": "config-pmap" },
+        { "cmd": "class WEB-CLASS", "mode": "config-pmap", "enter": "config-pmap-c" },
+        { "cmd": "set connection conn-max 5000 embryonic-conn-max 500 per-client-embryonic-max 25", "mode": "config-pmap-c" },
+        { "cmd": "service-policy OUTSIDE-POLICY interface outside", "note": "An interface policy overrides the global policy for traffic on that interface." }
+      ]
+    },
+    {
+      "title": "Verify",
+      "type": "cli",
+      "device": "ASA",
+      "task": "Show the service policy statistics for the outside interface.",
+      "hint": "`show service-policy interface outside`",
+      "commands": [
+        { "cmd": "show service-policy interface outside", "mode": "priv", "output": "Interface outside:\n  Service-policy: OUTSIDE-POLICY\n    Class-map: WEB-CLASS\n      Set connection policy: conn-max 5000 embryonic-conn-max 500 per-client-embryonic-max 25\n        current embryonic conns 500, drop 38412\n      Set connection advanced-options: tcp-intercept\n        current conns 212, drop 0", "note": "The ASA holds embryonic connections at 500 and drops the rest. Real users still get through." }
+      ]
+    },
+    {
+      "title": "When the pipe is full",
+      "type": "form",
+      "learn": "Firewall limits protect the server, but they can't help when a **volumetric** flood fills your Internet link before traffic reaches the ASA. That has to be stopped upstream. **RTBH (remotely triggered black hole)** routing has the ISP drop all traffic to the attacked address, which stops the flood but also takes that address offline. A **cloud scrubbing service** reroutes your traffic, filters out the attack, and sends clean traffic back.",
+      "task": "Pick the best response for each situation.",
+      "screen": "DDoS response plan",
+      "button": "Check",
+      "fields": [
+        { "label": "50,000 SYNs per second; the link is fine but the server struggles", "kind": "select", "options": ["ASA connection limits and TCP Intercept", "RTBH at the ISP", "Cloud scrubbing service"], "answer": "ASA connection limits and TCP Intercept" },
+        { "label": "40 Gbps flood at an unused test address; the link is saturated", "kind": "select", "options": ["ASA connection limits and TCP Intercept", "RTBH at the ISP", "Cloud scrubbing service"], "answer": "RTBH at the ISP" },
+        { "label": "40 Gbps flood at the main web site, which must stay online", "kind": "select", "options": ["ASA connection limits and TCP Intercept", "RTBH at the ISP", "Cloud scrubbing service"], "answer": "Cloud scrubbing service" }
+      ]
+    }
+  ],
+  "summary": "How SYN floods fill the half-open table, flood indicators in ASA logs, MPF connection limits with TCP Intercept, and when to use RTBH or cloud scrubbing for volumetric attacks.",
+  "next": null
+}

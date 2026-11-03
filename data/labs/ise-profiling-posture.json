@@ -1,0 +1,87 @@
+{
+  "id": "ise-profiling-posture",
+  "n": 24,
+  "title": "Profiling and posture in ISE",
+  "domain": "Secure Network Access, Visibility, and Enforcement",
+  "chapter": 4,
+  "level": "Advanced",
+  "minutes": 16,
+  "blurb": "Let ISE work out what each device is, and check that laptops are healthy before granting full access.",
+  "scenario": "Printers and IP phones should be recognized automatically, and corporate laptops should get full access only if their antivirus is running and the disk is encrypted. Turn on profiling probes in ISE, and build a posture policy with remediation.",
+  "topology": "Endpoints ── SW1 ── ISE (PSN: profiling, posture)\n                    Secure Client with ISE Posture module",
+  "objectives": [
+    "Choose the profiling probes and how data reaches ISE",
+    "Put the posture flow in order",
+    "Write posture requirements and authorization rules by compliance"
+  ],
+  "steps": [
+    {
+      "title": "Profiling probes",
+      "type": "form",
+      "learn": "**Profiling** classifies endpoints from the attributes they reveal. The best sources are **RADIUS** (MAC address and OUI), **DHCP** (hostname and vendor class), **HTTP** (user agent), **SNMP** queries of the switch, and **Device Sensor** on the switch, which packs CDP, LLDP and DHCP data into RADIUS accounting.",
+      "task": "Match each probe to the data it gives ISE.",
+      "screen": "ISE › Administration › System › Deployment › PSN › Profiling Configuration",
+      "button": "Save",
+      "fields": [
+        { "label": "DHCP", "kind": "select", "options": ["Hostname and DHCP class identifier (option 60)", "Browser user agent", "CDP and LLDP neighbor data from the switch", "MAC address and its OUI vendor"], "answer": "Hostname and DHCP class identifier (option 60)" },
+        { "label": "HTTP", "kind": "select", "options": ["Hostname and DHCP class identifier (option 60)", "Browser user agent", "CDP and LLDP neighbor data from the switch", "MAC address and its OUI vendor"], "answer": "Browser user agent" },
+        { "label": "Device Sensor (RADIUS accounting)", "kind": "select", "options": ["Hostname and DHCP class identifier (option 60)", "Browser user agent", "CDP and LLDP neighbor data from the switch", "MAC address and its OUI vendor"], "answer": "CDP and LLDP neighbor data from the switch" },
+        { "label": "RADIUS", "kind": "select", "options": ["Hostname and DHCP class identifier (option 60)", "Browser user agent", "CDP and LLDP neighbor data from the switch", "MAC address and its OUI vendor"], "answer": "MAC address and its OUI vendor" }
+      ]
+    },
+    {
+      "title": "The posture flow",
+      "type": "order",
+      "learn": "A posture check runs after authentication. Until the result is in, the endpoint gets limited access, and **Change of Authorization (CoA)** updates its access once the result is known.",
+      "task": "Put the steps in order.",
+      "question": "Order from login to full access.",
+      "items": [
+        "The laptop authenticates with 802.1X, and its posture status is Unknown",
+        "ISE returns a limited authorization (redirect ACL to the posture portal)",
+        "The Secure Client posture module checks the requirements and reports to ISE",
+        "ISE marks the endpoint Compliant",
+        "ISE sends a RADIUS CoA, and the switch reauthenticates the session with full access"
+      ]
+    },
+    {
+      "title": "Posture requirements",
+      "type": "form",
+      "learn": "A **requirement** pairs **conditions** with a **remediation**. Mandatory requirements must pass for the device to be compliant. Optional ones only warn.",
+      "task": "Make antivirus **mandatory** with an **AV definition update** remediation, and disk encryption **mandatory** with a **message** remediation telling the user to call the help desk.",
+      "screen": "ISE › Work Centers › Posture › Posture Policy",
+      "button": "Save",
+      "fields": [
+        { "label": "Any_AV_Installation_Win: requirement type", "kind": "select", "options": ["Mandatory", "Optional", "Audit"], "answer": "Mandatory" },
+        { "label": "Any_AV_Installation_Win: remediation", "kind": "select", "options": ["AV definition update", "Message text only", "Launch program"], "answer": "AV definition update" },
+        { "label": "Disk_Encryption_Win: requirement type", "kind": "select", "options": ["Mandatory", "Optional", "Audit"], "answer": "Mandatory" },
+        { "label": "Disk_Encryption_Win: remediation", "kind": "select", "options": ["AV definition update", "Message text only", "Launch program"], "answer": "Message text only" }
+      ]
+    },
+    {
+      "title": "Authorize by compliance",
+      "type": "form",
+      "learn": "Authorization rules can use **Session:PostureStatus**. Order them so compliant devices get full access, unknown devices are redirected to posture, and non-compliant devices get a remediation-only network.",
+      "task": "Give each posture status its authorization profile.",
+      "screen": "ISE › Policy Sets › Wired-Access › Authorization Policy",
+      "button": "Save",
+      "fields": [
+        { "label": "PostureStatus EQUALS Compliant", "kind": "select", "options": ["PermitAccess", "Posture_Redirect", "Remediation_Only"], "answer": "PermitAccess" },
+        { "label": "PostureStatus EQUALS Unknown", "kind": "select", "options": ["PermitAccess", "Posture_Redirect", "Remediation_Only"], "answer": "Posture_Redirect" },
+        { "label": "PostureStatus EQUALS NonCompliant", "kind": "select", "options": ["PermitAccess", "Posture_Redirect", "Remediation_Only"], "answer": "Remediation_Only" }
+      ]
+    },
+    {
+      "title": "Why CoA matters",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "Without RADIUS CoA, what would happen when a laptop becomes compliant?",
+      "options": [
+        { "text": "It would stay in the limited redirect session until it reauthenticated on its own, for example after a reconnect or session timeout, because the switch wouldn't know the result had changed.", "correct": true },
+        { "text": "It would get full access immediately anyway.", "why": "The switch enforces whatever ISE last told it. CoA is how ISE changes that mid-session." },
+        { "text": "ISE would drop the laptop's session.", "why": "Without CoA, ISE can't act on the session at all." }
+      ]
+    }
+  ],
+  "summary": "Profiling probes and the data each provides, the posture flow with CoA, mandatory antivirus and encryption requirements with remediation, and authorization rules by posture status.",
+  "next": "ad-arp-spoofing"
+}

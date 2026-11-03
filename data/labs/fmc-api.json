@@ -1,0 +1,75 @@
+{
+  "id": "fmc-api",
+  "n": 19,
+  "title": "Automate the firewall with the FMC REST API",
+  "domain": "Security Concepts",
+  "chapter": 3,
+  "level": "Intermediate",
+  "minutes": 15,
+  "blurb": "Authenticate to the FMC API, read objects, and create one with a small Python script.",
+  "scenario": "Adding dozens of host objects by hand in FMC is slow and error-prone. Use the **FMC REST API** at **https://fmc.scor.lab** to authenticate, list network objects, and create a host object from Python.",
+  "topology": "Python script ── HTTPS ── FMC fmc.scor.lab ── manages FTD devices",
+  "objectives": [
+    "Follow the FMC token flow",
+    "Match HTTP methods to CRUD actions and read status codes",
+    "Build the request that creates a host object"
+  ],
+  "steps": [
+    {
+      "title": "The token flow",
+      "type": "order",
+      "learn": "FMC uses **token-based authentication**. You POST your credentials (Basic auth) once, and FMC returns an access token and a domain UUID in the **response headers**. Every later call sends the token in the **X-auth-access-token** header.",
+      "task": "Put the steps of an API session in order.",
+      "question": "Order from first call to result.",
+      "items": [
+        "POST /api/fmc_platform/v1/auth/generatetoken with Basic authentication",
+        "Read X-auth-access-token and DOMAIN_UUID from the response headers",
+        "Send GET /api/fmc_config/v1/domain/{DOMAIN_UUID}/object/networks with the token header",
+        "Parse the JSON items in the response",
+        "Refresh the token before it expires (30 minutes) with /auth/refreshtoken"
+      ]
+    },
+    {
+      "title": "Methods and status codes",
+      "type": "form",
+      "learn": "REST maps CRUD to HTTP methods: **POST** creates, **GET** reads, **PUT** updates (replaces) and **DELETE** removes. Status codes in the 2xx range mean success, 4xx means a problem with your request, and 5xx means a problem on the server.",
+      "task": "Match each item to its meaning.",
+      "screen": "REST basics",
+      "button": "Check",
+      "fields": [
+        { "label": "Create a new host object", "kind": "select", "options": ["GET", "POST", "PUT", "DELETE"], "answer": "POST" },
+        { "label": "Change an existing object's value", "kind": "select", "options": ["GET", "POST", "PUT", "DELETE"], "answer": "PUT" },
+        { "label": "Status 201", "kind": "select", "options": ["Created", "Unauthorized (bad or expired token)", "Too many requests (rate limit)", "Server error"], "answer": "Created" },
+        { "label": "Status 401", "kind": "select", "options": ["Created", "Unauthorized (bad or expired token)", "Too many requests (rate limit)", "Server error"], "answer": "Unauthorized (bad or expired token)" },
+        { "label": "Status 429", "kind": "select", "options": ["Created", "Unauthorized (bad or expired token)", "Too many requests (rate limit)", "Server error"], "answer": "Too many requests (rate limit)" }
+      ]
+    },
+    {
+      "title": "Build the request",
+      "type": "form",
+      "learn": "The Python **requests** library sends the call. The body is JSON describing the object, and the headers carry the token and content type.",
+      "task": "Fill in the blanks to create host object **web-srv-01** at **172.16.1.10**:\n\n`r = requests.____(f\"{base}/api/fmc_config/v1/domain/{uuid}/object/____\", headers={\"____\": token, \"Content-Type\": \"application/json\"}, json={\"name\": \"web-srv-01\", \"type\": \"Host\", \"value\": \"172.16.1.10\"}, verify=\"fmc-ca.pem\")`",
+      "screen": "create_host.py",
+      "button": "Run",
+      "hint": "Creating is a POST. The collection for single addresses is called hosts. The token header is the one FMC returned.",
+      "fields": [
+        { "label": "requests.____", "kind": "text", "answer": ["post"] },
+        { "label": "object/____", "kind": "text", "answer": ["hosts"] },
+        { "label": "Token header name", "kind": "text", "answer": ["X-auth-access-token"] }
+      ]
+    },
+    {
+      "title": "Certificate checking",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "A colleague's script uses `verify=False` to get past a certificate error. Why is that a problem?",
+      "options": [
+        { "text": "It turns off TLS server verification, so a man in the middle could impersonate FMC and capture the admin credentials and token.", "correct": true },
+        { "text": "It makes the request slower.", "why": "Speed isn't the issue. Skipping verification removes the protection against impersonation." },
+        { "text": "FMC rejects unverified clients.", "why": "verify controls whether the client checks the server, not the other way around." }
+      ]
+    }
+  ],
+  "summary": "The FMC token flow, HTTP methods and status codes, a Python POST that creates a host object with the access token header, and why TLS verification must stay on.",
+  "next": "duo-mfa"
+}

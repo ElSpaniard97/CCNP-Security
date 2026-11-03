@@ -1,0 +1,85 @@
+{
+  "id": "secure-endpoint",
+  "n": 16,
+  "title": "Contain a threat with Secure Endpoint",
+  "domain": "Endpoint Protection and Detection",
+  "chapter": 11,
+  "level": "Intermediate",
+  "minutes": 14,
+  "blurb": "Use Cisco Secure Endpoint (AMP) policies, outbreak control and host isolation to stop a malicious file spreading.",
+  "scenario": "A user reports a strange file named **invoice_2024.exe** on their laptop. Cisco Secure Endpoint (formerly AMP for Endpoints) is installed everywhere. Make sure the protection policy actually blocks, stop the file from running on any other computer, and isolate the infected laptop while you investigate.",
+  "topology": "Endpoints (Secure Endpoint connector) ── cloud console ── Talos file reputation",
+  "objectives": [
+    "Choose the right protection modes",
+    "Read the device trajectory",
+    "Block the file everywhere with outbreak control",
+    "Isolate the host"
+  ],
+  "steps": [
+    {
+      "title": "Protection policy modes",
+      "type": "form",
+      "learn": "Each engine runs in **Audit** (log only) or **Quarantine/Protect** (block). New deployments often start in Audit to find false positives, but production policies should block.",
+      "task": "Set the Windows protect policy to block: file conviction mode **Quarantine**, network (device flow correlation) **Block**, malicious activity protection **Quarantine**, and exploit prevention **Block**.",
+      "screen": "Secure Endpoint › Management › Policies › Windows Protect › Modes and Engines",
+      "button": "Save",
+      "fields": [
+        { "label": "Files", "kind": "select", "options": ["Audit", "Quarantine"], "answer": "Quarantine" },
+        { "label": "Network", "kind": "select", "options": ["Disabled", "Audit", "Block"], "answer": "Block" },
+        { "label": "Malicious Activity Protection", "kind": "select", "options": ["Disabled", "Audit", "Quarantine"], "answer": "Quarantine" },
+        { "label": "Exploit Prevention", "kind": "select", "options": ["Disabled", "Audit", "Block"], "answer": "Block" }
+      ]
+    },
+    {
+      "title": "Read the trajectory",
+      "type": "order",
+      "learn": "**Device trajectory** shows what happened on one computer over time, and **file trajectory** shows every computer that has seen a file. Together they answer how the file got in and where it spread.",
+      "task": "The trajectory shows these events. Put them in the order an infection like this usually happens.",
+      "question": "Order the events from first to last.",
+      "items": [
+        "Outlook saves an attachment, invoice_2024.zip",
+        "The user extracts invoice_2024.exe",
+        "invoice_2024.exe runs and starts PowerShell",
+        "PowerShell connects to an unknown external IP",
+        "A copy is written to a shared drive"
+      ]
+    },
+    {
+      "title": "Block the file everywhere",
+      "type": "form",
+      "learn": "**Outbreak control** lets you act before Talos convicts a file. A **Simple Custom Detection** list blocks files by their **SHA-256** hash on every connector whose policy uses the list.",
+      "task": "Add the file's SHA-256 to the simple custom detection list **Blocked-Files**, and confirm that the list is attached to the Windows protect policy.",
+      "screen": "Secure Endpoint › Outbreak Control › Custom Detections › Simple",
+      "button": "Save",
+      "fields": [
+        { "label": "List", "kind": "select", "options": ["Blocked-Files", "Allowed-Apps"], "answer": "Blocked-Files" },
+        { "label": "Identifier type", "kind": "select", "options": ["SHA-256", "MD5", "File name"], "answer": "SHA-256" },
+        { "label": "Attached to Windows Protect policy", "kind": "check", "answer": true }
+      ]
+    },
+    {
+      "title": "Isolate the laptop",
+      "type": "choice",
+      "learn": "**Endpoint isolation** cuts a computer off from the network, except for the Secure Endpoint cloud, so analysts can still collect data and run scans remotely.",
+      "task": "Answer the question.",
+      "question": "After you isolate the laptop, what can it still talk to?",
+      "options": [
+        { "text": "Only the Secure Endpoint cloud and any IPs on the isolation allow list, so you can keep investigating.", "correct": true },
+        { "text": "Nothing at all, including the console.", "why": "Isolation keeps the connector's link to the cloud. Otherwise you couldn't manage or release it." },
+        { "text": "Internal servers only.", "why": "Internal traffic is blocked too. Lateral movement is exactly what isolation stops." }
+      ]
+    },
+    {
+      "title": "Retrospective security",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "Last week, ten computers ran a file that was unknown at the time. Today Talos convicts it. What does Secure Endpoint do?",
+      "options": [
+        { "text": "Raises a retrospective detection on all ten computers, quarantines the file there, and shows them in the file trajectory.", "correct": true },
+        { "text": "Only blocks the file from now on, and the ten computers aren't flagged.", "why": "Continuous analysis and retrospection exist exactly to catch files that were unknown when they first ran." }
+      ]
+    }
+  ],
+  "summary": "A protect policy that blocks instead of auditing, the device trajectory of the infection, a SHA-256 simple custom detection to block the file everywhere, and isolation of the infected host.",
+  "next": "cloud-security"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "wsa-proxy",
+  "n": 15,
+  "title": "Web security with a transparent proxy",
+  "domain": "Content Security",
+  "chapter": 10,
+  "level": "Intermediate",
+  "minutes": 16,
+  "blurb": "Redirect web traffic to the Secure Web Appliance with WCCP and filter it by category and reputation.",
+  "scenario": "Users on **10.1.1.0/24** browse through R1. Send their HTTP traffic to the **Secure Web Appliance** (formerly WSA) without touching browser settings, using **WCCP** on the LAN interface **GigabitEthernet0/1**. Then set the web reputation and URL category policy on the appliance.",
+  "topology": "Users 10.1.1.0/24 ── Gi0/1 R1 ── Internet\n                       │ WCCP\n                Secure Web Appliance",
+  "objectives": [
+    "Compare explicit and transparent proxy deployments",
+    "Select the traffic to redirect and turn on WCCP",
+    "Set web reputation thresholds and URL categories"
+  ],
+  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "steps": [
+    {
+      "title": "Explicit or transparent?",
+      "type": "choice",
+      "learn": "An **explicit** proxy is set in the browser or through a PAC/WPAD file, and the client knows it's talking to a proxy. A **transparent** proxy receives traffic redirected by the network (WCCP or policy-based routing), and the client doesn't know.",
+      "task": "Answer the question.",
+      "question": "Why use a transparent deployment with WCCP here?",
+      "options": [
+        { "text": "Every device that browses through R1 is covered without changing browser or OS settings, and WCCP can bypass the proxy if it fails.", "correct": true },
+        { "text": "Transparent mode is the only way to filter HTTPS.", "why": "Both modes can inspect HTTPS with decryption. The difference is how the traffic reaches the proxy." },
+        { "text": "Transparent mode needs no network changes.", "why": "It does: the router or switch must redirect traffic with WCCP or PBR." }
+      ]
+    },
+    {
+      "title": "Turn on WCCP redirection",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "The **web-cache** service (service 0) redirects TCP port 80. A **redirect list** limits which traffic is sent to the proxy, and `ip wccp web-cache redirect in` on the LAN interface intercepts it as it enters R1.",
+      "task": "Create ACL **WCCP-REDIRECT** that permits TCP from **10.1.1.0/24** to any on **www**. Turn on the **web-cache** service with that redirect list, and redirect **inbound** on **GigabitEthernet0/1**.",
+      "hint": "`ip access-list extended WCCP-REDIRECT`, `permit tcp 10.1.1.0 0.0.0.255 any eq www`, `ip wccp web-cache redirect-list WCCP-REDIRECT`, `interface GigabitEthernet0/1`, `ip wccp web-cache redirect in`.",
+      "commands": [
+        { "cmd": "ip access-list extended WCCP-REDIRECT", "enter": "config-ext-nacl" },
+        { "cmd": "permit tcp 10.1.1.0 0.0.0.255 any eq www", "mode": "config-ext-nacl", "alt": ["permit tcp 10.1.1.0 0.0.0.255 any eq 80"] },
+        { "cmd": "ip wccp web-cache redirect-list WCCP-REDIRECT" },
+        { "cmd": "interface GigabitEthernet0/1", "enter": "config-if" },
+        { "cmd": "ip wccp web-cache redirect in", "mode": "config-if" }
+      ]
+    },
+    {
+      "title": "Check the WCCP service",
+      "type": "cli",
+      "device": "R1",
+      "task": "Show the WCCP status to confirm that the appliance registered.",
+      "hint": "`do show ip wccp`",
+      "commands": [
+        { "cmd": "show ip wccp", "mode": "priv", "output": "Global WCCP information:\n    Router information:\n        Router Identifier:                   203.0.113.1\n    Service Identifier: web-cache\n        Protocol Version:                    2.00\n        Number of Service Group Clients:     1\n        Number of Service Group Routers:     1\n        Total Packets Redirected:            18342\n          Process:                           0\n          CEF:                               18342\n        Redirect access-list:                WCCP-REDIRECT\n        Total Packets Denied Redirect:       2210", "note": "One appliance (service group client) is registered, and traffic is being redirected." }
+      ]
+    },
+    {
+      "title": "Web reputation thresholds",
+      "type": "form",
+      "learn": "**Web Based Reputation Scores** (WBRS) run from −10 to +10. The default access policy blocks the worst sites, scans the middle with the anti-malware engines, and allows the best without scanning.",
+      "task": "Set the default WBRS actions.",
+      "screen": "Secure Web Appliance › Web Security Manager › Access Policies › Web Reputation and Anti-Malware",
+      "button": "Submit",
+      "fields": [
+        { "label": "−10 to −6.0", "kind": "select", "options": ["Block", "Scan", "Allow"], "answer": "Block" },
+        { "label": "−5.9 to +5.9", "kind": "select", "options": ["Block", "Scan", "Allow"], "answer": "Scan" },
+        { "label": "+6.0 to +10", "kind": "select", "options": ["Block", "Scan", "Allow"], "answer": "Allow" }
+      ]
+    },
+    {
+      "title": "URL categories",
+      "type": "form",
+      "learn": "URL categories apply the acceptable-use policy. **Warn** shows a page the user can click through, which is useful for gray areas.",
+      "task": "Block **Gambling** and **Malware Sites**, warn on **Social Networking**, and monitor **News**.",
+      "screen": "Secure Web Appliance › Access Policies › Global Policy › URL Filtering",
+      "button": "Submit",
+      "fields": [
+        { "label": "Gambling", "kind": "select", "options": ["Block", "Warn", "Monitor"], "answer": "Block" },
+        { "label": "Malware Sites", "kind": "select", "options": ["Block", "Warn", "Monitor"], "answer": "Block" },
+        { "label": "Social Networking", "kind": "select", "options": ["Block", "Warn", "Monitor"], "answer": "Warn" },
+        { "label": "News", "kind": "select", "options": ["Block", "Warn", "Monitor"], "answer": "Monitor" }
+      ]
+    }
+  ],
+  "summary": "WCCP web-cache redirection of user HTTP traffic to the Secure Web Appliance, with WBRS block, scan and allow thresholds and URL category actions in the access policy.",
+  "next": "secure-endpoint"
+}

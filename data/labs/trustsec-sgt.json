@@ -1,0 +1,83 @@
+{
+  "id": "trustsec-sgt",
+  "n": 13,
+  "title": "Segment users with TrustSec SGTs",
+  "domain": "Secure Network Access, Visibility, and Enforcement",
+  "chapter": 5,
+  "level": "Advanced",
+  "minutes": 16,
+  "blurb": "Tag users with security group tags in ISE, write a policy matrix, and enforce it on the switch.",
+  "scenario": "Contractors and employees share VLAN 10, but only employees may reach the finance servers. Instead of IP-based ACLs, use **Cisco TrustSec**: ISE assigns a **security group tag (SGT)** at login, and the switch enforces a **policy matrix** between tags.",
+  "topology": "Employee (SGT 4) ─┐\n                   ├─ SW1 ── Finance servers (SGT 10)\nContractor (SGT 5) ┘     ISE: policy matrix",
+  "objectives": [
+    "Understand classification, propagation and enforcement",
+    "Fill in the SGACL policy matrix in ISE",
+    "Turn on role-based enforcement on the switch",
+    "Verify the downloaded permissions"
+  ],
+  "devices": { "SW1": { "host": "SW1", "start": "config" } },
+  "steps": [
+    {
+      "title": "The three TrustSec functions",
+      "type": "form",
+      "learn": "TrustSec works in three stages. **Classification** assigns the tag, usually as an ISE authorization result. **Propagation** carries it, inline in the Ethernet frame (CMD header) or over **SXP** to devices that can't tag inline. **Enforcement** applies **SGACLs** based on the source and destination tags.",
+      "task": "Match each action to its TrustSec function.",
+      "screen": "TrustSec functions",
+      "button": "Check",
+      "fields": [
+        { "label": "ISE returns SGT Employees in the Access-Accept", "kind": "select", "options": ["Classification", "Propagation", "Enforcement"], "answer": "Classification" },
+        { "label": "SXP sends IP-to-SGT mappings to a firewall", "kind": "select", "options": ["Classification", "Propagation", "Enforcement"], "answer": "Propagation" },
+        { "label": "The switch drops contractor traffic to finance", "kind": "select", "options": ["Classification", "Propagation", "Enforcement"], "answer": "Enforcement" }
+      ]
+    },
+    {
+      "title": "Fill in the policy matrix",
+      "type": "form",
+      "learn": "In ISE, the **TrustSec policy matrix** has source tags as rows and destination tags as columns. Each cell holds an SGACL, such as **Permit IP** or **Deny IP**.",
+      "task": "Set **Employees → Finance_Servers** to **Permit IP** and **Contractors → Finance_Servers** to **Deny IP**. Leave the default at **Permit IP**.",
+      "screen": "ISE › Work Centers › TrustSec › TrustSec Policy › Matrix",
+      "button": "Save",
+      "fields": [
+        { "label": "Employees (4) → Finance_Servers (10)", "kind": "select", "options": ["Permit IP", "Deny IP", "Permit_Web_Only"], "answer": "Permit IP" },
+        { "label": "Contractors (5) → Finance_Servers (10)", "kind": "select", "options": ["Permit IP", "Deny IP", "Permit_Web_Only"], "answer": "Deny IP" },
+        { "label": "Default (unknown → unknown)", "kind": "select", "options": ["Permit IP", "Deny IP"], "answer": "Permit IP" }
+      ]
+    },
+    {
+      "title": "Turn on enforcement",
+      "type": "cli",
+      "device": "SW1",
+      "ordered": true,
+      "learn": "The switch downloads the matrix cells it needs from ISE. `cts role-based enforcement` turns on SGACL enforcement for routed traffic, and the `vlan-list` form adds switched traffic within VLANs.",
+      "task": "Turn on role-based enforcement globally and for **VLAN 10**.",
+      "hint": "`cts role-based enforcement` and `cts role-based enforcement vlan-list 10`.",
+      "commands": [
+        { "cmd": "cts role-based enforcement" },
+        { "cmd": "cts role-based enforcement vlan-list 10", "note": "Traffic between tags in VLAN 10 is now checked against the matrix." }
+      ]
+    },
+    {
+      "title": "Why tags beat IP ACLs",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "What's the main advantage of SGACLs over IP-based ACLs here?",
+      "options": [
+        { "text": "The policy follows the user's role, not the IP address, so it keeps working when addresses change, and one matrix replaces ACLs on many devices.", "correct": true },
+        { "text": "SGACLs encrypt the traffic between groups.", "why": "TrustSec can be combined with MACsec, but SGACLs only permit or deny." },
+        { "text": "SGACLs need no ISE.", "why": "ISE classifies users and holds the matrix in this design." }
+      ]
+    },
+    {
+      "title": "Verify the permissions",
+      "type": "cli",
+      "device": "SW1",
+      "task": "Show the role-based permissions the switch downloaded.",
+      "hint": "`do show cts role-based permissions`",
+      "commands": [
+        { "cmd": "show cts role-based permissions", "mode": "priv", "output": "IPv4 Role-based permissions default:\n        Permit IP-00\nIPv4 Role-based permissions from group 4:Employees to group 10:Finance_Servers:\n        Permit IP-00\nIPv4 Role-based permissions from group 5:Contractors to group 10:Finance_Servers:\n        Deny IP-00\nRBACL Monitor All for Dynamic Policies : FALSE\nRBACL Monitor All for Configured Policies : FALSE", "note": "Contractors are denied to finance, and employees are permitted." }
+      ]
+    }
+  ],
+  "summary": "TrustSec classification by ISE, a policy matrix permitting employees and denying contractors to the finance servers, and SGACL enforcement on the switch for VLAN 10.",
+  "next": "esa-mail"
+}

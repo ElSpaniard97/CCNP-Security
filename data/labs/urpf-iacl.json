@@ -1,0 +1,90 @@
+{
+  "id": "urpf-iacl",
+  "n": 21,
+  "title": "Filter spoofed traffic at the edge",
+  "domain": "Network Security",
+  "chapter": 6,
+  "level": "Intermediate",
+  "minutes": 14,
+  "blurb": "Drop spoofed and bogon sources with an infrastructure ACL and unicast RPF on the Internet edge.",
+  "scenario": "R1's Internet interface **GigabitEthernet0/0** keeps receiving packets that claim to come from private (RFC 1918) addresses, and even from the company's own public range **203.0.113.0/24**. Both are spoofed. Filter them at the edge.",
+  "topology": "Internet ── Gi0/0 R1 Gi0/1 ── LAN 10.1.1.0/24\n            our public range 203.0.113.0/24",
+  "objectives": [
+    "Recognize the bogon sources that should never arrive from the Internet",
+    "Build and apply an inbound infrastructure ACL",
+    "Turn on strict unicast RPF on the LAN side"
+  ],
+  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "steps": [
+    {
+      "title": "Spot the bogons",
+      "type": "choice",
+      "learn": "Some source addresses should never arrive from the Internet: **RFC 1918** private ranges, loopback, link-local, and **your own public range**. Packets with these sources are spoofed.",
+      "task": "Pick every source address R1 should drop when it arrives on the Internet interface.",
+      "question": "Which sources are spoofed when they arrive from the Internet?",
+      "options": [
+        { "text": "10.5.5.5", "correct": true },
+        { "text": "192.168.1.20", "correct": true },
+        { "text": "203.0.113.77 (our own range)", "correct": true },
+        { "text": "127.0.0.1", "correct": true },
+        { "text": "8.8.8.8", "why": "That's a legitimate public address." }
+      ]
+    },
+    {
+      "title": "Build the edge ACL",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "An inbound edge ACL denies the bogon sources first, then permits everything else for the firewall to handle. Order matters: the first matching line wins.",
+      "task": "Create extended ACL **EDGE-IN** denying IP from **10.0.0.0/8**, **172.16.0.0/12**, **192.168.0.0/16**, **127.0.0.0/8** and **203.0.113.0/24** to any, then permitting IP any any. Apply it **in** on **GigabitEthernet0/0**.",
+      "hint": "Wildcards: 0.255.255.255 for /8, 0.15.255.255 for /12, 0.0.255.255 for /16, 0.0.0.255 for /24. For example, `deny ip 10.0.0.0 0.255.255.255 any`. Then `permit ip any any`, `interface GigabitEthernet0/0` and `ip access-group EDGE-IN in`.",
+      "commands": [
+        { "cmd": "ip access-list extended EDGE-IN", "enter": "config-ext-nacl" },
+        { "cmd": "deny ip 10.0.0.0 0.255.255.255 any", "mode": "config-ext-nacl" },
+        { "cmd": "deny ip 172.16.0.0 0.15.255.255 any", "mode": "config-ext-nacl" },
+        { "cmd": "deny ip 192.168.0.0 0.0.255.255 any", "mode": "config-ext-nacl" },
+        { "cmd": "deny ip 127.0.0.0 0.255.255.255 any", "mode": "config-ext-nacl" },
+        { "cmd": "deny ip 203.0.113.0 0.0.0.255 any", "mode": "config-ext-nacl" },
+        { "cmd": "permit ip any any", "mode": "config-ext-nacl" },
+        { "cmd": "interface GigabitEthernet0/0", "enter": "config-if" },
+        { "cmd": "ip access-group EDGE-IN in", "mode": "config-if" }
+      ]
+    },
+    {
+      "title": "Unicast RPF",
+      "type": "cli",
+      "device": "R1",
+      "ordered": true,
+      "learn": "**uRPF** checks the source address of each packet against the routing table. **Strict mode** (`rx`) requires the route back to the source to point out of the same interface the packet came in on, which suits single-homed LAN interfaces. **Loose mode** (`any`) only requires that some route exists, which suits multihomed Internet links.",
+      "task": "Turn on **strict** uRPF on the LAN interface **GigabitEthernet0/1**, so LAN hosts can't send packets with forged sources.",
+      "hint": "`interface GigabitEthernet0/1`, then `ip verify unicast source reachable-via rx`.",
+      "commands": [
+        { "cmd": "interface GigabitEthernet0/1", "enter": "config-if" },
+        { "cmd": "ip verify unicast source reachable-via rx", "mode": "config-if", "note": "A LAN host spoofing a source outside 10.1.1.0/24 is now dropped." }
+      ]
+    },
+    {
+      "title": "Strict or loose on the Internet link?",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "R1 later gets a second ISP. Why use loose mode rather than strict mode on the ISP links?",
+      "options": [
+        { "text": "With two ISPs, return traffic can arrive on a different link from the one the route points to. Strict mode would drop that legitimate traffic, while loose mode only needs a route to exist.", "correct": true },
+        { "text": "Loose mode is faster.", "why": "The reason is asymmetric routing, not speed." },
+        { "text": "Strict mode doesn't work on Ethernet.", "why": "Strict mode works on any interface. The issue is asymmetric routing." }
+      ]
+    },
+    {
+      "title": "Check the hits",
+      "type": "cli",
+      "device": "R1",
+      "task": "Display ACL **EDGE-IN** with its match counters.",
+      "hint": "`do show ip access-lists EDGE-IN`",
+      "commands": [
+        { "cmd": "show ip access-lists EDGE-IN", "mode": "priv", "alt": ["show access-lists EDGE-IN"], "output": "Extended IP access list EDGE-IN\n    10 deny ip 10.0.0.0 0.255.255.255 any (1532 matches)\n    20 deny ip 172.16.0.0 0.15.255.255 any (211 matches)\n    30 deny ip 192.168.0.0 0.0.255.255 any (4870 matches)\n    40 deny ip 127.0.0.0 0.255.255.255 any (3 matches)\n    50 deny ip 203.0.113.0 0.0.0.255 any (97 matches)\n    60 permit ip any any (2381442 matches)", "note": "Thousands of spoofed packets were dropped at the edge." }
+      ]
+    }
+  ],
+  "summary": "An inbound edge ACL that drops RFC 1918, loopback and own-range sources, strict uRPF on the LAN interface, and loose uRPF for multihomed Internet links.",
+  "next": "ipsec-vti"
+}

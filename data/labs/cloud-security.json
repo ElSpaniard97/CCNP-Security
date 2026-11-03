@@ -1,0 +1,75 @@
+{
+  "id": "cloud-security",
+  "n": 17,
+  "title": "Secure a cloud workload",
+  "domain": "Securing the Cloud",
+  "chapter": 9,
+  "level": "Beginner",
+  "minutes": 12,
+  "blurb": "Sort out the shared responsibility model, lock down a security group, and pick the right cloud security tools.",
+  "scenario": "The team is moving a web application to a public cloud **IaaS** provider. The web servers sit in a public subnet, and the database sits in a private subnet. Decide who secures what, lock down network access, and choose the tools for visibility.",
+  "topology": "Internet ── Load balancer ── Web tier (SG: web-sg) ── DB tier (SG: db-sg)\n                         VPC 10.20.0.0/16",
+  "objectives": [
+    "Apply the shared responsibility model",
+    "Write security group rules for the web and database tiers",
+    "Match cloud security tools to the problems they solve"
+  ],
+  "steps": [
+    {
+      "title": "Who is responsible?",
+      "type": "form",
+      "learn": "In the **shared responsibility model**, the provider secures **of** the cloud (hardware, facilities, hypervisor), and the customer secures what they put **in** it. The split moves toward the provider from IaaS to PaaS to SaaS.",
+      "task": "For this IaaS deployment, choose who is responsible for each item.",
+      "screen": "Shared responsibility: IaaS",
+      "button": "Check",
+      "fields": [
+        { "label": "Physical data center security", "kind": "select", "options": ["Provider", "Customer"], "answer": "Provider" },
+        { "label": "Hypervisor patching", "kind": "select", "options": ["Provider", "Customer"], "answer": "Provider" },
+        { "label": "Guest OS patching on the web servers", "kind": "select", "options": ["Provider", "Customer"], "answer": "Customer" },
+        { "label": "Security group (firewall) rules", "kind": "select", "options": ["Provider", "Customer"], "answer": "Customer" },
+        { "label": "Encrypting data in the database", "kind": "select", "options": ["Provider", "Customer"], "answer": "Customer" }
+      ]
+    },
+    {
+      "title": "Lock down the database",
+      "type": "form",
+      "learn": "**Security groups** are stateful firewalls attached to instances, and they allow only what you list. Reference another security group as the source instead of an IP range, so the rule follows the web servers as they scale.",
+      "task": "Allow the database (MySQL, TCP **3306**) only from **web-sg**, and allow SSH (TCP 22) only from the bastion host's security group, **bastion-sg**.",
+      "screen": "Cloud console › Security groups › db-sg › Inbound rules",
+      "button": "Save rules",
+      "fields": [
+        { "label": "Rule 1 port", "kind": "text", "answer": "3306" },
+        { "label": "Rule 1 source", "kind": "select", "options": ["0.0.0.0/0", "10.20.0.0/16", "web-sg", "bastion-sg"], "answer": "web-sg" },
+        { "label": "Rule 2 port", "kind": "text", "answer": "22" },
+        { "label": "Rule 2 source", "kind": "select", "options": ["0.0.0.0/0", "10.20.0.0/16", "web-sg", "bastion-sg"], "answer": "bastion-sg" }
+      ]
+    },
+    {
+      "title": "Pick the tool",
+      "type": "form",
+      "learn": "Cloud security tools fall into a few families. **CSPM** finds misconfigurations, **CWPP** protects the workloads themselves, and **CASB** controls the use of SaaS apps. **Secure Cloud Analytics** (formerly Stealthwatch Cloud) models behavior from flow logs.",
+      "task": "Match each problem to the tool that addresses it.",
+      "screen": "Cloud security tools",
+      "button": "Check",
+      "fields": [
+        { "label": "A storage bucket was left publicly readable", "kind": "select", "options": ["CSPM", "CASB", "Secure Cloud Analytics", "Cisco Secure Workload (CWPP)"], "answer": "CSPM" },
+        { "label": "Employees upload data to an unapproved SaaS app", "kind": "select", "options": ["CSPM", "CASB", "Secure Cloud Analytics", "Cisco Secure Workload (CWPP)"], "answer": "CASB" },
+        { "label": "A VM starts talking to an unusual country at 3 a.m.", "kind": "select", "options": ["CSPM", "CASB", "Secure Cloud Analytics", "Cisco Secure Workload (CWPP)"], "answer": "Secure Cloud Analytics" },
+        { "label": "Microsegmentation between application workloads", "kind": "select", "options": ["CSPM", "CASB", "Secure Cloud Analytics", "Cisco Secure Workload (CWPP)"], "answer": "Cisco Secure Workload (CWPP)" }
+      ]
+    },
+    {
+      "title": "DevSecOps",
+      "type": "choice",
+      "task": "Answer the question.",
+      "question": "Where in a DevSecOps pipeline should you scan the infrastructure-as-code templates and container images?",
+      "options": [
+        { "text": "In the CI pipeline, before deployment, so a misconfiguration or vulnerable image never reaches production (\"shift left\").", "correct": true },
+        { "text": "Only in production, once a month.", "why": "Scanning late makes fixes slow and expensive. DevSecOps moves checks earlier." },
+        { "text": "It isn't needed, because the provider scans customer workloads.", "why": "Under shared responsibility, your code and images are yours to secure." }
+      ]
+    }
+  ],
+  "summary": "The IaaS split of responsibilities, a database security group that only accepts the web tier and the bastion, the right tools for misconfiguration, shadow SaaS, behavior and microsegmentation, and shift-left scanning.",
+  "next": "pki-certs"
+}

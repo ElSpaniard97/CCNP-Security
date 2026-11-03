@@ -1,0 +1,72 @@
+{
+  "id": "ad-phishing",
+  "n": 27,
+  "title": "Attack and defend: a phishing campaign",
+  "domain": "Attack and Defend",
+  "chapter": 10,
+  "level": "Beginner",
+  "minutes": 12,
+  "blurb": "Take apart a phishing email, find the forged headers, and layer email, DNS and identity defenses against it.",
+  "scenario": "Several employees received an email that looks like it's from IT: \"Your mailbox is full, sign in to keep your messages.\" One user clicked. Work out how the message got through, and add layers so the next campaign fails.",
+  "topology": "Attacker ── Internet ── Secure Email Gateway ── mailbox ── user ── Umbrella DNS",
+  "objectives": [
+    "Recognize the warning signs in a phishing message",
+    "Read the authentication results in the headers",
+    "Choose defenses at each layer"
+  ],
+  "steps": [
+    {
+      "title": "Warning signs",
+      "type": "choice",
+      "learn": "Phishing relies on **urgency**, **authority** and **look-alike** names. Teach users to check the real sender and the real link target, not the display name and link text.",
+      "task": "Pick every warning sign in this message.",
+      "question": "From: \"IT Service Desk\" <helpdesk@scor-lab-support.com>\nSubject: URGENT: Mailbox 98% full, action required within 2 hours\nLink text: https://mail.scor.lab/quota  (actual target: https://scor-lab-support.com/owa/login.php)",
+      "options": [
+        { "text": "The sender's domain is a look-alike, not scor.lab.", "correct": true },
+        { "text": "The deadline creates urgency.", "correct": true },
+        { "text": "The link text and the real link target don't match.", "correct": true },
+        { "text": "The message mentions the mailbox.", "why": "Real IT messages mention mailboxes too. That alone isn't suspicious." }
+      ]
+    },
+    {
+      "title": "Read the headers",
+      "type": "form",
+      "learn": "Receiving servers record the SPF, DKIM and DMARC results in the **Authentication-Results** header. A look-alike domain can pass all three for itself. What protects you is that it isn't **your** domain.",
+      "task": "The header says: `spf=pass smtp.mailfrom=scor-lab-support.com; dkim=pass header.d=scor-lab-support.com; dmarc=pass header.from=scor-lab-support.com`. Answer the questions.",
+      "screen": "Message headers",
+      "button": "Check",
+      "fields": [
+        { "label": "Did SPF, DKIM and DMARC stop this message?", "kind": "select", "options": ["Yes", "No, it passed for the attacker's own domain"], "answer": "No, it passed for the attacker's own domain" },
+        { "label": "What would catch a look-alike domain?", "kind": "select", "options": ["DMARC on scor.lab", "Newly registered and look-alike domain detection with sender reputation", "A longer SPF record"], "answer": "Newly registered and look-alike domain detection with sender reputation" }
+      ]
+    },
+    {
+      "title": "Layer the defenses",
+      "type": "form",
+      "learn": "No single control stops all phishing, so stack them. One control works before delivery, one at the click, and one if credentials are stolen anyway.",
+      "task": "Pick the control that fits each layer.",
+      "screen": "Defense in depth",
+      "button": "Check",
+      "fields": [
+        { "label": "Before delivery", "kind": "select", "options": ["Secure Email: sender reputation, URL rewriting and Forged Email Detection", "Umbrella blocking the phishing domain at DNS", "MFA on the mailbox"], "answer": "Secure Email: sender reputation, URL rewriting and Forged Email Detection" },
+        { "label": "When the user clicks", "kind": "select", "options": ["Secure Email: sender reputation, URL rewriting and Forged Email Detection", "Umbrella blocking the phishing domain at DNS", "MFA on the mailbox"], "answer": "Umbrella blocking the phishing domain at DNS" },
+        { "label": "If the password is stolen anyway", "kind": "select", "options": ["Secure Email: sender reputation, URL rewriting and Forged Email Detection", "Umbrella blocking the phishing domain at DNS", "MFA on the mailbox"], "answer": "MFA on the mailbox" }
+      ]
+    },
+    {
+      "title": "Respond",
+      "type": "order",
+      "task": "One user entered their password. Put the response steps in order.",
+      "question": "Order from first to last.",
+      "items": [
+        "Reset the user's password and revoke their active sessions",
+        "Block the phishing domain in Umbrella and on the email gateway",
+        "Search all mailboxes for the message and remove it",
+        "Review the account's sign-in logs and mailbox rules for attacker activity",
+        "Send a short awareness note to staff with the real indicators"
+      ]
+    }
+  ],
+  "summary": "Look-alike domains, urgency and mismatched links as warning signs, authentication results that pass for the attacker's own domain, layered email, DNS and MFA controls, and the response order after a click.",
+  "next": "ad-dns-tunneling"
+}
