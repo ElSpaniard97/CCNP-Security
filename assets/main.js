@@ -1,6 +1,6 @@
 import { icon, chapterDetails } from "./visuals.js";
 import { dashboardHTML, chapterGrid } from "./dashboard.js";
-import { leaveView, app, DECKS, DECK_LABEL, PASS, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, leaveFns, setCrumbs, onKey, getJSON, loadCards, loadAllCards, getTests, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, getResume, clearResume, unfinished, resumeHref, bankActive, store, syncNow, esc, shuffle, plural, pctOf, srsDue, starredList, selectExam, setNavigation, setStudyData, readerIndex } from "./runtime.js";
+import { leaveView, app, DECKS, DECK_LABEL, PASS, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, leaveFns, setCrumbs, onKey, getJSON, loadCards, loadAllCards, getTests, question, attempts, fullAttempts, examAttempts, bests, latestByTest, streak, getResume, clearResume, unfinished, resumeHref, bankActive, store, syncNow, esc, shuffle, plural, pctOf, srsDue, starredList, selectExam, setNavigation, setStudyData, readerIndex, cancelChoices } from "./runtime.js";
 import { registerOffline, offlineHTML, wireOffline } from "./offline.js";
 // Feature modules load on first use, so a page only downloads the code it needs.
 // Each loader returns the same promise every time, so a module is fetched once.
@@ -193,7 +193,9 @@ const readerMod = once(() => import("./reader.js"));
     document.title = "Mock exam";
     const saved = getResume("exam");
     if (saved) {
-      if (await resumePrompt(saved, () => clearResume("exam"))) return startExam(await hydrate(saved.items), saved);
+      const resume = await resumePrompt(saved, () => clearResume("exam"));
+      if (resume === null) return;
+      if (resume) return startExam(await hydrate(saved.items), saved);
     }
     const lastExam = store.get("last.exam", null), past = examAttempts();
     app.innerHTML = `
@@ -246,7 +248,9 @@ const readerMod = once(() => import("./reader.js"));
     document.title = "Missed questions";
     const saved = getResume("bank");
     if (saved) {
-      if (await resumePrompt(saved, () => clearResume("bank"))) return drill(await hydrate(saved.items), saved);
+      const resume = await resumePrompt(saved, () => clearResume("bank"));
+      if (resume === null) return;
+      if (resume) return drill(await hydrate(saved.items), saved);
     }
     const active = bankActive();
     const byCh = {};
@@ -305,6 +309,7 @@ const readerMod = once(() => import("./reader.js"));
   // queued ones renders. Otherwise a slow page could finish after a faster one and replace it.
   let routing = Promise.resolve(), queued = 0;
   function route() {
+    cancelChoices();
     queued++;
     routing = routing.then(() => --queued ? undefined : renderRoute());
     return routing;

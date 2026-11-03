@@ -1,4 +1,4 @@
-import { chap, app, LETTERS, PASS, BANK_CLEAR, blueprint, flashcards, setCrumbs, onKey, onLeave, getTests, question, attempts, addAttempt, fullAttempts, examAttempts, getResume, clearResume, bankRecord, bankActive, studyCards, cardChips, meter, home, chapterView, setExamActive, route, store, syncSoon, esc, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, srsMiss, domainFor } from "./runtime.js";
+import { chap, app, LETTERS, PASS, BANK_CLEAR, blueprint, flashcards, setCrumbs, onKey, onLeave, getTests, question, attempts, addAttempt, fullAttempts, examAttempts, getResume, clearResume, bankRecord, bankActive, studyCards, cardChips, meter, home, chapterView, setExamActive, route, store, syncSoon, esc, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, srsMiss, domainFor, untilChoice } from "./runtime.js";
 
 
   // ---------- quiz engine ----------
@@ -182,7 +182,8 @@ import { chap, app, LETTERS, PASS, BANK_CLEAR, blueprint, flashcards, setCrumbs,
           </div>
         </div>
       </div>`;
-    return new Promise(res => {
+    // Settles true (resume), false (start over) or null (the reader went to another page).
+    return untilChoice(res => {
       document.getElementById("resume").onclick = () => res(true);
       document.getElementById("over").onclick = () => { if (startOver) startOver(); res(false); };
     });
@@ -199,7 +200,11 @@ import { chap, app, LETTERS, PASS, BANK_CLEAR, blueprint, flashcards, setCrumbs,
     const key = `test.${n}.${t}`;
 
     let saved = onlyIdx ? null : getResume(key);
-    if (saved && !(await resumePrompt(saved, () => clearResume(key)))) saved = null;
+    if (saved) {
+      const resume = await resumePrompt(saved, () => clearResume(key));
+      if (resume === null) return;
+      if (!resume) saved = null;
+    }
     const retry = saved ? saved.kind === "retry" : !!onlyIdx;
     const items = saved ? await hydrate(saved.items)
       : shuffle(onlyIdx || test.questions.map((q, i) => i)).map(i => newItem(n, t, i, test.questions[i]));
