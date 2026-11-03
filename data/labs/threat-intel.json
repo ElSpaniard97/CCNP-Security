@@ -1,0 +1,89 @@
+{
+  "id": "threat-intel",
+  "n": 23,
+  "title": "Triage a vulnerability and an alert",
+  "domain": "Security Concepts",
+  "chapter": 1,
+  "level": "Beginner",
+  "minutes": 12,
+  "blurb": "Read a CVE and its CVSS score, map attacker behavior to MITRE ATT&CK, and share indicators with STIX and TAXII.",
+  "scenario": "Monday morning brings a new advisory, **CVE-2026-1234**, for the web framework your DMZ server runs, plus an alert from the SOC. Work out how urgent the vulnerability is, describe the attacker's behavior in common terms, and share the indicators with your partner organizations.",
+  "topology": "Advisory feed ── SOC analyst ── ticketing\n                   │ STIX/TAXII ── partner ISAC",
+  "objectives": [
+    "Tell vulnerabilities, threats, exploits and risk apart",
+    "Read a CVSS vector",
+    "Map activity to MITRE ATT&CK tactics",
+    "Know how threat intelligence is shared"
+  ],
+  "steps": [
+    {
+      "title": "Terms",
+      "type": "form",
+      "learn": "A **vulnerability** is a weakness. A **threat** is something that could exploit it. An **exploit** is the code or technique that does. **Risk** combines likelihood and impact.",
+      "task": "Match each item to the right term.",
+      "screen": "Security terms",
+      "button": "Check",
+      "fields": [
+        { "label": "An unpatched input-validation bug in the web framework", "kind": "select", "options": ["Vulnerability", "Threat", "Exploit", "Risk"], "answer": "Vulnerability" },
+        { "label": "A criminal group that targets e-commerce sites", "kind": "select", "options": ["Vulnerability", "Threat", "Exploit", "Risk"], "answer": "Threat" },
+        { "label": "A public proof-of-concept script for the bug", "kind": "select", "options": ["Vulnerability", "Threat", "Exploit", "Risk"], "answer": "Exploit" },
+        { "label": "The chance of a breach times its cost to the business", "kind": "select", "options": ["Vulnerability", "Threat", "Exploit", "Risk"], "answer": "Risk" }
+      ]
+    },
+    {
+      "title": "Read the CVSS vector",
+      "type": "form",
+      "learn": "**CVSS** scores severity from 0 to 10. The vector spells out the base metrics: **AV** (attack vector), **AC** (complexity), **PR** (privileges required), **UI** (user interaction), **S** (scope), and **C/I/A** impact.",
+      "task": "The advisory gives **CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H**, score **9.8**. Read it.",
+      "screen": "CVE-2026-1234",
+      "button": "Check",
+      "fields": [
+        { "label": "Attack vector (AV:N)", "kind": "select", "options": ["Network (remotely)", "Adjacent network", "Local", "Physical"], "answer": "Network (remotely)" },
+        { "label": "Privileges required (PR:N)", "kind": "select", "options": ["None", "Low", "High"], "answer": "None" },
+        { "label": "User interaction (UI:N)", "kind": "select", "options": ["None", "Required"], "answer": "None" },
+        { "label": "Severity rating for 9.8", "kind": "select", "options": ["Low", "Medium", "High", "Critical"], "answer": "Critical" }
+      ]
+    },
+    {
+      "title": "Map the behavior",
+      "type": "form",
+      "learn": "**MITRE ATT&CK** is a shared vocabulary of attacker **tactics** (the why) and **techniques** (the how). Mapping alerts to it shows how far an attack got and where the gaps in detection are.",
+      "task": "The SOC alert lists these events. Map each to its ATT&CK tactic.",
+      "screen": "Alert 4471 › ATT&CK mapping",
+      "button": "Save",
+      "fields": [
+        { "label": "Exploit of the public web server", "kind": "select", "options": ["Initial Access", "Persistence", "Command and Control", "Exfiltration"], "answer": "Initial Access" },
+        { "label": "A scheduled task that restarts the implant at boot", "kind": "select", "options": ["Initial Access", "Persistence", "Command and Control", "Exfiltration"], "answer": "Persistence" },
+        { "label": "HTTPS beacons to an unknown domain every 60 seconds", "kind": "select", "options": ["Initial Access", "Persistence", "Command and Control", "Exfiltration"], "answer": "Command and Control" },
+        { "label": "A 4 GB upload to a cloud storage site", "kind": "select", "options": ["Initial Access", "Persistence", "Command and Control", "Exfiltration"], "answer": "Exfiltration" }
+      ]
+    },
+    {
+      "title": "Share the indicators",
+      "type": "choice",
+      "learn": "**STIX** is a JSON format for describing threat intelligence: indicators, malware, campaigns and their relationships. **TAXII** is the protocol, over HTTPS, for exchanging STIX between organizations.",
+      "task": "Answer the question.",
+      "question": "How do you send the beacon domain and file hashes to your partner ISAC in a form their tools can ingest automatically?",
+      "options": [
+        { "text": "Package them as STIX objects and publish them to the ISAC's TAXII server.", "correct": true },
+        { "text": "Email a PDF report.", "why": "People can read it, but tools can't ingest it automatically." },
+        { "text": "Send them as syslog messages.", "why": "Syslog carries events from your devices. It isn't a format for sharing intelligence." }
+      ]
+    },
+    {
+      "title": "Prioritize",
+      "type": "order",
+      "task": "Put the response actions for CVE-2026-1234 in a sensible order.",
+      "question": "Order from first to last.",
+      "items": [
+        "Identify every system that runs the vulnerable framework version",
+        "Apply a temporary mitigation, such as an IPS signature or WAF rule, on exposed systems",
+        "Patch internet-facing systems first, then internal ones",
+        "Hunt for signs that the bug was exploited before the patch",
+        "Confirm the fix with a rescan and close the ticket"
+      ]
+    }
+  ],
+  "summary": "Vulnerability, threat, exploit and risk, a CVSS 3.1 vector read as a critical, remotely exploitable bug, alert events mapped to ATT&CK tactics, indicators shared with STIX and TAXII, and a prioritized response.",
+  "next": "ise-profiling-posture"
+}

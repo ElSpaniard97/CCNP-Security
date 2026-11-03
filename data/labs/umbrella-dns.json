@@ -164,5 +164,5 @@
     }
   ],
   "summary": "The HQ network identity, a DNS policy blocking malware, phishing and CnC with the Intelligent Proxy turned on, and internal DNS forwarding to Umbrella with port 53 locked down so it can't be bypassed.",
-  "next": null
+  "next": "trustsec-sgt"
 }
