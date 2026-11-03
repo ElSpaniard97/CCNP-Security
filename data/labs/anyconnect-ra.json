@@ -7,6 +7,7 @@
   "level": "Advanced",
   "minutes": 22,
   "blurb": "Give remote employees an SSL VPN on the ASA with an address pool, split tunneling and a connection profile.",
+  "purpose": "Remote workers need safe access to internal resources from anywhere. This lab sets up Secure Client (AnyConnect) remote access VPN on an ASA, with an address pool, split tunneling and a connection profile. It covers remote access VPN configuration.",
   "scenario": "Employees working from home need to reach the inside network **10.1.1.0/24** through the ASA's **outside** interface, using **Cisco Secure Client** (formerly AnyConnect). Clients get addresses from **10.50.50.1–10.50.50.100**, use the internal DNS server **10.1.1.53**, and send only corporate traffic through the tunnel. The Secure Client package is already on the flash as **disk0:/cisco-secure-client-win-5.1.2.42-webdeploy-k9.pkg**.",
   "topology": "Home PC ── Internet ── outside [ASA] inside ── 10.1.1.0/24 (DNS 10.1.1.53)\n                            pool 10.50.50.1-100",
   "objectives": [
@@ -15,7 +16,13 @@
     "Build the group policy",
     "Build the connection profile (tunnel group)"
   ],
-  "devices": { "ASA": { "host": "ciscoasa", "start": "config", "showAnywhere": true } },
+  "devices": {
+    "ASA": {
+      "host": "ciscoasa",
+      "start": "config",
+      "showAnywhere": true
+    }
+  },
   "steps": [
     {
       "title": "Pool and split-tunnel list",
@@ -26,8 +33,15 @@
       "task": "Create pool **VPN-POOL** from **10.50.50.1** to **10.50.50.100**, mask **255.255.255.0**. Create standard ACL **SPLIT-ACL** that permits **10.1.1.0 255.255.255.0**.",
       "hint": "`ip local pool VPN-POOL 10.50.50.1-10.50.50.100 mask 255.255.255.0` and `access-list SPLIT-ACL standard permit 10.1.1.0 255.255.255.0`.",
       "commands": [
-        { "cmd": "ip local pool VPN-POOL 10.50.50.1-10.50.50.100 mask 255.255.255.0" },
-        { "cmd": "access-list SPLIT-ACL standard permit 10.1.1.0 255.255.255.0", "note": "ASA ACLs use subnet masks, not wildcard masks." }
+        {
+          "cmd": "ip local pool VPN-POOL 10.50.50.1-10.50.50.100 mask 255.255.255.0",
+          "explain": "Creates the pool of addresses handed to VPN clients."
+        },
+        {
+          "cmd": "access-list SPLIT-ACL standard permit 10.1.1.0 255.255.255.0",
+          "note": "ASA ACLs use subnet masks, not wildcard masks.",
+          "explain": "Creates a standard ACL listing the internal network that goes through the tunnel."
+        }
       ]
     },
     {
@@ -39,11 +53,32 @@
       "task": "In **webvpn** mode, enable it on **outside**, load the package **disk0:/cisco-secure-client-win-5.1.2.42-webdeploy-k9.pkg** as image **1**, turn on the client, and turn on the tunnel group list.",
       "hint": "`webvpn`, `enable outside`, `anyconnect image disk0:/cisco-secure-client-win-5.1.2.42-webdeploy-k9.pkg 1`, `anyconnect enable`, `tunnel-group-list enable`. The keyword is still `anyconnect` even for Secure Client.",
       "commands": [
-        { "cmd": "webvpn", "enter": "config-webvpn" },
-        { "cmd": "enable outside", "mode": "config-webvpn" },
-        { "cmd": "anyconnect image disk0:/cisco-secure-client-win-5.1.2.42-webdeploy-k9.pkg 1", "mode": "config-webvpn" },
-        { "cmd": "anyconnect enable", "mode": "config-webvpn" },
-        { "cmd": "tunnel-group-list enable", "mode": "config-webvpn", "note": "Users can pick their connection profile from a list at login." }
+        {
+          "cmd": "webvpn",
+          "enter": "config-webvpn",
+          "explain": "Enters WebVPN configuration, which controls SSL VPN."
+        },
+        {
+          "cmd": "enable outside",
+          "mode": "config-webvpn",
+          "explain": "Turns on SSL VPN on the outside interface."
+        },
+        {
+          "cmd": "anyconnect image disk0:/cisco-secure-client-win-5.1.2.42-webdeploy-k9.pkg 1",
+          "mode": "config-webvpn",
+          "explain": "Loads the Secure Client package that is pushed to users."
+        },
+        {
+          "cmd": "anyconnect enable",
+          "mode": "config-webvpn",
+          "explain": "Turns on Secure Client (AnyConnect) access."
+        },
+        {
+          "cmd": "tunnel-group-list enable",
+          "mode": "config-webvpn",
+          "note": "Users can pick their connection profile from a list at login.",
+          "explain": "Shows a list of connection profiles on the login page."
+        }
       ]
     },
     {
@@ -55,12 +90,35 @@
       "task": "Create internal group policy **GP-RA**. In its attributes, allow the protocol **ssl-client**, set split tunneling to **tunnelspecified** with network list **SPLIT-ACL**, and set DNS server **10.1.1.53**.",
       "hint": "`group-policy GP-RA internal`, `group-policy GP-RA attributes`, `vpn-tunnel-protocol ssl-client`, `split-tunnel-policy tunnelspecified`, `split-tunnel-network-list value SPLIT-ACL`, `dns-server value 10.1.1.53`.",
       "commands": [
-        { "cmd": "group-policy GP-RA internal" },
-        { "cmd": "group-policy GP-RA attributes", "enter": "config-group-policy" },
-        { "cmd": "vpn-tunnel-protocol ssl-client", "mode": "config-group-policy" },
-        { "cmd": "split-tunnel-policy tunnelspecified", "mode": "config-group-policy" },
-        { "cmd": "split-tunnel-network-list value SPLIT-ACL", "mode": "config-group-policy" },
-        { "cmd": "dns-server value 10.1.1.53", "mode": "config-group-policy" }
+        {
+          "cmd": "group-policy GP-RA internal",
+          "explain": "Creates an internal group policy named GP-RA."
+        },
+        {
+          "cmd": "group-policy GP-RA attributes",
+          "enter": "config-group-policy",
+          "explain": "Enters the group policy's settings."
+        },
+        {
+          "cmd": "vpn-tunnel-protocol ssl-client",
+          "mode": "config-group-policy",
+          "explain": "Allows only the SSL VPN client protocol."
+        },
+        {
+          "cmd": "split-tunnel-policy tunnelspecified",
+          "mode": "config-group-policy",
+          "explain": "Turns on split tunneling, so only listed networks use the VPN."
+        },
+        {
+          "cmd": "split-tunnel-network-list value SPLIT-ACL",
+          "mode": "config-group-policy",
+          "explain": "Uses SPLIT-ACL as the list of tunneled networks."
+        },
+        {
+          "cmd": "dns-server value 10.1.1.53",
+          "mode": "config-group-policy",
+          "explain": "Gives clients the internal DNS server."
+        }
       ]
     },
     {
@@ -72,12 +130,35 @@
       "task": "Create remote-access tunnel group **RA-VPN**. In general attributes, use pool **VPN-POOL** and default group policy **GP-RA**. In webvpn attributes, add group alias **Employees** and enable it.",
       "hint": "`tunnel-group RA-VPN type remote-access`, `tunnel-group RA-VPN general-attributes`, `address-pool VPN-POOL`, `default-group-policy GP-RA`, `tunnel-group RA-VPN webvpn-attributes`, `group-alias Employees enable`.",
       "commands": [
-        { "cmd": "tunnel-group RA-VPN type remote-access" },
-        { "cmd": "tunnel-group RA-VPN general-attributes", "enter": "config-tunnel-general" },
-        { "cmd": "address-pool VPN-POOL", "mode": "config-tunnel-general" },
-        { "cmd": "default-group-policy GP-RA", "mode": "config-tunnel-general" },
-        { "cmd": "tunnel-group RA-VPN webvpn-attributes", "enter": "config-tunnel-webvpn" },
-        { "cmd": "group-alias Employees enable", "mode": "config-tunnel-webvpn" }
+        {
+          "cmd": "tunnel-group RA-VPN type remote-access",
+          "explain": "Creates the remote access connection profile RA-VPN."
+        },
+        {
+          "cmd": "tunnel-group RA-VPN general-attributes",
+          "enter": "config-tunnel-general",
+          "explain": "Enters the profile's general settings."
+        },
+        {
+          "cmd": "address-pool VPN-POOL",
+          "mode": "config-tunnel-general",
+          "explain": "Gives clients addresses from VPN-POOL."
+        },
+        {
+          "cmd": "default-group-policy GP-RA",
+          "mode": "config-tunnel-general",
+          "explain": "Uses group policy GP-RA by default."
+        },
+        {
+          "cmd": "tunnel-group RA-VPN webvpn-attributes",
+          "enter": "config-tunnel-webvpn",
+          "explain": "Enters the profile's WebVPN settings."
+        },
+        {
+          "cmd": "group-alias Employees enable",
+          "mode": "config-tunnel-webvpn",
+          "explain": "Shows the profile to users as Employees."
+        }
       ]
     },
     {
@@ -86,9 +167,18 @@
       "task": "Answer the question.",
       "question": "With this split-tunnel setup, a user at home browses a public news site. Which path does that traffic take?",
       "options": [
-        { "text": "Straight out of the user's home Internet connection, outside the tunnel, because only 10.1.1.0/24 is in SPLIT-ACL.", "correct": true },
-        { "text": "Through the tunnel to the ASA and out to the Internet from there.", "why": "That's full tunneling (tunnelall). Here, only the networks in SPLIT-ACL are tunneled." },
-        { "text": "It's blocked, because it isn't in the ACL.", "why": "The split-tunnel ACL chooses what is tunneled. It doesn't block anything." }
+        {
+          "text": "Straight out of the user's home Internet connection, outside the tunnel, because only 10.1.1.0/24 is in SPLIT-ACL.",
+          "correct": true
+        },
+        {
+          "text": "Through the tunnel to the ASA and out to the Internet from there.",
+          "why": "That's full tunneling (tunnelall). Here, only the networks in SPLIT-ACL are tunneled."
+        },
+        {
+          "text": "It's blocked, because it isn't in the ACL.",
+          "why": "The split-tunnel ACL chooses what is tunneled. It doesn't block anything."
+        }
       ]
     },
     {
@@ -98,7 +188,13 @@
       "task": "Show the connected Secure Client sessions.",
       "hint": "`show vpn-sessiondb anyconnect`",
       "commands": [
-        { "cmd": "show vpn-sessiondb anyconnect", "mode": "priv", "output": "Session Type: AnyConnect\n\nUsername     : jdoe                   Index        : 7\nAssigned IP  : 10.50.50.1             Public IP    : 198.51.100.77\nProtocol     : AnyConnect-Parent SSL-Tunnel DTLS-Tunnel\nEncryption   : AnyConnect-Parent: (1)none  SSL-Tunnel: (1)AES-GCM-256  DTLS-Tunnel: (1)AES-GCM-256\nGroup Policy : GP-RA                  Tunnel Group : RA-VPN\nDuration     : 0h:04m:12s", "note": "jdoe is connected through RA-VPN with an address from the pool. DTLS carries the data for better performance." }
+        {
+          "cmd": "show vpn-sessiondb anyconnect",
+          "mode": "priv",
+          "output": "Session Type: AnyConnect\n\nUsername     : jdoe                   Index        : 7\nAssigned IP  : 10.50.50.1             Public IP    : 198.51.100.77\nProtocol     : AnyConnect-Parent SSL-Tunnel DTLS-Tunnel\nEncryption   : AnyConnect-Parent: (1)none  SSL-Tunnel: (1)AES-GCM-256  DTLS-Tunnel: (1)AES-GCM-256\nGroup Policy : GP-RA                  Tunnel Group : RA-VPN\nDuration     : 0h:04m:12s",
+          "note": "jdoe is connected through RA-VPN with an address from the pool. DTLS carries the data for better performance.",
+          "explain": "Lists connected Secure Client sessions."
+        }
       ]
     }
   ],

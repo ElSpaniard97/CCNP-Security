@@ -7,6 +7,7 @@
   "level": "Beginner",
   "minutes": 12,
   "blurb": "Sort out the shared responsibility model, lock down a security group, and pick the right cloud security tools.",
+  "purpose": "Cloud workloads share responsibility between you and the provider, and misconfiguration is the most common failure. This lab secures a cloud workload with the right controls at each layer. It covers cloud security concepts from the Cloud Security domain.",
   "scenario": "The team is moving a web application to a public cloud **IaaS** provider. The web servers sit in a public subnet, and the database sits in a private subnet. Decide who secures what, lock down network access, and choose the tools for visibility.",
   "topology": "Internet ── Load balancer ── Web tier (SG: web-sg) ── DB tier (SG: db-sg)\n                         VPC 10.20.0.0/16",
   "objectives": [
@@ -23,11 +24,51 @@
       "screen": "Shared responsibility: IaaS",
       "button": "Check",
       "fields": [
-        { "label": "Physical data center security", "kind": "select", "options": ["Provider", "Customer"], "answer": "Provider" },
-        { "label": "Hypervisor patching", "kind": "select", "options": ["Provider", "Customer"], "answer": "Provider" },
-        { "label": "Guest OS patching on the web servers", "kind": "select", "options": ["Provider", "Customer"], "answer": "Customer" },
-        { "label": "Security group (firewall) rules", "kind": "select", "options": ["Provider", "Customer"], "answer": "Customer" },
-        { "label": "Encrypting data in the database", "kind": "select", "options": ["Provider", "Customer"], "answer": "Customer" }
+        {
+          "label": "Physical data center security",
+          "kind": "select",
+          "options": [
+            "Provider",
+            "Customer"
+          ],
+          "answer": "Provider"
+        },
+        {
+          "label": "Hypervisor patching",
+          "kind": "select",
+          "options": [
+            "Provider",
+            "Customer"
+          ],
+          "answer": "Provider"
+        },
+        {
+          "label": "Guest OS patching on the web servers",
+          "kind": "select",
+          "options": [
+            "Provider",
+            "Customer"
+          ],
+          "answer": "Customer"
+        },
+        {
+          "label": "Security group (firewall) rules",
+          "kind": "select",
+          "options": [
+            "Provider",
+            "Customer"
+          ],
+          "answer": "Customer"
+        },
+        {
+          "label": "Encrypting data in the database",
+          "kind": "select",
+          "options": [
+            "Provider",
+            "Customer"
+          ],
+          "answer": "Customer"
+        }
       ]
     },
     {
@@ -38,10 +79,38 @@
       "screen": "Cloud console › Security groups › db-sg › Inbound rules",
       "button": "Save rules",
       "fields": [
-        { "label": "Rule 1 port", "kind": "text", "answer": "3306" },
-        { "label": "Rule 1 source", "kind": "select", "options": ["0.0.0.0/0", "10.20.0.0/16", "web-sg", "bastion-sg"], "answer": "web-sg" },
-        { "label": "Rule 2 port", "kind": "text", "answer": "22" },
-        { "label": "Rule 2 source", "kind": "select", "options": ["0.0.0.0/0", "10.20.0.0/16", "web-sg", "bastion-sg"], "answer": "bastion-sg" }
+        {
+          "label": "Rule 1 port",
+          "kind": "text",
+          "answer": "3306"
+        },
+        {
+          "label": "Rule 1 source",
+          "kind": "select",
+          "options": [
+            "0.0.0.0/0",
+            "10.20.0.0/16",
+            "web-sg",
+            "bastion-sg"
+          ],
+          "answer": "web-sg"
+        },
+        {
+          "label": "Rule 2 port",
+          "kind": "text",
+          "answer": "22"
+        },
+        {
+          "label": "Rule 2 source",
+          "kind": "select",
+          "options": [
+            "0.0.0.0/0",
+            "10.20.0.0/16",
+            "web-sg",
+            "bastion-sg"
+          ],
+          "answer": "bastion-sg"
+        }
       ]
     },
     {
@@ -52,10 +121,50 @@
       "screen": "Cloud security tools",
       "button": "Check",
       "fields": [
-        { "label": "A storage bucket was left publicly readable", "kind": "select", "options": ["CSPM", "CASB", "Secure Cloud Analytics", "Cisco Secure Workload (CWPP)"], "answer": "CSPM" },
-        { "label": "Employees upload data to an unapproved SaaS app", "kind": "select", "options": ["CSPM", "CASB", "Secure Cloud Analytics", "Cisco Secure Workload (CWPP)"], "answer": "CASB" },
-        { "label": "A VM starts talking to an unusual country at 3 a.m.", "kind": "select", "options": ["CSPM", "CASB", "Secure Cloud Analytics", "Cisco Secure Workload (CWPP)"], "answer": "Secure Cloud Analytics" },
-        { "label": "Microsegmentation between application workloads", "kind": "select", "options": ["CSPM", "CASB", "Secure Cloud Analytics", "Cisco Secure Workload (CWPP)"], "answer": "Cisco Secure Workload (CWPP)" }
+        {
+          "label": "A storage bucket was left publicly readable",
+          "kind": "select",
+          "options": [
+            "CSPM",
+            "CASB",
+            "Secure Cloud Analytics",
+            "Cisco Secure Workload (CWPP)"
+          ],
+          "answer": "CSPM"
+        },
+        {
+          "label": "Employees upload data to an unapproved SaaS app",
+          "kind": "select",
+          "options": [
+            "CSPM",
+            "CASB",
+            "Secure Cloud Analytics",
+            "Cisco Secure Workload (CWPP)"
+          ],
+          "answer": "CASB"
+        },
+        {
+          "label": "A VM starts talking to an unusual country at 3 a.m.",
+          "kind": "select",
+          "options": [
+            "CSPM",
+            "CASB",
+            "Secure Cloud Analytics",
+            "Cisco Secure Workload (CWPP)"
+          ],
+          "answer": "Secure Cloud Analytics"
+        },
+        {
+          "label": "Microsegmentation between application workloads",
+          "kind": "select",
+          "options": [
+            "CSPM",
+            "CASB",
+            "Secure Cloud Analytics",
+            "Cisco Secure Workload (CWPP)"
+          ],
+          "answer": "Cisco Secure Workload (CWPP)"
+        }
       ]
     },
     {
@@ -64,9 +173,18 @@
       "task": "Answer the question.",
       "question": "Where in a DevSecOps pipeline should you scan the infrastructure-as-code templates and container images?",
       "options": [
-        { "text": "In the CI pipeline, before deployment, so a misconfiguration or vulnerable image never reaches production (\"shift left\").", "correct": true },
-        { "text": "Only in production, once a month.", "why": "Scanning late makes fixes slow and expensive. DevSecOps moves checks earlier." },
-        { "text": "It isn't needed, because the provider scans customer workloads.", "why": "Under shared responsibility, your code and images are yours to secure." }
+        {
+          "text": "In the CI pipeline, before deployment, so a misconfiguration or vulnerable image never reaches production (\"shift left\").",
+          "correct": true
+        },
+        {
+          "text": "Only in production, once a month.",
+          "why": "Scanning late makes fixes slow and expensive. DevSecOps moves checks earlier."
+        },
+        {
+          "text": "It isn't needed, because the provider scans customer workloads.",
+          "why": "Under shared responsibility, your code and images are yours to secure."
+        }
       ]
     }
   ],

@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 16,
   "blurb": "Build an access control policy in the Firewall Management Center with intrusion and malware inspection.",
+  "purpose": "Firepower Threat Defense is managed from FMC with policies rather than CLI commands. This lab walks through an access control policy: rule order, actions, intrusion and file inspection, and logging. It covers next-generation firewall policy, a large part of the Network Security domain.",
   "scenario": "The branch is moving from the ASA to **Cisco Secure Firewall Threat Defense (FTD)**, managed by the **Firewall Management Center (FMC)**. Build the access control policy: inside users may browse the web, with intrusion prevention and malware blocking applied. Block known-bad destinations, and deny everything else.",
   "topology": "Inside zone ── [FTD] ── Outside zone\n                 ↑ managed by FMC",
   "objectives": [
@@ -40,9 +41,30 @@
       "screen": "FMC › Policies › Access Control › New Policy",
       "button": "Save",
       "fields": [
-        { "label": "Name", "kind": "text", "answer": "Branch-ACP" },
-        { "label": "Base Policy", "kind": "select", "options": ["None", "Default Access Control"], "answer": "None" },
-        { "label": "Default Action", "kind": "select", "options": ["Block all traffic", "Intrusion Prevention", "Network Discovery Only"], "answer": "Block all traffic" }
+        {
+          "label": "Name",
+          "kind": "text",
+          "answer": "Branch-ACP"
+        },
+        {
+          "label": "Base Policy",
+          "kind": "select",
+          "options": [
+            "None",
+            "Default Access Control"
+          ],
+          "answer": "None"
+        },
+        {
+          "label": "Default Action",
+          "kind": "select",
+          "options": [
+            "Block all traffic",
+            "Intrusion Prevention",
+            "Network Discovery Only"
+          ],
+          "answer": "Block all traffic"
+        }
       ]
     },
     {
@@ -53,10 +75,31 @@
       "screen": "FMC › Branch-ACP › Security Intelligence",
       "button": "Save",
       "fields": [
-        { "label": "Block: Malware", "kind": "check", "answer": true },
-        { "label": "Block: Phishing", "kind": "check", "answer": true },
-        { "label": "Block: Command and Control (CnC)", "kind": "check", "answer": true },
-        { "label": "Apply to", "kind": "select", "options": ["Networks only", "URLs only", "Networks and URLs"], "answer": "Networks and URLs" }
+        {
+          "label": "Block: Malware",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Block: Phishing",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Block: Command and Control (CnC)",
+          "kind": "check",
+          "answer": true
+        },
+        {
+          "label": "Apply to",
+          "kind": "select",
+          "options": [
+            "Networks only",
+            "URLs only",
+            "Networks and URLs"
+          ],
+          "answer": "Networks and URLs"
+        }
       ]
     },
     {
@@ -67,14 +110,83 @@
       "screen": "FMC › Branch-ACP › Rules › Add Rule",
       "button": "Apply",
       "fields": [
-        { "label": "Name", "kind": "text", "answer": "Allow-Web" },
-        { "label": "Action", "kind": "select", "options": ["Allow", "Trust", "Block", "Block with reset", "Monitor"], "answer": "Allow" },
-        { "label": "Source Zone", "kind": "select", "options": ["Inside", "Outside", "DMZ"], "answer": "Inside" },
-        { "label": "Destination Zone", "kind": "select", "options": ["Inside", "Outside", "DMZ"], "answer": "Outside" },
-        { "label": "Applications", "kind": "select", "options": ["HTTP and HTTPS", "Any", "SSH"], "answer": "HTTP and HTTPS" },
-        { "label": "Intrusion Policy", "kind": "select", "options": ["None", "Connectivity Over Security", "Balanced Security and Connectivity", "Security Over Connectivity"], "answer": "Balanced Security and Connectivity" },
-        { "label": "File Policy", "kind": "select", "options": ["None", "Block-Malware"], "answer": "Block-Malware" },
-        { "label": "Logging", "kind": "select", "options": ["No logging", "At beginning of connection", "At end of connection"], "answer": "At end of connection" }
+        {
+          "label": "Name",
+          "kind": "text",
+          "answer": "Allow-Web"
+        },
+        {
+          "label": "Action",
+          "kind": "select",
+          "options": [
+            "Allow",
+            "Trust",
+            "Block",
+            "Block with reset",
+            "Monitor"
+          ],
+          "answer": "Allow"
+        },
+        {
+          "label": "Source Zone",
+          "kind": "select",
+          "options": [
+            "Inside",
+            "Outside",
+            "DMZ"
+          ],
+          "answer": "Inside"
+        },
+        {
+          "label": "Destination Zone",
+          "kind": "select",
+          "options": [
+            "Inside",
+            "Outside",
+            "DMZ"
+          ],
+          "answer": "Outside"
+        },
+        {
+          "label": "Applications",
+          "kind": "select",
+          "options": [
+            "HTTP and HTTPS",
+            "Any",
+            "SSH"
+          ],
+          "answer": "HTTP and HTTPS"
+        },
+        {
+          "label": "Intrusion Policy",
+          "kind": "select",
+          "options": [
+            "None",
+            "Connectivity Over Security",
+            "Balanced Security and Connectivity",
+            "Security Over Connectivity"
+          ],
+          "answer": "Balanced Security and Connectivity"
+        },
+        {
+          "label": "File Policy",
+          "kind": "select",
+          "options": [
+            "None",
+            "Block-Malware"
+          ],
+          "answer": "Block-Malware"
+        },
+        {
+          "label": "Logging",
+          "kind": "select",
+          "options": [
+            "No logging",
+            "At beginning of connection",
+            "At end of connection"
+          ],
+          "answer": "At end of connection"
+        }
       ]
     },
     {
@@ -83,9 +195,18 @@
       "task": "Answer the question.",
       "question": "A colleague suggests changing Allow-Web to **Trust** \"to make it faster\". What would change?",
       "options": [
-        { "text": "Trusted traffic skips the intrusion and file inspection, so the IPS and malware blocking would stop protecting web browsing.", "correct": true },
-        { "text": "Nothing. Trust and Allow are the same action.", "why": "Trust passes traffic without deep inspection. Allow passes it on to the intrusion and file policies." },
-        { "text": "Trust blocks unknown applications.", "why": "Trust only passes traffic. It never blocks." }
+        {
+          "text": "Trusted traffic skips the intrusion and file inspection, so the IPS and malware blocking would stop protecting web browsing.",
+          "correct": true
+        },
+        {
+          "text": "Nothing. Trust and Allow are the same action.",
+          "why": "Trust passes traffic without deep inspection. Allow passes it on to the intrusion and file policies."
+        },
+        {
+          "text": "Trust blocks unknown applications.",
+          "why": "Trust only passes traffic. It never blocks."
+        }
       ]
     },
     {
@@ -94,8 +215,14 @@
       "task": "Answer the question.",
       "question": "You saved the policy in FMC. Is it protecting traffic yet?",
       "options": [
-        { "text": "No. Changes take effect only after you deploy them to the FTD device (Deploy › Deployment).", "correct": true },
-        { "text": "Yes. FMC pushes every saved change immediately.", "why": "FMC stages changes until you deploy, so you can review them and deploy everything together." }
+        {
+          "text": "No. Changes take effect only after you deploy them to the FTD device (Deploy › Deployment).",
+          "correct": true
+        },
+        {
+          "text": "Yes. FMC pushes every saved change immediately.",
+          "why": "FMC stages changes until you deploy, so you can review them and deploy everything together."
+        }
       ]
     }
   ],

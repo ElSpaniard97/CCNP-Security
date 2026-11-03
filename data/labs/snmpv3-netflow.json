@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 18,
   "blurb": "Replace community strings with authenticated, encrypted SNMPv3 and export flows to Secure Network Analytics.",
+  "purpose": "You can't defend what you can't see, but monitoring itself must be secure. This lab replaces SNMP community strings with authenticated, encrypted SNMPv3 and exports Flexible NetFlow to an analytics collector. It covers secure telemetry and visibility.",
   "scenario": "R1 is still polled with SNMPv2c and the community string **public**, and the security team can't see who is talking to whom. Move monitoring to **SNMPv3 with authentication and privacy** for the NMS at **10.10.99.20**, and export Flexible NetFlow from the LAN interface **GigabitEthernet0/1** to the Secure Network Analytics (Stealthwatch) Flow Collector at **10.10.99.30**, UDP **2055**.",
   "topology": "LAN ── Gi0/1 R1 ── Internet\n          │\n   NMS 10.10.99.20 (SNMPv3)   Flow Collector 10.10.99.30 (NetFlow v9)",
   "objectives": [
@@ -15,7 +16,12 @@
     "Build a flow record, exporter and monitor",
     "Apply the monitor and see what the collector does with flows"
   ],
-  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "devices": {
+    "R1": {
+      "host": "R1",
+      "start": "config"
+    }
+  },
   "steps": [
     {
       "title": "Pick the security level",
@@ -25,9 +31,36 @@
       "screen": "SNMPv3 security levels",
       "button": "Check",
       "fields": [
-        { "label": "noAuthNoPriv (noauth)", "kind": "select", "options": ["Username only, nothing protected", "Authenticated, readable on the wire", "Authenticated and encrypted"], "answer": "Username only, nothing protected" },
-        { "label": "authNoPriv (auth)", "kind": "select", "options": ["Username only, nothing protected", "Authenticated, readable on the wire", "Authenticated and encrypted"], "answer": "Authenticated, readable on the wire" },
-        { "label": "authPriv (priv)", "kind": "select", "options": ["Username only, nothing protected", "Authenticated, readable on the wire", "Authenticated and encrypted"], "answer": "Authenticated and encrypted" }
+        {
+          "label": "noAuthNoPriv (noauth)",
+          "kind": "select",
+          "options": [
+            "Username only, nothing protected",
+            "Authenticated, readable on the wire",
+            "Authenticated and encrypted"
+          ],
+          "answer": "Username only, nothing protected"
+        },
+        {
+          "label": "authNoPriv (auth)",
+          "kind": "select",
+          "options": [
+            "Username only, nothing protected",
+            "Authenticated, readable on the wire",
+            "Authenticated and encrypted"
+          ],
+          "answer": "Authenticated, readable on the wire"
+        },
+        {
+          "label": "authPriv (priv)",
+          "kind": "select",
+          "options": [
+            "Username only, nothing protected",
+            "Authenticated, readable on the wire",
+            "Authenticated and encrypted"
+          ],
+          "answer": "Authenticated and encrypted"
+        }
       ]
     },
     {
@@ -39,10 +72,24 @@
       "task": "Remove community **public**. Create group **NMS-GROUP** at v3 **priv**. Create user **nmsuser** in it with **sha** auth key **AuthPass123** and **aes 128** priv key **PrivPass123**. Send v3 **priv** traps to **10.10.99.20** as nmsuser.",
       "hint": "`no snmp-server community public`, `snmp-server group NMS-GROUP v3 priv`, `snmp-server user nmsuser NMS-GROUP v3 auth sha AuthPass123 priv aes 128 PrivPass123`, `snmp-server host 10.10.99.20 version 3 priv nmsuser`.",
       "commands": [
-        { "cmd": "no snmp-server community public", "note": "The plain-text v2c community is gone." },
-        { "cmd": "snmp-server group NMS-GROUP v3 priv" },
-        { "cmd": "snmp-server user nmsuser NMS-GROUP v3 auth sha AuthPass123 priv aes 128 PrivPass123", "note": "SNMPv3 users don't appear in the running configuration. Their keys are stored separately." },
-        { "cmd": "snmp-server host 10.10.99.20 version 3 priv nmsuser" }
+        {
+          "cmd": "no snmp-server community public",
+          "note": "The plain-text v2c community is gone.",
+          "explain": "Removes the old public community string, which works like a password sent in clear text."
+        },
+        {
+          "cmd": "snmp-server group NMS-GROUP v3 priv",
+          "explain": "Creates SNMPv3 group NMS-GROUP with priv, which requires both authentication and encryption."
+        },
+        {
+          "cmd": "snmp-server user nmsuser NMS-GROUP v3 auth sha AuthPass123 priv aes 128 PrivPass123",
+          "note": "SNMPv3 users don't appear in the running configuration. Their keys are stored separately.",
+          "explain": "Creates user nmsuser with SHA authentication and AES-128 encryption."
+        },
+        {
+          "cmd": "snmp-server host 10.10.99.20 version 3 priv nmsuser",
+          "explain": "Sends SNMPv3 notifications to the NMS at 10.10.99.20, encrypted, as nmsuser."
+        }
       ]
     },
     {
@@ -54,18 +101,66 @@
       "task": "Create record **FR-SCOR** matching IPv4 source and destination address, protocol, and transport source and destination port, and collecting byte and packet counters. Create exporter **FE-SNA** sending to **10.10.99.30** over UDP **2055** with NetFlow v9.",
       "hint": "`flow record FR-SCOR` then `match ipv4 source address`, `match ipv4 destination address`, `match ipv4 protocol`, `match transport source-port`, `match transport destination-port`, `collect counter bytes`, `collect counter packets`. Then `flow exporter FE-SNA`, `destination 10.10.99.30`, `transport udp 2055`, `export-protocol netflow-v9`.",
       "commands": [
-        { "cmd": "flow record FR-SCOR", "enter": "config-flow-record" },
-        { "cmd": "match ipv4 source address", "mode": "config-flow-record" },
-        { "cmd": "match ipv4 destination address", "mode": "config-flow-record" },
-        { "cmd": "match ipv4 protocol", "mode": "config-flow-record" },
-        { "cmd": "match transport source-port", "mode": "config-flow-record" },
-        { "cmd": "match transport destination-port", "mode": "config-flow-record" },
-        { "cmd": "collect counter bytes", "mode": "config-flow-record" },
-        { "cmd": "collect counter packets", "mode": "config-flow-record" },
-        { "cmd": "flow exporter FE-SNA", "enter": "config-flow-exporter" },
-        { "cmd": "destination 10.10.99.30", "mode": "config-flow-exporter" },
-        { "cmd": "transport udp 2055", "mode": "config-flow-exporter" },
-        { "cmd": "export-protocol netflow-v9", "mode": "config-flow-exporter" }
+        {
+          "cmd": "flow record FR-SCOR",
+          "enter": "config-flow-record",
+          "explain": "Creates a flow record, which defines what makes a flow and what to count."
+        },
+        {
+          "cmd": "match ipv4 source address",
+          "mode": "config-flow-record",
+          "explain": "Uses the source IPv4 address as a key field."
+        },
+        {
+          "cmd": "match ipv4 destination address",
+          "mode": "config-flow-record",
+          "explain": "Uses the destination IPv4 address as a key field."
+        },
+        {
+          "cmd": "match ipv4 protocol",
+          "mode": "config-flow-record",
+          "explain": "Uses the IP protocol as a key field."
+        },
+        {
+          "cmd": "match transport source-port",
+          "mode": "config-flow-record",
+          "explain": "Uses the source port as a key field."
+        },
+        {
+          "cmd": "match transport destination-port",
+          "mode": "config-flow-record",
+          "explain": "Uses the destination port as a key field."
+        },
+        {
+          "cmd": "collect counter bytes",
+          "mode": "config-flow-record",
+          "explain": "Counts bytes for each flow."
+        },
+        {
+          "cmd": "collect counter packets",
+          "mode": "config-flow-record",
+          "explain": "Counts packets for each flow."
+        },
+        {
+          "cmd": "flow exporter FE-SNA",
+          "enter": "config-flow-exporter",
+          "explain": "Creates a flow exporter, which sends records to a collector."
+        },
+        {
+          "cmd": "destination 10.10.99.30",
+          "mode": "config-flow-exporter",
+          "explain": "Sends flow records to the collector at 10.10.99.30."
+        },
+        {
+          "cmd": "transport udp 2055",
+          "mode": "config-flow-exporter",
+          "explain": "Uses UDP port 2055, a common NetFlow port."
+        },
+        {
+          "cmd": "export-protocol netflow-v9",
+          "mode": "config-flow-exporter",
+          "explain": "Uses the NetFlow version 9 format."
+        }
       ]
     },
     {
@@ -76,11 +171,32 @@
       "task": "Create monitor **FM-SCOR** using record **FR-SCOR** and exporter **FE-SNA**, and apply it **inbound** on **GigabitEthernet0/1**.",
       "hint": "`flow monitor FM-SCOR`, `record FR-SCOR`, `exporter FE-SNA`, then `interface GigabitEthernet0/1` and `ip flow monitor FM-SCOR input`.",
       "commands": [
-        { "cmd": "flow monitor FM-SCOR", "enter": "config-flow-monitor" },
-        { "cmd": "record FR-SCOR", "mode": "config-flow-monitor" },
-        { "cmd": "exporter FE-SNA", "mode": "config-flow-monitor" },
-        { "cmd": "interface GigabitEthernet0/1", "enter": "config-if" },
-        { "cmd": "ip flow monitor FM-SCOR input", "mode": "config-if", "note": "Flows entering from the LAN are now exported." }
+        {
+          "cmd": "flow monitor FM-SCOR",
+          "enter": "config-flow-monitor",
+          "explain": "Creates a flow monitor, which ties a record and an exporter together."
+        },
+        {
+          "cmd": "record FR-SCOR",
+          "mode": "config-flow-monitor",
+          "explain": "Uses record FR-SCOR."
+        },
+        {
+          "cmd": "exporter FE-SNA",
+          "mode": "config-flow-monitor",
+          "explain": "Uses exporter FE-SNA."
+        },
+        {
+          "cmd": "interface GigabitEthernet0/1",
+          "enter": "config-if",
+          "explain": "Enters the interface to monitor."
+        },
+        {
+          "cmd": "ip flow monitor FM-SCOR input",
+          "mode": "config-if",
+          "note": "Flows entering from the LAN are now exported.",
+          "explain": "Monitors flows coming in on this interface."
+        }
       ]
     },
     {
@@ -89,9 +205,18 @@
       "task": "Answer the question.",
       "question": "How does Secure Network Analytics use these flows to find threats?",
       "options": [
-        { "text": "It baselines normal behavior for each host and raises alarms on anomalies, such as a workstation suddenly sending gigabytes to an unknown address or scanning many hosts.", "correct": true },
-        { "text": "It reads the payload of every packet to match malware signatures.", "why": "NetFlow carries metadata (who, when, how much), not payloads. Signature matching is the job of an IPS such as Snort." },
-        { "text": "It blocks the traffic on R1 directly.", "why": "Flow analysis is detection and visibility. Blocking takes integration, for example ISE Rapid Threat Containment." }
+        {
+          "text": "It baselines normal behavior for each host and raises alarms on anomalies, such as a workstation suddenly sending gigabytes to an unknown address or scanning many hosts.",
+          "correct": true
+        },
+        {
+          "text": "It reads the payload of every packet to match malware signatures.",
+          "why": "NetFlow carries metadata (who, when, how much), not payloads. Signature matching is the job of an IPS such as Snort."
+        },
+        {
+          "text": "It blocks the traffic on R1 directly.",
+          "why": "Flow analysis is detection and visibility. Blocking takes integration, for example ISE Rapid Threat Containment."
+        }
       ]
     },
     {
@@ -101,7 +226,13 @@
       "task": "Display the statistics for exporter **FE-SNA**.",
       "hint": "`do show flow exporter FE-SNA statistics`",
       "commands": [
-        { "cmd": "show flow exporter FE-SNA statistics", "mode": "priv", "output": "Flow Exporter FE-SNA:\n  Packet send statistics (last cleared 00:12:41 ago):\n    Successfully sent:         1284                  (1712346 bytes)\n\n  Client send statistics:\n    Client: Flow Monitor FM-SCOR\n      Records added:           9873\n        - sent:                9873\n      Bytes added:             1693204\n        - sent:                1693204", "note": "Records are reaching the collector." }
+        {
+          "cmd": "show flow exporter FE-SNA statistics",
+          "mode": "priv",
+          "output": "Flow Exporter FE-SNA:\n  Packet send statistics (last cleared 00:12:41 ago):\n    Successfully sent:         1284                  (1712346 bytes)\n\n  Client send statistics:\n    Client: Flow Monitor FM-SCOR\n      Records added:           9873\n        - sent:                9873\n      Bytes added:             1693204\n        - sent:                1693204",
+          "note": "Records are reaching the collector.",
+          "explain": "Shows export statistics to confirm records are being sent."
+        }
       ]
     }
   ],

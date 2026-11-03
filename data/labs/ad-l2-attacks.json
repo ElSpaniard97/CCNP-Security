@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 14,
   "blurb": "See how attackers abuse switch learning and trunk negotiation, then lock down an access port and a trunk.",
+  "purpose": "MAC flooding and VLAN hopping abuse switch defaults to see or reach traffic that should be separate. In this lab you learn how both attacks work and harden access and trunk ports against them.",
   "scenario": "A penetration test report for switch SW3 lists two findings. First, flooding fake MAC addresses made the switch act like a hub. Second, an access port could be turned into a trunk to reach other VLANs. Fix both on user port **GigabitEthernet1/0/20** and trunk **GigabitEthernet1/0/49**.",
   "topology": "User port Gi1/0/20 (VLAN 20) ── SW3 ── Gi1/0/49 trunk ── core",
   "objectives": [
@@ -14,7 +15,12 @@
     "Harden the access port",
     "Harden the trunk"
   ],
-  "devices": { "SW3": { "host": "SW3", "start": "config" } },
+  "devices": {
+    "SW3": {
+      "host": "SW3",
+      "start": "config"
+    }
+  },
   "steps": [
     {
       "title": "How each attack works",
@@ -24,9 +30,36 @@
       "screen": "Layer 2 attacks",
       "button": "Check",
       "fields": [
-        { "label": "MAC flooding", "kind": "select", "options": ["Port security with a MAC limit", "Turn off DTP (switchport nonegotiate) and hard-code access mode", "Use an unused native VLAN and tag it"], "answer": "Port security with a MAC limit" },
-        { "label": "Switch spoofing", "kind": "select", "options": ["Port security with a MAC limit", "Turn off DTP (switchport nonegotiate) and hard-code access mode", "Use an unused native VLAN and tag it"], "answer": "Turn off DTP (switchport nonegotiate) and hard-code access mode" },
-        { "label": "Double tagging", "kind": "select", "options": ["Port security with a MAC limit", "Turn off DTP (switchport nonegotiate) and hard-code access mode", "Use an unused native VLAN and tag it"], "answer": "Use an unused native VLAN and tag it" }
+        {
+          "label": "MAC flooding",
+          "kind": "select",
+          "options": [
+            "Port security with a MAC limit",
+            "Turn off DTP (switchport nonegotiate) and hard-code access mode",
+            "Use an unused native VLAN and tag it"
+          ],
+          "answer": "Port security with a MAC limit"
+        },
+        {
+          "label": "Switch spoofing",
+          "kind": "select",
+          "options": [
+            "Port security with a MAC limit",
+            "Turn off DTP (switchport nonegotiate) and hard-code access mode",
+            "Use an unused native VLAN and tag it"
+          ],
+          "answer": "Turn off DTP (switchport nonegotiate) and hard-code access mode"
+        },
+        {
+          "label": "Double tagging",
+          "kind": "select",
+          "options": [
+            "Port security with a MAC limit",
+            "Turn off DTP (switchport nonegotiate) and hard-code access mode",
+            "Use an unused native VLAN and tag it"
+          ],
+          "answer": "Use an unused native VLAN and tag it"
+        }
       ]
     },
     {
@@ -37,13 +70,42 @@
       "task": "On **GigabitEthernet1/0/20**: hard-code **access** mode in **VLAN 20**, turn off DTP negotiation, and turn on port security with a **maximum of 1** address and violation mode **shutdown**.",
       "hint": "`interface GigabitEthernet1/0/20`, `switchport mode access`, `switchport access vlan 20`, `switchport nonegotiate`, `switchport port-security`, `switchport port-security maximum 1`, `switchport port-security violation shutdown`.",
       "commands": [
-        { "cmd": "interface GigabitEthernet1/0/20", "enter": "config-if" },
-        { "cmd": "switchport mode access", "mode": "config-if" },
-        { "cmd": "switchport access vlan 20", "mode": "config-if" },
-        { "cmd": "switchport nonegotiate", "mode": "config-if", "note": "The port won't send or answer DTP, so it can't be talked into trunking." },
-        { "cmd": "switchport port-security", "mode": "config-if" },
-        { "cmd": "switchport port-security maximum 1", "mode": "config-if" },
-        { "cmd": "switchport port-security violation shutdown", "mode": "config-if" }
+        {
+          "cmd": "interface GigabitEthernet1/0/20",
+          "enter": "config-if",
+          "explain": "Enters the user's port."
+        },
+        {
+          "cmd": "switchport mode access",
+          "mode": "config-if",
+          "explain": "Makes it a fixed access port."
+        },
+        {
+          "cmd": "switchport access vlan 20",
+          "mode": "config-if",
+          "explain": "Puts it in VLAN 20."
+        },
+        {
+          "cmd": "switchport nonegotiate",
+          "mode": "config-if",
+          "note": "The port won't send or answer DTP, so it can't be talked into trunking.",
+          "explain": "Turns off DTP, so a device can't negotiate a trunk."
+        },
+        {
+          "cmd": "switchport port-security",
+          "mode": "config-if",
+          "explain": "Turns on port security."
+        },
+        {
+          "cmd": "switchport port-security maximum 1",
+          "mode": "config-if",
+          "explain": "Allows a single MAC address, which defeats MAC flooding."
+        },
+        {
+          "cmd": "switchport port-security violation shutdown",
+          "mode": "config-if",
+          "explain": "Shuts the port down if another MAC appears."
+        }
       ]
     },
     {
@@ -55,12 +117,36 @@
       "task": "On **GigabitEthernet1/0/49**: hard-code **trunk** mode, turn off DTP, set the native VLAN to **999**, and allow only VLANs **10,20,30**. Then tag the native VLAN globally.",
       "hint": "`interface GigabitEthernet1/0/49`, `switchport mode trunk`, `switchport nonegotiate`, `switchport trunk native vlan 999`, `switchport trunk allowed vlan 10,20,30`, then `vlan dot1q tag native`.",
       "commands": [
-        { "cmd": "interface GigabitEthernet1/0/49", "enter": "config-if" },
-        { "cmd": "switchport mode trunk", "mode": "config-if" },
-        { "cmd": "switchport nonegotiate", "mode": "config-if" },
-        { "cmd": "switchport trunk native vlan 999", "mode": "config-if" },
-        { "cmd": "switchport trunk allowed vlan 10,20,30", "mode": "config-if" },
-        { "cmd": "vlan dot1q tag native", "note": "Native VLAN frames are tagged too, so a stripped outer tag can't leak into another VLAN." }
+        {
+          "cmd": "interface GigabitEthernet1/0/49",
+          "enter": "config-if",
+          "explain": "Enters the trunk to the next switch."
+        },
+        {
+          "cmd": "switchport mode trunk",
+          "mode": "config-if",
+          "explain": "Makes it a fixed trunk."
+        },
+        {
+          "cmd": "switchport nonegotiate",
+          "mode": "config-if",
+          "explain": "Turns off DTP on the trunk."
+        },
+        {
+          "cmd": "switchport trunk native vlan 999",
+          "mode": "config-if",
+          "explain": "Moves the native VLAN to unused VLAN 999, which defeats double tagging."
+        },
+        {
+          "cmd": "switchport trunk allowed vlan 10,20,30",
+          "mode": "config-if",
+          "explain": "Allows only the VLANs that need to cross the trunk."
+        },
+        {
+          "cmd": "vlan dot1q tag native",
+          "note": "Native VLAN frames are tagged too, so a stripped outer tag can't leak into another VLAN.",
+          "explain": "Tags the native VLAN too, so no traffic crosses untagged."
+        }
       ]
     },
     {
@@ -70,7 +156,16 @@
       "task": "Show the switchport settings of **GigabitEthernet1/0/20**.",
       "hint": "`do show interfaces GigabitEthernet1/0/20 switchport`",
       "commands": [
-        { "cmd": "show interfaces GigabitEthernet1/0/20 switchport", "mode": "priv", "alt": ["show interface GigabitEthernet1/0/20 switchport"], "output": "Name: Gi1/0/20\nSwitchport: Enabled\nAdministrative Mode: static access\nOperational Mode: static access\nAdministrative Trunking Encapsulation: dot1q\nNegotiation of Trunking: Off\nAccess Mode VLAN: 20 (USERS)\nTrunking Native Mode VLAN: 1 (default)", "note": "Static access, with trunk negotiation off." }
+        {
+          "cmd": "show interfaces GigabitEthernet1/0/20 switchport",
+          "mode": "priv",
+          "alt": [
+            "show interface GigabitEthernet1/0/20 switchport"
+          ],
+          "output": "Name: Gi1/0/20\nSwitchport: Enabled\nAdministrative Mode: static access\nOperational Mode: static access\nAdministrative Trunking Encapsulation: dot1q\nNegotiation of Trunking: Off\nAccess Mode VLAN: 20 (USERS)\nTrunking Native Mode VLAN: 1 (default)",
+          "note": "Static access, with trunk negotiation off.",
+          "explain": "Shows the port's mode and trunking settings."
+        }
       ]
     }
   ],

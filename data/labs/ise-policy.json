@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 15,
   "blurb": "Add the switch to ISE, then write the authentication and authorization rules that decide who gets on.",
+  "purpose": "The switch only asks the question; ISE gives the answer. This lab builds the ISE policy set that decides what each wired device gets, using conditions, identity stores and authorization profiles. It covers how ISE policy is put together, which shows up all over the SCOR exam.",
   "scenario": "SW1 (management address **10.10.0.2**) now sends 802.1X and MAB requests to ISE. Build the ISE side: add SW1 as a network device, create a policy set for wired traffic, and write rules so that employees get full access with the **Employees** security group, known printers get a printer profile, and everything else is denied.",
   "topology": "SW1 10.10.0.2 ── RADIUS ── ISE ── Active Directory (scor.lab)",
   "objectives": [

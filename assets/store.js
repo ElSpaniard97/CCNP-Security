@@ -21,14 +21,14 @@
     const out = {};
     Object.entries(v && typeof v === "object" ? v : {}).forEach(([id, rec]) => {
       if (!LAB_ID.test(id) || !rec || !Array.isArray(rec.runs)) return;
-      out[id] = { runs: rec.runs.filter(r => r && typeof r === "object").slice(-20).map(r => ({ at: num(r.at), score: Math.max(0, Math.min(100, num(r.score))), ms: num(r.ms), wrong: num(r.wrong), hints: num(r.hints), reveals: num(r.reveals) })) };
+      out[id] = { runs: rec.runs.filter(r => r && typeof r === "object").slice(-20).map(r => ({ at: num(r.at), ms: num(r.ms) })) };
     });
     return out;
   }
   // An in-progress lab is replaced by a fresh start if anything in it looks wrong.
   function cleanLabPos(v) {
     if (!v || typeof v !== "object") return null;
-    const steps = (Array.isArray(v.steps) ? v.steps : []).map(r => r && typeof r === "object" ? { wrong: num(r.wrong), hint: !!r.hint, reveal: !!r.reveal, done: (Array.isArray(r.done) ? r.done : []).map(num) } : null);
+    const steps = (Array.isArray(v.steps) ? v.steps : []).map(r => r && typeof r === "object" ? { wrong: num(r.wrong), done: (Array.isArray(r.done) ? r.done : []).map(num) } : null);
     const devices = {};
     Object.entries(v.devices && typeof v.devices === "object" ? v.devices : {}).forEach(([name, d]) => {
       if (!/^[\w-]{1,30}$/.test(name) || !d) return;

@@ -7,6 +7,7 @@
   "level": "Intermediate",
   "minutes": 15,
   "blurb": "Authenticate to the FMC API, read objects, and create one with a small Python script.",
+  "purpose": "Clicking through a GUI doesn't scale. This lab uses the FMC REST API to authenticate and create objects programmatically. It covers network security automation and APIs from the exam.",
   "scenario": "Adding dozens of host objects by hand in FMC is slow and error-prone. Use the **FMC REST API** at **https://fmc.scor.lab** to authenticate, list network objects, and create a host object from Python.",
   "topology": "Python script ── HTTPS ── FMC fmc.scor.lab ── manages FTD devices",
   "objectives": [
@@ -37,11 +38,61 @@
       "screen": "REST basics",
       "button": "Check",
       "fields": [
-        { "label": "Create a new host object", "kind": "select", "options": ["GET", "POST", "PUT", "DELETE"], "answer": "POST" },
-        { "label": "Change an existing object's value", "kind": "select", "options": ["GET", "POST", "PUT", "DELETE"], "answer": "PUT" },
-        { "label": "Status 201", "kind": "select", "options": ["Created", "Unauthorized (bad or expired token)", "Too many requests (rate limit)", "Server error"], "answer": "Created" },
-        { "label": "Status 401", "kind": "select", "options": ["Created", "Unauthorized (bad or expired token)", "Too many requests (rate limit)", "Server error"], "answer": "Unauthorized (bad or expired token)" },
-        { "label": "Status 429", "kind": "select", "options": ["Created", "Unauthorized (bad or expired token)", "Too many requests (rate limit)", "Server error"], "answer": "Too many requests (rate limit)" }
+        {
+          "label": "Create a new host object",
+          "kind": "select",
+          "options": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+          ],
+          "answer": "POST"
+        },
+        {
+          "label": "Change an existing object's value",
+          "kind": "select",
+          "options": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+          ],
+          "answer": "PUT"
+        },
+        {
+          "label": "Status 201",
+          "kind": "select",
+          "options": [
+            "Created",
+            "Unauthorized (bad or expired token)",
+            "Too many requests (rate limit)",
+            "Server error"
+          ],
+          "answer": "Created"
+        },
+        {
+          "label": "Status 401",
+          "kind": "select",
+          "options": [
+            "Created",
+            "Unauthorized (bad or expired token)",
+            "Too many requests (rate limit)",
+            "Server error"
+          ],
+          "answer": "Unauthorized (bad or expired token)"
+        },
+        {
+          "label": "Status 429",
+          "kind": "select",
+          "options": [
+            "Created",
+            "Unauthorized (bad or expired token)",
+            "Too many requests (rate limit)",
+            "Server error"
+          ],
+          "answer": "Too many requests (rate limit)"
+        }
       ]
     },
     {
@@ -53,9 +104,27 @@
       "button": "Run",
       "hint": "Creating is a POST. The collection for single addresses is called hosts. The token header is the one FMC returned.",
       "fields": [
-        { "label": "requests.____", "kind": "text", "answer": ["post"] },
-        { "label": "object/____", "kind": "text", "answer": ["hosts"] },
-        { "label": "Token header name", "kind": "text", "answer": ["X-auth-access-token"] }
+        {
+          "label": "requests.____",
+          "kind": "text",
+          "answer": [
+            "post"
+          ]
+        },
+        {
+          "label": "object/____",
+          "kind": "text",
+          "answer": [
+            "hosts"
+          ]
+        },
+        {
+          "label": "Token header name",
+          "kind": "text",
+          "answer": [
+            "X-auth-access-token"
+          ]
+        }
       ]
     },
     {
@@ -64,9 +133,18 @@
       "task": "Answer the question.",
       "question": "A colleague's script uses `verify=False` to get past a certificate error. Why is that a problem?",
       "options": [
-        { "text": "It turns off TLS server verification, so a man in the middle could impersonate FMC and capture the admin credentials and token.", "correct": true },
-        { "text": "It makes the request slower.", "why": "Speed isn't the issue. Skipping verification removes the protection against impersonation." },
-        { "text": "FMC rejects unverified clients.", "why": "verify controls whether the client checks the server, not the other way around." }
+        {
+          "text": "It turns off TLS server verification, so a man in the middle could impersonate FMC and capture the admin credentials and token.",
+          "correct": true
+        },
+        {
+          "text": "It makes the request slower.",
+          "why": "Speed isn't the issue. Skipping verification removes the protection against impersonation."
+        },
+        {
+          "text": "FMC rejects unverified clients.",
+          "why": "verify controls whether the client checks the server, not the other way around."
+        }
       ]
     }
   ],

@@ -7,6 +7,7 @@
   "level": "Advanced",
   "minutes": 18,
   "blurb": "Replace the crypto map with an IPsec virtual tunnel interface and route traffic into it.",
+  "purpose": "Crypto maps get hard to manage as networks grow. This lab moves the site-to-site VPN to a virtual tunnel interface, where encryption is simply a property of a routed interface. It covers route-based VPNs.",
   "scenario": "The crypto map from Lab 5 works, but every new subnet means editing the crypto ACL on both sides. Convert R1 to a **static virtual tunnel interface (VTI)**: traffic is encrypted because it's **routed** into **Tunnel0**. Reuse the IKEv2 profile **PROF-R2** and the transform set **TS** you built before.",
   "topology": "10.1.1.0/24 ── R1 Tunnel0 172.31.0.1/30 ═══ 172.31.0.2/30 Tunnel0 R2 ── 10.2.2.0/24\n               Gi0/0 203.0.113.1                198.51.100.2",
   "objectives": [
@@ -15,7 +16,12 @@
     "Build the tunnel interface",
     "Route the remote LAN into the tunnel"
   ],
-  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "devices": {
+    "R1": {
+      "host": "R1",
+      "start": "config"
+    }
+  },
   "steps": [
     {
       "title": "Policy-based or route-based?",
@@ -24,10 +30,22 @@
       "task": "Pick the advantages of a VTI over a crypto map.",
       "question": "Which statements are true of a VTI?",
       "options": [
-        { "text": "Dynamic routing protocols such as OSPF or EIGRP can run over the tunnel.", "correct": true },
-        { "text": "New subnets only need a route, not crypto ACL changes on both peers.", "correct": true },
-        { "text": "It doesn't need IKE.", "why": "A VTI still uses IKE (here IKEv2) to negotiate keys." },
-        { "text": "It encrypts with GRE instead of ESP.", "why": "`tunnel mode ipsec ipv4` uses ESP directly, with no GRE header." }
+        {
+          "text": "Dynamic routing protocols such as OSPF or EIGRP can run over the tunnel.",
+          "correct": true
+        },
+        {
+          "text": "New subnets only need a route, not crypto ACL changes on both peers.",
+          "correct": true
+        },
+        {
+          "text": "It doesn't need IKE.",
+          "why": "A VTI still uses IKE (here IKEv2) to negotiate keys."
+        },
+        {
+          "text": "It encrypts with GRE instead of ESP.",
+          "why": "`tunnel mode ipsec ipv4` uses ESP directly, with no GRE header."
+        }
       ]
     },
     {
@@ -39,9 +57,21 @@
       "task": "Create IPsec profile **VTI-PROF** using transform set **TS** and IKEv2 profile **PROF-R2**.",
       "hint": "`crypto ipsec profile VTI-PROF`, `set transform-set TS`, `set ikev2-profile PROF-R2`.",
       "commands": [
-        { "cmd": "crypto ipsec profile VTI-PROF", "enter": "ipsec-profile" },
-        { "cmd": "set transform-set TS", "mode": "ipsec-profile" },
-        { "cmd": "set ikev2-profile PROF-R2", "mode": "ipsec-profile" }
+        {
+          "cmd": "crypto ipsec profile VTI-PROF",
+          "enter": "ipsec-profile",
+          "explain": "Creates an IPsec profile, which replaces the crypto map."
+        },
+        {
+          "cmd": "set transform-set TS",
+          "mode": "ipsec-profile",
+          "explain": "Uses transform set TS."
+        },
+        {
+          "cmd": "set ikev2-profile PROF-R2",
+          "mode": "ipsec-profile",
+          "explain": "Uses IKEv2 profile PROF-R2."
+        }
       ]
     },
     {
@@ -52,12 +82,38 @@
       "task": "Create **Tunnel0** with address **172.31.0.1/30**, source **GigabitEthernet0/0**, destination **198.51.100.2**, mode **ipsec ipv4**, and protection profile **VTI-PROF**.",
       "hint": "`interface Tunnel0`, `ip address 172.31.0.1 255.255.255.252`, `tunnel source GigabitEthernet0/0`, `tunnel destination 198.51.100.2`, `tunnel mode ipsec ipv4`, `tunnel protection ipsec profile VTI-PROF`.",
       "commands": [
-        { "cmd": "interface Tunnel0", "enter": "config-if" },
-        { "cmd": "ip address 172.31.0.1 255.255.255.252", "mode": "config-if" },
-        { "cmd": "tunnel source GigabitEthernet0/0", "mode": "config-if" },
-        { "cmd": "tunnel destination 198.51.100.2", "mode": "config-if" },
-        { "cmd": "tunnel mode ipsec ipv4", "mode": "config-if" },
-        { "cmd": "tunnel protection ipsec profile VTI-PROF", "mode": "config-if", "output": "%LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel0, changed state to up", "note": "The tunnel came up as soon as IKEv2 finished with R2." }
+        {
+          "cmd": "interface Tunnel0",
+          "enter": "config-if",
+          "explain": "Creates the tunnel interface."
+        },
+        {
+          "cmd": "ip address 172.31.0.1 255.255.255.252",
+          "mode": "config-if",
+          "explain": "Gives the tunnel a small point-to-point subnet."
+        },
+        {
+          "cmd": "tunnel source GigabitEthernet0/0",
+          "mode": "config-if",
+          "explain": "Uses the Internet-facing interface as the tunnel source."
+        },
+        {
+          "cmd": "tunnel destination 198.51.100.2",
+          "mode": "config-if",
+          "explain": "Sets the far end of the tunnel."
+        },
+        {
+          "cmd": "tunnel mode ipsec ipv4",
+          "mode": "config-if",
+          "explain": "Makes it an IPsec tunnel instead of GRE."
+        },
+        {
+          "cmd": "tunnel protection ipsec profile VTI-PROF",
+          "mode": "config-if",
+          "output": "%LINEPROTO-5-UPDOWN: Line protocol on Interface Tunnel0, changed state to up",
+          "note": "The tunnel came up as soon as IKEv2 finished with R2.",
+          "explain": "Encrypts everything that goes through the tunnel."
+        }
       ]
     },
     {
@@ -68,9 +124,21 @@
       "hint": "`interface GigabitEthernet0/0`, `no crypto map CMAP`, then `ip route 10.2.2.0 255.255.255.0 Tunnel0`.",
       "ordered": true,
       "commands": [
-        { "cmd": "interface GigabitEthernet0/0", "enter": "config-if" },
-        { "cmd": "no crypto map CMAP", "mode": "config-if" },
-        { "cmd": "ip route 10.2.2.0 255.255.255.0 Tunnel0", "note": "Anything routed to the branch is now encrypted by the tunnel." }
+        {
+          "cmd": "interface GigabitEthernet0/0",
+          "enter": "config-if",
+          "explain": "Enters the Internet-facing interface."
+        },
+        {
+          "cmd": "no crypto map CMAP",
+          "mode": "config-if",
+          "explain": "Removes the old crypto map so the two methods don't conflict."
+        },
+        {
+          "cmd": "ip route 10.2.2.0 255.255.255.0 Tunnel0",
+          "note": "Anything routed to the branch is now encrypted by the tunnel.",
+          "explain": "Routes the remote LAN through the tunnel. Whatever is routed into the tunnel is encrypted."
+        }
       ]
     },
     {
@@ -80,7 +148,16 @@
       "task": "Show the state of **Tunnel0**.",
       "hint": "`do show interface Tunnel0`",
       "commands": [
-        { "cmd": "show interface Tunnel0", "mode": "priv", "alt": ["show interfaces Tunnel0"], "output": "Tunnel0 is up, line protocol is up\n  Hardware is Tunnel\n  Internet address is 172.31.0.1/30\n  Tunnel source 203.0.113.1 (GigabitEthernet0/0), destination 198.51.100.2\n  Tunnel protocol/transport IPSEC/IP\n  Tunnel protection via IPSec (profile \"VTI-PROF\")\n  5 minute input rate 18000 bits/sec, 21 packets/sec", "note": "The tunnel is up and protected by VTI-PROF." }
+        {
+          "cmd": "show interface Tunnel0",
+          "mode": "priv",
+          "alt": [
+            "show interfaces Tunnel0"
+          ],
+          "output": "Tunnel0 is up, line protocol is up\n  Hardware is Tunnel\n  Internet address is 172.31.0.1/30\n  Tunnel source 203.0.113.1 (GigabitEthernet0/0), destination 198.51.100.2\n  Tunnel protocol/transport IPSEC/IP\n  Tunnel protection via IPSec (profile \"VTI-PROF\")\n  5 minute input rate 18000 bits/sec, 21 packets/sec",
+          "note": "The tunnel is up and protected by VTI-PROF.",
+          "explain": "Shows the tunnel's state and counters."
+        }
       ]
     }
   ],

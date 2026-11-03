@@ -7,6 +7,7 @@
   "level": "Advanced",
   "minutes": 18,
   "blurb": "Classify traffic aimed at the router itself and rate-limit it so floods can't starve routing and management.",
+  "purpose": "A router's CPU can be overwhelmed by traffic sent to the router itself, which takes down routing and management. This lab uses Control Plane Policing to rate-limit that traffic by type. It covers infrastructure protection with the Modular QoS CLI.",
   "scenario": "During a recent ping flood, R1's CPU hit 100 percent, and OSPF neighbors dropped. Use Control Plane Policing to rate-limit traffic sent **to** R1 itself: SSH from the management subnet **10.10.99.0/24** gets **64 kbps**, ICMP gets **8 kbps**, and everything else that reaches the control plane is limited to **32 kbps**.",
   "topology": "Mgmt 10.10.99.0/24 ── R1 (route processor) ── Internet\n                     control plane ← CoPP",
   "objectives": [
@@ -15,7 +16,12 @@
     "Police each class in a policy map",
     "Attach the policy to the control plane and verify it"
   ],
-  "devices": { "R1": { "host": "R1", "start": "config" } },
+  "devices": {
+    "R1": {
+      "host": "R1",
+      "start": "config"
+    }
+  },
   "steps": [
     {
       "title": "Name the planes",
@@ -25,9 +31,36 @@
       "screen": "Router planes",
       "button": "Check",
       "fields": [
-        { "label": "OSPF hellos between neighbors", "kind": "select", "options": ["Data plane", "Control plane", "Management plane"], "answer": "Control plane" },
-        { "label": "A user's web traffic passing through R1", "kind": "select", "options": ["Data plane", "Control plane", "Management plane"], "answer": "Data plane" },
-        { "label": "An admin's SSH session to R1", "kind": "select", "options": ["Data plane", "Control plane", "Management plane"], "answer": "Management plane" }
+        {
+          "label": "OSPF hellos between neighbors",
+          "kind": "select",
+          "options": [
+            "Data plane",
+            "Control plane",
+            "Management plane"
+          ],
+          "answer": "Control plane"
+        },
+        {
+          "label": "A user's web traffic passing through R1",
+          "kind": "select",
+          "options": [
+            "Data plane",
+            "Control plane",
+            "Management plane"
+          ],
+          "answer": "Data plane"
+        },
+        {
+          "label": "An admin's SSH session to R1",
+          "kind": "select",
+          "options": [
+            "Data plane",
+            "Control plane",
+            "Management plane"
+          ],
+          "answer": "Management plane"
+        }
       ]
     },
     {
@@ -39,14 +72,46 @@
       "task": "Create extended ACL **COPP-SSH** permitting TCP from **10.10.99.0/24** to any on port **22**, and ACL **COPP-ICMP** permitting ICMP from any to any. Then create class maps **CM-SSH** and **CM-ICMP** (match-all) that match them.",
       "hint": "`ip access-list extended COPP-SSH` with `permit tcp 10.10.99.0 0.0.0.255 any eq 22`; `ip access-list extended COPP-ICMP` with `permit icmp any any`; `class-map match-all CM-SSH` with `match access-group name COPP-SSH`; the same for CM-ICMP.",
       "commands": [
-        { "cmd": "ip access-list extended COPP-SSH", "enter": "config-ext-nacl" },
-        { "cmd": "permit tcp 10.10.99.0 0.0.0.255 any eq 22", "mode": "config-ext-nacl" },
-        { "cmd": "ip access-list extended COPP-ICMP", "enter": "config-ext-nacl" },
-        { "cmd": "permit icmp any any", "mode": "config-ext-nacl" },
-        { "cmd": "class-map match-all CM-SSH", "enter": "config-cmap" },
-        { "cmd": "match access-group name COPP-SSH", "mode": "config-cmap" },
-        { "cmd": "class-map match-all CM-ICMP", "enter": "config-cmap" },
-        { "cmd": "match access-group name COPP-ICMP", "mode": "config-cmap" }
+        {
+          "cmd": "ip access-list extended COPP-SSH",
+          "enter": "config-ext-nacl",
+          "explain": "Creates an ACL to pick SSH traffic."
+        },
+        {
+          "cmd": "permit tcp 10.10.99.0 0.0.0.255 any eq 22",
+          "mode": "config-ext-nacl",
+          "explain": "Matches SSH from the management subnet to the router."
+        },
+        {
+          "cmd": "ip access-list extended COPP-ICMP",
+          "enter": "config-ext-nacl",
+          "explain": "Creates an ACL to pick ICMP traffic."
+        },
+        {
+          "cmd": "permit icmp any any",
+          "mode": "config-ext-nacl",
+          "explain": "Matches all ICMP."
+        },
+        {
+          "cmd": "class-map match-all CM-SSH",
+          "enter": "config-cmap",
+          "explain": "Creates class map CM-SSH. With match-all, every match line must be true."
+        },
+        {
+          "cmd": "match access-group name COPP-SSH",
+          "mode": "config-cmap",
+          "explain": "Puts packets that match COPP-SSH in this class."
+        },
+        {
+          "cmd": "class-map match-all CM-ICMP",
+          "enter": "config-cmap",
+          "explain": "Creates class map CM-ICMP."
+        },
+        {
+          "cmd": "match access-group name COPP-ICMP",
+          "mode": "config-cmap",
+          "explain": "Puts packets that match COPP-ICMP in this class."
+        }
       ]
     },
     {
@@ -58,13 +123,44 @@
       "task": "Create policy map **PM-COPP**. Police **CM-SSH** to **64000** bps, **CM-ICMP** to **8000** bps and **class-default** to **32000** bps, each transmitting conforming traffic and dropping the excess.",
       "hint": "`policy-map PM-COPP`, `class CM-SSH`, `police 64000 conform-action transmit exceed-action drop`, then `class CM-ICMP` with `police 8000 ...` and `class class-default` with `police 32000 ...`.",
       "commands": [
-        { "cmd": "policy-map PM-COPP", "enter": "config-pmap" },
-        { "cmd": "class CM-SSH", "mode": "config-pmap", "enter": "config-pmap-c" },
-        { "cmd": "police 64000 conform-action transmit exceed-action drop", "mode": "config-pmap-c" },
-        { "cmd": "class CM-ICMP", "mode": "config-pmap", "enter": "config-pmap-c" },
-        { "cmd": "police 8000 conform-action transmit exceed-action drop", "mode": "config-pmap-c" },
-        { "cmd": "class class-default", "mode": "config-pmap", "enter": "config-pmap-c" },
-        { "cmd": "police 32000 conform-action transmit exceed-action drop", "mode": "config-pmap-c" }
+        {
+          "cmd": "policy-map PM-COPP",
+          "enter": "config-pmap",
+          "explain": "Creates the policy map that sets a rate for each class."
+        },
+        {
+          "cmd": "class CM-SSH",
+          "mode": "config-pmap",
+          "enter": "config-pmap-c",
+          "explain": "Selects the SSH class."
+        },
+        {
+          "cmd": "police 64000 conform-action transmit exceed-action drop",
+          "mode": "config-pmap-c",
+          "explain": "Allows SSH up to 64 kbps and drops anything above that."
+        },
+        {
+          "cmd": "class CM-ICMP",
+          "mode": "config-pmap",
+          "enter": "config-pmap-c",
+          "explain": "Selects the ICMP class."
+        },
+        {
+          "cmd": "police 8000 conform-action transmit exceed-action drop",
+          "mode": "config-pmap-c",
+          "explain": "Allows ICMP up to 8 kbps, enough for troubleshooting but too little for a flood."
+        },
+        {
+          "cmd": "class class-default",
+          "mode": "config-pmap",
+          "enter": "config-pmap-c",
+          "explain": "Selects class-default, which catches all other control plane traffic."
+        },
+        {
+          "cmd": "police 32000 conform-action transmit exceed-action drop",
+          "mode": "config-pmap-c",
+          "explain": "Limits all other traffic to 32 kbps."
+        }
       ]
     },
     {
@@ -76,8 +172,17 @@
       "task": "Apply **PM-COPP** as an input service policy on the control plane.",
       "hint": "`control-plane`, then `service-policy input PM-COPP`.",
       "commands": [
-        { "cmd": "control-plane", "enter": "config-cp" },
-        { "cmd": "service-policy input PM-COPP", "mode": "config-cp", "note": "Traffic aimed at R1's CPU is now rate-limited by class." }
+        {
+          "cmd": "control-plane",
+          "enter": "config-cp",
+          "explain": "Enters control plane configuration."
+        },
+        {
+          "cmd": "service-policy input PM-COPP",
+          "mode": "config-cp",
+          "note": "Traffic aimed at R1's CPU is now rate-limited by class.",
+          "explain": "Applies the policy to traffic going in to the CPU."
+        }
       ]
     },
     {
@@ -86,9 +191,18 @@
       "task": "Answer the question.",
       "question": "R1 runs OSPF, but no class matches OSPF in this policy. What happens to OSPF hellos during a flood?",
       "options": [
-        { "text": "They fall into class-default and compete for its 32 kbps with the flood, so adjacencies could still drop. A real policy gives routing protocols their own generous class.", "correct": true },
-        { "text": "OSPF is always exempt from CoPP.", "why": "Nothing is exempt. Any traffic punted to the CPU that matches no class lands in class-default." },
-        { "text": "They're dropped, because unmatched traffic is denied.", "why": "Unmatched traffic goes to class-default, which this policy polices but doesn't drop outright." }
+        {
+          "text": "They fall into class-default and compete for its 32 kbps with the flood, so adjacencies could still drop. A real policy gives routing protocols their own generous class.",
+          "correct": true
+        },
+        {
+          "text": "OSPF is always exempt from CoPP.",
+          "why": "Nothing is exempt. Any traffic punted to the CPU that matches no class lands in class-default."
+        },
+        {
+          "text": "They're dropped, because unmatched traffic is denied.",
+          "why": "Unmatched traffic goes to class-default, which this policy polices but doesn't drop outright."
+        }
       ]
     },
     {
@@ -98,7 +212,13 @@
       "task": "Show the policy map applied to the control plane.",
       "hint": "`do show policy-map control-plane`",
       "commands": [
-        { "cmd": "show policy-map control-plane", "mode": "priv", "output": " Control Plane\n\n  Service-policy input: PM-COPP\n\n    Class-map: CM-ICMP (match-all)\n      48211 packets, 3953302 bytes\n      5 minute offered rate 312000 bps, drop rate 304000 bps\n      Match: access-group name COPP-ICMP\n      police:\n          cir 8000 bps, bc 1500 bytes\n        conformed 1101 packets, 90282 bytes; actions:\n          transmit\n        exceeded 47110 packets, 3863020 bytes; actions:\n          drop", "note": "The ping flood is being dropped above 8 kbps, so the CPU stays free." }
+        {
+          "cmd": "show policy-map control-plane",
+          "mode": "priv",
+          "output": " Control Plane\n\n  Service-policy input: PM-COPP\n\n    Class-map: CM-ICMP (match-all)\n      48211 packets, 3953302 bytes\n      5 minute offered rate 312000 bps, drop rate 304000 bps\n      Match: access-group name COPP-ICMP\n      police:\n          cir 8000 bps, bc 1500 bytes\n        conformed 1101 packets, 90282 bytes; actions:\n          transmit\n        exceeded 47110 packets, 3863020 bytes; actions:\n          drop",
+          "note": "The ping flood is being dropped above 8 kbps, so the CPU stays free.",
+          "explain": "Shows each class's counters, including what was dropped."
+        }
       ]
     }
   ],

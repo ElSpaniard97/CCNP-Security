@@ -7,6 +7,7 @@
   "level": "Beginner",
   "minutes": 10,
   "blurb": "Recognize brute-force and password-spraying attempts against SSH, and slow them down on the router.",
+  "purpose": "Password guessing against SSH and VPN logins never stops on the Internet. In this lab you learn what a brute-force attack looks like in logs, and you slow it down with login protection while keeping your own admins able to log in.",
   "scenario": "R3's logs fill up overnight with failed SSH logins from addresses on the Internet. Work out which kind of password attack this is, then make R3 resist it without locking out the real admins.",
   "topology": "Internet ── R3 (SSH on Gi0/0)\n               admins from 10.10.99.0/24",
   "objectives": [
@@ -15,7 +16,12 @@
     "Turn on login protection with an exception for the management network",
     "Pick the strongest long-term fix"
   ],
-  "devices": { "R3": { "host": "R3", "start": "config" } },
+  "devices": {
+    "R3": {
+      "host": "R3",
+      "start": "config"
+    }
+  },
   "steps": [
     {
       "title": "Three kinds of password attack",
@@ -25,9 +31,36 @@
       "screen": "Password attacks",
       "button": "Check",
       "fields": [
-        { "label": "5,000 attempts at the account admin in an hour", "kind": "select", "options": ["Brute force", "Password spraying", "Credential stuffing"], "answer": "Brute force" },
-        { "label": "Season2026! tried once against 400 different accounts", "kind": "select", "options": ["Brute force", "Password spraying", "Credential stuffing"], "answer": "Password spraying" },
-        { "label": "Email and password pairs from another site's breach tried in order", "kind": "select", "options": ["Brute force", "Password spraying", "Credential stuffing"], "answer": "Credential stuffing" }
+        {
+          "label": "5,000 attempts at the account admin in an hour",
+          "kind": "select",
+          "options": [
+            "Brute force",
+            "Password spraying",
+            "Credential stuffing"
+          ],
+          "answer": "Brute force"
+        },
+        {
+          "label": "Season2026! tried once against 400 different accounts",
+          "kind": "select",
+          "options": [
+            "Brute force",
+            "Password spraying",
+            "Credential stuffing"
+          ],
+          "answer": "Password spraying"
+        },
+        {
+          "label": "Email and password pairs from another site's breach tried in order",
+          "kind": "select",
+          "options": [
+            "Brute force",
+            "Password spraying",
+            "Credential stuffing"
+          ],
+          "answer": "Credential stuffing"
+        }
       ]
     },
     {
@@ -36,9 +69,18 @@
       "task": "Answer the question.",
       "question": "R3 shows hundreds of lines like this, each from a different Internet address, all for the same user:\n\n`%SEC_LOGIN-4-LOGIN_FAILED: Login Failed [user: admin] [Source: 198.51.100.x] [localport: 22] [Reason: Login Authentication Failed]`\n\nWhat is happening?",
       "options": [
-        { "text": "A distributed brute-force attack on the admin account, spread across many sources to avoid per-source blocking.", "correct": true },
-        { "text": "Password spraying.", "why": "Spraying targets many accounts. Here every attempt is for admin." },
-        { "text": "A normal admin mistyping a password.", "why": "Hundreds of failures from many Internet addresses isn't human error." }
+        {
+          "text": "A distributed brute-force attack on the admin account, spread across many sources to avoid per-source blocking.",
+          "correct": true
+        },
+        {
+          "text": "Password spraying.",
+          "why": "Spraying targets many accounts. Here every attempt is for admin."
+        },
+        {
+          "text": "A normal admin mistyping a password.",
+          "why": "Hundreds of failures from many Internet addresses isn't human error."
+        }
       ]
     },
     {
@@ -50,11 +92,29 @@
       "task": "Create standard ACL **MGMT-OK** permitting **10.10.99.0/24**. Block logins for **300** seconds after **5** failures within **60** seconds, let **MGMT-OK** log in during quiet mode, and log failures.",
       "hint": "`ip access-list standard MGMT-OK`, `permit 10.10.99.0 0.0.0.255`, `login block-for 300 attempts 5 within 60`, `login quiet-mode access-class MGMT-OK`, `login on-failure log`.",
       "commands": [
-        { "cmd": "ip access-list standard MGMT-OK", "enter": "config-std-nacl" },
-        { "cmd": "permit 10.10.99.0 0.0.0.255", "mode": "config-std-nacl" },
-        { "cmd": "login block-for 300 attempts 5 within 60" },
-        { "cmd": "login quiet-mode access-class MGMT-OK", "note": "Admins on 10.10.99.0/24 can still get in while the attack triggers quiet mode." },
-        { "cmd": "login on-failure log" }
+        {
+          "cmd": "ip access-list standard MGMT-OK",
+          "enter": "config-std-nacl",
+          "explain": "Creates the ACL of sources that may still log in during an attack."
+        },
+        {
+          "cmd": "permit 10.10.99.0 0.0.0.255",
+          "mode": "config-std-nacl",
+          "explain": "Allows the management subnet."
+        },
+        {
+          "cmd": "login block-for 300 attempts 5 within 60",
+          "explain": "Blocks logins for 300 seconds after 5 failures within 60 seconds."
+        },
+        {
+          "cmd": "login quiet-mode access-class MGMT-OK",
+          "note": "Admins on 10.10.99.0/24 can still get in while the attack triggers quiet mode.",
+          "explain": "Lets the management subnet log in even while logins are blocked."
+        },
+        {
+          "cmd": "login on-failure log",
+          "explain": "Logs every failed login."
+        }
       ]
     },
     {
@@ -64,7 +124,13 @@
       "task": "Show the login protection status.",
       "hint": "`do show login`",
       "commands": [
-        { "cmd": "show login", "mode": "priv", "output": "     A login delay of 1 seconds is applied.\n     Quiet-Mode access list MGMT-OK is applied.\n     All failed login is logged.\n\n     Router enabled to watch for login Attacks.\n     If more than 5 login failures occur in 60 seconds or less,\n       logins will be disabled for 300 seconds.\n\n     Router presently in Quiet-Mode.\n     Will remain in Quiet-Mode for 241 seconds.\n     Restricted logins filtered by applied ACL MGMT-OK.", "note": "The attack triggered quiet mode, and only the management network can log in." }
+        {
+          "cmd": "show login",
+          "mode": "priv",
+          "output": "     A login delay of 1 seconds is applied.\n     Quiet-Mode access list MGMT-OK is applied.\n     All failed login is logged.\n\n     Router enabled to watch for login Attacks.\n     If more than 5 login failures occur in 60 seconds or less,\n       logins will be disabled for 300 seconds.\n\n     Router presently in Quiet-Mode.\n     Will remain in Quiet-Mode for 241 seconds.\n     Restricted logins filtered by applied ACL MGMT-OK.",
+          "note": "The attack triggered quiet mode, and only the management network can log in.",
+          "explain": "Shows the login protection settings and whether quiet mode is active."
+        }
       ]
     },
     {
@@ -73,9 +139,18 @@
       "task": "Answer the question.",
       "question": "Login protection slows guessing down. What removes the risk best?",
       "options": [
-        { "text": "Don't expose SSH to the Internet at all: allow it only from the management network or over the VPN, and use MFA or SSH keys for admins.", "correct": true },
-        { "text": "Change SSH to port 2222.", "why": "That cuts log noise, but scanners find other ports quickly. It's obscurity, not security." },
-        { "text": "Make the admin password longer and keep SSH open.", "why": "That helps, but the service is still exposed to every guesser on the Internet." }
+        {
+          "text": "Don't expose SSH to the Internet at all: allow it only from the management network or over the VPN, and use MFA or SSH keys for admins.",
+          "correct": true
+        },
+        {
+          "text": "Change SSH to port 2222.",
+          "why": "That cuts log noise, but scanners find other ports quickly. It's obscurity, not security."
+        },
+        {
+          "text": "Make the admin password longer and keep SSH open.",
+          "why": "That helps, but the service is still exposed to every guesser on the Internet."
+        }
       ]
     }
   ],
