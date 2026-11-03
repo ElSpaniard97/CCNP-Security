@@ -41,6 +41,9 @@ function tokenMatches(user, want) {
   return (u.length >= 2 && w.startsWith(u)) || ONE_LETTER[w] === u;
 }
 // After "interface", the name may be typed with a space before the number: "interface g 0/1".
+// Pasted or auto-corrected text can carry invisible characters or curly quotes, which a real
+// console would also reject but a student can't see. Clean them up before matching.
+const clean = s => s.normalize("NFKC").replace(/[\u200b-\u200d\u2060\ufeff\u00ad]/g, "").replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d]/g, '"').replace(/\s+/g, " ").trim();
 function tokens(s) {
   const t = s.trim().split(/\s+/).filter(Boolean), out = [];
   for (let i = 0; i < t.length; i++) {
@@ -56,6 +59,17 @@ function commandMatches(typed, canonical) {
   return u.length === w.length && w.every((t, i) => tokenMatches(u[i], t));
 }
 const forms = c => [c.cmd].concat(c.alt || []);
+// A command with every word right but one: point at the word, which is usually a typo in a value.
+function nearMiss(typed, cands) {
+  const u = tokens(typed);
+  for (const c of cands) {
+    const w = c.trim().split(/\s+/);
+    if (w.length !== u.length || w.includes("{rest}")) continue;
+    const bad = w.map((t, i) => tokenMatches(u[i], t) ? -1 : i).filter(i => i >= 0);
+    if (bad.length === 1 && w[bad[0]] !== "{any}") return { typed: u[bad[0]], want: w[bad[0]] };
+  }
+  return null;
+}
 
 // ---------- device prompt ----------
 // A device keeps its mode stack across steps. Modes: exec (R1>), priv (R1#), config (R1(config)#)
@@ -68,6 +82,7 @@ function builtin(dev, typed) {
   const m = dev.modes[dev.modes.length - 1];
   const is = c => commandMatches(typed, c);
   if (m === "exec" && is("enable")) { dev.modes.push("priv"); return true; }
+  if (m === "priv" && is("enable")) return true; // already privileged: IOS just shows the prompt again
   if (m === "priv" && is("disable")) { dev.modes.pop(); return true; }
   if (m === "priv" && is("configure terminal")) { dev.modes.push("config"); return true; }
   if (m !== "exec" && m !== "priv" && is("end")) { dev.modes = dev.modes.slice(0, dev.modes.indexOf("priv") + 1); return true; }
@@ -173,7 +188,7 @@ function runLab(meta, lab, saved) {
       ${learnHTML(s)}<p><b>Task:</b> ${rt(s.task)}</p>${answerHTML(s)}${s.why ? `<p class="lab-why">${rt(s.why)}</p>` : ""}</details>`;
   }
   function answerHTML(s) {
-    if (s.type === "cli") return `<pre class="lab-answer">${s.commands.map(c => esc(c.cmd)).join("\n")}</pre>`;
+    if (s.type === "cli") return `<p class="small muted">Tap a line to put it in the console.</p><div class="lab-answer lab-answer-cli">${s.commands.map(c => `<button type="button" class="answer-line" data-insert="${esc(c.cmd)}">${esc(c.cmd)}</button>`).join("")}</div>`;
     if (s.type === "choice") return `<p class="lab-answer">${s.options.filter(o => o.correct).map(o => esc(o.text)).join("<br>")}</p>`;
     if (s.type === "order") return `<ol class="lab-answer">${s.items.map(x => `<li>${esc(x)}</li>`).join("")}</ol>`;
     if (s.type === "form") return `<dl class="lab-answer">${s.fields.map(f => `<dt>${esc(f.label)}</dt><dd>${esc(f.kind === "check" ? (f.answer ? "On" : "Off") : [].concat(f.answer)[0])}</dd>`).join("")}</dl>`;
@@ -192,7 +207,11 @@ function runLab(meta, lab, saved) {
       h.disabled = r.hint || r.wrong < HINT_AFTER || !s.hint; v.disabled = r.reveal || r.wrong < REVEAL_AFTER;
       note.textContent = r.reveal ? "" : r.wrong < HINT_AFTER ? `A hint opens after ${HINT_AFTER} wrong tries (−${HINT} points).` : r.wrong < REVEAL_AFTER ? `The answer opens after ${REVEAL_AFTER} wrong tries (−${REVEAL} points).` : `Showing the answer costs ${REVEAL} points.`;
       if (r.hint && s.hint) document.getElementById("hint-text").innerHTML = `<p class="lab-hint">${icon("alert")}${rt(s.hint)}</p>`;
-      if (r.reveal) document.getElementById("reveal-text").innerHTML = `<div class="lab-hint"><b>Answer</b>${answerHTML(s)}</div>`;
+      if (r.reveal) {
+        const box = document.getElementById("reveal-text");
+        box.innerHTML = `<div class="lab-hint"><b>Answer</b>${answerHTML(s)}</div>`;
+        box.querySelectorAll("[data-insert]").forEach(x => x.onclick = () => { const t = document.getElementById("term-in"); if (t) { t.value = x.dataset.insert; t.focus(); } });
+      }
     };
     const miss = msg => { r.wrong++; say(msg, "bad"); helpBtns(); persist(); };
     document.getElementById("hint").onclick = () => { r.hint = true; helpBtns(); persist(); };
@@ -231,7 +250,7 @@ function runLab(meta, lab, saved) {
       const log = (txt, cls) => { dev.log.push([txt, cls]); dev.log = dev.log.slice(-200); print(txt, cls); };
       document.getElementById("term-form").onsubmit = e => {
         e.preventDefault();
-        const typed = input.value.trim(); input.value = "";
+        const typed = clean(input.value); input.value = "";
         if (!typed) return log(prompt(dev), "cmd");
         log(`${prompt(dev)} ${typed}`, "cmd"); history.push(typed); hpos = history.length;
         const mode = dev.modes[dev.modes.length - 1];
@@ -251,7 +270,12 @@ function runLab(meta, lab, saved) {
           // The ASA runs show commands from any configuration mode without "do".
           const anywhere = wm === "priv" && inConfig && lab.devices?.[s.device]?.showAnywhere;
           const okMode = wm === mode || (doCmd && wm === "priv") || anywhere || parent >= 0;
-          if (!okMode) { pr.textContent = prompt(dev); return miss(`Right command, wrong mode. <b>${esc(want.cmd)}</b> is entered in ${esc(modeName(wm))}; you are in ${esc(modeName(mode))}.`); }
+          if (!okMode) {
+            pr.textContent = prompt(dev);
+            const how = !inConfig && wm !== "exec" && wm !== "priv" ? ` Type <code>configure terminal</code> (or <code>conf t</code>) first${mode === "exec" ? `, after <code>enable</code>` : ""}, then enter it again.` : wm === "priv" && inConfig ? ` Put <code>do</code> in front of it, or type <code>end</code> first.` : "";
+            log(`% Invalid input detected at '^' marker.`, "err");
+            return miss(`Right command, wrong mode. <b>${esc(want.cmd)}</b> is entered in ${esc(modeName(wm))}; you are in ${esc(modeName(mode))}.${how}`);
+          }
           if (parent >= 0) dev.modes = dev.modes.slice(0, parent + 1);
           if (want.enter) dev.modes.push(want.enter);
           if (want.output) want.output.split("\n").forEach(l => log(l, "res"));
@@ -267,7 +291,9 @@ function runLab(meta, lab, saved) {
         if (/^(show|sh|ping|traceroute|debug|wr|write|copy)\b/i.test(cmd) || /^do\s/i.test(typed)) { log("(The simulated device has no output for that command in this step.)", "res"); return; }
         if (anyHit !== undefined) return miss(`That command belongs to this step, but not yet: the commands go in order. Next is the ${ordinal(need.findIndex((c, k) => !r.done.includes(k)) + 1)} one.`);
         log("% Invalid input detected at '^' marker.", "err");
-        miss(`That isn't what this step needs. Check the task and the values in the scenario.`);
+        const near = nearMiss(cmd, need.flatMap(forms));
+        miss(near ? `Close. <code>${esc(near.typed)}</code> should be <code>${esc(near.want)}</code>.${isKeyword(near.want) ? "" : " Names, addresses and passwords must match the task exactly."}`
+          : `That isn't what this step needs. Check the task and the values in the scenario.`);
       };
       if (need.length && !left().length) return complete();
       input.focus({ preventScroll: true });

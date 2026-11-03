@@ -301,3 +301,6 @@ dl.lab-answer dd { margin:0; font-weight:600; }
 .lab-score strong { font-size:28px; font-variant-numeric:tabular-nums; }
 .lab-score strong.good { color:var(--good); } .lab-score strong.warn { color:var(--warn); } .lab-score strong.bad { color:var(--bad); }
 .lab-score small { color:var(--muted); }
+.lab-answer-cli { display:flex; flex-direction:column; gap:4px; background:var(--surface-2); padding:8px; border-radius:8px; }
+.answer-line { font:inherit; font-family:var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace); text-align:left; background:none; border:0; border-radius:6px; padding:4px 6px; color:inherit; cursor:pointer; overflow-wrap:anywhere; }
+.answer-line:hover, .answer-line:focus-visible { background:var(--surface); }
