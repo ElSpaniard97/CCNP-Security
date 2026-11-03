@@ -150,6 +150,19 @@ function readerIndex() {
   return readerList;
 }
 
+// A view that waits for a button press (such as "Resume or start over") must not hold up the router,
+// which runs one route at a time. Navigating away settles every such wait with null, so the view
+// returns and the next route can render.
+const choiceWaits = new Set();
+function untilChoice(wire) {
+  return new Promise(res => {
+    const settle = v => { choiceWaits.delete(settle); res(v); };
+    choiceWaits.add(settle);
+    wire(settle);
+  });
+}
+function cancelChoices() { [...choiceWaits].forEach(settle => settle(null)); }
+
 // Router callbacks are installed before data loading; views need no imports from main.
 const navigation = {};
 function leaveView() { onKey(null); leaveFns.forEach(f=>f()); leaveFns=[]; }
@@ -159,4 +172,4 @@ function chapterView(...args) { return navigation.chapterView(...args); }
 function route(...args) { return navigation.route(...args); }
 function setStudyData(c, b) { chapters = c; blueprint = b; }
 
-export { leaveView, app, crumbs, DECKS, DECK_LABEL, LETTERS, PASS, DAY, SRS_DAYS, SRS_NEW, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, testCache, keyHandler, leaveFns, setCrumbs, onKey, onLeave, getJSON, loadCards, loadAllCards, getTests, question, findCard, attempts, addAttempt, fullAttempts, examAttempts, bests, latestByTest, streak, bestBadge, getResume, clearResume, unfinished, resumeHref, bankRecord, bankActive, studyCards, cardChips, meter, resumeBanner, setExamActive, store, LOCAL_ONLY, snapshot, restore, merge, syncConnect, syncNow, syncSoon, esc, cap, rich, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, dayKey, testTitle, srsKey, srsSet, srsMiss, srsDue, isStarred, toggleStar, starredList, domainFor, selectExam, setNavigation, home, chapterView, route, setStudyData, readerIndex };
+export { leaveView, app, crumbs, DECKS, DECK_LABEL, LETTERS, PASS, DAY, SRS_DAYS, SRS_NEW, BANK_CLEAR, EXAM_SECS_PER_Q, chapters, chap, blueprint, flashcards, testCache, keyHandler, leaveFns, setCrumbs, onKey, onLeave, getJSON, loadCards, loadAllCards, getTests, question, findCard, attempts, addAttempt, fullAttempts, examAttempts, bests, latestByTest, streak, bestBadge, getResume, clearResume, unfinished, resumeHref, bankRecord, bankActive, studyCards, cardChips, meter, resumeBanner, setExamActive, store, LOCAL_ONLY, snapshot, restore, merge, syncConnect, syncNow, syncSoon, esc, cap, rich, shuffle, plural, pctOf, level, secName, fmtDate, fmtDur, fmtClock, fmtAgo, dayKey, testTitle, srsKey, srsSet, srsMiss, srsDue, isStarred, toggleStar, starredList, domainFor, selectExam, setNavigation, home, chapterView, route, setStudyData, readerIndex, untilChoice, cancelChoices };
