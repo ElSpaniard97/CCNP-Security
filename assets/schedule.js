@@ -38,30 +38,38 @@ const fmtMins = m => m < 60 ? `${m} min` : m % 60 ? `${Math.floor(m / 60)} h ${m
 const newId = () => Math.random().toString(36).slice(2, 10);
 
 // ---------- the plan ----------
-const WEEKDAY_ROTATION = ["read", "cards", "labs", "test", "srs"];
-const WEEKEND_ROTATION = [["test", "labs"], ["srs", "read"]];
-// Builds a starter week. Weekdays rotate through learning a chapter; a weekend session of 90
-// minutes or more is split into two blocks.
-function buildWeek({ days, wdTime, wdMins, weTime, weMins }) {
-  const blocks = [], add = (day, start, mins, act) => blocks.push({ id: newId(), day, start, mins, act, ch: act === "srs" ? 0 : "focus", note: "" });
-  let wi = 0, we = 0;
-  [...days].sort((a, b) => a - b).forEach(d => {
-    if (d < 5) add(d, wdTime, wdMins, WEEKDAY_ROTATION[wi++ % WEEKDAY_ROTATION.length]);
-    else {
-      const pair = WEEKEND_ROTATION[we++ % WEEKEND_ROTATION.length];
-      if (weMins >= 90) { const half = Math.round(weMins / 2 / 5) * 5; add(d, weTime, half, pair[0]); add(d, fromMin(toMin(weTime) + half), weMins - half, pair[1]); }
-      else add(d, weTime, weMins, pair[0]);
-    }
+const SPLIT_MIN = 20;
+// Builds a week from the chosen days, times and activities. Each study day's session is shared
+// evenly by the chosen activities, back to back. If a session is too short to share, the days take
+// turns instead, one activity a day.
+function buildWeek({ days, wdTime, wdMins, weTime, weMins, acts }) {
+  const blocks = [], list = acts && acts.length ? acts : ["read", "cards", "test"];
+  let turn = 0;
+  [...days].sort((a, b) => a - b).forEach(day => {
+    const start = day < 5 ? wdTime : weTime, mins = day < 5 ? wdMins : weMins;
+    const today = mins / list.length >= SPLIT_MIN ? list : [list[turn++ % list.length]];
+    const each = Math.floor(mins / today.length / 5) * 5;
+    let at = toMin(start);
+    today.forEach((act, i) => {
+      const len = i === today.length - 1 ? mins - each * (today.length - 1) : each;
+      blocks.push({ id: newId(), day, start: fromMin(at), mins: len, act, ch: act === "srs" || act === "bank" ? 0 : "focus", note: "" });
+      at += len;
+    });
   });
   return blocks;
 }
-const STARTER = { days: [0, 1, 2, 3, 5], wdTime: "19:00", wdMins: 60, weTime: "09:00", weMins: 120 };
+// Zeke's answers (Nov 2026): Monday to Friday, about 4 hours a day, exam on Feb 22, 2027,
+// focused on Listen and read, flashcards and practice tests.
+const STARTER = { days: [0, 1, 2, 3, 4], wdTime: "18:00", wdMins: 240, weTime: "09:00", weMins: 120, acts: ["read", "cards", "test"], exam: "2027-02-22" };
+const BUILDER_ACTS = ["read", "cards", "test", "labs", "srs", "bank", "notes", "exam"];
 function loadPlan() {
   const saved = store.get("schedule", null);
   if (saved && Array.isArray(saved.blocks)) return saved;
-  return { at: 0, start: ymd(monday(new Date())), exam: "", blocks: buildWeek(STARTER) };
+  return { at: 0, start: ymd(monday(new Date())), exam: STARTER.exam, blocks: buildWeek(STARTER) };
 }
 let plan = null, weekOffset = 0, undo = null;
+// The builder shows the choices it was last used with.
+const prefs = () => Object.assign({}, STARTER, plan.prefs || {});
 function save() { plan.at = Date.now(); store.set("schedule", plan); syncSoon(); }
 const doneMap = () => store.get("schedule.done", {});
 const doneKey = (date, b) => `${ymd(date)}|${b.id}`;
@@ -78,7 +86,7 @@ function roadmap() {
   const start = parse(plan.start), n = chapters.length;
   if (!plan.exam || parse(plan.exam) < start) return { weeks: n + 1, review: 1, chapterWeeks: n, start };
   const total = weeksBetween(start, parse(plan.exam)) + 1;
-  let review = total >= 8 ? 2 : total >= 4 ? 1 : 0;
+  let review = total >= 16 ? 3 : total >= 8 ? 2 : total >= 4 ? 1 : 0;
   return { weeks: total, review, chapterWeeks: total - review, start };
 }
 function focusRange(date) {
@@ -191,15 +199,17 @@ function roadmapHTML() {
   </details>`;
 }
 function builderHTML() {
+  const p = prefs();
   return `<details class="card sched-builder"${plan.at ? "" : " open"}>
     <summary><b>Build my week</b> <span class="muted small">Pick your days and times and get a balanced week you can then edit</span></summary>
-    <fieldset class="sched-days"><legend>Study days</legend>${DAYS.map((d, i) => `<label class="chip"><input type="checkbox" name="b-day" value="${i}"${STARTER.days.includes(i) ? " checked" : ""}> ${SHORT[i]}</label>`).join("")}</fieldset>
+    <fieldset class="sched-days"><legend>Study days</legend>${DAYS.map((d, i) => `<label class="chip"><input type="checkbox" name="b-day" value="${i}"${p.days.includes(i) ? " checked" : ""}> ${SHORT[i]}</label>`).join("")}</fieldset>
     <div class="sched-fields">
-      <label>Weekday start<input type="time" id="b-wd-time" value="${STARTER.wdTime}" step="900"></label>
-      <label>Weekday minutes<input type="number" id="b-wd-mins" value="${STARTER.wdMins}" min="15" max="480" step="15"></label>
-      <label>Weekend start<input type="time" id="b-we-time" value="${STARTER.weTime}" step="900"></label>
-      <label>Weekend minutes<input type="number" id="b-we-mins" value="${STARTER.weMins}" min="15" max="480" step="15"></label>
+      <label>Weekday start<input type="time" id="b-wd-time" value="${p.wdTime}" step="900"></label>
+      <label>Weekday minutes<input type="number" id="b-wd-mins" value="${p.wdMins}" min="15" max="480" step="15"></label>
+      <label>Weekend start<input type="time" id="b-we-time" value="${p.weTime}" step="900"></label>
+      <label>Weekend minutes<input type="number" id="b-we-mins" value="${p.weMins}" min="15" max="480" step="15"></label>
     </div>
+    <fieldset class="sched-days"><legend>Focus on (each session is shared by these)</legend>${BUILDER_ACTS.map(k => `<label class="chip"><input type="checkbox" name="b-act" value="${k}"${p.acts.includes(k) ? " checked" : ""}> ${ACTS[k].label}</label>`).join("")}</fieldset>
     <div class="row"><button class="btn primary" type="button" id="b-go">${plan.at ? "Replace my week" : "Build my week"}</button><span class="muted small" id="b-msg" role="status"></span></div>
   </details>`;
 }
@@ -231,7 +241,7 @@ async function scheduleView() {
 function render() {
   app.innerHTML = `<div class="page-heading"><p class="eyebrow">PLAN YOUR WEEK</p><h1>Study schedule</h1>
     <p class="muted">Your repeating study week. Each block has a time, a length, an activity and a chapter. Tap a block to change it, check blocks off as you finish them, and use Start to jump straight in.</p></div>
-    ${plan.at ? "" : `<p class="card sched-note">This is a starter week: Monday to Thursday at 7 PM and Saturday morning. Use <b>Build my week</b> to fit it to your days, or edit any block. Nothing is saved until you change something.</p>`}
+    ${plan.at ? "" : `<p class="card sched-note">This is your starter week: Monday to Friday, 6 to 10 PM, split between Listen and read, flashcards and a practice test, working toward your exam on February 22, 2027. Use <b>Build my week</b> to fit it to your days, or edit any block. Nothing is saved until you change something.</p>`}
     ${todayHTML()}${weekHTML()}
     <div class="row sched-actions"><button class="btn" type="button" id="s-ics">${icon("arrow")}Add to my calendar (.ics)</button>${undo ? `<button class="btn" type="button" id="s-undo">Undo rebuild</button>` : ""}</div>
     ${roadmapHTML()}${builderHTML()}${editorHTML()}`;
@@ -255,10 +265,13 @@ function wire() {
   document.getElementById("b-go").onclick = () => {
     const days = [...app.querySelectorAll('[name="b-day"]:checked')].map(x => +x.value);
     const msg = document.getElementById("b-msg");
+    const acts = [...app.querySelectorAll('[name="b-act"]:checked')].map(x => x.value);
     if (!days.length) { msg.textContent = "Pick at least one day."; return; }
+    if (!acts.length) { msg.textContent = "Pick at least one activity."; return; }
     const num = id => Math.min(480, Math.max(15, Math.round((+document.getElementById(id).value || 60) / 5) * 5));
     undo = plan.at ? plan.blocks : null;
-    plan.blocks = buildWeek({ days, wdTime: document.getElementById("b-wd-time").value || "19:00", wdMins: num("b-wd-mins"), weTime: document.getElementById("b-we-time").value || "09:00", weMins: num("b-we-mins") });
+    plan.prefs = { days, wdTime: document.getElementById("b-wd-time").value || "18:00", wdMins: num("b-wd-mins"), weTime: document.getElementById("b-we-time").value || "09:00", weMins: num("b-we-mins"), acts };
+    plan.blocks = buildWeek(plan.prefs);
     save(); render();
     document.getElementById("b-msg").textContent = `Built ${plural(plan.blocks.length, "block")}. Tap any block to change it.`;
     app.querySelector(".sched-builder").open = true;

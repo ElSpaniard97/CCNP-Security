@@ -7,8 +7,11 @@ test('starter week shows, is editable, saves, and checks off today', async ({ pa
   await expect(page.locator('h1')).toHaveText('Study schedule');
   await expect(page.locator('.sched-note')).toContainText('starter week');
   await expect(page.locator('.sched-day')).toHaveCount(7);
-  // Starter: Mon-Thu one block each, Saturday split into two.
-  await expect(page.locator('.sched-block')).toHaveCount(6);
+  // Starter: Mon-Fri, 4 hours shared by Listen and read, flashcards and a practice test.
+  await expect(page.locator('.sched-block')).toHaveCount(15);
+  await expect(page.locator('.sched-day[data-day="0"] .sched-block').nth(2)).toContainText('8:40 PM · 1 h 20 min');
+  await expect(page.locator('.sched-day[data-day="5"] .sched-block')).toHaveCount(0);
+  await expect(page.locator('#s-exam')).toHaveValue('2027-02-22');
   expect(await page.evaluate(() => localStorage.getItem('scor.schedule'))).toBeNull();
 
   // Add a custom block on Sunday.
@@ -26,7 +29,7 @@ test('starter week shows, is editable, saves, and checks off today', async ({ pa
   await expect(sunday).toContainText('Watch a VPN video');
   await expect(page.locator('.sched-note')).toHaveCount(0);
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('scor.schedule')));
-  expect(saved.blocks).toHaveLength(7);
+  expect(saved.blocks).toHaveLength(16);
 
   // Edit it to a fixed chapter flashcard block, then delete it.
   await sunday.click();
@@ -40,13 +43,19 @@ test('starter week shows, is editable, saves, and checks off today', async ({ pa
 
   // Build a custom week: Tue, Thu, Sun, 90 min weekend splits into two.
   await page.locator('.sched-builder').evaluate(d => { d.open = true; });
-  for (const i of [0, 1, 2, 3, 5]) await page.locator(`[name="b-day"][value="${i}"]`).setChecked(false);
+  for (let i = 0; i < 7; i++) await page.locator(`[name="b-day"][value="${i}"]`).setChecked(false);
   for (const i of [1, 3, 6]) await page.locator(`[name="b-day"][value="${i}"]`).setChecked(true);
   await page.locator('#b-we-mins').fill('90');
   await page.locator('#b-go').click();
-  await expect(page.locator('.sched-block')).toHaveCount(4);
+  await expect(page.locator('.sched-block')).toHaveCount(9);
+  // A short session takes one activity a day instead of splitting.
+  await page.locator('.sched-builder').evaluate(d => { d.open = true; });
+  await page.locator('#b-wd-mins').fill('30');
+  await page.locator('#b-we-mins').fill('30');
+  await page.locator('#b-go').click();
+  await expect(page.locator('.sched-block')).toHaveCount(3);
   await page.locator('#s-undo').click();
-  await expect(page.locator('.sched-block')).toHaveCount(6);
+  await expect(page.locator('.sched-block')).toHaveCount(9);
 
   // Exam date spreads chapters; 13 weeks out leaves 2 review weeks.
   await page.locator('.sched-plan').evaluate(d => { d.open = true; });

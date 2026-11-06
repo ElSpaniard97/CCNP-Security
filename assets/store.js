@@ -44,7 +44,9 @@
     const blocks = v.blocks.filter(b => b && typeof b === "object" && /^[a-z0-9]{1,12}$/.test(b.id) && ACTS.has(b.act) && /^\d\d:\d\d$/.test(b.start))
       .slice(0, 80).map(b => ({ id: b.id, day: Math.min(6, Math.max(0, Math.floor(num(b.day)))), start: b.start, mins: Math.min(480, Math.max(5, Math.round(num(b.mins)) || 60)),
         act: b.act, ch: b.ch === "focus" ? "focus" : Math.min(99, Math.max(0, Math.floor(num(b.ch)))), note: String(b.note ?? "").slice(0, 80) }));
-    return { at: num(v.at), start: DATE.test(v.start) ? v.start : new Date().toISOString().slice(0, 10), exam: DATE.test(v.exam) ? v.exam : "", blocks };
+    const p = v.prefs && typeof v.prefs === "object" ? v.prefs : null, time = t => /^\d\d:\d\d$/.test(t) ? t : "18:00", mins = m => Math.min(480, Math.max(15, Math.round(num(m)) || 60));
+    const prefs = p && { days: (Array.isArray(p.days) ? p.days : []).map(num).filter(d => d >= 0 && d <= 6), wdTime: time(p.wdTime), wdMins: mins(p.wdMins), weTime: time(p.weTime), weMins: mins(p.weMins), acts: (Array.isArray(p.acts) ? p.acts : []).filter(a => ACTS.has(a)) };
+    return { at: num(v.at), ...(prefs ? { prefs } : {}), start: DATE.test(v.start) ? v.start : new Date().toISOString().slice(0, 10), exam: DATE.test(v.exam) ? v.exam : "", blocks };
   }
   function cleanDone(v) {
     return Object.fromEntries(Object.entries(v && typeof v === "object" ? v : {}).filter(([k]) => /^\d{4}-\d\d-\d\d\|[a-z0-9]{1,12}$/.test(k))
