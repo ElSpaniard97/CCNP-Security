@@ -14,7 +14,7 @@
   }
   // Progress keys the site writes. A backup file or synced copy can hold anything, so restore keeps only
   // these, and history entries are reduced to their numeric fields before the pages render them.
-  const PROGRESS_KEY = /^(history|bank|srs|starred|best\.\d+\.\d+|last\.(\d+\.\d+|exam)|resume\.(test\.\d+\.\d+|exam|bank)|reader\.pos\.\d+|labs|lab\.pos\.[a-z0-9-]+|cards\.place\.(ch\d+|starred)\.[A-Za-z ]+)$/;
+  const PROGRESS_KEY = /^(history|bank|srs|starred|best\.\d+\.\d+|last\.(\d+\.\d+|exam)|resume\.(test\.\d+\.\d+|exam|bank)|reader\.pos\.\d+|labs|schedule|schedule\.done|lab\.pos\.[a-z0-9-]+|cards\.place\.(ch\d+|starred)\.[A-Za-z ]+)$/;
   const num = v => (Number.isFinite(+v) ? +v : 0);
   const LAB_ID = /^[a-z0-9-]{1,60}$/;
   function cleanLabs(v) {
@@ -37,8 +37,25 @@
     });
     return { step: num(v.step), ms: num(v.ms), at: num(v.at), steps, devices };
   }
+  // A schedule from a backup or another device keeps only well-formed blocks.
+  const DATE = /^\d{4}-\d\d-\d\d$/, ACTS = new Set(["read", "notes", "cards", "test", "labs", "srs", "bank", "exam", "custom"]);
+  function cleanSchedule(v) {
+    if (!v || typeof v !== "object" || !Array.isArray(v.blocks)) return null;
+    const blocks = v.blocks.filter(b => b && typeof b === "object" && /^[a-z0-9]{1,12}$/.test(b.id) && ACTS.has(b.act) && /^\d\d:\d\d$/.test(b.start))
+      .slice(0, 80).map(b => ({ id: b.id, day: Math.min(6, Math.max(0, Math.floor(num(b.day)))), start: b.start, mins: Math.min(480, Math.max(5, Math.round(num(b.mins)) || 60)),
+        act: b.act, ch: b.ch === "focus" ? "focus" : Math.min(99, Math.max(0, Math.floor(num(b.ch)))), note: String(b.note ?? "").slice(0, 80) }));
+    const p = v.prefs && typeof v.prefs === "object" ? v.prefs : null, time = t => /^\d\d:\d\d$/.test(t) ? t : "18:00", mins = m => Math.min(480, Math.max(15, Math.round(num(m)) || 60));
+    const prefs = p && { days: (Array.isArray(p.days) ? p.days : []).map(num).filter(d => d >= 0 && d <= 6), wdTime: time(p.wdTime), wdMins: mins(p.wdMins), weTime: time(p.weTime), weMins: mins(p.weMins), acts: (Array.isArray(p.acts) ? p.acts : []).filter(a => ACTS.has(a)) };
+    return { at: num(v.at), ...(prefs ? { prefs } : {}), start: DATE.test(v.start) ? v.start : new Date().toISOString().slice(0, 10), exam: DATE.test(v.exam) ? v.exam : "", blocks };
+  }
+  function cleanDone(v) {
+    return Object.fromEntries(Object.entries(v && typeof v === "object" ? v : {}).filter(([k]) => /^\d{4}-\d\d-\d\d\|[a-z0-9]{1,12}$/.test(k))
+      .map(([k, t]) => [k, num(t)]).sort((a, b) => b[1] - a[1]).slice(0, 2000));
+  }
   function clean(k, v) {
     if (k === "labs") return cleanLabs(v);
+    if (k === "schedule") return cleanSchedule(v);
+    if (k === "schedule.done") return cleanDone(v);
     if (k.startsWith("lab.pos.")) return cleanLabPos(v);
     if (k !== "history") return v;
     return (Array.isArray(v) ? v : []).filter(h => h && typeof h === "object").map(h => {
@@ -67,7 +84,8 @@
         x.concat(y).forEach(h => seen.set(`${h.at}|${h.ch}|${h.t}`, h));
         out[k] = [...seen.values()].sort((p, q) => p.at - q.at).slice(-1000);
       } else if (k.startsWith("best.")) out[k] = Math.max(x, y);
-      else if (k.startsWith("last.") || k.startsWith("resume.") || k.startsWith("lab.pos.")) out[k] = newer(x, y);
+      else if (k === "schedule.done") out[k] = Object.assign({}, y, x);
+      else if (k.startsWith("last.") || k.startsWith("resume.") || k.startsWith("lab.pos.") || k === "schedule") out[k] = newer(x, y);
       else if (k === "labs") {
         out[k] = {};
         for (const id of new Set(Object.keys(x).concat(Object.keys(y)))) {
