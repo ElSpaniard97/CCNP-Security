@@ -15,6 +15,7 @@ const paths = {
   check:'<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
   fire:'<path d="M13 2c2 6-3 7-1 11 2 0 4-2 4-5 6 7 5 14-4 15C2 22 1 15 7 8c-1 5 1 6 2 6 3-4-1-7 4-12Z"/>',
   target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="m12 12 9-9m-4 0h4v4"/>',
+  calendar:'<rect x="3" y="5" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v5m8-5v5M7 14h2m3 0h2m3 0h1M7 18h2m3 0h2"/>',
   clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/>',
   lock:'<rect x="5" y="10" width="14" height="12" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v3"/>',
   network:'<circle cx="5" cy="12" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="19" cy="19" r="3"/><path d="m8 11 8-5m-8 7 8 5"/>',

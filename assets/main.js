@@ -10,6 +10,7 @@ const progressMod = once(() => import("./progress.js"));
 const cardsMod = once(() => import("./cards.js"));
 const readerMod = once(() => import("./reader.js"));
 const labsMod = once(() => import("./labs.js"));
+const scheduleMod = once(() => import("./schedule.js"));
 
   // ---------- theme ----------
   const themeBtn = document.getElementById("theme");
@@ -113,7 +114,8 @@ const labsMod = once(() => import("./labs.js"));
       <a class="card tool" href="#/starred"><b>Starred cards</b><span>${plural(starredList().length, "card")} starred</span></a>
       <a class="card tool" href="#/bank"><b>Missed questions</b><span>${bankActive().length} to clear</span></a>
       <a class="card tool" href="#/read"><b>Listen and read</b><span>Narrated notes with word highlighting</span></a>
-      <a class="card tool" href="#/labs"><b>Labs</b><span>Guided hands-on configuration labs</span></a></div>
+      <a class="card tool" href="#/labs"><b>Labs</b><span>Guided hands-on configuration labs</span></a>
+      <a class="card tool" href="#/schedule"><b>Study schedule</b><span>Plan your week and check off sessions</span></a></div>
       <h2>Flashcards by chapter</h2><div class="grid">${chapters.map(c=>`<a class="card tool" href="#/ch/${c.n}/cards"><b>${c.n}. ${esc(c.title)}</b><span>${c.cards} cards · ${srsDue(c.n).length} due${starredList(c.n).length ? ` · ${starredList(c.n).length} starred` : ""}</span></a>`).join("")}</div>${offlineHTML()}`;
     wireOffline();
   }
@@ -298,8 +300,8 @@ const labsMod = once(() => import("./labs.js"));
   }
 
   function updateNav(parts) {
-    const route=parts[0], exact=route==="ch" ? (parts[2]==="cards" ? "study" : parts[2]==="read" ? "read" : "practice") : ["srs","bank","review","starred"].includes(route) ? (route==="review" ? "study" : route) : ["study","exam","progress","search","chapters","practice","settings","read","labs"].includes(route) ? route : "home";
-    const mobile=["srs","bank","review","starred","study","read","labs"].includes(exact) ? "study" : ["chapters","practice","settings"].includes(exact) ? (exact==="settings" ? "progress" : "home") : exact;
+    const route=parts[0], exact=route==="ch" ? (parts[2]==="cards" ? "study" : parts[2]==="read" ? "read" : "practice") : ["srs","bank","review","starred"].includes(route) ? (route==="review" ? "study" : route) : ["study","exam","progress","search","chapters","practice","settings","read","labs","schedule"].includes(route) ? route : "home";
+    const mobile=["srs","bank","review","starred","study","read","labs","schedule"].includes(exact) ? "study" : ["chapters","practice","settings"].includes(exact) ? (exact==="settings" ? "progress" : "home") : exact;
     document.body.dataset.page=exact;
     document.querySelectorAll("[data-nav]").forEach(a=>{
       if(a.dataset.nav===(a.closest(".mobile-nav") ? mobile : exact)) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
@@ -343,6 +345,7 @@ const labsMod = once(() => import("./labs.js"));
       else if (parts[0] === "exam") parts[1] === "last" ? await (await quizMod()).lastView("exam") : await examView();
       else if (parts[0] === "search") await (await cardsMod()).searchView(parts.slice(1).join("/"));
       else if (parts[0] === "labs") { const m = await labsMod(); parts[1] ? await m.labView(parts[1]) : await m.labsView(); }
+      else if (parts[0] === "schedule") await (await scheduleMod()).scheduleView();
       else if (parts[0] === "progress") await (await progressMod()).dashboard();
       else home();
     } catch (e) {

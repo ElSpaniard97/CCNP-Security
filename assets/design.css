@@ -325,3 +325,72 @@ dl.lab-answer dd { margin:0; font-weight:600; }
 .guide-cmd { display:inline-block; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:14px; font-weight:600; text-align:left; overflow-wrap:anywhere; background:none; border:0; padding:2px 0; color:inherit; }
 button.guide-cmd { cursor:pointer; color:var(--accent); text-decoration:underline dotted; text-underline-offset:3px; min-height:32px; }
 .guide-why { margin:2px 0 0; font-size:14px; color:var(--muted); }
+
+/* ---------- study schedule ---------- */
+.sched-head { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+.sched-head h2 { margin:0; font-size:1.1rem; }
+.sched-note { margin:0 0 14px; font-size:.92rem; background:var(--accent-soft); border-color:var(--accent); }
+.sched-today { margin-bottom:18px; }
+.sched-list { list-style:none; margin:10px 0 0; padding:0; }
+.sched-item { display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); }
+.sched-item:last-child { border-bottom:0; }
+.sched-item.done .sched-text b { text-decoration:line-through; color:var(--muted); }
+.sched-check { display:grid; place-items:center; min-width:var(--tap,44px); min-height:var(--tap,44px); cursor:pointer; }
+.sched-check input { width:22px; height:22px; accent-color:var(--accent); }
+.sched-icon { color:var(--accent); flex:none; }
+.sched-icon .ui-icon { width:22px; height:24px; }
+.sched-text { flex:1; min-width:0; }
+.sched-text b { display:block; }
+.sched-text small { display:block; color:var(--muted); font-size:.85rem; margin-top:2px; }
+.sched-item .btn.small-btn { align-self:center; }
+.sched-item .btn .ui-icon { width:16px; height:16px; }
+.sched-week { margin-bottom:14px; }
+.sched-week > p { margin:6px 0 10px; }
+.sched-grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:8px; }
+.sched-day { padding:10px 8px; display:flex; flex-direction:column; gap:6px; min-width:0; }
+.sched-day.is-today { border-color:var(--accent); box-shadow:inset 0 3px var(--accent); }
+.sched-day h3 { margin:0 0 2px; font-size:.95rem; display:flex; justify-content:space-between; gap:4px; flex-wrap:wrap; }
+.sched-day h3 small { color:var(--muted); font-weight:500; }
+.sched-block { display:flex; flex-direction:column; gap:2px; text-align:left; width:100%; padding:7px 8px; border-radius:8px; border:1px solid var(--border); border-left:4px solid var(--accent); background:var(--surface-2); color:var(--text); font:inherit; cursor:pointer; min-height:var(--tap,44px); }
+.sched-block:hover { border-color:var(--accent); }
+.sched-block.done { opacity:.6; }
+.sched-block.act-read, .sched-block.act-notes { border-left-color:#3b82f6; }
+.sched-block.act-cards, .sched-block.act-srs { border-left-color:#d97706; }
+.sched-block.act-test, .sched-block.act-exam { border-left-color:#16a34a; }
+.sched-block.act-labs { border-left-color:#7c3aed; }
+.sched-block.act-bank { border-left-color:#dc2626; }
+.sched-block.act-custom { border-left-color:var(--muted); }
+.sched-time { font-size:.75rem; color:var(--muted); }
+.sched-what { display:flex; align-items:center; gap:4px; font-size:.85rem; font-weight:600; line-height:1.25; overflow-wrap:anywhere; }
+.sched-what .ui-icon { width:14px; height:15px; flex:none; }
+.sched-ch { font-size:.75rem; color:var(--accent); font-weight:600; }
+.sched-add { margin-top:auto; min-height:var(--tap,44px); border:1px dashed var(--border); border-radius:8px; background:none; color:var(--muted); font:inherit; font-size:.85rem; cursor:pointer; }
+.sched-add:hover { border-color:var(--accent); color:var(--accent); }
+.sched-actions { margin:4px 0 14px; }
+.sched-actions .btn .ui-icon { width:16px; height:16px; transform:rotate(90deg); }
+.sched-plan, .sched-builder { margin-bottom:14px; }
+.sched-plan summary, .sched-builder summary { cursor:pointer; display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline; min-height:var(--tap,44px); align-content:center; }
+.sched-fields { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0; align-items:flex-end; }
+.sched-fields label { display:flex; flex-direction:column; gap:4px; font-size:.88rem; font-weight:600; }
+.sched-fields label.wide { flex:1 1 100%; }
+.sched-fields label { min-width:0; max-width:100%; }
+.sched-fields select { max-width:100%; text-overflow:ellipsis; }
+.sched-fields input, .sched-fields select { min-height:var(--tap,44px); border:1px solid var(--border); border-radius:8px; background:var(--surface); color:var(--text); padding:0 10px; font:inherit; font-weight:400; }
+.sched-fields input[type=number] { width:7em; }
+.sched-days { border:0; padding:0; margin:12px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
+.sched-days legend { font-size:.88rem; font-weight:600; margin-bottom:6px; }
+.sched-days .chip { display:inline-flex; align-items:center; gap:6px; }
+.sched-days .chip:has(input:checked) { background:var(--accent-soft); border-color:var(--accent); color:var(--accent); font-weight:600; }
+.sched-roadmap { list-style:none; padding:0; margin:8px 0 0; display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:6px; }
+.sched-roadmap li { display:flex; flex-direction:column; padding:8px 10px; border:1px solid var(--border); border-radius:8px; font-size:.85rem; }
+.sched-roadmap li span { color:var(--muted); font-size:.78rem; }
+.sched-roadmap li.now { border-color:var(--accent); background:var(--accent-soft); }
+.sched-roadmap li.past { opacity:.6; }
+.sched-dialog { border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); color:var(--text); padding:18px; width:min(560px, calc(100vw - 32px)); box-shadow:var(--shadow); }
+.sched-dialog::backdrop { background:rgb(0 0 0 / .45); }
+.sched-dialog h2 { margin:0; font-size:1.15rem; }
+.sched-dialog [hidden] { display:none !important; }
+.btn.danger { color:var(--bad); }
+.btn.danger:hover { border-color:var(--bad); }
+@media(max-width:1000px) { .sched-grid { grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); } }
+@media(max-width:560px) { .sched-grid { grid-template-columns:1fr; } .sched-day h3 { justify-content:flex-start; gap:8px; } .sched-item { flex-wrap:wrap; } .sched-item .btn.small-btn { margin-left:auto; } }
